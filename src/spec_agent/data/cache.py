@@ -3,12 +3,10 @@ import re
 from pathlib import Path
 
 import pandas as pd
-import streamlit as st
-
-from schema import Specbook
-from utils.notebook import Notebook
-from utils.s3 import S3Manager
-from utils.utils import load_txt
+from spec_agent.models import Specbook
+from spec_agent.utils.notebook import Notebook
+from spec_agent.utils.s3 import S3Manager
+from spec_agent.utils.utils import load_txt
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 

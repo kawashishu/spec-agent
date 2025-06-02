@@ -18,12 +18,11 @@ from matplotlib.figure import Figure
 
 st.set_page_config(layout="wide")
 from PIL import Image
+from spec_agent.models import SingletonMeta
+from spec_agent.settings.constraints import *
+from spec_agent.utils.captcha import Captcha
 from streamlit_cookies_manager import EncryptedCookieManager
 from yaml.loader import SafeLoader
-
-from schema import SingletonMeta
-from settings.constraints import *
-from utils.captcha import Captcha
 
 API_URL = "http://127.0.0.1:9000"
 
