@@ -1,0 +1,723 @@
+Page 1
+SCOPE OF REQUIREMENTS (SOR).
+
+Applicable for Build to Print Supplier.
+Page 2
+**Scope and Purpose**
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new VF-33 vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This SOR shall provide details for seat foam pads for mass production.
+
+**Responsible Contact:** Jeff Huxter
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Index
+
+Contents:
+
+SCOPE AND PURPOSE ..................................................................................................... 2
+
+1. SCOPE OF PRODUCT/COMMODITY ............................................................... 5  
+   1.1. Vehicle profile ........................................................................................................................ 5  
+   1.2. Sales Markets ....................................................................................................................... 5  
+
+2. PROGRAM TIMING AND BUILD PLAN ............................................................ 6  
+   2.1. Timing plan (V 8.0) ............................................................................................................. 6  
+   2.2. Build Plan ............................................................................................................................ 6  
+
+3. ORGANIZATION AND CONTACT ..................................................................... 6  
+
+4. DEFINITIONS AND APPLICABLE DOCUMENTS ............................................. 7  
+   - CAD Data/ Transfer data-CAD Requirements .......................................................................... 7  
+   - Change Documentation and Part History Documentation ...................................................... 7  
+
+5. DESCRIPTION AND SCOPE OF WORK ........................................................... 8  
+   5.1. Technical requirement ......................................................................................................... 8  
+   5.2. General CAE Requirements ................................................................................................ 8  
+   5.3. Material requirement ........................................................................................................... 8  
+       5.3.1. Material selection ........................................................................................................ 8  
+       5.3.2. Requirements for Vehicle Recycling, Utilization, and Control of  
+              Prohibited and Restricted Substances ........................................................................ 8  
+       5.3.3. Environmental Compatibility ...................................................................................... 9  
+       5.3.4. Emissions & Toxicology ............................................................................................ 10  
+       5.3.5. HC Emissions .......................................................................................................... 10  
+   5.4. Traceability ........................................................................................................................ 12  
+       - Labeling of Parts ............................................................................................................... 12  
+   5.5. Testing and validation ........................................................................................................ 12  
+   5.6. Function Safety (FUSA) ..................................................................................................... 12  
+       a) A formal request to comply with ISO 26262 .................................................................. 12  
+       b) The specification of the scope of supply ........................................................................ 12  
+       c) The safety goals or the set of relevant safety requirements ......................................... 12  
+
+6. DELIVERABLES ............................................................................................. 14  
+   6.1. Technical deliverables ....................................................................................................... 14  
+
+7. SUPPLIER RESPONSIBILITIES ...................................................................... 16  
+
+8. INTELLECTUAL PROPERTY / COPYRIGHT .................................................. 16  
+
+9. INSURANCE / WARRANTIES ......................................................................... 16  
+
+10. VINFAST GTC & PART PACKAGING AND INCOTERMS .............................. 16  
+
+11. DEFINITIONS AND LIST OF ABBREVIATIONS ............................................. 17
+Page 4
+Release.
+
+Version: 1.0.  
+Date: Mar-2021.  
+
+Approval confirmed by:  
+- Function: CHIEF ENGINEER.  
+  Name: Kevin Fisher, v.kevinf@vinfast.vn.  
+- Function: ER-VA.  
+  Name: Clifton Wellington Springer, v.cliftonsw@vinfast.vn.  
+- Function: ER-MGL PWT.  
+  Name: Nguyen Hoang Vu, v.nguyenhv3@vinfast.vn.  
+- Function: ER-MGL CHS.  
+  Name: Karl Duffield, Karl.Duffield@tatatechnologies.com.  
+- Function: ER-MGL E/E.  
+  Name: Nguyễn Ngọc Hiếu, v.hieunn6@vinfast.vn.  
+- Function: ER-MGL BIW.  
+  Name: Ian Warland, v.ianwa@vinfast.vn.  
+- Function: ER-MGL Interior.  
+  Name: Paul Sofield, v.vf.pn.vincents@vinfast.vn.  
+- Function: ER-MGL Exterior.  
+  Name: Robert Scholz, v.robertc1@vinfast.vn.  
+
+Revisions since previous version:  
+- Version: 1.  
+  Change Description: First edition.  
+  Signature: J Huxter.  
+  Date: 05/03/2021.  
+- Version: 2.  
+  Change Description: [No description provided].  
+  Signature: J Huxter.  
+- Version: 3.  
+  Change Description: [No description provided].  
+  Signature: J Huxter.  
+- Version: 4.  
+  Change Description: [No description provided].  
+  Signature: J Huxter.  
+- Version: 5.  
+  Change Description: Updated BOM based on 40/20/40 second row and removed 3rd row foams.  
+  Signature: J Huxter.  
+  Date: 10/03/2021.
+Page 5
+1. Scope of product/commodity.
+
+1.1 Vehicle profile.
+
+1.2 Sales Markets.
+
+LHD countries: Vietnam & ASEAN, US & Canada, EU.
+Page 6
+2. Program Timing and Build Plan.
+
+2.1 Timing plan (V 8.0).  
+Refer to appendix: VFDSXXCVC2101 Appendix_1_Product_Volume.
+
+2.2 Build Plan.  
+Refer to appendix: VFDSXXCVC1101 Appendix_1_Build Plan.
+
+3. Organization and contact.
+
+Contact:
+
+- **Commodity Buyer**  
+  Name: Mahadevan Kumar  
+  Email ID: v.mahadevank@vinfast.vn  
+  Contact Number: +84(0)844142226  
+
+- **Commodity Buyer Manager**  
+  Name: Nethaji Subbarayalu  
+  Email ID: v.nethajis@vinfast.vn  
+  Contact Number: +84(0)888733322  
+
+- **Commodity Engineering**  
+  Name: Nishant Ranjan  
+  Email ID: vf.pn.nishantr@vinfast.vn  
+  Contact Number: +84(0)569137163  
+
+- **Commodity Engineering Manager**  
+  Name: Chris Stalker  
+  Email ID: v.stalkerc@vinfast.vn  
+  Contact Number: +61(0)413257994  
+
+- **SQE (Site Engineer)**  
+  Name: Anna Hennessey  
+  Email ID: v.annah@vinfast.vn  
+  Contact Number: +84(0)854400223  
+
+- **SQE Manager**  
+  Name: Stuart Kinkade  
+  Email ID: v.kinkades@vinfast.vn  
+  Contact Number: +84(0)888183396  
+
+- **SCM Analyst**  
+  Name: Dilshod Tokhtasinov  
+  Email ID: v.dilshod@vinfast.vn  
+  Contact Number: +84(0)888352662  
+
+- **Packaging Analyst**  
+  Name: Attsawarungsun Nimnaul  
+  Email ID: v.nimnaula@vinfast.vn  
+  Contact Number: +84(0)888329955  
+
+- **SCM Manager**  
+  Name: Benjamin Peter Stewart  
+  Email ID: v.bens@vinfast.vn  
+  Contact Number: +84(0)888798855.
+Page 7
+4 Definitions and applicable documents.
+
+**CAD Data/ Transfer Data-CAD Requirements.**  
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014.  
+CAD data transfer from VinFast to supplier will be done through the Supplier Collaborative Module. For more details, refer to the Supplier Collaborative Module in the RFQ package.
+
+**Change Documentation and Part History Documentation.**  
+During the development and production process, all changes within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g., entries in a project manual). The form of the data can be defined by the contractor.  
+Vehicle documentation systems or components, which must fulfill safety regulations of authorities or legal requirements, must be remarked on the drawings.  
+The reasons and the characteristics that must be documented are listed by authorities.  
+These demands will be requested during the development of the part and at the latest in the PTO phase.
+Page 8
+5. Description and scope of work.
+
+5.1. Technical requirement.  
+For detail, please refer to Appendix 1.
+
+5.2. General CAE Requirements.  
+Please refer to Appendix 2: CAE-FEM-GENERAL.
+
+5.3. Material requirement.  
+Polyurethane foam. Refer to specifications in Appendix 1.
+
+5.3.1. Material selection.  
+Material concepts must be chosen which meet the requirements of this specification book. Only materials and manufacturing methods may be selected, which are released by the specialist department for "Operating strength and Materials."
+
+5.3.2. Requirements for Vehicle Recycling, Utilization, and Control of Prohibited and Restricted Substances.  
+A) Requirements for the Limit Value of Prohibited Substances:  
+The materials used for parts and components must meet the requirements of the national standard and VINFAST.  
+Polycyclic aromatic hydrocarbons (PAHs) content in spare parts was sampled and tested according to ZEK 01.4-08. The sampled substances included the following 18 items:  
+1. Naphthalene  
+2. Acenaphthylene  
+3. Acenaphthene  
+4. Fluorene  
+5. Phenanthrene  
+6. Anthracene  
+7. Fluoranthene  
+8. Pyrene  
+9. Chrysene  
+10. Benzo[a] Anthracene  
+11. Benzo[b] Fluoranthene  
+12. Benzo[k] Fluoranthene  
+13. Benzo[j] Fluoranthene  
+14. Benzo[a]pyrene  
+15. Benzo[e]pyrene  
+16. Indeno[1,2,3-c,d]Pyrene  
+17. Dibenzol[a,h] Anthracene  
+18. Benzo[g,h,i] Perylene  
+
+B) Requirements for IMDS data:  
+The supplier must submit real IMDS data of parts or materials on time. The approval and acceptance of the IMDS data by VINFAST will be one of the necessary conditions for the adoption of PPAP.
+
+C) Requirements for the Control System of Vehicle Recycling, Utilization, and Prohibited and Restricted Substances.
+Page 9
+5 Description and scope of work.
+
+5.1 Technical requirement.  
+For detail please refer Appendix 1.  
+
+5.2 General CAE Requirements.  
+Please refer Appendix 2: CAE-FEM-GENERAL.  
+
+5.3 Material requirement.  
+Polyurethane foam. Refer to specifications in Appendix 1.  
+
+5.3.1 Material selection.  
+Material concepts must be chosen, which meet the requirements of this specification book. Only materials and manufacturing methods may be selected, which are released by the specialist department for "Operating strength and Materials."  
+
+5.3.2 Requirements for Vehicle Recycling, Utilization, and Control of Prohibited and Restricted Substances.  
+A) Requirements for the Limit Value of Prohibited Substances.  
+The materials used for parts and components must meet the requirements of the national standard and VINFAST. Polycyclic aromatic hydrocarbons (PAHs) content in spare parts were sampled and tested according to ZEK 01.4-08. The sampled substances included the following 18 items:  
+
+1. Naphthalene  
+2. Acenaphthylene  
+3. Acenaphthene  
+4. Fluorene  
+5. Phenanthrene  
+6. Anthracene  
+7. Fluoranthene  
+8. Pyrene  
+9. Chrysene  
+10. Benzo[a] Anthracene  
+11. Benzo[b] Fluoranthene  
+12. Benzo[k] Fluoranthene  
+13. Benzo[j] Fluoranthene  
+14. Benzo[a]pyrene  
+15. Benzo[e]pyrene  
+16. Indeno[1,2,3-c,d]Pyren  
+17. Dibenzol[a,h] Anthracene  
+18. Benzo[g,h,i] Perylene  
+
+B) Requirements for IMDS data.  
+The supplier must submit real IMDS data of parts or materials on time. The approval and acceptance of the IMDS data by VINFAST will be one of the necessary conditions for the adoption of PPAP.  
+
+C) Requirements for the Control System of Vehicle Recycling, Utilization, and Prohibited and Restricted Substances.  
+Suppliers must establish control systems and procedures for managing banned substances and be willing to accept and ensure that they are audited by the competent national authorities and VINFAST.  
+
+5.3.3 Environmental Compatibility.  
+The minimization of environmental impacts of a product through the complete life cycle is a key factor for future development of innovative products.  
+A minimization of environmental impacts for a product requires:  
+- Use of recyclable materials.  
+- Use of recycled materials and renewable resources.  
+- Prevention of hazardous substances.  
+- Minimization of compartment emissions including odor.  
+- Minimization of consumption of resources.  
+- Strategy for waste prevention.  
+- Parts marking for identification at the end of life.  
+
+5.3.3.1 The requirements of the following standards have to be met:  
+- Reuse, Recycling & Recoverability obligations for vehicles, components, and parts acc. UN Regulation No. 133.  
+- Parts marking for identification of materials at end of life of vehicles, components, and parts acc. ISO standards.  
+- Vehicle Indoor Air Quality 'VIAQ' & Odor acc. ISO 12219, parts 1-7, respective harmful substances targets (incl. TVOC & odor emissions) for interior trim parts.  
+- Vehicle Indoor Air Quality requirements on Russian market acc. to GOST33554-2015 and GOST33548-2015.  
+- Reduction of environmental impacts regarding the categories Global Warming Potential (Carbon footprint) and Consumption of Resources have to be considered for Life Cycle Analysis acc. ISO 14040.  
+- Prohibition & Restriction of substances acc. Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017).  
+- Prohibition & Restriction of substances acc. Global Automotive Declarable Substances List 'GADSL'.
+Page 10
+**5 Description and Scope of Work**
+
+**5.3.4 Emissions & Toxicology**
+
+**5.3.4.1 Odor**
+
+Interior parts emissions (bag method).  
+The emissions of interior components, semi-finished products/auxiliary means, and surface materials (foils, artificial leather, films) have to be checked according to standard ISO 12219, part 2 ('bag method'). The fulfillment of a target value for interior part emissions according to this specification book has to be proved by the supplier via measurements which are defined by VinFast.  
+
+Harmful substances in components and materials.  
+The emission behavior of the product has to be checked on representative components as soon as possible. Emissions of volatile organic compounds in the passenger compartment have to be minimized accordingly. Required measurements for confirmation of the emission characteristics have to be done by the supplier in agreement with the specialist department of VinFast. Measurements must be done at testing institutes approved by VinFast. It is recommended to obtain an overview of all approved testing institutes from VinFast.  
+
+Volatile organic compounds of components have to be checked according to ISO 12219. The conformance to prohibited substances has to be ensured through the complete product life cycle. The test result is evaluated by the specialist department of VinFast. In any case, the harmlessness of the volatile compounds for human health has to be attested in written form on demand. The supplier has to provide measurement results regarding VOC and Fogging for the materials before the milestone purchase release.  
+
+---
+
+**5.3.5 HC Emissions**
+
+**5.3.5.1 Fundamentals**
+
+Compliance with legal and client-specific emission standards, i.e., adherence to thresholds for the vehicle and specifications for the vehicle interior must be guaranteed.  
+
+The safety of volatile substances and compliance with VFDST00007601, VFDST00007602, VFDST00007604, "Hazardous Materials" is to be confirmed in writing. Development and subsequent series production aim at the lowest possible HC emissions of the component. The respective current VinFast VFDST00007601, VFDST00007602, VFDST00007604, "Hazardous Materials", must be complied with during the service life.
+
+The supplier must submit a component description “Component description for recording HC emissions" to the relevant design department as early as possible. Illustrations of the development scope are to be added if available. At each change to materials or processes, the part description is to be updated and submitted to the relevant design department for coordination.
+
+IMDS material data sheet and EC safety data sheets are to be provided to the quality department for approval of chemical products.
+
+The supplier must carry out measurements as required as proof of emission properties in coordination with the quality department for plastics development and process technology. The measurements must be executed by testing institutes recognized by VinFast. It is recommended to obtain a current list of recognized institutes from the quality department.  
+
+**5.3.5.2 Total HC Emissions as per CARB**
+
+The scope of development described in this Requirements Specification (ZB seats rear including all adjoining parts) is to be measured in new condition based on VFDST00031102.
+Page 11
+### SEAT FOAM PADS
+
+#### 5.3.5.2 Total HC emissions as per CARB  
+The target value for new condition is 4 mg for all rear seats. When subsided, the emission value must not exceed 0.4 mg. Subsided condition begins one year after completion of the component and lasts until the end of the service life. Supply thresholds for both conditions throughout the duration must be agreed upon with the Quality and Design departments, with test frequency determined.
+
+**General note:**  
+If thresholds may be exceeded during measurements as per VFDST00031102, a screening analysis should be executed to optimize components or materials.
+
+---
+
+#### 5.3.5.3 Volatile substances, sum of volatile substances, odor  
+**General guidelines:**  
+Volatile substances in materials within the scope of development should be tested on representative components using thermo desorption [8], formaldehyde determination [10], and odor analysis [9]. Test results must align with more realistic and complex processes, where applicable, such as [11]. 
+
+- **Odor assessment (measurement [9]):** Grade of odor improvement must score better or equal to 3, ensuring no unpleasant smell.  
+
+**Requirements for development scope in this specification:**  
+The ZB for rear seats, including all adjoining components, shall be measured as per [13]. This involves using a test chamber to measure emissions from components, semi-finished products, and materials.  
+
+**Target value for new condition:**  
+- Sum of volatile substances:  
+  - Less than **25,000 µg/m³ Toluol equivalent**.  
+  - Or less than **15.5 ppm Propane equivalent** (FID-Wert) in a **1 m³ chamber**.
+
+When target values are exceeded, the Plastics Development and Processing department must collaborate to determine corrective measures.
+Page 12
+5.4 Traceability.  
+For part requirements, follow specifications outlined in VinFast standard VFDST00010502.  
+
+**Labeling of Parts**  
+The supplier must adhere to VinFast standard VFDST00000010.  
+
+5.5 Testing and validation.  
+DVP and PV test responsibilities follow RASIC.  
+
+5.6 Function Safety (FUSA).  
+Follow standard ISO 26262-8:2011 requirement point 5.4.2.2.  
+
+**RFQ from the customer to the supplier candidates shall include (RFQ: Request For Quotation):**  
+
+a) A formal request to comply with ISO 26262:  
+- The supplier must ensure that the developed/manufactured part(s) meet ISO 26262:2011 standard (for Car programs), or ISO 26262:2018 standard (for Scooter and Bus programs).  
+- The supplier must ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard.  
+
+b) Specification of the scope of supply:  
+- A “list” of all elements of the item.  
+- Use block diagrams (functional and/or physical) showing:
+   - Significant elements.  
+   - Key relationships between them.  
+   - Interfaces with external elements (typically other vehicle systems).  
+   - Functionality required from (or assumed of) other items.  
+   - Constraints on the usage of the item (Performance, Technical, Environmental, etc.).  
+   - Relevant laws, standards, etc., impacting the development of control systems.
+   - Known hazards and failure modes.  
+
+NOTE: The specification of the scope of supply defines the functions, properties, and boundaries of the items or elements requested from the supplier.  
+
+c) The safety goals or the set of relevant safety requirements:  
+- Including their assigned ASIL, if already available, and dependent on the supplier's quote.  
+- If ASIL is unknown at the time of supplier selection, a conservative assumption can be made.  
+- Safety Goals & Functional Safety Requirements along with associated attributes:  
+  - Safety goal requirement: Specification may state what not to do.
+Page 13
+5.4 Traceability.  
+For part requirements, follow specification please refer to VinFast standard VFDST00010502.  
+
+Labeling of Parts.  
+Supplier must follow VinFast standard VFDST00000010.  
+
+5.5 Testing and validation.  
+DVP and PV test responsibility follow RASIC.  
+
+5.6 Function Safety (FUSA).  
+Follow standard ISO 26262-8:2011 requirement point 5.4.2.2.  
+The RFQ from the customer to the supplier candidates shall include (RFQ: Request For Quotation):  
+a) A formal request to comply with ISO 26262:  
+   - The supplier must ensure that the developed/manufactured part(s) meet ISO 26262:2011 standard (for Car programs), or ISO 26262:2018 standard (for Scooter and Bus programs).  
+   - The supplier must ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard.  
+
+b) Specification of the scope of supply:  
+   - "List" of all the elements of the item.  
+   - Use some form of block diagram(s) (functional and/or physical) showing:  
+     - Significant elements.  
+     - Key relationships between them.  
+     - Interfaces with external elements (typically other vehicle systems).  
+     - Functionality required from (or assumed of) other items, including what is required from other parts of the vehicle, environment, etc.  
+     - Constraints on the usage of the item (Performance, Technical, Environmental, etc.).  
+     - Applicable laws, standards, etc.  
+     - Known hazards and failure modes.  
+
+NOTE: The specification of the scope of supply defines the functions, properties, and boundaries of the items or elements requested from the supplier.  
+
+c) Safety goals or relevant safety requirements:  
+   - Assigned ASIL, if already available, depending on what the supplier is quoting for.  
+   - Safety Goals & Functional Safety Requirements and associated attributes. Safety goal requirement ONLY case where the requirement may state what not to do.  
+
+FTTI: attribute of the safety goal as well as a safe state.  
+ASIL: attribute of the safety goal.  
+
+System requirement:  
+- No signal name per se should appear in the requirement, only physical entities (speed, accel, yaw, etc.) as controlled or perceived by the user of the system or information entities (e.g., accel pedal) if the item is a subsystem of the vehicle.  
+- Requirements may be assigned to subsystems already or only to the systems (i.e., refer to the system as per ISO definition and defined in the item definition).  
+- FTTI: most of the time inherited from the safety goal. Potentially the FTTI is already decomposed (see below ASIL decomposition).  
+- ASIL: likely no ASIL decomposition at that stage but possible if the item is a subsystem of the vehicle interacting with an existing subsystem to mitigate a risk (e.g., Distributed safety architecture).  
+
+For example: The VCU (vehicle subsystem) will detect any excursion of the vehicle acceleration and will shut down the electric machine torque in case of a detected hazardous scenario.
+Page 14
+6. Deliverables.
+
+6.1 Technical deliverables.
+
+Work Interface Chart (RASI).
+
+The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“Built to Print” or “System Development Supplier”) is defined below System / Component Specification.
+
+RASI is defined as followed:
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+- **A: Approval**  
+  Obligation to decide / responsible for release. If no decider is defined, the person who is responsible for execution (R) is the decider.  
+- **S: Support**  
+  Obligated to active support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (R) in achieving the targets.  
+- **I: Information**  
+  Right to information. This team member is entitled to demand information from (R).
+Page 15
+6 Deliverables.
+
+6.1 Technical deliverables.
+
+Work Interface Chart (RASI).  
+The main supplier obligations are described in the work interface chart (RASI).  
+The status of the supplier ("Built to Print" or "System Development Supplier") is defined below System/Component Specification.  
+
+RASI is defined as followed:  
+**R: Responsible.**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+**A: Approval.**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution (R) is the decider.  
+
+**S: Support.**  
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (R) in achieving the targets.  
+
+**I: Information.**  
+Right to information. This team member is entitled to demand information from (R).  
+
+Details deliverables and RASI:
+
+| No | Gate | Stage  | Deliverable                                                            | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|--------|------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1  | PV   |        | List of Concept in Commodity                                           | R              | S             | I        | I   | I             |
+| 2  | PV   |        | SOR for Concept in Commodity                                           | R              | S             | I        | I   | I             |
+| 3  | PPS  |        | Deliver Bill of Materials in Team center                               | R              | I             | I        | I   | I             |
+| 4  | PPS  |        | Supply chain strategy - Deliver Sourcing Strategy                      | S              | R             | I        | S   | I             |
+| 5  | PPS  |        | Quality planning to meet program requirements - APQP Kickoff          | R              | S             | S        | S   | I             |
+| 6  | PPS  |        | System & Sub-system Functional targets agreed and cascaded to         | R              | S             | I        | I   | I             |
+|    |      |        | Component level, Inline with Complete Vehicle Targets.                |                |               |          |     |               |
+| 7  | PPS  |        | DVP (virtual and physical testing) for System, Sub-system & Component | R              | S             | S        | I   | I             |
+|    |      |        | Level inline with Complete Vehicle Specification book in the concept  |                |               |          |     |               |
+|    |      |        | phase. Detailed test plan for hardware tests.                         |                |               |          |     |               |
+| 8  | TA   |        | Contract Series development - LON for Concept Commodity / LON         | A              | R             | S        | I   | I             |
+|    |      |        | for B2P Commodity.                                                    |                |               |          |     |               |
+| 9  | TA   |        | Timing plan for the complete Program detailing milestones and         | R              | S             | S        | I   | I             |
+|    |      |        | critical activities for B2P Commodity.                                |                |               |          |     |               |
+| 10 | TA   |        | Organization and resources for the concept phase, resource planning   | R              | S             | S        | I   | I             |
+|    |      |        | for series development.                                               |                |               |          |     |               |
+| 11 | TA   |        | DMU study for system level and sub-system level                       | R              | S             | S        | I   | I             |
+| 12 | TA   |        | Manufacturing feasibility for Built to Print Commodities              | A              | S             | R        | I   | I             |
+| 13 | TA   |        | Tool order release for long lead parts, P Release for Tool Design     | S              | R             | S        | I   | I             |
+|    |      |        | and I Release for Tool Hardware, PR Release for tool machining.       |                |               |          |     |               |
+| 14 | TA   |        | CAD release for P & I for Long lead tooling kick-off.                 | R              | S             | S        | I   | I             |
+| 15 | TA   |        | Define tooling concept/injection points/…                             | S              | I             | R        | S   | I             |
+| 16 | TA   |        | Feasibility/manufacturing study and confirmation for parts.           | S              | I             | R        | S   | I             |
+| 17 | PR   |        | VinFast review and release the PR cad and 2D Drawing.                 | R              | S             | S        | I   | A             |
+| 18 | CC   |        | PFMEA                                                                 | S              | I             | R        | A   | I             |
+| 19 | CC   |        | Commercial finalization for PR level design.                         | S              | R             | S        | I   | I             |
+| 20 | CC   |        | System, Sub-System & Component Level DV Complete.                    | A              | S             | R        | I   | I             |
+| 21 | CC   |        | Tooling order releases for all parts                                  | I              | R             | S        | I   | I             |
+| 22 | PTO  |        | Engineering change management release kick-off                       | R              | S             | S        | S   | S             |
+| 23 | PTO  |        | Parts fit to nominal                                                 | S              | I             | R        | A   | I             |
+| 24 | PTO  |        | System, Sub-System & Component Level PV Complete                     | S              | I             | R        | A   | I             |
+| 25 | PTO  |        | System, Sub-System & Component Level target achievement confirmed.   | A              | S             | R        | S   | I             |
+| 26 | LS   |        | Part level - Appearance approval, Color harmony, Grain approval.     | S              | I             | R        | A   | I             |
+| 27 | LS   |        | Engineering sign-off.                                                | A              | S             | S        | S   | S             |
+Page 16
+7 Supplier responsibilities.  
+The supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.  
+
+### Customer Service Requirements.  
+**After-sales spare parts should be ready at startup.**  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+**Spare Parts Support Cycle.**  
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+
+**Maintenance Information of After-Sale Spare Parts.**  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as:  
+- BOM table.  
+- Parts structure and function description.  
+- Fault diagnosis.  
+- Special tools for maintenance.  
+- Relevant technical parameters (installation clearance, parts performance parameters, etc.).  
+
+---
+
+8 Intellectual Property / Copyright.  
+Refer to VinFast General Term and Condition.  
+
+---
+
+9 Insurance / Warranties.  
+Refer to VinFast General Term and Condition.  
+
+---
+
+10 VinFast GTC & Part Packaging and Incoterms.  
+Refer to VinFast General Term and Condition, Part Packaging Requirements, and Incoterms Requirement in the RFQ package.
+Page 17
+11 Definitions and List of Abbreviations.
+
+MSC: Manufacturing Strategy Confirmation.  
+TS: Theme Selection Model.  
+MFC: Manufacturing Feasibility Confirmation.  
+MSI: Major Suppliers Identified.  
+SST: Sourcing Strategy.  
+LLS: Long Lead Suppliers on Board.  
+SLS: Short Lead Suppliers on Board.  
+LLT: Long Lead Tooling.  
+PTP: Prototype Parts out of Serial Tooling (Hand Finished).  
+OTS: Off Tools Samples.  
+ESO: Engineering Sign Off.  
+MSO: Manufacturing Sign Off.  
+SOP-LM: SOP Launch Model (1 Specific Model - "Edition").  
+SOP: Start of Production.  
+SOP-ID: SOP Implementation Date.  
+SOB: Supplier on Board.  
+LOI: Letter of Intent.  
+LON: Letter of Nominated.
+
+FSB: Front Seat Back.  
+FSC: Front Seat Cushion.  
+2RB: 2nd Row Seat Back.  
+2RC: 2nd Row Seat Cushion.  
+3RB: 3rd Row Seat Back.  
+3RC: 3rd Row Seat Cushion.  
+5ST: 5-Seater Model.  
+7ST: 7-Seater Model.  
+SAB: Side Airbag.  
+HR: Headrestraint.  
+AR: Armrest.
+Page 18
+### Appendix 1: Technical Information
+
+#### Part Numbers and Usage
+The following table displays the specific part names, their respective part numbers, usage, and processing details.
+
+| Part Name                                        | Part No        | Usage | Proc | VF36 SMART 7S | VF36 PLUS 7S | VF36 PLUS 6S |
+|-------------------------------------------------|----------------|-------|------|---------------|--------------|--------------|
+| VF36_FSB_FOAM_PAD_ASSY_LH_SMART                 | BIN80022080    | 1     | P    | 1             |              |              |
+| VF36_FSB_FOAM_PAD_ASSY_LH_PLUS                  | BIN80022081    | 1     | P    |               | 1            | 1            |
+| VF36_FSB_FOAM_PAD_ASSY_RH_SMART                 | BIN80023079    | 1     | P    | 1             |              |              |
+| VF36_FSB_FOAM_PAD_ASSY_RH_PLUS                  | BIN80023080    | 1     | P    |               | 1            | 1            |
+| VF36_FSC_FOAM_PAD_ASSY_LH_SMART                 | BIN80022082    | 1     | P    | 1             |              |              |
+| VF36_FSC_FOAM_PAD_ASSY_LH_PLUS                  | BIN80022083    | 1     | P    |               | 1            | 1            |
+| VF36_FSC_FOAM_PAD_ASSY_RH_SMART                 | BIN80023082    | 1     | P    | 1             |              |              |
+| VF36_FSC_FOAM_PAD_ASSY_RH_PLUS                  | BIN80023083    | 1     | P    |               | 1            | 1            |
+| VF36_SEAT_ASSY_2R_40%_LH_CUSHION_FOAM_NO_VENT   | BIN80026301    | 1     | P    | 1             |              |              |
+| VF36_SEAT_ASSY_2R_40%_LH_BACK_FOAM_NO_VENT      | BIN80026302    | 1     | P    | 1             |              |              |
+| VF36_SEAT_ASSY_2R_40%_LH_CUSHION_FOAM_VENT      | BIN80026305    | 1     | P    |               | 1            | 1            |
+| VF36_SEAT_ASSY_2R_40%_LH_BACK_FOAM_VENT         | BIN80026306    | 1     | P    |               | 1            | 1            |
+| VF36_SEAT_ASSY_2R_40%_RH_CUSHION_FOAM_NO_VENT   | BIN80026303    | 1     | P    | 1             |              |              |
+| VF36_SEAT_ASSY_2R_40%_RH_BACK_FOAM_NO_VENT      | BIN80026304    | 1     | P    | 1             |              |              |
+| VF36_SEAT_ASSY_2R_40%_RH_CUSHION_FOAM_VENT      | BIN80026307    | 1     | P    |               | 1            | 1            |
+| VF36_SEAT_ASSY_2R_40%_RH_BACK_FOAM_VENT         | BIN80026308    | 1     | P    |               | 1            | 1            |
+| VF36_SEAT_ASSY_2R_20%_CTR_CUSHION_FOAM_PAD      | BIN80026309    | 1     | P    | 1             | 1            | 1            |
+| VF36_SEAT_ASSY_2R_20%_CTR_BACK_FOAM_PAD         | BIN80026310    | 1     | P    | 1             | 1            | 1            |
+
+#### Initial Assumptions for Foam Pad Properties
+- **Average Density:** 50–55 kg/m³  
+- **Hardness:** 5–7 kPa  
+- Pads to be developed with **dual density** for comfort optimization.
+
+#### 3D CAD Models
+3D CAD models for initial analysis are available from the VinFast Engineering team.  
+
+**Contact:**  
+Mr. Phisarn Plernpookhiew
+Page 19
+Applicable Specifications and Regulations.
+
+The following specification, either in whole or relevant sections, related to seat trim covers must be adhered to.
+
+### Applicable regulatory requirements:
+| ID     | Document        | Title                                                     |
+|--------|-----------------|----------------------------------------------------------|
+| 1      | ECE R17         | Strength of seats, their anchorages and head restraints  |
+| 2      | ECE R21         | Interior Fittings                                        |
+| 3      | ECE R25         | Head Restraints                                          |
+| 4      | ECE R118        | Flammability                                             |
+| 5      | ECE R133        | Reusability, Recyclability and Recoverability            |
+| 6      | EEC74/60        | Head Impact                                              |
+| 7      | 2015 / 863 / EC | Restriction of hazardous substances                      |
+| 8      | 2000 / 53 / EC  | EU Directive for End-of-life Vehicles                    |
+| 9      | FMVSS 571.201   | Occupant protection in interior impact                   |
+| 10     | FMVSS 571.202a  | Head Restraints                                          |
+| 11     | FMVSS 571.207   | Seating Systems                                          |
+| 12     | FMVSS 571.302   | Flammability of interior materials                       |
+
+### Applicable performance requirements:
+#### (Including upcoming criteria updates for 2021/22)
+| ID     | Document    | Title                                                                 |
+|--------|-------------|----------------------------------------------------------------------|
+| 1      | Euro NCAP   | THE DYNAMIC ASSESSMENT OF CAR SEATS FOR NECK INJURY PROTECTION       |
+| 2      | IIHS        | Vehicle Seat/Head Restraint Evaluation Protocol, Static Geometric Criteria |
+
+VinFast Released
+Page 20
+# Applicable VinFast Standards
+
+### ID and Document Titles
+1. **VFDSP10009423**: Seats: Foam parts.
+2. **VFDSP10009433**: Headrests and Headrest sleeves.
+3. **VFDST00000010**: General Part Marking.
+4. **VFDST00000011**: Reference Point System and Requirements.
+5. **VFDST00000014**: CAD working methods and requirement Catia v5.
+6. **VFDST00002400**: Marking of parts - Marking of materials.
+7. **VFDST00002900**: Recycling.
+8. **VFDST00007601**: Substances of concern – Materials and components; prohibited and declarable substances.
+9. **VFDST00007602**: Substances of concern – Process materials and auxiliary materials; prohibited and declarable substances.
+10. **VFDST00007604**: Substances of concern - Materials and components; constituents and emissions.
+11. **VFDST00007701**: VF Drawing Standard.
+12. **VFDST00008700**: Sample parts.
+13. **VFDST00008800**: Development Sample Report (DSR).
+14. **VFDST00008900**: Preparation of measurement reports.
+15. **VFDST00009300**: Dimensional Management – Functional Measurements Concept.
+16. **VFDST00031103**: Emissions measurement with air exchange in a testing chamber - Determination of volatile, organic emissions from components, semi-finished products and materials.
+17. **VFDST00031104**: Emissions measurement with air exchange in a testing chamber - Determination of the olfactory behavior.
+18. **VFDST00032305**: Resistance to cleaning and maintenance agents - Surface test of motor vehicle interior materials.
+19. **VFDST00046100**: Climatic change test for interior/exterior parts.
+20. **VFDST00088100**: QS PUR foam soft seatrest, backrest and headrest.
+21. **VFDST00098900**: FRONT SEAT (Manually and electrically adjustable) - Functional and continuous load tests.
+22. **VFDST00102000**: Testing the service life of seat covers made of PUR foam parts.
+23. **VFDST00102400**: Seat ventilation Function.
+
+---
+VinFast Released
+Page 21
+### SEAT FOAM PADS  
+### Applicable Industry Standards  
+
+#### ID | Document | Title  
+1. **ISO 1856 / DIN 53572**  
+   Flexible cellular polymeric materials — Determination of compression set.  
+
+2. **ISO 2439 / DIN 53579**  
+   Flexible cellular polymeric materials — Determination of hardness (indentation technique).  
+
+3. **ISO 2768**  
+   General tolerances.  
+
+4. **ISO 5999**  
+   Flexible cellular polymeric materials — Polyurethane foam for load-bearing applications excluding carpet underlay — Specification.  
+
+5. **ISO 9001**  
+   Quality management systems.  
+
+6. **ISO 12219**  
+   Interior air of road vehicles.  
+
+7. **ISO 14040**  
+   Environmental Management; Life Cycle Assessment.  
+
+8. **ISO/TS16949**  
+   Quality management systems — Special requirements when applying ISO 9001.  
+
+9. **ISO/IEC 17020**  
+   General criteria for the operation of various types of bodies performing inspection.  
+
+10. **ISO/IEC 17021**  
+    Conformity assessment — Requirements for bodies providing audit and certification of management systems.  
+
+11. **ISO/IEC 17025**  
+    General requirements for the competence of testing and calibration laboratories.  
+
+12. **ISO 22628**  
+    Road vehicles — Recyclability and recoverability — Calculation method.  
+
+13. **ISO 26262**  
+    Road vehicles – Functional safety.  
+
+14. **EG95/28**  
+    Flammability.  
+
+15. **VDA 270**  
+    Determination of odor characteristics of trim materials in motor vehicles.  
+
+16. **SAE J826**  
+    Devices for Use in Defining and Measuring Vehicle Seating Accommodation.  
+
+17. **ASTM D1056-07**  
+    Standard Specification for Flexible Cellular Materials - Sponge or Expanded Rubber.

@@ -1,0 +1,2225 @@
+
+<filename>VFDSXNBAT0001_VFe34S_SPB_HV_BATTERY_PACK_230203</filename>
+<pages>
+
+<page number="1">
+Battery Pack B-Sample Specification Book (SPB). Edition (11.2022).
+</page>
+
+<page number="2">
+CONTENTS.
+
+1. BATTERY PACK SUMMARY 4.
+
+2. ADDITIONAL TECHNICAL OR FUNCTIONAL DESCRIPTIONS 5.
+
+   2.1 System Diagram 5.
+   2.2 Cell 6.
+       2.2.1 Technical parameters of cell 6.
+   2.3 Module Design 7.
+   2.4 Cooling System 7.
+   2.5 BDU Unit and Pyro-fuse 8.
+       2.5.1 BDU description 8.
+       2.5.2 Pyro-fuse description 8.
+   2.6 BMS (Battery management system) technical parameter 10.
+   2.7 Battery Pack Design 17.
+       2.7.1 Technical parameters of battery pack 17.
+       2.7.2 Battery Pack Component List with Vibration Test Results 19.
+       2.7.3 Installation structure and electrical principle 19.
+       2.7.4 Thermal System Interface 23.
+       2.7.5 Venting Interface 23.
+       2.7.6 Mounting Interface 24.
+       2.7.7 Ground Point 25.
+       2.7.8 Battery system control strategy 25.
+       2.7.9 Power Limits 28.
+       2.7.10 Current Limits 29.
+       2.7.11 Cell Internal Resistance 29.
+       2.7.12 Fast Charge Map 30.
+       2.7.13 Traceability and Labelling 30.
+
+3. PACKAGING, TRANSPORTATION, STORAGE, MAINTENANCE AND RISK WARNING 31.
+
+   3.1 Packaging 31.
+   3.2 Transportation 32.
+   3.3 Storage 32.
+   3.4 Maintenance 32.
+   3.5 Risk Warning 33.
+
+4. FUSA 33.
+
+5. CYBERSECURITY 40.
+
+6. SUPPLIER COMPLIANCE MATRIX 40.
+
+7. DVP 49.
+   7.1 DV 49.
+</page>
+
+<page number="3">
+Release.
+
+Version: 1.0.  
+Date: 06-10-2022.  
+
+Name: Xiao Zhen Hua.  
+Function: [Not specified].  
+Signature: [Not specified].  
+Date: 19/08/22.  
+
+Revisions since previous version.  
+
+Version 1.0: B sample release.  
+Signature: Xiao Zhen Hua.  
+Date: 19/08/22.  
+
+Version 1.1: Adding further information that wasn’t initially in this document.  
+Signature: TTL.  
+Date: 02/02/23.  
+
+Version 1.2: Updated Weight.  
+Signature: TTL.  
+Date: 03/02/23.
+</page>
+
+<page number="4">
+1. Battery Pack Summary.
+
+SpecBook Number: VFDSXNBAT0001.  
+Component DVP Number: DVPRXNBAT0001.  
+Part Number / Rev: EEP71060010.  
+Component: HV Battery Pack.  
+
+**Project:** VFe34s.  
+**Module Group:** HV Battery Pack.  
+**Supplier:** CATL.  
+**Pack Configuration:** 1P106S.  
+**Component Weight:** 465.5±0.5kg.  
+**Nominal Voltage:** 396.4V.  
+**Nominal Energy:** 75kWh.  
+**Capacity:** 202Ah.  
+**Chemistry:** NCM.  
+
+**Figure 1:** HV Battery Pack View.  
+This figure illustrates a detailed view of the HV Battery Pack. It showcases the structural layout and external configuration of the pack, highlighting essential connectors and components.
+</page>
+
+<page number="5">
+2. Additional Technical or Functional Descriptions  
+
+2.1 System Diagram.  
+The HV battery circuit includes main positive and negative contactors, pre-charge contactor, pre-charge resistor, shunt, and current sensor, as well as a BMS master board with two slave boards. 
+
+Figure 2 illustrates the electrical schematic of the HV diagram, detailing the connections and components of the HV battery circuit.
+</page>
+
+<page number="6">
+2. Additional Technical or Functional Descriptions  
+
+2.2. Cell  
+This cell is a 202Ah NCM cell. Below is the table of the cell's key parameters.  
+
+#### 2.2.1 Technical Parameters of Cell  
+
+1. Chemistry: NCM  
+   - The cell chemistry is Nickel-Cobalt-Manganese (NCM).  
+
+2. Capacity: 202Ah  
+   - The capacity of the cell is rated at 202Ah.  
+
+3. Nominal Voltage: 3.74V  
+   - The nominal voltage of the cell is 3.74 volts.  
+
+4. Maximum Permissible Charge Cell Voltage: 4.4V  
+   - The maximum charge voltage permissible for the cell is 4.4 volts.  
+
+5. Minimum Permissible Discharge Cell Voltage: 2.8V  
+   - The minimum voltage permissible for cell discharge is 2.8 volts.  
+
+6. Maximum Transient Discharge Current for 10s/30s/60s: 1000A / 900A / 600A  
+   - The cell can handle transient discharge currents of 1000A for 10 seconds, 900A for 30 seconds, or 600A for 60 seconds.  
+   - Condition: State of Charge (SOC) ≥ 20% at 25°C.  
+
+7. Maximum Transient Charge Current for 10s/30s/60s: 536A / 424A / 256A  
+   - The cell can handle transient charge currents of 536A for 10 seconds, 424A for 30 seconds, or 256A for 60 seconds.  
+   - Condition: 50% SOC at 25°C.  
+
+OCV Curve:  
+- Open Circuit Voltage (OCV) data based on SOC percentage measured at 25°C.  
+- Source: "HVB_Dataspec_Template_VF7_202Ah Cell.xlsx"  
+
+#### OCV Chart Details:  
+| SOC (%) | Voltage (V) |
+|---------|-------------|
+| 100     | 4.377       |
+| 95      | 4.264       |
+| 90      | 4.211       |
+| 85      | 4.173       |
+| 80      | 4.127       |
+| 75      | 4.072       |
+| 70      | 4.011       |
+| 65      | 3.953       |
+| 60      | 3.896       |
+| 55      | 3.836       |
+| 50      | 3.762       |
+| 45      | 3.713       |
+| 40      | 3.713       |
+| 35      | 3.659       |
+| 30      | 3.642       |
+| 25      | 3.625       |
+| 20      | 3.600       |
+| 15      | 3.565       |
+| 10      | 3.526       |
+| 5       | 3.476       |
+| 0       | 3.435       |
+
+Figure 2 shows the OCV curve of the cell under various SOC conditions.
+</page>
+
+<page number="7">
+**1. Battery Pack Summary**  
+SpecBook Number: VFDSXNBAT0001.  
+Component DVP Number: DVPRXNBAT0001.  
+Part Number / Rev: EEP71060010.  
+Component: HV Battery Pack.  
+Project: VFe34s.  
+Module Group: HV Battery Pack.  
+Supplier: CATL.  
+Pack configuration: 1P106S.  
+Component Weight: 465.5±0.5kg.  
+Nominal Voltage: 396.4V.  
+Nominal Energy: 75kWh.  
+Capacity: 202Ah.  
+Chemistry: NCM.  
+
+*Figure 1: HV Battery Pack View.*  
+
+---
+
+**2. Additional Technical or Functional Descriptions**  
+**2.1 System Diagram**  
+The HV battery circuit includes the main positive and negative contactor, pre-charge contactor, pre-charge resistor, shunt and current sensor, BMS master board with two slave boards. The electrical schematic is as follows:
+
+*Figure 2: HV diagram.*
+
+**2.2 Cell**  
+This cell is a 202Ah NCM cell. Below is the table of cell key parameters.
+
+**2.2.1 Technical Parameters of Cell:**  
+- **Chemistry:** NCM.  
+- **Capacity:** 202Ah.  
+- **Nominal Voltage:** 3.74V.  
+- **Max permissible charge cell voltage:** 4.4V.  
+- **Min permissible discharge cell voltage:** 2.8V.  
+- **Max transient discharge current:**  
+  - 10s: 1000A.  
+  - 30s: 900A.  
+  - 60s: 600A.  
+  - SOC ≥ 20% @25°C.  
+- **Max transient charge current:**  
+  - 10s: 536A.  
+  - 30s: 424A.  
+  - 60s: 256A.  
+  - @50% SOC & 25°C.  
+- **OCV Curve:** Based on SOC(%) and Voltage (V). Data sources: "HVB_Dataspec_Template_VF7_202Ah Cell.xlsx."  
+
+**Additional Cell Parameters**  
+- **Dimension:** 86mm x 148mm x 103mm (WxLxH).  
+- **Weight:** 3.05 kg.  
+- **Energy Density:** 247 Wh/kg.  
+- **Charge Temperature:** -20°C to 55°C.  
+- **Discharge Temperature:** -30°C to 55°C.  
+- **Fast charge (10-70% SOC):** 24 minutes.  
+- **SOC Range:** 2%-96%.  
+
+---
+
+**2.3 Module Design**  
+The battery consists of 9 modules. Eight modules include 12 cells connected in series (1P12S type). One module includes 10 cells connected in series (1P10S type). The whole pack has a total of 106 cells.
+
+---
+
+**2.4 Cooling System**  
+- **Coolant:** Glycol-Water (50/50 by volume).  
+- **Temperature for cooling control system:** ≥32°C on; ≤28°C off.
+</page>
+
+<page number="8">
+2. Additional Technical or Functional Descriptions.
+
+2.1. System Diagram.  
+The HV battery circuit includes a main positive and negative contactor, pre-charge contactor, pre-charge resistor, shunt and current sensor, and a BMS master board with two slave boards. The electrical schematic is as follows:
+
+**Figure 2: HV Diagram.**  
+This figure illustrates the technical schematic of the HV battery circuit, including the main components such as contactors, sensors, and control systems.
+
+---
+
+2.2. Cell.  
+This cell is a 202Ah NCM cell. Below is a detailed table of the cell's key parameters.
+
+2.2.1. Technical Parameters of Cell.  
+- **Chemistry**: NCM.  
+- **Capacity**: 202Ah.  
+- **Nominal Voltage**: 3.74V.  
+- **Maximum Permissible Charge Cell Voltage**: 4.4V.  
+- **Minimum Permissible Discharge Cell Voltage**: 2.8V.  
+- **Maximum Transient Discharge Current for 10s/30s/60s**: 1000A/900A/600A (at SOC ≥ 20% and 25°C).  
+- **Maximum Transient Charge Current for 10s/30s/60s**: 536A/424A/256A (at 50% SOC and 25°C).  
+- **Open Circuit Voltage (OCV) Curve**: Refer to a graph illustrating voltage behavior with varying states of charge (SOC), sourced from: "HVB_Dataspec_Template_VF7_202Ah Cell.xlsx".  
+
+Additional parameters include:
+- **Dimensions**: 86mm x 148mm x 103mm (W x L x H).  
+- **Weight**: 3.05kg.  
+- **Energy Density**: 247Wh/kg.  
+- **Charge Temperature Range**: -20°C to 55°C.  
+- **Discharge Temperature Range**: -30°C to 55°C.  
+- **Fast Charge from 10% to 70% State-of-Charge (SOC)**: 24 minutes.  
+- **SOC Range**: 2%–96%.  
+
+---
+
+2.3. Module Design.  
+The battery consists of nine modules. Eight modules include twelve cells connected in series (1P12S type), and one module includes ten cells connected in series (1P10S type). The entire pack contains 106 cells. Below is a description of the module parameters.
+
+---
+
+2.4. Cooling System.  
+- **Coolant**: Glycol-Water (50/50 by volume).  
+- **Temperature for Cooling Control System**: Engages at ≥32°C and disengages at ≤28°C.  
+
+**Figure 3: Cooling Diagram.**  
+This figure outlines the cooling system with details of the cooling plate, cell block, and connection designs.
+
+---
+
+2.5. BDU Unit and Pyro-fuse.  
+
+2.5.1. BDU Description.  
+**Figure 4: BDU (S-Box) Block Diagram.**  
+The internal BDU (S-Box) connection details are shown in Figure 2.  
+- **Maximum Continuous Current for Contactors**: 600A.  
+- **Maximum Continuous Voltage for Contactors**: 1000V.  
+
+2.5.2. Pyro-fuse Description.  
+The pyro-fuse serves as a controlled protection device, creating permanent galvanic isolation for HV-safety applications. It operates as a normally closed circuit breaker or fuse, allowing current flow through its HV contacts during normal conditions. Upon receiving a trigger signal, it interrupts the current flow and permanently isolates the HV contacts.  
+
+**Figure 5: Pyro-fuse.**  
+This figure showcases the pyro-fuse used for HV safety, detailing its design and functionality.
+</page>
+
+<page number="9">
+### 1. Battery Pack Summary  
+The Battery Pack Summary provides detailed specifications for the HV battery pack used in the VinFast system.  
+
+#### Key Information:  
+- **SpecBook Number:** VFDSXNBAT0001  
+- **Component DVP Number:** DVPRXNBAT0001  
+- **Part Number / Rev:** EEP71060010  
+- **Component:** HV Battery Pack  
+- **Project:** VFe34s  
+- **Module Group:** HV Battery Pack  
+- **Supplier:** CATL  
+- **Pack Configuration:** 1P106S  
+- **Component Weight:** 465.5±0.5 kg  
+- **Nominal Voltage:** 396.4 V  
+- **Nominal Energy:** 75 kWh  
+- **Capacity:** 202 Ah  
+- **Chemistry:** NCM  
+
+*Figure 1 illustrates the HV battery pack view.*
+
+---
+
+### 2. Additional Technical or Functional Descriptions  
+
+#### 2.1 System Diagram  
+The HV battery circuit includes main positive and negative contactors, a pre-charge contactor, pre-charge resistor, shunt, and current sensors. It also comprises the BMS master board with two slave boards.  
+
+*Figure 2 illustrates the HV system diagram.*
+
+---
+
+#### 2.2 Cell  
+The HV battery uses the 202Ah NCM cell. Below are the technical parameters of the cell.  
+
+##### 2.2.1 Technical Parameters of the Cell  
+- **Chemistry:** NCM  
+- **Capacity:** 202Ah  
+- **Nominal Voltage:** 3.74 V  
+- **Maximum Permissible Charge Cell Voltage:** 4.4 V  
+- **Minimum Permissible Discharge Cell Voltage:** 2.8 V  
+- **Maximum Transient Discharge Current for 10s/30s/60s:** 1000A/900A/600A (SOC ≥ 20% @ 25°C)  
+- **Maximum Transient Charge Current for 10s/30s/60s:** 536A/424A/256A (@50% SOC & 25°C)  
+
+###### Additional Specifications:  
+- **Dimension:** 86 mm x 148 mm x 103 mm (WxLxH)  
+- **Weight:** 3.05 kg  
+- **Energy Density:** 247 Wh/kg  
+- **Charge Temperature Range:** -20°C to 55°C  
+- **Discharge Temperature Range:** -30°C to 55°C  
+- **Fast Charge Interval (10-70% SOC):** 24 minutes  
+- **SOC Range:** 2% - 96%  
+
+*The OCV curve data and module table are sourced from the file "HVB_Dataspec_Template_VF7_202Ah Cell.xlsx."*
+
+---
+
+#### 2.3 Module Design  
+The battery consists of nine modules:  
+- Eight modules include 12 cells connected in series (1P12S type).  
+- One module includes 10 cells connected in series (1P10S type).  
+The entire pack contains 106 cells.  
+
+---
+
+#### 2.4 Cooling System  
+The cooling system uses a Glycol-Water mixture (50% Glycol and 50% Water by volume).  
+- **Cooling Control System Temperature Thresholds:**  
+  - **≥ 32°C:** System activated.  
+  - **≤ 28°C:** System deactivated.  
+
+*Figure 3 illustrates the cooling diagram of the pack.*
+
+---
+
+#### 2.5 BDU Unit and Pyro-fuse  
+
+##### 2.5.1 BDU Description  
+The BDU (S-Box) serves as a connection hub within the HV system.  
+- **Maximum Continuous Current for Contactors:** 600A  
+- **Maximum Continuous Voltage for Contactors:** 1000V  
+
+*Figure 4 provides the block diagram of the BDU system.*
+
+---
+
+##### 2.5.2 Pyro-fuse Description  
+The pyro-fuse enables controlled galvanic isolation for HV safety applications. It operates similarly to a circuit breaker or fuse, providing a permanent isolation when triggered.  
+
+###### Key Specifications:  
+- **Max Breaking Capacity:** 1000V / 1600A / 30 μH  
+- **Action Time:** < 2ms  
+- **Current Carrying Capacity:**  
+  - At 20°C copper cable, 120mm² carries 400Ad.c. continuously.  
+  - At 20°C copper cable, 150mm² carries 500Ad.c. continuously.  
+- **Weight:** ≤ 450g  
+- **Busbar Material:** Copper alloy (3 mm thickness), with plating material as Sn.  
+  - **Resistance at Room Temperature:** ≤ 0.05 mΩ  
+  - **After Breaking Current:** ≥ 5MΩ  
+- **Temperature:** Operating, environmental, and storage range is -40°C to +85°C.  
+  - **Self-ignition at:** ≥ 250°C  
+  - **Altitude Rating:** ≥ 5500 m.  
+
+*Figures 5, 6, and 7 illustrate the SFH-400-B pyro fuse and its specifications.*
+</page>
+
+<page number="10">
+2. Additional Technical or Functional Descriptions.
+
+2.1 System Diagram.  
+The HV battery circuit includes the main positive and negative contactor, pre-charge contactor, pre-charge resistor, shunt and current sensor, BMS master board with two slave boards. The electrical schematic is visually represented.
+
+**Figure 2 HV Diagram.**
+
+2.2 Cell.  
+This cell is a 202Ah NCM cell. Below is the table listing its key parameters.
+
+2.2.1 Technical Parameters of Cell:
+- **Chemistry:** NCM.
+- **Capacity:** 202Ah.
+- **Nominal Voltage:** 3.74V.  
+- **Max Permissible Charge Cell Voltage:** 4.4V.
+- **Min Permissible Discharge Cell Voltage:** 2.8V.
+- **Max Transient Discharge Current for 10s/30s/60s:** 1000A/900A/600A (SOC ≥ 20% @25°C).
+- **Max Transient Charge Current for 10s/30s/60s:** 536A/424A/256A (@50% SOC & 25°C).
+- **OCV Curve:** Data derived from "HVB_Dataspec_Template_VF7_202Ah Cell.xlsx."
+
+**Figure: OCV Curve Chart** showing SOC values corresponding to voltage at 25°C.
+
+Additional Cell Parameters:
+- **Dimension:** 86mmx148mmx103mm (WxLxH).
+- **Weight:** 3.05kg.
+- **Energy Density:** 247 Wh/kg.
+- **Charge Temperature:** -20°C to 55°C.
+- **Discharge Temperature:** -30°C to 55°C.
+- **Fast Charge 10-70% SOC:** 24 minutes.
+- **SOC Range:** 2%-96%.
+
+2.3 Module Design.  
+The battery consists of 9 modules. Of these, 8 modules include 12 cells connected in series (1P12S type), while 1 module includes 10 cells connected in series (1P10S type). Altogether, the battery pack comprises 106 cells.
+
+2.4 Cooling System.  
+The cooling system uses Coolant: Glycol-Water (50/50 by volume). The temperature control system activates cooling at ≥32°C and stops at ≤28°C.
+
+**Figure 3 Cooling Diagram.**
+
+2.5 BDU Unit and Pyro-Fuse.
+
+2.5.1 BDU Description.  
+The internal BDU (S-Box) connection details are illustrated in the schematic (Figure 2).  
+- **Maximum Continuous Current for Contactors:** 600A.
+- **Maximum Continuous Voltage for Contactors:** 1000V.
+
+**Figure 4 BDU (S-Box) Block Diagram.**
+
+2.5.2 Pyro-Fuse Description.  
+A pyro-fuse serves as a controlled mechanism for permanent galvanic isolation in HV safety applications. It is normally a closed device that operates via its two HV contacts (copper busbars). When triggered, current interruption occurs, isolating both HV contacts.  
+- **Maximum Breaking Capacity:** 1000V / 1600A / 30μH.
+- **Action Time:** Less than 2ms.  
+- **Current Carrying Capacity:** 
+   - 20℃ copper load cable, 120mm² continuous 400A DC.  
+   - 20℃ copper load cable, 150mm² continuous 500A DC.  
+- **Weight:** Less than or equal to 450g.  
+- **Busbar Raw Material (Base):** Copper alloy, thickness 3mm, plating material sn.  
+- **Busbar Resistance at RT:** Less than or equal to 0.05mΩ.  
+- **After Breaking Current:** Greater than or equal to 5MΩ.  
+- **Terminal Type:** On busbar M8 screw.
+
+Trigger Data:
+- **Qualified Acc. to AK-LV 16:** Yes.  
+- **Initiator Resistance:** Between 1.7Ω and 2.3Ω.  
+- **Triggering Pulse Current:** Greater than or equal to 1.75A / 0.5ms or greater than or equal to 1.2A / 2.0ms.  
+- **No-Triggering Current:** Less than or equal to 0.4A / 10s or less than or equal to 5.0A / 4μs.  
+- **Diagnostic Current:** Less than or equal to 10mA.
+
+Temperature Ratings:  
+- **Operating Temperature:** -40°C to +85°C.  
+- **Environmental Temperature:** -40°C to +85°C.  
+- **Storage Temperature:** -40°C to +85°C.  
+- **Altitude:** Greater than or equal to 5500m.  
+- **Self-Ignition:** Greater than or equal to 250°C.  
+
+**Figure 5 SFH-400-B Pyro Fuse.**
+
+Other Data for Pyro-Fuse:  
+- Vibration, Mechanical Shock, Temperature Cycle resistance as per AK-LV 124.  
+- Chemical Load Resistance as per AK-LV 124.  
+- No Leakage of Gas.  
+- Trigger conforms to ISO 19072-1 AKII.  
+- Connector Adapter Wire Diameter: 0.3-0.5mm².  
+- Actuator Matching Connector Diameter: φ11.
+
+**Figure 6 Pyro-Fuse Properties.**  
+**Figure 7 Pyro-Fuse 2D Drawing.**
+
+2.6 BMS (Battery Management System) Technical Parameter.  
+The BMS manages the battery pack, ensuring adequate power supply for the vehicle. It balances economical, dynamic, safe, comfortable, and other operational requirements.
+</page>
+
+<page number="11">
+## 2.6 BMS (Battery Management System) Technical Parameter
+
+The Battery Management System (BMS) is the manager of the battery pack. It primarily provides sufficient power for the vehicle and ensures compliance with various requirements, including economical, dynamic, safe, and comfortable operation.
+
+### Hardware Configuration
+- **BMU Configuration:** BMU+ separated CMC, flexible configuration, high compatibility.
+- **High Front-end Performance Analog:**
+  - 16-bit ADC.
+  - Cell voltage collection accuracy: ±5mV FSR.
+  - Support dormancy balance and monitoring.
+  - Support reverse awaken BMU.
+- **Support:** 1000V platform with technical advances.
+- **Compatibility Features:**
+  - Plug-in awaken.
+  - A+ awaken, CP awaken, well-adapted features.
+- **Strengthened Hardware Configurations:**
+  - 3-CHs HVIL.
+  - 9-CHs HV/L drive combination.
+  - 4-CAN and 8-External Analog Measurements.
+- **Protection Level:** IP40.
+- **Operating Temperature:** -40°C ~ +85°C.
+- **Functional Safety:** Up to ASILD.
+
+### Software Support (Allogamy/Customization)
+- AUTOSAR 4.x Protocol Line.
+- Classic AUTOSAR Software Protocol Line.
+- Support for CAN-FD.
+- Safety Features:
+  - Information safety.
+  - HSM security.
+  - Storage safety.
+  - Encryption and decoding.
+  - Certification.
+  - FOTA software updates.
+- Combination of runaway control strategies, including alarm through software.
+
+**Figures and Descriptions**  
+1. **Figure 8 General Description:** Depicts the Battery Management Unit (BMU) and related configurations such as hardware and software capabilities. It shows flexibility across various configurations for BMU and Control Monitoring Components (CMC).
+
+2. **Figure 9 Physical Size:** Displays details about different module types with varying dimensions:
+   - **BMU:** 318mm (Length), 127mm (Width), 36mm (Height).
+   - **1AFE_CMC:** 114mm (Length), 75mm (Width), 20mm (Height).
+   - **3AFE_CMC:** 202mm (Length), 92mm (Width), 30mm (Height).
+   - **4AFE_CMC:** 248mm (Length), 92mm (Width), 30mm (Height).
+   - **5AFE_CMC:** 328mm (Length), 98mm (Width), 30mm (Height).
+</page>
+
+<page number="12">
+### 2.6 BMS (Battery Management System) Technical Parameter
+
+The Battery Management System (BMS) uses a separated model, which includes BMU, multiple CSCs, CSU, and SHUNT components. Some notable features and configurations are as follows:
+- **Daisy Chain Communication:** Connection is established between BMU & CSC as well as CSC & CSC modules.
+- **Current Collection:** Separated SHUNT:CSU configuration is used for current management. Communication occurs via CAN to interact with BMU. The SHUNT is responsible for gathering current efficiently.
+- **Additional Components:** An additional Hall current sensor is included based on specific operational requirements.
+
+#### Figures:
+- **Figure 10 Communication Hardware:** This diagram depicts the overall hardware architecture, including BMU, CSC chains, SHUNT integration, and CAN communication channels.
+- **Figure 11 BMU PCB Architecture:** This figure provides details regarding the printed circuit board design and functions.
+
+Each component is designed to support advanced communication, current management, and overall system efficiency for HV battery pack operations.
+</page>
+
+<page number="13">
+**2. Additional Technical or Functional Descriptions**
+
+**2.1 System Diagram.**
+The HV battery circuit includes the main positive and negative contactors, pre-charge contactor, pre-charge resistor, shunt and current sensor, and BMS master board with two slave boards. The electrical schematic is illustrated in the system diagram.
+
+**Figure 2 HV diagram.**
+
+---
+
+**2.2 Cell.**
+This cell is a 202Ah NCM cell. Below is the table summarizing the cell key parameters.
+
+**2.2.1 Technical Parameters of Cell.**
+1. Chemistry: NCM.
+2. Capacity: 202Ah.
+3. Nominal Voltage: 3.74V.
+4. Max. permissible charge cell voltage: 4.4V.
+5. Min. permissible discharge cell voltage: 2.8V.
+6. Max. transient discharge current for 10s/30s/60s: 1000A/900A/600A (SOC ≥ 20% @25°C).
+7. Max. transient charge current for 10s/30s/60s: 536A/424A/256A (@50% SOC &25°C).
+8. OCV Curve: Source: "HVB_Dataspec_Template_VF7_202Ah Cell.xlsx."
+
+**Physical Parameters of Cell.**
+1. Dimension: 86mm x 148mm x 103mm (WxLxH).
+2. Weight: 3.05 kg.
+3. Energy Density: 247 Wh/kg.
+4. Charge Temperature: -20°C - 55°C.
+5. Discharge Temperature: -30°C - 55°C.
+6. Fast Charge (10-70% SOC): 24 minutes.
+7. SOC Range: 2%-96%.
+
+---
+
+**2.3 Module Design.**
+The battery consists of 9 modules. Eight modules contain 12 cells connected in series (1P12S type), and one module contains 10 cells connected in series (1P10S type). The whole pack has a total of 106 cells.
+
+---
+
+**2.4 Cooling System.**
+Coolant: Glycol-Water (50/50 by volume).
+Temperature for cooling control system: ≥32°C on; ≤28°C off.
+
+**Figure 3 Cooling Diagram.**
+
+---
+
+**2.5 BDU Unit and Pyro-Fuse.**
+
+**2.5.1 BDU Description.**
+The internal BDU (S-Box) connection details are presented in the schematic shown in Figure 2.
+- Maximum continuous current for contactors: 600A.
+- Maximum continuous voltage for contactors: 1000V.
+
+**Figure 4 BDU (S-Box) Block Diagram.**
+
+**2.5.2 Pyro-Fuse Description.**
+The basic function of this component is the controlled creation of permanent galvanic isolation for HV safety applications. It acts as a circuit breaker or fuse, normally conducting current via its two HV contacts. Upon receiving a specific trigger signal, it interrupts current flow and permanently isolates the contacts. 
+
+**Figure 5 SFH-400-B Pyro Fuse.**
+
+Pyro-Fuse Technical Details:
+- Maximum breaking capacity: 1000V/1600A/30μH.
+- Action Time: < 2ms.
+- Current Carrying Capacity: 20°C copper load cable, 120mm² continuous 400 Ad.c.; 150mm² continuous 500 Ad.c.
+- Weight: ≤ 450g.
+- Busbar Bar Material: Copper alloy (thickness 3mm).
+- Resistance: ≤ 0.05 mΩ (at RT); after breaking ≥ 5MΩ.
+- Trigger Type: Initiator resistance ≥ 1.7Ω and ≤ 2.3Ω; Diagnostic current ≤10mA.
+- Operating and Storage Temperatures: -40°C ~ +85°C.
+- Altitude: ≥ 5500m.
+- Self-Ignition: ≥ 250°C.
+
+**Figure 6 Pyro-Fuse Properties.**  
+**Figure 7 Pyro-Fuse 2D Drawing.**
+
+---
+
+**2.6 BMS (Battery Management System) Technical Parameters.**
+The BMS acts as the manager of the battery pack, providing adequate power for the vehicle while meeting economical, dynamic, safety, comfort, and other requirements.
+</page>
+
+<page number="14">
+Functional Safety description:
+- 32-bit Triple core processor system.
+- AUTOSAR 4.x architecture.
+- ASIL D compliant architecture.
+- Avoid OV, UV, OT, and OC (according to ASIL D).
+- Detect HVIL, Crash, and Insulation (according to ASIL A).
+- Detection of thermal runaway (according to ASIL A).
+
+Figure 14 Plug-In charge Wakeup: This figure illustrates the circuit diagram for plug-in charge wakeup, featuring an interface with DC_CC2 and A+ connections, activation switches, and integration with MCU.
+
+Figure 15 Wakeup: This figure demonstrates self-awake procedures involving a dual dormancy monitor utilizing CAR7.0 Platform with TI 796XX. It also supports reversed awake functionality in dormancy. Specific procedures include fault detection, signal delivery through daisy chains, and activating SBC and MCU wakeup mechanisms.
+</page>
+
+<page number="15">
+Functional Safety description: 
+- 32 bit Triple core processor system. 
+- AUTOSAR 4.x architecture. 
+- ASIL D compliant architecture. 
+- Avoid OV&UV&OT&OC (according to ASIL D). 
+- Detect HVIL & Crash & Insulation (according to ASIL A). 
+- Detection of thermal runaway (according to ASIL A).
+
+Figure 14 Plug-In charge Wakeup:
+The plug-in charge wakeup circuit diagram displays the sequential charging activation process, including AC interface activation, component wake-up, and power IC integration.
+
+Figure 15 Wakeup:
+The self-awake procedure utilizes dual dormancy monitors on the CAR7.0 platform, using TI 796XX. It supports reversed awakening during dormancy, fault signal delivery through daisy chain loops, and wake-up of the SBC and MCU.
+
+Figure 16 OTA:
+CAR7.0 offers optional OTA functionality to finish program transmission while the application is operating, update applications during boot, and provide long-distance updates with rollback features using external DFLASH.
+
+Figure 17 Remote Monitor:
+CAR7.0 platform enables remote monitoring with functions like RDB collection and DC/DC monitoring. Key data can be uploaded in real-time to BMS, used for big data management, 24-hour monitoring, and early warning services.
+</page>
+
+<page number="16">
+### Figure 18 Key Function List:
+1. **Power Supply:** 2-12V Power.  
+2. **Awaken Method:** 5-External Unit, Electric level, CC2/CC/A+/CP.  
+3. **Awaken Signal:** 12V/5V electric level.  
+4. **CAN:** 4 channel CAN.  
+5. **Lin:** 1 channel Lin.  
+6. **Charge Detection and Control:** DC/AC charge signal confirm in GB.  
+7. **HV/LV Driver:** 9 channel HV/11 channel LV Driver.  
+8. **Relay Holding:** Positive and negative contactor keep at the close status if necessary while MCU resets.  
+9. **External Analog Quantity:** Supports 8 sensors.  
+10. **SOC Signal:** 2 channels, supports pulse and PWM detection.  
+11. **HV Detection:** 8-HV collection, 2-Grand collecting.  
+12. **HV Interlock:** 3-HV interlocking through circuit model/voltage model/PWM model.  
+13. **Insulation Detection:** Uses 4-bridge method.  
+14. **CMC:** Supports various combinations (1AFE, 3AFE, 4AFE, 5AFE).  
+15. **Circuit Collection:** Supports various sensors like shunt, hall, and analogue acquisition.  
+16. **Balance Function:** Passive and active balance supported.  
+17. **External Storage:** 64MB.  
+18. **Thermal Runaway Warning:** Software compliance ensures system safety.  
+19. **Pyro Fuse:** Supports direct driving methods.  
+20. **Liquid Content Detective:** Supports external liquid content detection.  
+
+### Figure 19 Key Parameters:
+- **Cell voltage accuracy:** ±2mV at specific temperatures (-4.5V to 25°C), ±3mV (-40°C to 105°C), ±5mV (-125°C).  
+- **Module temperature accuracy:** ±1°C (0°C – 45°C), ±2°C (-40°C – 85°C), ±3°C (85°C – 125°C).  
+- **SOC accuracy:** ±3%~±5% for NCM, ±5% for LFP (BEV), ±8%~±15% for LFP (PHEV).  
+- **SOH accuracy:** Less than or equal to ±5%.
+</page>
+
+<page number="17">
+2.7 Battery Pack Design.  
+A set of RESS (Rechargeable Energy Storage System) consists of five subsystems: housing, module, battery management system (BMS), cooling system, and cabling & interfaces. The housing is the key part to protect the RESS from being damaged by mechanical factors, like shock and vibration, and to ensure the assembly of components. The module provides, absorbs, and stores the electrical energy for the vehicle, and also includes the strategy of the formation of the module. BMS is the manager of the battery pack, which mainly provides adequate power for the vehicle, and also meets economical, dynamical, safe, comfortable, and other requirements. The thermal management system ensures heat transfer and a reasonable temperature range for the entire service life of the RESS. Cabling & interfaces guarantee the electrical connection, electrical energy transfer, air equalization, and physical mounting.  
+
+Figure 20 Exposure drawing of RESS.  
+This figure illustrates the layered structure of the Rechargeable Energy Storage System (RESS), including components such as housing cover, sealing pad, HV busbar, S-Box, LV connector, HV connector, and cooling system.
+
+2.7.1 Technical parameters of battery pack.  
+This section defines the key specifications of the battery pack as follows:  
+1. Battery pack voltage operating range is 296.8V - 466.4V.  
+2. Nominal voltage and nominal capacity are 396.4V and 202Ah, respectively.  
+3. Usable energy at beginning-of-life (BOL) is 75kWh.  
+4. Configuration is 1P106S.  
+5. Battery state-of-charge (SOC) working range is 3%~97%.  
+6. Operation temperature range is -30°C ~ 55°C.  
+7. Insulation resistance is greater than 5.0 * 10⁶ Ω.
+</page>
+
+<page number="18">
+2.7 Battery Pack Design.  
+A set of RESS (Rechargeable Energy Storage System) consists of five subsystems: housing, module, battery management system (BMS), cooling system, and cabling & interfaces. The housing is a key part to protect the RESS from being damaged by mechanical factors, like shock and vibration, and to ensure the assembly of components. The module provides, absorbs, and stores electrical energy for the vehicle, also includes the strategy of the formation of the module. The BMS is the manager of the battery pack, which mainly provides adequate power for the vehicle while also meeting economical, dynamical, safe, comfortable, and other requirements. The thermal management system ensures heat transfer and a reasonable temperature range for the entire service life of the RESS. Cabling & interfaces guarantee electrical connection, electrical energy transfer, air equalization, and physical mounting. The product structure is illustrated in Figure 20.  
+
+### 2.7.1 Technical parameters of battery pack.  
+1. **Battery pack voltage operating range:** 296.8V - 466.4V.  
+2. **Nominal voltage/Nominal capacity:** 396.4V / 202Ah.  
+3. **Usable energy at BOL:** 75kWh.  
+4. **Configuration:** 1P106S.  
+5. **Battery SOC working range:** 3% ~ 97%.  
+6. **Operation Temperature Range:** -30°C ~ 55°C.  
+7. **Insulation Resistance:** > 5.0 × 10⁶ Ω.  
+8. **Battery pack dimension (L×W×H):** 1986 mm × 1464 mm × 239 mm.  
+9. **SOC at delivery:** 30%.  
+10. **Storage temperature:** -40°C ~ 60°C.  
+11. **SOC estimation accuracy:** 5%.  
+12. **RESS voltage measurement accuracy:** ±2V (0V ~ 200V), ±1% (200V ~ 1000V).  
+13. **Cell voltage measurement accuracy:**  
+      - ±3mV: 2V ~ 4.5V @ 25°C.  
+      - ±4mV: 2V ~ 4.5V @ -20°C ~ 65°C.  
+      - ±5mV: 0V ~ 5V @ -40°C ~ 125°C.  
+14. **RESS current measurement accuracy:**  
+      - ≤50mA: (at Current ≤ 30A).  
+      - ≤1%: (at Current > 30A).  
+      - ≤2%: (at Current > 400A).  
+15. **Temperature measurement accuracy:**  
+      - ±1°C: 0°C ~ 45°C.  
+      - ±2°C: -40°C ~ 85°C.  
+      - ±3°C: 85°C ~ 125°C.  
+16. **Cell balancing method:** Dissipative.  
+17. **Operation voltage range for electronics of RESS:** +9VDC ~ +16VDC. Nominal 12VDC.  
+18. **Self-discharge of RESS:** <4% within 4 weeks at 25°C (30% SOC).  
+19. **Direct contact protection:**  
+      - IPXXD with HV plug of vehicle side into RESS.  
+      - IPXXB without HV plug of vehicle side into RESS.  
+20. **Equalization potential:** < 0.1Ω.  
+21. **Dielectric strength:** 1500V.  
+22. **Cyclic Life:** Not provided yet.
+</page>
+
+<page number="19">
+2.7.2 Battery Pack Component List with Vibration Test Results.  
+
+Figure 21 provides the vibration test results for battery pack components.  
+
+2.7.3 Installation Structure and Electrical Principle.  
+2.7.3.1 Dimensions and Connectors of Battery Box.  
+The following 2D drawings are taken from “VF7 Pack B Sample 2D.pdf.” The RESS has one box, as displayed in Figure 22.  
+
+Figure 22 shows the outer profile of the RESS.  
+
+Additionally, detailed 2D drawings of the RESS are shown in Figure 23 and Figure 24.
+</page>
+
+<page number="20">
+### 2.7.2 Battery Pack Component List with Vibration Test Results
+
+The battery pack components vibration test results are displayed in Figure 21. The table indicates maximum stress by components under dynamic vibration conditions classified by failure criteria (X, Y, Z axes). Components include the cover, bottom plate, housing, cooling plates, cell can, bus bar, and endplates.
+
+---
+
+### 2.7.3 Installation Structure and Electrical Principle
+
+#### 2.7.3.1 Dimensions and Connectors of Battery Box
+The RESS box's outer profile is shown in Figure 22. This includes detailed structures and layouts for battery pack connectors.
+
+Below, Figure 23 and Figure 24 provide the 2D drawings of the RESS. Figure 23 includes specific dimensional attributes, while Figure 24 outlines general tolerances for pack mounting holes and connectors.
+
+---
+#### Figures Overview:
+**Figure 21:** Displays battery pack components vibration stress levels under different axes.
+**Figure 22:** The RESS outer profile with housing connectors and mounting points.
+**Figure 23:** A 2D drawing detailing measurements for specific components including the HV connector and LV connector.
+**Figure 24:** A 2D drawing illustrating general tolerances across the mounting holes.
+</page>
+
+<page number="21">
+2.7.2 Battery Pack Component List with Vibration Test Results.
+
+Figure 21 Battery Pack components vibration test results.
+
+2.7.3 Installation structure and electrical principle.
+2.7.3.1 Dimensions and connectors of battery box.
+The following 2D drawings are taken from “VF7 Pack B Sample 2D.pdf”. The RESS has 1 box, as shown in Figure 22.
+
+Figure 22 RESS outer profile.
+
+Below is the 2D drawing of the RESS (Figure 23 and Figure 24).
+
+Figure 23 RESS 2D drawing.
+
+Figure 24 RESS 2D drawing general tolerance.
+
+2.7.3.2 High-voltage connection between the vehicle and the battery box:
+The HV connector includes the HV plus and HV minus connection of shielded wires. In the plug connector, the shield is connected directly to the housing of RESS. The HV connector is secured by a lock. When the connector is plugged correctly and the lock is closed, the two locking pins of HVIL are connected and thus the HVIL loop is closed.
+
+Part Number: 3-2357574-1. Description: Front & Rear HV Socket.
+- Pin 1: HV+.
+- Pin 2: HV-.
+
+Part Number: 2362408-1. Description: Front HV Plug.
+- Pin 1: HV+.
+- Pin 2: HV-.
+
+Part Number: 2344520-1. Description: Rear HV Plug.
+- Pin 1: HV+.
+- Pin 2: HV-.
+
+When connecting HV harness with the vehicle, following cautions should be taken:
+1. The nominal voltage between the two pins of the HV connector is 396 V, which is much higher than the safe voltage for human beings. Do not make any direct contact with the terminal pins of the HV connector.  
+2. Keep the HV connector clean. Do not splash any liquid into the HV connector.
+
+Figure 25 Front HV Connector Position.
+</page>
+
+<page number="22">
+2.7.3.2 High-voltage connection between the vehicle and the battery box: 
+The HV connector includes the HV plus and HV minus connection of shielded wires. In the plug connector, the shield is connected directly to the housing of RESS. The HV connector is secured by a lock. When the connector is plugged correctly and the lock is closed, the two locking pins of HVIL are connected and thus the HVIL loop is closed.
+
+### HV Connector Specifications:
+- **Part Number:** 3-2357574-1  
+  - **Component:** Front & Rear HV Socket  
+    - Pin 1: HV+  
+    - Pin 2: HV-  
+
+- **Part Number:** 2362408-1  
+  - **Component:** Front HV Plug  
+    - Pin 1: HV+  
+    - Pin 2: HV-  
+
+- **Part Number:** 2344520-1  
+  - **Component:** Rear HV Plug  
+    - Pin 1: HV+  
+    - Pin 2: HV-
+
+### Connection Precautions:
+1. The nominal voltage between the two pins of HV connector is 396 V, which is much higher than the safe voltage for human beings. Avoid any direct contact with the terminal pins of the HV connector.
+2. Keep the HV connector clean. Do not splash liquid into the HV connector.
+
+---
+
+Figure 25 Front HV Connector Position.
+
+---
+
+Figure 26 Rear HV Connector Position.
+
+---
+
+2.7.3.3 Low voltage wiring harness connectors for communication between the vehicle and the battery pack: 
+Pin definition of the low-voltage communication interface 1 connector on the PACK side:
+
+### Connector Specifications:
+- **LV Socket Part Number:** HC08B-P32R  
+  - Pin 1: KL30/POWER (Power 12V)  
+  - Pin 2: KL15/KEY ON (Signal)  
+  - Pin 3: PT-CANHi (Signal)  
+  - Pin 4: PT-CANLi (Signal)  
+  - Pin 5: ACM turn off pyro+ (Signal)  
+  - Pin 6: ACM turn off pyro- (Signal)  
+  - Pin 7: KL30/POWER #2 (Power 12V)  
+  - Pin 8: Debug-CANHi (Signal)  
+  - Pin 9: Debug-CANLi (Signal)  
+  - Pin 10: Crash signal (Signal)  
+  - Pin 11: HVIL IN (Signal)  
+  - Pin 12: HVIL OUT (Signal)  
+  - Pin 13: NA  
+  - Pin 14: KL31/POWER GND (Ground 12V)  
+  - Pin 15-18: NA  
+
+- **LV Plug Part Number:** HC18B-S32  
+  - Pin specifications identical to LV Socket HC08B-P32R.  
+
+---
+VinFast Released
+[EXPIRED]
+</page>
+
+<page number="23">
+2.7.4 Thermal System Interface.
+
+The thermal system interface provides the connection between the coolant connector on the housing tray and cooling pipes from the cooling system on the vehicle side. Each cooling connector includes a protection cap to prevent particles from entering the cooling channel. The detailed interface is shown in Figure 28.
+
+Figure 28 Cooling Pipes Interface.
+
+2.7.5 Venting Interface.
+
+A venting interface is included in the RESS. This includes a device known as the air pressure equalization device (APED), and an external vent pipe on the APED for this project. When the APED is not operational, there is a risk that water could enter the RESS. If failures such as cell leakage or refrigerant leakage occur within the RESS, the APED serves as the opening for degassing (EPED). Therefore, the opening must not be blocked, and sufficient clearance to adjacent areas must be maintained. Additionally, it should be noted that the escaping gases can be very hot, posing a burning hazard. The venting interface is depicted in Figure 29.
+
+VinFast Released.
+[  E X P I R E D  ]
+</page>
+
+<page number="24">
+2.7.6 Mounting Interface.
+
+The mounting interface of RESS provides the assembly points in the housing tray to meet the structure strength requirement. The connection is realized by screws. The detailed interface is shown in Figure 30.
+
+Figure 30 Mounting Interface.
+
+Interface to assemble with connector shield (underbody protection) is also provided. The detailed interface is shown in Figure 31.
+</page>
+
+<page number="25">
+2.7.7 Ground Point  
+In order to assemble the RESS to the vehicle, there is one ground pin for positioning of the RESS. The detailed information about the ground point is shown in Figure 32, as denoted by the red circle.  
+
+Figure 32 Ground point.  
+
+2.7.8 Battery system control strategy.  
+
+2.7.8.1 Thermal management strategy  
+The thermal management system ensures heat transfer and a reasonable temperature range for the entire service life of RESS.  
+
+**BMS Thermal Management Heating Strategy:**  
+- **Condition:** AC charge.  
+- **Requirement:**  
+  - *Heating on:* Tmin(cell temperature) ≤ 5℃.  
+  - *Heating off:* Tmin(cell temperature) > 10℃.  
+  - Liquid temperature and flowrate: 2L/min, 40℃.
+</page>
+
+<page number="26">
+**2.7.8 Battery system control strategy.**
+
+**2.7.8.1 Thermal management strategy.**  
+The thermal management system ensures heat transfer and maintains a reasonable temperature range for the entire service life of the RESS. The detailed strategies for various scenarios are outlined below:
+
+**Heating management:**  
+- **DC charge:**  
+  - Heating on: Tmin (cell temperature) ≤ 13°C.  
+  - Heating off: Tmin > 15°C.  
+  - Liquid temperature and flow rate: 2L/min, 40°C.  
+
+- **Driving heating:**  
+  - Heating on: Tmin (cell temperature) ≤ -5°C.  
+  - Heating off: Tmin > 0°C.  
+  - Liquid temperature and flow rate: 2L/min, 40°C.  
+
+**Cooling management:**  
+- **Fast charge:**  
+  - Cooling on: Tmax ≥ 32°C.  
+  - Cooling off: Tmax < 28°C.  
+  - Liquid temperature and flow rate: 20L/min, 20°C.  
+
+- **AC charge (11 kW):**  
+  - Cooling on: Tmax ≥ 32°C.  
+  - Cooling off: Tmax < 28°C.  
+  - Liquid temperature and flow rate: 20L/min, 20°C.  
+
+- **Driving cooling:**  
+  - Cooling on: Tmax ≥ 32°C.  
+  - Cooling off: Tmax < 28°C.  
+  - Coolant flow rate: 20L/min, 20°C.  
+
+**Functional failure and protection actions:**  
+- **Failure warning:**  
+  - Triggered when: Tmax-Tmin ≥ 15°C || Tmax > 50°C.  
+- **Power off:**  
+  - Triggered when: Tmax ≥ 70°C.  
+- **Thermal runaway protection:**  
+  - Triggered when: ΔT/time ≥ 7°C/3s and lasts for more than 6 seconds.  
+- **Emergency battery cooling:**  
+  - Only battery cooling. No specific requirements noted.  
+
+**Wake-up function for thermal management:**  
+- **Wake-up function heating:**  
+  - Heating on: Tmin (cell temperature) ≤ -22°C.  
+  - Heating off: Tmin (cell temperature) > -15°C.  
+  - Liquid temperature and flow rate: 2L/min, 40°C.  
+
+- **Wake-up function cooling:**  
+  - Cooling on: No specific requirements noted.  
+  - Cooling off: No specific requirements noted.  
+
+**Off-line mode with no driving, key on:**  
+- No battery heating is activated when a passenger enters the car to allow the defrost homologation.
+</page>
+
+<page number="27">
+Positions of the sensors:
+In the following figures, a summary of the NTC is shown for the cell temperatures and the coolant temperatures. The information is taken from “VF7 Thermal Couple Placement Proposal.pdf.”
+
+Figure 33 Positions of the temperature sensors - summary.
+
+Figure 34 Temperature sensors on the cooling plate.
+
+Table 1 Coolant Volume and Pressure:
+- VFe33 Volume: 12348.60 mL.
+- VFe34s Total ECO Volume: 11918.60 mL.
+- VFe34s Total PLUS Volume: 13658.22 mL.
+- Maximum EDS pump pressure: 2.01 bar.
+</page>
+
+<page number="28">
+2.7.9 Power Limits.
+
+2.7.9.1 Cell Level.
+This section describes the discharge and charge power limitations at the cell level under various temperature and state of charge (SOC) conditions.
+
+**Discharge Power Limitation**  
+For each temperature, pulse duration, and SOC level, the discharge power limitations are detailed. Values provide the output in W (Watts). For example:  
+- At a temperature of 45°C and 10-second pulse duration, the discharge limit for 97% SOC is 3153 W, and for 90% SOC is 3067 W.  
+- At -20°C and 60-second pulse duration, the discharge limit for 80% SOC is 297 W, and for 3% SOC is 41 W.
+
+**Charge Power Limitation**  
+For each operating condition, pulse duration, and SOC level, the charge power limitations are specified. An example:  
+- At 25°C and 30-second pulse duration, the charge limit for 97% SOC is 346 W, and for 40% SOC is 294 W.  
+- At -30°C and 60-second pulse duration, the charge limit for 90% SOC is 50 W, and for 3% SOC is 5 W.
+
+Figures 35 and 36 provide visual representations of the discharge and charge power limitations at the cell level.
+
+2.7.9.2 Battery Pack Level.
+This subsection outlines the discharge and charge power limitations at the battery pack level.
+
+**Discharge Power Limitation**  
+Details include values for varying temperatures, pulse durations, and SOC levels:
+- For 45°C and 10-second pulse duration, the discharge limit for 90% SOC is 325 kW, and for 3% SOC is 256 kW.  
+- At 0°C and 60-second pulse duration, the discharge limit for 80% SOC is 101 kW, and for 10% SOC is 31 kW.  
+
+**Charge Power Limitation**  
+Charge power limitations are provided under specified temperature and SOC levels:  
+- At 25°C and 60-second pulse duration, the charge limit for 97% SOC is 6 kW, and for 40% SOC is 5 kW.  
+- At -20°C and 10-second pulse duration, the charge limit for 80% SOC is 3 kW, and for 5% SOC is 1 kW.
+
+Figures 37 and 38 visually display the discharge and charge limits at the battery pack level under varying conditions.
+</page>
+
+<page number="29">
+2.7.10 Current Limits.
+
+Figure 39 Current limits discharge.
+
+Figure 40 Current limits charge.
+
+2.7.11 Cell Internal Resistance.
+
+Figure 41 Internal Cell Resistance discharge (mΩ).
+
+Figure 42 Internal Cell Resistance charge (mΩ).
+</page>
+
+<page number="30">
+2.7.12 Fast Charge Map.  
+The maximum C-Rate values for fast charge at various SOC and temperatures are presented.  
+
+Figure 43 Maximum C-Rate for fast charge.  
+
+2.7.13 Traceability and Labelling.  
+Three labels are applied to the surface of the RESS: HV Warning label, Logo label, and VF label. The detailed locations of these labels are shown in Figure 44.  
+
+Figure 44 Labels Location.  
+
+The contents of the three labels are illustrated in Figures 45, 46, and 47. The HV Warning label indicates precautions for handling high voltage systems.  
+
+Figure 45 HV Warning label.
+</page>
+
+<page number="31">
+3. Packaging, Transportation, Storage, Maintenance and Risk Warning.
+
+3.1 Packaging.
+RESS is packed in a specified packing wooden box with a plastic bag. All exposed terminals are protected by the protective cover. The following documents are attached to the packing box:
+- Pass certificate.
+- Outgoing report as CATL template.
+</page>
+
+<page number="32">
+3. Packaging, Transportation, Storage, Maintenance and Risk Warning.
+
+3.1 Packaging.  
+RESS is packed in a specified packing wooden box with a plastic bag. All exposed terminals are protected by the protective cover. The following documents are attached to the packing box:  
+- Pass certificate.  
+- Outgoing report as CATL template.  
+- Copy of UN38.3 certificate report (For no Chinese market).  
+- MSDS.  
+
+Figure 14 shows the RESS packing diagram.
+
+3.2 Transportation.  
+RESS should be transported at a State of Charge (SOC) of less than 30%. During transportation, strong vibration, impact, and exposure to sunlight shall be avoided. In the process of loading and unloading, RESS should be handled with care to prevent throwing, rolling, pressure, and inversion.
+
+3.3 Storage.  
+RESS shall be stored in a clean, ventilated room without exposure to sunlight, high temperature, corrosive gas, vibration, impact, and other climate and mechanical loadings. RESS should be placed far away from heat sources. Storage altitude should be less than 1500m with 86kPa~106kPa.  
+RESS should be stored at an SOC between 30%~50%. Storage environment requirements are detailed as follows:  
+- Storage temperature: 15°C~35°C recommended.  
+- Storage humidity: ≤95%RH, 10%~85%RH recommended.  
+
+3.4 Maintenance.  
+Customers have the responsibility to make a maintenance plan according to the storage duration and SOC of RESS. The RESS SOC shall always be more than 7% for storage. RESS can be stored for 3 months in a suitable environment, and maintenance is recommended as a standard charge and discharge cycle. If customers plan to store RESS for more than 30 days, SOC must be adjusted to 30%-50%.  
+
+**Note:** Samples are transported by air. The initial SOC is less than 30%, and customers shall ensure there is no over self-discharge once the samples arrive.
+</page>
+
+<page number="33">
+3.5 Risk Warning
+
+**WARNING**  
+BATTERY PACK IS POTENTIALLY DANGEROUS, PROPER PRECAUTIONS MUST BE TAKEN IN OPERATION AND MAINTENANCE!  
+IMPROPER OPERATION MAY RESULT IN SEVERE PERSONAL BODY INJURY OR PROPERTY DAMAGES!  
+PROPER TOOLS AND SAFEGUARD EQUIPMENT MUST BE USED!  
+MAINTENANCE MUST BE CARRIED OUT BY PERSONNEL WITH KNOWLEDGE OF BATTERY AND WITH SAFETY TRAINING!  
+VIOLATION OF THE WARNING ABOVE WILL LEAD TO VARIOUS DISASTERS!  
+
+*Figure 48 Risk Warning.*
+
+4. FUSA  
+
+| **ID**          | **Requirement Type**       | **FSR - Functional Safety Requirement**                                                                                  | **ASIL** | **Degradation Concept**                              | **Safe State**                 | **FTTI (s)** |
+|------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|------------------------------------------------------|-------------------------------|-------------|
+| RESS_FSR001      | Safety Requirement         | The RESS shall detect errors in the validity of the received current signal from the current sensor, i.e. correct and valid range of values or states. | ASIL C   | Both sensor fault - SS, 1 sensor fault - Limp home mode | SS[RESS].01, SS[RESS].03       | 1           |
+| RESS_FSR002      | Safety Requirement         | The RESS shall detect errors in the validity of the received signals from the sensors (voltage, temperature), i.e. correct and valid range of values or states. | ASIL C   | Limp Home Mode                                      | SS[RESS].01, SS[RESS].03       | 5           |
+| RESS_FSR004      | Safety Requirement         | The RESS shall detect errors in the validity of the status signal from the Main contactors, i.e. correct and valid range of values or states.       | ASIL C   | Not allow to close the HV contactors               | SS[RESS].01                    | 1           |
+| RESS_FSR010      | System Requirement         | The RESS shall detect errors in the validity of the status signal from the Pre-charge contactor, i.e. correct and valid range of values or states. | QM       | NA                                                   | NA                            | NA          |
+</page>
+
+<page number="34">
+3.5 Risk Warning.
+
+WARNING: BATTERY PACK IS POTENTIALLY DANGEROUS, PROPER PRECAUTIONS MUST BE TAKEN IN OPERATION AND MAINTENANCE!
+IMPROPER OPERATION MAY RESULT IN SEVERE PERSONAL BODY INJURY OR PROPERTY DAMAGES!
+PROPER TOOLS AND SAFEGUARD EQUIPMENT MUST BE USED!
+MAINTENANCE MUST BE CARRIED OUT BY PERSONNEL WITH KNOWLEDGE OF BATTERY AND WITH SAFETY TRAINING!
+VIOLATION OF THE WARNING ABOVE WILL LEAD TO VARIOUS DISASTERS!
+
+Figure 48 Risk Warning.
+
+4. FUSA.
+
+RESS_FSR011: At startup, the RESS shall control the pre-charge contactor in order to allow the high-voltage network to rise while limiting the peak current; this is implemented to reduce the electrical stress on the components of the systems and improve reliability. The requirement type is QM. No additional attributes are defined.
+
+RESS_FSR013: The RESS shall communicate to the VCU (Vehicle Control Unit) when charging or discharging is inappropriate. This safety requirement is graded ASIL C. No additional attributes are defined.
+
+RESS_FSR014: The RESS shall continuously monitor low-voltage power to ensure safe state is reached under all failure conditions. The requirement is ASIL C with a degradation concept of "Open HV contactors - Delayed Power Down" and safe states of SS[RESS].01 with a fault-tolerant time (FTTI) of 5 seconds.
+
+RESS_FSR015: The RESS shall continuously monitor thermal cooling to ensure safe state is reached under all failure conditions. This safety requirement is ASIL C with a degradation concept of NA and safe states SS[RESS].01 and SS[RESS].03 with a fault-tolerant time (FTTI) of 1 second.
+
+RESS_FSR016: The RESS shall qualify its safety-critical signals (i.e., CAN, hardwired, etc.) sent to other vehicle modules. This safety requirement is ASIL C. No degradation or safe states are defined, and the fault-tolerant time (FTTI) is 1 second.
+
+RESS_FSR019: The RESS shall use a fail-safe strategy based on two or more fully independent functional paths. The requirement is ASIL C and has a degradation concept of "Open HV contactors - Delayed Power Down" with safe states of SS[RESS].01 and a fault-tolerant time (FTTI) of 4 seconds.
+
+RESS_FSR020: The RESS shall continuously monitor its RESS internal faults. This safety requirement is ASIL C and has a degradation concept of "Open HV contactors - Delayed Power Down" with safe states of SS[RESS].01 and a fault-tolerant time (FTTI) of 4 seconds.
+
+RESS_FSR021: In case of RESS internal fault conditions, the RESS shall transition into a safe state corresponding to the safety goal within the established fault-tolerant time. The requirement is ASIL C and has a degradation concept requiring:
+1. Warning to Driver.
+2. Degradation occurs.
+3. Open HV Contactor.
+Safe states are SS[RESS].01 and SS[RESS].03, with a fault-tolerant time (FTTI) of 4 seconds.
+
+RESS_FSR022: The RESS shall continuously monitor electric shock conditions. The requirement is ASIL B. HVIL specifications include:
+1. Charging: Open HV contactors - Delayed Power Down.
+2. Driving: DTC is logged and allowed to drive in normal mode.
+3. Ideal: HVIL failure detected during "Not allow to close HV contactor."
+
+Insulation specifications include:
+1. DC Charging: Turned OFF in RESS with no action.
+2. AC Charging: RESS is turned ON, and at critical level, open HV.
+Safe states are SS[RESS].01 and SS[RESS].04 with a fault-tolerant time (FTTI) of 1 second.
+</page>
+
+<page number="35">
+3. Discharging: Level 0 and Level 1 warnings are sent in CAN. Level 2 indicates an error leading to degradation or limp home mode. For ideal conditions, it does not apply.
+
+RESS_FSR023 Safety Requirement.  
+In case of electric shock conditions, the RESS shall transition into a safe state of the corresponding safety goal within the established fault tolerant time.  
+- **ASIL:** B  
+- **Safe State:** Same as above, SS[RESS].01  
+- **FTTI:** 1s  
+
+RESS_FSR024 Safety Requirement.  
+The RESS shall continuously monitor thermal event conditions (i.e., Over-temperature, Over-charge, Over-discharge, Over-current, Internal/External short).  
+- **ASIL:** C  
+- **Safe State:** Open HV contactors - Delayed Power Down  
+  - 1. Over Temperature  
+  - 2. Over Voltage  
+  - 3. Over Current  
+  - 4. Under Temperature  
+  - 5. Under Voltage  
+  - 6. Short Circuit  
+- **Fault Tolerance Time Intervals:**  
+  - 1. OT: 5s  
+  - 2. OV: 2s  
+  - 3. OC: 1s  
+  - 4. UT: 5s  
+  - 5. UV: 2s  
+  - 6. SC: 300ms  
+
+RESS_FSR024a Safety Requirement.  
+The RESS shall detect over-temperature condition (thermal event) and transit to the safe states [SS[RESS].02, SS[RESS].03] within the FTTI duration of 5s.  
+- **ASIL:** C  
+- **Safe State:** Open HV contactors - Delayed Power Down, SS[RESS].02, SS[RESS].03  
+- **FTTI:** 5s  
+
+RESS_FSR024b Safety Requirement.  
+The RESS shall detect under-temperature condition (thermal event) and transit to the safe state [SS[RESS].02, SS[RESS].03] within the FTTI duration of 5s.  
+- **ASIL:** C  
+- **Safe State:** Open HV contactors - Delayed Power Down, SS[RESS].02, SS[RESS].03  
+- **FTTI:** 5s  
+
+RESS_FSR024c Safety Requirement.  
+The RESS shall detect over-voltage condition (thermal event) and transit to the safe state [SS[RESS].01, SS[RESS].03] within the FTTI duration of 2s.  
+- **ASIL:** C  
+- **Safe State:** Open HV contactors - Delayed Power Down, SS[RESS].01, SS[RESS].03  
+- **FTTI:** 2s  
+
+RESS_FSR024d Safety Requirement.  
+The RESS shall detect under-voltage condition (thermal event) and transit to the safe state [SS[RESS].01, SS[RESS].03] within the FTTI duration of 2s.  
+- **ASIL:** C  
+- **Safe State:** Open HV contactors - Delayed Power Down, SS[RESS].01, SS[RESS].03  
+- **FTTI:** 2s  
+
+RESS_FSR024e Safety Requirement.  
+The RESS shall detect over-current condition (thermal event) and transit to the safe state [SS[RESS].01, SS[RESS].03] within the FTTI duration of 1s.  
+- **ASIL:** C  
+- **Safe State:** Open HV contactors - Delayed Power Down, SS[RESS].01, SS[RESS].03  
+- **FTTI:** 1s  
+
+RESS_FSR024f Safety Requirement.  
+The RESS shall detect internal short-circuit condition (thermal event) and transit to the safe state [SS[RESS].01, SS[RESS].03] within the FTTI duration of 300ms.  
+- **ASIL:** C  
+- **Safe State:** Open HV contactors - Delayed Power Down, SS[RESS].01, SS[RESS].03  
+- **FTTI:** 300ms
+</page>
+
+<page number="36">
+**VinFast Management System**  
+**VFDSXNBAT0001**  
+**Version: 1**  
+Uncontrolled copy when printed  
+Page: 36 of 55  
+
+**3. Discharging:**  
+- Level 0 & Level 1 - Warning is sent in CAN.  
+- Level 2 - Error degradation/limp home.  
+- Level 3 - Conditions do not apply.  
+
+**RESS_FSR025 – Safety Requirement**  
+The RESS shall transition into the safe state of the corresponding safety goal within the established fault tolerant time in case of thermal event conditions (e.g., Over-temperature, Over-charge, Over-discharge, Over-current, Internal/External short).  
+**ASIL:** C  
+**Safe States:** SS[RESS].01, SS[RESS].02, SS[RESS].03  
+**FTTI:** 1s  
+
+**RESS_FSR029 – Safety Requirement**  
+The RESS shall transition into the safe state of the corresponding safety goal within the established fault tolerant time in case of cell venting conditions (e.g., Over-temperature).  
+**ASIL:** C  
+**Safe States:** SS[RESS].01, SS[RESS].02, SS[RESS].03, FSR024a  
+
+**RESS_FSR031 – Safety Requirement**  
+In case of RESS high-voltage power output fault conditions (e.g., insufficient, loss of HV power), the RESS shall transition into the safe state of the corresponding safety goal within the established fault tolerant time.  
+**ASIL:** C  
+**FTTI:** 1s  
+
+**RESS_FSR035 – Safety Requirement**  
+In case of crash detection signals received from the vehicle (ACM-CAN and hardwired crash signals), the RESS shall transition into the safe state of emergency shutdown within the established fault tolerant time.  
+**ASIL:** C  
+**Response:** Emergency shutdown - Immediately open the contactor.  
+**Safe State:** SS[RESS].01  
+**FTTI:** 250ms  
+
+**RESS_FSR038 – Safety Requirement**  
+The RESS shall continuously monitor Main contactors fault conditions (e.g., sticking, welded, chatter).  
+**ASIL:** C  
+**Response:**  
+1. HSD & LSD Driver Fault due to over current & over temperature.  
+2. High or Low driver current detection.  
+3. Diagnostics status.  
+4. Physical Contactor Status.  
+Open HV contactors - Delayed Power Down.  
+
+**RESS_FSR039 – Safety Requirement**  
+In case of one or more of the main contactors fault conditions (e.g., sticking, welded, chatter), the RESS shall transition into the safe state of the corresponding safety goal within the established fault tolerant time.  
+**ASIL:** C  
+**Response:**  
+1. HSD & LSD Driver Fault due to over current & over temperature.  
+2. High or Low driver current detection.  
+3. Diagnostics status.  
+4. Physical Contactor Status.  
+Open HV contactors - Delayed Power Down.  
+**Safe State:** SS[RESS].04  
+**FTTI:**  
+- 500ms  
+- 1s  
+- 2s  
+- 1s  
+
+**RESS_FSR040 – Safety Requirement**  
+The RESS shall continuously monitor active cooling system fault conditions (e.g., insufficient, loss, degraded).  
+**ASIL:** C  
+
+**RESS_FSR041 – Safety Requirement**  
+In case of active cooling system fault conditions (e.g., insufficient, loss, degraded), the RESS shall transition into the safe state of the corresponding safety goal.  
+**ASIL:** C  
+**Safe States:** NA  
+FTTI: NA  
+VinFast Released  
+[EXPIRED]
+</page>
+
+<page number="37">
+3.5 Risk Warning
+
+Warning: Battery pack is potentially dangerous. Proper precautions must be taken during operation and maintenance! Improper operation may result in severe personal body injury or property damages! Proper tools and safeguard equipment must be used! Maintenance must be carried out by personnel with knowledge of batteries and safety training! Violation of the warnings above will lead to various disasters!
+
+Figure 48 Risk Warning.
+
+4. FUSA
+
+RESS_FSR042: Safety Requirement.  
+In case the RESS is not powered anymore (e.g., IGN OFF, Manual Service Disconnect Switch ON, +12V cut-off), the RESS shall transition into a safe state of corresponding safety goal within the established fault-tolerant time.  
+ASIL: C  
+Safe State: NA  
+FTTI (s): NA  
+
+RESS_FSR043: Safety Requirement.  
+The HVIL sensor shall have self-diagnostics to detect failures in its ability to detect and correctly report to the RESS possible electric shock conditions.  
+ASIL: B  
+Safe State: Please check FSR022 SS[RESS].01, SS[RESS].04.  
+FTTI (s): NA  
+
+RESS_FSR044: Safety Requirement.  
+In case the HVIL circuit is violated (e.g., by intrusions into the high-voltage power circuit), the RESS shall transition into a safe state of corresponding safety goal within the established fault-tolerant time (refer to B-BEV-C-SUV WnDC RESS.pdf).  
+ASIL: B  
+Safe State: Please check FSR022 SS[RESS].01, SS[RESS].04.  
+FTTI (s): NA  
+
+RESS_FSR045: Safety Requirement.  
+The RESS shall send battery fault warnings to the driver through the VCU when conditions indicate the potential for or the existence of violation of safety goals.  
+ASIL: C  
+Safe State: SS[RESS].03.  
+FTTI (s): NA  
+
+RESS_FSR046: System Requirement.  
+The RESS shall log and store the following data every time a transition to a safe state is executed due to a violation of a safety goal:  
+- a) As per SAE J2012 Diagnostic Trouble Codes.  
+- b) The diagnostics information of the faults including the time at which the fault was detected and the nature of the fault.  
+- c) The fault-tolerant time (from the detection of the fault to reaching a safe state).  
+- d) The time the system degradation strategy started, including the start and end of each phase, if applicable, and the values of the system metrics for each phase.  
+- e) The time the driver warning strategy started, including the start and end of each phase if applicable, and the values of the system metrics for each phase.  
+ASIL: QM  
+Safe State: NA  
+FTTI (s): NA
+</page>
+
+<page number="38">
+f) The data are to be retained until it is accessed by authorized personnel.
+
+RESS_FSR047  
+System Requirement  
+The RESS shall ensure dissipation of heat through its mechanical design.  
+* QM  
+* NA  
+* NA  
+* NA  
+
+RESS_FSR048  
+System Requirement  
+The RESS shall ensure physical integrity (i.e. rupture, leakage due to mechanical shock, vibration etc.) through its mechanical and packaging design according to relevant standards.  
+* QM  
+* NA  
+* NA  
+* NA  
+
+RESS_FSR049  
+System Requirement  
+The RESS shall ensure isolation from the passenger compartment through its mechanical design.  
+* QM  
+* NA  
+* NA  
+* NA  
+
+RESS_FSR050  
+Safety Requirement  
+The RESS hardware architectural metrics shall meet below targets for ASIL B Safety Goal SG1:  
+* “Evaluation of Probabilistic Metric for random Hardware Failures (PMHF)” ≤ 100 FIT (10−7 h−1)  
+* “Single-point fault metric (SPFM)” ≥ 90%  
+* “Latent-fault metric (LFM)” ≥ 60%  
+* ASIL B  
+* NA  
+* NA  
+* NA  
+
+RESS_FSR051  
+Safety Requirement  
+The RESS hardware architectural metrics shall meet below targets for ASIL C Safety Goal SG2:  
+* “Evaluation of Probabilistic Metric for random Hardware Failures (PMHF)” ≤ 100 FIT (10−7 h−1)  
+* “Single-point fault metric (SPFM)” ≥ 97%  
+* “Latent-fault metric (LFM)” ≥ 80%  
+* ASIL C  
+* NA  
+* NA  
+* NA  
+
+RESS_FSR052  
+Safety Requirement  
+The RESS hardware architectural metrics shall meet below targets for ASIL C Safety Goal SG3:  
+* “Evaluation of Probabilistic Metric for random Hardware Failures (PMHF)” ≤ 100 FIT (10−7 h−1)  
+* “Single-point fault metric (SPFM)” ≥ 97%  
+* “Latent-fault metric (LFM)” ≥ 80%  
+* ASIL C  
+* NA  
+* NA  
+* NA
+</page>
+
+<page number="39">
+3.9 Safety and System Requirements for the RESS Hardware.
+
+RESS_FSR053: The RESS hardware architectural metrics shall meet below targets for ASIL C Safety Goal SG4:
+- Evaluation of Probabilistic Metric for random Hardware Failures (PMHF) ≤ 100 FIT (10−7 h−1).
+- Single-point fault metric (SPFM) ≥ 97%.
+- Latent-fault metric (LFM) ≥ 80%.
+
+RESS_FSR054: The RESS shall fulfil all relevant local and international standards for the following markets:
+a) ASEAN (Vietnam, Thailand, Singapore, the Philippines, Malaysia, Indonesia, Cambodia, Laos, Myanmar, and Brunei).
+Refer to the following list, including but not limited to:
+- IATF 16949.
+- ISO 26262:2018.
+- FMVSS and CMVSS.
+- FMVSS No. 305: Electric-powered Vehicle – Electrolyte spillage and electrical shock.
+- UNECE R100.Rev2: Electric power trained vehicles.
+- UNECE GTR20: Electric vehicle safety.
+- SAE J2990: Hybrid and EV First and Second Responder Recommended Practice.
+- SAE J2012: Diagnostic Trouble Codes.
+
+RESS_FSR056: The RESS shall fulfil all relevant local and international standards for the following markets:
+a) ASEAN (Vietnam, Thailand, Singapore, the Philippines, Malaysia, Indonesia, Cambodia, Laos, Myanmar, and Brunei),
+b) NORTH AMERICA (USA, Canada) and c) EUROPE (27 countries and United Kingdom).
+Refer to the following list, including but not limited to:
+- IATF 16949.
+- ISO 26262:2018.
+- FMVSS and CMVSS.
+- FMVSS No. 305: Electric-powered Vehicle – Electrolyte spillage and electrical shock.
+- UNECE R100.Rev2: Electric power trained vehicles.
+- UNECE GTR20: Electric vehicle safety.
+- SAE J2990: Hybrid and EV First and Second Responder Recommended Practice.
+- SAE J2012: Diagnostic Trouble Codes.
+</page>
+
+<page number="40">
+## 5. Cybersecurity
+Refer to BMS C-Sample Specbook VFDSXNBAT0003.
+
+---
+
+## 6. Supplier Compliance Matrix
+
+### Item: Scope of product/commodity  
+**Type**: VF7 SOR  
+**CATL Proposal or Response**: PLUS; 202Ah 1P106S CTP  
+**Comment**: CATL2022/3: CATL's company strategy recommends LFP proposal, not NCM, for Vietnam market.
+
+#### 1.1 Requirement: Sales Markets  
+**Type**: VF7 SOR  
+**CATL Proposal or Response**: Vietnam, USA, CANADA & Europe; USA, CANADA & Europe  
+**Comment**: CATL2022/3 specifies company strategy recommendations for LFP in Vietnam.
+
+---
+
+### 3.2 Heading: Technical Requirement  
+
+#### 3.2.1 Heading: Product Overview  
+This document contains the set of technical requirements for the Prototype & Serial Production Part HV Battery, which are needed to fulfill the target of VINFAST for the Vehicle Application. 
+
+The HV Battery consists of:  
+- HV BATTERY HOUSING  
+- MODULES: with integrated cells  
+- BATTERY MANAGEMENT SYSTEM (BMS)  
+- THERMAL SYSTEM  
+- DEGASING SYSTEM  
+- HV SYSTEM: includes Battery Distribution Box  
+- LV SYSTEM  
+- Non-swapping connectors (HV and cooling connectors).
+
+**Type**: VF7 SOR  
+**CATL Proposal or Response**: Agree  
+
+VinFast Released  
+[ **EXPIRED** ]
+</page>
+
+<page number="41">
+3.2.2 HV Battery main requirement.
+
+I General
+
+1. Energy Usable (kWh): Requirement - 76; Response - 75.3.  
+2. Nominal Voltage (V): Requirement - ~400V; Response - 396.  
+3. Voltage Range (capacity V): Requirement - 275 – 462V; Response - 297 – 466.  
+4. Typical Capacity (kWh): Requirement - /; Response - 80.  
+5. Energy Density (Wh/Kg): Requirement - 153 >= X >= 161; Response - >161. CATL2022/3: CATL can make the target on weight and energy density of pack.
+
+II Charging  
+
+1. Standard Charging Current: Requirement - 0.3C; Response - 0.3C.  
+2. DC Fast Charge Requirement: Requirement - <= 19mins from 10-70% SOC; Response - 24min from 10-70%. CATL2022/3: FC capability is based on B2 sample.  
+3. Emergency Fast Charge: Requirement - NA; Response - /.  
+
+III Discharging  
+
+1. Minimum Discharging End Voltage: Requirement - 275V; Response - 297.  
+2. Peak Discharging Power [KW]: Requirement - 280; Response - 302@50% SOC 25degC 30s.  
+3. Continuous Discharging Power [KW]: Requirement - 87; Response - 80@50% SOC 25degC 30min.  
+4. Standard Discharging Current [C-rate]: Requirement - /; Response - 0.3C.  
+
+IV Other Requirements  
+
+1. Functional Safety: Requirement - ISO 26262 ASIL-C; Response - ISO 26262 ASIL-C.  
+2. Cooling Type: Requirement - Liquid Cooling; Response - Liquid Cooling.  
+3. Ambient Temperature: Requirement - -35degC - 55degC; Response - Agree. CATL2022/3: Operation temperature: -30degC~55degC. Storage temperature: -40degC~60degC.  
+4. Ambient Humidity: Requirement - <= 95%; Response - Agree.  
+5. Weight as Shipped: Requirement - 472 <= X <= 497; Response - <497. CATL2022/3: CATL can make the target on weight and energy density of pack.  
+6. Degree of Protection: Requirement - IP67/IP6K9K; Response - Agree.  
+7. Battery Lifetime: Requirement - 8 years or 160,000km @70% SOH; Response - TBC. CATL2022/3: The warranty ability would be evaluated by pack design and lifetime simulation model based on VinFast warranty profile input.  
+8. Testing and Validation: Requirement - Satisfy all VinFast requirements and meet the target market’s Homologation and Safety Regulation requirements; Response - Agree.  
+9. Warranty: Requirement - <10 PPM returned; Response - TBC. CATL2022/3: The warranty ability would be evaluated by pack design and lifetime simulation model based on VinFast warranty profile input.  
+10. Manufacturing: Requirement - >1.33Cpk; Response - Agree.  
+
+3.2.3 Sub-Components Requirements.
+
+3.2.3.1 HV Battery Housing
+
+1. Degree of Protection: Requirement - IP67 (Battery Pack Requirements) / IP6K9K (meet at vehicle); Response - Agree.
+</page>
+
+<page number="42">
+2 Reqt Mechanical Stability  
+ECE R100-2:  
+- Housing Structural requirement  
+- Mechanical Shock pulse  
+- Class M1 with no leakage  
+- No fire or explosion  
+- Withstand crush  
+ISO 19453-6:  
+- Vibration profile  
+- Endurance response above 35Hz  
+Minimum Static Stiffness Requirement:  
+- 1000 N/mm per mounting point  
+- Cross car structural support inside battery to support side crash test  
+Agree  
+
+3 Reqt Integrity  
+The integrity of the HV Battery housing shall be assured in case of crash, fire, cell opening. (Refer to Section – Testing and Validation)  
+Agree  
+
+4 Reqt Burst Resistance  
+The HV Battery housing shall not burst under any circumstance (crash, fire, cell opening).  
+Agree  
+
+5 Reqt Pressure  
+The HV Battery shall withstand ambient pressure variation between 0.79 bar and 1 bar.  
+Agree  
+
+6 Reqt Ground Connection  
+- The HV battery must be grounded via its housing with the resistance R <= 0.01Ω  
+0.1Ω  
+CATL2022/03: CATL platform design capability is 0.1Ω, which is the same as VF8/9  
+
+7 Reqt Resistance  
+- The resistance of the potential equalization path between internal HV components and the grounding point of the housing (= connection to potential equalization conductor) at EOL (end of life) is according to LV123.  
+Agree  
+
+**3.2.3.2 Heading Modules with integrated cells**  
+
+1 Reqt Protection of cells  
+- The modules protect the cells from over-temperature (out of range -20 ~ 45degC) and crash conditions.  
+No applicable  
+CATL2022/3: CATL propose CTP solution with cell blocks, there is no module part  
+
+2 Reqt Voltage  
+- The modules shall be designed for safe handling (below 60V DC).  
+No applicable  
+CATL2022/3: CATL propose CTP solution with cell blocks, there is no module part  
+
+**3.2.3.3 Heading HV Battery Management System (BMS)**  
+
+1 Reqt Control and Monitor  
+- The BMS shall monitor and control the HV battery to meet performance including thermal management and safety requirements during total life time.  
+Agree  
+CATL2022/3: CATL propose CTP solution with cell blocks, there is no module part
+</page>
+
+<page number="43">
+2  
+Requirement: Operational State.  
+- The BMS shall provide HV Battery operational states on CAN including, but not limited to: SOC, SOH, complete charging sequence, connected, disconnected, error.  
+- Detailed information to be provided during development phases of the project.  
+Status: Agree.  
+
+3.2.3.4  
+Heading: HV Battery Thermal Management System.  
+
+1  
+Requirement: Cell/Module Homogeneous Temperature.  
+- The HV Battery thermal system shall ensure a homogeneous temperature distribution across the cells/modules in the range of -30°C to 45°C.  
+Status: TBC.  
+Comment: Cooling performance is affected by vehicle cooling strategy (e.g., coolant temperature, flow rate, turn on/off temperature). Battery performance to be validated via thermal CAE after initial pack design and complete cooling strategy.  
+
+2  
+Requirement: Temperature Range.  
+- The HV Battery thermal system shall:  
+  - Keep battery cells within the 20°C – 35°C cell temperature range (ideal without running into thermal derating) while charging from the grid and during driving.  
+  - Bring cell temperatures into the 20°C – 35°C range within 30 minutes after temperature soaking to low/high temperatures.  
+Status: TBC.  
+Comment: Cooling performance is affected by vehicle cooling strategy (e.g., coolant temperature, flow rate, turn on/off temperature). Battery performance to be validated via thermal CAE after initial pack design and complete cooling strategy.  
+
+3  
+Requirement: Condensation Removal.  
+- The HV Battery internal thermal system shall support condensation removal over the vehicle’s lifetime.  
+Status: Agree.  
+
+4  
+Requirement: Thermal Efficiency.  
+- The battery shall meet a thermal efficiency target of 95% to minimize thermal losses through the battery body.  
+Status: Agree.  
+
+3.2.3.5  
+Heading: Degassing System.  
+
+1  
+Requirement: Protection.  
+- The HV Battery shall provide a degassing function that protects the battery system from safety-critical pressure levels and removes gas via a degassing valve only.  
+Status: Agree.  
+
+3.2.3.6  
+Heading: HV Internal Battery System.  
+
+[Content specific to HV Internal Battery System is not present on this page.]
+</page>
+
+<page number="44">
+1. Requirement: Contactors.  
+The HV battery shall provide contactors to connect/disconnect electrically the battery system to/from the HV Electrical System of the vehicle while driving/charging:  
+- HV+ and HV- main contactors (while driving).  
+- Plus Pre-charge relay (while pre-charging).  
+**Status:** Agree.  
+
+1.1 Requirement: HV+ Main Contactor.  
+The HV+ contactor shall connect/disconnect HV+ of the HV battery to/from HV DC line of the HV electrical system of the vehicle.  
+**Status:** Agree.  
+
+1.2 Requirement: HV- Main Contactor.  
+The HV- contactor shall connect/disconnect HV- of the HV battery to/from HV DC line of the HV electrical system of the vehicle.  
+**Status:** Agree.  
+
+1.3 Requirement: Isolation.  
+In open position, HV+ and HV- contactors shall electrically isolate the battery from the vehicle. The resistance must be ≥ 100MΩ.  
+**Status:** Agree.  
+
+1.4 Requirement: Open State.  
+The HV contactors shall return to the default "open" position if coil voltage drops below the holding voltage.  
+**Status:** Agree.  
+
+1.5 Requirement: Diagnostic.  
+The main contactors shall be fully diagnosable regarding switch status (open/close) and defect (for example melted contacts). The switching status has to be checked by contactor diagnosis (e.g. Voltage measurement procedure).  
+**Status:** Agree.  
+
+2. Requirement: Fuses.  
+The HV Battery Internal System shall provide fuses to ensure components are not damaged (number and type will be defined during detailing phase of the project).  
+The HV Battery Internal System shall provide pyro-fuses for disconnect, which are energized by an external module in the event of a crash.  
+**Status:** Agree.  
+
+3. Requirement: Inrush Current.  
+The HV system shall compensate for high inrush and load dump currents during component switching.  
+**Status:** Agree.
+</page>
+
+<page number="45">
+### VinFast Management System
+
+#### Version: VFDSXNBAT0001
+
+#### Safety Requirements
+
+4. Short Circuit Protection
+- In the event of a short circuit or if the current exceeds a certain threshold, fuses inside the HV battery shall break the current.
+- The contactors shall not be reused; the entire Battery Distribution Unit (BDU) must be replaced.
+**Status:** Agree.
+
+5. Manual Service Disconnection (MSD)
+- The battery shall accommodate a LV MSD (Service Disconnect) outside of the HV battery to disconnect supply for main contactors and an internal High Voltage Interlock (HVIL) safety line.
+**Status:** To Be Confirmed (TBC).  
+**Comments:** CATL2022/3 indicates there is no MSD design in CATL CTP pack.
+
+---
+
+#### LV System Requirements
+
+1. LV Connector
+- The HV battery system shall feature an LV connector, which functions as a 12V power supply and communication interface between the HV battery system and the vehicle.
+**Status:** Agree.
+
+2. Compliance
+- LV connectors must comply with HV battery requirements such as IP67 protection and EMC standards defined by VINFAST VFDSP50000002.
+**Status:** TBC.  
+**Comments:** CATL2022/3 notes the EMC capability should be validated via DV testing after pack design completion.
+
+3. LV Pin
+- Pin assignment to be provided to VF ATI1-EE for adapting LV wire harness.
+- B-Car pin assignment proposal referenced below in section 5.1.4.1 includes pin assignment details such as Pin#, signal name, description, wire thickness, and maximum current.
+**Status:** Agree.
+
+4. Swapping
+- LV connectors must be designed for automatic connection/disconnection during the battery swapping process.
+**Status:** Agree.
+
+---
+
+#### LV Pin Assignment Table
+
+| No. | Group        | Interfaces              | Description              | Status |
+|-----|--------------|-------------------------|--------------------------|--------|
+| 1   | LV Network   | +12v (KL30) Battery    | BMS power supply         | Agree  |
+| 2   | LV Network   | GND (–) (KL31)         |                          | Agree  |
+| 3   | LV Network   | Ground (-) (signal)    |                          | Agree  |
+| 4   | LV Network   | Ground (-) (case)      |                          | Agree  |
+| 5   | HVIL signal  | +12V Contactor Power   |                          | Agree  |
+| 6   | HVIL signal  | 5v PWM Signal OUT      | Out from the battery     | Agree  |
+| 7   | HVIL signal  | HVIL OUT               |                          | Agree  |
+</page>
+
+<page number="46">
+3.2.5 Functional Requirements
+
+3.2.5.1 Main Functional Requirements
+
+1. **Discharging:**  
+‒ The battery shall support discharging while driving during the whole life of the battery system.  
+**Status:** Agree  
+
+2. **Charging:**  
+‒ HV Battery shall send the charging profile to VCU.  
+**Status:** Agree  
+
+3. **Energy Storing:**  
+‒ The HV Battery shall store energy during the whole life of the battery system.  
+**Status:** Agree  
+
+4. **Cooling:**  
+‒ The Cooling function shall request cooling or heating demands from the powertrain system to ensure that the HV Battery is operated within -20°C – +45°C.  
+‒ HV Battery shall control Battery Cooling Pump in HV Battery Cooling Loop.  
+**Status:** To Be Confirmed (TBC)  
+**CATL Comments:** CATL2022/3: Cooling performance is also affected by vehicle cooling strategy (i.e. coolant temp., flowrate, turn on/off temp.). The battery performance would be validated by thermal CAE firstly after there is initial pack design and complete cooling strategy.
+</page>
+
+<page number="47">
+5 Reqt Supporting Functions  
+– This HV Battery function-group includes all the functions which are needed to support the whole powertrain functionality. The HV Battery shall provide the following functions to the powertrain system:  
+ü Communication.  
+ü Wake Up.  
+ü Power Up.  
+ü Power Down.  
+ü Shut Down.  
+ü Sleep Function.  
+ü Wake up for charging function.  
+ü Emergency power down function.  
+ü State of Charge (SOC) Calculation.  
+ü State of Energy (SOE) Calculation.  
+ü State of Health (SOH) Calculation.  
+ü State of Function (SOF) Calculation.  
+ü Isolation Monitoring.  
+ü Thermal Management.  
+ü State Determination / Signal acquisition and processing.  
+ü Diagnostics and Error Handling.  
+ü High Voltage Interlock Loop (HVIL) source and monitoring.  
+ü Flashing & SW Update.  
+ü Contactors Control (driving and charging).  
+ü Safety Monitoring.  
+ü High Voltage Measurement.  
+Agree  
+
+3.2.5.2 Heading Control System Functions  
+
+1 Reqt The BMS and HV Battery shall fulfill the following control system functions (shall be described in more detailed during the project):  
+ü State Determination, Signal Acquisition and Processing Function.  
+ü High Voltage Measurement.  
+ü Activation and Deactivation.  
+ü Communication function.  
+ü Contactors Control function.  
+ü SOC calculation function.  
+ü SOP calculation function.  
+ü SOF calculation function.  
+ü SOH calculation function.  
+/  
+Agree
+</page>
+
+<page number="48">
+3.2.6 Software Development Requirement.
+
+1 Requirement. The HV Battery shall at least have AUTOSAR Management Network with version 4.3.1. The system should follow VinFast specifications related to the AUTOSAR Basic Software Configuration. Status: Agree.
+
+3.2.7 Diagnostics Concept and Communication.
+
+1 Requirement. The module shall provide a diagnostics interface based on UDS ISO 14229:2013 Standard. Status: Agree.
+
+3.3 General CAE Requirements.
+
+1 Requirement. Refer to SOR. Status: Pending clarification from the supplier (CATL2022/3).
+
+3.4 Material Requirement.
+
+1 Requirement. The supplier can choose the materials but must meet the performance and service life requirements. A list of important materials must be provided. Metal parts must be treated with corrosion protection or made of corrosion-resistant materials. The surface of plastic parts must be flat, free of bubbles, cracks, and appearance deformation. Status: Agree.
+
+3.5 Traceability. (Content not fully provided.)
+</page>
+
+<page number="49">
+VinFast Management System.
+
+VFDSXNBAT0001.
+
+Version: 1.
+
+Uncontrolled copy when printed.
+</page>
+
+<page number="49">
+of 55.
+
+Print Date.
+
+### 4. Testing and validation.
+
+1. **Reqt**  
+   DVP and PC test responsibility follow RASIC.  
+   Battery Pack testing following as below table:  
+   Refer to test table in SOR.  
+
+   **Status:** Partly Agree.  
+   **Comment:** CATL2022/3:  
+   - Depends on detailed test item and research cost.  
+   - Need more discussion later.  
+   - CATL CTP pack would be designed to fulfill ECR-R100, UN38.3, ISO AND UL requirements.  
+   - For VF Internal standard, CATL will discuss with VinFast later after having a detailed test procedure or process.  
+   - CATL will follow the DV alignment of VF8/9.
+
+### 5. Safety.
+
+1. **Reqt**  
+   The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018, 2nd edition standard, Road vehicles – Functional safety. ASIL-C is required.  
+
+   **Status:** Agree.  
+
+2. **Reqt**  
+   **FOR VIETNAM:** Must follow up with UN-ECE.  
+
+   **Status:** TBC.  
+   **Comment:** CATL2022/3:  
+   - CATL's company strategy recommends LFP proposal, not NCM for the Vietnam market.
+
+3. **Reqt**  
+   **FOR NORTH AMERICA:** Must follow FMVSS or CMVSS.  
+
+   **Status:** Agree.  
+
+4. **Reqt**  
+   **FOR EUROPE:** Must follow UN-ECE.  
+
+   **Status:** Agree.
+
+### 7. Functional Safety Requirement.
+
+1. **Reqt**  
+   Must follow up ISO 26262 requirements.  
+
+   **Status:** Agree.
+
+### 7. DVP.
+
+#### 7.1 DV.
+
+**No. | Priority Level | Description of Service | Standard Refer | Test Location | Remark**
+
+1. **Critical**  
+   User Case P1 - Continuous Discharge.  
+   **Standard Refer:** VF Internal standard.  
+
+2. **Critical**  
+   User Case P2 - Peak / Pulse Discharge.  
+   **Standard Refer:** VF Internal standard.  
+
+3. **Critical**  
+   User Case P4 - Dynamic Discharge.  
+   **Standard Refer:** VF Internal standard.  
+
+4. **Normal**  
+   No load SOC loss at Room Temperature.  
+   **Standard Refer:** ISO 12405-4:2018.
+
+6. **Normal**  
+   SOC loss at storage.  
+   **Standard Refer:** ISO 12405-4:2018.
+</page>
+
+<page number="50">
+7 Normal 
+Energy and capacity at RT.  
+Standard: ISO 12405-4:2018  
+
+8 Normal 
+Energy and capacity at different temperatures and discharge rates.  
+Standard: ISO 12405-4:2018  
+
+9 Normal 
+Power and internal resistance.  
+Standard: ISO 12405-4:2018  
+
+10 Critical 
+Cycle life.  
+Standard: VF Internal standard  
+Remark: Review  
+
+11 Critical 
+Fast Charge.  
+Standard: VF Internal standard  
+
+**II Thermal performance**
+
+12 Critical 
+Battery thermal performance test.  
+
+13 Normal 
+Pack pressure drop at different flow rates and coolant temperature.  
+Standard: VF Internal standard  
+
+14 Normal 
+Thermal Resistance Test.  
+Standard: VF Internal standard  
+
+15 Critical 
+Temperature Shock.  
+Standard: ISO 6469-1:2019  
+Remark: Review  
+
+16 Critical 
+Battery Thermal Performance Tests (incl. SFC).  
+Standard: VF Internal standard  
+
+Critical  
+Super-fast charge test @ 35℃, 10% soc, with current map.  
+
+Critical  
+Coolant heating profile @ -20℃ with coolant heating until the cell max temperature is no less than 10℃.  
+
+Critical  
+Constant charge profile test @ 25℃, 10% soc without cooling.  
+
+Critical  
+Constant discharge profile test @ 25℃, 90% soc without cooling.  
+
+**III Mechanical Durability & Reliability**
+
+Critical  
+Vibration Endurance (Mechanical load).  
+Standard: ISO 19453-6  
+
+Critical  
+Mechanical Shock Test.  
+Standard: ISO 19453-6  
+
+Critical  
+Air Tightness Check.  
+Standard: ISO 19453-6  
+
+Normal  
+Leak Check/Thermal.  
+Standard: ISO 19453-6  
+
+Normal  
+Contactor ON/OFF durability test.  
+Standard: VF Internal standard
+</page>
+
+<page number="51">
+### IV Environmental
+
+- **Normal:** Thermal Cycling (ISO 19453-6, review).
+- **Normal:** External Salt Spray Test (ISO 19453-6:2020).
+- **Normal:** Chemical Resistance (ISO 20653:2013).
+- **Critical:** Ice Water Shock Test (Submersion Test) (ISO 16750-4).
+- **Normal:** Low Temperature Soaking Test (VF Internal Standard).
+- **Normal:** Humid Heat Condensation Test (ISO 19453-6).
+- **Critical:** IPX7 - Immersion into Water (ISO 19453-6:2020).
+- **Critical:** IPX9K - High Pressure/Steam Jet Cleaning (ISO 19453-6:2020).
+- **Critical:** IP6KX - Dust Protection (ISO 19453-6:2020).
+- **Normal:** High Altitude Test.
+- **Normal:** Damp Heat Constant (ISO 19453-6:2020).
+
+### V Safety - Battery Abuse
+
+- **Normal:** Bollard Test (VF Internal Standard).
+- **Normal:** Drop Test (UL 2580:2020).
+- **Normal:** Rotation Test (UL 2580:2020).
+- **Critical:** Thermal Runaway.
+- **Critical:** External Fire Exposure Test (review).
+- **Critical:** Coolant Leakage Test.
+- **Critical:** Trampled Test.
+- **Critical:** Crush Test (ECE R100).
+
+### VI Safety - Electric Safety
+
+- **Critical:** Crash Signal Detection (VF Internal Standard).
+- **Critical:** Contactor Diagnostics (Stuck Close and Stuck Open Conditions Check) (VF Internal Standard).
+- **Critical:** HVIL Interlock (VF Internal Standard).
+</page>
+
+<page number="52">
+7. VI Safety - Electric Safety  
+
+**Critical:** Dielectric Voltage Withstand Test  
+Standard: ISO 6469-3:2018  
+
+**Critical:** Continuity Test  
+Standard: ISO 6469-3:2018  
+
+**Critical:** Isolation Resistance  
+Standard: ISO 6469-3:2018  
+
+**Critical:** Imbalance Charging Test  
+
+---
+
+VII System Function Test  
+
+**Normal:** Residual Voltage  
+
+**Critical:** Pre-charge Test  
+
+**Critical:** HVIL Interlock  
+Standard: VF Internal Standard  
+
+**Critical:** Crash Signal Detection  
+
+**Critical:** Isolation Fault  
+
+**Normal:** SOP Accuracy Test  
+
+**Normal:** SOC Accuracy Test  
+
+---
+
+VIII EMC  
+VinFast Released  
+[ E X P I R E D ]
+</page>
+
+<page number="53">
+### IX. Low voltage General electric
+
+1. **Normal - E-01 Long-term overvoltage:** Follow VFDST00028121 standard.
+
+2. **Normal - E-02 Transient overvoltage:** Follow VFDST00028121 standard.
+
+3. **Normal - E-03 Transient under voltage:** Follow VFDST00028121 standard.
+</page>
+
+<page number="54">
+VinFast Management System
+
+VFDSXNBAT0001  
+Version: 1  
+Uncontrolled copy when printed  
+54 | 55  
+
+### Normal  
+**E-04 - Jump start**  
+VFDST00028121  
+
+### Critical  
+**E-05 - Load Jump**  
+VFDST00028121  
+
+### Normal  
+**E-06 - Superimposed alternating voltage**  
+VFDST00028121  
+
+### Normal  
+**E-07 - Slow decrease and increase of the supply voltage**  
+VFDST00028121  
+
+### Normal  
+**E-08 - Slow decrease, quick increase of the supply voltage**  
+VFDST00028121  
+
+### Normal  
+**E-09 - Reset behavior**  
+VFDST00028121  
+
+### Critical  
+**E-10 - Short interruptions**  
+VFDST00028121  
+
+### Normal  
+**E-12 - Voltage curve with intelligent generator control**  
+VFDST00028121  
+
+### Normal  
+**E-13 - Pin interruption**  
+VFDST00028121  
+
+### Normal  
+**E-14 - Connector interruption**  
+VFDST00028121  
+
+### Critical  
+**E-15 - Reverse polarity**  
+VFDST00028121  
+
+### Normal  
+**E-16 - Voltage offset**  
+VFDST00028121  
+
+### Critical  
+**E-17 - Short circuit in signal circuit and load circuits**  
+VFDST00028121  
+
+### Critical  
+**E-18 - Insulation resistance**  
+VFDST00028121  
+
+### Normal  
+**E-19 - Closed-circuit current**  
+VFDST00028121  
+
+### Normal  
+**E-21 - Back feeds**  
+VFDST00028121  
+
+---
+
+**X. High Voltage Testing**  
+
+### Normal  
+**Immunity to voltage ripple**  
+ISO 21498-2_2021  
+
+### Normal  
+**Immunity to voltage slope**  
+ISO 21498-2_2021  
+
+**Review**  
+
+### Critical  
+**Overvoltage**  
+ISO 21498-2_2021  
+
+**Review**  
+
+### Critical  
+**Under voltage**  
+ISO 21498-2_2021  
+
+**Review**  
+
+VinFast Released  
+[EXPIRED]
+</page>
+
+<page number="55">
+### VinFast Management System  
+**VFDSXNBAT0001**  
+
+Version: 1  
+Uncontrolled copy when printed  
+55 | 55  
+
+---
+
+#### X. High Voltage Testing  
+
+1. **Critical**  
+   **Voltage offset**  
+   *ISO 21498-2_2021*  
+
+2. **Critical**  
+   **Generated load dump voltage**  
+   *ISO 21498-2_2021*  
+
+3. **Critical**  
+   **Immunity to load dump voltage**  
+   *ISO 21498-2_2021*  
+
+---
+
+**VinFast Released**  
+*Expired*
+</page>
+</pages>

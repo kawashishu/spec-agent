@@ -1,0 +1,629 @@
+
+<filename>VFDSXXBEX0035_ROOF_RAILS_V2.0</filename>
+<pages>
+
+<page number="1">
+ROOF RAILS.  
+Specification Book (SPB).  
+SPB-B2P.  
+Aug-2022.
+</page>
+
+<page number="2">
+## Scope and purpose
+
+VinFast LLC (VinFast Trading and Production Limited Liability Company) have started to design and develop vehicle projects: VF36 and VFe36. Environmental impact and sustainability of the program are taken into account as essential target features. The document shall provide details for all components for mass production.
+
+### Responsible Contact:
+L. Hentschel
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Index.
+
+Contents:
+SCOPE AND PURPOSE  2  
+Index  3  
+
+1. Scope of Product/Commodity  6  
+   1.1 Sales Markets 6  
+   1.2 Production Volume  6  
+   1.3 Build Plan  6  
+
+2. Definitions and Applicable Documents  6  
+   2.1 CAD Data/Transfer Data-CAD Requirements  6  
+   2.2 Change Documentation and Part History Documentation  6  
+
+3. Requirements  7  
+   3.1 Contact  7  
+   3.2 Technical Requirement  8  
+   3.3 General CAE Requirements  9  
+   3.4 Material Requirement  9  
+   3.5 Traceability  10  
+   3.6 Labeling of Parts  10  
+   3.7 Testing and Validation and DVP&R  10  
+       3.7.1 Test Plan 11  
+       3.7.2 Test Plan Example  12  
+       3.7.3 Testing 12  
+       3.7.4 Test-Report/-Information  13  
+       3.7.5 Documentation of Result  14  
+       3.7.6 Archival Storage of Tested Parts  14  
+       3.7.7 Virtual Testing  14  
+       3.7.8 Component Testing  14  
+       3.7.9 Mechanical Integration Tests  14  
+   3.8 Appearance Approval - Applicable for all Visible Parts  15  
+
+4. Function Safety, Homologation and Safety Regulations  16  
+   4.1 Functional Safety Requirements  16  
+   4.2 Deliverables for Functional Safety  16  
+       a) FUSA Deliverables Expected Before Nomination  16  
+       b) FUSA Deliverables Expected After Nomination  16  
+   4.3 Homologation and Safety Regulation Requirements  17  
+       4.3.1 North America  17  
+       4.3.2 Europe  17  
+
+5. Deliverables  18  
+   5.1 Technical Deliverables  18  
+   5.2 Details Deliverables and RASI  18  
+
+6. Supplier Responsibilities  19  
+
+7. Intellectual Property/Copyright  20  
+
+8. Insurance/Warranties  20
+</page>
+
+<page number="4">
+9. VinFast GTC and Part Packaging and Incoterms.
+
+10. Definitions and List of Abbreviations.
+</page>
+
+<page number="5">
+Release. 
+
+Version: 2.0.  
+Date: Aug-2022.  
+
+**Updated by:**  
+Function: Exterior Engineering.  
+Name: Ludwig Hentschel.  
+
+**Revisions since previous version:**  
+
+| Version | Change Description | Signature | Date (dd/mm/yyyy) |
+|---------|---------------------|-----------|-------------------|
+| 1.0     | Initial release     | SI        | 04/06/2021        |
+| 1.1     | Update              | LH        | 05/07/2021        |
+| 1.2     | Update              | LH        | 01/02/2022        |
+| 1.3     | Update              | LH        | 05/07/2022        |
+| 2.0     | BOM Update          | LH        | 03/08/2022        |
+</page>
+
+<page number="6">
+1 Scope of product/commodity.
+
+1.1 Sales Markets.  
+LHD countries: VN (Vietnam), NA (North America - US: United States, CA: Canada), EU (Europe).
+
+1.2 Production volume.  
+Refer to Purchasing Request for Quotation.
+
+1.3 Build Plan.  
+Refer to appendix:  
+VFDSXXCVC1101.  
+Appendix_1_Build Plan_MDR.
+
+2 Definitions and applicable documents.
+
+2.1 CAD Data/Transfer data-CAD Requirements.  
+All CAD data must be designed with CATIA V5 following the VF standard VFDST00000014.  
+CAD data transfer from VinFast to the supplier will be done through the Supplier collaborative module.  
+For more details, refer to the Supplier collaborative module in the RFQ package.
+
+2.2 Change Documentation and Part History Documentation.  
+During the development and production process, all the history of changes within the framework of the contractor must be documented and provided to VinFast. The form of the data can be defined by the contractor.  
+
+Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements, must be marked on the drawings. The reasons and the characteristics which have to be documented are listed by authorities. These demands will be requested during the development of the part and latest in the PTO phase.
+</page>
+
+<page number="7">
+3 Requirements
+
+3.1 Contact.
+
+Contact details are provided for various roles associated with the commodity. The following list outlines the contacts along with their corresponding names, email IDs, and phone numbers.
+
+- **Commodity Buyer:**  
+  Name: Nguyen Hoang PHUONG  
+  Email: v.phuongnh16@vinfast.vn  
+  Contact Number: +84(0) 355511418  
+
+- **Commodity Buyer Manager:**  
+  Name: Dương Xuân Hải  
+  Email: v.haidx2@vinfast.vn  
+  Contact Number: +84(0) 904515468  
+
+- **Commodity Engineering:**  
+  Name: Ludwig Hentschel  
+  Email: ludwig.hentschel@edag.com  
+  Contact Number: +49(0)15168846491  
+
+- **Commodity EXT Manager VF:**  
+  Name: Nguyen Tien Duyet  
+  Email: v.duyetnt1@vinfast.vn  
+  Contact Number: (+84) 947093808  
+
+- **Commodity EXT Manager EDAG:**  
+  Name: Marco Vey  
+  Email: marco.vey@edag.com  
+  Contact Number: +49 (175) 7804459  
+
+- **SQE (Site Engineer):**  
+  Name: Junzhou Yu  
+  Email: v.junzhouy@vinfast.vn  
+
+- **SQE Manager:**  
+  Name: Stuart Kinkade  
+  Email: v.kinkades@vinfast.vn  
+  Contact Number: +84(0) 888183396  
+
+- **SCM Analyst:**  
+  Name: Dilshod Tokhtasinov  
+  Email: v.dilshod@vinfast.vn  
+  Contact Number: +84(0) 888352662  
+
+- **Packaging Analyst:**  
+  Name: Attsawarungsun Nimnaul  
+  Email: v.nimnaula@vinfast.vn  
+  Contact Number: +84(0) 888329955  
+
+- **SCM Manager:**  
+  Name: Benjamin Peter Stewart  
+  Email: v.bens@vinfast.vn  
+  Contact Number: +84(0) 888798855
+</page>
+
+<page number="8">
+VinFast Management System  
+VFDSXXBEX0035  
+
+### 3 Requirements  
+
+#### 3.2 Technical Requirement  
+Technical requirements include part design and functional performance specifications at VinFast level. Details are provided in Table 1:
+
+---
+
+**Table 1.a: Technical Information Table – Roof Rail (AS = After Sale)**
+
+1. **Roof Rails** (Part No.: BEX80230000; Purchase Level: I; Category: AS; All Markets: X)
+2. **Roof Rail Assembly Left-Hand (RH)** (Part No.: BEX80231200; Quantity: 1; Purchase Level: P; Category: AS; All Markets: X)
+3. **LH Roof Rails Jet Black** (Part No.: BEX80231001; Quantity: 1; Material: DIN EN 755-2 AW-6063 T5; Color/Grain: Jet Black, High Gloss; Purchase Level: D; Category: AS; All Markets: X)
+4. **Mounting Block Front LH** (Part No.: BEX80231116; Quantity: 1; Material: AL ADC12, Steel; Purchase Level: D; Category: AS; All Markets: X)
+5. **Mounting Block Mid LH** (Part No.: BEX80231117; Quantity: 3; Material: AL ADC12, Steel; Purchase Level: D; Category: AS; All Markets: X)
+6. **Roof Rail Seal LH** (Part No.: BEX80231009; Quantity: 1; Material: Rubber TL7846 EPDM 80±5 Shore A; Color/Grain: Generic Black, Matte; Purchase Level: D; Category: AS; All Markets: X)
+7. **Assembly Inner Fixing Adaptor** (Part No.: BEX30007011; Quantity: 4; Purchase Level: D; Category: AS; All Markets: X)
+8. **Plastic Inlay** (Part No.: BEX30007012; Quantity: 1; Material: POM; Purchase Level: D; Category: AS; All Markets: X)
+9. **Mount Block Steel** (Part No.: BEX30007013; Quantity: 2; Material: Steel 8.8; Purchase Level: D; Category: AS; All Markets: X)
+10. **Screw M6x22 Steel 8.8** (Part No.: BEX30007034; Quantity: 2; Material: Steel 8.8; Purchase Level: D; Category: AS; All Markets: X)
+11. **Sealing Washer Assembly** (Part No.: BEX80239000; Quantity: 4; Purchase Level: D; Category: AS; All Markets: X)
+12. **Sealing Washer** (Part No.: STD90002116; Quantity: 1; Purchase Level: D; Category: AS; All Markets: X)
+13. **Tape Sealing Washer** (Part No.: BEX80239010; Quantity: 1; Material: Adhesive Tape TL3175 Double Faced Tape 168; Purchase Level: D; Category: AS; All Markets: X)
+14. **Roof Rail Assembly RH** (Part No.: BEX80232200; Quantity: 1; Purchase Level: P; Category: AS; All Markets: X)
+15. **RH Roof Rails Jet Black** (Part No.: BEX80232002; Quantity: 1; Material: DIN EN 755-2 AW-6063 T5; Color/Grain: Jet Black, High Gloss; Purchase Level: D; Category: AS; All Markets: X)
+16. **Roof Rail Seal RH** (Part No.: BEX80232010; Quantity: 1; Material: Rubber TL7846 EPDM 80±5 Shore A; Color/Grain: Generic Black, Matte; Purchase Level: D; Category: AS; All Markets: X)
+17. **Mounting Block Front RH** (Part No.: BEX80232121; Quantity: 1; Material: AL ADC12, Steel; Purchase Level: D; Category: AS; All Markets: X)
+18. **Mounting Block Mid RH** (Part No.: BEX80232124; Quantity: 3; Material: AL ADC12, Steel; Purchase Level: D; Category: AS; All Markets: X)
+19. **Assembly Inner Fixing Adaptor** (Part No.: BEX30007011; Quantity: 4; Purchase Level: D; Category: AS; All Markets: X)
+20. **Plastic Inlay** (Part No.: BEX30007012; Quantity: 1; Material: POM; Purchase Level: D; Category: AS; All Markets: X)
+21. **Mount Block Steel** (Part No.: BEX30007013; Quantity: 2; Material: Steel 8.8; Purchase Level: D; Category: AS; All Markets: X)
+22. **Screw M6x22 Steel 8.8** (Part No.: BEX30007034; Quantity: 2; Material: Steel 8.8; Purchase Level: D; Category: AS; All Markets: X)
+23. **Sealing Washer Assembly** (Part No.: BEX80239000; Quantity: 4; Purchase Level: D; Category: AS; All Markets: X)
+24. **Sealing Washer** (Part No.: STD90002116; Quantity: 1; Purchase Level: D; Category: AS; All Markets: X)
+25. **Tape Sealing Washer** (Part No.: BEX80239010; Quantity: 1; Material: Adhesive Tape TL3175 Double Faced Tape 168; Purchase Level: D; Category: AS; All Markets: X)
+
+---
+**Table Notes:**  
+- AS = After Sale.  
+- Columns include Part Name, Part Number, Quantity, Material, Color/Grain, Purchase Level, and Market Application.
+</page>
+
+<page number="9">
+VinFast Management System  
+VFDSXXBEX0035  
+
+### 3.3 General CAE Requirements  
+Refer to SOR:  
+VFSRXXCVC0201  
+VFCAE-001-FEM-GENERAL_Analysis requirement  
+
+### 3.4 Material requirement  
+**Prohibited or Restricted Substances, Emissions & Toxicology:**  
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle according to VFDST00007601.
+</page>
+
+<page number="10">
+IMDS material data sheets have to be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (testing & Validation) and VFDST00007601. Specific targets on vehicle indoor air quality according to: VFDSXVCVC3401-VIAQ_Testing_Guideline.
+
+- Must define detailed material: weight, grade, density.  
+  Refer to Table 1 for specifics.
+
+### 3.5 Traceability
+For part requirements that follow specifications, please refer to VinFast standard VFDST00010501.
+
+### 3.6 Labeling of Parts
+Suppliers must follow VinFast standard VFDST00000010. Visual representations with figures for labeling position on parts are required (position labels set up with pictures).
+
+### 3.7 Testing and Validation and DVP&R
+DVP and PC test responsibilities follow RASIC. Testing includes virtual and physical evaluations for systems, subsystems, and component levels in alignment with the Complete Vehicle Specification Book during the concept phase. A detailed test plan for hardware tests is required in the DVP&R file and must involve collaboration with the Testing & Validation department.
+
+#### Testing Requirements:
+- Declaration of standards, norms, and legal requirements.
+- Description of devices used for testing (testing setup explanation with pictures).
+- Indication of testing location (internal/external).
+- Duration and timeline of testing (project plan format).
+- Description of part variations and tested components/parts.
+- Submission of PPAP material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines (IMDS 001 and IMDS Recommendations 002–122). Updates are mandatory for changes.
+- Material data sheets must be provided by the supplier to VinFast IMDS-ID 214435.
+
+#### Mileage Target:
+- Ensure mileage life of 160,000 km or 10 years, whichever comes first.
+
+#### Referenced DVP File:
+- VFDSXXBEX1138 and VFDSXXBEX1138-DVP_ROOF RAILS.xlsx.
+</page>
+
+<page number="11">
+### 3.7.1 Test Plan
+
+The test plan regulates by whom and when the testing will be done and which testing devices are necessary. This plan also shows the results in good visual state and the progress of testing. The controlling of the test results has to be ensured at all times. 
+
+For tests, the B2P SUP is contracted.
+
+The test procedures and the documentation have to be approved by the corresponding validation engineer and component lead engineer of VF.
+
+The test plan must be supplemented and updated weekly, or if new data/information due to development changes is needed.
+
+The B2P SUP has to ensure that VinFast gets all relevant test protocols/reports for verification and that VinFast can attend any testing at the B2P SUP site or their testing centers. Deviations from approved testing procedures have to be agreed upon between VinFast/B2P SUP.
+
+If testing was done with wrong parts, missing parts, or different testing procedures, the testing has to be redone at the cost of B2P SUP. In case of negative test results, the tests have to be re-planned and the retesting must be paid for by B2P SUP if they are responsible for the failure.
+
+The following data has to be included in the DVP&R:
+- Testing with declaration of standard, norm, legal requirement.
+- How and with which devices the testing was performed (description of testing set-up with pictures).
+- Responsible test department.
+- Where the testing was performed (internal/external).
+- Duration and time flow of the testing (in form of project plan).
+- Part variant, description of part.
+- No. of tested components/parts.
+
+The B2P SUP is responsible for using the draft DVP&R provided by VF testing department.
+
+The B2P SUP has to plan a DVP for each development stage, prototype (if defined in the master timing chart), and serial stage.
+
+In principle, the sequence of testing and the number of test specimen are to be determined in cooperation with the corresponding validation engineer and component lead engineer of VF.
+
+Upon request, the B2P SUP must use a test plan for each single component.
+</page>
+
+<page number="12">
+VinFast Management System
+
+VFDSXXBEX0035
+
+3.7.2 Test plan example  
+The DVP must be updated weekly addressing the following items by the supplier.
+
+3.7.3 Testing  
+3.7.3.1 General  
+The B2P SUP provides a detailed testing plan in accordance with the vehicle timing chart and ensures that the worst-case component/system variant is tested.  
+
+To avoid duplicate testing, mechanical and electrical tests must be combined wherever possible. The supplier must download the VinFast test standards from the Supplier Collaboration Portal/TC.  
+
+Unless otherwise agreed, a measurement report for each sample part must be included in the delivery. The component developer must ensure compliance with all relevant legislations and that all internal VF requirements outlined in the performance specification are met.  
+
+Test results must be fully documented with photographs in test reports and shared with VF. All obligations for laws in the target markets must be met.  
+
+All tests are required to be documented in alignment with the VinFast standard, or the B2P SUP standard if agreed by VF.  
+
+The B2P SUP must plan and conduct tests for all development stages in accordance with specifications and provide test results using the required DVP&R template (attached to the submission).  
+
+Sample inspections must be provided on time or by the agreed-upon date, in coordination with the testing department.
+</page>
+
+<page number="13">
+3.7.3.1 General.
+
+The B2P SUP provides in time a detailed testing plan in consideration of the vehicle timing chart. It must be guaranteed that the worst-case component/system variant will be tested. In order to prevent double testing, the mechanical and electrical tests have to be combined as far as possible. The supplier has to download the VinFast test standards via the Supplier Collaboration Portal/TC. Unless otherwise expressly agreed, a measurement report for each sample part must be enclosed in the delivery. All relevant target markets' law obligations have to be achieved. All tests must be documented according to VinFast standard, alternatively to B2P SUP standard, if this is accepted by VF.
+
+3.7.3 Analyses, test-reports.
+
+The B2P SUP has to provide measurement reports (VFDST00008900) in electronic format with agreed alignments and measurement concepts for all parts during the prototype generations. After individual tests, the test samples have to be analyzed in detail.
+</page>
+
+<page number="14">
+VinFast  
+Management System  
+
+VFDSXXBEX0035  
+
+3.7.5 Documentation of result  
+- Short description of the result (pictures, tables, detailed results, photo documentation, comparison with earlier test reports, evaluation of result OK/NOK, pictures of the parts in testing position, etc.)  
+- Comparison with results of the specification book, testing specification, legal requirements, etc.  
+- Recommendation.  
+- Description of corrective measures or further approach in case of negative test result.  
+- Progressional testing status.  
+- Listing of all tests in a table with responsible person, part status, comparison of target date and due date. In case of negative test results, the B2P SUP has to provide a new date for re-test with countermeasures to VF for approval, including the responsible person and company conducting the test.  
+
+The VF test engineer must be informed within 2 working days in the event of negative test results. The VF test engineer has to be informed in periodic intervals with actual status and progress.  
+
+If VinFast orders parts for testing on their own, the detailed description of the parts has to be attached.  
+
+3.7.6 Archival storage of tested parts  
+Testing parts are only allowed to be scrapped if the VinFast test department agrees to it. On demand of the test engineer, the complete testing documentation (reports, parts, and descriptions) must be presented.  
+
+3.7.7 Virtual testing  
+Suitable calculation methods are to be used and adequately detailed calculation models created by the B2P SUP for the purpose of securing, verifying, and effectively optimizing the component properties defined in the technical specification, test procedures, and valid laws/regulations.  
+
+- The requirements related to the mechanical properties of the component, such as rigidity, strength, dimensional stability under heat, and passive safety, are to be secured through FEM calculations.  
+- The tool-dimensioning for injection molding is to be optimized through corresponding simulations.  
+- On request, the operative calculation models that represent the respective development status must be provided at any time to the requesting technical departments of VF for internal calculations and integration work.  
+- On request from VinFast, the B2P SUP must provide suitable FEM models free of charge.  
+- The tests from the B2P SUP, according to the evaluation plan, must be calculatively documented (e.g., FEM) prior to tool dimensioning.  
+
+3.7.8 Component testing  
+The detailed required testing will be defined in the DVP. The DVP has to be agreed upon between VF, VinFast, and the B2P SUP and is binding.  
+
+3.7.9 Mechanical integration tests  
+The following test will be performed as mechanical integration tests in a complete vehicle:  
+- Climatic change test (VFDST00046100).
+</page>
+
+<page number="15">
+VinFast Management System  
+VFDSXXBEX0035  
+  
+3.7.9 Mechanical integration tests  
+The following tests will be performed as mechanical integration tests in a complete vehicle:  
+- **Climatic change test (VFDST00046100)**  
+- **Sunlight simulation (VFDST00053800)**  
+- **Mounting/dismounting (VFDST00009000)**  
+- **Vibration combined with temperature (VFDST00062600)**  
+
+No distortion and no functional disturbance on the whole functional temperature range according to VTS is allowed. The behavior of parts, especially those made of materials with high and varying thermal expansion coefficients, must be maintained.  
+
+The tolerances of the flush and gap plan after the climate test and sun simulation must not be exceeded.  
+
+If VinFast orders parts for testing on their own, detailed descriptions of the parts must be attached.  
+Parts required for testing activities at VinFast test department must be provided by the B2P SUP free of charge.  
+
+3.8 Appearance Approval - Applicable for all Visible Parts  
+Appearance Approval Report (AAR) is a PPAP deliverable.  
+The AAR process is described in VFDST00038401 (quantity of parts, timing).  
+
+For each step in the process, suppliers are responsible for submitting parts to VF Quality Design following agreed timing with VF to secure OK Shape, OKTG, and AAR Approval.  
+
+The approval process will begin in the early PT build phase to secure AAR Approval by LS.  
+
+Suppliers must include this activity in their development process and ED&D costs.
+</page>
+
+<page number="16">
+## 4 Function Safety, Homologation, and Safety Regulations
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### 4.1 Functional Safety Requirements
+
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles - Functional safety.  
+< MGL and FUSA to add here reference to system-specific Functional Safety Requirements document >.
+
+### 4.2 Deliverables for Functional Safety
+
+**Indicative RASIC for expected deliverables:**  
+
+| **5.5 Work products:**                                                     | **VINFAST** | **SUPPLIER** |
+|----------------------------------------------------------------------------|-------------|--------------|
+| **5.5.1** Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R           | I            |
+| **5.5.2** Development interface agreement (DIA) resulting from requirement 5.4.3.      | R           | S            |
+| **5.5.3** Supplier's project plan resulting from requirement 5.4.3.                      | A           | R            |
+| **5.5.4** Supplier's safety plan resulting from requirement 5.4.3.                       | A           | R            |
+| **5.5.5** Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I           | R            |
+| **5.5.6** Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.              | R           | S            |
+| **6.5.3** Safety case, resulting from 6.4.6.                                            | A           | R            |
+
+**RASIC description**: Refer to section "Deliverables."
+
+#### a) FUSA Deliverables Expected Before Nomination
+
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree on a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+#### b) FUSA Deliverables Expected After Nomination
+
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered.  
+  **Note**: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+</page>
+
+<page number="17">
+VinFast Management System 
+
+VFDSXXBEX0035
+
+4 Function Safety, Homologation and Safety Regulations. 
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+4.1 Functional Safety Requirements. 
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles - Functional safety.
+
+4.2 Deliverables for Functional Safety. 
+Indicative RASIC* for expected deliverables:  
+
+**5.5 Work products:**
+
+- 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2.  
+  VINFAST: R | SUPPLIER: I  
+
+- 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.  
+  VINFAST: R | SUPPLIER: S  
+
+- 5.5.3 Supplier's project plan resulting from requirement 5.4.3.  
+  VINFAST: A | SUPPLIER: R  
+
+- 5.5.4 Supplier's safety plan resulting from requirement 5.4.3.  
+  VINFAST: A | SUPPLIER: R  
+
+- 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5.  
+  VINFAST: I | SUPPLIER: R  
+
+- 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.  
+  VINFAST: R | SUPPLIER: S  
+
+- 6.5.3 Safety case, resulting from 6.4.6.  
+  VINFAST: A | SUPPLIER: R  
+
+*RASIC description in section “Deliverables.”*
+
+**a. FUSA Deliverables expected before nomination:**
+
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+**b. FUSA Deliverables expected after nomination:**
+
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.  
+
+4.3 Homologation and Safety Regulation Requirements.  
+
+4.3.1 North America.  
+**a. Homologation and safety regulation activities:**  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS) and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+**b. Self-certification and test report(s):**  
+- The supplier is responsible for “self-certifying” their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+- VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+- The Supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+
+(*) Refer Appendix 8 of Manufacturer_Handbook.  
+
+**c. Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations:**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast on such issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose appropriate risk assessment and resolution plan.  
+
+4.3.2 Europe.  
+
+**a. Homologation and safety regulation activities:**  
+The Supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.  
+
+**b. Test report(s) and Certificate(s):**  
+The supplier is responsible for getting their part(s), product(s) or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.
+</page>
+
+<page number="18">
+VinFast Management System  
+VFDSXXBEX0035  
+
+VinFast requests the Supplier to conduct tests as specified in certain UN-ECE at authorized technical services. The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+VinFast also requests the Supplier to provide supporting documentation and technical information, including drawings, to be submitted to the relevant authorities to obtain certification for EC vehicle type-approval (if applicable).  
+The Supplier should be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.  
+
+c. Duty to notify VinFast of non-compliance with UN-ECE regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.  
+
+## 5 Deliverables  
+
+### 5.1 Technical Deliverables  
+Work Interface Chart (RASI). The main supplier obligations are described in the work interface chart (RASI). The status of the supplier ("Built to Print") is defined below the System/Component Specification.  
+
+#### RASI Definitions:  
+**R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request necessary support from other project team members.  
+
+**A: Approval**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+
+**S: Support**  
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+**I: Information**  
+Right to information. This team member is entitled to demand information from R.  
+
+### 5.2 Details Deliverables and RASI  
+The date of RASI needs revision following the Master Timing updated by the PMO side.
+</page>
+
+<page number="19">
+VinFast Management System  
+VFDSXXBEX0035  
+
+6 Supplier responsibilities  
+
+Supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.  
+
+### Customer service requirements  
+
+#### After-sales spare parts should be ready at startup  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+#### Spare Parts Support Cycle  
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+
+#### Maintenance Information of After-Sale Spare Parts  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as:  
+- BOM table,  
+- Parts structure and function description,  
+- Fault diagnosis,  
+- Special tools for maintenance,  
+- Relevant technical parameters (installation clearance, parts performance parameters, etc.).
+</page>
+
+<page number="20">
+7 Intellectual Property / Copyright.  
+Refer to VinFast General Term and Condition (GTC).  
+
+8 Insurance / Warranties.  
+Refer to VinFast General Term and Condition (GTC).  
+
+9 VinFast GTC & Part Packaging and Incoterms.  
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirements in the RFQ package.  
+
+10 Definitions and List of Abbreviations.  
+
+**DVP&R:** Design Verification Plan & Report.  
+**ESO:** Engineering Sign Off.  
+**GTC:** General Term and Condition.  
+**LLS:** Long Lead Suppliers on board.  
+**LLT:** Long Lead Tooling.  
+**LOI:** Letter of Intent.  
+**MFC:** Manufacturing Feasibility Confirmation.  
+**MSC:** Manufacturing Strategy Confirmation.  
+**MSI:** Major Suppliers Identified.  
+**MSO:** Manufacturing Sign Off.  
+**OTS:** Off Tools Samples.  
+**PTP:** Prototype Parts out of Serial tooling (Hand finished).  
+**RFQ:** Request For Quotation.  
+**SLS:** Short Lead Suppliers on board.  
+**SOB:** Supplier on Board.  
+**SOP:** Start of Production.  
+**SOP-ID:** SOP-Implementation Date.  
+**SOP-LM:** SOP Launch Model (1 specific Model – “Edition”).  
+**SST:** Sourcing Strategy.  
+**TS:** Theme selection Model.  
+**FUSA:** Function Safety.  
+**T&V:** Testing & Validation.
+</page>
+</pages>

@@ -1,0 +1,347 @@
+Page 1
+DESIGN NUMBER FOR PROJECT’S TECHNICAL DOCUMENTS.
+Page 2
+Scope and purpose.  
+This standard covers the structure and the usage for the project’s technical document number at VinFast as mentioned in kind of document (item 2).  
+
+Also, the document shall be uploaded and triggered on the Teamcenter system for products such as Battery pack, ESS, Escooter, Golfcart, and Cell product at VF.  
+
+The documents shall be uploaded and triggered on the Teamcenter system at VinFast.  
+
+Abbreviations:  
+- **VF:** VinFast  
+- **SOR:** Scope of Requirements  
+- **SPB:** Spec Book (Specification book)  
+- **DVPR:** Design Validation Plan & Report  
+- **TGSS:** Tool Grain Specification Sheet  
+- **TE:** Test report  
+- **FMEA:** Failure Mode Effect Analysis  
+- **CMFS:** Color, Material, Finishing Spec book  
+- **DTSS:** Dimension Technical Specification Sheet  
+- **VTSS:** Vehicle Technical Specification Sheet  
+- **VFFS:** VinFast Functional Safety document  
+- **EOL:** Spec End of Line  
+- **DOE:** Design of Experiment  
+- **MSDS:** Material Safety Data Sheet  
+
+### 1. Standard references.  
+- **STD ID:** VFDST00000005  
+  **STD name:** DVP-DVP&R_Template  
+
+- **STD ID:** VFDST00000006  
+  **STD name:** VinFast template for Standard_Procedure_Test Report  
+
+- **STD ID:** VFDST00000007  
+  **STD name:** Specbook template component.  
+
+- **STD ID:** VFDST00060100  
+  **STD name:** DFMEA requirement and template  
+
+- **STD ID:** VFDST00029903  
+  **STD name:** VF SOR template  
+
+**Responsible Contact:** VinFast – Vehicle Development Division (VDD).  
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Index  
+Contents  
+SCOPE AND PURPOSE ..................................................................................................... 2  
+1 STANDARD REFERENCES .............................................................................. 2  
+Index ........................................................................................................................................... 3  
+2 GENERAL LAYOUT .......................................................................................... 5  
+3 NAMING CONVENTION .................................................................................... 6  
+3.1 VFSR structure ................................................................................................................ 7  
+3.2 VFDS structure ................................................................................................................ 7  
+3.3 DVPR structure ................................................................................................................ 7  
+3.4 VFTE structure ................................................................................................................ 8  
+3.5 TGSS structure ................................................................................................................ 8  
+3.6 FMEA structure ................................................................................................................ 8  
+3.7 CMFS structure ................................................................................................................ 9  
+3.8 DTSS structure ................................................................................................................ 9  
+3.9 VTSS structure ................................................................................................................ 9  
+3.10 VFFS structure ................................................................................................................ 9  
+3.11 VDOE structure .............................................................................................................. 10  
+3.12 VEOL structure ............................................................................................................... 10  
+3.13 VUSM structure .............................................................................................................. 10  
+3.14 MSDS structure .............................................................................................................. 10
+Page 4
+Release.
+
+Version: 18.0.  
+Date: Feb-2024.  
+
+| Name               | Function                                   | Signature      | Date     |
+|--------------------|-------------------------------------------|----------------|----------|
+| Rafael Casale      | VF Battery Quality Expert                 |                | Feb-2024 |
+| Nguyen Ngoc Trung  | VF Standards & Standard Parts Manager     |                | Jan-2024 |
+| Nguyen Dang Hung   | VF Data Management Director               |                | Jan-2024 |
+| Edward Knoy        | VF Vehicle Development Division DCEO      |                | Feb-2024 |
+| Stuart Iain Taylor | VF EE System & Software Division DCEO     |                | Feb-2024 |
+
+Revisions since previous version.
+
+| Version | Change Description                                                                                                        | Signature | Date      |
+|---------|--------------------------------------------------------------------------------------------------------------------------|-----------|-----------|
+| 1.0     | First edition                                                                                                            |           | May/2019  |
+| 2.0     | Update model code                                                                                                        |           | Jul/2019  |
+| 3.0     | Update SOR number                                                                                                        |           | Sep/2019  |
+| 4.0     | Update Appendix number in SOR / SPB. Update model code.                                                                  |           | Jun/2020  |
+| 5.0     | Update module name: BAT and Project code.                                                                                |           | Oct/2020  |
+| 6.0     | Update module name: EDS and TGSS layout.                                                                                 |           | Nov/2020  |
+| 7.0     | Change structure of this STD; update CEL module name: FMEA, TE layout, update model code.                                |           | Mar/2021  |
+| 8.0     | Update model Code for new projects (page 5).                                                                             |           | Apr/2021  |
+| 9.0     | Update model Code for new projects (page 5).                                                                             |           | Jul/2021  |
+| 10.0    | Note reference DVP template in page 5, 6; remove code SF; XF.                                                            |           | Aug/2021  |
+| 11.0    | Remove note with 11th digit due to Tool create number in Temcenter 13 has been changed; add figure upload SPB or DVP.    |           | Jan/2022  |
+|         | Update model code (item 1).                                                                                              |           |           |
+| 12.0    | Add model code of VF8 Sedan (page 5). Add new document type – CMFS (page 5 & page 8).                                    |           | Feb/2022  |
+| 13.0    | Add model codes of VF8 & VF9 Sedan, VF8 & VF9 Premium (page 5). Revise VFDS document type and add new document types.    |           | Aug/2022  |
+|         | Replace module ENGINE by Electric drive system (E-motor Institute) (page 5).                                             |           |           |
+| 14.0    | Add new Model code for VF3: AD (page 5). Add new document type: VFFS (page 5 & 8).                                       |           | Jun/2023  |
+| 15.0    | Add new Model code for VF e34 RHD: AE; VF e32/ VF5 RHD: AF (page 5).                                                     |           | Jul/2023  |
+| 16.0    | Add new Model code XB for VF8 New Platform & XC for VF9 New Platform (page 5).                                           |           | Nov/2023  |
+| 17.0    | Change title of standard. Added standard reference & name convention. Added structure ID code for Cell product (2.1).    |           | Jan/2024  |
+|         | Added structure ID code for Pack&ESS product (2.2). Added Naming convention for Pack&ESS product (3.2).                  |           |           |
+| 18.0    | Added code: VEOL, VUSM, MSDS; Removed structure ID code & Naming convention for Pack&ESS product. Added item 3.12; 3.13; |           | Jan/2024  |
+|         | 3.14.                                                                                                                    |           |           |
+Page 5
+2 General layout.
+
+❶❷❸❹ Kind of document.
+VFSR: Scope of Requirements.  
+VFDS: Spec book.  
+DVPR: Design Validation Plan & Report.  
+VFTE: Test Report.  
+TGSS: Tool Grain Specification Sheet.  
+FMEA: Failure Mode and Effects Analysis.  
+CMFS: Color, Material, Finishing Spec book.  
+DTSS: Dimension Technical Specification Sheet.  
+VTSS: Vehicle Technical Specification Sheet.  
+VFFS: VinFast Functional Safety document.  
+VEOL: Spec of MFG for EOL/ Welding/ Leak test.  
+VUSM: User Manual.  
+MSDS: Material Safety Data Sheet.
+
+❺❻ Model code.
+AA: VF e34.  
+AB: VF e32.  
+AC: VF e33.  
+AD: VF3.  
+AE: VF e34 RHD.  
+AF: VF e32/ VF5 RHD.  
+BA: EBUS10M.  
+BB: EBUS_12M.  
+SA: SEDAN.  
+SX: SEDAN & SUV (spec book common for 2 model).  
+XA: MPV.  
+XU: SUV (+LuxV8).  
+XV: VFe35.  
+XX: VFe36.  
+XN: VF e34S.  
+PT: PICKUP Truck.  
+SB: VF8 Sedan.  
+SC: VF9 Sedan.  
+XR: VF8 Premium.  
+XS: VF9 Premium.  
+XB: VF8 New Platform.  
+XC: VF9 New Platform.  
+VA: Other.  
+FC: Cell Gen 1.8.  
+C4: Cell Gen 5.1.
+
+❼❽❾ Module name.
+BAT: Battery pack.  
+BEX: Body Exterior.  
+BIN: Body Interior.  
+BIW: Body In White.  
+CEL: Battery Cell.  
+CHS: Chassis.  
+CVC: Vehicle Complete.  
+EEH: Electrical and Electronic for High voltage.  
+EEP: Electrical and Electronic Part.  
+EDS: Electric drive system (E-motor Institute).  
+GNR: General.  
+PWT: Powertrain.  
+STD: Standard part (Screw, Bolt, Nut, etc.).
+
+Module name reference VFDST00010201.
+
+VinFast Released.
+Page 6
+3 Naming convention.
+
+**Attribute Specifications:**
+
+1. **ID number**
+   - **Digit:** 1-13
+   - **Length:** 13 characters
+   - **Requirements & Example:** Its structure follows the General Layout (Example: VFSRAABIW0001).
+
+2. **Version**
+   - **Digit:** 15-16
+   - **Length:** 2 characters
+   - **Requirements:** Range from 01 to 99.
+
+3. **Model name**
+   - **Digit:** 18-25
+   - **Length:** Maximum 8 characters.
+   - **Requirements:** Consistent capital letters must be used for all model names (Example: VFe34 / VFe34RHD).
+
+4. **Document type**
+   - **Digit:** 27-30
+   - **Length:** Maximum 4 characters.
+   - **Requirements & Example:** Example types include SPB, DVPR, VFTE, FMEA, etc.
+
+5. **File name**
+   - **Digit:** 32-256
+   - **Length:** Maximum 225 characters.
+   - **Requirements:**
+     - Spaces must be replaced by hyphens (-) and underscores (_).
+     - No special characters such as #, %, ?, /, \, (, ), @, [, ].
+     - English language strictly (Chinese characters must not be used).
+     - Example format: `XXXXXXXXXXXXX_XX_XXXXXXXX_XXXX_XXXXXXXXXXXX.....................................XXXXXXXX.pdf/xlsx/doc`.
+
+**Document Naming Components:**
+- **Document Code:** Refers to the structured ID.
+- **Model Name:** As defined above (Example: VFe34).
+- **Version:** Utilizes a two-digit version indicator.
+- **File Name:** Must include the module name applicable to the document.
+- **Document Type:** Corresponds to predefined four-character document identifiers.
+
+VinFast Released.
+Page 7
+3.1 VFSR structure. 
+
+(1) Description name in Teamcenter: VFSRAABIW0001/01-VFe34_SOR_BIW_ Brief description (Model code, SOR, Module name must be included in the name).  
+(2) SOR file name: VFSRAABIW0001_01-VFe34_SOR_BIW_ Brief description (Model code, SOR, Module name must be included in the name).  
+- VFSRAABIW0001: Body In White Scope of Requirements for VFe34 project with number 0001.  
+- 01: version of SOR in Teamcenter.  
+Note: VFSR template reference to VFDST00029903 in Teamcenter.
+
+3.2 VFDS structure. 
+
+Structure templates shall develop and build up from SOR contents after SOB and input additional specifications/materials, requirements/testing items. Details become SPB and upload with prefix VFDS*.  
+
+(1) Description name in Teamcenter: “VFDSAACHS0001/01-VFe34_SPB_CHS_Brief description” (Model code, SPB, Module name must be included in the name).  
+(2) Specbook file name: “VFDSAACHS0001_01-VFe34_SPB_CHS_Brief description” (Model code, SPB, Module name must be included in the name).  
+- VFDSAACHS0001: Specification book component Chassis, VFe34 project with number 0001.  
+- 01: version of spec book in Teamcenter.  
+
+Ensure that the part number be copied and pasted to the folder “Spec Item” of SPB Number version respectively.  
+Note:  
+- SPB for each project must be uploaded and released on Teamcenter belonging to the module team. The Module Leader must define quantity and ensure the correctness of content and requirements in the spec book when uploaded in Teamcenter systems.  
+- SPB shall be released in Teamcenter by ECR process.  
+- SPB template reference to VFDST00000007 in Teamcenter.  
+
+3.3 DVPR structure. 
+
+(1) Description name in Teamcenter: DVPRXVBEX0001/01-VFe35_DVP_BEX_ Brief description (Model code, DVP, Module name must be included in the name).  
+(2) DVPR file name: DVPRXVBEX0001_01-VFe35_DVP_BEX_ Brief description (Model code, DVP, Module name must be included in the name).  
+- DVPRXVBEX0001: DVPR Component Exterior VFe35 with number 0001.  
+- 01: version of DVPR in Teamcenter.
+Page 8
+DVPR template reference to VFDST00000005 in Teamcenter. DVPR shall be released in TeamCenter by ECR process.
+
+3.4 VFTE structure:
+- Test Report template reference to VFDST00000006.
+- Test Report is uploaded in Teamcenter by module teams and belongs to DVPR respectively for validation and review by the Testing & Validation team.
+- Test Report for the complete vehicle is uploaded in Teamcenter by the Testing and Validation team.
+
+(1) Description name in Teamcenter: VFTEXVBEX0001/01 - VFe35_TE_TITLE_NAME_OF_EXTERIOR.
+(2) Test report file name: VFTEXVBEX0001_01 - VFe35_TE_TITLE_NAME_OF_EXTERIOR.
+- VFTEXVBEX0001: Test report for DVPR component Exterior for VF35_VFe35 project with number 0001.
+- 01: version of Test report in Teamcenter.
+
+3.5 TGSS structure:
+- TGSS is uploaded in Teamcenter by the Color & Trim team.
+- Workflow and process release for TGSS on Teamcenter shall be defined by the Color & Trim team as VFDST00045210_VDS deliverables Checklist.
+
+(1) Description name in Teamcenter: TGSSAABIN0001/01 - TGSS_TITLE_NAME_OF_INTERIOR.
+(2) TGSS file name: TGSSAABIN0001_01 - TGSS_TITLE_NAME_OF_INTERIOR.
+- TGSSAABIN0001: Tool Grain Specification Sheet of module Interior for VFe34 project with number 0001.
+- 01: version of Tool Grain Specification Sheet in Teamcenter.
+
+3.6 FMEA structure:
+- DFMEA is uploaded in Teamcenter by module teams. DFMEA template reference is to VFDST00060100 in Teamcenter.
+- Workflow and process release for DFMEA in Teamcenter shall be defined by the Program Quality team (PgQ).
+
+(1) Description name in Teamcenter: FMEAAABIW0001/01 - DFMEA_TITLE_NAME_OF_BIW.
+(2) DFMEA file name: FMEAAABIW0001_01 - DFMEA_TITLE_NAME_OF_BIW.
+- FMEAAABIW0001: Design Failure Mode and Effects Analysis of module Body-In-White for VFe34 project with number 0001.
+- 01: version of Design Failure Mode and Effects Analysis in Teamcenter.
+Page 9
+3.7 CMFS structure.  
+- CMFS is uploaded in Teamcenter by the CMF team.  
+- The workflow and process release of CMFS on Teamcenter shall be defined by the CMF team.  
+
+(1) Description name in Teamcenter: CMFSAABIN0001/01-CMFS_TITLE_NAME_OF_INTERIOR.  
+(2) CMFS file name: CMFSAABIN0001_01-CMFS_TITLE_NAME_OF_INTERIOR.  
+- CMFSAABIN0001: Color, Material, Finishing of module Interior for VFe34 project with number 0001.  
+- 01: version of CMFS in Teamcenter.  
+
+3.8 DTSS structure.  
+(1) Description name in Teamcenter: DTSSAABIW0001/01-DTSS_TITLE_NAME_OF_BIW.  
+(2) DTSS file name: DTSSAABIW0001_01-DTSS_TITLE_NAME_OF_BIW.  
+- DTSSAABIW0001: Dimension Technical Specification Sheet for module BIW of VFe34 project with number 0001.  
+- 01: version of DTSS in Teamcenter.  
+
+3.9 VTSS structure.  
+(1) Description name in Teamcenter: VTSSAACVC0001/01-VTSS_TITLE_NAME.  
+(2) VTSS file name: VTSSAACVC0001_01-VTSS_TITLE_NAME.  
+- VTSSAACVC0001: Vehicle Technical Specification Sheet for VFe34 project with number 0001.  
+- 01: version of VTSS in Teamcenter.  
+- Note: VTSS shall be released in Teamcenter by ECR process.  
+
+3.10 VFFS structure.  
+- VFFS is uploaded in Teamcenter by the FUSA team.  
+- The workflow and process of releasing VFFS on Teamcenter shall be defined by the FUSA team.  
+
+(1) Description name in Teamcenter: VFFSXVCVC0001/01-VFFS_TITLE_NAME.  
+(2) VFFS file name: VFFSXVCVC0001_01-VFFS_TITLE_NAME.  
+- VFFSXVCVC0001: VinFast Functional Safety document for VF8 project with number 0001.  
+- 01: version of VFFS in Teamcenter.
+Page 10
+3.11 VDOE structure.
+
+- VDOE upload on Teamcenter by BCI team.
+- Workflow and process release VDOE on Teamcenter shall be defined by BCI team.
+
+(1) Description name in Teamcenter: VDOEFCCEL0001/01- VDOE_TITLE_NAME.
+(2) VDOE file name: VDOEFCCEL0001_01- VDOE_TITLE_NAME.
+
+- VDOEFCCEL0001: VinFast Spec of Design Experiment Gen 1.8.
+- 01: version of VDOE in Teamcenter.
+
+3.12 VEOL structure.
+
+- VEOL upload on Teamcenter by BPD’s engineer.
+- Workflow and process release VEOL on Teamcenter shall be defined by BPD team.
+
+(1) Description name in Teamcenter: VEOLE8BAT0001/01- VEOL_TITLE_NAME.
+(2) VEOL file name: VEOLE8BAT0001_01- VEOL_TITLE_NAME.
+
+- VEOLE8BAT0001: VinFast Spec End of Line ESS 20FT.
+- 01: version of VEOL in Teamcenter.
+
+3.13 VUSM structure.
+
+- VUSM upload on Teamcenter by BPD’s engineer.
+- Workflow and process release VUSM on Teamcenter shall be defined by BPD team.
+
+(1) Description name in Teamcenter: VUSME8BAT0001/01- VUSM_TITLE_NAME.
+(2) VUSM file name: VUSME8BAT0001_01- VUSM_TITLE_NAME.
+
+- VUSME8BAT0001: VinFast User Manual of ESS 20FT.
+- 01: version of VUSM in Teamcenter.
+
+3.14 MSDS structure.
+
+- MSDS upload on Teamcenter by BPD’s engineer.
+- Workflow and process release MSDS on Teamcenter shall be defined by BPD team.
+
+(1) Description name in Teamcenter: MSDSE8BAT0001/01- MSDS_TITLE_NAME.
+(2) MSDS file name: MSDSE8BAT0001_01- MSDS_TITLE_NAME.
+
+- MSDSE8BAT0001: Material Safety Data Sheet of ESS 20FT.
+- 01: version of MSDS in Teamcenter.

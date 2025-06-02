@@ -1,0 +1,1638 @@
+Page 1
+Spec book.
+
+BCM (BODY CONTROL MODULE) Specification Book (SPB).
+
+VinFast Released.
+Page 2
+**Scope.**
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new BEV C-SUV vehicle. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production of the PREM Program. This SPB covers VF7 (VF34 old naming) vehicle line.
+
+**Figure Description.**
+
+The image shows the Body Control Module (BCM) unit, which is an integral component for managing various electrical functions within the VF7 vehicle. It features multiple visible ports and connectors designed for interfacing with other system components.
+
+**Responsible Contact.**
+
+Responsible Contact: Colin.Mills@tatatechnologies.com
+
+**Copyright Notice.**
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+## Index
+
+### Contents
+CONTENTS ......................................................................................................................... 3  
+
+#### 1 GENERAL DOCUMENT GUIDELINES ........................................................................... 7  
+1.1 Purpose and Legal Binding. .............................................................................................................. 7  
+1.2 Language ........................................................................................................................................... 7  
+1.3 Obligation of Requirement Wording ................................................................................................. 7  
+1.3.1 Vehicle Profile ................................................................................................................................8  
+1.3.2 Sales Markets ..............................................................................................................................8  
+
+#### 2 GENERAL PROJECT GUIDELINES ............................................................................... 9  
+2.1 Development Scope Abstract ............................................................................................................ 9  
+2.2 Initial Situation and Objective ............................................................................................................ 9  
+2.3 Classification of the System / Component ........................................................................................ 9  
+2.4 Execution Regulations ....................................................................................................................... 9  
+2.5 Development and Supply Scope ....................................................................................................... 9  
+2.5.1 Work Interface Chart (RASI) .......................................................................................................10  
+2.5.2 Development Interface Agreement (DIA) ....................................................................................13  
+2.6 Quotation Scope .............................................................................................................................13  
+2.7 Properties, Condition, and Durability ...............................................................................................13  
+2.8 Development Process .....................................................................................................................13  
+2.8.1 Gates and Milestones .................................................................................................................13  
+2.8.2 Prototype Statuses .....................................................................................................................14  
+2.8.3 Prototype Quantities ...................................................................................................................14  
+2.8.4 Acceptance Procedure ...............................................................................................................14  
+2.8.5 Type Approval and Certification ..................................................................................................14  
+2.9 Quality and Reliability ......................................................................................................................14  
+2.9.1 Quality Concepts ........................................................................................................................14  
+2.9.2 Risk Management .......................................................................................................................15  
+2.9.3 Validation of the SW Development .............................................................................................15  
+2.10 Content Amendments ....................................................................................................................15  
+
+#### 3 PROJECT MANAGEMENT AND ORGANIZATION ....................................................... 15  
+3.1 Responsibilities in the Project and Project Management Plan ........................................................ 15  
+3.2 Documentation ................................................................................................................................15  
+3.2.1 Hardware Documentation ...........................................................................................................15  
+3.2.2 Software Documentation ............................................................................................................15  
+3.2.3 Conformity Requirements ...........................................................................................................16  
+
+#### 4 SYSTEM ENVIRONMENT ............................................................................................. 16  
+4.1 Functional System Environment ......................................................................................................16  
+4.2 Physical System Environment / Mechanical Interfaces ....................................................................16  
+4.3 System Diagram ..............................................................................................................................17  
+4.4 Content Amendments ......................................................................................................................18
+Page 4
+## Index
+
+### Contents
+CONTENTS ......................................................................................................................... 3
+
+### Section 1: General Document Guidelines
+1.1 Purpose and Legal Binding. .............................................................................................................. 7  
+1.2 Language ........................................................................................................................................... 7  
+1.3 Obligation of Requirement Wording ................................................................................................. 7  
+- 1.3.1 Vehicle Profile ............................................................................................................................... 8  
+- 1.3.2 Sales Markets ............................................................................................................................... 8  
+
+### Section 2: General Project Guidelines
+2.1 Development Scope Abstract ............................................................................................................ 9  
+2.2 Initial Situation and Objective ............................................................................................................ 9  
+2.3 Classification of the System / Component ........................................................................................ 9  
+2.4 Execution Regulations ....................................................................................................................... 9  
+2.5 Development and Supply Scope ....................................................................................................... 9  
+- 2.5.1 Work Interface Chart (RASI) ........................................................................................................ 10  
+- 2.5.2 Development Interface Agreement (DIA) .................................................................................... 13  
+2.6 Quotation Scope .............................................................................................................................. 13  
+2.7 Properties, Condition, and Durability ............................................................................................... 13  
+2.8 Development Process ...................................................................................................................... 13  
+- 2.8.1 Gates and Milestones .................................................................................................................. 13  
+- 2.8.2 Prototype Statuses ...................................................................................................................... 14  
+- 2.8.3 Prototype Quantities .................................................................................................................... 14  
+- 2.8.4 Acceptance Procedure ................................................................................................................ 14  
+- 2.8.5 Type Approval and Certification .................................................................................................. 14  
+2.9 Quality and Reliability ...................................................................................................................... 14  
+- 2.9.1 Quality Concepts .......................................................................................................................... 14  
+- 2.9.2 Risk Management ........................................................................................................................ 15  
+- 2.9.3 Validation of the SW Development .............................................................................................. 15  
+2.10 Content Amendments .................................................................................................................... 15  
+
+### Section 3: Project Management and Organization
+3.1 Responsibilities in the Project and Project Management Plan ........................................................ 15  
+3.2 Documentation .................................................................................................................................. 15  
+- 3.2.1 Hardware Documentation ............................................................................................................ 15  
+- 3.2.2 Software Documentation ............................................................................................................. 15  
+- 3.2.3 Conformity Requirements ............................................................................................................ 16  
+
+### Section 4: System Environment
+4.1 Functional System Environment ...................................................................................................... 16  
+4.2 Physical System Environment / Mechanical Interfaces .................................................................. 16  
+4.3 System Diagram .............................................................................................................................. 17  
+4.4 Content Amendments ...................................................................................................................... 18  
+
+### Section 5: Functional and Technical Requirements
+5.1 Part No. and Name in BOM ............................................................................................................ 18  
+5.2 Block and Principle Diagram ........................................................................................................... 19  
+- 5.2.1 Elements of Systems ................................................................................................................... 19  
+5.3 Functions ......................................................................................................................................... 20  
+- 5.3.1 Overview Functions Description .................................................................................................. 20  
+5.4 Faulty Operation .............................................................................................................................. 22  
+5.5 Emergency Operation ..................................................................................................................... 22  
+5.6 Installation........................................................................................................................................ 22  
+- 5.6.1 Installation Location ..................................................................................................................... 23  
+- 5.6.2 Assembly Concept and Requirement from Production ............................................................... 24  
+- 5.6.3 Geometry ...................................................................................................................................... 25  
+- 5.6.4 Tolerances ..................................................................................................................................... 25  
+5.7 Styling and Design .......................................................................................................................... 25  
+5.8 Ergonomics ..................................................................................................................................... 25  
+- 5.8.1 Optical Characteristics and Surface Feel ................................................................................... 25  
+- 5.8.2 Actuation Acoustics ..................................................................................................................... 25  
+- 5.8.3 Handling ....................................................................................................................................... 25  
+5.9 E/E System Schematic ................................................................................................................... 25  
+5.10 Technical Material Requirements ................................................................................................ 28  
+5.11 Resistance to Media and Chemical Requirements ...................................................................... 28  
+- 5.11.1 Contamination ............................................................................................................................ 28  
+- 5.11.2 Cleaning ..................................................................................................................................... 28  
+- 5.11.3 Corrosion Protection ................................................................................................................. 28  
+- 5.11.4 Tightness and Protection Classes ............................................................................................. 28  
+5.12 Environmental Compatibility ......................................................................................................... 28  
+5.13 Mechanical Requirements ............................................................................................................ 28  
+5.14 Durability / Lifetime ........................................................................................................................ 28  
+5.15 Electrical Requirements ................................................................................................................ 29  
+- 5.15.1 Description of the Requirements ............................................................................................... 29  
+- 5.15.2 Power Consumption ................................................................................................................... 29  
+- 5.15.3 Low Voltage Energy Management ............................................................................................ 29  
+- 5.15.4 High Voltage Energy Management ........................................................................................... 29  
+- 5.15.5 Electromagnetic Compatibility .................................................................................................... 29  
+- 5.15.6 Electrostatic Discharge .............................................................................................................. 29  
+5.16 Climatic Requirements / Thermal Management ............................................................................ 30  
+- 5.16.1 Thermal Management Requirements ....................................................................................... 30  
+5.17 Service Requirements ................................................................................................................... 29  
+5.18 Transport Protection ...................................................................................................................... 29  
+5.19 Logistics Requirements ................................................................................................................ 30  
+5.20 Quality Assurance Requirements .................................................................................................. 29  
+5.21 Content Amendments .................................................................................................................... 29  
+
+### Section 6: Testing and Validation and DVP&R
+6.1 Proof of Compliance ........................................................................................................................ 29  
+- 6.1.1 Testing Plan (DVP + FRS Plan) ................................................................................................... 29  
+- 6.1.2 Package ....................................................................................................................................... 31
+Page 5
+Index
+
+Contents.
+
+5 FUNCTIONAL AND TECHNICAL REQUIREMENTS ...................................... 18  
+5.1 Part No. and name in BOM ............................................................................................................. 18  
+5.2 Block and Principle Diagram. .......................................................................................................... 19  
+5.2.1 Elements of Systems ................................................................................................................... 19  
+5.3 Functions. ....................................................................................................................................... 20  
+5.3.1 Overview Functions Description ................................................................................................... 20  
+5.4 Faulty Operation .............................................................................................................................. 22  
+5.5 Emergency Operation ..................................................................................................................... 22  
+5.6 Installation. ...................................................................................................................................... 22  
+5.6.1 Installation Location ..................................................................................................................... 23  
+5.6.2 Assembly Concept and Requirement from Production ................................................................ 24  
+5.6.3 Geometry ..................................................................................................................................... 25  
+5.6.4 Tolerances ................................................................................................................................... 25  
+5.7 Styling and Design. ......................................................................................................................... 25  
+5.8 Ergonomics. ..................................................................................................................................... 25  
+5.8.1 Optical Characteristics and Surface Feel .................................................................................... 25  
+5.8.2 Actuation Acoustics ..................................................................................................................... 25  
+5.8.3 Handling. ..................................................................................................................................... 25  
+5.9 E/E System Schematic .................................................................................................................... 25  
+5.10 Technical Material Requirements .................................................................................................. 28  
+5.11 Resistance to Media and Chemical Requirements ....................................................................... 28  
+5.11.1 Contamination ............................................................................................................................. 28  
+5.11.2 Cleaning ..................................................................................................................................... 28  
+5.11.3 Corrosion Protection .................................................................................................................. 28  
+5.11.4 Tightness and Protection Classes ............................................................................................. 28  
+5.12 Environmental Compatibility .......................................................................................................... 28  
+5.13 Mechanical Requirements ............................................................................................................. 28  
+5.14 Durability / Life Time ...................................................................................................................... 28  
+5.15 Electrical Requirements ................................................................................................................ 29  
+5.15.1 Description of the Requirements ................................................................................................ 29  
+5.15.2 Power Consumption ................................................................................................................... 29  
+5.15.3 Low Voltage Energy Management ............................................................................................ 29  
+5.15.4 High Voltage Energy Management ............................................................................................ 29  
+5.15.5 Electromagnetic Compatibility ................................................................................................... 29  
+5.15.6 Electrostatic Discharge .............................................................................................................. 29  
+5.16 Climatic Requirements / Thermal Management ............................................................................ 30  
+5.16.1 Thermal Management Requirements ........................................................................................ 30  
+5.17 Service Requirements ................................................................................................................... 29  
+5.18 Transport Protection ...................................................................................................................... 29  
+5.19 Logistics Requirements ................................................................................................................. 30  
+5.20 Quality Assurance Requirements .................................................................................................. 29  
+5.21 Content Amendments .................................................................................................................... 29  
+
+6 TESTING AND VALIDATION AND DVP&R ..................................................... 29  
+6.1 Proof of Compliance ........................................................................................................................ 29  
+6.1.1 Testing Plan (DVP + FRS Plan)................................................................................................... 29  
+6.1.2 Package ...................................................................................................................................... 31  
+
+VinFast Released.
+Page 6
+Release.
+
+Version: 1.1.  
+Date: December-2022.  
+
+Approval confirmed by:  
+**Function**  
+- VF Engineer Leader: Yogesh Waranm (v.yogeshwaranm).  
+- ESP Engineer Leader: Veerandra Sahani (ttl.veerandra.sahani).  
+- VF I&S Lead Engineer: Đỗ Văn Hiệp (hiepdv5).  
+- MML: Mohammad Jerouane (mohammadj).  
+- VF Quality Expert: Anvesh Mandapati (anveshm).  
+- T&V Review: Tabata Oliveira (tabatao).  
+- CE: Kevin Fisher (kevinf).  
+
+Revisions since previous version:  
+
+**Version**  
+- 1.0: First edition. CO document from VF35 and document updated for VF34 with specbook number VFDSACEEP0066.  
+  **Signature:** M.Jesus.  
+  **Date:** 24March 2022.  
+
+- 1.1: All references updated to VF7 with new correct Specbook number. SRS reference updated. Updated the Schematics, 3D Mounting Images for BCM and Indexing.  
+  **Signature:** A.Prabhakar.  
+  **Date:** 9December 2022.
+Page 7
+1 General Document Guidelines.
+
+1.1 Purpose and Legal Binding.
+This version is legally binding. This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other (e.g. what is not included in Part 1 can be included in Part 2, and so on). All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2 → level 2 is applicable).
+
+1.2 Language.
+This document is written in English. All official project documentations have to be done in English. If documents are bilingual, the English text is binding.
+
+1.3 Obligation of Requirement Wording.
+The following wording rules are used throughout this document:
+
+**Shall**  
+The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+
+**Should**  
+The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+
+**May**  
+The word “may” is used to denote options that are left to the implementer.
+Page 8
+1 General Document Guidelines  
+
+1.1 Purpose and Legal Binding.  
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other (e.g. what is not included in Part 1 can be included in Part 2, and so on). All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2 → level 2 is applicable).  
+
+1.2 Language.  
+This document is written in English.  
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.  
+
+1.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document.  
+
+**Shall**  
+The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+
+**Should**  
+The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+
+**May**  
+The word “may” is used to denote options that are left to the implementer.  
+
+---
+
+1.3.1 Vehicle Profile  
+
+**Markets**  
+- VN, EU, US, CA  
+
+**Features**  
+- VFe34s  
+
+**Variant**  
+- ECO  
+- PLUS  
+
+**Safety Standards**  
+- EURO NCAP 5*  
+- NHTSA 5*  
+- ASEAN NCAP 5* (2023)  
+
+**DIMENSION & WEIGHT**  
+Wheel Base (mm):  
+- 2,840.0  
+
+Overall Dimension (LxWxH, mm):  
+- 4,560 x 1,866 x 1,620  
+
+Ground Clearance - No Load (mm):  
+- 170  
+
+Trunk Capacity (L):  
+- Seat Up: TBC  
+- Seat Down: TBC  
+- Front Trunk Capacity - BEV: TBC  
+
+Weight:  
+- Curb Weight (Kg): TBC  
+- Payload (Kg): TBC  
+- Roof Load (Kg): TBC  
+
+**POWERTRAIN SYSTEM**  
+Engine/e-Motor:  
+- ECO: Motor x 1  
+- PLUS: Motor x 2  
+
+Maximum Power (kW):  
+- ECO: 150  
+- PLUS: 260  
+
+Maximum Torque (Nm):  
+- ECO: 310  
+- PLUS: 500  
+
+Maximum Speed (Km/h, 1 min):  
+- ECO: 150  
+- PLUS: 175  
+
+Acceleration 0-100 Km/h (s):  
+- ECO: 9.5s  
+- PLUS: 5.8s  
+
+**Battery**  
+Type: LFP  
+Capacity (kWh - Usable): 58.2 (92% DOD)  
+Range per Full Charge (Km, WLTP): 431  
+
+**Charging**  
+Charging Standard - Public Station: Plug & Charge, Auto Charge  
+Charging Cable: 11 kW  
+Charging Mode - Fast Charge: YES  
+Charging Mode - SuperFast Charge (250 KW): YES  
+Regeneration Mode (Low/High): YES (low, high)  
+Charging Time (h) - Normal Charging: TBC  
+Charging Time (m) - Fast Charging: TBC  
+Charging Time (m) - SuperFast Charging: TBC  
+
+---
+
+1.3.2 Sales Markets  
+LHD Countries: VN (Vietnam), EU (Europe), US (United States), and Canada.
+Page 9
+2 General Project Guidelines
+
+2.1 Development Scope Abstract.
+This document details the technical requirements of the Body Control Module (BCM) used by VinFast in C-CAR projects (C-BEV variants).
+
+2.2 Initial Situation and Objective.
+The objective is to provide all the necessary technical information requirements to develop a BCM for VinFast cars.
+
+2.3 Classification of the System / Component.
+Not Applicable.
+
+2.4 Execution Regulations.
+The supplier must ensure that the developed parts meet the requirements of the laws and of the specified requirements of VinFast, obtain the type certification of the parts and submit all necessary documents to support the type certification of the whole vehicle.
+
+When synchronous development is completed, suppliers need to provide the necessary documentation to prove that their products have met the required regulatory requirements.
+
+Standard Number: ISO 16750.1-2006  
+Name: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 1: General.  
+
+Standard Number: ISO 16750.2-2012  
+Name: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 2: Electrical loads.  
+
+Standard Number: ISO 16750.3-2012  
+Name: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 3: Mechanical loads.  
+
+Standard Number: ISO 16750.4-2010  
+Name: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 4: Climatic loads.  
+
+Standard Number: ISO 16750.5-2010  
+Name: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 5: Chemical load.  
+
+Standard Number: IEC 60529-2013  
+Name: Degrees of protection provided by enclosures (IP Code).  
+
+Standard Number: CISPR25  
+Name: Vehicles, boats and internal combustion engines – Radio disturbance characteristics - Limits and methods of measurement for the protection of on-board receivers.  
+
+Standard Number: CISPR22  
+Name: Information technology equipment - Radio disturbance characteristics - Limits and methods of measurement.  
+
+Standard Number: ISO 7637.1  
+Name: Road vehicles-electrical disturbances from conduction and coupling-part 1: definitions and general considerations.  
+
+Standard Number: ISO 7637.2  
+Name: Road vehicles — Electrical disturbance by conduction and coupling.
+Page 10
+### 2 General Project Guidelines
+
+#### 2.1 Development Scope Abstract
+This document details the technical requirements of the Body Control Module (BCM) used by VinFast in C-CAR projects (C-BEV variants).
+
+#### 2.2 Initial Situation and Objective
+The objective is to provide all the necessary technical information requirements to develop a BCM for VinFast cars.
+
+#### 2.3 Classification of the System / Component
+Not Applicable.
+
+#### 2.4 Execution Regulations
+The supplier must ensure that the developed parts meet the requirements of the laws and of the specified requirements of VinFast, obtain the type certification of the parts, and submit all necessary documents to support the type certification of the whole vehicle.  
+When synchronous development is completed, suppliers need to provide the necessary documentation to prove that their products have met the required regulatory requirements.
+
+##### Standard Requirements
+- **ISO 16750.1-2006:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 1: General.
+- **ISO 16750.2-2012:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 2: Electrical loads.
+- **ISO 16750.3-2012:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 3: Mechanical loads.
+- **ISO 16750.4-2010:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 4: Climatic loads.
+- **ISO 16750.5-2010:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 5: Chemical load.
+- **IEC 60529-2013:** Degrees of protection provided by enclosures (IP Code).
+- **CISPR25:** Vehicles, boats, and internal combustion engines – Radio disturbance characteristics - Limits and methods of measurement for the protection of on-board receivers.
+- **CISPR22:** Information technology equipment - Radio disturbance characteristics - Limits and methods of measurement.
+- **ISO 7637.1:** Road vehicles – Electrical disturbances from conduction and coupling – Part 1: Definitions and general considerations.
+- **ISO 7637.2:** Road vehicles – Electrical disturbance by conduction and coupling.
+- **ISO 7637.3:** Road vehicles – Electrical disturbances from conduction and coupling – Part 3: Electrical transient transmission by capacitive and inductive coupling via lines other than supply lines.
+
+##### Additional Applicable Specifications
+- **VFDSP50000002:** EMC Standard Component.
+- **VFDSP50000004:** General Electrical.
+- **VFDSP50000005:** Energy Management.
+- **VFDSP50000008:** Thermal Management.
+- **VFDSXVEEP0014:** Clamp Specification.
+- **VFDSAAEEP0047:** CAN Specification.
+- **VFDSVAEEP0001:** Generic Diagnostic Specification.
+- **VFDSVAEEP0002:** Basic DID PID Specification.
+- **VFDSVAEEP0003:** Flash Specification.
+- **VFDSP50000017:** Coding Specification.
+- **VFDSP50000020:** Security Access Algorithm.
+- **VFCSMCSS00110:** VinFast Cybersecurity Requirements.
+- **VFDST00028121:** Electrical requirements and testings.
+- **VFDST00028122:** Electrical requirements and tests (addendum).
+- **VFDST00028131:** Environmental Requirements and testings.
+
+---
+
+#### 2.5 Development and Supply Scope
+
+##### 2.5.1 Work Interface Chart (RASI)
+The main supplier obligations are described in the Work Interface Chart (RASI).  
+The status of the supplier (“Built to Print” or “System Development Supplier”) is defined below System / Component Specification. 
+
+**RASI Definitions:**
+- **R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+- **A: Approval**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution (R) is the decider.
+Page 11
+### 2.5.1 Work Interface Chart (RASI).
+
+R: Responsible  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+A: Approval  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+
+S: Support  
+Obligated to active support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+I: Information  
+Right to information. This team member is entitled to demand information from R.  
+
+Details deliverables and RASI.
+Page 12
+```markdown
+### Concept Phase and Series Development Deliverables
+
+#### Concept Phase (PV and PPS Gates)
+1. **List of Concepts in Commodity:** VF Engineering is responsible for developing the list of concepts tightly supported by VF Purchasing. Information is provided to SQE and Manufacturing.
+2. **SOR for Concept in Commodity:** VF Engineering leads the creation and VF Purchasing supports as responsible parties, with information sharing for SQE and Manufacturing.
+3. **SOB through LOI - Letter of Intent for Concept in Commodity:** VF Purchasing takes charge with support from VF Engineering and the supplier for commitment establishment.
+4. **EDD Order Release for Concept in Commodity:** VF Purchasing manages order release supported by VF Engineering and the supplier.
+5. **Deliver Bill of Materials in Team Center:** VF Engineering ensures delivery with relevant information provided to stakeholders.
+6. **Supply Chain Strategy - Deliver Sourcing Strategy:** VF Purchasing leads with supplier assistance and supports stakeholders.
+
+#### Series Development (TA, CC, LS, PTO Gates)
+
+#### Forward Phase System Validation
+1. **DF Strategy for Styling Convergence Render Timeline Milestone Validation simulation**
+...
+Maintenance factory. Timeplan mock-industry Road-map-- agreement approval checkpoints critical redesign business lifecycle agreement continuity-check. 
+Production adjusts
+Page 13
+### 2.5.2 Development Interface Agreement (DIA)
+Not Applicable.
+
+### 2.6 Quotation Scope
+Not Applicable.
+
+### 2.7 Properties, Condition and Durability
+
+#### Category: C-BEV Variant
+- **Operation system**: Passenger car EV.
+- **Microcontroller**: -
+- **Communication interface**: LIN and CAN.
+- **Inputs**: Clamps, Powers, HS, LS, I/O Analog and Digital signals.
+- **Functional**: 
+  - Message Routing.
+  - Signal Routing.
+  - Network Management.
+  - Diagnostics.
+  - Flashing via OBD.
+  - FOTA.
+  - Cybersecurity.
+- **SW Architecture**: Autosar 4.3 or above.
+- **Lifetime**: 3 years – 100,000 km.
+- **Functional Safety**: ASIL-B.
+- **Operation temp**: -40℃ to +85℃.
+- **Mechanical**: IP5K0, Material PA66-PPE.
+- **Location**: Cabin.
+- **Target cost PPC (35K/yrs)**: TBD.
+
+### 2.8 Development Process
+
+#### 2.8.1 Gates and Milestones
+- **Gates**: See Master Timing Chart from PMO (Appendix_MTC).
+- **Milestones**: See Master Timing Chart from PMO (Appendix_MTC).
+Page 14
+VinFast Management System  
+VFDSXNEEP0026  
+
+Version: 1  
+Uncontrolled copy when printed  
+14 | 43  
+
+## Timing Plan  
+
+### Reviews  
+Not Applicable.  
+
+### Prototype Statuses  
+To be reviewed as part of the development process.  
+
+### Prototype Quantities  
+To be discussed with purchasing.  
+
+### Acceptance Procedure  
+Hardware and software deliverables for each programme gate/milestone shall be as agreed upon between VinFast and the supplier.  
+
+### Type Approval and Certification  
+Not Applicable.  
+
+## Quality and Reliability  
+
+### Quality Concepts  
+Not Applicable.
+Page 15
+2.9.2 Risk Management.  
+Not Applicable.  
+
+2.9.3 Validation of the SW Development.  
+The supplier shall regularly report to VinFast the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design validation. If there are inconsistencies with the specified specification requirements, the supplier should work with VinFast to solve the problem. Suppliers also need to provide VinFast with competent onsite service personnel to support VinFast in resolving problems associated with supplier parts in vehicle assembly during vehicle start-up phase.  
+
+2.10 Content Amendments.  
+Not Applicable.  
+
+3 Project Management and Organization.  
+
+3.1 Responsibilities in the Project and Project Management Plan.  
+Supplier is responsible for creating a project plan at the earliest instance after being nominated. The supplier shall submit the contact details of the project team involved along with their roles and responsibilities.  
+
+3.2 Documentation.  
+
+3.2.1 Hardware Documentation.  
+Supplier shall be required to document the following pieces of hardware at various stages:  
+- 2D, 3D Data drawings.  
+- Report of banned substances.  
+- If designed by VinFast, supplier shall provide PFMEA of the product. If supplier designs, both PFMEA and DFMEA shall be provided.  
+- BOM of parts.  
+- Provide DV/type test report according to the technical requirements of product development. → directly borrow the experimental report of VF35.  
+
+3.2.2 Software Documentation.  
+Supplier shall be required to document the following pieces of software at various stages:
+Page 16
+3.2.2 Software Documentation  
+• Software unit test report.  
+• Software integration test report.  
+• Software system test report.  
+
+3.2.3 Conformity Requirements  
+All homologation of the vehicle and relevant legal requirements have to be fulfilled for the planned sales markets: Vietnam/US/EU/CA. All corresponding drafts, proposals and all series of amendments/supplements have to be considered during the development.  
+
+In order to obtain the whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems together with all applicable legal markings in accordance with the regulations of the planned sales markets.  
+
+If separate technical units, parts, and systems for the planned sales markets are required to be certified or tested by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed with the homologation department of VinFast.  
+
+If requirements of a planned sales market are subject to conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.  
+
+4 System Environment  
+
+4.1 Functional System Environment.  
+Working temperature: -40℃～ +85℃.  
+Storage temperature: -40℃～ +90℃.  
+
+4.2 Physical System Environment / Mechanical Interfaces.  
+The BCM module shall be housed within a plastic bracket such that the Radom area is clear of any kind of blockages or interferences apart from the headliner fabric material itself. The interface and bracket design are to be finalized with relevant stakeholders as part of the development process. Connector details shall be provided in the CDS.
+Page 17
+4.3 System Diagram.
+
+For Vfe34 ECO variant:  
+The system diagram outlines the interconnections between components such as ADAS, EPS, BMS, BCM, and other subsystems. Ethernet connections and CAN networks are highlighted, showcasing the communication pathways for the ECO variant.
+
+For Vfe34 PLUS variant:  
+The system diagram depicts similar components as the ECO variant with added functionalities, such as SHVU-R and ETG. Additional features and connections are visible, emphasizing the enhanced capabilities of the PLUS variant.
+
+VinFast Released
+Page 18
+## 4.4 Content Amendments
+Any architectural changes that affect the BCM system shall be reported to the supplier with a revised system architecture diagram.
+
+## 5 Functional and Technical Requirements
+
+### 5.1 Part No. and Name in BOM
+The technical information should be shown as indicated below: 
+- VinFast designated part number 
+- Usage per car 
+- Procurement code 
+- Part applicability: C-SUV-BEV Plus, C-SUV-BEV ECO variant 
+- Technical requirements: Part design, Functional and Performance requirements at VinFast level. 
+
+For details, please refer to the table below:
+
+| No. | Part Name              | Part No.      | Qtty | Material       | Purchase level | C-SUV BEV SMART Vietnam | C-SUV BEV PLUS Vietnam | C-SUV BEV PLUS US | C-SUV BEV PLUS EU |
+|-----|------------------------|---------------|------|----------------|-----------------|--------------------------|------------------------|-------------------|-------------------|
+| 1   | BCM_315               | EEP71038016   | 1    | Multi material | P               | X                        | X                      | X                 |                   |
+| 2   | BCM_434               | EEP71038026   | 1    | Multi material | P               |                          |                        | X                 |                   |
+| 3   | LF (in room antenna)  | EEP71037010   | 2    | Multi material | P               | X                        | X                      | X                 | X                 |
+| 4   | Immobilizer antenna   | EEP30009018   | 1    | Multi material | P               | X                        | X                      | X                 | X                 |
+| 5   | Driver door antenna   | EEP71009011   | 1    | Multi material | P               | X                        | X                      | X                 | X                 |
+| 6   | LF Frunk antenna      | EEP71041010   | 1    | Multi material | P               |                          |                        | X                 |                   |
+Page 19
+### Content Amendments.
+Any architectural changes that affect the BCM system shall be reported to the supplier with a revised system architecture diagram.
+
+---
+
+### 5 Functional and Technical Requirements.
+#### 5.2 Block and Principle Diagram.
+
+#### 5.2.1 Elements of Systems.
+The block and principle diagram illustrates the components associated with the BCM system and their interactions. Below are key elements presented:
+
+1. **User Interaction:**
+   - **Horn:**
+     - High tone and low tone horns operational through SCM.
+   - **Foot well lights:**
+     - Includes left and right foot well lamps connected via IEC.
+   - **Courtesy Lights/Puddle Lights:**
+     - Includes front-left, front-right, rear-left, and rear-right door courtesy lights managed via IEC.
+   - **Rear Compartment Lighting:**
+     - Includes the rear lamp and trunk door light connected to luggage compartment courtesy light.
+
+2. **Modules and Circuits:**
+   - **Trunk switch and Key Fob:**
+     - Interaction for controlling compartment lights and trunk lighting through FKS.
+
+3. **Vanity Mirror:**
+   - Provides lighting features through Vanity Mirror Light connected to IEC.
+
+---
+
+The principle diagram highlights direct connections between CAN-based and hard-wired elements of the BCM system environment.
+Page 20
+### Functional Responsibility and System Details for VinFast Released Version: 1
+
+#### 5.2.2 Elements of Systems and Block Diagram
+
+**System Elements Include:**
+
+1. **Glove Box Light System:**
+   - Initiated by glove box switch.
+   - Connected to the glove box light to provide illumination.
+
+2. **Vehicle Door Lock Systems:**
+   - Door lock switches from driver seat, front passenger seat, rear-left passenger door, and rear-right passenger door.
+   - Integrated into IDB/ESC and XGW_Body as part of the system.
+
+3. **Front Dome Lamp System:**
+   - Activated through door lock mechanisms or direct user input.
+   - Includes functionalities like front dimming dome lamp and SSB illumination.
+
+4. **Frunk (Front Trunk) Lighting System:**
+   - Operated via the frunk switch.
+   - Specific for BEV (Battery Electric Vehicles) only with the frunk compartment light.
+
+5. **Mirror Adjustment Features:**
+   - Auto-dimming rearview mirrors (including outer mirrors) with advanced functionalities.
+   - Wireless charging reminder integrated with MHU signals.
+
+6. **Side Mirror Position System:**
+   - Includes left and right mirror motors for positional adjustments.
+
+VinFast Released.
+Page 21
+### 5.3 Functions
+
+#### 5.3.1 Overview Functions Description
+
+BCM is the core control module in the automobile, which mainly controls the following subfunctional systems:
+1. Door Locking and Unlocking
+2. Antitheft System
+3. Outside Mirror Control
+4. Exterior Light
+5. Interior Light
+6. PEPS
+7. Wiper and Washer System
+8. IMMO
+9. Fail Safe and Limp Home Mode
+10. TPMS
+11. Power Mode Management
+12. Controlled Clamp
+13. Vehicle States
+14. Energy Management
+15. Horn
+16. Rear Defroster/Mirror Heating
+17. Ambient Lighting
+
+Software requirements are described in the SRS document: BCM_SRS_V6_7_v0.1_WIP. The SRS will be updated during project development and agreed upon with the supplier.
+
+#### Supporting Document
+File Name: BCM_SRS_VF6_7_0.1_WIP.pdf
+Page 22
+## 5.3 Functions
+
+### 5.3.1 Overview Functions Description
+
+BCM is the core control module in the automobile, which mainly controls the following subfunctional systems:
+1. Door Locking and Unlocking  
+2. Antitheft System  
+3. Outside Mirror Control  
+4. Exterior Light  
+5. Interior Light  
+6. PEPS  
+7. Wiper and Washer System  
+8. IMMO  
+9. Fail safe and Limp home mode  
+10. TPMS  
+11. Power Mode Management  
+12. Controlled Clamp  
+13. Vehicle states  
+14. Energy management  
+15. Horn  
+16. Rear Defroster/Mirror heating  
+17. Ambient Lighting  
+
+Software requirements are described in the SRS document: **BCM_SRS V6_7 v0.1_WIP.**  
+The SRS will be updated during project development and agreed with the supplier.
+
+---
+
+## 5.3.2 Master Block Diagram/Bus Topology
+
+### BCM Bus Topology:
+- **Body CAN (B-CAN)**  
+- **LIN1**  
+- **LIN2**  
+- **LIN3**  
+- **LIN4**  
+- **x-CAN** 
+- **Body CAN**  
+- **Pre-disposed (x-CAN / LIN4)**  
+- **LIN Network**
+
+### Block Diagram:
+As per section 5.2.1.
+
+---
+
+### CSUV BEV Faulty Operation
+See Software Requirements Specifications V6_7 v0.1.
+
+---
+
+### Emergency Operation
+See Software Requirements Specifications V6_7 v0.1.
+
+---
+
+### Installation
+Not Applicable.  
+The BCM must be installed inside the interior, ensuring the distance to other electronics is safeguarded. The BCM integrates an RF antenna for **RKE** and **TPMS** reception, which requires protecting the antenna’s performance. The BCM cannot be placed arbitrarily.
+Page 23
+### 5.6 Installation Location
+
+- BCM component cannot be installed at a specific surrounding distance of 20mm from the ADAS ECU as it has the TPMS and RF antennas.
+- The installation position is selected and the BCM installed in strict accordance with the requirements of the installation position of the BCM.
+
+#### Diagram Description:
+The installation diagrams show the positioning of the **BCM component**, including the **MULTIMEDIA DISPLAY UNIT**, **XGW_GATEWAY**, and **ECOCKPIT_GEN3_VN MHU**, in relation to the vehicle structure.
+
+#### Connection Details:
+The **BCM module is connected to the body harness**, highlighting the cable routing and connector placement to ensure compliance with installation specifications.
+Page 24
+### 5.6 Installation Location
+
+- BCM component cannot be installed at a specific surrounding distance of 20mm from the ADAS ECU as it has the TPMS and RF antennas.
+- The installation position is selected, and the BCM installed in strict accordance with the requirements of the installation position of the BCM.
+
+### Visual Representation:
+1. **Multimedia Display Unit:** Identified as part number EEP70005610/05.
+2. **XGW Gateway:** Marked as part number EEP700309020/01.
+3. **Cockpit Module:** Part number EEP70005530/05 Ecockpit_GEN3_VN_MHU.
+4. **Connection to BCM From Body Harness:** An image illustrates the connection setup of the BCM component.
+
+---
+
+### 5.6.2 Assembly Concept and Requirement from Production
+
+- **Assembly Concept:**
+  - The BCM is mounted using specific components and brackets designed according to strict production requirements.
+
+- **Requirements:**
+  - **Projection Welding Bolt:** Identified by part number STD20000183/07, specifications include M6X1.0X16, 8.8 grade, with a quantity requirement of 3 bolts.
+  - **BCM Mounting Bracket:** Part number BIW70011184/02, bracket thickness is specified to be 1.5 mm.
+
+The diagram provided visually details:
+1. **Pillar Assembly Component:** A-pillars with inner nut brackets identified by part number BIW70011403/01.
+2. **BCM Mounting Bracket Assembly:** Highlighting assembly processes, parts involved, and placement within the vehicle structure.
+Page 25
+### BCM-Body Control Module Mounting  
+
+#### 5.6.3 Geometry  
+Not applicable.  
+
+#### 5.6.4 Tolerances  
+Not applicable.  
+
+#### 5.7 Styling and Design  
+Not Applicable. No visual surfaces.  
+
+#### 5.8 Ergonomics  
+
+##### 5.8.1 Optical Characteristics and Surface Feel  
+Not applicable.  
+
+##### 5.8.2 Actuation Acoustics  
+Not applicable.  
+
+##### 5.8.3 Handling  
+Not applicable.
+Page 26
+### 5.9 E/E System Schematic
+
+#### ECO Variant
+The schematic for the ECO variant provides detailed connections and layout of electronic and electrical systems within the vehicle. Major subsystems and components are interconnected across multiple domains, including power supply, central locking, lighting, wiper and washer systems, and communications.
+
+1. **Power Supply System**:
+   - UEC (Underhood Electrical Center) is connected to various power and signal grounds.
+   - Circuit links are defined for power usage and allocation.
+
+2. **Keys and Entry Control**:
+   - Sensors for doors, trunk, and interior are integrated with antennas.
+   - Antenna signals are routed for control and commands.
+
+3. **Clamp Control**:
+   - Relays are detailed for airbag activation outputs and supplies.
+   - Feedback loops for relays ensure functionality.
+
+4. **Brakes and Horn**:
+   - Brake signal outputs and horn operations are shown.
+
+5. **Central Locking System**:
+   - Detailed wiring for door locks (driver, passenger, rear, and trunk).
+   - Central lock feedback outputs are included.
+
+6. **Blind Spot Detection**:
+   - Incorporates both the right and left LED indicators.
+
+7. **Wiper and Washer System**:
+   - Includes front and rear wiper outputs.
+   - Washer systems depicted with respective wiring.
+
+8. **Lighting Systems**:
+   - Exterior lighting includes front lamps, side markers, rear lamps, and tailgate systems.
+   - Interior lighting covers dome lamps, footwell lights, vanity mirror lighting, and rear trunk lights.
+
+9. **Communication Systems**:
+   - Data interfacing through CAN networks for external communication and control.
+
+#### Summary Description of Components:
+The schematic captures the interplay between functional systems within the VinFast ECO variant, detailing the wiring paths, sensor placements, control outputs, and feedback essential for ensuring seamless vehicle operations.
+Page 27
+### 5.6 Installation Location
+
+- The BCM component cannot be installed at a specific surrounding distance of 20mm from the ADAS ECU due to the inclusion of TPMS and RF antennas.  
+- The installation position is selected, and the BCM installed in strict accordance with the requirements of the installation position of the BCM.
+
+### Diagram Description
+
+- **Figures Show SDK Connections for BCM Installation:**  
+  - **EEP70005610/05:** Multimedia Display Unit.  
+  - **EEP700039020/01:** XGW Gateway.  
+  - **EEP70005530/05:** Ecockpit_GEN3_VN MHU.  
+  - Connection is shown from BCM to the body harness, highlighting necessary wire connections.  
+
+### 5.6.2 Assembly Concept and Requirement from Production  
+
+- **BIW70011403/01-A-PILLAR_INNER_WITH_NUT_RH:**  
+   Position for BCM installation near the right inner pillar.  
+
+- Welding requirement includes:  
+   - **STD20000183/07:** Flour_Projection_Welding_Bolt_M6X1.0X16_8.8.  
+   Quantity required is three bolts for secure placement.
+
+- Bracket requirement includes:  
+   - **BIW70011184/02:** Assy_BCM_Mounting_Bracket with a thickness of 1.5mm.
+
+### 5.6.3 Geometry  
+
+Not applicable.
+
+### 5.6.4 Tolerances  
+
+Not applicable.
+
+### 5.7 Styling and Design  
+
+Not applicable. No visual surfaces.
+
+### 5.8 Ergonomics  
+
+#### 5.8.1 Optical Characteristics and Surface Feel  
+
+Not applicable.  
+
+#### 5.8.2 Actuation Acoustics  
+
+Not applicable.  
+
+#### 5.8.3 Handling  
+
+Not applicable.
+Page 28
+### 5.10 Technical Material Requirements
+Not applicable.
+
+### 5.11 Resistance to Media and Chemical Requirements
+
+#### 5.11.2 Contamination
+The supplier shall ensure that throughout the lifecycle of the vehicle the elements on the PCB, especially the microcontroller, radar, and its antennae shall not degrade in performance due to dust and/or other contamination factors. Please refer to VFDST00028131 – Environmental Requirements and testings.
+
+#### 5.11.2 Cleaning
+Please refer to VFDST00028131 – Environmental Requirements and testings specification.
+
+#### 5.11.3 Corrosion Protection
+Please refer to VFDST00028131 – Environmental Requirements and testings specification.
+
+#### 5.11.4 Tightness and Protection Classes
+Please refer to VFDST00028131 – Environmental Requirements and testings specification.
+
+### 5.12 Environmental Compatibility
+To be managed via IMDS submission. Also, please refer to the standards and qualifications list attached:  
+1. Environment - Requirements Process v2.0  
+2. RQ-2344_RQ-2353-TC FDJ - Recyclability and recoverability components assessment  
+3. RQ-2346_RQ-2362 - TC FDJ Parts Marking component  
+4. RQ2347_RQ-2366 - Pretreatment and Depollution Components  
+5. RQ2347_RQ-2367 - Pretreatment and Depollution Restraints  
+6. RQ-2348_RQ-2371 - TC FDJ Materials compliance components  
+
+### 5.13 Mechanical Requirements
+Please refer to VFDST00028131 – Environmental Requirements and Testings specification.
+
+### 5.14 Durability / Life Time
+The CPD ECU should have a durability/life time equivalent to that of the vehicles. This is 3 years or 100,000 km (whichever occurs first).
+Page 29
+### 5.15 Electrical Requirements  
+
+#### 5.15.1 Description of the Requirements  
+Please refer to the standards and qualifications list attached.  
+
+#### 5.15.2 Power Consumption  
+**Power Consumption Requirements**  
+Please refer to VFDSP50000005 – Energy Management specification.  
+
+#### 5.15.3 Low Voltage Energy Management  
+**Energy Management Requirements**  
+Please refer to VFDSP50000005 – Energy Management specification.  
+
+#### 5.15.4 High Voltage Energy Management  
+**Energy Management Requirements**  
+Please refer to VFDSP50000005 – Energy Management specification.  
+
+#### 5.15.5 Electromagnetic Compatibility  
+**EMC Requirements**  
+
+1. Radiated Emission and Conducted Emission can meet the requirements of level 3, and not level 4.  
+2. Detailed EMC experiments were conducted in accordance with DVP confirmed by TATA & HF.  
+3. Directly borrow the experimental report of VF35 if other experiments are needed.  
+
+| SI. No. | Test                                      | Standard           | Class/Level         |
+|--------|------------------------------------------|-------------------|--------------------|
+| 1      | Radiated Emission (RE)                   | CISPR 25:2005      | Limit Class 3       |
+| 2      | Conducted Emission (CE) on Power Lines   | CISPR 25:2008      | Limit Class 3       |
+| 3      | Radiated Susceptibility ALSE Method      | ISO 11452-2:2004   | Level 1 + Category 3 |
+| 4      | Bulk Current Injection                   | ISO 11452-4:2003   | Level 1 + Category 3 |
+| 5      | Pulse 1, 2a, 2b, 3a & 3b                 | ISO 7637-2:2011    | Test level of 12V System |
+
+#### 5.15.6 Electrostatic Discharge  
+**ESD Requirements**  
+No additional requirements specified.
+Page 30
+### 5.16 Climatic Requirements / Thermal Management
+
+#### 5.16.1 Thermal Management Requirements
+The supplier shall ensure the CPD ECU can operate between -40°C to 90°C without degrading the performance. Also, please refer to VFDST00028131 - Environmental Requirements and Testings and VFDSP50000008 – Thermal Management specifications.
+
+### 5.17 Service Requirements
+The supplier shall ensure that replacement parts are delivered to dealers/service centers in case of part failures and upon requests from dealers/service centers.
+
+### 5.18 Transport Protection
+The supplier shall ensure that parts are protected and secured against accidental damage during shipment to plants.
+
+### 5.19 Logistics Requirements
+Logistics shall be agreed upon between VinFast and the supplier.
+
+### 5.20 Quality Assurance Requirements
+Not applicable.
+
+### 5.21 Content Amendments
+Not applicable.
+Page 31
+6 Testing and validation and DVP&R.  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- No. of tested components/parts.  
+- Ensure Mileage Target Life: 100000 km or 3 years (whichever comes first).  
+
+### 6.1 Proof of Compliance.  
+#### 6.1.1 Testing Plan (DVP + FRS Plan).  
+Refer data from T&V team.  
+
+VFDSXVCVC1401: CSUV_BEV_Appendix_4_DVP_Design Verification Plan.  
+
+#### 6.1.2 Package.  
+Not applicable.  
+
+### 6.2 Electrical Systems & Functions.  
+Not applicable.  
+
+### 6.3 Virtual Testing and Simulation.  
+Not applicable.  
+
+### 6.4 Vehicle Testing.  
+Not applicable.  
+
+### 6.5 Tests.  
+#### 6.5.1 Test Name A.  
+- Test Equipment and Test Mules.
+Page 32
+6 Testing and validation and DVP&R.  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- No. of tested components/parts.  
+- Ensure Mileage Target Life: 100,000 km or 3 years (whichever comes first).  
+
+6.1 Proof of Compliance.  
+6.1.1 Testing Plan (DVP + FRS Plan). Refer data from T&V team.  
+VFDSXVCVC1401: CSUV_BEV_Appendix_4_DVP_Design Verification Plan.  
+
+6.1.2 Package.  
+Not applicable.  
+
+6.2 Electrical Systems & Functions.  
+Not applicable.  
+
+6.3 Virtual Testing and Simulation.  
+Not applicable.  
+
+6.4 Vehicle Testing.  
+Not applicable.  
+
+6.5 Tests.  
+6.5.1 Test Name A.  
+- Test Equipment and Test Mules.  
+- Properties and Condition of the Prototype Status to be Tested.  
+- Test Parameters and Cycles.  
+- Operation Conditions.  
+
+7 Function Safety, Homologation and safety regulations.  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+7.1 Functional Safety Requirements.  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+VF35 already has requirements for functional safety modules, VFe33 follows VF35.  
+
+7.1.1 Light Control Safety Goals.  
+**Requirement ID** | **Functional Safety Requirement** | **ASIL level**  
+BCM_LCSG1 | Prevent both low beams from being incorrectly turned off during driving. | B  
+BCM_LCSG2 | Prevent unintended glaring caused by automatic headlamp levelling when the vehicle is in motion. | A  
+BCM_LCSG3 | Prevent both high beams from being incorrectly turned off during driving. | A  
+BCM_LCSG4 | Prevent turn indicators (front or rear) from being incorrectly turned off while driving. | A  
+BCM_LCSG5 | Prevent loss of hazard lights after crash. | A  
+BCM_LCSG6 | Prevent unintended activation of opposite direction turn indicator. | A  
+BCM_LCSG7 | Prevent unintended glaring to the driver of an oncoming vehicle while driving. | A  
+BCM_LCSG8 | Prevent rearlamps from being incorrectly turned off while driving. | A  
+BCM_LCSG9 | Prevent brake lights from being incorrectly turned off while braking. | B  
+BCM_LCSG10 | Prevent loss of reverse lights. | QM  
+BCM_LCSG11 | Prevent unintended turnoff of the Front Fog lamps. | QM  
+BCM_LCSG12 | Prevent unintended turnoff of the Rear Foglamps. | QM
+Page 33
+### 7.1.2 Door Control Safety Goals
+
+- **BCM_DCSG1:** The BCM Door control module shall monitor and detect faults in receiving valid inputs to unlock the door after the crash due to faults in CAN communication channel and shall transition to safe state [SS1] within FTTI duration. **ASIL A**
+
+- **BCM_DCSG2:** The BCM Door control module shall detect faults in the safety critical signals (crash inputs) received from ACM due to faults in the CAN communication channel within FDTI duration and shall transition to safe state [SS1] within FTTI duration. **ASIL A**
+
+- **BCM_DCSG3:** The BCM Door control module shall periodically monitor the crash status from the other modules (ACM, etc.) through a CAN channel as a redundant crash status input to detect crash and shall transition to safe state [SS1] within FTTI duration. **ASIL A**
+
+- **BCM_DCSG4:** Upon crash detection from signals received from the CAN inputs mentioned in [FSR003], the BCM Door control module shall unlock all the doors through the Central locking system within FTTI duration. **ASIL A**
+
+- **BCM_DCSG5:** The BCM Door control module shall monitor for any faults in processing the crash inputs received from the ACM and unlock the door latches as expected due to the internal faults in BCM microcontroller and shall transit to safe state [SS1] within FTTI duration. **ASIL A**
+
+- **BCM_DCSG6:** The BCM Door control shall have a mechanism to periodically monitor if there are any faults in unlocking the door latch while driving and shall transit to safe state [SS2] within FTTI duration.  
+  **Note:** In case of the doors being permanently locked prior to a crash or a normal driving scenario, the driver needs to be informed about it and get it fixed. If a crash occurs later, the BCM won't be able to unlock the door leading to severe condition. **ASIL A**
+
+- **BCM_DCSG7:** The BCM Door control module shall monitor for any faults in sending the unlock signal to the door latch due to faults in the LIN communication channel and shall transit to safe state [SS1] within FTTI duration. **ASIL A**
+
+- **BCM_DCSG8:** The BCM Door control module shall monitor for any faults in unlocking the door due to some internal (hardware or electrical faults) faults in the door actuator and shall transit to safe state [SS1] within FTTI duration. **ASIL A**
+Page 34
+7.1.2 Door Control Safety Goals
+
+BCM_DCSG9  
+The BCM Door control module shall monitor the power supplied to the microcontroller and the door actuators post-crash and shall detect any faults. Upon power failure detection, the BCM shall transition to safe state [SS1] within FTTI duration.  
+
+The Body Control functions shall fulfill all relevant local and international standards for the following markets:  
+a) ASEAN (Vietnam, Thailand, Singapore, the Philippines, Malaysia, Indonesia, Cambodia, Laos, Myanmar, and Brunei),  
+b) NORTH AMERICA (USA, Canada), and  
+c) EUROPE (27 countries and United Kingdom).  
+
+Refer to the following list, including but not limited to:  
+- IATF 16949  
+
+ASIL A  
+
+BCM_DCSG10  
+The Body Control functions shall fulfill and meet the following standards:  
+- ISO 26262:2018  
+- ISO 7000:2964 for SOS Button  
+- FMVSS and CMVSS  
+- FMVSS 108  
+- FMVSS 104 (Windshield Wiping and Washing Systems)  
+- FMVSS 401  
+- ECE R112  
+- ECE R87  
+- ECE R7  
+- ECE R6  
+- ECE R91  
+
+QM  
+
+---
+
+7.1.3 Wiper Control Safety Goals  
+
+BCM_WCSG1  
+The BCM wiper control module shall monitor for faults in receiving valid inputs from the SCM module due to faults in the LIN communication channel and shall transit to safe state [SS2] within FTTI duration.  
+ASIL A  
+
+BCM_WCSG2  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR001] has been recovered.  
+ASIL A  
+
+BCM_WCSG3  
+The BCM wiper control module shall monitor for faults in receiving valid inputs from the RLS due to faults in the LIN communication channel and shall transit to safe state [SS1] within FTTI duration.  
+ASIL A  
+
+BCM_WCSG4  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR003] has been recovered.  
+ASIL A  
+
+BCM_WCSG5  
+The BCM wiper control module shall monitor the quality of the inputs received from communication channels and shall transit to safe state [SS1] within FTTI duration.  
+ASIL A
+Page 35
+7.1.3 Wiper Control Safety Goals
+
+BCM_WCSG6  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR005] has been recovered.  
+ASIL A  
+
+BCM_WCSG7  
+The BCM wiper control module shall monitor the front wiper fault conditions and shall transition to safe state within FTTI duration. Note: Fault conditions can be due to:  
+1. Fault in BCM.  
+2. Fault in inputs from SCM.  
+3. Faults in the Rain Light Sensor (RLS).  
+4. Fault in Wiper actuator.  
+ASIL A  
+
+BCM_WCSG8  
+Upon detection of failure in front wiper operation due to internal faults in BCM microcontroller, the BCM wiper control module shall transition to safe state [SS1] within FTTI duration.  
+ASIL A  
+
+BCM_WCSG9  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR008] has been recovered.  
+ASIL A  
+
+BCM_WCSG10  
+Upon detection of failure in front wiper operation due to faults in the inputs from SCM due to some SCM internal faults, the BCM wiper control module shall transition to safe state [SS2] within FTTI duration.  
+ASIL A  
+
+BCM_WCSG11  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR010] has been recovered.  
+ASIL A  
+
+BCM_WCSG12  
+Upon detection of failure in front wiper operation due to faults in the inputs from RLS due to some RLS internal faults, the BCM wiper control module shall transit to safe state [SS1] within FTTI duration.  
+ASIL A  
+
+BCM_WCSG13  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR012] has been recovered.  
+ASIL A  
+
+BCM_WCSG14  
+The BCM wiper control module shall monitor for faults in sending valid output signals for speed and position of the wiper to the wiper actuator due to faults in the CAN communication channel within FDTI duration and shall transition to safe state [SS1] within FTTI duration.  
+ASIL A  
+
+BCM_WCSG15  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR014] has been recovered.  
+ASIL A  
+
+BCM_WCSG16  
+Upon detection of failure in front wiper operation due to fault in the wiper actuator, the BCM wiper shall transition to safe state [SS1] within FTTI duration.  
+NOTE: Faults in the wiper actuator cover faults including activation and deactivation of the wiper and also faults in controlling the speed of the wiper.  
+ASIL A  
+
+BCM_WCSG17  
+The BCM wiper control module shall perform self-diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR016] has been recovered.  
+ASIL A  
+
+BCM_WCSG18  
+The BCM wiper control module shall monitor the power supplied to the microcontroller and shall transit to safe state [SS1] within FTTI duration in case a fault is detected.  
+ASIL A
+Page 36
+### BCM_WCSG19
+The BCM wiper control module shall perform self diagnostics and shall disable the safe state and transit to normal operation if the fault mentioned in [FSR018] has been recovered.  
+ASIL A  
+
+### BCM_WCSG20
+The Body Control functions shall fulfill all relevant local and international standards for the following markets:  
+a) ASEAN (Vietnam, Thailand, Singapore, the Philippines, Malaysia, Indonesia, Cambodia, Laos, Myanmar and Brunei),  
+b) NORTH AMERICA (USA, Canada), and  
+c) EUROPE (27 countries and United Kingdom).  
+
+Refer to the following list, including but not limited to:  
+- IATF 16949  
+- ISO 26262:2018  
+- ISO 7000:2964 for SOS Button  
+- FMVSS and CMVSS  
+- FMVSS 108  
+- FMVSS 104 Windshield Wiping and Washing Systems  
+- FMVSS 401  
+- ECE R112  
+- ECE R87  
+- ECE R7  
+- ECE R6  
+- ECE R91  
+- ECE R21  
+- ECE R19  
+- ECE R38  
+- SAE J583  
+- SAE J1319  
+- SAE J903  
+- SAE J2012 Diagnostic Trouble Codes  
+- EAEU877/2011, 1008/2010/EU Clause 8 of Annex No.3 Windscreen wiper and washer systems  
+- etc.  
+QM  
+
+---
+
+### **7.2 Deliverables for Functional Safety**
+
+**Indicative RASIC* for expected deliverables:**  
+
+#### **5.5 Work Products:**  
+| **VINFAST** | **SUPPLIER** |  
+|-------------|--------------|  
+| **5.5.1** Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R | I |  
+| **5.5.2** Development interface agreement (DIA) resulting from requirement 5.4.3. | R | S |  
+| **5.5.3** Supplier's project plan resulting from requirement 5.4.3. | A | R |  
+| **5.5.4** Supplier's safety plan resulting from requirement 5.4.3. | A | R |
+Page 37
+5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5.  
+I R  
+
+5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.  
+R S  
+
+6.5.3 Safety case, resulting from 6.4.6.  
+A R  
+
+**RASIC description in section “Deliverables”.**  
+a) **FUSA Deliverables expected before nomination**  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+b) **FUSA Deliverables expected after nomination**  
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.  
+
+**7.3 Homologation and safety regulation requirements**  
+
+**7.3.1 North America**  
+- Perform FCC certification  
+
+a) **Homologation and safety regulation activities**  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., European, Federal motor vehicle safety standards (FMVSS) and Canadian motor vehicle safety standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b) **Self-certification and test report(s)**  
+The supplier is responsible for “self-certifying” their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.
+Page 38
+VinFast Management System  
+VFDSXNEEP0026  
+Version: 1  
+Uncontrolled copy when printed  
+38 | 43  
+
+### Homologation and Safety Regulation Requirements  
+
+#### 7.3.1 North America  
+
+**Perform FCC certification**  
+
+a. **Homologation and safety regulation activities**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal motor vehicle safety standards (FMVSS), and Canadian motor vehicle safety standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b. **Self-certification and test report(s)**  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) **Refer Appendix 8 of Manufacturer_Handbook**  
+
+c. **Duty to Notify VinFast of a Non-Compliance with FMVSS/CMVSS or European Regulations**  
+- Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+- The supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+- The supplier must propose an appropriate risk assessment and resolution plan.  
+
+#### 7.3.2 Europe  
+
+**EMARK authentication is to be performed**  
+
+a. **Homologation and safety regulation activities**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.  
+
+b. **Test report(s) and Certificate(s)**  
+- The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+- VinFast requests suppliers to conduct tests as specified in certain UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+- VinFast also requests suppliers to provide supporting documentation, technical information, including drawings, to be submitted to the relevant authorities in order to get certification for the EC vehicle type-approval (if any).  
+- The supplier should also be familiar with laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.  
+
+c. **Duty to Notify VinFast of a Non-Compliance with UN-ECE Regulations**  
+- Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+- The supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.
+Page 39
+8 Definitions and List of Abbreviations
+
+8.1 Definitions and List of Abbreviations.
+
+Abbreviation | Explanation
+-------------|------------
+AA           | Attack Angle  
+ABS          | Anti-lock braking system  
+AC           | Alternating Current  
+ACM          | Airbag control module  
+ADAS         | Advanced Driver Assistance Systems  
+ADC          | Analog to Digital Converter  
+AI           | Articulation Index  
+AIA          | Activity Interface Agreement = Work Interface Chart (RASI)  
+AKS          | Aktiver Kurzschluss (Active short circuit)  
+APQP         | Advanced Product Quality Planning  
+ASIL         | Automotive Safety Integrity Level  
+ASM          | Asynchronous Machine  
+AWD          | All wheel drive  
+BCM          | Body control module  
+BDU          | Battery disconnect unit  
+BEV          | Battery Electric Vehicle  
+BFR          | Basic Function Requirement  
+BIW          | Body in White  
+BMU          | Battery management unit  
+BOM          | Bill Of Material  
+BSM          | Blind Spot Monitoring  
+CAD          | Computer Aided Design  
+CAE          | Computer-Aided Engineering  
+CAM          | Computer-Aided Manufacturing  
+CAN          | Controller Area Network  
+MSC          | Manufacturing Strategy Confirmation  
+TS           | Theme selection Model  
+MFC          | Manufacturing Feasibility Confirmation  
+MSI          | Major Suppliers Identified  
+SST          | Sourcing Strategy  
+LLS          | Long Lead Suppliers on board  
+SLS          | Short Lead Suppliers on board  
+LLT          | Long Lead Tooling  
+PTP          | Prototype Parts out of Serial tooling (Hand finished)  
+OTS          | Off Tools Samples  
+ESO          | Engineering Sign Off  
+MSO          | Manufacturing Sign Off.
+Page 40
+### Definitions and List of Abbreviations
+
+**Abbreviation Explanation**
+- SOP-LM: SOP Launch Model (1 specific Model - “Edition”)
+- SOP: Start of Production
+- SOP-ID: SOP implementation date
+- SOB: Supplier on Board
+- LOI: Letter of Intent
+- LON: Letter of Nomination
+- DVP&R: Design Verification Plan & Report
+- GTC: General Term and Condition
+- RFQ: Request for Quotation
+- FUSA: Function Safety
+- T&V: Testing & Validation
+- MF: Mirror Fold
+- PM: Position Memory
+- RL: Reverse Link
+- AU: Auto Unfold
+- MC: Mirror Control
+- TI: Turn Indicator
+- TL: Turn Light
+- CL: Change Lanes
+- HL: Hazard Light
+- MC: Manual Control
+- CC: Crash Control
+- EB: Emergency Brake
+- HS: Hazard Switch
+- OP: Overheat Protection
+- AT: Anti Theft
+- AM: Anti Theft Modes
+- AA: Anti Theft Alarm
+- AI: Antitheft Indicator
+- AT: Anti Theft Triggering
+- AS: Anti Theft Stopping
+- AC: Anti Theft Coding
+- AD: Anti Theft Diagnostic
+- LU: Lock and Unlock
+- LC: Lock Control
+- ML: Mechanical Lock
+- MU: Mechanical Unlock
+- RL: Remote Lock
+- RU: Remote Unlock
+- CL: Central Lock
+- CU: Central Unlock
+- AL: Auto Lock
+- AU: Auto Unlock
+- CU: Crash Unlock
+- RL: Re-lock
+Page 41
+## Functional Responsibility
+
+### Definitions and List of Abbreviations (continued)
+
+#### Abbreviation Explanation:
+- LL: LED lock  
+- LF: Lock Function  
+- TU: Tail gate unlock  
+- AU: Auto unlock  
+- HS: Hazard switch  
+- FU: Fold unfold  
+- AF: Auto fold  
+- LB: Low beam  
+- LS: Left Side  
+- RS: Right Side  
+- PL: Position Light  
+- MA: Manual activation  
+- RV: Related Values  
+
+#### Sensor and Energy Management:
+- BS: Battery sensor  
+- EM: Energy Management  
+- CC: Controlled Clamp  
+- CP: Clamp  
+- WL: Wakeup Condition for LIN  
+- WC: Wakeup Condition for CAN  
+- BS: Bus sleep  
+- LH: LPM to HPM  
+- HL: From HPM to LPM  
+- PM: Power Mode  
+- VM: Voltage Mode  
+- SV: Supported voltage  
+
+#### Tire Pressure and Alarm Functions:
+- TP: Tire Pressure  
+- LF: Learning function  
+- SA: Sensor alarm  
+- BA: Battery alarm  
+- DA: Deflation alarm  
+- TA: Temperature alarm  
+- PA: Pressure alarm  
+
+#### Safety and Maintenance Features:
+- ST: Self test  
+- CP: Cold Pressure  
+- FS: Fail safe  
+- LH: Limp home  
+- IM: Immobilizer  
+
+#### Mirror and Lighting Controls:
+- MH: Mirror heating  
+- RW: Rear wash  
+- RF: Rear function  
+- FW: Front wash  
+- LB: Low beam  
+- MA: Manual activation  
+
+#### Parking System:
+- PL: Park left  
+
+*VinFast Released.*
+Page 42
+### VinFast Management System
+
+#### 8 Definitions and List of Abbreviations
+
+##### **Abbreviations List (Continued)**
+
+- **PR**: Paek Right  
+- **PL**: Position light  
+- **HB**: High beam  
+- **LB**: Low beam  
+- **AL**: Auto lamp  
+- **FL**: Flash lamp  
+- **FF**: Front fog  
+- **RF**: Rear fog  
+- **RL**: Reversing lamp  
+- **BL**: Brake lamp  
+- **FH**: Follow home  
+- **DR**: Daytime running  
+- **CL**: Cornering light  
+- **AH**: Auto high  
+- **CV**: Control Vehicle  
+- **CD**: Control door  
+- **CR**: Control Remote  
+- **CC**: Control by crash condition  
+- **BI**: Background illumination  
+- **LL**: Luggage lamp  
+- **PU**: Passive-unlock  
+- **TU**: Trunk unlock  
+- **FK**: Foot kick  
+- **KF**: Keyfob  
+- **IL**: Intelligent Lock  
+- **ES**: Emergency stop  
+- **SF**: Start Function  
+- **PA**: Pre-authentication  
+- **RR**: Result Retention  
+- **RC**: Result Clearance  
+- **NS**: Normal start  
+- **PO**: Power off  
+- **NO**: Not off  
+- **NC**: Not in car  
+- **KL**: Key leaves  
+- **LP**: Low power  
+- **IK**: Illegal key  
+- **PB**: Press brake  
+- **GP**: Gear position  
+- **KC**: Key in car  
+- **FW**: Front wiper  
+- **HS**: High speed  
+- **IM**: Interval mode  
+- **AM**: Auto mode  
+- **WP**: Wiper parking
+Page 43
+MF - Mirror Fold  
+HN - Horn  
+AN - After nomination  
+BN - Before nomination  
+AD - Activation/Deactivation  
+SR - Safety requirements  
+SS - Scope of supply  
+RC - Request to comply  
+SC - Signal characteristics  
+SW - Software  
+DS - Diagnostics  
+DR - Diagnostic requirement  
+FS - Fail safe  
+AV - Activation  
+QC - Quiescent current  
+AC - Alternator Control  
+CR - Coding requirements  
+PR - Power reduction  
+CS - CAN signal  
+CR - Consumer reduction  
+WB - With BAS  
+CC - Consumer control  
+VB - Virtual Battery  
+RB - Reduction Behaviour  
+ALM - Ambient light module  
+LSM - Light source module  
+
+**8.2 List of Tables**  
+Not applicable  
+
+**8.3 List of Figures**  
+Not applicable  
+
+**9 Further Applicable Documents**  
+- **VFDSXVEEP0047**: CAN Specification  
+- **VFDSP50000033**: Basic Diagnostics Specification  
+- **VFDSP50000035**: Flash Specification  
+- **VFDSP50000036**: Coding Specification  
+- **VFDSXVEEP0016**: CSUV System schematics V2.0  
+- **VFDSP50000014**: CES Clamp V0.3.1  
+- **TBOX-FOTA-Vehicle_Integration_v1.0.1.pdf**

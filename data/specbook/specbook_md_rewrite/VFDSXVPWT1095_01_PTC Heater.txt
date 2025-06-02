@@ -1,0 +1,1636 @@
+Page 1
+Specification  
+© Eberspächer catem GmbH & Co. KG reserves all rights including industrial property rights. We reserve all rights such as copying and passing on to third parties.
+
+Title: High Voltage PTC Coolant Heater 3nd Plus Q/S 7kW.  
+Project: H03.02.1010.01.  
+Date: 10 / 2020.  
+Version: V1.6.  
+
+Figure Description:  
+Two technical illustrations of the High Voltage PTC Coolant Heater 3nd Plus Q/S 7kW are displayed. The first image provides a perspective view of the device, detailing its external structure, connectors, and compact design. The second image offers a slightly angled view of the heater's front panel, highlighting its features and compatibility for installation.
+Page 2
+Change History.
+
+Version V1.0: First Draft. Author(s): S. Herzig / R. Seiler. Date: 21.11.2019.
+
+Version V1.1: LIN Signal description, HV measurement, replace HV connector. Author(s): S. Herzig / R. Seiler. Date: 03.03.2020.
+
+Version V1.2: Design change of outer geometry. Author: S. Herzig. Date: 15.04.2020.
+
+Version V1.3: HV Connector specification. Author: S. Herzig. Date: 16.06.2020.
+
+Version V1.4: Diagram change, LIN Signal description, HV connector coding. Author(s): S. Herzig / P. Rabe. Date: 19.08.2020.
+
+Version V1.5: LDF change for transmit signals, optional water tub. Author: S. Herzig. Date: 14.09.2020.
+
+Version V1.6: LDF change for transmit signals. Author: S. Herzig. Date: 15.10.2020.
+Page 3
+1. INTRODUCTION........................................................................5
+1.1 SCOPE....................................................................................5
+1.2 ABBREVIATIONS......................................................................5
+1.3 INTERNATIONAL STANDARDS....................................................7
+1.4 EBERSPÄCHER CATEM STANDARDS............................................8
+
+2. PRODUCT DESCRIPTION.............................................................9
+2.1 FUNCTION LIST......................................................................9
+2.2 CHARACTERISTICS................................................................10
+   2.2.1 Operating characteristics................................................10
+   2.2.2 Mission Profile..............................................................12
+   2.2.3 Heating performance.....................................................13
+      2.2.3.1 Characteristic diagram.............................................13
+      2.2.3.2 Voltage influence on performance..........................13
+2.3 PRESSURE DROP...................................................................14
+
+3. VEHICLE INTEGRATION.............................................................14
+3.1 SYSTEM INTEGRATION..........................................................14
+   3.1.1 Mechanical integration.................................................14
+      3.1.1.1 Packaging...........................................................14
+      3.1.1.2 Fixation and fitting position...............................15
+      3.1.1.3 Coolant connection.............................................16
+      3.1.1.4 Electrical connection..........................................17
+   3.1.2 Heater requirements....................................................18
+   3.1.3 Requirements on the electric system of the vehicle..........18
+   3.1.4 Electronic integration..................................................19
+      3.1.4.1 Electronic block diagram.....................................19
+   3.1.5 LIN Communications and Diagnostics............................19
+      3.1.5.1 Definitions.....................................................19
+      3.1.5.2 Diagnostic Services...........................................19
+      3.1.5.3 Supported LIN Frames........................................20
+      3.1.5.4 Diagnostic Trouble Codes (DTCs)........................20
+      3.1.5.5 Parameters.....................................................21
+      3.1.5.6 Frame HVAC_HV_PTC_Rq (Receive Signals)..........22
+      3.1.5.7 Frame HV_PTC_Frm1 (Transmit Signals)..............24
+
+4. SAFETY......................................................................................32
+4.1 FUNCTIONAL SAFETY............................................................32
+   4.1.1 ECAT HARA summary.................................................32
+   4.1.2 Functional Safety Concept........................................33
+   4.1.3 Technical Safety Concept..........................................34
+4.2 ELECTRONIC SAFETY MONITORING CYCLE................................36
+   4.2.1 Temperature safety on PCB..........................................36
+   4.2.2 Temperature safety medium........................................36
+   4.2.3 Current derating....................................................37
+   4.2.4 Short-Circuit (Over Current) detection.........................37
+   4.2.5 Long time over Current detection...............................37
+   4.2.6 High Voltage reading................................................37
+   4.2.7 Interlock (HV).......................................................37
+   4.2.8 Start-up check.....................................................38
+   4.2.9 Short circuit detection............................................38
+4.3 PTC SAFETY CONCEPT.....................................................38
+4.4 ISOLATION FAILURE DETECTION (VEHICLE SIDE).........................38
+
+5. QUALITY.....................................................................................39
+5.1 MAINTENANCE..........................................................................39
+Page 4
+5.2 Flammability.
+5.3 Recycling.
+5.4 Cleanness.
+5.5 Warranty.
+
+6 Logistics.
+6.1 Marking and Manipulation.
+Page 5
+1 Introduction.
+
+1.1 Scope.
+
+This specification is for an electrical coolant heater (CH) for automotive use. The heater is specified for a voltage range as typical in electric, hybrid, and fuel cell vehicle applications. The primary use and validation of the CH are oriented towards its application as the primary heat source for vehicle interior climatic adjustment.
+
+The heater is intended for application both in drive mode and as a park heater when the vehicle is connected to the mains. In the heating process, electrical energy is efficiently converted to thermal energy. This product typically achieves a faster heating effect than a combustion engine.
+
+In parallel, the support for battery climatic adjustment (heating to operating temperature) and fuel cell start-up load is possible. Special security requirements for these applications, such as over-temperature of the battery, must be given by the car architecture.
+
+The CH PTC-technology is implemented to meet the high safety requirements set for high-voltage components in passenger vehicles. Moreover, the CH is designed as an engine compartment component meeting respective environmental requirements. A selection of key HV norms was applied in the development.
+
+The coolant heater, in its intended application, replaces the engine block as the main heat source of the vehicle. It is plugged into the coolant line prior to the heat exchanger (located in the HVAC). The heater uses rectified mains or battery/alternator power for heating. Due to the PTC effect, the coolant flow is heated in an intrinsically safe way. The PTC elements restrict the maximum achievable system temperature, even in a worst-case scenario (without reliance on electronics), to a level that the surroundings can withstand reliably. The vehicle energy management system (not part of the CH) is expected to allocate the most suitable amount and source of energy to the CH.
+
+1.2 Abbreviations.
+
+| Abbreviation | Unit | Description                                                  |
+|--------------|------|--------------------------------------------------------------|
+| AD           |      | Analog Digital                                               |
+| CH           |      | Coolant Heater                                               |
+| DTC          |      | Diagnostic Trouble Code                                      |
+| ECU          |      | Electronic Control Unit                                      |
+| EEPROM       |      | Electrical Erasable Programmable Read-Only Memory            |
+| EMC          |      | Electromagnetic Compatibility                                |
+| ESD          |      | Electrostatic Discharge                                      |
+| f            | Hz   | Frequency                                                    |
+| GND          |      | Ground                                                       |
+| h            | mm   | Height                                                       |
+| hasl         | m    | Height above sea level                                       |
+| HR           | %    | Relative Humidity                                            |
+| Imax         | A    | Inrush current under nominal test conditions for complete    |
+|              |      | PTC Coolant Heater                                           |
+| In           | A    | Steady-state current under nominal test conditions for       |
+|              |      | complete PTC Coolant Heater                                  |
+| IKl15        | A    | Battery current (13.2 V)                                     |
+| IHV+/HV-     | A    | Current High Voltage                                         |
+Page 6
+Abbreviation Unit Description 
+
+IHV+/HV-max  
+A  
+Maximum current under nominal test conditions for complete PTC Coolant Heater. 
+
+Ioff  
+A  
+Sleep current. 
+
+IGBT  
+-  
+Isolated Gate Bipolar Transistor, High Voltage/High Current transistor. 
+
+L  
+mm  
+Length. 
+
+Mbolt  
+Nm  
+Torque of ground bolt. 
+
+µC  
+-  
+Microcontroller. 
+
+m  
+g  
+Mass. 
+
+n.c.  
+-  
+Not connected. 
+
+n.s.  
+-  
+Not specified. 
+
+NTC  
+-  
+Negative Temperature Coefficient. 
+
+Δp  
+Pa  
+Pressure drop. 
+
+Pn el.  
+W  
+Electrical performance at steady-state under nominal test conditions for complete PTC Coolant Heater. 
+
+Pn therm.  
+W  
+Thermal output under nominal test conditions for complete PTC Coolant Heater. 
+
+PN  
+bar  
+Nominal system pressure. 
+
+Qcoolant  
+l/min  
+Volume flow medium. 
+
+PTC  
+-  
+Positive Temperature Coefficient, resistor with resistance increase at temperature increase. 
+
+Rcont  
+mΩ  
+Contact resistance at plug contact. 
+
+Riso  
+MΩ  
+Electrical insulation resistance. 
+
+SNA  
+-  
+Signal not available. 
+
+Tcoolant out  
+°C  
+Outlet temperature medium. 
+
+Tcoolant in  
+°C  
+Inlet temperature medium. 
+
+Tcoolant  
+°C  
+Temperature medium. 
+
+Tambient  
+°C  
+Ambient temperature. 
+
+tbc  
+-  
+To be confirmed. 
+
+tbd  
+-  
+To be defined. 
+
+Thot spot  
+°C  
+Maximum achievable temperature at heater. 
+
+Tstorage  
+°C  
+Storage temperature. 
+
+Toperating  
+°C  
+Operating temperature. 
+
+t  
+s/min  
+Testing period. 
+
+tstorage  
+h  
+Storage time. 
+
+U  
+V  
+Voltage. 
+
+Umax  
+V  
+Maximum operating voltage. 
+
+Umin  
+V  
+Minimum operating voltage. 
+
+Un  
+V  
+Nominal operating voltage. 
+
+Utest  
+V  
+Test voltage. 
+
+UHV  
+V  
+High voltage > 60 V. 
+
+ULV  
+V  
+Voltage < 60 V, vehicle normally 13.2 V. 
+
+UKl30  
+V  
+13.2 V battery voltage. 
+
+UKl31  
+V  
+13.2 V battery GND. 
+
+UKl15  
+V  
+Ignition (ignition with key). 
+
+UHV+/HV-  
+V  
+High voltage supply. 
+
+UpeakHV+/HV-  
+V  
+High voltage peak when voltage is engaged. 
+
+**Table 1**: Abbreviations.
+Page 7
+1. Introduction.
+
+1.3 International Standards.
+
+The following table lists the international standards relevant for the PTC Coolant Heater:
+
+| Standard no.           | Title                                                                                                   | Date     |
+|-------------------------|--------------------------------------------------------------------------------------------------------|----------|
+| ISO 26262              | Functional safety                                                                                      | 2018-12  |
+| ISO 16750 Part 1-5     | Road vehicles – Environmental conditions and testing for electrical and electronic equipment            |          |
+| ISO 6469-3             | Electric road vehicles -- Safety specifications -- Part 3: Protection of persons against electric hazards|          |
+| ISO 20653             | Road vehicles -- Degrees of protection (IP-Code) -- Protection of electrical equipment against foreign objects, water, and access|          |
+| ISO 14572              | Road vehicles – Round, screened, and unscreened 60 V and 600 V multicore sheeted cables – Test methods and requirements for basic and high-performance cables |          |
+| ISO 6722:2006         | Road vehicles-60 V and 600 V single-core cables – Dimensions, test methods, and requirements           |          |
+| ISO 3864-1            | Graphical symbols - Safety colors and safety signs                                                     |          |
+| ISO10605-2008         | Test methods for electrical disturbances from electrostatic discharge                                   |          |
+| ECE-R-10              | EMC compatibility                                                                                      |          |
+| ECE-R-100             | Protection against electrical shocks                                                                    |          |
+| 2009/19/EC            | EMC compatibility                                                                                      |          |
+| DIN EN 60664 Part1    | Insulation coordination for equipment within low-voltage systems                                       |          |
+| FM.VSS 302            | Flammability                                                                                           |          |
+| IEC 60664-1           | Insulation coordination for equipment within low-voltage systems                                       |          |
+| IEC TR 62380          | Reliability data handbook                                                                              |          |
+| IPC/EIA J-STD-001E, class 3 |                                                                                                  |          |
+| 2002/95/EC            | Directive on the restriction of the use of certain hazardous substances in electrical and electronic equipment |          |
+| 2002/96/EC            | Directive on waste electrical and electronic equipment                                                 |          |
+| 2000/53/EC            | Recycling                                                                                              |          |
+| LIN-Spec_Pac2_1       | LIN Specification Package Revision 2.1                                                                 |          |
+| SAE J1654             | Unshielded High voltage primary cable                                                                  |          |
+| SAE J1742             | Connections for High Voltage On-board Road Vehicle                                                    |          |
+| SAE J2344             | Guidelines for electrical vehicle safety                                                               |          |
+| SAE/USCAR2           | Electrical Connector Systems                                                                           |          |
+| SAE/USCAR-21         | Performance Specification for Cable-to-Terminal Electrical Crimps                                       |          |
+| SAE/USCAR-37         | High Voltage Connector performance. Supplement to USCAR2                                               |          |
+| GB/T 19751-2005      | Hybrid electric vehicles Safety specification                                                           |          |
+| GB18384-2020         | Electric vehicles safety requirements                                                                  |          |
+
+Table 2: International Standards.
+Page 8
+1 Introduction
+
+1.1 Scope.
+This specification is for an electrical coolant heater (CH) for automotive use. The heater is specified for a voltage range typical in electric, hybrid, and fuel cell vehicle applications. The primary use and validation of the CH are oriented towards its application as the primary heat source for vehicle interior climatic adjustments. The heater is intended for use in both drive mode and as a park heater when the vehicle is connected to the mains. Electrical energy is efficiently converted to thermal energy during the heating process, achieving a faster heating effect compared to a combustion engine.
+
+The CH also supports battery climatic adjustments (heating to operating temperature) and fuel cell start-up loads. Security requirements such as overtemperature protection for the battery must be provided by the vehicle architecture. The CH's PTC technology meets high safety standards set for high-voltage components in passenger vehicles. The CH is designed as an engine compartment component, meeting environmental standards. Key HV norms have been applied during its development.
+
+The intended application for the coolant heater involves replacing the engine block as the main heat source for the vehicle. It is connected to the coolant line before the heat exchanger in the HVAC system. The heater operates using rectified mains, battery, or alternator power. The PTC's effect ensures the coolant is heated in a safe and controlled manner, limiting the maximum system temperature to ensure surroundings can withstand it. The vehicle's energy management system determines suitable energy input for the CH at any time.
+
+1.2 Abbreviations.  
+**AD (Analog Digital).**  
+**CH (Coolant Heater).**  
+**DTC (Diagnostic Trouble Code).**  
+**ECU (Electronic Control Unit).**  
+**EEPROM (Electrical Erasable Programmable Read Only Memory).**  
+**EMC (Electromagnetic Compatibility).**  
+**ESD (Electrostatic Discharge).**  
+**f (Frequency, Hz).**  
+**GND (Ground).**  
+**h (Height, mm).**  
+**hasl (Height above sea level, m).**  
+**HR (Relative Humidity, %).**  
+**Imax (Inrush current under nominal test conditions for complete PTC Coolant Heater, A).**  
+**In (Steady-state current under nominal test conditions for complete PTC Coolant Heater, A).**  
+**IKl15 (Battery current, 13.2 V, A).**  
+**IHV+/HV- (Current High Voltage, A).**  
+**IHV+/HV-max (Maximum current under nominal test conditions for complete PTC Coolant Heater, A).**  
+**Ioff (Sleep current, A).**  
+**IGBT (Isolated Gate Bipolar Transistor, High Voltage/High Current transistor).**  
+**L (Length, mm).**  
+**Mbolt (Torque of ground bolt, Nm).**  
+**µC (Microcontroller).**  
+**m (Mass, g).**  
+**n.c. (Not connected).**  
+**n.s. (Not specified).**  
+**NTC (Negative Temperature Coefficient).**  
+**Δp (Pressure drop, Pa).**  
+**Pnel (Electrical performance at steady-state under nominal test conditions for complete PTC Coolant Heater, W).**  
+**Pntherm (Thermal output under nominal test conditions for complete PTC Coolant Heater, W).**  
+**PN (Nominal system pressure, bar).**  
+**Qcoolant (Volume flow medium, l/min).**  
+**PTC (Positive Temperature Coefficient, resistor with resistance increase at temperature increase).**  
+**Rcont (Contact resistance at plug contact, mΩ).**  
+**Riso (Electrical insulation resistance, MΩ).**  
+**SNA (Signal not available).**  
+**Tcoolant out (Outlet temperature medium, °C).**  
+**Tcoolant in (Inlet temperature medium, °C).**  
+**Tcoolant (Temperature medium, °C).**  
+**Tambient (Ambient temperature, °C).**  
+**tbc (To be confirmed).**  
+**tbd (To be defined).**  
+**Thot spot (Maximum achievable temperature at heater, °C).**  
+**Tstorage (Storage temperature, °C).**  
+**Toperating (Operating temperature, °C).**  
+**t (Testing period, s/min).**  
+**tstorage (Storage time, h).**  
+**U (Voltage, V).**  
+**Umax (Maximum operating voltage, V).**  
+**Umin (Minimum operating voltage, V).**  
+**Un (Nominal operating voltage, V).**  
+**Utest (Test voltage, V).**  
+**UHV (High voltage > 60 V, V).**  
+**ULV (Voltage < 60 V, vehicle normally 13.2 V, V).**  
+**UKl30 (13.2 V battery voltage, V).**  
+**UKl31 (13.2 V battery GND, V).**  
+**UKl15 (Ignition with key, V).**  
+**UHV+/HV- (High voltage supply, V).**  
+**UpeakHV+/HV- (High voltage peak when voltage is engaged, V).**
+
+**tab. 1 Abbreviations.**
+Page 9
+## Product Description
+
+The CH is part of the heating system of the vehicle. It can serve the following purposes:
+- **Primary heat source** for vehicle interior climatic adjustment.
+- **Support for battery climatic adjustment** in hybrid or electrical vehicles by heating the battery to operating temperature.
+- **Start-up load** in fuel cell vehicles.
+- **Break resistance** to protect the battery from overloads.
+
+Heating can occur in drive mode or in park mode while the vehicle is connected to the wall charger.
+
+The CH features an integrated electronics unit. The vehicle energy management system assumes optimal allocation of energy to the Coolant Heater.
+
+### 2.1 Function List
+
+The main functions of the coolant heater with integrated electronics are:
+- **Control function**: Allocates maximum thermal power requested by the supervisory control system (LIN-master).
+- **Heating function**: Uses electric energy to heat up the coolant.
+- **Interface function**: Realized by standard electrical connectors (12V, high voltage, grounding), automotive coolant pipes, and holes for self-forming screws.
+
+### Figure Description
+
+The figure illustrates the key functional components of the coolant heater:
+- **Engine compartment**: Indicates the location and integration of the heater within the vehicle.
+- **Fixation**: Highlights attachment points for secure installation.
+- **Electrical circuit**: Outlines connections for power supply to the heater.
+- **Coolant circuit**: Demonstrates the flow system for heating the coolant medium.
+- **Control function**: Depicts the integrated electronics responsible for heating regulation.
+- **Interface function**: Represents connectors for electrical and coolant system connections.
+- **Heating function**: Shows how electric energy is converted to thermal energy to heat the coolant.
+
+(fig. 1)
+Page 10
+2 Product Description.
+
+The CH is part of the heating system of the vehicle and can be used as:
+- A primary heat source for vehicle interior climatic adjustment.
+- Support for battery climatic adjustment in hybrid or electric vehicles (heating of the battery to operating temperature).
+- Start-up load in fuel cell vehicles.
+- Break resistance to protect the battery from overloads.
+
+Heating can occur in drive mode or park mode when the vehicle is connected to the wall charger. 
+
+The CH includes an integrated electronics unit, with the vehicle’s energy management system ensuring optimal energy allocation to the Coolant Heater.
+
+2.1 Function List.
+
+The primary functions of the coolant heater with integrated electronics are:
+1. **Control Function:** Allocates maximum thermal power as requested by the supervisory control system (LIN-master).
+2. **Heating Function:** Uses electric energy to heat up the coolant.
+3. **Interface Function:** Employs standard electrical connectors (12V, high voltage, grounding), automotive coolant pipes, and holes for self-forming screws.
+
+**Figure 1**: An illustration displaying the Engine compartment with annotations showing the heater module components, including Control Function, Heating Function, Interface Function, Coolant Circuit, Fixation, and Electrical Circuit.
+
+***
+
+**Design.**
+
+The heater module consists of:
+- **Heating Pockets:** Configured into 4 heating circuits.
+- **Temperature Sensors:** One standard temperature sensor at the outlet, with an optional second sensor configured at EOL.
+- **Aluminum Die-Cast Heater Body:** Integrated into a plastic medium housing with hose connectors. Coolant flows through a meander structure within the heater body.
+
+The electronic module is a die-cast aluminum body protected by a metal cover. The unit is fastened with screws, has direct board-connected connectors, and is sealed within its electronic housing.
+
+The coolant flow direction is defined in the drawing, with the basic setup including one temperature sensor and the optional addition of a second.
+
+2.2 Characteristics.
+
+2.2.1 Operating Characteristics.
+
+- **General Parameters:**
+  - Power: At nominal conditions (Un = 350 V, Tcoolant = 60°C, Qcoolant = 10 l/min, coolant ratio 50:50), the range is 6300 W (Min), 7000 W (Typ), and 7700 W (Max).  
+  - Weight: Without coolant, 2500 g.
+
+**Table 4**: General Operating Parameters.
+
+- **Temperature-Related Parameters:**
+  - Operating Temperature (Coolant): Min -40°C, Typ N/A, Max 90°C.
+  - Operating Temperature (Ambient): Min -40°C, Typ N/A, Max 120°C.
+  - Storage Temperature (Ambient): Min -40°C, Typ N/A, Max 125°C.
+  - Coolant Temperature: Min -40°C, Typ N/A, Max 135°C.
+
+**Table 5**: Temperature Operating Parameters.
+Page 11
+Specification
+Page 11 of 39
+
+© Eberspächer catem GmbH & Co. KG reserves all rights including industrial property rights. We reserve all rights such as copying and passing on to third parties.  
+Spec. 3G Basic Plus Q_S 7kW_V1.6.doc
+
+2.2 Characteristics  
+2.2.1 Operating Characteristics
+
+**Low Voltage**
+
+Parameter Description:
+- **UKl15/Kl30**: Voltage supply [Min: 8V, Typ: 13.2V, Max: 16V].  
+- **IKl15/Kl30**: Current supply [Min: 40mA, Typ: 70mA, Max: 180mA].  
+- **Iquiescent**: Current Kl15 off (sleep mode Kl30) [Max: 100µA].  
+
+**High Voltage**
+
+Parameter Description:
+- **UHV+/HV-**:
+  - Voltage supply in full operational capability according status B1 (LV123-141) [Min: 250, Typ: 350V, Max: 500V].
+  - Voltage supply above upper limit [Max: 500V].  
+  - Voltage supply in lower operational capability [Min: 160V, Typ: 250V].  
+  - Voltage supply below lower limit [Max: 160V].  
+- **UpeakHV+/HV-**: Voltage supply peak on HV for a duration of 60s [Max: 600V].  
+- **IHV+/HV-**: Current supply under nominal conditions [Min: 20A, Typ: 30A].  
+- **Iquiescent**: Current HV on @470V [Typ: 2.5mA].  
+
+**Isolation Resistance and Dielectric Strength (HV against LV [chassis])**
+
+Parameter Description:
+- **RISO**:
+  - Isolation resistance begin of life [Min: 50MΩ].  
+  - Isolation resistance end of life [Min: 5MΩ].  
+- **Utest dc**: Dielectric strength (EOL test bench acc. LV123) [Typ: 2150Vdc].  
+- **Udesign dc**: Dielectric strength design acc. DIN EN 60664 [Typ: 2700Vdc].
+Page 12
+### Product Description
+
+The CH is part of the heating system of the vehicle and can be used for:
+- Primary heat source for vehicle interior climatic adjustment.
+- Support for battery climatic adjustment in hybrid or electrical vehicles (heating of the battery to operating temperature).
+- Start-up load in fuel cell vehicles.
+- Break resistance to protect the battery from overloads.
+
+Heating can occur in drive mode or park mode while the vehicle is connected to the wall charger. The CH includes an integrated electronics unit, with the vehicle energy management system assuming the allocation of optimal energy to the Coolant Heater.
+
+### Function List
+The main functions of the coolant heater with integrated electronics are:
+- **Control function**: Allocate maximum thermal power as requested by the supervisory control system (LIN-master).
+- **Heating function**: Use electric energy to heat the coolant.
+- **Interface function**: Utilize standard electrical connectors (12V, high voltage, grounding), automotive coolant pipes, and holes for self-forming screws.
+
+---
+
+### Design
+
+The heater module consists of:
+- Heating pockets.
+- A temperature sensor (standard configuration at the outlet; an optional second sensor configurable at EOL).
+- Internal connection elements.  
+
+The aluminum die-cast heater body is integrated into a plastic medium housing with integrated hose connectors. Coolant flows through the heater body in a meander structure.
+
+The electronic module comprises an aluminum die-cast body with a metal cover. Connectors are directly attached to the board and sealed to the electronic housing.
+
+---
+
+### Characteristics
+
+#### General
+| Parameter        | Description                  | Condition                                              | Min  | Typ  | Max   | Unit |
+|------------------|------------------------------|-------------------------------------------------------|------|------|-------|------|
+| **Pn el.**       | Power                        | Nominal conditions: Un = 350V, Tcoolant = 60°C, Qcoolant = 10 l/min, Coolant = 50:50 | 6300 | 7000 | 7700  | W    |
+| **m**            | Weight                       | Without coolant                                        | 2500 |      |       | g    |
+
+#### Temperature
+| Parameter        | Description                  | Condition                                              | Min  | Typ  | Max   | Unit |
+|------------------|------------------------------|-------------------------------------------------------|------|------|-------|------|
+| **Toperating**   | Operating temperature (coolant) | Inlet                                               | -40  |      | 90    | °C   |
+| **Toperating**   | Operating temperature (ambient)|                                                   | -40  |      | 120   | °C   |
+| **Tstorage**     | Storage temperature (ambient) |                                                     | -40  |      | 125   | °C   |
+| **Tcoolant**     | Coolant temperature           |                                                     | -40  |      | 135   | °C   |
+
+---
+
+#### Low Voltage
+| Parameter        | Description                  | Condition                                              | Min  | Typ  | Max   | Unit |
+|------------------|------------------------------|-------------------------------------------------------|------|------|-------|------|
+| **UKl15/Kl30**   | Voltage supply               |                                                       | 8    | 13.2 | 16    | V    |
+| **IKl15/Kl30**   | Current supply               |                                                       | 40   | 70   | 180   | mA   |
+| **Iquiescent**   | Current (Kl15 off in sleep mode) |                                                   |      |      | 100   | µA   |
+
+#### High Voltage
+| Parameter        | Description                                     | Condition        | Min  | Typ  | Max   | Unit |
+|------------------|-------------------------------------------------|------------------|------|------|-------|------|
+| **UHV+/HV-**     | Voltage supply in full operational capability   | according to LV123-141 | 250  | 350  | 500   | V    |
+| **UpeakHV+/HV-** | Voltage supply peak (duration of 60s)           |                  |      |      | 600   | V    |
+| **IHV+/HV-**     | Current supply during nominal conditions        |                  | 20   | 30   |       | A    |
+| **Iquiescent**   | Current supply HV on @470V                     |                  |      |      | 2.5   | mA   |
+
+---
+
+#### Isolation Resistance and Dielectric Strength
+| Parameter        | Description                  | Condition                                              | Min  | Typ  | Max   | Unit |
+|------------------|------------------------------|-------------------------------------------------------|------|------|-------|------|
+| **RISO**         | Isolation resistance (beginning of life) | Basic isolation                                    | 50   |      |       | MΩ   |
+| **RISO**         | Isolation resistance (end of life)      | Basic isolation                                    | 5    |      |       | MΩ   |
+| **Utest dc**     | Dielectric strength (EOL test bench)    | acc. LV123                                         |      |      | 2150  | Vdc  |
+| **Udesign dc**   | Dielectric strength (design)           | acc. DIN EN 60664                                |      |      | 2700  | Vdc  |
+
+---
+
+#### Others
+| Parameter        | Description                  | Condition                                              | Min  | Typ  | Max   | Unit |
+|------------------|------------------------------|-------------------------------------------------------|------|------|-------|------|
+| **HR**           | Humidity                     |                                                       | 0    |      | 100   | %    |
+| **Pmax**         | Max pressure (relative)      |                                                       |      |      | 5     | Bar  |
+| **ESD**          | Robustness against contact discharge ESD (pins, case, air) |                   | 6    | 8    | 15    | kV   |
+| **hasl**         | Height above sea level       | Heater may not exceed this elevation.                 |      |      | 5500  | m    |
+
+---
+
+### Mission Profile
+- Lifetime: 15 years or 300,000 km.
+- Expected heating operating hours: 12,000 h total (5,000 h ignition-on with LIN active; 7,000 h of heating).
+- Maximum of 54,000 power-on cycles.
+- HV-PTC module operation: Attachable permanently to LV and HV supplies.
+- Engine compartment capability: Avoid placement near permanent heat sources >120°C within <75 mm distance.
+- Mission profile adheres to LV124 standards.
+Page 13
+2.2.3 Heating performance.
+
+2.2.3.1 Characteristic diagram.
+
+The characteristic diagram displays power output versus voltage under different coolant temperatures (-30°C, -20°C, 0°C, 50°C, 60°C, 80°C). The power output increases with voltage up to saturation levels as represented by the curves for each temperature.
+
+Figure 3 illustrates the power characteristic of the coolant heater.
+
+2.2.3.2 Voltage influence on performance.
+
+Below is a tabular representation showing the impact of voltage on performance (P [W] and I [A]) at different coolant temperatures:
+
+**Voltage and Power Output (P [W]):**
+- At 200V: 1040W (-30°C), 1720W (-20°C), 2240W (0°C), 4680W (50°C), 5020W (60°C), 5220W (80°C).
+- At 240V: 5016W (-30°C), 6192W (-20°C), 6624W (0°C), 7152W (50°C), 7080W (60°C), 6576W (80°C).
+- At 250V: 6700W (-30°C), 7275W (-20°C), 7525W (0°C), 7500W (50°C), 7350W (60°C), 6725W (80°C).
+- At 300V: 10830W (-30°C), 10650W (-20°C), 10050W (0°C), 8190W (50°C), 7800W (60°C), 6870W (80°C).
+- At 350V: 11445W (-30°C), 10955W (-20°C), 10185W (0°C), 8120W (50°C), 7700W (60°C), 6825W (80°C).
+- At 400V: 11200W (-30°C), 10760W (-20°C), 10040W (0°C), 8080W (50°C), 7680W (60°C), 6840W (80°C).
+- At 450V: 11070W (-30°C), 10620W (-20°C), 9945W (0°C), 8055W (50°C), 7695W (60°C), 6840W (80°C).
+- At 480V: 10992W (-30°C), 10608W (-20°C), 9936W (0°C), 8064W (50°C), 7728W (60°C), 6912W (80°C).
+
+**Voltage and Current Flow (I [A]):**
+- At 200V: 5.2A (-30°C), 8.6A (-20°C), 11.2A (0°C), 23.4A (50°C), 25.1A (60°C), 26.1A (80°C).
+- At 240V: 20.9A (-30°C), 25.8A (-20°C), 27.6A (0°C), 29.8A (50°C), 29.5A (60°C), 27.4A (80°C).
+- At 250V: 26.8A (-30°C), 29.1A (-20°C), 30.1A (0°C), 30A (50°C), 29.4A (60°C), 26.9A (80°C).
+- At 300V: 36.1A (-30°C), 35.5A (-20°C), 33.5A (0°C), 27.3A (50°C), 26A (60°C), 22.9A (80°C).
+- At 350V: 32.7A (-30°C), 31.3A (-20°C), 29.1A (0°C), 23.2A (50°C), 22A (60°C), 19.5A (80°C).
+- At 400V: 28A (-30°C), 26.9A (-20°C), 25.1A (0°C), 20.2A (50°C), 19.2A (60°C), 17.1A (80°C).
+- At 450V: 24.6A (-30°C), 23.6A (-20°C), 22.1A (0°C), 17.9A (50°C), 17.1A (60°C), 15.2A (80°C).
+- At 480V: 22.9A (-30°C), 22.1A (-20°C), 20.7A (0°C), 16.8A (50°C), 16.1A (60°C), 14.4A (80°C).
+
+This table reflects significant variations in power output and current flow depending on voltage input and coolant operating temperature. Higher coolants temperatures generally result in reduced performance at maximum voltage levels.
+Page 14
+2.3 Pressure drop
+
+**Pressure drop values based on temperature, medium, and flow rate:**
+- At -30°C and a flow rate of 10 l/min, the pressure drop is 290 mbar for the heater in passive mode.
+- At 24°C and a flow rate of 10 l/min, the pressure drop is 80 mbar for the heater in passive mode.
+- At 75°C and a flow rate of 10 l/min, the pressure drop is 55 mbar for the heater in passive mode.
+
+fig. 4 pressure drop
+
+---
+
+3 Vehicle integration
+
+3.1 System integration
+
+3.1.1 Mechanical integration  
+3.1.1.1 Packaging  
+
+**Description of heater dimensions and packaging:**
+The heater dimensions include:
+- Height: 124 mm
+- Width: 179 mm
+- Length: 230 mm (inclusive of hose connector)
+
+Details of the dimensions and the positions of the fitting holes are included in the drawing and 3D model of the heater.
+
+fig. 5 heater dimension
+Page 15
+3.1.1.2 Fixation and fitting position.
+
+Position of the fixation holes can be found at the drawing and 3D data file. The screws must be ordered directly from supplier EJOT. For a clamping thickness up to 3 mm, EJOT Model (M6x18) No. 4211935809, EJOT drawing No. 2141325-00 is recommended. The heater must be fixed by a minimum of 5 screws. The maximum screwing depth is 20 mm. For different screwing depths/clamping thicknesses, screws from the same EJOT family must be used.
+
+Note: The installation can be done at any angle, but the positioning of the heater should ensure no air bubbles float into the heater.
+
+fig. 6 Pocket hole for self-cutting screws.
+Page 16
+3.1.1.3 Coolant connection.
+
+The 3G Basic Plus offers the possibility to choose between two cooling water connection systems. The quick connector has a snap-in function for connecting the coolant hose with the heating system. The standard connector is fixed by a clamp with the coolant hose.
+
+3.1.1.3.1 Quick Connector.
+
+Figure 7 illustrates hose connectors designed for quick connection. These connectors facilitate a snap-in mechanism to attach the coolant hose seamlessly to the heating system.
+
+3.1.1.3.2 Standard Connector.
+
+Figure 8 demonstrates the Eberspächer Standard hose connector. This connector is secured using a clamp mechanism to attach the coolant hose. The table below specifies the dimensions:
+
+- Diameter pipe (ds): 20 mm ± 0.2/-0.15.
+- Wall diameter (dw): 22.4 mm ± 0.25.
+- Edge radius (f): 4 mm ± 1.
+Page 17
+3.1.1.4 Electrical connection.
+
+3.1.1.4.1 HV Connector.
+
+The high voltage connector Tyco includes the following specifications:
+- Part no.: 2367282-1.
+- Counterpart: 2310537-4.
+- Coding: D.
+- Color: orange.
+
+PIN assignments:
+1. HV in (+).
+2. HV out (-).
+3. Interlock.
+4. Interlock.
+
+fig. 9 high voltage connector Tyco.
+
+---
+
+3.1.1.4.2 LV Connector.
+
+The low voltage connector "Seal Star 8 pin" (Hirschmann) includes the following specifications:
+- Part no.: 807-521-501 / 807-520-501.
+- Counterpart: 805-031-541.
+- Coding: A.
+- Color: black.
+
+PIN assignments:
+1. HV Interlock.
+2. HV Interlock.
+3. BATT (Kl. 30).
+4. GND (Kl.31).
+5. LIN.
+6. not assigned.
+7. not assigned.
+8. not assigned.
+
+fig. 10 low voltage connector seal star 8 pin (Hirschmann).
+Page 18
+3.1.1.4.3 Ground bolt.
+
+M6 ground bolt is used for grounding. The maximum torque for the ground bolt is 10.5 Nm.
+
+**Attention:** Voltage supply must be deactivated during installation or removal of the heater.
+
+3.1.2 Heater requirements:
+- LIN signal controls the heater.
+- HV+ / HV- High Voltage supply of the heater circuit.
+- Power supply LV (Battery, BATT, Kl30) or Kl15 (ignition), Kl31 (ground).
+- Interlock signal line is bridged inside the heater (passive interlock).
+
+3.1.3 Requirements on the electric system of the vehicle:
+- In the vehicle, an insulation monitoring device must be implemented to detect:
+  - Over (-limit) voltage protection.
+  - Short-circuit current (fuse on vehicle side required).
+  - Leakage current detection.
+  - Interlock function of the high voltage cable.
+- HV supply must be fused separately with a minimum 40 A fuse (time-lag).
+- Reverse polarity must not be applied to the HV voltage supply by any means.
+- Over and under voltage shutdown has to be executed by the vehicle and internally by the heater.
+Page 19
+### Electronic Integration
+
+#### Electronic Block Diagram
+The electronic block diagram illustrates the architecture of the 3G Basic Plus heating system. It shows connections between the LV connector (13.2 V and Gnd), DC/DC Converter (Galvanic Isolation 2700 V), SPI (Master and Slave) Microcontrollers, Gate Drivers, and PTC elements. An optional inlet temperature sensor (NTC) is also shown. For details regarding functionality and electrical integration, refer to the diagram labeled "Fig. 12: Block diagram of electrical architecture."
+
+#### LIN Communications and Diagnostics
+
+##### Definitions
+- The LIN communication of the ECU is based on the LIN 2.1 standard.
+- LIN communication operates at a baud rate of 19200.
+- The defined LIN parameters for the HV-PTC are:
+  - **Node Address (NAD):** 0x4D
+  - **Supplier ID:** 0x00B1 (Eberspächer LIN ID)
+  - **Function ID:** 0x03
+  - **Variant ID:** 0x00
+
+##### Diagnostic Services
+The LIN slave node adheres to Class II diagnostic services as outlined in LIN specification package 2.1. For a complete list of supported services, refer to table 5.1 of the LIN specification package 2.1.
+Page 20
+3.1.5.3 Supported LIN Frames.
+
+The supported LIN frames, their identifiers, lengths, and descriptions are as follows:
+- LIN_Mst_Frm1: Frame ID is 0x15, length is 4 bytes. This frame contains requests received from HVAC (LIN Master), including signals for HV-PTC.
+- HV_PTC_Frm1: Frame ID is 0x16, length is 8 bytes. This frame transmits the status of the heater, diagnostic trouble codes (DTCs), and measurement readings from HV-PTC.
+- MasterReq: Frame ID is 0x3C, length is 8 bytes. This frame contains diagnostic requests from HVAC.
+- SlaveResp: Frame ID is 0x3D, length is 8 bytes. This frame contains diagnostic responses from HV-PTC.
+
+Note: The frame IDs can be modified using the LIN service Assign Frame ID.
+
+3.1.5.4 Diagnostic Trouble Codes (DTCs).
+
+The Diagnostic Trouble Codes, their frame IDs, signals, and descriptions are as follows:
+- Defect of Heater Legs Indicator: Frame ID is 0x16, signal is HV_PTC_defectHeaterCircuits. Indicates the number of defective HV-PTC circuits (heater legs).
+- High Voltage valid Indicator: Frame ID is 0x16, signal is HV_PTC_HV_Voltage_Valid. Indicates the high voltage measurement is within a defined range.
+- Over temperature Indicator: Frame ID is 0x16, signal is HV_PTC_TempLimit. Indicates that HV-PTC is in an over-temperature situation.
+- LIN communication error Indicator: Frame ID is 0x16, signal is HV_PTC_LIN_Flt. Indicates that LIN communication to the HV-PTC is corrupt.
+- External Power Supply failure: Frame ID is 0x16, signal is HV_PTC_ExtPwrSup_Flt. Indicates a failure of the 12V (battery voltage) supply.
+- Short circuit indicator: Frame ID is 0x16, signal is HV_PTC_Off_ShrtCurr. Indicates the occurrence of a short-circuit event in one or more heater legs.
+- LIN response error Indicator: Frame ID is 0x16, signal is RsErr_HV_PTC. Indicates a LIN response error in accordance with LIN specification 2.1.
+- Temperature Sensor fault: Frame ID is 0x16, signal is HV_PTC_TempSens_Flt. Indicates a fault in the Medium T-Sensor.
+- Current Sensor fault: Frame ID is 0x16, signal is HV_PTC_CurrSens_Flt. Indicates a fault in the Current Sensor.
+
+Table 10: Supported LIN Frames.
+Table 11: Diagnostic Trouble Codes.
+Page 21
+3.1.5.5 Parameters.
+
+NrHeatCircuits represents the number of heater circuits, which is 4.
+
+Defect_HeatCircuit_Derating indicates if the derating strategy for defective heater circuits is active, with a value of 1.
+
+LvUpperLimitVoltage is the upper threshold for low voltage supply, set at 16 V.
+
+LvLowerLimitVoltage is the lower threshold for low voltage supply, set at 8 V.
+
+LvHysteresis refers to the hysteresis of the low voltage supply thresholds, defined as 0.4 V.
+
+LvDcDcInputUpperLimit indicates the upper threshold for low voltage at the input voltage for the DC/DC converter, set at 17.8 V.
+
+LvDcDcInputLowerLimit reflects the lower threshold for the low voltage range or input voltage for the DC/DC converter, set at 6.2 V.
+
+HvOvervoltage specifies the maximum transient withstand voltage, which is 550 V.
+
+HvMaxWorkingVoltage is the upper threshold for the operation of the heater, defined as 500 V.
+
+HvMinWorkingVoltage is the lower threshold for the operation of the heater with full power, set at 250 V.
+
+HvLowerVoltageLimit indicates the lower threshold for the operation of the heater, set at 160 V.
+
+HvHysteresis refers to the hysteresis of the high voltage supply thresholds, defined as 10 V.
+
+HvCurrentIntThres represents the internal threshold for high voltage current, which is 30 A.
+
+HvCurrentHysteresis reflects the hysteresis of the current limit, set at 3 A.
+
+HvCurrentSCLimit specifies the threshold for high voltage current shut-off via hardware, which is 80 A.
+
+HvPowerIntThres is the internal threshold for high voltage power, set at 15 kW.
+
+HvPowerNominal represents the nominal power for internal calculations, defined as 7 kW.
+
+PcbTempUpperDerat refers to the upper threshold for PCB temperature for derating, set at 120 °C.
+Page 22
+### 3.1.5.5 Parameters
+**Parameter Name:** PcbTempLowerDerat  
+**Description:** Lower threshold for PCB temperature for derating.  
+**Value:** 115  
+**Unit:** °C  
+
+**Parameter Name:** PcbTempUpperShutDwn  
+**Description:** Upper threshold for PCB temperature for switch off.  
+**Value:** 125  
+**Unit:** °C  
+
+**Parameter Name:** PcbTempLowerShutDwn  
+**Description:** Lower threshold for PCB temperature for switch off.  
+**Value:** 110  
+**Unit:** °C  
+
+**Parameter Name:** MedTempUpperShutDwn  
+**Description:** Upper threshold for medium temperature for switch off.  
+**Value:** 90  
+**Unit:** °C  
+
+**Parameter Name:** MedTempLowerShutDwn  
+**Description:** Lower threshold for medium temperature for switch off.  
+**Value:** 80  
+**Unit:** °C  
+
+**Parameter Name:** power_down_int_error  
+**Description:** Ramp parameter for change of heating request if an internal error occurs.  
+**Value:** direct  
+**Unit:** W/s  
+
+**Parameter Name:** HV+15LowerLimitVoltage (internal Parameter)  
+**Description:** Slave Controller HV+15 Undervoltage Threshold.  
+**Value:** 11  
+**Unit:** V  
+
+**Parameter Name:** HV+15UpperLimitVoltage (internal Parameter)  
+**Description:** Slave Controller HV+15 Overvoltage Threshold.  
+**Value:** 19.2  
+**Unit:** V  
+
+**Parameter Name:** HV+15Hysteresis (internal Parameter)  
+**Description:** Slave Controller HV+15 Over / Undervoltage Hysteresis.  
+**Value:** 0.3  
+**Unit:** V  
+
+### 3.1.5.6 Frame HVAC_HV_PTC_Rq (Receive Signals)
+#### 3.1.5.6.1 Heating Power Request in percent
+**Signal:** HV_PTC_heating_rq  
+**Startbyte:** 0  
+**Startbit:** 0  
+**Length:** 7  
+**Range (phys.):** 0...100  
+**Init:** 127  
+**Unit:** %  
+**SNA:** 127  
+
+*The signal HV_PTC_heating_rq contains the power request for the heater in percent. A value of 0% indicates the heater shall not heat, and 100% indicates the heater will run at maximum power.*
+
+*If the incoming power request is invalid (greater than the maximum value, initial, or SNA), the heater will maintain the latest valid request for 2 seconds. After that, the heater will be switched off.*
+
+#### 3.1.5.6.2 Enable Operation of HV-PTC
+**Signal:** HV_PTC_ON_Rq  
+**Startbyte:** 1  
+**Startbit:** 0  
+**Length:** 2  
+**Range (phys.):** 0..3  
+**Init:** 3  
+**Unit:** -  
+**SNA:** 3  
+
+*The signal HV_PTC_ON_Rq enables the operation of the heater. Only if the signal is PTC_ON, the heater evaluates the power request from the signal HV_PTC_heating_rq.*
+Page 23
+3.1.5.6 Frame HVAC_HV_PTC_Rq (Receive Signals)
+
+3.1.5.6.1 Heating Power Request in percent  
+The signal HV_PTC_heating_rq will contain the power request for the heater in percent, i.e., 0% indicates the heater shall not heat, and 100% means that the heater will run at maximum power. If the incoming power request is invalid (greater than the maximum value, initial, or SNA), the heater will maintain the latest valid request for 2 seconds. Then the heater will be switched off.
+
+| Signal                 | Startbyte | Startbit | Length | Range (phys.) | Init | Unit | SNA |
+|------------------------|-----------|----------|--------|---------------|------|------|-----|
+| HV_PTC_heating_rq      | 0         | 0        | 7      | 0...100       | 127  | %    | 127 |
+
+**Tab. 13**  
+
+---
+
+3.1.5.6.2 Enable Operation of HV-PTC  
+The signal HV_PTC_ON_Rq will enable the operation of the heater, i.e., only if signal is PTC_ON, the heater evaluates the power request of signal HV_PTC_heating_rq.
+
+| Signal          | Startbyte | Startbit | Length | Range (phys.) | Init | Unit | SNA |
+|-----------------|-----------|----------|--------|---------------|------|------|-----|
+| HV_PTC_ON_Rq    | 1         | 0        | 2      | 0..3          | 3    | -    | 3   |
+
+**Tab. 14**  
+
+**Fig. 13**  
+0 0: PTC off / PTC_OFF  
+0 1: PTC on / PTC_ON  
+1 0: reserved / RES  
+1 1: SNA  
+
+---
+
+3.1.5.6.3 Reset Request  
+The signal HV_PTC_Reset_Rq determines whether the PTC shall execute a reset. On reset request, the heating power is ramped down, and once all heater legs are off, the heater will execute a reset.
+
+| Signal          | Startbyte | Startbit | Length | Range (phys.) | Init | Unit | SNA |
+|-----------------|-----------|----------|--------|---------------|------|------|-----|
+| HV_PTC_Reset_Rq | 1         | 2        | 2      | 0..3          | 3    | -    | 3   |
+
+**Tab. 15**  
+
+**Fig. 14**  
+0 0: No Reset requested / NO_RESET  
+0 1: Reset requested / RESET  
+1 0: not defined / NDEF  
+1 1: SNA  
+
+---
+
+3.1.5.6.4 Emergency Shutoff  
+The signal HV_PTC_Emg_Off_Rq will trigger an emergency shutdown. All heater circuits will be switched off immediately (without ramp). A new drive cycle (T15/T30 reset, bus sleep, or internal and external reset via bus) will be necessary to restart the heater.
+
+| Signal          | Startbyte | Startbit | Length | Range (phys.) | Init | Unit | SNA |
+|-----------------|-----------|----------|--------|---------------|------|------|-----|
+| HV_PTC_Emg_Off_Rq | 2       | 7        | 1      | 0..1          | 0    | -    | -   |
+
+**Tab. 15**  
+
+**Fig. 15**  
+0: No Shutdown requested / NO_SHUTDOWN  
+1: Shutdown requested / SHUTDOWN
+Page 24
+3.1.5.6.5 Discharge Request.
+
+The signal HVAC_HV_PTC_Dschrg_Rq triggers a discharge sequence. Heater circuits will be switched ON consecutively with a delay of 500 ms, for a total activation time of 2 seconds. 
+
+Table 17 describes the parameters: 
+- Signal Name: HVAC_HV_PTC_Dschrg_Rq. 
+- Start Byte: 3.
+- Start Bit: 4.
+- Length: 2.
+- Range (phys.): 0..3.
+- Initialization Value: 3.
+- Unit: -.
+- SNA: 3.
+
+Figure 16 describes the behavior in binary format:
+- 00: No Request / NO_DISCHARGE.
+- 01: Discharge Requested / DIS.
+- 10: Not Defined / NDEF.
+- 11: SNA.
+
+**Note:** When the signal is set to discharge, the heater state STOP is communicated. If the discharge signal is reset after activation, the heater resumes normal operations. This signal overrides requests to enable heating or heat at 0% power, allowing activation of heater circuits even in OFF mode.
+
+---
+
+3.1.5.7 Frame HV_PTC_Frm1 (Transmit Signals).
+
+### 3.1.5.7.1 Current Draw of HV-PTC.
+
+The HV_PTC_HV_DC_curr signal indicates total heater current consumption. 
+
+Table 18 describes the parameters:
+- Signal Name: HV_PTC_HV_DC_curr.
+- Start Byte: 0.
+- Start Bit: 0.
+- Length: 8.
+- Range (phys.): 0..63.25A.
+- Resolution: 0.25A.
+- Unit: Amps (A).
+- Initialization/SNA Value: 255.
+
+**Behavior:** 
+- Current sensor readings range from 0A to 63.25A. If power request is 0% and current falls below 0.4A, a 0.0A reading is transmitted. For values exceeding 63.25A, a maximum reading of 63.25A is sent. 
+- Additional Value: 255 indicates a sensor defect detected by plausibility checks.
+
+---
+
+### 3.1.5.7.2 High Voltage Measurement.
+
+The HV_PTC_HV_voltage signal returns measured heater HV voltage readings.
+
+Table 19 describes the parameters:
+- Signal Name: HV_PTC_HV_voltage.
+- Start Byte: 1.
+- Start Bit: 0.
+- Length: 8.
+- Range (phys.): 0..508V.
+- Resolution: 2V.
+- Unit: Voltage (V).
+- Initialization Value: 255.
+
+**Behavior:**
+HV_PTC_HV_voltage contains measurements within the range of 0V to 508V in 2V increments.
+Page 25
+3.1.5.7.3 Medium Temperature 1.
+
+The signal `HV_PTC_InternalWaterTemp1` will represent the coolant temperature at the outlet of the heater by default.  
+
+- **Startbyte:** 2  
+- **Startbit:** 0  
+- **Length:** 8  
+- **Range:** 0 - 254  
+- **Offset:** -50  
+- **Unit:** °C  
+- **Init / SNA:** 255  
+
+Additional value: 255 represents an error where a sensor defect occurs (ShortToGND or ShortToVCC).  
+Note: The physical range extends from -50°C to +204°C due to the offset of -50.
+
+---
+
+3.1.5.7.4 Medium Temperature 2.
+
+The signal `HV_PTC_InternalWaterTemp2` will represent the coolant temperature at the inlet of the heater by default if it is activated via UDS Parameter.  
+
+- **Startbyte:** 3  
+- **Startbit:** 0  
+- **Length:** 8  
+- **Range:** 0 - 254  
+- **Offset:** -50  
+- **Unit:** °C  
+- **Init / SNA:** 255  
+
+If the optional temperature sensor is not mounted, the signal defaults to -50°C and is not evaluated. Additional value: 255 indicates a sensor defect (ShortToGND or ShortToVCC).  
+Note: The physical range extends from -50°C to +204°C due to the offset of -50.
+
+---
+
+3.1.5.7.5 HV-PTC Status Signals.
+
+The heater's current operation status is signaled using `HV_PTC_Status`.  
+
+- **Startbyte:** 4  
+- **Startbit:** 0  
+- **Length:** 3  
+- **Range:** 0..7  
+- **Init:** 7  
+- **Unit:** -  
+- **SNA:** 7  
+
+Status values:  
+
+| B7 | B6 | B5 | B4 | B3 | B2 | B1 | B0 | Function                     |  
+|----|----|----|----|----|----|----|----|-----------------------------|  
+| 0  | 0  | 0  | HV PTC off / HV_PTC_OFF |  
+| 0  | 0  | 1  | HV PTC on / HV_PTC_ON   |  
+| 0  | 1  | 0  | HV PTC degraded / HV_PTC_DEG |  
+| 0  | 1  | 1  | HV PTC stopped / HV_PTC_STOP |  
+| 1  | 0  | 0  | HV PTC shutdown / HV_PTC_SHUTDOWN |  
+| 1  | 0  | 1  | HV PTC shorted / HV_PTC_SHORTED |  
+| 1  | 1  | 0  | HV PTC reset not possible / HV_PTC_NO_RESET |  
+| 1  | 1  | 1  | SNA                        |  
+
+Fig. 17 illustrates these status codes.
+Page 26
+3.1.5.7.5 HV-PTC Status Signals.
+
+The PTC heater will set the signal accordingly to the following values:
+- **Value: 0, Status: HV PTC off / HV_PTC_OFF**. The signal HV_PTC_On_Rq equals OFF, and all heater circuits are off.
+
+- **Value: 1, Status: HV PTC on / HV_PTC_ON**. Set directly after receiving signal HV_PTC_On_Rq equals ON.
+
+- **Value: 2, Status: HV PTC degraded / HV_PTC_DEG**. Indicates a fault that limits the heating power of the heater but allows continued heating. This status is activated under the following conditions:
+  - **Signal range exceeded**:
+    - PCB Temperature lies within the range of [PcbTempUpperDerat; PcbTempUpperShutDwn].
+    - Power is limited due to HV voltage within the range of [(HvLowerVoltageLimit - HvHysteresis); (HvMinWorkingVoltage - HvHysteresis)].
+      *Note:* This is caused by an external limitation, not the heater itself.
+    - HV current lies in the range of [HvCurrentIntThres; HvCurrentExtThres].
+  - **Defective electric**:
+    - If a heater circuit has an open circuit, the heater continues heating with the remaining functional heat circuits and communicates the number of defective circuits via a specific LIN signal.
+    - If a heater circuit is shorted, the heater continues heating with remaining functional circuits and communicates the number of defective circuits via a specific LIN signal.
+
+- **Value: 3, Status: HV PTC stopped / HV_PTC_STOP**. All heat circuits are turned off, and an internal error is active. This signal is activated under the following conditions:
+  - **Signal out of range for operation**:
+    - PCB Temperature exceeds PcbTempUpperShutDwn.
+    - Coolant medium temperature exceeds MedTempUpperShutDwn.
+    - HV overvoltage exceeds HvMaxWorkingVoltage + HvHysteresis.
+    - HV undervoltage falls below HvLowerVoltageLimit - HvHysteresis.
+    - LV overvoltage exceeds LvUpperLimitVoltage + LvHysteresis.
+    - LV undervoltage falls below LvLowerLimitVoltage - LvHysteresis.
+    - Internal DC/DC output voltage is out of range [(HV+15LowerLimitVoltage - HV+15Hysteresis); (HV+15UpperLimitVoltage + HV+15Hysteresis)].
+    - Internal DC/DC input voltage is out of range [(LvDcDcInputLowerLimit - LvDcDcHyst); (LvDcDcInputUpperLimit + LvDcDcHyst)].
+    - HV overcurrent exceeds HvCurrentExtThres.
+  - **Received LIN signals**:
+    - Signal HV_PTC_Dschrg_Rq indicates 1.
+Page 27
+3.1.5.7.6 Defect of Heater Circuit Indicator.
+
+The signal HV_PTC_defectHeaterCircuits will indicate the number of defect heater circuits.
+
+Signal breakdown:
+- **Startbyte**: 4
+- **Startbit**: 3
+- **Length**: 3
+- **Range (phys.)**: 0..7
+- **Init**: 7
+- **Unit**: -
+- **SNA (Signal Not Available)**: 7
+
+---
+
+3.1.5.7.7 HV Valid Indicator.
+
+This signal HV_PTC_HV_Voltage_Valid indicates with a ONE that the high voltage measurement reading is within a predefined valid range.
+
+Signal breakdown:
+- **Startbyte**: 5
+- **Startbit**: 0
+- **Length**: 2
+- **Range (phys.)**: 0..3
+- **Init**: 3
+- **Unit**: -
+- **SNA (Signal Not Available)**: 0
+
+Signal states and functions:
+- **B7 B6 B5 B4 B3 B2 B1 B0 Function**:
+  - `00`: NO HV detected / SNA.
+  - `01`: HV valid / In Range: (HvLowerVoltageLimit - HvHysteresis); (HvMaxWorkingVoltage + HvHysteresis).
+  - `10`: Under Voltage < (HvLowerVoltageLimit - HvHysteresis).
+  - `11`: Over Voltage > (HvMaxWorkingVoltage + HvHysteresis).
+
+(fig. 18)
+Page 28
+3.1.5.7.8 Temperature Sensor fault.
+
+The signal HV_PTC_TempSens_Flt will indicate that the heater has detected either a faulty Medium T-Sensor, or signals from any or both NTCs on the PCB are invalid.  
+Note: 0 = no failure; 1 = failure.
+
+Signal Details:
+- Startbyte: 5  
+- Startbit: 2  
+- Length: 1  
+- Range (phys.): 0..1  
+- Init: 1  
+- Unit: -  
+- SNA: -  
+
+Tabulated Information (Tab. 26):
+- B7 B6 B5 B4 B3 B2 B1 B0 Function  
+- 0 No failure detected.  
+- 1 Failure detected.  
+
+---
+
+3.1.5.7.9 Over temperature Indicator.
+
+The signal HV_PTC_TempLim will indicate that the heater has an over temperature situation. This is the case when either the PCB temperature or the medium temperature exceeded its set limit. Refer to the individual temperature signals which signal caused over temperature.
+
+Signal Details:
+- Startbyte: 5  
+- Startbit: 3  
+- Length: 1  
+- Range (phys.): 0..1  
+- Init: 1  
+- Unit: -  
+- SNA: -  
+
+Tabulated Information (Tab. 27):
+- B7 B6 B5 B4 B3 B2 B1 B0 Function  
+- 0 No over temperature detected.  
+- 1 Over temperature situation active: (PCB Temperature > PcbTempUpperShutDwn) or (Medium Temperature > MedTempUpperShutDwn).  
+
+---
+
+3.1.5.7.10 LIN communication error Indicator.
+
+The signal HV_PTC_Sp_LIN_Flt will indicate that LIN communication to the heater is corrupt. This is the case if the heater does not receive a valid power request for 2 seconds (i.e., the heater will not receive frame LIN_Mst_Frm1).
+
+Signal Details:
+- Startbyte: 5  
+- Startbit: 4  
+- Length: 1  
+- Range (phys.): 0..1  
+- Init: 1  
+- Unit: -  
+- SNA: -  
+
+Tabulated Information (Tab. 28):
+- B7 B6 B5 B4 B3 B2 B1 B0 Function  
+- 0 No LIN timeout detected.  
+- 1 LIN timeout active.
+Page 29
+3.1.5.7.11 External Power Supply failure.  
+The signal HV_PTC_Sp_ExtPwrSup_Flt indicates that the battery voltage is not in a valid range.
+
+- Signal Startbyte: 5  
+- Startbit: 5  
+- Length: 1  
+- Range: 0..1  
+- Init: 1  
+- Unit: -  
+- SNA: -  
+
+Fig. 21 illustrates the function values:  
+- 0: LV voltage in Range (LvLowerLimitVoltage - LvHysteresis); (LvUpperLimitVoltage + LvHysteresis).  
+- 1: LV voltage out of Range: LV voltage < (LvLowerLimitVoltage - LvHysteresis) or LV voltage > (LvUpperLimitVoltage + LvHysteresis).  
+
+---
+
+3.1.5.7.12 Short-circuit detected.  
+The signal HV_PTC_Off_ShrtCurr will indicate that at least one heat circuit is shorted or open load, or at least one shorted IGBT has been detected.  
+The customer HV Relay has to switch off the power supply to the heater.
+
+- Signal Startbyte: 5  
+- Startbit: 6  
+- Length: 1  
+- Range: 0..1  
+- Init: 0  
+- Unit: -  
+- SNA: 0  
+
+Fig. 22 illustrates the function values:  
+- 0: No short circuit detected.  
+- 1: Short circuit detected.  
+
+---
+
+3.1.5.7.13 PCB Temperature.  
+The signal HV_PTC_InternalPCBTemp will represent the PCB temperature.  
+Additional value: 255 = Error. This indicates a sensor defect (ShortToGND or ShortToVCC).  
+
+- Signal Startbyte: 6  
+- Startbit: 0  
+- Length: 8  
+- Min/Max: 0 - 254  
+- Offset: -50  
+- Unit: °C  
+- Init/SNA: 255  
+
+Note: The physical range will be from -50°C to +204°C due to the Offset from -50.
+
+Tab. 31 describes this parameter.
+Page 30
+3.1.5.7.14 Current Sensor fault.  
+The signal HV_PTC_CurrSens_Flt represents the state of the heater current sensor and can return a range of conditions.  
+
+**Signal Details:**  
+- Startbyte: 7  
+- Startbit: 0  
+- Length: 5  
+- Range (phys.): 0..31  
+- Init: 31  
+- Unit: -  
+- SNA: 7  
+
+**Function Mapping:**  
+- B7 B6 B5 B4 B3 B2 B1 B0:  
+  - **000:** Diagnostics pending.  
+  - **001:** Diagnostics passed.  
+  - **010:** Short to ground.  
+  - **011:** Short to VCC (Open Load).  
+  - **100:** Offset (not used).  
+  - **101:** Out of Range.  
+  - **110:** NDEF (not defined).  
+  - **111:** SNA.  
+
+**Diagram:**  
+This mapping is represented in fig. 23.
+
+---
+
+3.1.5.7.15 LIN response error Indicator.  
+The signal RsErr_HV_PTC indicates a LIN response error according to LIN specification 1.2.  
+
+**Signal Details:**  
+- Startbyte: 7  
+- Startbit: 5  
+- Length: 1  
+- Range (phys.): 0..1  
+- Init: 1  
+- Unit: -  
+- SNA: -  
+
+**Function Mapping:**  
+- B7 B6 B5 B4 B3 B2 B1 B0:  
+  - **0:** No LIN response error detected.  
+  - **1:** LIN response error active.  
+
+**Diagram:**  
+This mapping is represented in fig. 24.
+
+---
+
+3.1.5.7.16 LIN Fault Detection.  
+If the ECU detects one of the following faults, it should react with corresponding error reactions:  
+
+**Error Scenarios:**  
+1. **No LIN message is received for 4 seconds (tlintimeout):**  
+   - Reaction: All heater legs will be switched off, and the heater will go to sleep.  
+
+2. **Invalid power request (more than 100% or change from valid request to Init or SNA):**  
+   - Reaction: The latest valid power request shall be maintained for 2 seconds. Then the heater will be switched off, and the signal HV_PTC_Sp_LIN_Flt will be set to 1.  
+
+**Table Representation:**  
+Error scenarios and their respective reactions are summarized in tab. 34.
+Page 31
+3.1.5.7.17 Sleep-Mode. If there is no LIN communication detected on the LIN bus for at least 4 seconds, the heater will go into sleep-mode. During sleep-mode, the control electronic is switched off and the LV supply current drops below 100µA. The heater will wake up as soon as LIN communication is detected.
+
+3.1.5.7.18 Ramp-up function. The heater has a ramp-up function. New power requests will not be transferred instantly to output power. To increase power from 0% to 100%, it takes approximately 14 seconds at 0°C. If the temperature is below 0°C, the ramp-up function may take up to 28 seconds. This function is implemented to prevent high inrush currents on the HV-bus.
+
+**Figure 25**: Ramp-up current curve graph. The graph demonstrates the current curve during ramping-up, illustrating the power transitions over time to alleviate high inrush currents.
+
+3.1.5.7.19 Active HV-bus discharge. It is possible to use the coolant-heater for active HV-bus discharging. This may be implemented in case of service or crash scenarios involving the vehicle. In such cases, it is recommended to leave an active power request when the battery is switched off or set LIN Discharge Request to "discharge requested." Emergency shutdown must not be requested. This action lowers the HV-bus voltage to less than 60 volts.
+Page 32
+4 Safety.
+
+The PTC HV Coolant Heater is self-protected with its safety concept:
+
+**Figure 26**  
+Safety concept diagram shows the interactions between the vehicle's monitoring systems and the HV Coolant Heater to ensure functional safety. In the event of an isolation fault, the vehicle watchdog intervenes, and if electronic safety monitoring fails, the PTC safety concept self-limits the temperature.
+
+### 4.1 Functional Safety.
+
+#### 4.1.1 ECAT HARA summary.
+
+A summary of the ECAT HARA (hazard analysis and risk assessment) includes the following safety goals:
+
+| ID   | Safety Goal                                                             | ASIL | Safe State                                                                             |
+|------|-------------------------------------------------------------------------|------|----------------------------------------------------------------------------------------|
+| SG1  | Thermal event/fire due to a malfunction of the heating system has to be avoided. | A    | Limiting of heat current circuit or limiting of heat current before reaching critical material temperatures of the heater. |
+| SG2  | Thermal event/fire due to a thermal damage of the vehicle battery caused by the heating system has to be avoided. | A    | Limiting of heat current circuit by reaching critical temperature ranges of the vehicle battery. |
+Page 33
+4 Safety. 
+
+The PTC HV Coolant Heater is self-protected with its safety concept.
+
+---
+
+4.1 Functional Safety. 
+
+4.1.1 ECAT HARA summary. 
+
+A summary of the ECAT HARA (hazard analysis and risk assessment) is shown in the table below:
+
+| ID | Safety Goal                                                                 | ASIL | Safe State                                                                                                 |
+|----|-----------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------|
+| SG1 | Thermal event/fire due to a malfunction of the heating system has to be avoided. | A    | Limiting of heat current circuit or limiting of heat current before reaching critical material temperatures of the heater. |
+| SG2 | Thermal event/fire due to a thermal damage of the vehicle battery caused by the heating system has to be avoided. | A    | Limiting of heat current circuit by reaching critical temperature ranges of the vehicle battery.          |
+| SG5 | The surface temperature of the HVCH shall never exceed 250°C.             | A    | Limiting of heat circuit or limiting of heat current before reaching critical material temperatures of the heater. |
+
+Figure 26 — Flowchart for the PTC HV Coolant Heater safety concept.
+
+---
+
+4.1.2 Functional Safety Concept. 
+
+The HVAC Heating System is displayed with the following interfaces inside the vehicle, as shown in Figure 27:
+
+- Communication interface (LIN bus).
+- LV connection.
+- HV connection.
+- GND connection (ensure it is connected and checked by vehicle/customer for protective conductor complexity).
+- Medium connection (in- and outlet for coolant).
+- Mechanical connection (bracket).
+
+Furthermore, the HVAC heater incorporates separate safety module backup operation thru grey inclusion compared functional-safety safety-linked placed EV-storage heating model detail harness-feedlines both alternatives considerations Linbus safekeeping interlinked feedback delivery across-metrics!  
+Figure table interfaces & pathway SWOT safemetric! 📋  
+-
+---
+Page 34
+4 Safety.
+
+The PTC HV Coolant Heater is self-protected with its safety concept.
+
+4.1 Functional Safety.
+
+4.1.1 ECAT HARA summary.
+
+A summary of the ECAT HARA (hazard analysis and risk assessment) is shown in the table below:
+
+### Table 36: Functional Safety Requirements (FSRs).
+| ID    | Functional Safety Requirements (FSRs)                                                                 | ASIL |
+|-------|-------------------------------------------------------------------------------------------------------|------|
+| SG 1+2| A thermal event due to a malfunction of the heating system has to be avoided.                         | A    |
+| FSR 1 | A surface temperature T > 250°C of the HVCH must be avoided.                                           | A    |
+| FSR 2 | The heating current must be limited and switched off in the event of a critical overtemperature of the HVCH. | A |
+
+4.1.3 Technical Safety Concept.
+
+The Heating System / HVCH consists of two sub-modules:
+- The Electronic Module.
+- The Heating Module.
+
+The intended functions of the HVCH are the following:
+- Supply of HV to the PTC heating elements via the IGBTs.
+- Control of the heating current via the IGBTs by software and outlet temperature.
+
+#### Safety Functions (mechanisms) of Heating Module:
+- An over-temperature in the heating module will be detected by software through the outlet temperature and the heating current will be interrupted by IGBTs through software (QM).
+- In addition, the PTC heating elements will limit the heating current and therefore the temperature independent of the electronic module (ASIL A).
+- In addition, the sealed metal housing of the heating module (other technologies) will protect the HVCH from overheating (QM).
+
+#### Safety Functions (mechanisms) of Electronic Module:
+- An over-temperature in the electronic module will be detected by software through temperature and the heating current will be interrupted by IGBTs through software (QM).
+- In addition, the sealed metal housing of the electronic module (other technologies) will protect the HVCH from overheating (QM).
+
+Note: For reaction time values please see the subsequent chapters below.
+
+The system architecture of Technical Safety Concept is displayed below.
+Page 35
+4 Safety  
+The PTC HV Coolant Heater is self-protected with its safety concept:
+
+**4.1 Functional Safety**  
+**4.1.1 ECAT HARA summary**  
+A summary of the ECAT HARA (hazard analysis and risk assessment) is shown in the table below:
+
+| ID  | Safety Goal                                                                                   | ASIL | Safe State                                                                |
+|-----|----------------------------------------------------------------------------------------------|------|---------------------------------------------------------------------------|
+| SG1 | Thermal event / fire due to a malfunction of the heating system has to be avoided           | A    | Limiting of heat current circuit or limiting of heat current before reaching critical material temperatures of the heater |
+| SG2 | Thermal event / fire due to a thermal damage of the vehicle battery caused by the heating system has to be avoided | A    | Limiting of heat current circuit by reaching critical temperature ranges of the vehicle battery |
+
+**4.1.2 Functional Safety Concept**  
+The Heating System / HVCH consists of two sub-modules:  
+- The Electronic Module  
+- The Heating Module
+
+The intended functions of the HVCH are the following:  
+- Supply of HV to the PTC heating elements via the IGBTs  
+- Control of the heating current via the IGBTs by software and outlet temperature  
+
+**Safety Functions (mechanisms) of Heating Module:**  
+- An over-temperature in the heating module will be detected by software through the outlet temperature, and the heating current will be interrupted by the IGBTs through software (QM).  
+- The PTC heating elements will limit the heating current and therefore the temperature independent of the electronic module (ASIL A).  
+- The sealed metal housing of the heating module (other technologies) will protect the HVCH from overheating (QM).  
+
+**Safety Functions (mechanisms) of Electronic Module:**  
+- An over-temperature in the electronic module will be detected by software through temperature, and the heating current will be interrupted by the IGBTs through software (QM).  
+- The sealed metal housing of the electronic module (other technologies) will protect the HVCH from overheating (QM).  
+
+For reaction time values, please see the following chapters below.  
+
+**4.1.3 Technical Safety Concept**  
+The derived Technical Safety Requirements (TSRs) on the top-level together with the used ASIL decomposition are shown in the table below:  
+
+| Technical Safety Requirements (TSR)                            | ASIL | Assignment to elements of the system architecture |  
+|-----------------------------------------------------------------|------|--------------------------------------------------|  
+| TSR 1                                                          | A    | Electronic Module (EM), Heating Module (HM)      |  
+| A surface temperature T > 250°C of the HVCH shall be detected and avoided. |      |                                                  |  
+| TSR 1.1                                                       | A    | EM                                               |  
+| A surface temperature T > 250°C of the HVCH shall be detected and avoided in the Electronic Module. |      |                                                  |  
+| TSR 1.1a                                                     | QM(A)| EM                                               |  
+| With the aid of a temperature sensor in the Electronic Module a critical temperature shall be detected. |      |                                                  |  
+| TSR 1.1b                                                     | Other technologies | EM                                          |  
+| With the aid of adequate material selection a critical temperature of the Electronic Module shall be avoided. |      |                                                  |  
+| TSR 1.2                                                     | A    | HM                                               |  
+| A surface temperature T > 250°C of the HVCH shall be detected and avoided in the Heating Module. |      |                                                  |  
+| TSR 1.2a                                                   | QM(A)| HM + EM                                          |  
+| With the aid of a temperature sensor in the heating module a critical temperature shall be detected. |      |                                                  |
+Page 36
+4.2 Electronic Safety Monitoring Cycle
+
+### 4.2.1 Temperature safety on PCB
+There are 2 temperature sensors (NTCs) which are used for temperature monitoring in order to switch off or reduce power in case of over temperature on the PCB.
+
+To avoid overheating in case of defect of temperature sensors, they are permanently checked for a plausible signal level. In case of a defect temperature sensor, the heater will be switched off.
+
+**Temperature Monitoring Process on PCB:**
+- If the temperature is greater than or equal to 120°C, power reduction is applied.
+- If the temperature is less than or equal to 115°C, all heating circuits are turned ON.
+- If the temperature is greater than or equal to 125°C, power is turned OFF.
+- If the temperature is less than or equal to 110°C, all heating circuits are turned ON.
+
+**Figure 29:** Temperature monitoring schematic for PCB.
+
+---
+
+### 4.2.2 Temperature safety medium
+Temperature safety is implemented for the heating medium with the following thresholds:
+- If the temperature exceeds 90°C, power is turned OFF.
+- If the temperature is less than or equal to 80°C, all heating circuits are turned ON.
+
+**Figure 30:** Temperature monitoring schematic for the heating medium.
+Page 37
+### 4. Safety  
+
+#### Attention:  
+This failure indicates a system issue: 
+- Coolant flow disruption, for instance caused by a defective pump.  
+- Air bubbles in the coolant system.  
+- Leakage in the coolant system.  
+
+**Recommendation:** Service should be contacted; this can cause permanent heater damage.  
+
+---
+
+### 4.2.3 Current Derating  
+The system monitors the current levels and implements overload protection mechanisms:  
+
+- **Condition:** I ≥ 30 A for t > 1 s.  
+- **Reaction:** Overload detected, power decreased.  
+
+---
+
+### 4.2.4 Short-Circuit (Over Current) Detection  
+A short-circuit or overcurrent event is detected based on immediate and ultrafast current monitoring.  
+
+- **Condition:** I ≥ 80 A for t > 1 µs.  
+- **Reaction:** Reset happens, leading to a start-up check.  
+- **Note:** Reset = Start-up trigger and stop application.  
+
+---
+
+### 4.2.5 Long Time Over Current Detection  
+This function detects sustained overcurrent events exceeding a specified threshold and duration.  
+
+- **Condition:** I ≥ 32 A for t > 15 s.  
+- **Reaction:** Reset happens, leading to a startup check.  
+- **Note:** Reset = Start-up trigger and set HV_PTC_ON_Rq to OFF and back ON again.  
+
+---
+
+### 4.2.6 High Voltage Reading  
+A permanent high voltage measurement reading is being conducted.  
+
+- **Condition:** If the HV reading leaves the predefined range (e.g., 150V – 510V).  
+- **Reaction:** The heater immediately turns off all heat circuits.  
+- **Additional Note:** The corresponding error signal via LIN will be set accordingly.  
+
+---
+
+### 4.2.7 Interlock (HV)  
+The Passive Interlock Loop monitors the connection between the HV connector and the heater.  
+
+- **Concept:**  
+  - If the HV connector isn’t connected to the heater, the vehicle’s ECU disconnects the module from voltage.  
+  - The interlock signal within the heater carries a current of 100mA or less.  
+  - The bridge can be realized at the HV connector or inside the LV connector, depending on the OEM concept.
+Page 38
+4.2.8 Start-up check.  
+A Start-up check can only be executed if the voltage supply is in unlimited operating capability (e.g., >230V).  
+After switching the heater on or performing a reset, the heater waits for a power request over LIN. Once a valid power request is detected, the heater executes a start-up check. During this check, the heater performs diagnostics to identify errors such as short-circuit in the hardware, leakage current, or open-load condition.  
+During the start-up check, the heater does not produce output power corresponding to the heat request. The heater circuits are pulsed one by one, measuring the consumed current. If the measured current is outside of a defined range, the heater recognizes this condition as an overload or open load. This process is repeated three times, and the corresponding heater leg will not operate further. The remaining heater legs can continue to function normally. The LIN status of the heater changes to "HV_PTC_SHORTED."  
+
+4.2.9 Short circuit detection.  
+Short circuits are detected to protect hardware from damage, with heating-power switched off immediately after detection.  
+When a short circuit is detected, the heater restarts and performs a start-up check to identify the defective heater leg.  
+Should one or more defective heat circuits (shorted or open load) be identified, the heater compensates by adjusting its heating stage to the same or lower output power.  
+
+4.3 PTC Safety Concept.  
+The PTC-elements are designed to restrict the maximum achievable system temperature in a worst-case scenario. This protection operates independently of electronics, maintaining temperatures at a level the surroundings can reliably withstand.
+
+**Figure 34: PTC self-protection.**  
+The figure demonstrates R/T characteristics of the PTC resistor, including reference points such as nominal resistance (RN), minimum resistance (Rmin), and the resistance related to the temperature rise area.  
+
+4.4 Isolation Failure Detection (vehicle side).  
+Isolation failure detection requires the customer to connect the ground bolt to the vehicle chassis.  
+The OEM must manage a watchdog within the vehicle capable of detecting isolation failures.
+Page 39
+5 Quality.
+
+5.1 Maintenance.  
+The Coolant Heater is maintenance-free. Disassembly allowed by Eberspächer only.
+
+5.2 Flammability.  
+The Coolant Heater complies with Material flammability requirements according to FM.VSS 302.
+
+5.3 Recycling.  
+Materials and substances used have to comply with the currently valid requirements of the directive 2000/53/ec (End-Of-Life Vehicles – ELV), the regulation (EC) no 1907/2006 (concerning the registration, evaluation, authorisation, and restriction of chemicals - reach) and the global automotive declarable substance list (GADSL).
+
+5.4 Cleanness.  
+The Coolant Heater will be delivered clean, free from any stain, solid, or fluid able to harm its operation or appearance.
+
+5.5 Warranty.  
+The warranty complies with German legal requirements. Unless stated differently elsewhere, the warranty period is 24 months.
+
+6 Logistics.
+
+6.1 Marking and Manipulation.  
+The heating element is labelled with the high voltage warning sign to indicate potentially fatal voltages. An additional label according to IEC 417K A includes manufacturer data and is applied for identification and traceability (this will be defined).
+
+fig. 35. Safety label.
+
+Note: It must be assured that no reverse polarity is applied to the HV voltage supply.
+
+Attention: Voltage supply has to be deactivated for installation or removal of the heater!

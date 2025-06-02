@@ -1,0 +1,1047 @@
+Page 1
+UNDER HOOD SEAL FRONT. 
+
+Spec book (SPB). 
+
+Supersedes Edition (06.2020).
+Page 2
+### Scope and purpose
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new C-SUV (VF32) vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production of the PREM Program.
+
+**Responsible Contact:** Abbott David Christopher (v.chrisa@vinfast.vn)
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+**Index**
+
+**Contents**  
+SCOPE AND PURPOSE ................................................................................................. 2  
+Index ................................................................................................................................. 3  
+
+**1 SCOPE OF PRODUCT/COMMODITY ................................................................. 6**  
+1.1 Vehicle profile .................................................................................................................... 6  
+1.2 Sales Markets .................................................................................................................... 6  
+1.3 Production volume ............................................................................................................ 6  
+    1.3.1 For Vietnam market ................................................................................................. 6  
+    1.3.2 For US market ......................................................................................................... 6  
+
+**2 PROGRAM TIMING AND BUILD PLAN ............................................................. 6**  
+2.1 Timing plan ........................................................................................................................ 6  
+2.2 Build Plan .......................................................................................................................... 6  
+
+**3 ORGANIZATION AND CONTACT ....................................................................... 7**
+
+**4 DEFINITIONS AND APPLICABLE DOCUMENTS ............................................... 7**  
+- CAD Data/Transfer data-CAD Requirements ........................................................................ 7  
+- Change Documentation and Part History Documentation ..................................................... 7  
+
+**5 DESCRIPTION AND SCOPE OF WORK ............................................................. 8**  
+5.1 Technical requirement ...................................................................................................... 8  
+    5.1.1 Project Requirements ................................................................................................ 8  
+    5.1.2 General Description of the System / Component .................................................... 8  
+    5.1.3 Component / System Description ............................................................................ 9  
+    5.1.4 Function ................................................................................................................ 10  
+    5.1.5 Performance Specification .................................................................................... 17  
+    5.1.6 Weight Management ............................................................................................. 18  
+    5.1.7 Fuel Economy & Driving Performance ..................................................................... 18  
+    5.1.8 Vehicle Dynamics & Fuel System Integration ........................................................ 18  
+    5.1.9 Vehicle Architecture & Ergonomics ....................................................................... 18  
+    5.1.10 Aerodynamics ..................................................................................................... 19  
+    5.1.11 In-Vehicle Thermal & Thermal Comfort ............................................................... 19  
+    5.1.12 Heat Management & Powertrain Cooling ............................................................. 19  
+    5.1.13 Customer Function & Human Machine Interface (HMI) ....................................... 19  
+    5.1.14 Electrical Systems & Functions .......................................................................... 19  
+    5.1.15 Package .......................................................................................................... 19  
+    5.1.16 Geometrical Integration ...................................................................................... 21  
+5.2 General CAE Requirements ............................................................................................ 22  
+5.3 Material requirement ......................................................................................................... 22  
+    5.3.1 Materials ............................................................................................................... 22  
+5.4 Traceability ...................................................................................................................... 22  
+    Labeling of Parts .............................................................................................................. 22  
+
+**6 TESTING AND VALIDATION ............................................................................... 23**
+
+**7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS ........ 23**  
+7.1 Functional Safety Requirements ..................................................................................... 23  
+7.2 Deliverables for Functional Safety ................................................................................... 23
+Page 4
+**VinFast Management System**  
+VFDSXVDCL0028  
+Version: 1  
+Uncontrolled copy when printed  
+Page: 4 | 29  
+
+### 7. FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS  
+a) FUSA Deliverables expected before nomination.  
+b) FUSA Deliverables expected after nomination.  
+
+#### 7.3 Homologation and safety regulation requirements  
+7.3.1 North America.  
+7.3.2 Europe.  
+
+### 8. DELIVERABLES  
+#### 8.1 Technical deliverables.  
+#### 8.2 Detailed deliverables and RASI.  
+
+### 9. SUPPLIER RESPONSIBILITIES  
+
+### 10. INTELLECTUAL PROPERTY / COPYRIGHT  
+
+### 11. INSURANCE / WARRANTIES  
+
+### 12. VINFAST GTC & PART PACKAGING AND INCOTERMS  
+
+### 13. DEFINITIONS AND LIST OF ABBREVIATIONS
+Page 5
+Release.
+
+Version: 1.0.  
+Date: Jun-2020.  
+
+Approval confirmed by:  
+
+- **Function: CHIEF ENGINEER**  
+  **Name:** Markus Leitner  
+  **Email:** v.markusl@vinfast.vn  
+
+- **Function: ER-CV**  
+  **Name:** Clifton Wellington Springer  
+  **Email:** v.cliftonsw@vinfast.vn  
+
+- **Function: ER-MGL PWT**  
+  **Name:** Nguyen Hoang Vu  
+  **Email:** v.nguyenhv3@vinfast.vn  
+
+- **Function: ER-MGL E/E**  
+  **Name:** John Ewald Matthias  
+  **Email:** v.matthiasje@vinfast.vn  
+
+- **Function: ER-MGL BIW/DC +CHS**  
+  **Name:** Robert Smith  
+  **Email:** v.robs@vinfast.vn  
+
+- **Function: ER-MGL Interior/Exterior**  
+  **Name:** Jason John Taylor  
+  **Email:** v.jasontj@vinfast.vn  
+
+- **Function: QSC-Quality & Standard Center**  
+  **Name:** Nguyễn Thành Nam  
+  **Email:** v.namnt36@vinfast.vn  
+
+Revisions since previous version.  
+
+- **Version:** 1.  
+  **Change Description:** First edition.  
+  **Date:** 19/06/2020.
+Page 6
+1. Scope of product/commodity.
+
+1.1 Vehicle profile.
+Refer to appendix: VFDSXVCVC0501 CSUV_ICE_BEV_Appendix_5_Features list.
+
+1.2 Sales Markets.
+LHD countries: Vietnam (VN) & Asean, US.
+
+1.3 Production volume.
+1.3.1 For Vietnam market.
+Refer to appendix: VFDSXVCVC2101 CSUV_Appendix_1_Product_Volume.
+
+1.3.2 For US market.
+Refer to appendix: VFDSXVCVC2101 CSUV_Appendix_1_Product_Volume.
+
+2. Program Timing and Build Plan.
+
+2.1 Timing plan.
+VFDSXVCVC1101_Appendix_1_Project timing.
+
+2.2 Build Plan.
+- Build volume under preparation, will be communicated shortly with the updated plan by PMO side.
+Page 7
+3. Organization and Contact.
+
+**Contact:**
+- Commodity Buyer: Murali Muthukrishnan, Email: v.muralim@vinfast.vn, Contact Number: +84(0)888459955.
+- Commodity Buyer Manager: Natarajan Hemachandran, Email: v.natarajanh@vinfast.vn, Contact Number: +84(0)888323663.
+- Commodity Engineering: Chris He, Email: v.chrish@vinfat.vn, Contact Number: +84(0)818322255.
+- Commodity Engineering Manager: Christopher David Abbott, Email: v.chrisa@vinfast.vn, Contact Number: +84(0)817565995.
+- SQE (Site Engineer): Paul Martin Hennessey, Email: v.hennesseyp@vinfast.vn, Contact Number: +00447753337740.
+- SQE Manager: Stuart MC Laughlin Kinkade, Email: v.kinkades@vinfast.vn, Contact Number: +0888183396.
+- SCM Analyst: Dilshod Tokhtasinov, Email: v.dilshod@vinfast.vn, Contact Number: +84(0)888352662.
+- Packaging Analyst: Attsawarungsun Nimnaul, Email: v.nimnaula@vinfast.vn, Contact Number: +84(0)888329955.
+- SCM Manager: Benjamin Peter Stewart, Email: v.bens@vinfast.vn, Contact Number: +84(0)888798855.
+
+---
+
+4. Definitions and Applicable Documents.
+
+**CAD Data/Transfer Data-CAD Requirements:**
+- All CAD data must be designed with CATIA V5 following VF standard VFDST00000014.
+- CAD data transfer from VinFast to the supplier will be carried out through the Supplier collaborative module. More details can be found in the Supplier collaborative module included in the RFQ package.
+
+**Change Documentation and Part History Documentation:**
+- During development and production, all historical changes related to the contract must be documented and provided by the contractor to VinFast and OEM/Supplier (e.g., entries in a project manual). The format can be defined by the contractor.
+- Vehicle documentation systems or components that must comply with safety regulations or legal requirements must be noted on the drawings.
+- The reasons and specifications requiring documentation are listed by the relevant authorities.
+- These demands will be required during development and at the latest, during the PTO phase.
+Page 8
+5. Description and scope of work  
+
+5.1. Technical requirement  
+
+5.1.1. Project Requirements  
+- The certification requirement is to verify the reliability of the product and to simulate 10 years of exposure of the vehicle or 160,000 km of customer service conditions. The successful completion of the certification first depends on the supplier conducting a simulated durability test on the parts or subsystems according to the requirements of VINFAST. The parts provided by the supplier must meet the requirements of VINFAST and issue the corresponding test report.  
+- VINFAST is responsible for vehicle-level system integration and certification. Vehicle-level certification programs include urban simulated road testing and enhanced road testing, and component/subsystem suppliers will be responsible for timely response to failure reports found during vehicle-level system integration and certification. All changes caused by failure reporting must be performed by the vendor and approved by the PPAP process.  
+- Component/subsystem integration and certification is the responsibility of the component/subsystem supplier. The supplier must complete all component/subsystem tests.  
+- The certification of parts/subsystems can be implemented by the supplier of parts/subsystems or, after VINFAST approval, by designated sub-suppliers or third parties.  
+- In any event, the supplier is obligated to complete all specified test requirements.  
+- The component/subsystem supplier must provide VINFAST's product release engineer with a complete component/subsystem test certification plan approved by the engineer. The plan shall include at least: number of samples, test sequence, place, and time of each test.  
+
+5.1.2. General Description of the System / Component  
+It must be ensured at all times that VINFAST can audit the observance of all requirements contained in the technical specification.  
+
+Inquiries regarding offers by sub-suppliers and/or sub-sub-suppliers on the basis of this specification have to be agreed upon between the department having created the specification and the operative responsible for purchasing.  
+
+The system developer commits himself to develop all technical solutions and requirements based on the available vehicle and design data within the design process in order to achieve:  
+- System-specific requirements.  
+- The fulfillment of all laws and ratings of system markets. Moreover, no modifiers are permitted for rating assessments.  
+
+For technical proposals that exceed the offered scope of development, the supplier must identify to the client the impact on costs, quality, and time-schedule.  
+
+The technical and commercial release will be proceeded with by the customer according to change management.  
+
+Passive safety requirements, which are implemented, must comply with all law requirements of system markets acting or known with a fixed release date at the date of homologation on the class.
+Page 9
+5. Description and scope of work.
+
+5.1. Technical requirement.
+
+5.1.1. Project Requirements.
+- The certification requirement is to verify the reliability of the product and simulate 10 years of exposure of the vehicle or 160,000 km of customer service conditions. Successful completion of the certification first depends on the supplier conducting a simulated durability test on the parts or subsystems according to the requirements of VINFAST. The parts provided by the supplier must meet the VINFAST requirements and issue the corresponding test report.  
+- VINFAST is responsible for vehicle-level system integration and certification. Vehicle-level certification programs include urban simulated road testing and enhanced road testing, where component/subsystem suppliers are responsible for timely response to failure reports found during vehicle-level system integration and certification. All changes caused by failure reporting must be performed by the vendor and approved through the PPAP process.  
+- Component/subsystem integration and certification is the supplier's responsibility. Suppliers must complete all component/subsystem tests.  
+- The certification of parts/subsystems can be implemented by the supplier of parts/subsystems or, after VINFAST approval, designated sub-suppliers or third parties.  
+- In any event, the supplier must complete all specified test requirements.  
+- The component/subsystem supplier must provide VINFAST's product release engineer with a complete test certification plan approved by the engineer. The plan must include at least the number of samples, test sequence, place, and time of each test.  
+
+5.1.2. General Description of the System / Component.
+It must be ensured at all times that VINFAST can audit the observance of all requirements contained in the technical specification.  
+- Inquiries regarding offers by sub-suppliers and/or sub-sub-suppliers based on this specification must be agreed upon between the department that created the specification and the operative responsible for purchasing.  
+- The system developer commits to developing all technical solutions and requirements based on the available vehicle and design data within the design process in order to achieve system-specific requirements.  
+- Requirements include fulfilling all laws and ratings of system markets. Modifiers are not permitted for rating assessments.  
+- Suppliers must notify the client of the impact on costs, quality, and schedules for technical proposals exceeding the offered development scope.  
+- Technical and commercial releases will proceed according to the customer’s change management.  
+- Passive safety requirements must comply with all legal system market requirements with known fixed release dates during homologation. VINFAST monitors ongoing changes to rating protocols to ensure full vehicle target achievement at SOP.  
+
+The supplier delivers the system module, ensuring all relevant add-on parts are integrated. Add-on parts are:  
+- Drawings.  
+- Simulations.  
+- Quality regulations.  
+- Results/documentation of test validation.  
+- Documentation of the FMEA.  
+
+All parts of the assembly must be matched to each other, and functional dimensions fulfilled according to the prescription.  
+
+5.1.3. Component / System Description.
+
+The supplier delivers the system with the following details:  
+- **Part Name:** UNDER_HOOD_SEAL_FRONT.  
+- **Part No.:** BIW30230183.  
+- **Quantity:** 1.  
+- **Material:** NOT UNIFORM.  
+- **Purchase Level:** P.  
+- **Application (ICE and BEV):**  
+   - C-SUV (VF32) SMART and PLUS versions for both Vietnam/ASEAN and US markets.  
+   - D-SUV (VF33) SMART and PLUS versions for both Vietnam/ASEAN and US markets.  
+- **Coating:** Silicone coating integrated with clip holes (dimensions 0.35±0.5m).  
+
+Each component system follows precise functional integration based on definitions outlined in drawings and multi-layered validation procedures. Figures are included to demonstrate profile dimensions (1,854mm ±5), coating application, and functional integration.
+Page 10
+5. Description and scope of work.
+
+5.1. Technical requirement.
+
+5.1.4. Function.
+
+5.1.4.1. Requirements.
+
+- The system shall comply with the requirements of this development and be manufactured according to the product drawing and technical documents approved by the specified procedures.
+- Material Requirement: The system working environment temperature is -40 ℃ ~ 80 ℃, and materials category shall comply with article 3.2, the DVP, and the requirements of the technical agreement. Suppliers shall provide VINFAST with a list of the materials of the individual parts and mark the material symbol of the plastic/rubber parts in accordance with ISO11469.
+- Appearance Requirement: The appearance of parts, including color, leather, gloss, etc., must meet the definition requirements of the appearance of parts. All materials used for exterior parts, such as paint, fabric, leather, and plastic, must be VINFAST-approved materials. Appearance materials and parts must complete the appearance development, evaluation, and certification requirements.
+
+The appearance quality shall be performed according to the following requirements:
+
+| Sr.No. | Defect name     | Difference of defect | Acceptable quality standard                                          |
+|--------|-----------------|----------------------|------------------------------------------------------------------------|
+|        |                | Parts serious mild   |                                                                        |
+| 1      | Deboned crack   | x                    | There is no                                                           |
+| 2      | The crack       | x                    | There is no                                                           |
+| 3      | Cross section   |                      |                                                                        |
+|        | of bubble       | a x                  | There is no                                                           |
+|        |                 | B x                  | It is allowed to exist, but the bubble diameter shall not be greater than 1.5mm |
+| 4      | Section spongy  |                      |                                                                        |
+|        |                 | a x                  | There is no                                                           |
+|        |                 | B x                  | It is allowed to exist, but the diameter of the small hole shall not be greater than 0.4mm |
+| 5      | impurities       | x                   | The length and width of impurities shall not be greater than 1.3mm, the height or depth shall not be greater than 0.4mm, and there shall be no more than 2 impurities per meter |
+Page 11
+6. Pitting: It is allowed to exist, but the point length and width shall not be greater than 0.4mm, depth shall not be greater than 0.5mm, and no more than 2 points per meter.
+
+7. Sprayed sulfur: There is no allowance for sprayed sulfur defects.
+
+8. Torsional deformation: No obvious torsional deformation is allowed.
+
+9. Edges and defects: Angular defects shall not exceed 1.8mm in depth and 8mm in length, with no more than 2 points per meter.
+
+10. Flattening deformation: Deformation shall not exceed 15% of the basic size.
+
+11. Concave and convex defect: 
+   - For mild defects: The depth or height shall not exceed 0.5mm, width shall not exceed 1mm, and length shall not exceed 4mm, with no more than 2 defects within any meter.
+   - For severe defects: No allowance for these within any measurement.
+
+12. Water lines: The width of this defect shall not exceed 1.8mm, and the length shall not exceed 7.5mm, with no more than 3 observed occurrences per meter.
+
+13. Joint defect: The joint must be firm without visible glue overflow. Unevenness at the joint shall not exceed 0.3mm, while width must remain under 3mm, with no notable color differences.
+
+14. Out of mark defect:
+   - For mild defects: Allowed when width does not exceed 0.2mm.
+   - For severe defects: Strictly not allowed.
+Page 12
+5. Description and scope of work
+
+5.1.4. Function
+
+5.1.4.1. Requirements
+- The system shall comply with the requirements of this development and be manufactured according to the product drawing and technical documents approved by the specified procedures.
+- Material Requirement: The system working environment temperature is -40℃ ~ 80℃. Materials category shall comply with article 3.2, the DVP, and the requirements of the technical agreement. Supplier shall provide VINFAST with a list of the materials of the individual parts that have been shattered and shall mark the material symbol of the plastic/rubber parts in accordance with ISO11469.
+- Appearance Requirement: The appearance of parts, including color, leather, gloss, etc., must meet the definition requirements of the appearance of parts. All materials used for exterior parts, such as paint, fabric, leather, plastic, etc., must be VINFAST approved materials. Appearance materials and parts must complete the development, evaluation, and certification of appearance requirements.
+
+The appearance quality shall be performed according to the following requirements:
+
+| Sr.No. | Defect Name                | Difference of Defect | Acceptable Quality Standard                                                |
+|--------|----------------------------|----------------------|----------------------------------------------------------------------------|
+| 1      | Deboned crack             | x                    | There is no                                                               |
+| 2      | The crack                 | x                    | There is no                                                               |
+| 3      | Cross section of bubble   | a. x, b. x           | Bubble diameter shall not exceed 1.5mm (allowed for minor defects only).   |
+| 4      | Section spongy            | a. x, b. x           | Small holes diameter shall not exceed 0.4mm (allowed for minor defects).   |
+| 5      | Impurities                | x                    | Length and width shall not exceed 1.3mm, height and depth shall not exceed 0.4mm, with no more than 2 impurities per meter. |
+| 6      | Pitting                   | x                    | Point dimensions shall not exceed 0.4mm (length/width) and 0.5mm (depth), with no more than 2 points per meter. |
+| 7      | Sprayed sulfur            | x                    | There is no                                                               |
+| 8      | Torsional deformation     | x                    | No obvious torsional deformation permitted.                               |
+| 9      | Edges and defects         | x                    | Depth not exceeding 1.8mm and length not exceeding 8mm, no more than 2 points per meter. |
+| 10     | Flattening deformation    | x                    | Shall not exceed 15% of the basic size.                                   |
+| 11     | Concave and convex defect | a. x, b. x           | Depth and height not exceeding 0.5mm, width not exceeding 1mm, length not exceeding 4mm, with no more than 2 places per meter. |
+| 12     | Water lines               | x                    | Width not exceeding 1.8mm, length not exceeding 7.5mm, with no more than 3 places per meter. |
+| 13     | Joint defect              | x                    | Joint must be firm, deviations not exceeding 0.3mm (unevenness), 3mm (width), and no obvious color difference. |
+| 14     | Out of mark               | a. x, b. x           | Minor defects width shall not exceed 0.2mm.
+
+(1) A under the category of defect indicates a serious or minor defect.
+(2) If part A/B is not indicated under the defect position, it means that the defect is no matter where it appears.
+(3) A part of the defect points to rubber products with belt surface defects.
+(4) Defect at part B indicates the defect on the visible surface of non-belt surface of pressed rubber products.
+(5) For parts matching interior decoration, color texture requirements must refer to the relevant color plate.
+(6) For products with bright stripes, protective film must be present, with no residual glue affecting appearance after removal.
+(7) For products with injection heads, refer to drawings for specific requirements differentiating the head and seal body.
+
+### Sponge rubber seal strip appearance quality standards:
+| S.No. | Defect Name           | Standards                                                                 |
+|-------|-----------------------|--------------------------------------------------------------------------|
+| 1     | Broken skin defect    | Depth not exceeding 1.5mm, length and width not exceeding 2.5mm, with no more than 2 places per meter. |
+| 2     | Hardness              | Requires uniformity.                                                     |
+| 3     | The collapse pit      | Depth not exceeding 0.8mm, length not exceeding 3mm, with no more than 2 places per meter. |
+| 4     | Out of mark           | Allowed only in invisible areas; defect width not exceeding 0.2mm.      |
+Page 13
+6. Pitting  
+- It is allowed to exist, but the point length and width shall not be greater than 0.4mm, depth shall not be greater than 0.5mm, and no more than 2 points per meter.
+
+7. Sprayed sulfur  
+- There is no sprayed sulfur allowed.
+
+8. Torsional deformation  
+- No obvious torsion deformation is allowed.
+
+9. Edges and defects  
+- When the angular defect is no more than 1.8mm deep and no more than 8mm long, it shall be no more than 2 points per meter.
+
+10. Flattening deformation  
+- Deformation shall not exceed 15% of the basic size.
+
+11. Concave and convex defect  
+- For defect type B: The depth or height of concave and convex defects must not exceed 0.5mm, the width must not exceed 1mm, and the length must not exceed 4mm. No more than 2 places allowed per meter.  
+- For defect type A: There is no acceptance for this defect.
+
+12. Water lines  
+- When the width of the defect is not greater than 1.8mm and the length is not greater than 7.5mm, no more than 3 such places are allowed within a meter.
+
+13. Joint defect  
+- The joint must be firm without obvious glue overflow. The joint step is allowed but unevenness must not exceed 0.3mm, width must not exceed 3mm, and there shall be no obvious color difference.
+
+14. Out of mark  
+- For defect type B: It's not allowed to exist.
+- For defect type A: Defects are allowed to exist but must not exceed a width of 0.2mm.
+
+**Rubber Seal Specifications:**
+
+- **Set Reference:** Dense solid glue or gelatin sponge.
+
+- **Hardness (Shore A, degree):**
+  - Dense solid glue: 50±5, 60±5, 70±5, 80±5, or 90+.  
+  - Gelatin sponge: not applicable.
+
+- **Tensile strength (MPa):**
+  - 7.5 or higher (Dense solid glue).  
+  - 3.0 or higher (Gelatin sponge).
+
+- **Elongation at break (%):**
+  - Dense solid glue: P250 (50±5/60±5), 250–550 (70±5), 200–500 (80±5), or 100–400 (90+).  
+  - Gelatin sponge: not applicable.
+
+- **Hot Air Aging (70±2°C / 70h):**
+  - Hardness change (Shore A): 0–+5.  
+  - Rate of change in tensile strength (%): -15 to +15.  
+  - Rate of elongation at break (%): -25 to 0.
+
+- **Resistance to Water (80±2°C / 120h):**
+  - Hardness change (Shore A): 0–+5.  
+  - Rate of change in tensile strength (%): -15 to +15.  
+  - Rate of elongation at break (%): -25 to 0.
+
+- **Apparent density (g/cm³):**
+  - Applicable only for gelatin sponge: 0.65±0.15.
+
+- **Compression Permanent Deformation (%):**
+  - (23±2°C / 72h): ≤35 for dense solid glue.  
+  - (70±2°C / 24h): ≤50 for dense solid glue.
+
+- **Brittleness Temperature (°C):**
+  - Shall not exceed -40°C (Dense solid glue and gelatin sponge).
+Page 14
+6. Pitting defects have specific standards. It is allowed to exist, but the point length and width shall not be greater than 0.4mm, depth shall not be greater than 0.5mm, and no more than 2 points per meter.
+
+7. Sprayed sulfur is not allowed and shall have absolutely no defects.
+
+8. Torsional deformation is strictly prohibited. No obvious torsional deformation is allowed.
+
+9. Edges and defects are allowed with restrictions. When the angular defect is no more than 1.8mm deep and no more than 8mm long, it shall be no more than 2 points per meter.
+
+10. Flattening deformation is also restricted. Deformation shall not exceed 15% of the basic size.
+
+11. Concave and convex defects are allowed under two conditions:
+   - For category "B", when depth or height does not exceed 0.5mm, width is not more than 1mm, length does not exceed 4mm, no more than two defects are allowed within one meter.
+   - For category "a", no defects are allowed.
+
+12. Water lines are permitted with restrictions. When defect width is not greater than 1.8mm and length is not greater than 7.5mm, it shall not exceed 3 occurrences per meter.
+
+13. Joint defects must meet specific criteria:
+    - The joint shall be firm without obvious glue overflow.
+    - Unevenness shall not exceed 0.3mm.
+    - Width shall not exceed 3mm.
+    - No obvious color difference is allowed.
+
+14. Out-of-mark defects are only allowed for specific cases:
+    - For category "B", such defects are strictly forbidden.
+    - For category "a", they are allowed but must not exceed 0.2mm in width.
+
+**Additional notes regarding defect categories:**
+- (1) Category "a" under the defect category signifies serious or minor defects.
+- (2) If defect positions are not indicated under part A/B, defects are independent of their appearance location.
+- (3) Category "A" points to visible surface defects.
+- (4) Category "B" refers to defects on visible non-belt surfaces of pressed rubber products.
+- (5) For interior decoration components, reference relevant color plates as needed.
+- (6) Additional protection measures are required for bright stripes; protective film residue shall not impair appearance after removal.
+
+### Sponge Rubber Seal Strip Appearance Quality:
+1. **Broken skin defect**:
+   - Depth shall not exceed 1.5mm.
+   - Length and width shall not exceed 2.5mm.
+   - Maximum of 2 occurrences per meter.
+
+2. **Hardness**:
+   - Must achieve uniform distribution.
+
+3. **Collapse pit**:
+   - Depth shall not exceed 0.8mm.
+   - Length shall not exceed 3mm.
+   - Maximum of 2 occurrences per meter.
+
+4. **Out of mark**:
+   - Allowed only in invisible areas.
+   - Maximum defect width shall not exceed 0.2mm.
+
+5. **Joint defect**:
+   - Joints must be firm without apparent glue overflow.
+   - Uneven joints shall meet criteria for stepped dimensions.
+
+**Rubber Material Property Table:**
+Specific material properties include hardness (Shore A), tensile strength, elongation, and aging characteristics. Resistance to hot air aging and water exposure are tested against Shore A tolerance variations and stress thresholds.
+
+### Dimensional Tolerance Specifications:
+- **Section size tolerances for dense rubber seal strips**:
+   Dimensional tolerance is categorized into E1, E2, and E3, dependent on basic size criteria. Assembly tolerances follow E2 standards, and non-assembly tolerances use E3 levels.
+
+   - 0 to 1.5mm: E1 = ±0.10, E2 = ±0.20, E3 = ±0.30
+   - 1.5 to 2.5mm: E1 = ±0.15, E2 = ±0.20, E3 = ±0.40
+   - 2.5 to 4.0mm: E1 = ±0.20, E2 = ±0.30, E3 = ±0.40
+   - ... (Continued similar tolerance breakdowns up to dimensions of 63-100mm).
+
+   **Length and dimensional tolerances for belt strips**:
+   Solid rubber seal strips follow similar standards for connection angles and joint tolerances, adhering to L1 specifications.
+Page 15
+### Dimensional Tolerances for Rubber and Sponge Rubber Belt Strips
+#### Dense Rubber Belt Strip Dimensional Tolerances
+- **Section Size Tolerance**  
+  The dimensional tolerance for dense rubber seal strips is categorized according to E1, E2, and E3 levels.
+
+| Basic Dimensions (mm) | E1 Level (± mm) | E2 Level (± mm) | E3 Level (± mm) |
+|-----------------------|----------------|----------------|----------------|
+| 0 to 1.5             | 0.10           | 0.20           | 0.30           |
+| 1.5 to 2.5           | 0.15           | 0.20           | 0.40           |
+| 2.5 to 4.0           | 0.20           | 0.30           | 0.40           |
+| 4.0 to 6.3           | 0.20           | 0.30           | 0.45           |
+| 6.3 to 10.0          | 0.30           | 0.40           | 0.60           |
+| 10.0 to 16.0         | 0.30           | 0.50           | 0.80           |
+| 16.0 to 25.0         | 0.50           | 0.60           | 0.90           |
+| 25.0 to 40.0         | 0.50           | 0.70           | 1.20           |
+| 40.0 to 63.0         | 0.60           | 0.80           | 1.50           |
+| 63.0 to 100.0        | 0.70           | 1.00           | 1.90           |
+
+- **Length and Dimensional Tolerance**  
+  The tolerance for length and dimensions of the belt strip with dense adhesive is categorized according to L1, L2, and L3 levels.
+
+| Basic Dimensions (mm) | L1 Level (± mm) | L2 Level (± mm) | L3 Level (± mm) |
+|-----------------------|----------------|----------------|----------------|
+| 0 to 40.0            | 0.40           | 0.50           | 0.60           |
+| 40.0 to 63.0         | 0.50           | 0.60           | 0.80           |
+| 63.0 to 100.0        | 0.60           | 0.70           | 0.90           |
+| 100.0 to 160.0       | 0.70           | 0.80           | 1.00           |
+| 160.0 to 250.0       | 0.80           | 0.90           | 1.20           |
+| 250.0 to 400.0       | 1.10           | 1.30           | 1.50           |
+| 400.0 to 630.0       | 1.20           | 1.50           | 3.00           |
+| 630.0 to 1000.0      | 2.10           | 3.10           | 4.00           |
+| 1000.0 to 1600.0     | 3.50           | 4.90           | 6.00           |
+| 1600.0 to 2500.0     | 4.90           | 6.90           | 8.00           |
+| 2500.0 to 4000.0     | 6.50           | 8.50           | 10.00          |
+| Above 4000.0         | ± 0.15%        | ± 0.30%        | ± 0.45%        |
+
+#### Sponge Rubber Belt Strip Dimensional Tolerances
+- **Section Size Tolerance**  
+  Sponge rubber belt strip sectional tolerances are outlined below. Installation size corresponds to G1, and non-installation size corresponds to G3.
+
+| Basic Dimensions (mm) | G1 (± mm)      | G2 (± mm)      | G3 (± mm)      |
+|-----------------------|---------------|---------------|---------------|
+| 0 to 1.5             | 0.10          | 0.20          | 0.30          |
+| 1.5 to 2.5           | 0.30          | 0.40          | 0.60          |
+| 2.5 to 4.0           | 0.50          | 0.60          | 0.80          |
+| 4.0 to 6.3           | 0.60          | 0.70          | 0.90          |
+| 6.3 to 10.0          | 0.80          | 0.90          | 1.10          |
+| 10.0 to 16.0         | 1.00          | 1.20          | 1.40          |
+| 16.0 to 25.0         | 1.30          | 1.50          | 1.80          |
+| 25.0 to 40.0         | 1.70          | 1.90          | 2.20          |
+| 40.0 to 63.0         | 2.20          | 2.40          | 2.80          |
+Page 16
+6. Ozone aging resistance.
+
+The sponge rubber seal strip must resist ozone aging with specifications as follows:
+- Stretch 20% at (40 + 2) ℃ for 72 hours: No cracks must appear.
+- Ozone concentration (2 ± 0.2) x 10^-6.
+
+Corrosion resistance under light pollution and corrosive conditions:
+- Temperature at (100 + 2) ℃ for 24 hours: Must retain level 1 (not black).
+
+Two points are emphasized:
+1. Air window belt strips and flocking belt strips must undergo water resistance tests.
+2. Dumbbell-shaped specimens for tensile strength and elongation at break tests are preferable.
+
+Dimensional tolerance of dense rubber belt strips is defined as follows:
+
+Basic dimensions (mm) | E1 grade ± | E2 level ± | E3 level ±
+---------------------------------------------------------------
+0 ≤ dimension < 1.5      | 0.10          | 0.20          | 0.30  
+1.5 ≤ dimension < 2.5    | 0.15          | 0.20          | 0.40  
+2.5 ≤ dimension < 4.0    | 0.20          | 0.30          | 0.40  
+4.0 ≤ dimension < 6.3    | 0.20          | 0.30          | 0.45  
+6.3 ≤ dimension < 10.0   | 0.30          | 0.40          | 0.60  
+10.0 ≤ dimension < 16.0  | 0.30          | 0.50          | 0.80  
+16.0 ≤ dimension < 25.0  | 0.50          | 0.60          | 0.90  
+25.0 ≤ dimension < 40.0  | 0.50          | 0.70          | 1.20  
+40.0 ≤ dimension < 63.0  | 0.60          | 0.80          | 1.50  
+63.0 ≤ dimension < 100.0 | 0.70          | 1.00          | 1.90  
+
+Length tolerance for sponge rubber seal strips is specified as follows:
+
+Basic dimensions (mm) | G1 ± | G2 ± | G3 ±
+-----------------------------------------------
+0 ≤ dimension < 40      | 1.20   | 1.50   | 1.80  
+40 ≤ dimension < 63      | 1.40   | 1.80   | 2.00  
+63 ≤ dimension < 100     | 1.80   | 2.10   | 2.40  
+100 ≤ dimension < 160    | 2.00   | 2.40   | 3.00  
+160 ≤ dimension < 250    | 2.40   | 2.70   | 4.00  
+250 ≤ dimension < 400    | 3.00   | 3.50   | 5.00  
+400 ≤ dimension < 630    | 3.80   | 4.50   | 6.20  
+630 ≤ dimension < 1000   | 5.00   | 6.20   | 9.50  
+1000 ≤ dimension < 1600  | 6.80   | 8.50   | 12.00  
+1600 ≤ dimension < 2500  | 9.00   | 11.00  | 15.00  
+
+Length tolerance for sponge rubber joint angles:
+
+Basic dimensions (mm) | Tolerance ±
+---------------------------------------
+0 ≤ dimension < 3        | 0.2  
+3 ≤ dimension < 6        | 0.3  
+6 ≤ dimension < 10       | 0.4  
+10 ≤ dimension < 18      | 0.5  
+18 ≤ dimension < 30      | 0.6  
+30 ≤ dimension < 50      | 0.8  
+50 ≤ dimension < 80      | 1.0  
+80 ≤ dimension < 120     | 1.2
+Page 17
+5.1.5. Performance Specification
+
+5.1.5.1. NVH and Driving Comfort
+
+General Project Requirements for Suppliers of VINFAST Trading and Production LLC (“VINFAST”):
+- The system must not cause any kind of disturbing sound (relative movement, wind noise, squeak and rattle, temperature, flexural torsion...) during any operation.
+- The system must not have any annoying noise at vehicle- and audio system excitation under all environmental conditions and over the fixed component service life.
+Page 18
+5.1.5. Performance Specification.
+
+5.1.5.1. NVH and Driving Comfort.
+
+The system must not cause any kind of disturbing sound, including relative movement, wind noise, squeak, rattle, temperature effects, and flexural torsion during any operation. The system must remain free of annoying noise under vehicle and audio system excitation across all environmental conditions throughout the fixed component service life. Additionally, there must be no squeak or rattle noise caused by wind load, flexural torsion, or other body excitation, even if there evolve real relative movements on the surface. This requirement must hold under all operating and environmental conditions, including temperature and humidity. Noise-free performance requirements must be aligned with the responsible testing team.
+
+Noise during driving operations must be avoided, even after climate-change tests. No noise is allowed at any operating position across the entire temperature range.
+
+5.1.5.2. Operational Strength (Stiffness/Strength/Durability).
+
+Operational strength of the complete vehicle and its subsystems must be verified, ensuring sufficient performance for vehicle-typical conditions. Product-typical characteristics derived from the application profile must be considered and verified. Requirements must be defined to guarantee sufficient operational strength across the complete vehicle, subsystems, and components. This technical specification serves as the basis for system and component technical specifications. Mounting force must be less than dismounting force.
+
+5.1.6. Weight Management.
+
+Vehicle weight significantly influences energy consumption. The primary goal of weight management is to minimize the complete vehicle weight. Throughout the development process, weight optimization for all components must be prioritized. Suppliers must identify all weight reduction potentials, highlighting their implications for cost, timing, and quality.
+
+5.1.7. Fuel Economy & Driving Performance.
+
+Not relevant.
+
+5.1.8. Vehicle Dynamics & Fuel System Integration.
+
+Not relevant.
+
+5.1.9. Vehicle Architecture & Ergonomics.
+
+5.1.9.1. Vehicle Architecture.
+
+The complete vehicle must satisfy the requirements outlined in the vehicle layout plans. Any changes to parts or modules that affect vehicle layout dimensions or geometric coherence must be immediately communicated to VINFAST for separate evaluation. The definition and technical geometric specifications for complete vehicle dimensions, both interior and exterior, are based on GCIE 2016 measurement definitions.
+
+5.1.9.2. Styling Technique Convergence.
+
+Any changes to parts or modules that affect exterior or interior styling surfaces of the vehicle must be immediately communicated to VINFAST for separate evaluation.
+Page 19
+Part or system-related technical input requirements for styling evolution loops must be provided by the supplier (e.g., tooling demands, assembly sequence) based on defined requirements from VINFAST module leads. Technical input can be provided as office documents, 3D CAD data, or sections.
+
+### 5.1.9.3. Ergonomics
+The complete vehicle must pass the ergonomic test based on VINFAST’s internal procedure. Any dimensional or material changes affecting ergonomics on parts and modules must be communicated to VINFAST immediately by the supplier for separate evaluation.
+
+The final sign-off for all ergonomic targets will be performed in close cooperation with VINFAST, which is responsible for interior and exterior styling. VINFAST ultimately approves targets by evaluations using styling bucks.
+
+### 5.1.10. Aerodynamics
+Not applicable.
+
+### 5.1.11. In-Vehicle Thermal & Thermal Comfort
+Not applicable.
+
+### 5.1.12. Heat Management & Powertrain Cooling
+Not applicable.
+
+### 5.1.13. Customer Function & Human Machine Interface (HMI)
+Not applicable.
+
+### 5.1.14. Electrical Systems & Functions
+Not applicable.
+
+### 5.1.15. Package
+Not applicable.
+
+### Additional Requirements
+Minimizing environmental impacts of a product throughout its complete life cycle is a key factor for the future development of innovative products.  
+
+#### Requirements for Minimization of Environmental Impact:
+- Use of recyclable materials.
+- Use of recycled materials and renewable resources.
+- Prevention of hazardous substances.
+- Minimization of compartment emissions, including odor.
+- Minimization of resource consumption.
+- Adopting a strategy for waste prevention.
+- Parts marking for identification at the end of life.
+Page 20
+5.1.15.1. The requirements of the following standards have to be met:
+- Reuse, Recycling & Recoverability obligations for vehicles, components, and parts according to UN Regulation No. 133.
+- Parts marking for identification of materials at end of life of vehicles, components, and parts according to ISO standards.
+- Vehicle Indoor Air Quality (VIAQ) & Odor according to ISO 12219, parts 1-7, respective harmful substances targets (including TVOC & odor emissions) for interior trim parts.
+- Vehicle Indoor Air Quality requirements for the Russian market according to GOST33554-2015 and GOST33548-2015.
+- Reduction of environmental impacts regarding the categories Global Warming Potential (Carbon footprint) and Consumption of Resources considered for Life Cycle Analysis according to ISO 14040.
+- Prohibition & Restriction of substances according to Vietnam Law on Chemicals No. 06/2007/QH12 (including the national chemical inventory 2017).
+- Prohibition & Restriction of substances according to the Global Automotive Declarable Substances List (GADSL).
+
+5.1.15.2. Material information, parts marking & substance information:
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier.
+- The conformance to prohibited substances must be ensured by the supplier throughout the complete product life cycle.
+- For PPAP, material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002–022 are required. Updates are mandatory for changes.
+- Material data sheets must be provided by the supplier to VINFAST:
+  Project VINFAST IMDS-ID @ XXXX.
+
+Parts marking should be carried out using the rule “as few characters as possible but as many as necessary.” The marking consists of brief type designations defined by DIN, EN, or ISO standards (ISO takes priority). The codes are enclosed within arrowed brackets formed from the mathematical signs for “more than” (>) and “less than” (<).
+
+Material safety data sheets (SDS) according to Vietnam Law on Chemicals No. 06/2007/QH12 (including the national chemical inventory 2017) must be provided for milestone concept confirmation. Consider local rules for SDS creation and UN-guidelines according to GHS, Globally Harmonized System of Classification, Labelling, and Packaging of Chemicals.
+
+Material safety data sheets must be provided by the supplier to VINFAST.
+
+Further information:
+Page 21
+http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html  
+https://www.gadsl.org/  
+
+### 5.1.15.3. Recycling
+
+#### Recycled materials
+When selecting materials, attention is to be focused on reducing the variety of materials and on compatibility with available recycling procedures (so called ‘proven recycling technologies’).  
+Secondary raw materials (post-consumer recycles and post-production recyclers, e.g., recycled polymeric PET fiber, recycled textiles, recycled foams, recycled thermoplastics) have to be preferred in respect to availability on the market. Recycled materials have to be marked according to parts-marking standards defined in this specification book and must be reported to the environmental compliance expert’s team at VINFAST.
+
+#### Recycling scheme
+This chapter establishes the general project-wide requirements on the recycling and repair scheme in the development of a component.  
+Design for recycling of parts and components is required in order to enable cost-effective recycling at end-of-life.  
+
+The recycling scheme provided by the contractor has to show a simple layout for the possible recycling process of the component including information about preferred recycling partners and cost estimation.  
+
+Recycling schemes have to be provided to the environmental experts’ team at VINFAST before milestone PTO Production Try-Out.  
+
+---
+
+### 5.1.16. Geometrical Integration
+
+#### RPS (reference position system)  
+The classification of the testing range happens in a functional area. The target of the determination concept is a consistent, repeatable, and customer-friendly determination of the assembly and component parts. A RPS-concept for the design has to be done with the quality assurance in the SE-process.  
+
+The RPS-determination concept is the basis for the function of components and assembly. The part positioning to adjoining parts has to happen among the RPS-system VFDST00000011 [34] according to the interior and BIW department.  
+
+#### Tolerance analyses  
+Following tolerance analyses are necessary for single-component and complete systems, including BIW and attachment points:  
+- Static and arithmetic tolerance analyses  
+- Thermic change tests among all climate terms  
+- Thermal expansion has to be considered
+Page 22
+5.2. General CAE Requirements  
+Please refer to Appendix 2: CAE-FEM-GENERAL.  
+
+---
+
+5.3. Material Requirement  
+
+### 5.3.1. Materials  
+
+1) **Requirements on automobile recycling and control of prohibited and restricted substances.**  
+   - **A) Requirements for the limits of prohibited substances:**  
+     The materials used for the parts must meet the limits and measurement methods of the prohibited substances in VINFAST cars.
+
+   - **B) Requirements of the vehicle recycling and restricted substances control system:**  
+     The supplier must establish the control system and procedures for the management of banned substances and be willing to accept and guarantee the approval of the national competent authority and VINFAST Company.
+
+2) **Responsibilities, assessment, rewards, and punishments of suppliers:**  
+   - The supplier shall cooperate with the national authorities and VINFAST Company during the sampling inspection of the parts or materials provided by the supplier.  
+   - Sampling inspection may be conducted by a technical service agency entrusted by the national authorities or an independent and professionally qualified third-party certification agency jointly recognized by both parties.  
+   - If the parts or materials provided by the supplier are found not meeting the requirements in the sampling inspection, VINFAST will penalize the supplier according to the relevant company regulations, and the supplier will bear all expenses related to the sampling inspection.  
+   - If VINFAST products fail to meet the limits and measurement requirements of prohibited substances in automobiles, the supplier shall bear all losses caused thereby.  
+
+Concerning compliance with legal requirements regarding prohibited substances, IMDS-Material Data Sheets (MDS) must be sent to VINFAST via the IMDS-System.
+
+---
+
+5.4. Traceability  
+For part requirements, follow specifications as per VINFAST standard VFDST00010501.  
+
+### **Labeling of Parts**  
+The supplier must follow VINFAST standard VFDST00000010.
+Page 23
+6. Testing and validation.  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement  
+- How and with which devices the testing was performed (description of testing set-up with pictures)  
+- Where the testing was performed (internal/external)  
+- Duration and time flow of the testing (in form of project plan)  
+- Part variant, description of part  
+- Number of tested components/parts  
+
+Ensure Mileage Target Life: 160,000 km or 10 years (whichever comes first).  
+
+Refer to DVP component:  
+VFDSXVDCL0128 DVP_COMPONENT_UNDER HOOD SEAL FRONT  
+
+---
+
+7. Function Safety, Homologation and safety regulations  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+### 7.1. Functional Safety Requirements  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+
+---
+
+### 7.2. Deliverables for Functional Safety  
+Indicative RASIC* for expected deliverables:  
+
+#### 5.5 Work products:  
+| Work Products                                   | VINFAST | SUPPLIER |
+|------------------------------------------------|---------|----------|
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R       | I        |
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.    | R       | S        |
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3.                   | A       | R        |
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3.                    | A       | R        |
+Page 24
+6. Testing and validation.  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- No. of tested components/parts.  
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).  
+
+Refer to DVP component:  
+VFDSXVDCL0128 DVP_COMPONENT_UNDER HOOD SEAL FRONT  
+
+7. Function Safety, Homologation and safety regulations  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+7.1. Functional Safety Requirements  
+The supplier shall ensure that the developed/manufactured part(s) meet the IATF 16949:2016 standard, Quality Management System Requirements for Automotive Production.  
+The supplier shall ensure that the developed/manufactured part(s) meet the ISO 26262:2018 standard, Road Vehicles – Functional Safety.  
+
+7.2. Deliverables for Functional Safety  
+Indicative RASIC* for expected deliverables:  
+
+| 5.5 Work products                               | VINFAST | SUPPLIER |
+|-------------------------------------------------|---------|----------|
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R       | I        |
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3. | R       | S        |
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3. | A       | R        |
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3. | A       | R        |
+| 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I       | R        |
+| 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3. | R       | S        |
+| 6.5.3 Safety case, resulting from 6.4.6.     | A       | R        |
+
+**RASIC description in section "Deliverables".**  
+
+a) FUSA Deliverables expected before nomination  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree on a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+b) FUSA Deliverables expected after nomination  
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations, and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.  
+
+7.3. Homologation and safety regulation requirements  
+
+7.3.1. North America  
+
+a. Homologation and safety regulation activities  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b. Self-certification and test report(s)  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain of the FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.
+Page 25
+VinFast Management System  
+Version: 1  
+Uncontrolled copy when printed  
+Page: 25 of 29  
+
+### Laboratory Test Familiarization (North America)  
+The Supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer Appendix 8 of Manufacturer Handbook.  
+
+### Duty to Notify VinFast of Non-Compliance (North America)  
+If a Supplier determines the existence of a non-compliance with an FMVSS/CMVSS or a safety-related defect, the Supplier must notify VinFast within five working days. Appropriate risk assessment and a resolution plan must also be proposed.  
+
+---
+
+### Europe  
+
+#### Homologation and Safety Regulation Activities  
+The Supplier must ensure compliance with United Nations Economic Commission for Europe (UN-ECE) Regulations for parts, products, and systems.  
+
+#### Test Reports and Certifications  
+1. The Supplier is responsible for ensuring all parts, products, and systems meet applicable UN-ECE regulations before being offered for sale.  
+2. Tests must be conducted via authorized technical service(s), and the following must be provided:  
+   - Test reports.  
+   - UN-ECE certificate(s).  
+   - Supporting technical documentation for EC vehicle type-approval, if applicable.  
+
+#### Laboratory Test Familiarization (Europe)  
+The Supplier should be familiar with the laboratory test procedures utilized by European authorities to evaluate compliance with individual UN-ECE regulations.  
+
+#### Duty to Notify VinFast of Non-Compliance (Europe)  
+If a Supplier discovers a non-compliance with any UN-ECE regulation or a safety-related defect, they must notify VinFast within five working days. The Supplier is required to propose an appropriate risk assessment and resolution plan.
+Page 26
+8. Deliverables.
+
+8.1. Technical deliverables.
+
+Work Interface Chart (RASI).
+The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“Built to Print” or “System Development Supplier”) is defined in System/Component Specification.
+
+RASI is defined as followed:
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfil the requirements. She/he is entitled to request the necessary support from other project team members.
+- **A: Approval**  
+  Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.
+- **S: Support**  
+  Obligated to active support (even if this requires capacity, expenses and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.
+- **I: Information**  
+  Right to information. This team member is entitled to demand information from R.
+
+8.2. Details deliverables and RASI.
+Need revise date of RASI follow Master Timing latest from PMO side.
+Page 27
+**VinFast Management System**  
+Version: 1  
+Uncontrolled copy when printed  
+Page 27 of 29  
+
+---
+
+**8. Deliverables**  
+
+**8.1. Technical Deliverables**  
+**Work Interface Chart (RASI)**  
+The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“Built to Print” or “System Development Supplier”) is defined in System/Component Specification.  
+
+**RASI Definitions:**  
+- **R - Responsible:** Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+- **A - Approval:** Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+- **S - Support:** Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+- **I - Information:** Right to information. This team member is entitled to demand information from R.  
+
+---
+
+**No | Gate | Stage | Deliverable | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing**  
+
+1 | PV | List of Concept in Commodity | **R** | **S** | **I** | **I** | **I**  
+2 | PV | SOR for Concept in Commodity | **R** | **S** | **I** | **I** | **I**  
+3 | PPS | SOB through LOI – Letter of Intent for Concept in Commodity | **S** | **R** | **S** | **I** | **I**  
+4 | PPS | EDD order release for Concept in Commodity | **S** | **R** | **S** | **I** | **I**  
+5 | PPS | Deliver Bill of Materials in Team center | **R** | **I** | **I** | **I** | **I**  
+6 | PPS | Supply chain strategy – Deliver Sourcing Strategy | **S** | **R** | **I** | **S** | **I**  
+7 | PPS | Commodity Timing plan in each business area supports Program timing for concept commodity | **S** | **S** | **R** | **S** | **I**  
+8 | PPS | Organization and resources for the concept phase, resource planning for series development | **S** | **S** | **R** | **S** | **I**  
+9 | PPS | Opportunities and risks for the program have been detailed and measures defined – Cost reductions, Design Optimization, Timing optimization | **A** | **S** | **R** | **S** | **I**  
+10 | PPS | Quality planning to meet program requirements – APQP Kickoff | **R** | **S** | **S** | **S** | **I**  
+11 | PPS | Concept proposal for engineering review and finalization – For Concept Commodity | **A** | **I** | **R** | **I** | **I**  
+12 | PPS | Concept and Proposal development to meet the target material cost | **A** | **I** | **R** | **I** | **I**  
+13 | PPS | Parts list and BoM available; target values for lead vehicle cost and weight verified – C Class | **A** | **I** | **R** | **I** | **I**  
+
+(Details continue with exact deliverables and responsibilities per phase and gate as indicated in the table up to deliverable 58, ensuring the "Concept Phase" and "Series Development" tasks reflect outlined roles and inputs precisely.)  
+
+---
+Page 28
+9. Supplier responsibilities.  
+Supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.  
+
+**Customer service requirements.**  
+**After-sales spare parts should be ready at startup.**  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+**Spare Parts Support Cycle.**  
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+
+**Maintenance Information of After-Sale Spare Parts.**  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).  
+
+10. Intellectual Property / Copyright.  
+Refer to VinFast General Term and Condition (GTC).  
+
+11. Insurance / Warranties.  
+Refer to VinFast General Term and Condition (GTC).  
+
+12. VinFast GTC & Part Packaging and Incoterms.  
+Refer to VinFast General Term and Condition, Part packaging requirements and Incoterms requirement in the RFQ package.  
+
+13. Definitions and List of Abbreviations.  
+
+| Abbreviation | Definition                                      |
+|--------------|--------------------------------------------------|
+| MSC          | Manufacturing Strategy Confirmation             |
+| TS           | Theme Selection Model                          |
+| MFC          | Manufacturing Feasibility Confirmation         |
+| MSI          | Major Suppliers Identified                     |
+| SST          | Sourcing Strategy                              |
+| LLS          | Long Lead Suppliers on Board                   |
+| SLS          | Short Lead Suppliers on Board                  |
+| LLT          | Long Lead Tooling                              |
+| PTP          | Prototype Parts out of Serial Tooling (Hand Finished) |
+| OTS          | Off Tools Samples                              |
+| ESO          | Engineering Sign Off                           |
+| MSO          | Manufacturing Sign Off                         |
+Page 29
+## 9. Supplier Responsibilities
+
+Supplier is responsible to provide/ensure while completing the work. Supplier Responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.
+
+**Customer Service Requirements:**
+
+- **After-sales spare parts should be ready at startup:**  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+- **Spare Parts Support Cycle:**  
+  The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+
+- **Maintenance Information of After-Sale Spare Parts:**  
+  The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, and relevant technical parameters (installation clearance, parts performance parameters, etc.).
+
+---
+
+## 10. Intellectual Property / Copyright
+
+Refer to **VinFast General Term and Condition (GTC)**.
+
+---
+
+## 11. Insurance / Warranties
+
+Refer to **VinFast General Term and Condition (GTC)**.
+
+---
+
+## 12. VinFast GTC & Part Packaging and Incoterms
+
+Refer to **VinFast General Term and Condition**, **Part Packaging Requirements**, and **Incoterms Requirement** in the RFQ package.
+
+---
+
+## 13. Definitions and List of Abbreviations
+
+- **MSC:** Manufacturing Strategy Confirmation  
+- **TS:** Theme Selection Model  
+- **MFC:** Manufacturing Feasibility Confirmation  
+- **MSI:** Major Suppliers Identified  
+- **SST:** Sourcing Strategy  
+- **LLS:** Long Lead Suppliers on board  
+- **SLS:** Short Lead Suppliers on board  
+- **LLT:** Long Lead Tooling  
+- **PTP:** Prototype Parts out of Serial Tooling (Hand Finished)  
+- **OTS:** Off Tools Samples  
+- **ESO:** Engineering Sign Off  
+- **MSO:** Manufacturing Sign Off  
+
+---
+
+## SOP-LM, SOP, SOP-ID, SOB, and LOI:
+
+- **SOP-LM:** SOP Launch Model (1 specific model - "Edition")  
+- **SOP:** Start of Production  
+- **SOP-ID:** SOP Implementation Date  
+- **SOB:** Supplier on Board  
+- **LOI:** Letter of Intent

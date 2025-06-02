@@ -1,0 +1,684 @@
+
+<filename>VFDSXXBAT1276-VF9_BATTERY_PACK CATL BMS SPEC BOOK</filename>
+<pages>
+
+<page number="1">
+Spec. Book.
+
+VFe35/36_CATL BMS Spec. Book.
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast LLC (VinFast Trading and Production Limited Liability Company) have started to design and develop VFe35 and VFe36 vehicle in BEV. Environmental impact and sustainability of the program are taken into account as essential target features. The document shall provide details for all components for mass production. 
+
+Number of SPB follow VFDSXXBAT1273.
+</page>
+
+<page number="3">
+Responsible Contact: Amit Kumar (VF-KKSPTX-Module). The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization are prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+
+Contents:
+- **SCOPE AND PURPOSE** 
+</page>
+
+<page number="2">
+1. **Change History** 
+</page>
+
+<page number="4">
+2. **Document purposes** 
+</page>
+
+<page number="4">
+3. **Range of application** 
+</page>
+
+<page number="4">
+4. **Definition of terms and abbreviations** 
+</page>
+
+<page number="4">
+5. **Reference standard** 
+</page>
+
+<page number="5">
+6. **BMS general introduction** 
+</page>
+
+<page number="6">
+- 6.1 **Product presentation**
+</page>
+
+<page number="6">
+- 6.2 **Product presentation** 
+</page>
+
+<page number="6">
+- 6.3 **System electrical block diagram (example)** 
+</page>
+
+<page number="7">
+- 6.4 **System function/performance characteristics** 
+</page>
+
+<page number="7">
+7. **BMU Introduction of BMU components** 
+</page>
+
+<page number="11">
+- 7.1 **Architecture block diagram** 
+</page>
+
+<page number="11">
+- 7.2 **Function characteristic and application guidance** 
+</page>
+
+<page number="12">
+8. **CSC Introduction of CSC components**  Error! Bookmark not defined.  
+  - 8.1 **Hardware block diagram** 
+</page>
+
+<page number="13">
+- 8.2 **CSC function characteristic and application guidance** 
+</page>
+
+<page number="14">
+9. **Instructions for use** 
+</page>
+
+<page number="14">
+10. **BMS performance testing** 
+</page>
+
+<page number="14">
+11. **Dimension and weight information** 
+</page>
+
+<page number="14">
+12. **Installation instructions** 
+</page>
+
+<page number="17">
+13. **Connector information** 
+</page>
+
+<page number="17">
+
+</page>
+
+<page number="4">
+1. Change History.
+
+Version | Date       | Amended Chapter | Modify the Content                                                                                                     | Revised By  
+--------|------------|-----------------|-----------------------------------------------------------------------------------------------------------------------|-------------  
+V 1.0   | 2020/5/12  | NA              | Version of Car 7.0 BMS product specification                                                                          | Xiao Huan  
+V 1.1   | 2020/10/20 | NA              | Based on the first version of Car 7.0 BMS product specification update from the first version of Car 7.0 BMS          | Zhang Longfei  
+V 1.2   | 2021/1/15  | NA              | Based on the first version of Car 7.0 BMS product specification update from the first version of Car 7.0 BMS          | Hong Tiansong  
+V 1.3   | 2021/4/20  | NA              | 1. Increase the sampling cycle of monomer voltage and module temperature.                                             | Lin Jie  
+        |            |                 | 2. Add 1 AFE, 5 AFE CSC size and digital and analog information.                                                      |  
+        |            |                 | 3. Modify the sampling accuracy of the single voltage according to the data provided by the sampling chip supplier.   |  
+V 1.4   | 2021/7/27  | NA              | Modify the corresponding temperature range of the monomer temperature sampling accuracy based on the test data.       |  
+
+2. Document Purpose.
+
+This document is intended as a CATL Car 7.0 BMS introduction and the base function and performance.
+
+3. Range of Application.
+
+Suitable for Car 7.0 BMS project, each customer can delete sections according to actual project needs.
+
+4. Definition of Terms and Abbreviations.
+
+Sl.no | Terms/Abbreviations | Description  
+------|---------------------|------------  
+1     | BMS                | Battery Management System  
+2     | BMU                | Battery Management Unit  
+3     | CSC                | Cell Supervision Circuit  
+4     | CSU                | Current Sensor Unit  
+5     | EVCC               | Electric Vehicle Communication Controller  
+6     | CAN                | Controller Area Network  
+7     | SOC                | State Of Charge  
+8     | SOH                | State Of Health  
+9     | SOP                | State Of Power  
+10    | NTC                | Negative Temperature Coefficient  
+11    | VCU                | Vehicle Control Unit  
+12    | ACAN               | BMU VCU CAN for communication between BMU and vehicle VCU  
+13    | SCAN               | BMU, CSU CAN for communication between BMU and current sensor, CSU etc.  
+14    | CHCAN              | BMU CAN for communication between BMU and non-on-board Charger.  
+15    | OBC                | On-Board Charger  
+16    | RTC                | Real Time Clock  
+17    | EMC                | Electromagnetic Compatibility  
+18    | CP                 | Control Pilot  
+19    | KL30               | Un-switched LV battery +ve connection.  
+20    | Keyon (KL15)       | Train wake-up signal, generally refers to the vehicle key signal.
+</page>
+
+<page number="5">
+### 5 Reference Standard
+
+**Sl.no.**  
+**Terms/abbreviations**  
+**Description**  
+21  
+A+  
+National standard DC charging wake-up signal, generally refers to charger auxiliary source.
+
+### Reference Standard
+
+**Sl.no.**  
+**Standard Number**  
+**Standard Name**  
+1  
+ISO 16750-1-2012  
+Road vehicles-environmental conditions and tests for electrical and electronic equipment - Part 1: general provisions.  
+
+2  
+ISO 16750-2-2012  
+Road vehicles-environmental conditions and tests for electrical and electronic equipment - Part 2: electrical loads.  
+
+3  
+ISO 16750-3-2012  
+Road vehicles-environmental conditions and tests for electrical and electronic equipment - Part 3: mechanical loads.  
+
+4  
+ISO 16750-4-2012  
+Road vehicles-environmental conditions and tests for electrical and electronic equipment - Part 4: climatic loads.  
+
+5  
+ISO 16750-5-2012  
+Road vehicles-environmental conditions and tests for electrical and electronic equipment - Part 5: chemical loads.  
+
+6  
+ISO 7637-2 (GB/T 21437.2)  
+Road vehicle-electrical disturbances caused by conduction and coupling - Part 2: electrical transient conduction along power lines.
+
+7  
+ISO 7637-3 (GB/T 21437.3)  
+Road vehicle-electrical disturbances caused by conduction and coupling - Part 3: passage of conductor other than power lines capacitive and inductive coupled electrical transient emission.
+
+8  
+ISO 10605 (GB/T 19951)  
+Road vehicle - Test method for electrical disturbance from electrostatic discharge.
+
+9  
+ISO 11452 (GB/T 17619)  
+Road vehicles - Test method of electronic interference module for narrowband radiated electromagnetic energy.
+
+10  
+QC/T 897-2011  
+Technical specification of battery management system.
+
+11  
+DIN 40050-9  
+IP protection types of highway vehicles.
+
+12  
+ISO 6469-1 (GB/T 18384.1)  
+Electric vehicles - Safety requirements - Part 1: on-board energy storage devices.  
+
+13  
+ISO 6469-2 (GB/T 18384.2)  
+Electric vehicles - Safety requirements - Part 2: functional safety and fault protection.  
+
+14  
+ISO 6469-3 (GB/T 18384.3)  
+Electric vehicles - Safety requirements - Part 3: protection against electric shock.
+
+15  
+GB/T 18487.1-2015  
+Electric vehicle conductive charging system - Part 1: General requirement.
+</page>
+
+<page number="6">
+Version: 1.0  
+Uncontrolled copy when printed  
+6 | 19  
+
+VinFast  
+Management System  
+  
+VFDSXXBAT1276  
+
+**Reference Standard**  
+Sl.no. | Standard Number       | Standard Name  
+--- | ----------------------- | --------------------------------------------------------------  
+16  | GB/T 20234.2-2015       | Connecting devices for conductive charging of electric vehicles Part 2: AC charging  
+17  | GB/T 20234.3-2015       | Connecting devices for conductive charging of electric vehicles Part 2: DC charging  
+18  | GB/T 27930              | Communication protocol between electric vehicle off-board conductive charger and battery management system  
+19  | IEC CISPR 25-2016       | Radio interface characteristics of vehicles, ships, and internal combustion engines - Limits and methods  
+
+**BMS General Introduction**  
+
+**6.1 Product Presentation**  
+Car7.0 BMS is a battery management system including a BMS assembly, one or more CSCs. The BMU is the main control unit, which mainly realizes pack status monitoring, error handling, signal interaction, and other functions. CSC realizes cell temperature monitoring, cell voltage sampling, and other functions. CSU is a current sampling module that realizes the current sampling function of the battery pack bus. Current sensors such as BDC_CSU, HV_CSU, and LEM series are selected according to actual demand. Refer to the corresponding technical specific CSU parameters.  
+
+**6.2 Product Presentation**  
+- **Autosar (Autosar 4.x):** The underlying development of Autosar.  
+- **Simulink Model:** Application layer development of Simulink.  
+- **SIL/MIL/HIL:** Test verification for Software-in-the-loop, Model-in-the-loop, and Hardware-in-the-loop testing.  
+- **EMC:** Strong anti-electromagnetic interference ability. See EMC test report for test standards and results.  
+- **BMS Resources:** BMS is rich in resources and covers all functions of BMS.  
+- **Hardware Design:** Meets functional safety design based on LT CSC (functional safety ASIL C) and TI CSC (functional safety ASIL D).
+</page>
+
+<page number="7">
+6.3 SYSTEM ELECTRICAL BLOCK DIAGRAM (EXAMPLE).
+
+A detailed block diagram visually represents the electrical connections and functionality of the Battery Management System (BMS). It includes critical components such as the BMU, CSU (current sensing unit), CSC modules, and various voltage and temperature monitoring points for the battery pack. Key system interfaces and connections to relays, sensors, and external components are also highlighted for system-level interaction. All connections and modules are designed for effective pack status monitoring and error handling.
+
+6.4 SYSTEM FUNCTION / PERFORMANCE CHARACTERISTICS.
+
+**Function/Performance:**
+- **Storage temperature:**
+  - **Project:** Range.
+  - **Parameter index:** -40 ℃ ～+105 ℃.
+  - **Remark:** N/A.
+- **Operating temperature:**
+  - **Project:** Range.
+  - **Parameter index:** -40 ℃ ～+85 ℃.
+  - **Remark:** N/A.
+- **Working humidity:**
+  - **Project:** Range.
+  - **Parameter index:** ≤95% RH.
+  - **Remark:** N/A.
+- **Protection grade:**
+  - **Project:** Level.
+  - **Parameter index:** IP40.
+  - **Remark:** N/A.
+- **Operating Voltage:**
+  - **Project:** Range.
+  - **Parameter index:** 9～16V.
+  - **Remark:** 9–16V: All functions of BMS are normal; 7–9V: BMS single board can work normally (excluding relay or CSU).
+</page>
+
+<page number="8">
+6.4 SYSTEM FUNCTION / PERFORMANCE CHARACTERISTICS
+
+**Function/Performance Parameters:**
+
+- **Rated power consumption:**
+  - **Rated current:** 12V@0.25A (Without relay)
+  - **Rated power:** 3W (Without relay)
+  
+- **Quiescent Current:**
+  - **Current value:** < 200μA @12V 25 ℃ (Actual quiescent current depends on hardware configuration of the customer project.)
+
+- **MCU Controller:**
+  - **Flash memory:** 4MB
+  - **EEPROM:** 384KB
+  - **RAM:** 472KB
+  - **EEPROM erasing time:** 125K@10year
+  - **Number of Flash writes:** ≥1000
+  
+- **Voltage Sampling:**
+  - **Range:** 0V～5V
+  - **Resolution ratio:** 1mV
+  - **Precision:** ±3mV (2V~4.5V, 25℃), ±4mV (2V~4.5V, -20℃~65℃), ±5mV (0V~5V, -40℃~125℃)
+  - **Sampling cycle:** 100ms
+  - **Number of single voltage sampling channels:** Configurable on demand (Single AFE supports 8~16 channels; BMU supports configuration for up to 15 AFE.)
+  - **Copper bar sampling:** Supported (Single AFE supports one channel copper bar sampling.)
+  
+- **Module Temperature Sampling:**
+  - **Range:** -40 ℃ ～+125 ℃
+  - **Testing NTC module:** Vishay NTCS0603E3103*MT
+  - **Resolution ratio:** 1°C
+  - **Precision:** ±1°C (-30°C~65°C), ±2°C (-40℃～85℃), ±3°C (85℃～125℃)
+  - **Sampling cycle:** 100ms
+  - **Number of temperature sampling channels:** Configurable on demand (Each sampling chip supports 6 module temperature sampling; BMU supports configuration for up to 15 AFE.)
+  
+- **High Voltage Sampling:**
+  - **Range:** 0V ~ 1000V
+  - **Voltage divider resistor configuration:** Possible
+  - **Cycle:** ≤20ms (HV1: 10ms, HV2: 20ms)
+  - **Resolution ratio:** 0.1V
+  - **Precision:** ±2V (0V～200V), ±1% FSR (200V～1000V)
+  - **Number of channels:** 8 channels (Route 1-6: first reference point route; Route 7-8: second reference point with MOS tube cut-off functionality.)
+  
+- **SOC (State of Charge):**
+  - **Precision:** ±3%～±5% (NCM), ±5% (LFP BEV), ±8%～±15% (LFP PHEV)
+  
+- **SOH (State of Health):**
+  - **Precision:** <±5%
+  
+- **RTC Wake-Up:** Supported.
+</page>
+
+<page number="9">
+### Function/Performance Metrics Table
+#### Wake up source
+- **AFE reverse wake-up:** Supported. AFE monitors cell data and wakes up BMU reversely.
+- **Level wake-up:** 4 channels. Wake threshold includes ≥6V for wake-up and ≤2V for sleep. KL15/CPSR fast charging auxiliary power sources such as A+/EVCC/OBC/reservation are used.
+- **Wake up on edge:** 1 channel.
+- **CAN wake-up:** Supported.
+- **Wake up with a charging gun:** Supported. CC/CP/CC2 insertion wake-up supported.
+- **Wake up output:** 2 channels. Output is 5V/12V and used to wake up VCU in reverse.
+
+#### High Voltage Interlock
+- **Number of channels:** 3 channels. Current/voltage type and PWM configuration supported.
+
+#### High Side Drive
+- **Number of channels:** 9 channels. Includes over-temperature, over-current, and over-voltage protection features.
+- **Driving current:** Channels 1 to 8 have 1A sustained current and 7A surge (300ms). Channel 9 supports 3A sustained current and 10A surge (300ms). The total continuous working current must not exceed 5A.
+
+#### Low Side Drive
+- **Number of channels:** 11 channels.
+- **Driving current:**  
+  - Channels 1 to 4: Sustained 1A with 7A surge (300ms).  
+  - Channels 5 to 10: Sustained 0.5A, surge 3A (300ms).  
+  - Channel 11: Sustained 3A, surge 10A (300ms).
+
+#### Collision Signal Detection
+- **Number of channels:** 2 channels.  
+  - Types: PWM waveform detection and pulse detection.
+
+#### External Temperature Detection
+- **Range:** -40°C to +125°C. Fast charging socket temperature was tested using NTC NTSH1103FV012-06 and inlet/outlet systems with NTC TSM1C104F4101R-D.
+- **Cycle:** 1 second.
+- **Precision:** ±1°C (from -20°C to 60°C). ±2°C (from -40°C to -20°C and +60°C to +125°C).
+- **Resolution ratio:** 1°C.
+- **Number of channels:** 4 channels, expandable to 6 through external analog detection channels.
+
+#### External Analog Quantity Detection 1
+- **Range:** 0V to 5V. Analog current acquisition capability.
+- **Precision:** ±20mV.
+- **Number of channels:** 2 channels.
+
+#### External Analog Quantity Detection 2
+- **Range:** 0V to 18V. Utilized for KL30 and CPSR voltage measurement.
+- **Precision:** 0.2V at 12V.
+- **Number of channels:** 2 channels.
+</page>
+
+<page number="10">
+### Function/Performance Overview
+
+#### **AC / DC charging**
+- **Support:** Supports CC/CP/A+/CC2 signal detection and charging gun wake-up, S2 switch control.
+
+#### **CAN communication**
+- **Number of channels:** 4 channels.  
+- **Remarks:** ACAN and FSCAN support network wake-up and CAN FD.
+
+#### **Isolation detection**
+- **Detection range:** 0Ω ～10MΩ.  
+- **Precision:**  
+  - 50KΩ～10MΩ: -20% ~ 0%.  
+  - 10KΩ～50KΩ: -10KΩ.  
+  - 0Ω ～ 10KΩ: ＜ 10KΩ.
+- **Detection cycle:**  
+  - Y capacitance is 0.5 uF: ≤ 5s.  
+  - Y capacitance is 1uF: ≤10s.  
+  - Quick check: ≤ 2s.  
+  - 0V ～ 500V conditions: ≤10s to ≤20s.  
+  - 0V ～ 1000V quick check: ≤ 2s.
+
+#### **Cell Balancing**
+- **Balance current:** Peak 150mA.  
+- **Balance resistor:** 24.5Ω.  
+- **Sleep balance:** Supported.  
+- **Balance ability:**  
+  - With sleep equalization.  
+  - Without sleep equalization.  
+- **Remarks:** Does not support parity or simultaneous odd/even opening.
+
+#### **Thermal Runaway Detection**
+- **Air pressure sensor:** Supported.
+
+#### **Functional safety**
+Functional safety objectives include:  
+1. Prevent battery system overcharge (ASIL D).  
+2. Prevent the battery system from overheating (ASIL D).  
+3. Prevent battery system overcurrent (ASIL D).  
+4. Prevent charging after battery system undervoltage (ASIL D).  
+5. Ensure compatibility with current sensors.
+</page>
+
+<page number="11">
+7. Introduction of BMU components.
+
+7.1 Architecture block diagram:
+The architecture block diagram outlines the structure and components of the BMU system. It includes key elements such as power supply management, wake-up detection systems, communication interfaces, temperature and analog measurement, insulation detection, liquid level detection, crash detection, and high/low side drive configurations. 
+
+The BMU integrates various CSC (Cell Supervision Circuit) modules supported by AFE ICs. It demonstrates flexible configurations suitable for voltage measurement, isolation, temperature control, and cell balancing. Connections to LV and HV connectors are specified, along with daisy-chain capabilities for isoSPI communication protocols.
+
+Key notes:
+- Power supply management includes LV logic BAT input protection & control.
+- Communication interfaces cater to CAN, SPI, and LIN protocols.
+- Wake-up signals and crash detection mechanisms are integrated for enhanced functionality and safety.
+- Up to six CSC modules can be integrated, each designed for voltage measurement, isolation, temperature control, and cell balancing.
+- Insulation detection and HVIL features ensure operational safety.
+- Daisy-chains support reversible and irreversible communication via isoSPI or SPI, enabling secure connectivity across modules.
+</page>
+
+<page number="12">
+7. Introduction of BMU components.
+
+7.1 BMU architecture block diagram:
+The diagram illustrates the structural design and interconnections within the Battery Management Unit (BMU). It covers various components such as:
+- LV Logic BAT Input Protection & Control.
+- Power supply management to provide powers output.
+- Communication interfaces including CAN, LIN, and daisy chain communication.
+- Voltage, temperature, crash detection, and liquid level detection circuits.
+- Multiple CSC configurations ranging from 1 to 8 Integrated Circuit (IC) configurations.
+- High voltage interlock detection with PWM/current/voltage configuration features.
+- Isolation detection circuitry with feedback routing.
+
+Key features of the architecture:
+1. Daisy-chain configuration (irreversible 2-wire isoSPI or reversible isoSPI).
+2. Wake-Up output functionality designed for VCU reverse wake-up.
+3. CSC configurations allow scalable voltage measurement, isolation, temperature monitoring, and cell balancing.
+
+7.2 Function characteristic and application guidance.
+Serial Number | Resource Class | Resource Name | Quantity | Application Guide
+--- | --- | --- | --- | ---
+1 | Power supply | Power supply | 2 | 1. Supports 2-way external power supply. 2. Relay power supply and KL30 power supply can be configured independently.
+2 | Wake-up | External hard line wake-up | 5 | External hardwired wake-up.
+   | Wake-up | Charging gun wake-up | 3 | CC/CP/CC2 wake-up.
+   | Wake-up | Wake on LAN | 2 | ACAN and FSCNA support network wake-up.
+   | Wake-up | RTC wake-up | 1 | -
+   | Wake-up | Reservation wake-up | 2 | Air pressure sensor etc.
+3 | Enable signal output | 12V or 5V enable | 2 | Wake up output.
+4 | Communication | CAN communication | 4 | Supports selection of CANFD stickers.
+   | Communication | LIN communication | 1 | -
+   | Communication | CMC daisy chain communication | 2 | Supports two-way daisy chain communication.
+5 | High side drive | Separate high side | 1 | Recommended for Pyro fuse driver; HSD power supplied via KL30.
+   | High side drive | 2 in 1 high side | 8 | -
+6 | Low side driver | Low side driver | 11 | -
+7 | Contactor hold function | Contactor hold function | 1 | Keeps main positive and main negative contactor status during MCU reset.
+8 | Analog signal sampling | Voltage/Resistance Analog Signal Sampling | 6 | Includes 2 channels supporting selection of internal or external signals.
+   | Analog signal sampling | National standard charging connection confirmation signal sampling | 2 | Supports CC/CC2 signals.
+9 | High voltage sampling | High voltage sampling1 | 6 | Recommended reference ground inside main negative relay.
+   | High voltage sampling | High voltage sampling2 | 2 | Recommended reference ground inside main negative relay.
+10 | High voltage interlock detection | High voltage interlock detection | 3 | Supports voltage, current, PWM configuration.
+11 | Isolation detection | Isolation detection | 1 | Withstands voltage level (800*2+1000)VAC when insulation sampling is disabled.
+12 | Collision signal detection | Collision signal detection | 2 | Supports PWM type and pulse type.
+13 | External storage | External storage | 1 | Maximum capacity support of 8M Byte external storage.
+14 | Real-time clock | RTC | 1 | -
+
+VinFast Released.
+</page>
+
+<page number="13">
+8 Introduction of BMU components.
+
+8.1 Hardware block diagram.
+
+The diagram provides an architectural representation of the BMU components, detailing the connections between modules and monitoring systems. It includes features such as cell voltage sampling, temperature measurement, passive balancing, and communication interfaces.
+
+- **Modules (CSC_J1 to CSC_JN):**
+  - Each module supports 16-cell voltage sampling.
+  - Includes temperature measurement for six cells, passive balance capability, and PCB temperature detection with two sensors.
+  - Equipped with cell monitor functionality and voltage sampling circuits.
+
+- **Communication Chain (Daisy Chain):**
+  - Daisy-chain configuration allows reversible two-wire isoSPI communication or 4-wire SPI communication.
+  - Connections include COMHP, COMHN, COMLP, and COMLN across modules.
+
+- **BMU System Components:**
+  - **Power Supply:** Ensures operational stability across all modules.
+  - **Wake Source Detection:** Supports KL30_Pwr activation.
+  - **MCU (BQ79600):** Manages SPI communication and system control.
+
+- **Additional Notes:**
+  - Each module’s configuration supports between 8 to 16 cell voltage sampling points.
+  - Daisy-chain harnesses require the use of twisted wires to ensure signal integrity.
+  - The hardware design facilitates flexible module integration while maintaining synchronization and data accuracy.
+
+VinFast Released.
+</page>
+
+<page number="14">
+8 Introduction of BMU components.
+
+8.2 CSC functional characteristic and application guidance.
+
+| Serial number | Resource class              | Resources name                                         | Quantity | Illustrate                                                                 |
+|---------------|-----------------------------|-------------------------------------------------------|----------|-----------------------------------------------------------------------------|
+| 1             | CSC sampling                | CSC category                                          | 2 types  | 1. 3AFE, 2. 4AFE, 3. Multiple CSC combinations can be selected according to project requirements, such as two 4AFE. |
+| 2             | CSC sampling                | Number of single AFE voltage samples                 | Support 8~16 string configuration.                                          | Note: The minimum number of samples for each chip is 8 cells; if there are less than 8 cells, the chip will not work properly. |
+| 3             | CSC sampling                | Number of temperature samples for a single AFE       | 8        | 8 temperatures include 2 CSC board temperature samples and 6 module temperature samples. |
+| 4             | CSC sampling                | Balance resistor                                     | 24.5Ω    |                                                                             |
+
+9 Instructions for use.
+1. BMU and CSC, and between CSC and CSC, need to use twisted-pair wires. Connectors are not allowed between communication wires. The recommended wire diameter and connector terminals are 0.5mm². Refer to the definition in the ICD file for the model.
+2. Module NTC preferably 10 KΩ.
+
+10 BMS performance testing (TBD).
+Reference testing report.
+
+11 Dimension and weight information.
+Dimension and weight information.
+
+### Images:
+- BMU
+- CSC (1AFE)
+- CSC (3AFE)
+- CSC (4AFE) 3D
+- CSC (5AFE) 3D
+</page>
+
+<page number="15">
+8.3 Dimension and weight information.  
+Types, dimensions, weights, and housing materials of BMU and CSC components are as follows:  
+
+- **BMU:**  
+  - Dimension: 318 x 122 x 36 mm.  
+  - Weight: 0.630 kg.  
+  - Housing Material: Aluminum 5083 (AL 5083).  
+
+- **CSC (1AFE):**  
+  - Dimension: 114 x 75 x 20 mm.  
+  - Weight: TBD.  
+  - Housing Material: PA66+GF20.  
+
+- **CSC (3AFE):**  
+  - Dimension: 202 x 92 x 30 mm.  
+  - Weight: 0.247 kg.  
+  - Housing Material: PA66+GF20.  
+
+- **CSC (4AFE):**  
+  - Dimension: 248 x 92 x 30 mm.  
+  - Weight: 0.306 kg.  
+  - Housing Material: PA66+GF20.  
+
+- **CSC (5AFE):**  
+  - Dimension: 328 x 98 x 31 mm.  
+  - Weight: TBD.  
+  - Housing Material: PA66-GF20.  
+
+Illustrations of BMU and CSC components are provided to show the structural details of each type.
+</page>
+
+<page number="16">
+Version: 1.0  
+Uncontrolled copy when printed  
+16 | 19  
+
+VinFast  
+Management System  
+
+VFDSXXBAT1276  
+
+[This page visually showcases technical schematics of CATL CSC systems. The labeled figures highlight dimensions and internal component layouts of different CSC models. Each schematic provides precise measurements of housing sizes, connector placements, and spacing parameters.]
+
+VinFast Released
+</page>
+
+<page number="17">
+12. Installation instructions.  
+- BMU and CSC are fixed on the bracket with M5 bolts, and the recommended locking torque is 6Nm.  
+- The connectors are not allowed to be placed vertically.  
+- While installing the BMS in the pack, all Bus Bar and module connectors (FPC connectors) should be connected, and the cell sampling line should be connected last. Otherwise, there will be a risk of board burning.  
+
+**Connector sequence for CSC installation:**  
+- **3 AFEs:** J1803 → J1 → J4 → J6.  
+- **4 AFEs:** J1803 → J1 → J4 → J5 → J6.  
+
+13. Connector information.  
+BMU has four connectors:  
+- J1802  
+- J1803  
+- J1801  
+- J1800
+</page>
+
+<page number="18">
+### Version: 1.0  
+### Uncontrolled copy when printed  
+### 18 | 19  
+
+## VinFast Management System  
+### VFDSXXBAT1276  
+
+### Connector Information:
+
+#### 1AFE:
+1AFE has three connectors.
+
+---
+
+#### 3AFE:
+3AFE has three connectors.  
+The connectors are labeled as:  
+- J1  
+- J4  
+- J6  
+
+---
+
+**VinFast Released**
+</page>
+
+<page number="19">
+12 Installation instructions.
+
+BMU and CSC are fixed on the bracket with M5 bolts, and the recommended locking torque is 6Nm. The connectors are not allowed to be placed vertically. While installing the BMS in a pack, all Bus Bar and module connectors (FPC connectors) should be connected, and the cell sampling line should be connected last, otherwise, there will be a risk of board burning. The sequence of connectors for installing the CSC is:
+- 3 AFEs: J1803 → J1 → J4 → J6.
+- 4 AFEs: J1803 → J1 → J4 → J5 → J6.
+
+13 Connector information.
+
+BMU has four connectors:
+- J1802.
+- J1803.
+- J1801.
+- J1800.
+
+1AFE has three connectors.
+
+3AFE has three connectors:
+- J1.
+- J4.
+- J6.
+
+4AFE has four connectors:
+- J1.
+- J4.
+- J5.
+- J6.
+
+5AFE has five connectors.
+</page>
+</pages>

@@ -1,0 +1,782 @@
+Page 1
+Spec book.
+
+Supersedes previous editions.
+
+TYRE  
+Spec book (SPB).
+Page 2
+Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new C-SUV and D-SUV BEV vehicle. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production in the PREM Program.
+
+Responsible Contact: Joachim Seipel.
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Index.
+
+Contents.
+
+SCOPE AND PURPOSE ..................................................................................................... 2  
+Index ...................................................................................................................................................... 3  
+
+1. SCOPE OF PRODUCT/COMMODITY ............................................................... 5  
+   1.1 Vehicle profile ................................................................................................................................ 5  
+   1.2 Sales Markets ................................................................................................................................ 5  
+   1.3 Production volume estimation (Estimate) ..................................................................................... 5  
+       1.3.1 For Vietnam market ........................................................................................................... 5  
+       1.3.2 For US market ................................................................................................................... 5  
+
+2. PROGRAM TIMING AND BUILD PLAN ............................................................ 5  
+   2.1 Timing plan .................................................................................................................................... 5  
+   2.2 Build Plan ...................................................................................................................................... 6  
+
+3. ORGANIZATION AND CONTACT ..................................................................... 6  
+
+4. DEFINITIONS AND APPLICABLE DOCUMENTS ............................................. 6  
+   4.1 CAD Data/ Transfer data-CAD Requirements ................................................................................ 6  
+   4.2 Change Documentation and Part History Documentation ............................................................ 6  
+
+5. DESCRIPTION AND SCOPE OF WORK ........................................................... 6  
+   5.1 Technical requirement ................................................................................................................... 6  
+   5.2 General CAE Requirements ........................................................................................................ 13  
+   5.3 Material requirement ................................................................................................................... 13  
+   5.4 Traceability .................................................................................................................................. 13  
+   5.5 Labeling of Parts ......................................................................................................................... 13  
+
+6. TESTING AND VALIDATION AND DVP&R ..................................................... 13  
+
+7. FUNCTIONAL SAFETY, HOMOLOGATION AND SAFETY REGULATIONS ..... 13  
+   7.1 Functional Safety Requirements ................................................................................................. 14  
+   7.2 Deliverables for Functional Safety .............................................................................................. 14  
+       a) FUSA Deliverables expected before nomination ................................................................. 14  
+       b) FUSA Deliverables expected after nomination .................................................................... 14  
+   7.3 Homologation and safety regulation requirements ..................................................................... 15  
+       7.3.1 North America ................................................................................................................. 15  
+       7.3.2 Europe ............................................................................................................................. 15  
+
+8. DELIVERABLES .............................................................................................. 16  
+   8.1 Technical deliverables ................................................................................................................. 16  
+   8.2 Details deliverables and RASI ..................................................................................................... 16  
+
+9. SUPPLIER RESPONSIBILITIES ...................................................................... 17  
+
+10. INTELLECTUAL PROPERTY / COPYRIGHT .................................................. 17  
+
+11. INSURANCE / WARRANTIES ......................................................................... 17  
+
+12. VINFAST GTC & PART PACKAGING AND INCOTERMS .............................. 17  
+
+13. DEFINITIONS AND LIST OF ABBREVIATIONS ............................................. 17
+Page 4
+Release.
+
+Version: 1.0.
+
+Date: Jun-2020.
+
+Updated by:
+
+**Function**  
+**Name**  
+CHIEF ENGINEER: Huy Chieu (v.huyc3@vinfast.vn).  
+MGL CHASSIS: Edson Uehara (v.edsonu@vinfast.vn).  
+MGL CHASSIS (EDAG): Alexander Truxa (alexander.truxa@edag.com).
+
+Revisions since previous version.
+
+**Version**  
+**Change Description**  
+**Signature**  
+**Date (dd/mm/yyyy)**  
+
+1.0.  
+- First edition.  
+  Signature: [Empty].  
+  Date: 17/09/2019.  
+
+- Update deliverables and IP term.  
+  Signature: [Empty].  
+  Date: 18/09/2019.  
+
+- Update FUSA.  
+  Signature: [Empty].  
+  Date: 19/09/2019.  
+
+- Update Production volume (v.nethajis@vinfast.vn) and Update Timing (v.phongnq3@vinfast.vn).  
+  Signature: [Empty].  
+  Date: 11/11/2019.  
+
+- Update Features list-20191121 (v.phongnq3@vinfast.vn).  
+  Signature: [Empty].  
+  Date: 26/11/2019.  
+
+- Update Items 2.1 & 2.2 (v.phongnq3@vinfast.vn).  
+  Signature: [Empty].  
+  Date: 17/12/2019.  
+
+- Update Items 1.3.  
+  Signature: [Empty].  
+  Date: 18/12/2019.  
+
+- Update Items 1.3.1 & 1.3.2 (v.phongnq3@vinfast.vn, v.nethajis@vinfast.vn & v.thanhnd26@vinfast.vn).  
+  Signature: [Empty].  
+  Date: 20/12/2019.  
+
+- Update item 5.1, application matrix change 16” for ICE base tyre to 17”.  
+  Signature: [Empty].  
+  Date: 20/12/2019.  
+
+- Add back the rim 8.5JX19 for C-SEDAN high-vehicle.  
+  Signature: [Empty].  
+  Date: 13/01/2020.  
+
+- Change 6.5JX17 Steel rim to Alloy rim for C-SUV, D-SEDAN.  
+- Change 7Jx17 Steel rim to Alloy rim for D-SUV.  
+  Signature: [Empty].  
+  Date: 13/02/2020.  
+
+- Remove rim 16in and 17in from the list for CSUV and C-SEDAN.  
+- Change to bigger tire for the rear axle of CSUV and D-SEDAN and D-SUV.  
+  Signature: [Empty].  
+  Date: 05/05/2020.
+Page 5
+- Change to bigger tire for both front and rear axle for C-SEDAN.  
+- 19in to replace 17in for D-SUV.  
+- Change SOR template: feature list, plan.  
+- Added SRTT requirement.  
+- Added Air-born noise test requirement.  
+- Added Environment Requirements.  
+
+Updated volume.  
+
+25/5/2020  
+
+Version 2.0 Full update.  
+
+**1 Scope of product/commodity**  
+
+**1.1 Vehicle profile**  
+Refer to appendix:  
+VFDSXVCVC0501  
+CSUV_ICE_BEV_Appendix_5_Features list  
+
+**1.2 Sales Markets**  
+LHD countries: Vietnam, US, EU  
+
+**1.3 Production volume estimation (Estimate)**  
+
+**1.3.1 For Vietnam market**  
+Refer to appendix:  
+VFDSXVCVC2101  
+CSUV_Appendix_1_Product_Volume  
+
+**1.3.2 For US market**  
+Refer to appendix:  
+VFDSXVCVC2101  
+CSUV_Appendix_1_Product_Volume  
+
+**2 Program Timing and Build Plan**  
+
+**2.1 Timing plan**  
+Refer to appendix:  
+VFDSXVCVC1101  
+CSUV_Appendix_1_Project timing
+Page 6
+2.2 Build Plan  
+* Build volume under preparation. Will be communicated shortly with the updated plan by PMO side.
+
+3 Organization and Contact  
+Contact details are as follows:  
+
+- **Commodity Buyer**: Nguyen Thi Hang  
+  Email: v.hangnt47@vinfast.vn  
+  Contact Number: +84 977461059  
+
+- **Commodity Buyer Manager**: Nguyen Quoc Dat  
+  Email: v.datnq3@vinfast.vn  
+  Contact Number: +84(0) 904958538  
+
+- **Commodity Engineering**: Joachim Seipel  
+  Email: joachim.seipel@edag.com  
+  Contact Number: +49 1707871864  
+
+- **Commodity Engineering Manager**: Marco Kaschuba  
+  Email: marco.kaschuba@edag.com  
+  Contact Number: +49151 54359191  
+
+- **SQE (Site Engineer)**: Tbu  
+  Email: Tbu  
+  Contact Number: Tbu  
+
+- **SQE Manager**: Gregory Alan Reed  
+  Email: v.gregoryar@vinfast.vn  
+  Contact Number: +84 826 792 232  
+
+4 Definitions and Applicable Documents  
+4.1 CAD Data/Transfer Data-CAD Requirements  
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014.  
+CAD data transfer from VinFast to the supplier will be done through the Supplier Collaborative Module.  
+For more details, refer to the Supplier Collaborative Module in the RFQ package.  
+
+4.2 Change Documentation and Part History Documentation  
+During the development and production process, all the history of changes within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g., entries in a project manual). The form of the data can be defined by the contractor.  
+Vehicle Documentation Systems or components, which must fulfill safety regulations of authorities or legal requirements, must be remarked on the drawings.  
+
+The reasons and the characteristics which have to be documented are listed by authorities.  
+These demands will be requested during the development of the part and latest in the PTO phase.  
+
+5 Description and Scope of Work  
+5.1 Technical Requirement  
+The technical information must include the following details:  
+VinFast designated part number, usage per car, procurement code, part applicability (C-SUV-ICE, C-SUV-BEV).
+Page 7
+Technical requirements: Part design, part requirements, functional and performance requirements at VinFast level. For detail, refer to Table 1.
+
+5.1.1 Tire application matrix:
+C-SUV Segment (VF8/VF9):
+
+**Parameters and specifications:**
+1. **Gross Vehicle Weight (GVW)**:
+   - Total:
+      - VF8 ECO: 3050 kg
+      - VF8 PLUS: 3345 kg
+   - Front axle (FR):
+      - VF8 ECO: 1410 kg
+      - VF8 PLUS: 1534 kg
+   - Rear axle (RR):
+      - VF8 ECO: 1640 kg
+      - VF8 PLUS: 1811 kg
+2. **Maximum speed (Vmax)**:
+   - VF8 ECO, VF8 PLUS, VF9 ECO, VF9 PLUS: 200 km/h
+3. **Tire size**:
+   - Front axle (FR):
+      - VF8 ECO: 225/55 R19
+      - VF8 PLUS: 245/45 R20
+      - VF9 ECO: 275/45 R20
+      - VF9 PLUS: 275/40 R21
+   - Rear axle (RR):
+      - VF8 ECO: 225/55 R19
+      - VF8 PLUS: 245/45 R20
+      - VF9 ECO: 275/45 R20
+      - VF9 PLUS: 275/40 R21
+4. **Wheel Rim Specification**:
+   - Front axle (FR):
+      - Rim width:
+         - VF8 ECO: 7.5Jx19
+         - VF8 PLUS: 8Jx20
+         - VF9 ECO: 9Jx20
+         - VF9 PLUS: 9.5Jx21
+      - Camber: -0.5 for all configurations.
+   - Rear axle (RR):
+      - Rim width:
+         - VF8 ECO: 7.5Jx19
+         - VF8 PLUS: 8Jx20
+         - VF9 ECO: 9Jx20
+         - VF9 PLUS: 9.5Jx21
+      - Camber: -1.5 for all configurations.
+
+**Load index requirements**:
+- VF8: LI ≥ 103
+- VF9: LI ≥ 107
+
+**Tyre form and dimensions compliance**:
+- Tyre form and dimensions must comply with ETRTO.
+
+Specific performance targets:
+Refer to the technical illustration for key dimensions such as service width, maximum diameter, rim width, and new tire diameter.
+Page 8
+VinFast Management System  
+
+VFDSXVCHS0014
+
+Version: 1  
+Uncontrolled copy when printed  
+
+---
+
+### Technical requirements
+The technical requirements include part design, part requirements, functional and performance requirements at the VinFast level. For details, refer to Table 1.
+
+#### 5.1.1 Tire Application Matrix
+**C-SUV Segment (VF8/VF9)**  
+- **Parameters:**
+  - **GVW (kg):**  
+    - Total: VF8 ECO - 3050; VF8 PLUS - 3345  
+    - Front Axle (FR): VF8 ECO - 1410; VF8 PLUS - 1534  
+    - Rear Axle (RR): VF8 ECO - 1640; VF8 PLUS - 1811  
+
+  - **Maximum Speed (Vmax):** 200 kph for all variants.  
+
+  - **Tyre Size:**  
+    - Front Axle: VF8 ECO - 225/55 R19; VF8 PLUS - 245/45 R20; VF9 ECO - 275/45 R20; VF9 PLUS - 275/40 R21  
+    - Rear Axle: Same values as Front Axle.
+
+  - **Wheel Rim Specification:**  
+    - Front Rim: VF8 ECO - 7.5Jx19; VF8 PLUS - 8Jx20; VF9 ECO - 9Jx20; VF9 PLUS - 9.5Jx21  
+    - Camber: -0.5 for all variants.  
+    - Rear Rim: Same values as Front Rim.  
+    - Camber: -1.5 for all variants.
+
+- **Load Index Requirement:**  
+  - VF8: LI ≥ 103  
+  - VF9: LI ≥ 107  
+
+- **Tyre Forms and Dimensions Compliance:**  
+  - Compliance with ETRTO standards.
+
+##### Specific Performance Requirements
+- Co-efficient of rolling resistance: ≤ 6.5 N/kN (ISO 28580 at 25°C).  
+- PRAT: -1 ± 0.5 Nm (negative PRAT for LHD market).  
+- Tyre noise: Less than 71 dB(A) during coast-by tests per ECE Regulation No. 117.  
+- %STTT:  
+  - Dry SRTT: Target > 110  
+  - Wet SRTT: Target > 135  
+
+##### Additional Requirements
+- Tyre performance requirement/reference tyre: Refer to the project SOR.  
+- Tires used in the USA must include the required DOT code issued by the U.S. Department of Transportation (DOT).  
+
+---
+
+#### 5.1.2 Tire Measurement Condition
+- Rim Size: OEM-specific.  
+- Inflation Pressure: 32 psi and 180 kPa.  
+- **Measurement Parameters:**  
+  - Tyre Outer Diameter (mm).  
+  - Tyre Section Width (mm).  
+  - Static Loaded Radius (mm).
+
+##### Tyre Uniformity Data
+- RFV: 110N max.  
+- RFH1: 70N max (marking of R1H minimum with a 12mm red dot on the outside).  
+- LFV: 75N max.  
+- Conicity: ±50N max.  
+- Radial Run-Out: 1mm max.  
+- Lateral Run-Out: 1.2mm max.  
+- Static Unbalance: 0.54% x OD/2 x Tire Weight (g.cm).  
+- Dynamic Unbalance: Max 50g.
+
+---
+
+#### Tire Performance Parameters to Be Measured
+- **Radial Stiffness:**  
+  - Tyre Pressure: Recommended pressure ± 4psi.  
+  - Vertical Load: Ranging from 0% to 120% rated tyre load in increments of 45kg.
+Page 9
+2.2 Build Plan.
+The build volume is currently under preparation and will be communicated shortly with the updated plan by PMO side.
+
+3. Organization and contact.
+
+| Contact               | Name                | Email ID                     | Contact Number       |
+|-----------------------|---------------------|------------------------------|----------------------|
+| Commodity Buyer       | Nguyen Thi Hang    | v.hangnt47@vinfast.vn        | +84 977461059        |
+| Commodity Buyer Manager | Nguyen Quoc Dat | v.datnq3@vinfast.vn          | +84(0) 904958538     |
+| Commodity Engineering | Joachim Seipel     | joachim.seipel@edag.com      | +49 1707871864       |
+| Commodity Engineering Manager | Marco Kaschuba | marco.kaschuba@edag.com | +49151 54359191       |
+| SQE (Site Engineer)   | Tbu                | Tbu                          | tbu                  |
+| SQE Manager           | Gregory Alan Reed  | v.gregoryar@vinfast.vn       | +84 826 792 232      |
+
+4. Definitions and applicable documents.
+
+4.1 CAD Data/ Transfer Data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. CAD data transfer from VinFast to the supplier will be done through the Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.
+
+4.2 Change Documentation and Part History Documentation.
+During the development and production process, all the history of changes within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g., entries in a project manual). The form of the data can be defined by the contractor. 
+
+Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements, must be remarked on the drawings. The reasons and the characteristics which have to be documented are listed by authorities. These demands will be requested during the development of the part and latest in the PTO phase.
+
+5. Description and scope of work.
+
+5.1 Technical Requirement.
+The technical information should include the following details:
+- VinFast designated part number.
+- Usage per car.
+- Procurement code.
+- Part applicability for C-SUV-ICE and C-SUV-BEV.
+
+Technical requirements include part design, part requirements, and functional and performance requirements at VinFast level. Please refer to Table 1 for details.
+
+5.1.1 Tire Application Matrix.
+For the C-SUV Segment (VF8/VF9):
+
+| No | Parameters          | Axle      | VF8 ECO     | VF8 PLUS     | VF9 ECO     | VF9 PLUS         |
+|----|---------------------|-----------|-------------|--------------|-------------|------------------|
+| 1  | GVW (kg)           | Total     | 3050        | 3345         |             |                  |
+|    |                    | Front (FR)| 1410        | 1534         |             |                  |
+|    |                    | Rear (RR) | 1640        | 1811         |             |                  |
+| 2  | Vmax (Kph)         | -         | 200         | 200          |             |                  |
+| 3  | Tyre Size          | Front (FR)| 225/55 R19  | 245/45 R20   | 275/45 R20  | 275/40 R21       |
+|    |                    | Rear (RR) | 225/55 R19  | 245/45 R20   | 275/45 R20  | 275/40 R21       |
+| 4  | Wheel Rim Spec.    | Front (FR)| Rim 7.5Jx19 | Rim 8Jx20    | Rim 9Jx20   | Rim 9.5Jx21      |
+|    |                    |           | Camber -0.5 | Camber -0.5  | Camber -0.5 | Camber -0.5      |
+|    |                    | Rear (RR) | Rim 7.5Jx19 | Rim 8Jx20    | Rim 9Jx20   | Rim 9.5Jx21      |
+|    |                    |           | Camber -1.5 | Camber -1.5  | Camber -1.5 | Camber -1.5      |
+
+Load Index Requirements:
+- VF8: LI ≥ 103.
+- VF9: LI ≥ 107.
+
+Tyre form and dimensions comply with ETRTO.
+
+Specific Performance Target:
+- Coefficient of rolling resistance ≤ 6.5 N/kN (ISO 28580 at 25°C).
+- PRAT: -1 ± 0.5 Nm (negative PRAT for LHD markets).
+- Tyre noise < 71 dB(A) for coast-by test as per ECE Regulation No 117.
+- %STTT: Dry SRTT > 110, Wet SRTT > 135.
+- All tires for use in the USA must have DOT codes as required by the U.S. Department of Transportation (DOT).
+
+5.1.2 Tire Measurement Conditions.
+The following conditions are applied:
+- Rim size: OEM specific.
+- Inflation pressure: 32 psi and 180 kPa.
+- Tyre measurement dimensions include outer diameter, section width, and static loaded radius.
+
+Tyre Uniformity Data:
+- RFV: 110N max.
+- RFH1: 70 N max (R1H minimum marked with a 12mm red dot on the outside).
+- LFV: 75N max.
+- Conicity: ± 50N max.
+- Radial run-out: 1 mm max.
+- Lateral run-out: 1.2 mm max.
+- Static unbalance: .54% x OD/2 x Tire weight [g.cm].
+- Dynamic unbalance: max 50g.
+
+Tire performance parameters are measured using OEM-specific rim dimensions under varying conditions (radial stiffness, lateral stiffness, tangential stiffness, lateral/longitudinal force with camber angle sweep, cornering stiffness, cornering power, hammer test, aligning torque, and PRAT). Detailed procedures and conditions for each test are specified.
+Page 10
+PRCF N (Ply Residual Cornering Force), Ply Steer N, RSAT Nm (Residual Self Aligning Torque), both clock and anticlockwise, CRAT Nm (Conicity Residual Aligning Torque).
+
+Dynamic Loaded Radius:
+- Tyre Pressure (psi): Recommended pressure, + 4psi, - 4psi.
+- Vertical Load: @ 50%, 75%, and 100%.
+- Speed: (40 kmph to 120 kmph).
+
+Footprint:
+- Tyre Pressure (psi): Recommended pressure, + 4psi, - 4psi.
+- Vertical Load: @ 50%, 75%, and 100%.
+- Requirement: Pressure distribution, maximum length, width, and area.
+
+Maximum Lateral and Brake Friction Coefficient (µ):
+- Tyre Pressure (psi): Recommended pressure, + 4psi, - 4psi.
+- Vertical Load: 75%.
+
+Rolling Resistance:
+- Follow ISO 28580.
+
+Air-born Noise:
+- JASO c606-86 in semi-anechoic chamber.
+- Speed from 60 to 140 km/h, increment of 20 km/h.
+- From 20 to 500 Hz, noise level must be equal to or lower than the target tire.
+Page 11
+Following Format to be followed for Tyre Construction Matrix, to be shared with Vinfast for individual tyre iteration/final sample for records:
+
+### Parameters:
+- **Specification code / number**
+- **Tyre Size**
+- **Pattern**
+- **Tyre Type**
+- **Sample code**
+- **Tyre Weight**
+- **OEM Rim Width**
+- **NSD**
+
+### Construction:
+#### Tread:
+- **Cap compound hardness**
+- **Cap gauge**
+- **Base gauge**
+- **Base compound hardness**
+- **Shoulder gauge**
+- **Cap ply configuration**
+
+#### Belt:
+- **Belt 1 width**
+- **Belt 2 width**
+- **Belt 1 cured angle**
+- **Belt 2 cured angle**
+- **Belt lay**
+
+#### Body ply:
+- **No of plys**
+- **Ply 1 # ending**
+- **Ply 2 # ending**
+- **Material**
+
+#### Bead:
+- **Filler height**
+- **Filler width**
+- **Filler compound hardness**
+
+#### Sidewall:
+- **Construction**
+- **Gauge**
+- **Bead wire configuration**
+- **Bead under gauge**
+Page 12
+Table 1: Technical information table.
+
+**Part Details for VF SUV Segment**
+
+1. **Part Name**: 225/55 R19  
+   **Part No.**: CHS30019099  
+   **Qty**: 4  
+   **Season**: Summer  
+   **Purchase level**: P  
+   **Segment**: C-SUV (VF8 SMART PLUS - VN+ ASEAN).  
+
+2. **Part Name**: 245/45 R20  
+   **Part No.**: CHS30019091  
+   **Qty**: 4  
+   **Season**: Summer  
+   **Purchase level**: P  
+   **Segment**: C-SUV (VF8 PLUS - VN+ ASEAN).  
+
+3. **Part Name**: 225/55 R19  
+   **Part No.**: CHS30019171  
+   **Qty**: 4  
+   **Season**: All Season  
+   **Purchase level**: P  
+   **Segment**: C-SUV (VF8 SMART PLUS - VN+ ASEAN).  
+
+4. **Part Name**: 245/45 R20  
+   **Part No.**: CHS30019175  
+   **Qty**: 4  
+   **Season**: All Season  
+   **Purchase level**: P  
+   **Segment**: C-SUV (VF8 PLUS - VN+ ASEAN).  
+
+5. **Part Name**: 225/55 R19  
+   **Part No.**: tbu  
+   **Qty**: 4  
+   **Season**: Winter (aftersales)  
+   **Purchase level**: P  
+   **Segment**: (undefined application).  
+
+6. **Part Name**: 245/45 R20  
+   **Part No.**: tbu  
+   **Qty**: 4  
+   **Season**: Winter (aftersales)  
+   **Purchase level**: P  
+   **Segment**: (undefined application).  
+
+7. **Part Name**: 275/45 R20 110H XL  
+   **Part No.**: CHS80019023  
+   **Qty**: 4  
+   **Season**: Summer  
+   **Purchase level**: P  
+   **Segment**: D-SUV (VF9 SMART PLUS - VN+ ASEAN).  
+
+8. **Part Name**: 275/40 R21 107H XL  
+   **Part No.**: CHS80019024  
+   **Qty**: 4  
+   **Season**: Summer  
+   **Purchase level**: P  
+   **Segment**: D-SUV (VF9 PLUS - VN+ ASEAN).  
+
+9. **Part Name**: 275/45 R20 110H XL  
+   **Part No.**: CHS80019027  
+   **Qty**: 4  
+   **Season**: All Season  
+   **Segment**: D-SUV (VF9 SMART PLUS).  
+
+10. **Part Name**: 275/40 R21 107H XL  
+    **Part No.**: CHS80019028  
+    **Qty**: 4  
+    **Season**: All Season  
+    **Segment**: D-SUV (VF9 PLUS - VN+ ASEAN).  
+
+... (continue for additional entries following the same structure).
+Page 13
+5.2 General CAE Requirements.  
+Please refer to Appendix 2: CAE-FEM-GENERAL.  
+
+5.3 Material Requirement.  
+Must define detailed material: weight, grade, density...  
+Input details in Table 1 (see Section 5.1).  
+
+5.4 Traceability.  
+For part requirements following specification, please refer to VinFast standards VFDST00010502 and VFDST00010501.  
+
+5.5 Labeling of Parts.  
+Supplier must follow VinFast standard VFDST00000010. A figure must be made for the position to stick the label on parts, with position labels set up using pictures.
+
+6 Testing and Validation and DVP&R.  
+DVP and PC test responsibilities follow RASIC.  
+DVP (virtual and physical testing) for system, sub-system, and component levels must be in line with the Complete Vehicle Specification book during the concept phase.  
+Detailed test plans for hardware tests must be documented in file DVP&R and coordinated with the Testing & Validation department:  
+- Testing with declaration of standard, norm, and legal requirement.  
+- Description of how and which devices were used for testing (testing setup description with pictures).  
+- Locations of testing (internal or external).  
+- Duration and time flow of the testing (provided as a project plan).  
+- Specification and description of part variants.  
+- Number of tested components/parts.  
+
+Mileage Target Life: Ensure 160,000 km or 10 years (whichever comes first).  
+
+Related Standards and Documents:  
+- VFDSXVCHS4136_DVP component TYRE.  
+- VFDSXXCHS0798_DVP component TYRE.  
+
+7 Functional Safety, Homologation, and Safety Regulations.  
+Safety remains a key issue in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+VinFast General FE Modelling and Analysis Requirements.  
+Finite Element Modelling Requirements must support VinFast SOR.  
+
+Range of Validity:  
+Project VINFAST.  
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to unauthorized parties, remain prohibited unless express authorization is granted. Any violation will result in liability for payment of damages.  
+All rights reserved for patents, utility models, or design grants.  
+Compliance with applicable laws and regulations supersedes documented standards.
+Page 14
+7.1 Functional Safety Requirements.  
+The supplier shall ensure that the developed or manufactured part(s) meet IATF 16949:2016 standard, which are the quality management system requirements for automotive production. Additionally, the supplier shall ensure compliance with ISO 26262:2018 standard for road vehicles – functional safety. Functional safety requirements specific to the system will be clarified with reference to the appropriate document.  
+
+7.2 Deliverables for Functional Safety.  
+
+Indicative RASIC for expected deliverables:  
+
+**5.5 Work Products:**  
+- 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. (VINFAST: R, SUPPLIER: I)  
+- 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3. (VINFAST: R, SUPPLIER: S)  
+- 5.5.3 Supplier's project plan resulting from requirement 5.4.3. (VINFAST: A, SUPPLIER: R)  
+- 5.5.4 Supplier's safety plan resulting from requirement 5.4.3. (VINFAST: A, SUPPLIER: R)  
+- 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. (VINFAST: I, SUPPLIER: R)  
+- 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3. (VINFAST: R, SUPPLIER: S)  
+- 6.5.3 Safety case, resulting from requirement 6.4.6. (VINFAST: A, SUPPLIER: R)  
+
+**RASIC description:** Definition of roles in “Deliverables.”  
+
+**FUSA Deliverables expected before nomination.**  
+- Each safety requirement must be reviewed by the supplier, who shall provide a supplier acceptance statement or justification for their inability or refusal to meet the safety requirements.  
+- Based on the identified Safety Goals & Functional Safety Requirements and their associated attributes, VinFast and the supplier must agree upon a Development Interface Agreement (DIA), as outlined in ISO 26262-8 clause 5. The DIA must include all items required by ISO 26262-8 clause 5.4.3.1.  
+
+**FUSA Deliverables expected after nomination.**  
+- The supplier must submit a Safety Plan for VinFast’s approval. This document should describe processes, procedures, activities, resource plans, and relevant documentation for planned functional safety measures and requirements. It must comply with ISO 26262-2 clause 6.4.3.5.  
+- The supplier must submit a Safety Case for VinFast’s approval. This document must detail the outcomes, results, deviations, and mitigation measures of functional safety activities. It must be finalized as per ISO 26262-2 clause 6.5.3.
+Page 15
+7.3 Homologation and safety regulation requirements.
+
+7.3.1 North America.  
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS). The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. Self-certification and test report(s).  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale. VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of the Manufacturer Handbook.  
+
+c. Duty to notify VinFast of non-compliance with an FMVSS/CMVSS or European regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+
+The supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of a non-compliance or a safety-related defect. The supplier must propose an appropriate risk assessment and resolution plan.
+
+7.3.2 Europe.  
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) regulations.
+
+b. Test report(s) and Certificate(s).  
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.
+Page 16
+VinFast Management System
+
+7.3 Homologation and Safety Regulation Requirements.
+
+7.3.1 North America.
+a. Homologation and safety regulation activities.
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS). The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. Self-certification and test report(s).
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale. VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance. The supplier should also be familiar with laboratory test procedures (*) that USA/Canada Governments use to evaluate compliance. 
+
+(*) Refer Appendix 8 of Manufacturer_Handbook.
+
+c. Duty to notify VinFast of a non-compliance with FMVSS/CMVSS or European regulations.
+The supplier must notify VinFast within five working days of determining non-compliance or a safety-related defect. Appropriate risk assessment and resolution plans must be proposed by the supplier.
+
+7.3.2 Europe.
+a. Homologation and safety regulation activities.
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s).
+The supplier is responsible for testing their part(s), product(s), or system(s) to meet UN-ECE regulations before offering them for sale. VinFast requests suppliers conduct tests as specified in UN-ECE regulations at authorized technical service(s) and provide test report(s) or UN-ECE certificates to VinFast.
+
+VinFast also requests suppliers to provide supporting documentation and technical information, including drawings, to relevant authorities for EC vehicle type-approval (if required). The supplier should also familiarize themselves with laboratory test procedures implemented by European authorities.
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations.
+The supplier must notify VinFast within five working days of determining non-compliance or a safety-related defect. Appropriate risk assessment and resolution plans must be proposed.
+
+8 Deliverables.
+
+8.1 Technical Deliverables.
+Work Interface Chart (RASI). The main supplier obligations are defined below:
+- **R: Responsible:** Responsible for executing activities to fulfill requirements and entitled to request support from project team members.
+- **A: Approval:** Obligated to decide/release responsibilities. If no decider is defined, the execution lead (R) becomes the decider.
+- **S: Support:** Obligated to proactively support execution lead (R), even if this requires resources, expenses, or knowledge transfer.
+- **I: Information:** Entitled to demand information from the execution lead (R).
+
+8.2 Details Deliverables and RASI.
+Ensure RASI status aligns with Master Timing updates provided by PMO.
+
+Error! No topic specified.
+Page 17
+9. Supplier Responsibilities.
+
+Suppliers are responsible for ensuring compliance with specified requirements while completing the work. These responsibilities are itemized to mitigate risks associated with the organization of an employer-employee relationship arising under the contract.
+
+**Customer Service Requirements:**
+- **After-sales spare parts should be ready at startup:** The spare parts provided by the supplier must be ready at the commencement of vehicle production.
+- **Spare Parts Support Cycle:** The supplier must support after-sales spare parts for a period not less than 10 years after VINFAST begins vehicle production, unless otherwise specified in the SOR.
+- **Maintenance Information of After-Sale Spare Parts:** Suppliers of first-level assemblies must provide VINFAST’s after-sales engineering department with information regarding design, usage, and maintenance prior to OTS. This includes BOM tables, parts structure and function description, fault diagnostics, special tools for maintenance, and relevant technical parameters (e.g., installation clearances, parts performance specifications).
+
+---
+
+10. Intellectual Property / Copyright.
+
+Refer to VinFast General Terms and Conditions (GTC).
+
+---
+
+11. Insurance / Warranties.
+
+Refer to VinFast General Terms and Conditions (GTC).
+
+---
+
+12. VinFast GTC & Part Packaging and Incoterms.
+
+Refer to VinFast General Terms and Conditions, part packaging requirements, and Incoterms as outlined in the RFQ package.
+
+---
+
+13. Definitions and List of Abbreviations.
+
+- **DVP&R:** Design Verification Plan & Report.
+- **ESO:** Engineering Sign Off.
+- **GTC:** General Term and Condition.
+- **LLS:** Long Lead Suppliers on board.
+- **LLT:** Long Lead Tooling.
+- **LOI:** Letter of Intent.
+- **MFC:** Manufacturing Feasibility Confirmation.
+- **MSC:** Manufacturing Strategy Confirmation.
+- **MSI:** Major Suppliers Identified.
+- **MSO:** Manufacturing Sign Off.
+- **OTS:** Off Tools Samples.
+- **PTP:** Prototype Parts out of Serial tooling (Hand finished).
+- **RFQ:** Request For Quotation.
+Page 18
+SLS: Short Lead Suppliers on board  
+SOB: Supplier on Board  
+SOP: Start of Production  
+SOP-ID: SOP-Implementation Date  
+SOP-LM: SOP Launch Model (1 specific Model – “Edition”)  
+SST: Sourcing Strategy  
+TS: Theme Selection Model  
+FUSA: Function Safety  
+T&V: Testing & Validation

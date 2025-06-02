@@ -1,0 +1,541 @@
+
+<filename>VFDSXVPWT1057_EDS_ENCAPSULATION_V1.0</filename>
+<pages>
+
+<page number="1">
+Specification Book. Supersedes edition (06.2020).
+
+FORMAT FSS.
+
+EDS Encapsulation. Apply for Full Service Supplier.
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop a new C-SUV vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This SOR shall provide details for all components for mass production of the PREM Program.
+
+Responsible Contact: Oscar Yanez.
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+**Index**  
+**Contents**  
+
+**SCOPE AND PURPOSE**  2  
+
+Index  3  
+
+**1 SCOPE OF PRODUCT/COMMODITY**  4  
+1.1 Vehicle profile  4  
+1.2 Sales Markets  4  
+1.3 Production volume  4  
+1.3.1 For Vietnam market  4  
+1.3.2 For US market  5  
+
+**2 PROGRAM TIMING AND BUILD PLAN**  5  
+
+**3 ORGANIZATION AND CONTACT**  5  
+
+**4 DEFINITIONS AND APPLICABLE DOCUMENTS**  5  
+4.1 CAD Data/Transfer data-CAD Requirements  5  
+4.2 Change Documentation and Part History Documentation  5  
+
+**5 DESCRIPTION AND SCOPE OF WORK**  6  
+5.1 Technical requirement  6  
+5.1.1 Purpose/Component Requirement  6  
+5.1.2 NVH Requirement  6  
+5.1.3 Other Requirement  6  
+5.1.4 Variant  6  
+5.1.5 Component/System description  7  
+5.2 General CAE Requirements  8  
+5.3 Material requirement  8  
+5.4 Traceability  8  
+5.5 Labeling of Parts  8  
+
+**6 TESTING AND VALIDATION AND DVP&R**  8  
+
+**7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS**  8  
+7.1 Functional Safety Requirements  8  
+7.2 Deliverables for Functional Safety  9  
+a) FUSA Deliverables expected before nomination  9  
+b) FUSA Deliverables expected after nomination  9  
+7.3 Homologation and safety regulation requirements  10  
+7.3.1 North America  10  
+7.3.2 Europe  10  
+
+**8 DELIVERABLES**  11  
+8.1 Technical deliverables  11  
+8.2 Details deliverables and RASI  11  
+
+**9 SUPPLIER RESPONSIBILITIES**  13  
+
+**10 INTELLECTUAL PROPERTY / COPYRIGHT**  13  
+
+**11 INSURANCE / WARRANTIES**  13  
+
+**12 VINFAST GTC & PART PACKAGING AND INCOTERMS**  13
+</page>
+
+<page number="4">
+**Definitions and List of Abbreviations.**  
+
+**Release**  
+Version: 13.0  
+Date: June 2020  
+
+**Updated by:**  
+- **Function**  
+  - Chief Engineer: Markus Leitner (v.markusl@vinfast.vn)  
+  - ER-CV: Clifton Wellington Springer (v.cliftonsw@vinfast.vn)  
+  - ER-MGL PWT: Nguyen Hoang Vu (v.nguyenhv3@vinfast.vn)  
+  - ER-MGL CHS: Clifford Michael Vince (v.cliffordvm@vinfast.vn)  
+  - ER-MGL E/E: John Ewald Matthias (v.matthiasje@vinfast.vn)  
+  - ER-MGL BIW/DC: Robert Smith (v.robs@vinfast.vn)  
+  - ER-MGL Interior/Exterior: Jason John Taylor (v.jasontj@vinfast.vn)  
+  - SCC-Standard Competencies Center: Nguyễn Thế Quỳnh (v.quynhnt14@vinfast.vn)  
+
+**Revisions since previous version**  
+- **Version 1:**  
+  - First edition  
+  - **Date:** 09/07/2020  
+
+---
+
+**1 Scope of Product/Commodity.**  
+
+**1.1 Vehicle Profile.**  
+Refer to appendix:  
+VFDSXVCVC0501 → CSUV_ICE_BEV_Appendix_5_Features list  
+
+**1.2 Sales Markets.**  
+LHD countries: Vietnam (VN) & ASEAN, US  
+
+**1.3 Production Volume.**  
+**1.3.1 For Vietnam Market.**  
+Refer to appendix
+</page>
+
+<page number="5">
+- VFDSXVCVC2101 
+- CSUV_Appendix_1_Product_Volume 
+
+1.3.2 For US market.
+Refer to appendix: 
+- VFDSXVCVC2101 
+- CSUV_Appendix_1_Product_Volume.
+
+2. Program Timing and Build Plan.
+VFDSXVCVC1101_Appendix_1_Project timing.
+
+3. Organization and Contact.
+
+| Contact                | Name                     | Email ID                  | Contact Number         |
+|------------------------|--------------------------|---------------------------|------------------------|
+| Commodity Buyer        | Trần Thị Minh Hương     | v.huongttm5@vinfast.vn    |                        |
+| Commodity Buyer Manager| Engineer to input       | Engineer to input         | Engineer to input      |
+| Commodity Engineering  | Oscar Yanez             | v.oscary@vinfast.vn       | +84(0)814153366        |
+| Commodity Engineering Manager | Oscar Yanez      | v.oscary@vinfast.vn       | +84(0)814153366        |
+| SQE (Site Engineer)    | Nguyen Thanh Nam        | v.namnt36@vinfast.vn      | +84(0)912379568        |
+| SQE Manager            | Engineer to input       | Engineer to input         | Engineer to input      |
+| SCM Analyst            | Dilshod Tokhtasinov     | v.dilshod@vinfast.vn      | +84(0)888352662        |
+| Packaging Analyst      | Attsawarungsun Nimnaul  | v.nimnaula@vinfast.vn     | +84(0)888329955        |
+| SCM Manager            | Benjamin Peter Stewart  | v.bens@vinfast.vn         | +84(0)888798855        |
+
+4. Definitions and Applicable Documents.
+
+4.1 CAD Data/ Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. 
+CAD data transfer from VinFast to supplier will be done through the Supplier Collaborative Module. 
+For more details, refer to the Supplier Collaborative Module in the RFQ package.
+
+4.2 Change Documentation and Part History Documentation.
+During the development and production process, all changes within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g., entries in a project manual). The form of the data can be defined by the contractor.
+
+Vehicle documentation systems or components that must fulfill safety regulations of authorities or legal requirements must be marked on the drawings. The reasons and characteristics that must be documented are listed by authorities. These demands will be requested during the development of the part and at the latest PTO phase.
+</page>
+
+<page number="6">
+5 Description and scope of work
+
+### 5.1 Technical requirement
+
+#### 5.1.1 Purpose/Component Requirement  
+The purpose of an Encapsulation is to reduce the EDS emitted noise level (see NVH requirements). The EDS Encapsulation has to cover the E-Motor, Gearbox, and part of surrounded components according to provided design data and package requirements from VF. Design and acoustic functionalities have to be ensured by the supplier. The encapsulation has to effect a subjective noticeable interior-noise reduction.
+
+#### 5.1.2 NVH Requirement  
+The Encapsulation has to ensure maximum possible sound-damping:  
+- **Overall Target:** EDS Without encapsulation 81dB (A), With encapsulation 76dB (A)  
+- **Order Target:** EDS Without encapsulation 70dB (A), With encapsulation 65dB (A)  
+
+**Realisation by:**  
+- Increased wall thickness  
+- Damping material on the inside  
+- Avoid free resonating surfaces  
+- Plastic ribbing  
+- Avoid acoustical bridges  
+
+Acoustical analyses and calculations have to be done by the supplier. Improvements have to be implemented by the supplier. Content: airborne noise needs to be checked on a sound test bench at various measurement points during trailing throttle, turndown, full-load EDS operation over all revolution speeds. The component must not emit any noticeable squeaking or rattling noises in any driving condition.
+
+#### 5.1.3 Other Requirement  
+
+| No | Parameter                             | Requirements                          |
+|----|---------------------------------------|---------------------------------------|
+| 1  | Temperature Limits and Operation      | -35°C to +110°C                      |
+| 2  | Humidity                              | 0-90% Relative Humidity              |
+| 3  | Corrosion Requirement                 | According to DIN EN ISO 9227         |
+| 4  | Weight Target                         | <4kg                                 |
+| 5  | Chemical Resistance                   | Gearbox Oil, Cooling Water, Brake Fluid, Hydraulic Fluid, Windshield Cleaning Water, Cold Cleaner, Salt, Ozone, EDS Preservative Agents |
+
+#### 5.1.4 Variant  
+Base vehicle entry level: 150kW FWD (One EDS).
+</page>
+
+<page number="7">
+High level vehicle: 300kW AWD (Two EDS).
+
+5.1.5 Component/System description.
+
+5.1.5.1 Constructed space.
+The available construction space is defined by provided CAD design data from VF. Continuously updated data must be considered, and the supplier is required to inform VF immediately about any needed space exceedance. Deviations can only proceed with VF's confirmation. Suppliers are responsible for time delays and costs resulting from missing information, incorrect data, or unreadable CAD designs.
+
+5.1.5.2 Geometrical interface/connections.
+The preliminary mounting concept is defined by the provided CAD data, and any changes or deviations must be confirmed by VF. Surrounding components, such as the oil filler cap, must be masked soundproofed.
+
+5.1.5.3 Design effort.
+The supplier will receive the latest 3D data status outlining the current package situation. The requested design work includes:
+- Designing a draft and submitting it to VF.
+- Providing completed 3D/2D data for release.
+- Conducting tolerance analyses for the interfaces.
+
+Physical dimensions are specified in the CAD package. The supplier must ensure a common solution for front and rear applications.
+
+**Table 1: Technical information table.**
+
+1. Part Name: E_MOTOR_INSULATION_FRONT.  
+   - Part No.: PWT30211010.  
+   - Quantity: 1.  
+   - Purchase level: P.  
+   - ICE: Applicable for VN+ASEAN (both SMART and PLUS variants) and US (SMART and PLUS variants).  
+   - BEV: Applicable for VN+ASEAN (both SMART and PLUS variants) and US (SMART and PLUS variants).  
+
+2. Part Name: E_MOTOR_INSULATION_REAR.  
+   - Part No.: PWT30211011.  
+   - Quantity: 1.  
+   - Purchase level: P.  
+   - ICE: Applicable for VN+ASEAN (both SMART and PLUS variants) and US (SMART and PLUS variants).  
+   - BEV: Applicable for VN+ASEAN (SMART variant) and US (SMART and PLUS variants).
+</page>
+
+<page number="8">
+5 Description and Scope of Work.
+
+5.1 Technical Requirement.
+
+5.1.1 Purpose/Component Requirement.
+The purpose of the Encapsulation is to reduce the EDS emitted noise level (see NVH requirements). The Encapsulation must cover the E-Motor, Gearbox, and part of the surrounding components according to the provided design data and package requirements from VF. Design and acoustic functionalities must be ensured by the supplier. The encapsulation should provide a subjective, noticeable interior noise reduction.
+
+5.1.2 NVH Requirement.
+The Encapsulation must ensure maximum possible sound damping:
+- Overall Target: EDS without encapsulation: 81dB (A), with encapsulation: 76dB (A).
+- Order Target: EDS without encapsulation: 70dB (A), with encapsulation: 65dB (A).
+
+Realization by:
+- Increased wall thickness.
+- Damping material on the inside.
+- Avoidance of free resonating surfaces.
+- Plastic ribbing.
+- Avoidance of acoustical bridges.
+
+Supplier must conduct acoustical analyses and calculations, with improvements implemented where needed. Tests must cover airborne noise measured at various points during trailing throttle, turndown, and full-load operation across all revolution speeds. Components must not emit squeaking or rattling noises under any driving conditions.
+
+5.1.3 Other Requirements.
+| No. | Parameter                         | Requirements                |
+|-----|-----------------------------------|-----------------------------|
+| 1   | Temperature Limits and Operation | -35°C to +110°C             |
+| 2   | Humidity                          | 0-90% Relative humidity     |
+| 3   | Corrosion Requirement             | According to DIN EN ISO 9227|
+| 4   | Weight Target                     | <4kg                        |
+| 5   | Chemical Resistance               | Gearbox oil, Cooling water, Brake fluid, Hydraulic fluid, Windshield cleaning water, Cold cleaner, Salt, Ozone, and EDS preservative agents.|
+
+5.1.4 Variant.
+Base Vehicle Entry Level: 150kW FWD (One EDS).
+High-Level Vehicle: 300kW AWD (Two EDS).
+
+5.1.5 Component/System Description.
+
+5.1.5.1 Constructed Space.
+Available construction space is defined by provided CAD design data from VF. Continuous updates to data must be taken into account. Suppliers are required to inform VF immediately about space exceedances and may proceed only with VF approval. Suppliers bear the responsibility for time lags and costs resulting from missing or incorrect information.
+
+5.1.5.2 Geometrical Interface/Connections.
+Mounting concepts are defined by CAD data provided by VF. Changes and deviations require confirmation by VF. Components adjacent to masked soundproofed areas, such as oil filler caps, must meet soundproofing standards.
+
+5.1.5.3 Design Efforts.
+Suppliers will receive current 3D data status showing the package situation. Responsibilities include:
+- Draft design submission.
+- Delivery of finished 3D/2D data for release.
+- Delivery of tolerance analyses for interfaces.
+
+Physical dimensions are provided in the CAD package.
+
+The supplier is required to provide a common solution for both front and rear applications.
+
+5.2 General CAE Requirements.
+Refer to Appendix 2: CAE-FEM-GENERAL for detailed finite element modeling requirements supporting VinFast's SOR.
+
+5.3 Material Requirements.
+Recommended: PU Foam 25mm combined with a 2mm heavy layer (options include PET non-woven fiber or EPDM). Suppliers should provide recommendations based on material experience, production capabilities, and NVH performance.
+
+5.4 Traceability.
+Part requirements must adhere to VinFast standards VFDST00010502 and VFDST00010501.
+
+5.5 Labeling of Parts.
+Suppliers must comply with VinFast standard VFDST00000010. Detailed labeling instructions, including figure positions and label setup, should be provided with supporting images.
+
+6 Testing and Validation (DVP&R).
+
+Testing and validation must align with RASIC, covering virtual and physical tests for systems, subsystems, and components, as specified in VinFast's Complete Vehicle Specification book.
+
+Contents must include:
+- Standards, norms, and legal requirements.
+- Detailed testing procedures, including setups with images.
+- Locations for conducting tests (internal or external).
+- Test duration and timeline (project format).
+- Part variants and specific descriptions.
+- Number of parts/components tested.
+
+Mileage target: 160,000 km or 10 years, whichever comes first.
+
+7 Function Safety, Homologation, and Safety Regulations.
+
+7.1 Functional Safety Requirements.
+Developed and manufactured parts must meet IATF 16949:2016 standard for quality management in automotive production.
+</page>
+
+<page number="9">
+VinFast Management System  
+VFDSXVPWT1057  
+Version: 1  
+Uncontrolled copy when printed  
+
+### Functional Responsibility  
+
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+
+* MGL and FuSa to add reference to system-specific Functional Safety Requirements document.  
+
+---
+
+### 7.2 Deliverables for Functional Safety  
+
+#### Indicative RASIC* for expected deliverables:  
+
+#### 5.5 Work products:  
+
+| Work Product                                                       | VINFAST | SUPPLIER |  
+| ------------------------------------------------------------------- | ------- | -------- |  
+| Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R       | I        |  
+| Development interface agreement (DIA) resulting from requirement 5.4.3.   | R       | S        |  
+| Supplier's project plan resulting from requirement 5.4.3.                | A       | R        |  
+| Supplier's safety plan resulting from requirement 5.4.3.                | A       | R        |  
+| Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I       | R        |  
+| Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.        | R       | S        |  
+| Safety case, resulting from 6.4.6.                                     | A       | R        |  
+
+*RASIC description in section “Deliverables.”  
+
+---
+
+#### a) FUSA Deliverables Expected Before Nomination  
+
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+
+- Based on the list of Safety Goals and Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a Development Interface Agreement (DIA) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+---
+
+#### b) FUSA Deliverables Expected After Nomination  
+
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations, and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+</page>
+
+<page number="10">
+7.3 Homologation and safety regulation requirements.
+
+7.3.1 North America.
+
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., European, Federal motor vehicle safety standards (FMVSS), and Canadian motor vehicle safety standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. Self-certification and test report(s).  
+The supplier is responsible for “self-certifying” their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of Manufacturer_Handbook.
+
+c. Duty to notify VinFast of non-compliance with FMVSS/CMVSS or European regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such an issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+7.3.2 Europe.
+
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s).  
+The supplier is responsible for ensuring their part(s), product(s), or system(s) meet applicable UN-ECE regulations before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+VinFast also requests suppliers to provide supporting documentation, technical information, including drawings, to be submitted to the relevant authorities to get certification for the EC vehicle type-approval (if applicable).  
+The supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+</page>
+
+<page number="11">
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced. The supplier has a duty to notify VinFast on such an issue within five working days after determining the existence of a non-compliance or a safety-related defect. The supplier must propose an appropriate risk assessment and resolution plan.
+
+**8. Deliverables**
+
+**8.1 Technical deliverables**  
+Work Interface Chart (RASI). The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“System Development Supplier”) is defined in System / Component Specification.  
+
+RASI is defined as follows:  
+
+- **R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+- **A: Approval**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+
+- **S: Support**  
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+- **I: Information**  
+Right to information. This team member is entitled to demand information from R.  
+
+**8.2 Details deliverables and RASI**  
+Need to revise the date of RASI following the Master Timing latest from the PMO side.
+</page>
+
+<page number="12">
+VinFast Management System  
+VFDSXVPWT1057  
+Version: 1  
+Uncontrolled copy when printed  
+
+12 | 14  
+
+Print date  
+Status  
+Functional Responsibility  
+
+### Table of Deliverables  
+| No | Gate | Stage | Deliverable | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|-------|------------|----------------|---------------|----------|-----|----------------|
+| 1  | PV   | List of Concept in Commodity                                      | R  | S  | I  | I  | I  |
+| 2  | PV   | SOR for Concept in Commodity                                      | R  | S  | I  | I  | I  |
+| 3  | PPS  | SOB through LOI - Letter of Intent for Concept in Commodity       | S  | R  | S  | I  | I  |
+| 4  | PPS  | EDD order release for Concept in Commodity                        | S  | R  | S  | I  | I  |
+| 5  | PPS  | Deliver Bill of Materials in Team center                          | R  | I  | I  | I  | I  |
+| 6  | PPS  | Supply chain strategy - Deliver Sourcing Strategy                 | S  | R  | I  | S  | I  |
+| 7  | PPS  | Commodity Timing plan in each business area supports Program timing for concept commodity | S  | S  | R  | S  | I  |
+| 8  | PPS  | Organization and resources for the concept phase, resource planning for series development | S  | S  | R  | S  | I  |
+| 9  | PPS  | Opportunities and risks for the program detailed, measures defined - Cost reductions, Design Optimization, Timing optimization | A  | S  | R  | S  | I  |
+| 10 | PPS  | Quality planning to meet program requirements - APQP Kickoff      | R  | S  | S  | S  | I  |
+| 11 | PPS  | Concept proposal for engineering review and finalization - For Concept Commodity | A  | I  | R  | I  | I  |
+| 12 | PPS  | Concept & Proposal development to meet the target material cost   | A  | I  | R  | I  | I  |
+| 13 | PPS  | Parts list and BoM available; target values for lead vehicle cost and weight verified - C Class | A  | I  | R  | I  | I  |
+| 14 | PPS  | Initial CAD data to support C class development for Concept commodity | A  | I  | R  | I  | I  |
+| 15 | PPS  | System & Sub-system Functional targets agreed and cascaded to Component level, Inline with Complete Vehicle Targets | A  | S  | R  | I  | I  |
+| 16 | PPS  | DVP (virtual/physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in concept phase; detailed test plan for hardware tests | A  | S  | R  | I  | I  |
+| 17 | TA   | Package study to support B class surface development               | A  | I  | R  | I  | I  |
+| 18 | PPS  | Manufacturing feasibility for CAS development for concept commodity | A  | I  | R  | I  | I  |
+| 19 | PPS  | Design, Validation & Testing plan for concept Commodity           | A  | I  | R  | I  | I  |
+| 20 | TA   | Parts list and BoM available; target values for lead vehicle cost and weight verified - B Class | A  | I  | R  | I  | I  |
+| 21 | TA   | Parts list and BoM available; target values for lead vehicle cost and weight verified - A Class | A  | I  | R  | I  | I  |
+| 22 | TA   | Contract Series development - LON for Concept Commodity / LON for B2P Commodity | A  | R  | S  | I  | I  |
+| 23 | TA   | Timing plan for complete Program detailing milestones and critical activities for B2P Commodity | A  | S  | R  | I  | I  |
+| 24 | TA   | Organization and resources for the concept phase, resource planning for series development | A  | S  | R  | I  | I  |
+| 25 | TA   | RPS / Location and fixation strategy developed and reviewed (Before B Class freeze) | A  | S  | R  | I  | I  |
+| 26 | TA   | DMU study for system level and sub system level                   | A  | S  | R  | I  | I  |
+| 27 | TA   | Functional CAE analysis                                           | A  | S  | R  | I  | I  |
+| 28 | TA   | EE - Component Data Sheet (CDS) inputs                            | A  | S  | R  | I  | I  |
+| 29 | TA   | Manufacturing feasibility for Built to Print Commodities          | A  | S  | R  | I  | I  |
+| 30 | TA   | Stamping / Mold flow analysis for Concept commodity               | A  | S  | R  | I  | I  |
+| 31 | TA   | DFMEA for Concept Commodity / SC/CC & Key Characteristics Controls | A  | S  | R  | I  | I  |
+| 32 | TA   | DTS - Fit & Finish document confirm strategy for system/sub system level | A  | S  | R  | I  | I  |
+| 33 | TA   | 3D design for B car class surface to be completed                 | A  | S  | R  | I  | I  |
+| 34 | TA   | 3D CAD & 2D Drawing submission to VinFast Engineering for P&I release | A  | S  | R  | I  | I  |
+| 35 | TA   | Tool order release for long lead parts, P Release for Tool Design, PR Release for tool machining | S  | R  | S  | I  | I  |
+| 36 | TA   | CAD release for P&I for tooling kick-off                           | A  | S  | R  | I  | I  |
+| 37 | TA   | 3D design finalized before A class (One week before TA)           | A  | S  | R  | I  | I  |
+| 38 | TA   | Feasibility confirmation for A class surface development          | A  | S  | R  | I  | I  |
+| 39 | TA   | Strategy for each Attributes confirmed for serial development phase | A  | S  | R  | I  | I  |
+| 40 | TA   | System/Sub-System DVP for Serial Development Phase agreed         | A  | S  | R  | I  | I  |
+| 41 | TA   | Tooling concept / injection points developed                      | S  | I  | R  | S  | I  |
+| 42 | TA   | Feasibility/manufacturing study & confirmation for parts          | S  | I  | R  | S  | I  |
+| 43 | TA   | Technical & Styling Convergence (By PR)                           | A  | S  | R  | I  | I  |
+| 44 | TA PR| 3D CAD, 2D Drawing Submission for review & Commercial quote       | A  | S  | R  | I  | I  |
+| 45 | PR   | PFMEA                                                           | S  | I  | R  | A  | I  |
+| ... | ... | ...                                                              | ... | ... | ... | ... | ...
+
+(Continued structure for deliverables across various stages.)
+</page>
+
+<page number="13">
+9 Supplier Responsibilities.  
+Supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.  
+
+**Customer Service Requirements.**  
+- After-sales spare parts should be ready at startup.  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+- Spare Parts Support Cycle.  
+  The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+- Maintenance Information of After-Sale Spare Parts.  
+  The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).  
+
+10 Intellectual Property / Copyright.  
+Refer to VinFast General Term and Condition (GTC).  
+
+11 Insurance / Warranties.  
+Refer to VinFast General Term and Condition (GTC).  
+
+12 VinFast GTC & Part Packaging and Incoterms.  
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirement in the RFQ package.  
+
+13 Definitions and List of Abbreviations.  
+- **DVP&R:** Design Verification Plan & Report.  
+- **ESO:** Engineering Sign Off.  
+- **GTC:** General Term and Condition.  
+- **LLS:** Long Lead Suppliers on board.  
+- **LLT:** Long Lead Tooling.  
+- **LOI:** Letter of Intend.  
+- **MFC:** Manufacturing Feasibility Confirmation.  
+- **MSC:** Manufacturing Strategy Confirmation.  
+- **MSI:** Major Suppliers Identified.  
+- **MSO:** Manufacturing Sign Off.  
+- **OTS:** Off Tools Samples.
+</page>
+
+<page number="14">
+14 Definitions and List of Abbreviations.
+
+PTP: Prototype Parts out of Serial tooling (Hand finished).
+RFQ: Request For Quotation.
+SLS: Short Lead Suppliers on board.
+SOB: Supplier on Board.
+SOP: Start of Production.
+SOP-ID: SOP-Implementation Date.
+SOP-LM: SOP Launch Model (1 specific Model – “Edition”).
+SST: Sourcing Strategy.
+TS: Theme Selection Model.
+FUSA: Function Safety.
+T&V: Testing and Validation.
+EDS: Electrical Drive System.
+</page>
+</pages>

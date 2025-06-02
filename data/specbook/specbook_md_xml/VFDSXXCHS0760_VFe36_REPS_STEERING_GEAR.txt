@@ -1,0 +1,1212 @@
+
+<filename>VFDSXXCHS0760_VFe36_REPS_STEERING_GEAR</filename>
+<pages>
+
+<page number="1">
+Specification Book.
+
+12.01.2022.
+
+SPB-FSS.
+
+R-EPS Steering Gear BEV.
+
+Specification Book (SPB).
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast LLC (VinFast Trading and Production Limited Liability Company) have started to design and develop vehicle projects: VF36 and VFe36. Environmental impact and sustainability of the program are taken into account as essential target features. The document shall provide details for all components for mass production.
+
+Responsible Contact: Juan Pablo Medina (VF-KPTSP-VF36&VF36/T).
+
+The reproduction, distribution and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Contents.
+
+SCOPE AND PURPOSE  2  
+Contents  3  
+
+1. SCOPE OF PRODUCT/COMMODITY  6  
+    1.1 Sales Markets  6  
+    1.2 Production volume  6  
+    1.3 Build Plan  6  
+
+2. DEFINITIONS AND APPLICABLE DOCUMENTS  6  
+    2.1 CAD Data/Transfer data-CAD Requirements  6  
+    2.2 Change Documentation and Part History Documentation  6  
+
+3. REQUIREMENTS  7  
+    3.1 Contact  7  
+    3.2 Technical requirement  8  
+        3.2.1 General Description of the Component  9  
+        3.2.2 EPS Dimensional Requirements  10  
+        3.2.3 EPS Gear Performance  14  
+        3.2.4 Noise and Vibration  15  
+    3.3 General CAE Requirements  16  
+    3.4 Material requirement  16  
+    3.5 Traceability  16  
+    3.6 Labeling of Parts  17  
+    3.7 Testing and validation and DVP&R  17  
+    3.8 Appearance Approval - Applicable for all Visible Parts  17  
+    3.9 Logical Architecture  18  
+        3.9.1 System interface  18  
+        3.9.2 Motor specifications  19  
+        3.9.3 Steering Angle Sensor specification  19  
+        3.9.4 System block diagram  20  
+        3.9.5 Pin assignment & connector  21  
+        3.9.6 Static architecture of software  22  
+        3.9.7 CAN signals  22  
+        3.9.8 Functions and Features  22  
+
+4. FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS  35  
+    4.1 Functional Safety Requirements  35  
+    4.2 Deliverables for Functional Safety  36  
+        a) FUSA Deliverables expected before nomination  36  
+        b) FUSA Deliverables expected after nomination  36  
+    4.3 Homologation and safety regulation requirements  37  
+        4.3.1 North America  37  
+        4.3.2 Europe  37  
+
+5. DELIVERABLES  38  
+    5.1 Technical Deliverables  38  
+    5.2 Details deliverables and RASI  39  
+
+6. SUPPLIER RESPONSIBILITIES  41  
+
+7. INTELLECTUAL PROPERTY/COPYRIGHT  41  
+
+8. INSURANCE/WARRANTIES  41  
+
+9. VINFAST GTC & PART PACKAGING AND INCOTERMS  41
+</page>
+
+<page number="4">
+10. Definitions and List of Abbreviations.
+
+List of Figures:
+- Table 1: Technical information table.
+- Figure 1: Isometric view.
+- Figure 2: Mounting Points of EPS gear.
+- Figure 4: Connection to the I-shaft.
+</page>
+
+<page number="5">
+Release.
+
+Version: 1.0.  
+Date: 12-Jan-2022.
+
+Updated by:  
+- **Function:** Chassis/Steering. **Name:** James Cicero.  
+- **Function:** Chassis/Steering. **Name:** Liam Quinn.  
+- **Function:** MGL CHS. **Name:** Juan Pablo Medina, v.juanpm@vinfast.vn.  
+
+Revisions since previous version:  
+- **Version:** 1.0.  
+  **Change Description:** First edition.  
+  **Date:** 12/01/2022.
+</page>
+
+<page number="6">
+1 Scope of product/commodity.
+
+1.1 Sales Markets.
+LHD countries: VN (Vietnam), NA: North America (US: United States, CA: Canada), EU (Europe).  
+Vehicle profile.  
+Refer to appendix:  
+VFDSXXCVC0501 Appendix_5_Features list.
+
+1.2 Production volume.  
+Refer to Purchasing Request for Quotation.
+
+1.3 Build Plan.  
+Refer to appendix:  
+VFDSXXCVC1101 Appendix_1_Build Plan_MRD.
+
+2 Definitions and applicable documents.
+
+2.1 CAD Data/ Transfer data-CAD Requirements.  
+All CAD data must be designed with CATIA V5 follow VF standard VFDST00000014.  
+CAD data transfer from VinFast to supplier will be done through Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.
+
+2.2 Change Documentation and Part History Documentation.  
+During the development & production process, all the history of changes within the framework of the contractor have to be documented and provided to VinFast. The form of the data can be defined by the contractor.  
+Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements have to be remarked on the drawings.  
+The reasons and the characteristics which have to be documented are listed by authorities. These demands will be requested during the development of the part and latest in PTO phase.
+</page>
+
+<page number="7">
+## 3 Requirements
+
+### 3.1 Contact
+
+#### Contact Information:
+- **Commodity Buyer**:  
+  Name: Vignesh Valliappan  
+  Email: v.vigneshv@vinfast.vn  
+
+- **Commodity Buyer Manager**:  
+  Name: Jaiganesh Kunchithapatham  
+  Email: v.jaiganeshk@vinfast.vn  
+
+- **Commodity Engineering**:  
+  Name: Kedar Joshi  
+  Email: vf.mse.joshikp@vinfast.vn  
+  Contact Number: +84 (0) 362727466  
+
+- **Commodity Engineering Manager**:  
+  Name: Juan Pablo Medina  
+  Email: v.juanpm@vinfast.vn  
+
+- **SQE (Site Engineer)**:  
+  Name: Gregory Alan Reed  
+  Email: v.gregoryar@vinfast.vn  
+  Contact Number: +84 (0) 826 792 232  
+
+- **SQE Manager**:  
+  Name: Gregory Alan Reed  
+  Email: v.gregoryar@vinfast.vn  
+  Contact Number: +84 (0) 826 792 232  
+
+- **SCM Manager**:  
+  Name: Dilshod Tokhtasinov  
+  Email: v.dilshod@vinfast.vn  
+  Contact Number: +84 (0) 888352662  
+
+- **Packaging Analyst**:  
+  Name: Trần Xuân Phong  
+  Email: v.phongtx1@vinfast.vn  
+
+- **SCM Director**:  
+  Name: Benjamin Peter Stewart  
+  Email: v.bens@vinfast.vn  
+  Contact Number: +84 (0) 888798855
+</page>
+
+<page number="8">
+**3.2 Technical requirement**
+
+The belt drive rack-mounted electric power steering system shall provide assist force to the rack bar as determined.
+
+The technical information should display the details of parts and components, including VinFast's designated part number, usage per car, procurement code, and applicability to VF36 and VFe36 models.
+
+Technical Requirements:
+- Part design
+- Part requirements
+- Functional and performance requirements at the VinFast level
+
+**Details as per Table 1:**  
+The part named *VFe36_R-EPS_Steering Gear* has the part number CHS81004008. It is made of multi-material, with one unit required. The purchase level labeled "P" indicates that this part applies to the VF36 and VFe36 vehicle profiles in the EU and US markets, as well as ASEAN regions for both ECO and PLUS configurations.
+
+*Table 1: Technical information table.*
+
+The supplier is requested to provide support during the feasibility phase by supplying the needed data and information. Suppliers are expected to:
+- Develop, design, conduct tests, and produce parts or systems in their own responsibility.
+- Produce technical and functional mounting concepts, as well as component/system requirement outputs, through engineering collaboration.
+
+**Objective Targets:**
+- Weight and cost-optimized design  
+- Quality assurance  
+- Maturity of the part/system  
+- NVH (Noise, Vibration, and Harshness), Vibration and soundproof capabilities  
+
+The steering gear includes a sealing to isolate the interior from external surroundings. This sealing must ensure watertightness, based on specified test procedures, and should be developed in collaboration with the VinFast engineering team.
+</page>
+
+<page number="9">
+3.2.1 General Description of the Component  
+The steering gear must provide the following basic functions:  
+- Provide mechanical connection to IMS and knuckle.  
+- Translate rotation of steering wheel to axial movement of rack.  
+- Translate input torque to rack force.  
+- Provide assistance force to reduce steering effort.  
+- Provide feedback torque to driver.  
+- Provide signal interface to communicate with other ECUs.  
+
+For VFe36 the steering gear will be designed as belt-drive EPS:  
+Electric power steering featuring a steering-rack/belt drive system (belt-drive EPS) features higher performance. An axially parallel electric motor leading to the steering rack transmits the steering-power assistance directly to the steering rack by means of a toothed-belt drive and a recirculating-ball mechanism. This system is distinguished by the precise responsiveness of the steering and immediate feedback from the road surface.  
+The SAS-steering angle sensor is implemented into the steering gear assembly and measures the steering angle and torque.  
+
+Figure 1: Isometric view  
+This figure illustrates an isometric view of the belt-drive electric power steering system. It highlights the gear assembly, the toothed-belt drive, the motor, and various connection elements. The design emphasizes precision, responsiveness, and integration with the steering angle sensor.
+</page>
+
+<page number="10">
+3.2.2 EPS Dimensional Requirements.
+
+3.2.2.1 EPS Mounting Strategy.
+The EPS gear shall be mounted using three rigid mounts. The mount arrangement will be according to the following specifications:
+
+- Vehicle Coordinates (RH Hardpoints symmetrical).
+  - VinFast Initial Hardpoints:
+    - X = 70,000 | Y = -275,000 | Z = -89,600 for mounting point 1 (C10_1).
+    - X = 180,000 | Y = -275,000 | Z = -89,600 for mounting point 2 (C10_2).
+    - X = 180,000 | Y = 275,000 | Z = -89,600 for mounting point 3 (C10_3).
+
+**Figure 2:** Mounting Points of EPS Gear.
+
+3.2.2.2 Geometry Requirements.
+EPS Hardpoints for IBJ, OBJ, and Rack Pinion Crossover Points are defined and illustrated as follows:
+
+**Figure 3:** EPS Hardpoints.
+</page>
+
+<page number="11">
+### Vehicle Coordinates and VinFast Initial Hardpoints
+The following table outlines the hardpoints symmetrical to Vehicle Coordinates and matched to VinFast Initial Hardpoints:
+
+- **C1'/C1 Tie Rod outer RH/LH (OBJ)**:
+  - X = 125,000
+  - Y = +/-706,859
+  - Z = -38,498
+
+- **C2'/C2 Tie Rod inner RH/LH (IBJ)**:
+  - X = 120,000
+  - Y = +/-374,000
+  - Z = -44,000
+
+- **C6 (Rack Pinion Crossover Point on Rack Bar)**:
+  - X = 120,000
+  - Y = -200,000
+  - Z = -44,000
+
+---
+
+### Mechanical Connection to the Intermediate Shaft
+Mechanical connection specifications connecting the Intermediate Shaft (I-Shaft) are as follows:
+- The connection is visually represented according to **Figure 4**, which defines the necessary mechanical dimensions and settings for pairing the EPS system to the I-Shaft.
+
+**Additional Details in Figure 4**:
+- There is a marking setup after centering the rack, which is highlighted with green color for appropriate settings.
+- Anti-rust liquid application is denoted around critical areas to minimize degradation.
+
+The diagram illustrates precise dimensional values for the shaft fitting, alignment procedures, and angular tolerances required to ensure structural integrity and mechanical compatibility.
+</page>
+
+<page number="12">
+3.2.2 EPS Dimensional Requirements.
+
+3.2.2.1 EPS Mounting Strategy.
+The EPS gear shall be mounted using 3 rigid mounts. The mount arrangement will align with the points shown in Figure 2.
+
+**Vehicle Coordinates (RH Hardpoints symmetrical):**
+- **C10_1 mounting point 1:** X = 70,000; Y = -275,000; Z = -89,600.
+- **C10_2 mounting point 2:** X = 180,000; Y = -275,000; Z = -89,600.
+- **C10_3 mounting point 3:** X = 180,000; Y = 275,000; Z = -89,600.
+
+Figure 2 provides a visual representation of EPS mounting points.
+
+---
+
+3.2.2.2 Geometry Requirements.
+EPS Hardpoints for IBJ, OBJ, and Rack Pinion Crossover Point are defined as shown in Figure 3.
+
+**Vehicle Coordinates (RH Hardpoints symmetrical):**
+- **C1'/C1 Tie Rod outer RH/LH (OBJ):** X = 125,000; Y = +/-706,859; Z = -38,498.
+- **C2'/C2 Tie Rod inner RH/LH (IBJ):** X = 120,000; Y = +/-374,000; Z = -44,000.
+- **C6 Rack Pinion Crossover point (on rack bar):** X = 120,000; Y = -200,000; Z = -44,000.
+
+Figure 3 visually illustrates the EPS Hardpoints and their relative positions.
+
+---
+
+3.2.2.3 Mechanical Connection to the I-Shaft.
+The mechanical connection to the Intermediate Shaft is defined according to Figure 4.
+
+Figure 4 depicts the geometric and structural alignment necessary for the connection to the I-shaft after setting the rack center. Anti-rust liquid is applied at designated points.
+
+---
+
+3.2.2.4 Mechanical Connection to the Knuckle.
+The mechanical connection to the knuckle is implemented as a conical design, as depicted in Figure 5. Hold Bit design is defined to SW6 (HEX 6mm).
+
+Figure 5 provides a detailed conical interface design for the knuckle alongside the specifications for interaction with tools of size HEX 6mm.
+
+---
+
+3.2.2.5 Tie Rod Adjustable Length.
+The tie rod design supports an adjustable length of minimum +/-10mm from the design position. Adjustment mechanisms are integrated at IBJ, OBJ, and HEX nut interfaces, allowing for wrench sizes 21, 24, and 15, respectively.
+
+Figure 6 showcases the adjustable tie rod features and wrench size compatibility for adjustment operations.
+</page>
+
+<page number="13">
+3.2.2.6 Detail of design.
+
+Additional detail of design is defined according to Table 2.
+
+Table 2: Detail of design.
+
+- Gear Ratio: 56 mm/rev.
+- Pulley Ratio: 111/33.
+- Ball Screw Lead: 7 mm/rev.
+- Rack Stroke: 170.4 ± 2 mm.
+- Wheel Turns: 3.04.
+- Maximum Rack Load at 60°C: 13.5 kN.
+- Rated Voltage: 13 Vdc.
+- Rated Current: (2x55) Arms.
+- Torsion Bar Stiffness: 2.5 Nm/deg.
+- Rack Pulling Force: TBD.
+- Rack Bar Dimension: Ø 27.7.
+- Motor Type: Brushless.
+- Rated Output: 1200 W.
+</page>
+
+<page number="14">
+3.2.3 EPS Gear Performance.
+
+3.2.3.1 Max Load.
+The EPS belt drive gear shall be sized to ensure capacity for a max rack bar force of 13.5 kN (to be discussed).
+
+3.2.3.2 Steering Gear Mass.
+The steering gear unit must not exceed 16.2 kg.
+
+3.2.3.3 Rack Stroke.
+The steering gear unit must provide +/- 85.2 mm of rack travel.
+
+3.2.3.4 C-Factor.
+The steering gear unit must have a C-Factor of 56 mm/rev.
+
+3.2.3.5 Working Temperature Range.
+The working temperature range for the system to function as per the performance specifications in section Detailed Functions Description is -40°C to 125°C.
+
+3.2.3.6 Corrosion Resistance.
+The steering gear ASM must comply with ISO 9227 NSS 720hr according to VFDSXXCVC4401. Refer to DVP for component test requirements.
+</page>
+
+<page number="15">
+3.2.3 EPS Gear Performance
+
+3.2.3.1 Max Load.  
+The EPS belt drive gear shall be sized to ensure capacity for a max rack bar force of 13.5kN (to be discussed).
+
+3.2.3.2 Steering Gear Mass.  
+The steering gear unit must not exceed 16.2kg.
+
+3.2.3.3 Rack Stroke.  
+The steering gear unit must provide +/- 85.2mm of rack travel.
+
+3.2.3.4 C-Factor.  
+The steering gear unit must have a C-Factor of 56mm/rev.
+
+3.2.3.5 Working Temperature Range.  
+The working temperature range for the system to function as per the performance specifications in section Detailed Functions Description is -40°C to 125°C.
+
+3.2.3.6 Corrosion Resistance.  
+The steering gear ASM must comply with ISO 9227 NSS 720hr according to VFDSXXCVC4401. Refer to DVP for component test requirements.
+
+3.2.3.7 General Electrical Requirements.  
+The EPS system must comply with the following documents. Please find documents attached.
+
+**VF Standard Document**  
+- CES_VINFAST_EE_VFDSP50000001_EMC_Standard_Vehicle-v1.0.0  
+- CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component-v1.0.0  
+- CES_VINFAST_EE_VFDSP50000004_General_Electric_v0.0.1  
+- CES_VINFAST_EE_VFDSP50000005_Energy_Management_v1.0.0  
+- CES_VINFAST_EE_VFDSP50000008_Thermal_Management_v1.0.0  
+- CES_VINFAST_EE_VFDSP50000014_Clamp_ICE_BEV_V0.2.6_31072020  
+- CES_VINFAST_EE_VFDSP50000015_Basic_Software_on_CAN-ECUs_V1.0.0  
+- CES_VINFAST_EE_VFDSP50000016_Flash_Specification_V1.0.3  
+- CES_VINFAST_EE_VFDSP50000017_Coding_Specification_V1.0.1  
+- CES_VINFAST_EE_VFDSP50000018_High_Current_Consumers_v0.1.0  
+- CES_VINFAST_EE_VFDSP50000019_Basic_Diagnostics_Specification_V0.5  
+- CES_VINFAST_EE_VFDSP50000020_Security_Access_Algorithm_V1.0.2  
+- CES_VINFAST_EE_VFDSP50000021_Basic_DID_PID_Specification_V1.0.0  
+- CES_VINFAST_EE_VFDSXVEEP0047_CAN_Specification-v1.0.2  
+- CTS_VINFAST_EE_VFDSP50000006_Energy_Management_v1.0.0  
+- CTS_VINFAST_EE_VFDSP50000007_Load_Analysis_v1.0.0  
+- CTS_VINFAST_EE_VFDSP50000009_Thermal_Management_v1.0.0  
+- SUP_VINFAST_EE_Software_Logistics-V0.1.2  
+- VFDSP50000012_LIN_Specification  
+- VFDST00026304_EMC_full_vehicle  
+- VFDST00026305_EMC_full_vehicle_low_frequency_range_9KHz-30Mhz  
+- VFDST00026306_EMC_full_vehicle_low_frequency_range_10Hz_to_400kHz  
+- VFDST00028121_Electrical_requirements_and_testings  
+- VFDST00028122_Electrical_requirements_and_tests  
+- VFDST00028131_Environmental_Electronics_Testings  
+- VFDSXVEEP0011_CUV_ECU_Residual_BusSimulation_V1.0.0  
+- VFDSXVEEP0013_CUV_ECU_Identifier_Specification_V1.0.6  
+- VFDSXVEEP0014_CLAMP_Specification  
+- VFDSXVEEP0034_Basic_DID_PID_Specification  
+- VFDSXVEEP0035_Flash_Specification  
+- VFDSXVEEP0048_CAN_Network_Test_Specification_V1.0.0  
+- VFDSXVEEP5053_CSUV_SPB_EE_Warning_Message_Catalog_V0.93  
+
+3.2.4 Noise and Vibration.  
+The steering gear must be free of any squeaks or rattles for the extent of its life. This includes post vehicle level durability and all component level validation requirements.
+</page>
+
+<page number="16">
+3.3 General CAE Requirements. For FSS, CAE is the responsibility of the supplier. Refer to the standard documents VFSRXXCVC0201 and VFCAE-001-FEM-GENERAL_Analysis requirement.
+
+3.4 Material Requirement. 
+
+- **Prohibited or Restricted Substances, Emissions & Toxicology.**  
+  The conformance with prohibited and restricted substances and obligations in terms of notification must be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier throughout the complete product life cycle according to VFDST00007601.  
+  IMDS material data sheets must be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601. Specific targets for vehicle indoor air quality must follow VFDSXVCVC3401-VIAQ_Testing_Guideline.
+
+- **Material Validation Tests.**
+  - Material must fulfill required material validation tests according to DRAWING and Specbook.  
+  - Each material must meet the material requirements established by VinFast.  
+  - A table of material test matrix must be created by the supplier and confirmed by VinFast.
+
+3.5 Traceability.  
+
+For part requirements, refer to VinFast standard VFDST00010501. Figure 7 provides the label for CHS80004008 according to VFDST00010501.
+
+Figure 7: Traceability of R-EPS.
+</page>
+
+<page number="17">
+3.6 Labeling of Parts.  
+Suppliers must follow VinFast standard VFDST00000010. The position of the label is defined according to VFDST00000010 and is displayed in Figure 8.
+
+3.7 Testing and Validation and DVP&R.  
+DVP and PC test responsibilities follow the RASIC framework. DVP (virtual and physical testing) must be conducted across system, sub-system, and component levels, aligned with the Complete Vehicle Specification Book during the concept phase.  
+Detailed test planning for hardware tests is outlined in the file DVP&R in collaboration with the Testing & Validation department. Testing includes the following:  
+- Declaration of standards, norms, and legal requirements.  
+- Description of testing procedures and setup, including pictures.  
+- Specification of location (internal/external) where the testing was conducted.  
+- Duration and timeline of testing (detailed project plan).  
+- Part variant descriptions detailing part specifics.  
+- Information on the number of tested components/parts.  
+
+Suppliers are required to ensure a mileage target life of 160,000 km or 10 years (whichever comes first) and provide a full DVP&R plan for joint discussions upon request. Refer to VFDSXXCHS0787 for detailed DVP test specifications.
+
+3.8 Appearance Approval - Applicable for all Visible Parts.  
+Appearance Approval Report (AAR) is a PPAP deliverable. The AAR process is outlined in VFDST00038401 and encompasses quantity of parts and timing requirements.  
+
+For each step of the process, suppliers are responsible for submitting parts to VF Quality Design within the agreed timeframe to obtain "OK Shape," "OKTG," and Appearance Approval.  
+
+The process commences during the early project phase (PT build) to ensure AAR approval at LS. Suppliers must incorporate this activity into their development process and ED&D cost planning.
+</page>
+
+<page number="18">
+### 3.9 Logical Architecture
+The EPS system consists of 2 ECUs, 2 Torque Sensors, and 2 motors.
+
+#### Details of Logical Architecture:
+- Dual ECU, dual wound motor, and dual inter-micro CAN.
+- Requires redundant battery, Vehicle CAN, and connectors.
+- **Key Operational Conditions:**
+  - In normal condition, **MCU1** calculates output torque (**Master mode**).
+  - **MCU2** operates according to output torque from MCU1 (**Silence mode**).
+  - Each ECU operates **50% of output torque**.
+  - In case of a single failure, the healthy ECU will operate up to **50%**.
+
+### 3.9.1 System Interface
+The system interface consists of:
+- **EPS1 Control Unit** connected to:
+  - Battery via KL15.
+  - Motor 1 and TAS (Torque Angle Sensor).
+  - Vehicle Chassis CAN.
+- **EPS2 Control Unit** connected to:
+  - Battery via KL15.
+  - Motor 2 and TAS.
+  - Vehicle PT CAN.
+
+**System interaction diagram:**
+- EPS1 and EPS2 Control Units both interface with the battery and motors while exchanging data using Vehicle CAN protocols along with Torque and Angle Sensor readings.
+</page>
+
+<page number="19">
+3.9 Logical Architecture  
+The EPS system consists of 2 ECUs, 2 Torque Sensors and 2 motors.  
+
+### 3.9.1 System Interface  
+The system interface includes connections between components such as the EPS control units, battery, and vehicle CAN systems (Chassis CAN and PT CAN).  
+
+### 3.9.2 Motor Specifications  
+- **Motor Specification Values:**  
+  - Inertia of power steering motor (JE): 1.07e-04 kg m²  
+  - Ke: 0.0610 V*s/rad  
+  - R: 27.4 mOhm  
+  - Motor Torque Constant (Kt): 0.0352 Vpk*s/rad  
+  - Motor Viscous Friction Constant (b): 0.041 Nm/RPM  
+  - Poles of Motor: 8 pole/12 slot  
+
+### 3.9.3 Steering Angle Sensor Specification  
+
+#### 3.9.3.1 Variants / Versions  
+- **R-TAS (Torque and Angle Sensor):**  
+  - Signal Interface: 4xSPC, 2xSENT  
+
+#### 3.9.3.2 International Standards  
+- **Protocol Standard:** SAE J2716  
+- **Material Regulation Standard:** Global Automotive Declarable Substance List (GADSL)  
+- **IP Code Standard:** EN 60529 / DIN 40050  
+- **Plastic Tolerance Standard:** DIN 16901-130  
+- **Barcode Standard:** ISO/IEC 16022  
+- **Test Standard:** ISO 11452-8  
+
+#### 3.9.3.3 Measurement Ranges  
+- **Theoretical measuring range (IS angle - steering angle):**  
+  - Symbol: tmr_angle_IS  
+  - Parameter Range: Typical = 1480°  
+- **Mechanical measuring range (IS angle - steering angle):**  
+  - Symbol: mmr_angle_IS  
+  - Parameter Range: Min = -738°, Max = +738°
+</page>
+
+<page number="20">
+3.9.3.4 Mapping of Sensor Parameter.
+
+Wire | Signal | Measurement range | Direction | Angle
+-----|--------|-------------------|-----------|------
+SPC1 | SPC1A | 40° ±6.5°         | CCW       | Corrected OS
+SPC2 | SPC2A | 40° ±6.5°         | CCW       | Corrected OS
+SPC3 | SPC3A | 40° ±6.5°         | CCW       | Corrected OS
+SPC4 | SPC4A | 40° ±6.5°         | CCW       | Corrected OS
+SENT1 | SENT1A | 296°             | Input shaft | Differential
+SENT2 | SENT2A | 296°             | Input shaft | Differential
+
+**Notes:**  
+1. Sensor can provide diagnostic information via SENTxB according to SAE J2716 APR2016 Appendix A.3 "single secure sensor" and Appendix A.1 "Dual throttle position sensor". Basically, sensors provide "single secure sensor" configuration, and if the customer needs other diagnostic information, MHE can change it.  
+2. This information shall be defined with the system.  
+
+3.9.4 System Block Diagram.
+
+**System Characteristics and Channels:**  
+1. **Battery power:** 12V | Channels: 2  
+2. **Ignition signal:** KL15 hard wired | Channels: 2  
+3. **Torque sensor:** Inductive type, SPC protocol | Channels: 4 (2 for each ECU)  
+4. **Angle sensor:** Inductive + Magnetic type, SPC+SENT protocol | Channels: 2  
+5. **Vehicle CAN:** HS CAN | Channels: 2  
+6. **Motor position sensor:** Hall IC type | Channels: 4 (2 for each ECU)  
+7. **Inter micro CAN:** HS CAN | Channels: 2  
+8. **Motor:** BLAC type | Channels: N/A (not applicable).
+</page>
+
+<page number="21">
+3.9.5 Pin assignment & connector.
+
+The socket configurations and pin assignments for ECU1 and ECU2 are as follows:
+
+### Power/Signal for ECU1: MG657016-5 (Key code A)
+- **CON1-A1:** POWER_VCC, Battery +. Provides Battery Power.
+- **CON1-A2:** POWER_GND, Battery -. Serves as Battery GND.
+- **CON1-B1:** I/O_IN, Ignition. Recognized as the Ignition signal.
+- **CON1-B2:** N.C. Not connected.
+- **CON1-B3:** BUS, CAN_H. Represents the communication signal.
+- **CON1-B4:** BUS, CAN_L. Represents another communication signal.
+
+### Power/Signal for ECU2: MG657017-41 (Key code B)
+- **CON2-A1:** POWER_VCC, Battery +. Provides Battery Power.
+- **CON2-A2:** POWER_GND, Battery -. Serves as Battery GND.
+- **CON2-B1:** I/O_IN, Ignition. Recognized as the Ignition signal.
+- **CON2-B2:** N.C. Not connected.
+- **CON2-B3:** BUS, CAN_H. Represents the communication signal.
+- **CON2-B4:** BUS, CAN_L. Represents another communication signal.
+</page>
+
+<page number="22">
+### 3.9 Static Architecture of Software
+The static architecture of the software complies with MANDO processes and ISO26262 standards.
+
+---
+
+### 3.9.7 CAN Signals
+For a complete list of CAN signals, refer to the latest CAN DBC provided by the VinFast E/E department.
+
+---
+
+### 3.9.8 Functions and Features
+#### 3.9.8.1 Overview of Functions
+
+| Sr. No. | Features                        | Short Description                                                                                                     |
+|---------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| 1       | Vehicle Speed based Steering Assist | This function varies assist current according to vehicle speed and driver input torque.                                |
+| 2       | Active Return                  | In this function, the EPS system return-to-middle algorithm assists the suspension and tire self-aligning torque, returning the system to its middle position. |
+| 3       | Active Damping                 | Active damping is a sub-function of the active return feature. It eliminates steering handwheel oscillations around the center position and reduces vehicle yaw using a damping algorithm. |
+| 4       | Friction Compensation          | Friction control compensates system friction. The friction compensation algorithm calculates the additional steering torque required to compensate for suspension and steering system friction and adds it to the EPS motor torque. |
+</page>
+
+<page number="23">
+3.9.8 Functions and Features
+
+3.9.8.1 Overview of Functions:
+
+1. **Vehicle Speed based Steering Assist.** This function varies assist current according to vehicle speed and driver input torque.
+
+2. **Active Return.** In this function, the EPS system return-to-middle algorithm will assist the suspension and tire self-aligning torque to return the system to its middle position.
+
+3. **Active Damping.** This function is a sub-feature of the active return functionality, which eliminates steering hand wheel oscillations around the center position and reduces vehicle yaw using the damping algorithm.
+
+4. **Friction Compensation.** Friction control compensates for system friction. The friction compensation algorithm calculates additional steering torque to compensate for steering and suspension system friction and adds it to the EPS motor torque.
+
+5. **Inertia Compensation.** This function compensates the motor's polar moment of inertia using the inertia control algorithm.
+
+6. **Temperature Protection.** The main function of protection controls is to prevent damage to the motor and controllers caused by abnormal environmental or abusive operating conditions.
+
+7. **Soft End Stops.** This protection feature ensures a 'soft stop' at the end of rack travel, minimizing mechanical end-lock impact forces.
+
+8. **Shimmy Compensation.** The shimmy compensation function evaluates and applies a compensation factor to the motor to mitigate steering wheel vibrations.
+
+9. **Pull Drift Compensation.** This feature calculates and applies a torque offset to compensate for vehicle pull drift forces.
+
+10. **Selectable Steering Modes.** This functionality enables switching between different steering feel calibration maps stored in the memory when different steering modes are selected.
+</page>
+
+<page number="24">
+3.9.5 Pin Assignment and Connector  
+Pin assignments for the EPS are defined as follows:  
+
+**Power/Signal for ECU1: MG657016-5 (Key Code A)**  
+- **CON1-A1 (POWER_VCC):** Battery + (Battery Power)  
+- **CON1-A2 (POWER_GND):** Battery - (Battery Ground)  
+- **CON1-B1 (I/O_IN):** Ignition signal  
+- **CON1-B2 (N.C.):** No Connection  
+- **CON1-B3 (BUS CAN_H):** Communication signal  
+- **CON1-B4 (BUS CAN_L):** Communication signal  
+
+**Power/Signal for ECU2: MG657017-41 (Key Code B)**  
+- **CON2-A1 (POWER_VCC):** Battery + (Battery Power)  
+- **CON2-A2 (POWER_GND):** Battery - (Battery Ground)  
+- **CON2-B1 (I/O_IN):** Ignition signal  
+- **CON2-B2 (N.C.):** No Connection  
+- **CON2-B3 (BUS CAN_H):** Communication signal  
+- **CON2-B4 (BUS CAN_L):** Communication signal  
+
+---
+
+3.9.6 Static Architecture of Software  
+The software follows MANDO process compliance with ISO26262.  
+
+---
+
+3.9.7 CAN Signals  
+For a full list of CAN signals, refer to the latest CAN DBC provided by the VinFast E/E department.  
+
+---
+
+3.9.8 Functions and Features  
+3.9.8.1 Overview of Functions  
+
+**Summary of Key Functions Supported by EPS:**  
+
+1. **Vehicle Speed-Based Steering Assist:**  
+   This function varies assist current according to the vehicle speed and driver input torque.
+
+2. **Active Return:**  
+   This function assists the suspension and tire self-aligning torque to return the system to its middle position.
+
+3. **Active Damping:**  
+   Eliminates steering hand wheel oscillations around the center position and reduces vehicle yaw using damping algorithms.
+
+4. **Friction Compensation:**  
+   Calculates additional steering torque to offset friction in the steering and suspension systems, ensuring improved performance.
+
+5. **Inertia Compensation:**  
+   Compensates for the motor's polar moment of inertia using inertia control algorithms.
+
+6. **Temperature Protection:**  
+   Protects motors and controllers from damage caused by environmental or operating conditions.
+
+7. **Soft End Stops:**  
+   Provides a 'soft stop' at the end of the rack's travel to minimize lock impact forces.
+
+8. **Shimmy Compensation:**  
+   Evaluates and compensates for steering wheel vibrations, contributing to smoother handling.
+
+9. **Pull Drift Compensation:**  
+   Calculates and applies torque offsets to compensate for vehicle pull drift forces.
+
+10. **Selectable Steering Modes:**  
+    Provides multiple steering feel calibration maps, enabling dynamic switching based on selected modes.
+
+---
+
+The EPS provides actuator support for advanced ADAS functions:  
+
+**Actuator-Driven ADAS Functions by EPS:**  
+
+1. **Lane Keep Assist (LKA):**  
+   Automatically adjusts steering to restore proper travel within the lane when deviations are detected.
+
+2. **Lane Departure Warning:**  
+   Alerts the driver through steering wheel vibrations when unintentional lane drifting is detected.
+
+3. **Lane Centering Control (LCC):**  
+   Maintains vehicle positioning in the center of the ego lane and adjusts speed according to traffic conditions.
+
+4. **Emergency Lane Keeping:**  
+   Makes palpable steering corrections to prevent the vehicle from departing the road in critical situations.
+
+5. **Automatic Lane Change Assist (ALCA):**  
+   Partially automated feature adjusting steering to enable safe lane changes based on driver input.
+
+6. **Highway Pilot:**  
+   Automates driving functions including speed control, lane keeping, entering/exiting lanes, and traffic speed adaptation.
+
+7. **Fully Automated Park Assist:**  
+   Detects parking spaces and automatically steers vehicles into parallel or perpendicular parking spots.
+
+8. **Remote Parking:**  
+   Enables entry and exit from parking spaces with or without driver presence in the vehicle.
+
+9. **Summon Mode:**  
+   Allows the vehicle to autonomously move to a location either by navigating out of parking spots or following directives.
+
+---
+</page>
+
+<page number="25">
+The EPS acts as an actuator for the following ADAS functions:
+
+Sr. No. | Features | Short Description   
+---|---|---   
+1 | Lane Keep Assist | The LKA system detects when the vehicle deviates from a lane and automatically adjusts the steering to restore proper travel inside the lane without additional input from the driver.  
+2 | Lane Departure Warning | The lane departure warning function shall notify the driver through steering wheel vibrations when the driver unintentionally drifts towards the line or the edge of the lane.  
+3 | Lane Centering Control | LCC is available on highways and highway-like roads (roadways separated by constructional means) in the speed range from 60 km/h to 130 km/h. LCC keeps the ego vehicle in the center of the ego lane while either maintaining the driver set speed, a current speed limitation, or a predefined distance to a preceding vehicle giving priority to whatever requires the lower speed.  
+4 | Emergency Lane Keeping | Emergency lane keeping makes a palpable steering correction in the opposite direction to keep the vehicle on track and thereby avoid the severe consequences of the vehicle departing the road.  
+5 | Automatic Lane Change Assist | Auto Lane Changing Assist (ALCA) is a driver assistance system that supports drivers during a lane change to guarantee a safe lane change maneuver. As a partially automated driving system, this feature adjusts the steering wheel to move the vehicle to the adjacent lane after a manual request from the driver.  
+6 | Highway Pilot | Highway Pilot automates such driving functions as speed control, lane keeping, and lane exiting and entering. When the driver turns the system on, it’s able to match the vehicle’s speed to traffic flow.  
+7 | Fully Automated Park Assist | Automatic park assist helps the driver parallel and perpendicular park their vehicle nearly automatically. The system finds a space and automatically steers the vehicle into the parking space.  
+8 | Remote Parking | The system enables automated parking for pulling into and out of selected parking spaces. The driver has the option to remain in the car or get out ahead of time while the vehicle parks itself.  
+9 | Summon Mode | Summon Mode (SM) is a driver assistance system that lets the vehicle automatically move to a location from a parking spot. The user has two different options: 1. The vehicle will automatically leave its parking spot and navigate around objects to reach the user when the user requests this from a distance within a radius of 65m by a remote button on a mobile app. 2. The user can also send the vehicle to a location (within 65m from the vehicle) by selecting this location on a map on the mobile app ("Go to target").
+</page>
+
+<page number="26">
+3.9.8.2 Detailed Function Description
+
+3.9.8.2.1 Vehicle Speed based Steering Assist.
+This function varies assist current according to vehicle speed and driver input torque. This function is to be calibrated in a joint effort between VinFast and the supplier to achieve the desired steering feel.
+</page>
+
+<page number="27">
+### 3.9.8.2 Detailed Function Description
+
+#### 3.9.8.2.2 Active Return
+The tyre and suspension system provide a self-aligning steering axis moment to ensure the system returns to the center. When the vehicle is driven at low speeds, this self-aligning torque is not adequate to overcome the system friction and dynamic forces to allow the system to return to the center. The EPS system return-to-middle algorithm will assist the suspension and tyre self-aligning torque to return the system to its middle position. This algorithm will be speed-dependent.
+
+#### Diagram Overview
+The diagram illustrates the functional components of the Active Return system. It includes:
+- Driver Steering Input signals.
+- Vehicle Speed Calculation determining speed-dependent behavior.
+- Return-to-middle control/Active Return Component assisting system alignment.
+
+Flow signals are categorized as:
+- Motor Current (direct control integration).
+- CAN Signal exchange between components.
+- Output Signal indicating EPS malfunctions, modes, or reduced operation due to excess heat or system not ready.
+</page>
+
+<page number="28">
+### 3.9.8.2 Detailed Function Description
+
+#### 3.9.8.2.1 Vehicle Speed Based Steering Assist
+This function varies assist current according to vehicle speed and driver input torque. This function is to be calibrated in a joint effort between VinFast and the supplier to achieve the desired steering feel.
+
+---
+
+#### 3.9.8.2.2 Active Return
+The tyre and suspension system provide a self-aligning steering axis moment to ensure the system returns to center. When the vehicle is driven at low speeds, this self-aligning torque is not adequate to overcome the system friction and dynamic forces to allow the system to return to center. The EPS system return-to-middle algorithm will assist the suspension and tyre self-aligning torque to return the system to its middle position. This algorithm will be speed-dependent.
+
+---
+
+#### 3.9.8.2.3 Active Damping
+The closed-loop steering control system requires a level of input/output force dampening to ensure a natural steering feel and system stability. The algorithm uses vehicle speed and steering angle rate of change referenced to a calibrated chart to determine the output motor current overlay.
+</page>
+
+<page number="29">
+3.9.8.2 Detailed Function Description.
+
+3.9.8.2.4 Friction Compensation.
+Friction compensation is used to compensate the friction of the system. The compensation is determined by using the vehicle speed referenced on the calibration file to apply an overall multiplication factor to the assist current.
+</page>
+
+<page number="30">
+3.9.8.2 Detailed Function Description.
+
+3.9.8.2.1 Vehicle Speed based Steering Assist.
+This function varies assist current according to vehicle speed and driver input torque. This function is to be calibrated in a joint effort between VinFast and the supplier to achieve the desired steering feel.
+
+3.9.8.2.2 Active Return.
+The tyre and suspension system provide a self-aligning steering axis moment to ensure the system returns to the center. When the vehicle is driven at low speeds, this self-aligning torque is not adequate enough to overcome the system friction and dynamic forces to allow the system to return to the center. The EPS system return-to-middle algorithm will assist the suspension and tyre self-aligning torque to return the system to its middle position. This algorithm will be speed-dependent.
+
+3.9.8.2.3 Active Damping.
+The closed-loop steering control system requires a level of input/output force dampening to ensure a natural steering feel and system stability. The algorithm uses vehicle speed and steering angle rate of change referenced to a calibrated chart to determine the output motor current overlay.
+
+3.9.8.2.4 Friction Compensation.
+Friction compensation is used to compensate the friction of the system. The compensation is determined by using the vehicle speed referenced on the calibration file to apply an overall multiplication factor to the assist current.
+
+3.9.8.2.5 Inertia Compensation.
+Inertia control algorithm is used to compensate the motor’s polar moment of inertia. The algorithm uses the EPS motor’s acceleration referenced against the inertia calibration chart to apply an assist current overlay. It is related to vehicle speed, torque, angular speed, and the output value is provided as current.
+</page>
+
+<page number="31">
+3.9.8.2 Detailed Function Description.
+
+3.9.8.2.6 Temperature Protection.
+The system must monitor the ECU operating temperature to ensure safe temperature operating limits. 
+
+In the event of an operating temperature higher than the allowable limit, the system must detect the problem and implement a protection strategy to ensure the system does not experience any damage due to the high operating temperature.
+</page>
+
+<page number="32">
+### 3.9.8.2 Detailed Function Description
+
+#### 3.9.8.2.1 Vehicle Speed Based Steering Assist
+This function varies assist current according to vehicle speed and driver input torque. This function is to be calibrated in a joint effort between VinFast and the supplier to achieve the desired steering feel.
+
+#### 3.9.8.2.2 Active Return
+The tyre and suspension system provide a self-aligning steering axis moment to ensure the system returns to its center. When the vehicle is driven at low speeds, this self-aligning torque is not adequate enough to overcome system friction and dynamic forces to allow the system to return to the center. The EPS system return-to-middle algorithm assists the suspension and tyre self-aligning torque to return the system to its middle position. This algorithm is speed-dependent.
+
+#### 3.9.8.2.3 Active Damping
+The closed-loop steering control system requires a level of input/output force dampening to ensure a natural steering feel and system stability. The algorithm uses vehicle speed and steering angle rate of change referenced to a calibrated chart to determine the output motor current overlay.
+
+#### 3.9.8.2.4 Friction Compensation
+Friction compensation is used to compensate for the friction of the system. The compensation is determined by using the vehicle speed referenced on the calibration file to apply an overall multiplication factor to the assist current.
+
+#### 3.9.8.2.5 Inertia Compensation
+The inertia control algorithm is used to compensate for the motor’s polar moment of inertia. The algorithm uses the EPS motor’s acceleration, referenced against the inertia calibration chart, to apply an assist current overlay. It is related to vehicle speed, torque, angular speed, and the output value is expressed as current.
+
+#### 3.9.8.2.6 Temperature Protection
+The system monitors the ECU operating temperature to ensure safe operating limits. In the event of an operating temperature higher than the allowable limit, the system detects the problem and implements a protection strategy to ensure the system does not experience damage due to high operating temperatures.
+
+#### 3.9.8.2.7 Soft End Stops
+The main function of the protection controls is to protect the motor and controllers from damage caused by abnormal environmental or abusive operating conditions. This protection feature provides the system with a ‘soft stop’ at the end of the rack travel to ensure the mechanical end-of-lock impact force is minimized.
+</page>
+
+<page number="33">
+### 3.9.8.2 Detailed Function Description
+
+#### 3.9.8.2.8 Shimmy Compensation
+The shimmy compensation function shall evaluate the compensation factor for the motor to overcome the steering wheel vibrations.
+
+**Diagram Description:**
+The system comprises several components:
+- **Driver Steering Input:** Steering wheel angle and rate of change of steering wheel speed are measured as input signals.
+- **Measurement of all four-wheel Speed:** Four-wheel speed is measured and fed into the vehicle speed calculation component.
+- **Shimmy Compensation Component:** Takes inputs from the vehicle speed calculation and evaluates compensation factors for reducing steering wheel vibrations through current overlay adjustments.
+- **Interfaces:** TAS1 and TAS2 connect steering input data and measured values with the shimmy compensation mechanism.
+
+**Signals Representation:**
+1. **Green arrows:** Represent motor current.
+2. **Blue arrows:** Indicate CAN signals.
+3. **Red arrows:** Reflect output signals.
+</page>
+
+<page number="34">
+3.9.8.2.9 Pull Drift Compensation.
+
+The pull drift compensation function shall calculate and apply a torque offset, which shall compensate for the pull drift force of the vehicle.
+</page>
+
+<page number="35">
+3.9.8.2.10 Selectable Steering Modes.
+This function allows the system to switch from different steering feel calibration maps stored in the memory when different steering modes are selected.
+
+4 Function Safety, Homologation and Safety Regulations.
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+4.1 Functional Safety Requirements.
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.
+
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles - Functional safety.
+</page>
+
+<page number="36">
+4.2 Deliverables for Functional Safety
+Indicative RASIC* for expected deliverables:
+
+5.5 Work products:
+- **5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2.**  
+  VINFAST: R  
+  SUPPLIER: I  
+
+- **5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.**  
+  VINFAST: R  
+  SUPPLIER: S  
+
+- **5.5.3 Supplier's project plan resulting from requirement 5.4.3.**  
+  VINFAST: A  
+  SUPPLIER: R  
+
+- **5.5.4 Supplier's safety plan resulting from requirement 5.4.3.**  
+  VINFAST: A  
+  SUPPLIER: R  
+
+- **5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5.**  
+  VINFAST: I  
+  SUPPLIER: R  
+
+- **5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.**  
+  VINFAST: R  
+  SUPPLIER: S  
+
+- **6.5.3 Safety case, resulting from 6.4.6.**  
+  VINFAST: A  
+  SUPPLIER: R  
+
+*RASIC description in section “Deliverables”.
+
+---
+
+a) **FUSA Deliverables expected before nomination**  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5.  
+  *Note:* The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+---
+
+b) **FUSA Deliverables expected after nomination**  
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered.  
+  *Note:* The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities.  
+  *Note:* The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+</page>
+
+<page number="37">
+4.3 Homologation and Safety Regulation Requirements.
+
+4.3.1 North America.
+
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal motor vehicle safety standards (FMVSS), and Canadian motor vehicle safety standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b. Self-certification and test report(s).  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain of the FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of the Manufacturer Handbook.  
+
+c. Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of non-compliance or a safety-related defect.  
+The supplier must propose appropriate risk assessment and resolution plans.  
+
+4.3.2 Europe.
+
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.  
+
+b. Test report(s) and Certificate(s).  
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.
+</page>
+
+<page number="38">
+4.3 Homologation and safety regulation requirements
+
+4.3.1 North America  
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS). The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. Self-certification and test report(s).  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of the Manufacturer Handbook.
+
+c. Duty to notify VinFast of a non-compliance with FMVSS/CMVSS or European regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+4.3.2 Europe  
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.  
+
+b. Test report(s) and Certificate(s).  
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+VinFast requests the supplier to conduct tests as specified in certain UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+VinFast also requests suppliers to provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities in order to get certification for the EC vehicle type-approval (if any).  
+The supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.  
+
+c. Duty to notify VinFast of non-compliance with UN-ECE regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+5 Deliverables
+
+5.1 Technical Deliverables  
+Work Interface Chart (RASI): The main supplier obligations are described in the work interface chart (RASI). The status of the supplier ("System Development Supplier") is defined in System/Component Specification.  
+RASI is defined as followed:  
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+- **A: Approval**  
+  Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution "R" is the decider.  
+- **S: Support**  
+  Obligated to provide active support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution "R" in achieving the targets.  
+- **I: Information**  
+  Right to information. This team member is entitled to demand information from "R."
+</page>
+
+<page number="39">
+## 5.2 Details Deliverables and RASI  
+
+### Need to revise the date of RASI according to Timing Gate.
+
+| No | Gate | Stage         | Deliverable                                                                           | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|---------------|---------------------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1  | PV   | CONCEPT PHASE | List of Concept in Commodity                                                          | R              | S             | I        | I   | I             |
+| 2  | PV   |               | SOR for Concept in Commodity                                                         | R              | S             | I        | I   | I             |
+| 3  | PPS  |               | SOB through LOI - Letter of Intent for Concept in Commodity                           | S              | R             | S        | I   | I             |
+| 4  | PPS  |               | EDD order release for Concept in Commodity                                           | S              | R             | S        | I   | I             |
+| 5  | PPS  |               | Deliver Bill of Materials in Team Center                                             | R              | I             | I        | I   | I             |
+| 6  | PPS  |               | Supply Chain Strategy - Deliver Sourcing Strategy                                    | S              | R             | I        | S   | I             |
+| 7  | PPS  |               | Commodity Timing plan in each business area supports Program Timing                   | S              | S             | R        | S   | I             |
+| 8  | PPS  |               | Organization and resources for the concept phase, resource planning for series        | S              | S             | R        | S   | I             |
+| 9  | PPS  |               | Opportunities and risks for the program have been detailed and measures defined -     | A              | S             | R        | S   | I             |
+|    |      |               | Cost reductions, Design Optimization, Timing Optimization                            |                |               |          |     |               |
+| 10 | PPS  |               | Quality planning to meet program requirements - APQP Kickoff                         | R              | S             | S        | S   | I             |
+| 11 | PPS  |               | Concept proposal for engineering review and finalization - For Concept Commodity     | A              | I             | R        | I   | I             |
+| 12 | PPS  |               | Concept & Proposal Development to meet the target material cost                      | A              | I             | R        | I   | I             |
+| 13 | PPS  |               | Parts list and BoM available; target values for lead vehicle cost and weight verified | A              | I             | R        | I   | I             |
+|    |      |               | -C Class                                                                              |                |               |          |     |               |
+| 14 | PPS  |               | Initial CAD Data to support C class development for Concept Commodity                | A              | I             | R        | I   | I             |
+| 15 | PPS  |               | System & Sub-system Functional Targets agreed and cascaded to Component level,       | A              | S             | R        | I   | I             |
+|    |      |               | In-line with Complete Vehicle Targets                                                |                |               |          |     |               |
+| 16 | PPS  |               | DVP (virtual and physical testing) for System, Sub-system & Component Level          | A              | S             | R        | I   | I             |
+|    |      |               | in-line with Complete Vehicle Specification book in the concept phase.               |                |               |          |     |               |
+|    |      |               | Detailed test plan for hardware tests.                                               |                |               |          |     |               |
+| 17 | TA   |               | Package study to support B class surface development                                 | A              | I             | R        | I   | I             |
+| 18 | PPS  |               | Manufacturing feasibility for CAS development for Concept Commodity                  | A              | I             | R        | I   | I             |
+| 19 | PPS  |               | Design and Validation & Testing plan for Concept Commodity                           | A              | I             | R        | I   | I             |
+| 20 | TA   |               | Parts list and BoM available; target values for lead vehicle cost and weight          | A              | I             | R        | I   | I             |
+|    |      |               | verified-B Class                                                                      |                |               |          |     |               |
+| 21 | TA   |               | Parts list and BoM available; target values for lead vehicle cost and weight          | A              | I             | R        | I   | I             |
+|    |      |               | verified-A Class                                                                      |                |               |          |     |               |
+| 22 | TA   |               | Contract Series development - LON for Concept Commodity / LON for B2P Commodity      | A              | R             | S        | I   | I             |
+| 23 | TA   |               | Timing Plan for the Complete Program detailing milestones and critical activities for | A              | S             | R        | I   | I             |
+|    |      |               | B2P Commodity                                                                         |                |               |          |     |               |
+| 24 | TA   |               | Organization and resources for the concept phase, resource planning for series       | A              | S             | R        | I   | I             |
+|    |      |               | development                                                                           |                |               |          |     |               |
+| 25 | TA   |               | RPS / Location and fixation strategy developed and reviewed (Before B Class Freeze)  | A              | S             | R        | I   | I             |
+| 26 | TA   |               | DMU study for system level and sub system level                                      | A              | S             | R        | I   | I             |
+| 27 | TA   |               | Functional CAE analysis                                                              | A              | S             | R        | I   | I             |
+| 28 | TA   |               | EE - Component Data Sheet (CDS) inputs                                               | A              | S             | R        | I   | I             |
+| 29 | TA   |               | Manufacturing feasibility for Built to Print Commodities                             | A              | S             | R        | I   | I             |
+</page>
+
+<page number="40">
+5.2 Details deliverables and RASI.
+
+Need revise date of RASI follow Timing Gate.
+
+| No | Gate | Stage                          | Deliverable                                                                                   | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|--------------------------------|----------------------------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 30 | TA   | Stamping / Mold flow analysis for Concept commodity                                               | A               | S             | R        | I   | I             |
+| 31 | TA   | DFMEA for Concept Commodity / SC/CC & Key characteristics Controls                                 | A               | S             | R        | I   | I             |
+| 32 | TA   | DTS - Fit and Finish document confirm gap and finish strategy for system & sub system level        | A               | S             | R        | I   | I             |
+| 33 | TA   | 3D design for B car class surface to be completed                                                  | A               | S             | R        | I   | I             |
+| 34 | TA   | 3D CAD and 2D - Drawing submission to VinFast Engineering for P & I release                        | A               | S             | R        | I   | I             |
+| 35 | TA   | Tool order release for long lead parts, P Release for Tool Design and I Release for Tool Hardware, PR Release for tool machining | S               | R             | S        | I   | I             |
+| 36 | TA   | CAD release for P & I for Long lead tooling kick-off                                               | A               | S             | R        | I   | I             |
+| 37 | TA   | 3D design to be finalized before A class (One week before TA)                                      | A               | S             | R        | I   | I             |
+| 38 | TA   | Feasibility confirmation to support A class surface development                                    | A               | S             | R        | I   | I             |
+| 39 | TA   | Development strategy for each Attributes confirmed and available for the serial development phase. | A               | S             | R        | I   | I             |
+| 40 | TA   | System, Sub-System & Component Level DVP for the Serial Development Phase has been created and agreed. | A             | S             | R        | I   | I             |
+| 41 | TA   | Define tooling concept / injection points /...                                                     | S               | I             | R        | S   | I             |
+| 42 | TA   | Feasibility / manufacturing study and confirmation for parts                                       | S               | I             | R        | S   | I             |
+| 43 | TA   | Technical and Styling Convergence (By PR)                                                         | A               | S             | R        | I   | I             |
+| 44 | TA   | 3D CAD and 2D - Drawing Submission to VinFast Engineering for review & Commercial quote for PR level design | A        | S             | R        | I   | I             |
+| 45 | PR   | VinFast review and release the PR CAD and 2D Drawing                                               | R               | S             | S        | I   | A             |
+| 46 | CC   | PFMEA                                                                                              | S               | I             | R        | A   | I             |
+| 47 | CC   | Commercial finalization for PR level design                                                       | S               | R             | S        | I   | I             |
+| 48 | CC   | System, Sub-System & Component Level DV Complete.                                                 | A               | S             | R        | I   | I             |
+| 49 | CC   | Deviations to module targets detected and measures agreed.                                        | A               | S             | R        | I   | I             |
+| 50 | CC   | Tooling order releases for all parts                                                              | I               | R             | S        | I   | I             |
+| 51 | CC   | Engineering change management release kick-off                                                   | R               | S             | S        | S   | S             |
+| 52 | CC   | On-going engineering change management                                                           | R               | S             | S        | S   | S             |
+| 53 | LS   | Process Validation Completion before LS                                                          | A               | S             | R        | I   | I             |
+| 54 | PTO  | Parts fit to nominal                                                                               | S               | I             | S        | R   | I             |
+| 55 | PTO  | System, Sub-System & Component Level PV Complete.                                                 | A               | S             | R        | S   | I             |
+| 56 | PTO  | System, Sub-System & Component Level target achievement confirmed.                                | A               | S             | R        | S   | I             |
+| 57 | LS   | Part level - Appearance approval, Color harmony, Grain approval                                   | A               | I             | R        | S   | I             |
+| 58 | LS   | Engineering sign-off                                                                              | A               | S             | S        | S   | S             |
+</page>
+
+<page number="41">
+6 Supplier responsibilities  
+Supplier is responsible to provide/ensure while completing the work. Supplier Responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.  
+
+**Customer service requirements**  
+
+**After-sales spare parts should be ready at startup**  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+**Spare Parts Support Cycle**  
+The support period of after-sales spare parts shall need ensure life cycles of project and requirements in GTC after VINFAST end of production of the whole vehicle, except as specified in this SPB.  
+
+**Maintenance Information of After-Sale Spare Parts**  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc).  
+
+---
+
+7 Intellectual Property / Copyright  
+Refer to VinFast General Term and Condition (GTC).  
+
+---
+
+8 Insurance / Warranties  
+Refer to VinFast General Term and Condition (GTC).  
+
+---
+
+9 VinFast GTC & Part Packaging and Incoterms  
+Refer to VinFast General Term and Condition, Part packaging requirements and Incoterms requirement in the RFQ package.
+</page>
+
+<page number="42">
+10 Definitions and List of Abbreviations.
+
+DVP&R: Design Verification Plan & Report.
+
+ESO: Engineering Sign Off.
+
+GTC: General Term and Condition.
+
+LLS: Long Lead Suppliers on board.
+
+LLT: Long Lead Tooling.
+
+LOI: Letter of Intend.
+
+MFC: Manufacturing Feasibility Confirmation.
+
+MSC: Manufacturing Strategy Confirmation.
+
+MSI: Major Suppliers Identified.
+
+MSO: Manufacturing Sign Off.
+
+OTS: Off The Shelf.
+
+PTP: Prototype Parts out of Serial tooling (Hand finished).
+
+RFQ: Request For Quotation.
+
+SLS: Short Lead Suppliers on board.
+
+SOB: Supplier on Board.
+
+SOP: Start of Production.
+
+SOP-ID: SOP-Implementation Date.
+
+SOP-LM: SOP Launch Model (1 specific Model – “Edition”).
+
+SPB: Specifications Book.
+
+SST: Sourcing Strategy.
+
+TS: Theme selection Model.
+
+FUSA: Function Safety.
+
+T&V: Testing & Validation.
+
+IMDS: International Material Information System.
+
+SC: Significant Characteristic.
+
+CC: Critical Characteristic.
+</page>
+</pages>

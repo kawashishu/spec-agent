@@ -1,0 +1,2068 @@
+Page 1
+FUNCTIONAL SPECIFICATION.
+
+Auto High Beam.
+
+SCOPE: VF8 / VF9.
+
+Function owner: Vu Hoang Duong (v.duongvh3@vinfast.vn).
+Page 2
+Table of contents.
+
+16 / APL30_AHB ......................................................................... 5  
+16.1 / HMA Customer Requirement Specification ......................... 5  
+16.2 / Document Management ...................................................... 6  
+16.3 / Purpose ............................................................................... 6  
+16.4 / Glossary ............................................................................... 7  
+16.5 / Function Overview .............................................................. 7  
+16.6 / Function Architecture ......................................................... 8  
+16.7 / Function Description ........................................................... 8  
+
+16.7.1 / High Beam Suppression Conditions ................................. 10  
+16.7.1.1 / High beam open ........................................................... 10  
+16.7.1.2 / High beam prohibited .................................................. 11  
+16.7.1.3 / Vehicle Speed Condition .............................................. 11  
+16.7.1.4 / Ambient Light Activation Condition ............................... 11  
+16.7.1.5 / Vehicle Lights Detection ............................................... 12  
+
+16.7.1.5.1 / System should detect the vehicle as defined in following requirements ........................................................... 12  
+16.7.1.5.1.1 / Oncoming vehicles with at least one visible headlight shall be detected ................................................................. 13  
+16.7.1.5.1.2 / Preceding vehicles with at least one visible taillight shall be detected ................................................................. 13  
+16.7.1.5.1.3 / The system shall be able to detect vehicles with Halogen, Xenon or LED headlights ......................................... 13  
+16.7.1.5.1.4 / The system shall be able to detect vehicles with filament or LED taillights ......................................................... 13  
+
+16.7.1.5.2 / High Beam Reactivation Grace .................................. 14  
+16.7.1.5.2.1 / Oncoming Vehicle Grace Period ....................... 15  
+16.7.1.5.2.2 / Preceding Vehicle Grace Period ....................... 16  
+
+16.7.1.6 / Low beam in a curve ..................................................... 16  
+16.7.1.7 / Urban Area Detection ................................................... 17  
+16.7.1.7.1 / Streetlight Region Detection .................................. 17  
+16.7.1.7.2 / Urban Area Judgement .......................................... 18
+Page 3
+Table of Contents.
+
+16 / APL30_AHB:
+16.1 / HMA Customer Requirement Specification..................................................................... 5
+16.2 / Document Management.................................................................................................. 6
+16.3 / Purpose......................................................................................................................... 6
+16.4 / Glossary........................................................................................................................ 7
+16.5 / Function Overview......................................................................................................... 7
+16.6 / Function Architecture..................................................................................................... 8
+16.7 / Function Description...................................................................................................... 8
+
+16.7.1 / High Beam Suppression Conditions:
+16.7.1.1 / High beam open................................................................................................. 10
+16.7.1.2 / High beam prohibited........................................................................................ 11
+16.7.1.3 / Vehicle Speed Condition................................................................................... 11
+16.7.1.4 / Ambient Light Activation Condition................................................................... 11
+16.7.1.5 / Vehicle Lights Detection................................................................................... 12
+
+16.7.1.5.1 / System should detect the vehicle as defined in following requirements:
+16.7.1.5.1.1 / Oncoming vehicles with at least one visible headlight shall be detected...... 13
+16.7.1.5.1.2 / Preceding vehicles with at least one visible taillight shall be detected........ 13
+16.7.1.5.1.3 / The system shall be able to detect vehicles with Halogen, Xenon, or LED headlights......................................................................................................................... 13
+16.7.1.5.1.4 / The system shall be able to detect vehicles with filament or LED taillights..... 13
+
+16.7.1.5.2 / High Beam Reactivation Grace:
+16.7.1.5.2.1 / Oncoming Vehicle Grace Period.................................................................. 15
+16.7.1.5.2.2 / Preceding Vehicle Grace Period.................................................................. 16
+
+16.7.1.6 / Low beam in a curve.......................................................................................... 16
+16.7.1.7 / Urban Area Detection:
+16.7.1.7.1 / Streetlight Region Detection........................................................................... 17
+16.7.1.7.2 / Urban Area Judgement.................................................................................. 18
+
+16.7.1.8 / Vehicle overtaking.............................................................................................. 18
+16.7.1.9 / Junction Behaviour Requirements..................................................................... 19
+16.7.1.10 / Tunnel Detection............................................................................................... 19
+16.7.1.11 / Heavy Rain Condition....................................................................................... 20
+16.7.1.12 / Fog Light Condition......................................................................................... 20
+16.7.1.13 / Driving Direction Condition............................................................................ 20
+16.7.1.14 / BCM Override Condition................................................................................ 21
+
+16.7.2 / Transform Suppression Condition:
+16.7.2.1 / Low Priority Transform Suppression:
+16.7.2.1.1 / Turning Indicator Status On.......................................................................... 21
+16.7.2.1.2 / Lateral Acceleration Condition....................................................................... 22
+16.7.2.1.3 / Yaw Rate Condition....................................................................................... 22
+
+16.7.2.2 / High Priority Transform Suppression:
+16.7.2.2.1 / ABS Active ABS............................................................................................ 22
+16.7.2.2.2 / ESP Active ESP............................................................................................ 23
+
+16.7.3 / Failsafe Condition................................................................................................... 23
+16.7.4 / Night condition....................................................................................................... 23
+16.7.5 / High Beam Active Grace...................................................................................... 23
+
+16.8 / Function Interface:
+16.8.1 / Input Signal:
+16.8.1.1 / Input Signal from HMI....................................................................................... 24
+16.8.1.2 / Input Signal from Body..................................................................................... 24
+16.8.1.3 / Input Signal from Chassis and Powertrain....................................................... 26
+
+16.8.2 / Output Signal........................................................................................................ 30
+
+16.9 / HMA State Machine:
+16.9.1 / IFC should be in OFF status if the HMA function is not configured.................... 32
+16.9.2 / If there is a related permanent fault detected, the system shall enter permanent fault status................................................................................................................. 32
+16.9.3 / If there is a related temporary fault detected, the system shall enter temporary fault status....................................................................................................................... 33
+16.9.4 / If IFC receives driver inhibit signal BCM_AHB_Override = AHB Inhibit by Driver................................................................................................................................. 33
+Page 4
+16.9.5 / / If IFC detects it is in day time, the system shall enter ‘not work’ status.
+
+16.9.6 / / If IFC detects it is in night time, the system shall enter ‘Active’, ‘Passive’, ‘low priority transform suppression’ or ‘high priority transform suppression’ status according to current conditions.
+
+16.10 / / HMI Proposal.
+
+16.11 / / Function Turning Parameters List.
+
+16.12 / / Function Performance.
+
+16.12.1 / / Detection FOV FOV.
+
+16.12.2 / / Detection Distance.
+
+16.12.3 / / Angle Accuracy.
+
+16.12.4 / / Urban Area Detection Accuracy.
+
+16.12.5 / / Detection Accuracy.
+
+16.12.6 / / Distance Accuracy.
+
+16.12.7 / / Tunnel Detection Performance.
+
+16.13 / / Regulations.
+Page 5
+16 / APL30_AHB  
+Requirement ID: FS-225896.  
+Type: --  
+Status: New.  
+
+16.1 / / HMA Customer Requirement Specification  
+Requirement ID: FS-226897.  
+Type: --  
+Status: New.  
+
+Customer: VF.  
+VF.  
+
+Name & Position:  
+
+- **Author:** Zhao Jianzhou, System Engineer.  
+- **ZF Review:** Wang Qi, System Engineer.  
+- **Customer Review:** TBD.  
+- **ZF Approve:** TBD, Engineering Manager.  
+- **Customer Approve:** TBD.  
+
+Signed:  
+
+Date:
+Page 6
+16 / APL30_AHB.
+
+Requirement ID: FS-225896.  
+Type: --.  
+Status: New.  
+
+---
+
+16.1 // HMA Customer Requirement Specification.
+
+Requirement ID: FS-226897.  
+Type: --.  
+Status: New.  
+
+Customer: VF.  
+
+**Name & Position | Signed | Date:**  
+- Author: Zhao Jianzhou, System Engineer.  
+- ZF Review: Wang Qi, System Engineer.  
+- Customer Review: TBD.  
+- ZF Approve: TBD, Engineering Manager.  
+- Customer Approve: TBD.  
+
+---
+
+16.2 // Document Management.
+
+Requirement ID: FS-226898.  
+Type: --.  
+Status: New.  
+
+**VinFast Version:**  
+- **Version | Change by | Change description | Initiator | Approver**  
+  1.0 | ECR60004069 | Initial version released for LS phase | Duong Hoai An | Ng Dennis Koon Siu.  
+  2.0 | ECR60005557 | Release for SOP phase | Duong Hoai An | Ng Dennis Koon Siu.  
+
+**Revision | Date | Prepared By | Reviewed By | Change Log**  
+- 1.0 | 2021.11.19 | Zhao Jianzhou | Wang Qi | Initial version for customer.  
+- 1.1 | 2022.08.09 | Zhao Jianzhou | Wang Qi | Update BCM override mechanism, update tuning parameters.  
+
+---
+
+16.3 // Purpose.
+Page 7
+16.2 // Document Management.
+
+Requirement ID: FS-226898. Type: --. Status: New. 
+
+Version History:  
+1.0: Change by ECR60004069. Initial version released for LS phase. Initiator: Duong Hoai An. Approver: Ng Dennis Koon Siu.  
+2.0: Change by ECR60005557. Release for SOP phase. Initiator: Duong Hoai An. Approver: Ng Dennis Koon Siu.  
+
+Revision History:  
+1.0 (Date: 2021.11.19). Prepared By: Zhao Jianzhou. Reviewed By: Wang Qi. Change Log: Initial version for customer.  
+1.1 (Date: 2022.08.09). Prepared By: Zhao Jianzhou. Reviewed By: Wang Qi. Change Log: Update BCM override mechanism and tuning parameters.
+
+16.3 // Purpose.
+
+This document is based on the HMA function discussion between ZF and VF. ZF created the draft. VF reviewed and confirmed. This document serves as the HMA function development requirement after final approval by VF and ZF.
+
+16.4 // Glossary.
+
+Requirement ID: FS-226900. Type: --. Status: New.  
+
+Glossary:  
+HMA: High Beam Assist.  
+IFC: Intelligent Front Camera.  
+BCM: Body Control Module.  
+FOV: Field of View.  
+VDC: Vehicle Dynamics Controller.
+
+16.5 // Function Overview.
+
+Requirement ID: FS-226901. Type: --. Status: New.
+Page 8
+16 / APL30_AHB.
+
+Requirement ID: FS-225896.  
+Type: --.  
+Status: New.  
+
+16.1 // HMA Customer Requirement Specification.
+
+Requirement ID: FS-226897.  
+Type: --.  
+Status: New.  
+
+Customer: VF.  
+Name & Position: Zhao Jianzhou, System Engineer.  
+Signed: TBD.  
+Date: --.  
+
+Reviewer: Wang Qi, System Engineer.  
+Signed: TBD.  
+Date: --.  
+
+Approver: TBD, Engineering Manager.  
+Signed: TBD.  
+Date: --.  
+
+Customer Approval: TBD.  
+Signed: TBD.  
+Date: --.  
+
+16.2 // Document Management.
+
+Requirement ID: FS-226898.  
+Type: --.  
+Status: New.  
+
+Version History:
+- Version 1.0, Change by: ECR60004069, Description: Initial version released for LS phase, Initiator: Duong Hoai An, Approver: Ng Dennis Koon Siu.  
+- Version 2.0, Change by: ECR60005557, Description: Release for SOP phase, Initiator: Duong Hoai An, Approver: Ng Dennis Koon Siu.  
+
+Revision History:
+- Revision 1.0, Date: 2021.11.19, Prepared by: Zhao Jianzhou, Reviewed by: Wang Qi, Change log: Initial version for customer.  
+- Revision 1.1, Date: 2022.08.09, Prepared by: Zhao Jianzhou, Reviewed by: Wang Qi, Change log: Update BCM override mechanism and tuning parameters.  
+
+16.3 // Purpose.
+
+Requirement ID: FS-226899.  
+Type: --.  
+Status: New.  
+
+This document is based on the HMA function discussion between ZF and VF. ZF created the draft. VF reviewed and confirmed this document. This document lists the final HMA function development requirements after VF and ZF approval.
+
+16.4 // Glossary.
+
+Requirement ID: FS-226900.  
+Type: --.  
+Status: New.  
+
+Acronyms:
+- HMA: High Beam Assist.
+- IFC: Intelligent Front Camera.
+- BCM: Body Control Module.
+- FOV: Field of View.
+- VDC: Vehicle Dynamics Controller.
+
+16.5 // Function Overview.
+
+Requirement ID: FS-226901.  
+Type: --.  
+Status: New.  
+
+High Beam Assist (HMA) is a driver assistance feature that supports the driver in correctly using the vehicle’s high beam. It activates the high beam automatically in dark environments for maximum visibility. It also automatically deactivates the high beam when oncoming or preceding vehicles are detected, preventing flaring of other drivers, or when streetlights signal urban areas.
+
+16.6 // Function Architecture.
+
+Requirement ID: FS-226902.  
+Type: --.  
+Status: New.  
+
+Figure Description:
+Figure 1 illustrates the HMA Feature Architecture. The diagram demonstrates how vehicle dynamics data interact with the MCU and EyeQ systems to assess conditions such as urban areas, curves, vehicle speed, and ambient light for precise high beam functionality.
+
+16.7 // Function Description.
+
+Requirement ID: FS-226903.  
+Type: --.  
+Status: New.  
+
+The HMA module in the IFC analyzes host vehicle conditions and ambient signals to determine whether the high beam should activate. IFC communicates its judgment to the BCM, which assesses this data alongside driver inputs and vehicle lighting statuses to finalize decisions. The IFC uses two judgment strategies: high beam suppression conditions and transform suppression conditions.
+Page 9
+16.7 / / Function Description.
+
+The HMA module of IFC shall judge whether the high beam should be activated based on host vehicle conditions and ambient information. IFC shall send results to the BCM, which will finalize decisions in conjunction with driver input and vehicle beam status. The HMA module of IFC employs two types of judgment strategies: high beam suppression conditions and transform suppression conditions.
+
+If there is any high beam suppression condition detected, the high beam shall be deactivated. If there is any transform suppression condition detected, the high beam status shall remain unchanged. Transform suppression conditions have higher priority than high beam suppression conditions.
+
+Figure below demonstrates the function description structure for suppression conditions:
+
+**High Beam Suppression Conditions**:
+- Vehicle Speed Condition.
+- Ambient Light Condition.
+- Vehicle Light Condition.
+- Curve Condition.
+- Urban Area Condition.
+- Overtaking Condition.
+- Junction Condition.
+- Heavy Rain Condition.
+- Fog Condition.
+- Tunnel Condition.
+- Driving Direction Condition.
+
+**Transform Suppression Conditions**:
+- **Low Priority Transform Suppression**:
+  - Tuning Indicator Status.
+  - Lateral Acceleration.
+  - Yaw Rate.
+- **High Priority Transform Suppression**:
+  - ABS Active.
+  - ESP Active.
+Page 10
+16 / APL30_AHB  
+
+Requirement ID: FS-226896  
+Type: --  
+Status: New  
+
+---
+
+16.7.1 / / High Beam Suppression Conditions  
+
+Requirement ID: FS-226904  
+Type: --  
+Status: New  
+
+There are several high beam suppression conditions as shown in Fig. 2, HMA Function.  
+
+---
+
+16.7.1.1 / / High beam open  
+
+Requirement ID: FS-226905  
+Type: --  
+Status: New  
+
+If the function is operated normally, only when all the conditions are met (valid), the high beam is allowed to be open. In this situation, the output ADAS_AHB_state shall be HighBeam Active, and ADAS_AHB_LBPos and ADAS_AHB_RBPos shall be High beam.
+Page 11
+### 16.7.1.2 / / High Beam Prohibited  
+**Requirement ID:** FS-226906  
+**Type:** --  
+**Status:** New  
+
+If any high beam suppression condition is not met, the high beam is not allowed to be open. In this situation, the output `ADAS_AHB_state` shall be `HighBeam Passive` or `Inactive` and `ADAS_AHB_LBPos` and `ADAS_AHB_RBPos` shall be `Off` or `low beam`.  
+
+---
+
+### 16.7.1.3 / / Vehicle Speed Condition  
+**Requirement ID:** FS-226907  
+**Type:** --  
+**Status:** New  
+
+Whilst the system is powered, it shall not activate the high beam if the HMA vehicle speed activation condition is not valid as defined in the following requirements:  
+
+- The HMA vehicle speed condition shall be invalid if the vehicle speed is unavailable or invalid.  
+- The HMA vehicle speed condition shall be invalid if the gear position is in reverse.  
+- The HMA vehicle speed condition shall be valid for high beam if the vehicle speed raises above `SPEED_SWITCH_HIGH_BEAM_ON1` km/h.  
+- The HMA vehicle speed condition shall be invalid for high beam if the vehicle speed falls below `SPEED_SWITCH_HIGH_BEAM_OFF1` km/h.  
+
+**Fig. 3:** Illustration of HMA Activation and Deactivation Speed Thresholds.  
+
+Note: When the system is powered-up, it shall use `SPEED_SWITCH_HIGH_BEAM_ON1` and `SPEED_SWITCH_HIGH_BEAM_ON2` as the limit.  
+
+---
+
+### 16.7.1.4 / / Ambient Light Activation Condition
+Page 12
+16.7.1.2 / / High beam prohibited.
+
+If any high beam suppression condition is not met, the high beam is not allowed to be open. In this situation, the output ADAS_AHB_state shall be HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos shall be Off or low beam.
+
+16.7.1.3 / / Vehicle Speed Condition.
+
+Whilst the system is powered, it shall not activate the high beam if the HMA vehicle speed activation condition is not valid as defined in the following requirements:
+- The HMA vehicle speed condition shall be invalid if the vehicle speed is unavailable or invalid.
+- The HMA vehicle speed condition shall be invalid if the gear position is in reverse.
+- The HMA vehicle speed condition shall be valid for high beam if the vehicle speed raises above SPEED_SWITCH_HIGH_BEAM_ON1 km/h.
+- The HMA vehicle speed condition shall be invalid for high beam if the vehicle speed falls below SPEED_SWITCH_HIGH_BEAM_OFF1 km/h.
+
+Fig 3. Illustration of HMA Activation and Deactivation Speed Thresholds:
+
+This figure illustrates the hysteresis threshold for activating and deactivating the high beam based on vehicle speed. The system uses predetermined speed limits, defined as SPEED_SWITCH_HIGH_BEAM_ON1 and SPEED_SWITCH_HIGH_BEAM_ON2, after power-up.
+
+16.7.1.4 / / Ambient Light Activation Condition.
+
+Since there is no ambient light sensor in the vehicle, the system should act based on the ambient light information from camera detection:
+- The HMA ambient light condition shall be valid when the ambient light level falls below a configurable value BS_OB_EXIT_THRESH.
+- The HMA ambient light condition shall be invalid when the ambient light level raises above a configurable value BS_OB_ENTER_THRESH.
+
+Fig 4. Illustration of HMA Activation and Deactivation Ambient Light Thresholds.
+
+This figure illustrates hysteresis for activation and deactivation of the ambient light condition. After power-up, BS_OB_EXIT_THRESH is used as the limit. The system includes a delay period defined as DELAY_HMA_INACTIVE_TO_FULL seconds to filter brief dips in light levels for accurate judgments.
+
+16.7.1.5 / / Vehicle Lights Detection.
+
+While the system is powered, it shall not activate the high beam if a preceding or oncoming vehicle is detected within a certain distance.
+
+16.7.1.5.1 / / System should detect the vehicle as defined in following requirements.
+Page 13
+16.7.1.2 / / High beam prohibited.  
+If any high beam suppression condition is not met, the high beam is not allowed to be open. In this situation, the output ADAS_AHB_state shall be HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos shall be Off or low beam.
+
+16.7.1.3 / / Vehicle Speed Condition.  
+Whilst the system is powered, it shall not activate the high beam if the HMA vehicle speed activation condition is not valid as defined in the following requirements:
+- The HMA vehicle speed condition shall be invalid if the vehicle speed is unavailable or invalid.
+- The HMA vehicle speed condition shall be invalid if the gear position is in reverse.
+- The HMA vehicle speed condition shall be valid for high beam if the vehicle speed raises above SPEED_SWITCH_HIGH_BEAM_ON1 km/h.
+- The HMA vehicle speed condition shall be invalid for high beam if the vehicle speed falls below SPEED_SWITCH_HIGH_BEAM_OFF1 km/h.
+
+**Fig 3. Illustration of HMA Activation and Deactivation Speed Thresholds.**  
+Note: When the system is powered-up, it shall use SPEED_SWITCH_HIGH_BEAM_ON1 and SPEED_SWITCH_HIGH_BEAM_ON2 as the limit.
+
+16.7.1.4 / / Ambient Light Activation Condition.  
+Since there is no ambient light sensor in the vehicle, the system should act depending on the ambient light information from camera detection.  
+- The HMA ambient light condition shall be valid when the ambient light level falls below a configurable value BS_OB_EXIT_THRESH.  
+- The HMA ambient light condition shall be invalid when the ambient light level rises above a configurable value BS_OB_ENTER_THRESH.  
+
+**Fig 4. Illustration of HMA Activation and Deactivation Ambient Light Thresholds.**  
+Note: This condition shall use BS_OB_EXIT_THRESH as the limit after the system is powered-up.  
+Once the ambient light condition is satisfied, the system should have a delay period of DELAY_HMA_INACTIVE_TO_FULL seconds, and then convert the judgment condition to valid.  
+
+Note: The additional delay period allows for the system to filter out brief dips in ambient lighting, thereby ensuring that the ambient light has met the right conditions before operating.
+
+16.7.1.5 / / Vehicle Lights Detection.  
+While the system is powered, it shall not activate the high beam if a preceding vehicle or an oncoming vehicle has been detected in a certain distance.
+
+16.7.1.5.1 / System should detect the vehicle as defined in the following requirements:
+
+16.7.1.5.1.1 / Oncoming vehicles with at least one visible headlight shall be detected.  
+16.7.1.5.1.2 / Preceding vehicles with at least one visible taillight shall be detected.  
+16.7.1.5.1.3 / The system shall be able to detect vehicles with Halogen, Xenon, or LED headlights.  
+16.7.1.5.1.4 / The system shall be able to detect vehicles with filament or LED taillights.  
+
+Although the system may have the capability of detecting vehicle lights at great distances, the ability to limit the reaction distance to a lower value to increase the amount of time that the host vehicle spends with its high beam on is necessary. This also should consider the distance accuracy performance.
+Page 14
+16.7.1.5.2 High Beam Reactivation Grace.
+
+Requirement ID: FS-226915.  
+Type: --.  
+Status: New.  
+
+To prevent high beam ON/OFF converting frequently, it is necessary to delay a period for reactivating the high beam for inhibition condition disappearing. This is called "Grace Period."
+
+Where multiple types of light sources (headlight and taillights) lead to deactivating the high beam, the final reactivation grace period shall be based on the last light source that was visible in the Field of View (FOV). For instance, if a taillight is the last light source to leave the FOV before the grace periods become active, the system shall utilize the applicable grace period for the current taillight scenario.
+
+The next sections introduce details of the grace period in different conditions, and conclude all parameters as follows:
+
+| Vehicle        | Disappear Condition          | High Beam Reactivation Grace Period         | Default Value                       |
+|----------------|------------------------------|---------------------------------------------|-------------------------------------|
+| (Details to follow in subsequent sections) |
+Page 15
+16.7.1.5.2 High Beam Reactivation Grace.
+
+To prevent high beam ON/OFF converting frequently, it is necessary to delay a period for reactivating the high beam for inhibition condition disappearing. This is called “Grace Period.” 
+
+Where multiple types of light sources (headlight and taillights) lead to deactivating the high beam, the final reactivation grace period shall be based on the last light source that was visible in the FOV. For example, if a taillight is the last light source to leave the FOV before the grace periods become active, the system shall utilize the applicable grace period for the current taillight scenario.
+
+Vehicle disappear conditions and default values:
+- Vehicle: Oncoming Vehicle.
+  1. Past FOV: CONTROLLER_OC_NORMAL_TIME_DELAY, 500ms.
+  2. Disappear in FOV: CONTROLLER_OC_MIDDLE_DISAP_TIME_DELAY, 1500ms.
+  3. Past FOV (Highway): CONTROLLER_OC_NORMAL_TIME_DELAY_HW, 2500ms.
+  4. Disappear in FOV (Highway): CONTROLLER_OC_MIDDLE_DISAP_TIME_DELAY_HW, 1000ms.
+- Vehicle: Preceding Vehicle.
+  1. Past FOV: CONTROLLER_TL_NORMAL_TIME_DELAY, 0ms.
+  2. Disappear in FOV: CONTROLLER_TL_MIDDLE_DISAP_TIME_DELAY, 2500ms.
+
+16.7.1.5.2.1 Oncoming Vehicle Grace Period.
+
+Requirement ID: FS-226916.
+Type: --
+Status: New.
+
+If the high beam is deactivated as a result of an oncoming vehicle and the oncoming vehicle drives past the host vehicle before its headlights leave the camera's FOV (i.e., the light leaves the FOV either on the left or right of the image before disappearing), the system shall allow an additional period of CONTROLLER_OC_NORMAL_TIME_DELAY seconds to elapse before reactivating the high beam.
+Page 16
+16.7.1.5.2.1 // Oncoming Vehicle Grace Period.
+
+Requirement ID: FS-226916.  
+Type: --  
+Status: New.  
+
+If the high beam is deactivated as a result of an oncoming vehicle and the oncoming vehicle drives past the host vehicle before its headlights leave the camera's FOV (i.e., the light leaves the FOV either on the left or right of the image before disappearing), the system shall allow an additional period of CONTROLLER_OC_NORMAL_TIME_DELAY seconds to elapse before reactivating the high beam.  
+If the high beam is deactivated as a result of an oncoming vehicle and the oncoming vehicle's headlights disappear from the camera's FOV in the middle of the scene (i.e., the light does not leave the FOV either on the left or right of the image before disappearing), the system shall allow an additional period of CONTROLLER_OC_MIDDLE_DISAP_TIME_DELAY seconds to elapse before reactivating the high beam.  
+If the vehicle is driving on a highway according to road type detection by the camera, the parameters above shall be CONTROLLER_OC_NORMAL_TIME_DELAY_HW and CONTROLLER_OC_MIDDLE_DISAP_TIME_DELAY_HW.  
+
+16.7.1.5.2.2 // Preceding Vehicle Grace Period.  
+
+Requirement ID: FS-226917.  
+Type: --  
+Status: New.  
+
+If the high beam is deactivated as a result of a preceding car and the host vehicle drives past the preceding vehicle before its taillights leave the camera's FOV (i.e., the light leaves the FOV either on the left or right of the image before disappearing), the system shall allow a minimum period of CONTROLLER_TL_NORMAL_TIME_DELAY seconds to elapse before reactivating the high beam.  
+If the high beam is deactivated as a result of a preceding car and the preceding vehicle's taillights disappear without leaving the camera's FOV at the sides of the image (i.e., the light disappears in the distance e.g., due to curve, trees, or other reasons), the system shall allow an additional period of CONTROLLER_TL_MIDDLE_DISAP_TIME_DELAY seconds to elapse before reactivating the high beam.  
+
+16.7.1.6 // Low beam in a curve.  
+
+Requirement ID: FS-226918.  
+Type: --  
+Status: New.  
+
+A 'curvy situation' is defined as the host vehicle being on a road section with a curve radius less than CONTROLLER_IN_CURVE_RADIUS_ENTER_THRESH.  
+Once a 'curvy situation' has been encountered by the host vehicle, the 'curvy situation' is classed as no longer being present once the host vehicle enters a road section where the curve radius exceeds CONTROLLER_IN_CURVE_RADIUS_EXIT_THRESH.  
+
+If the high beam is deactivated as a result of driving past an oncoming vehicle whilst in a curvy situation, in addition to the normal oncoming headlight delays, the system shall allow an additional period of CONTROLLER_OC_CURVE_TIME_DELAY to elapse before reactivating the high beam, once the oncoming vehicle is no longer present and no other factors keeping the high beam deactivated.  
+
+The above requirement is necessary to protect against dazzling other vehicles in a curve due to the limited FOV of the camera.
+Page 17
+16.7.1.6 // Low beam in a curve.
+
+Requirement ID: FS-226918.  
+Type: --.  
+Status: New.  
+
+A 'curvy situation' is defined as the host vehicle being on a road section with a curve radius less than CONTROLLER_IN_CURVE_RADIUS_ENTER_THRESH. Once a 'curvy situation' has been encountered by the host vehicle, the 'curvy situation' is classed as no longer being present once the host vehicle enters a road section where the curve radius exceeds CONTROLLER_IN_CURVE_RADIUS_EXIT_THRESH.  
+
+If the high beam is deactivated as a result of driving past an oncoming vehicle whilst in a curvy situation, in addition to the normal oncoming headlight delays, the system shall allow an additional period of CONTROLLER_OC_CURVE_TIME_DELAY to elapse before reactivating the high beam, once the oncoming vehicle is no longer present and no other factors keep the high beam deactivated.  
+
+This requirement is necessary to protect against dazzling other vehicles in a curve due to the limited FOV of the camera.  
+
+If the high beam is deactivated in a curve with a radius less than CONTROLLER_IN_VERY_SHARP_CURVE_RADIUS_ENTER_THRESH, the system shall refrain from reactivating the high beam until the curve radius is larger than CONTROLLER_IN_VERY_SHARP_CURVE_RADIUS_EXIT_THRESH (regardless of the state of the high beam activation conditions).  
+
+Fig. 5. Sharp curving condition radius threshold.  
+
+16.7.1.7 // Urban Area Detection.
+
+Requirement ID: FS-226919.  
+Type: --.  
+Status: New.  
+
+The system shall detect if the area is an urban area by using a combination of ambient light and streetlight detection.  
+
+Fig. 6. Urban Area.  
+
+16.7.1.7.1 // Streetlight Region Detection.
+
+Requirement ID: FS-226920.  
+Type: --.  
+Status: New.
+Page 18
+16.7.1.7.2 // Urban Area Judgement.
+
+Requirement ID: FS-226921. Type: --. Status: New.
+
+If the host vehicle speed falls below LN_ONLY_SL_SPEED_EXIT km/h, the system shall recognise the presence of an urban area or village (lit areas) if the system has detected that the vehicle is operating in a streetlight region.
+
+Whilst in an urban area and the host vehicle speed has not yet risen above LN_ONLY_SL_SPEED_ENTER km/h, the system shall determine that the vehicle is no longer operating in an urban area when the streetlight region can no longer be detected.
+
+If the host vehicle speed rises above LN_ONLY_SL_SPEED_ENTER km/h, the system shall recognise the presence of an urban area or village (lit areas) if the system has detected that the vehicle is operating in a streetlight region and the ambient light level measured by the camera is greater than BS_ENTER_THRESH.
+
+Whilst in an urban area and the host vehicle speed has not yet fallen below LN_ONLY_SL_SPEED_EXIT km/h, the system shall determine that the vehicle is no longer operating in an urban area when either the streetlight region can no longer be detected, or the ambient light level measured by the camera is less than BS_EXIT_THRESH.
+
+16.7.1.8 // Vehicle Overtaking.
+
+Requirement ID: FS-226922. Type: --. Status: New.
+
+When the host vehicle has its high beam deactivated whilst overtaking a preceding vehicle and the time to overtake the vehicle exceeds the minimum period of CONTROLLER_TL_NORMAL_TIME_DELAY seconds, in the absence of all other high beam deactivation factors, the system shall only reactivate the high beam once the longitudinal angle of the camera to the leading edge of the front bumper has reached an absolute angle of CONTROLLER_TL_OVERTAKE_HIGH_BEAM_SIDEWAYS_ANGLE degrees.
+Page 19
+16.7.1.8 / / Vehicle overtaking.
+
+Requirement ID: FS-226922.
+Type: --.
+Status: New.
+
+When the host vehicle has its high beam deactivated whilst overtaking a preceding vehicle and the time to overtake the vehicle exceeds the minimum period of CONTROLLER_TL_NORMAL_TIME_DELAY seconds, in the absence of all other high beam deactivation factors, the system shall only reactivate the high beam once the longitudinal angle of the camera to the leading edge of the front bumper has reached an absolute angle of CONTROLLER_TL_OVERTAKE_HIGH_BEAM_SIDEWAYS_ANGLE degrees.
+
+This requirement assumes that the system considers the length of the vehicle being passed and the relative velocity between the vehicles. If the actual length of the vehicle being passed cannot be determined by the system, an assumed length of CONTROLLER_TL_OVERTAKE_VEHICLE_LENGTH meters (for cars) or CONTROLLER_TL_OVERTAKE_TRUCK_LENGTH meters (for trucks) may be utilized by the system.
+
+This requirement is also only valid as long as the relative velocity between the vehicles is constant and at least 0.5 m/s.
+
+16.7.1.9 / / Junction Behaviour Requirements.
+
+Requirement ID: FS-226923.
+Type: --.
+Status: New.
+
+If configuration parameter CONTROLLER_LOW_BEAM_ON_JUNCTION is set to 'true', the system shall not activate the high beam whilst approaching a junction indicated by the detection of fixed or blinking traffic lights on the current roadway that the host vehicle is travelling on.
+
+Fig 7. Junction condition.
+This figure visually demonstrates a roadway junction with fixed or blinking traffic lights, highlighting conditions under which the high beam should remain deactivated when approaching such areas.
+
+16.7.1.10 / / Tunnel Detection.
+
+Requirement ID: FS-226924.
+Type: --.
+Status: New.
+
+To protect other vehicles from glaring, the host vehicle should not activate high beams in tunnels. Below are some pictures of typical tunnels.
+
+Fig 8. Tunnel Conditions.
+These images illustrate common tunnel conditions in which the high beam activation would be considered unsuitable to prevent vehicle dazzling.
+Page 20
+16.7.1.10 / / Tunnel Detection.
+
+Requirement ID: FS-226924.
+Type: --.
+Status: New.
+
+Fig 8 depicts typical tunnel conditions. If configuration parameter `CONTROLLER_LOW_BEAM_ON_TUNNEL` is set to 'true', the system shall not activate the high beam whilst the system detects that the vehicle is in a tunnel.
+
+16.7.1.11 / / Heavy Rain Condition.
+
+Requirement ID: FS-226925.
+Type: --.
+Status: New.
+
+The system shall not activate the high beam in heavy rain according to the wiper input. If the wiper is set to high speed and lasts for `HMA_WIPER_TIME`, the system shall prevent the high beam from being opened. This condition can be enabled or disabled using the parameter `HMA_WIPER_ENABLE`.
+
+16.7.1.12 / / Fog Light Condition.
+
+Requirement ID: FS-226926.
+Type: --.
+Status: New.
+
+If the system detects that the fog light has been active for `HMA_FOG_TIME`, the system shall not activate the high beam. This condition can be enabled or disabled using the parameter `HMA_FOG_ENABLE`.
+
+16.7.1.13 / / Driving Direction Condition.
+
+Requirement ID: FS-226927.
+Type: --.
+Status: New.
+
+The system shall activate the high beam only when the driving direction condition is set to forward, according to the driving direction of all four wheels.
+Page 21
+The system shall be able to open or close this condition by parameter HMA_DRIVE_DIRECTION.
+
+16.7.1.14. BCM Override Condition.
+
+Requirement ID: FS-515316.  
+Type: --.  
+Status: New.  
+
+The system shall activate the high beam only when the AHB function is not in driver inhibition mode according to the override signal from BCM (BCM_AHB_Override ≠ AHB Inhibit by Driver).
+
+16.7.2. Transform Suppression Condition.
+
+Requirement ID: FS-226928.  
+Type: --.  
+Status: New.  
+
+In some situations, high beam status should not be allowed to be transformed.  
+There are two kinds of transform suppression conditions: low priority transform suppression and high priority transform suppression.  
+The priority of the conditions is as follows:  
+- High priority transform suppression > low priority transform suppression > high beam suppression.
+
+16.7.2.1. Low Priority Transform Suppression.
+
+Requirement ID: FS-226929.  
+Type: --.  
+Status: New.  
+
+If low priority transform suppression conditions are met, the high beam status is not allowed to be transformed to open. However, under these conditions, the high beam status is allowed to be transformed to close.  
+There are several conditions for low priority transform suppression as listed below. If any one of these conditions is met, the system shall enter a low priority transform suppression situation.
+
+16.7.2.1.1. Turning Indicator Status On.
+Page 22
+16.7.2.1.1 / Turning Indicator Status On.
+
+Requirement ID: FS-226930.  
+Type: --  
+Status: New.  
+
+If there is a turning indicator in ‘on’ status, the system shall enter low priority transform suppression condition. The system shall open or close this condition by parameter HMA_TURN_LAMP.  
+
+16.7.2.1.2 / Lateral Acceleration Condition.
+
+Requirement ID: FS-226931.  
+Type: --  
+Status: New.  
+
+If lateral acceleration is higher than HMA_LAT_ACC_ENTER, the system shall enter low priority transform suppression condition. If lateral acceleration is lower than HMA_LAT_ACC_EXIT, the system shall exit the condition.  
+
+16.7.2.1.3 / Yaw Rate Condition.
+
+Requirement ID: FS-226932.  
+Type: --  
+Status: New.  
+
+If yaw rate is higher than HMA_YAW_RATE_ENTER, the system shall enter low priority transform suppression condition. If yaw rate is lower than HMA_YAW_RATE_EXIT, the system shall exit the condition.  
+
+16.7.2.2 / High Priority Transform Suppression.
+
+Requirement ID: FS-226933.  
+Type: --  
+Status: New.  
+
+If high priority transform suppression conditions are met, the high beam should remain in the current status and any transformation shall not be allowed.  
+
+There are several conditions for high priority transform suppression as shown below. If any one of these conditions is met, the system shall enter high priority transform suppression situation.  
+
+16.7.2.2.1 / ABS Active ABS.
+
+Requirement ID: FS-226934.  
+Type: --  
+Status: New.  
+
+If ABS is active, the system shall enter high priority transform suppression condition. The system shall open or close this condition by parameter HMA_ABS.
+Page 23
+16.7.2.2.2 // ESP Active ESP.
+
+Requirement ID: FS-226935.  
+Type: --  
+Status: New.  
+
+If ESP is active, the system shall enter high priority transform suppression condition. The system shall open or close this condition by parameter HMA_ESP.
+
+16.7.3 // Failsafe Condition.
+
+Requirement ID: FS-226936.  
+Type: --  
+Status: New.  
+
+Under some conditions like self-glare/sunray/splash/dark/out-of-focus/block/rain/snow/fog/misalignment, IFC shall enter failsafe status. In this status, HMA system shall never open high beam (ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam).
+
+If the failsafe condition is related to a fault, HMA system will enter temporary fault or permanently fault status (ADAS_AHB_state = Fault and ADAS_AHB_check = Temporarily not available or Permanently not available). Otherwise, HMA system shall enter passive status (ADAS_AHB_state = HighBeam Passive or Inactive).
+
+Note: Details about failsafe and faults strategy need to be further discussed later in related subjects.
+
+16.7.4 // Night condition.
+
+Requirement ID: FS-226937.  
+Type: --  
+Status: New.  
+
+IFC shall detect if it is night or day. If it is in the daytime, the HMA system should not work, and high beam should be off (ADAS_AHB_state = HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam).
+
+16.7.5 // High Beam Active Grace.
+
+Requirement ID: FS-226938.  
+Type: --  
+Status: New.  
+
+In order to avoid high beam status switched frequently, there is a high beam active grace time. When the high beam active conditions are met, the output should be changed after HMA_HIGHBEAM_ACTIVE_GRACE.
+Page 24
+16.8 / Function Interface.
+
+Requirement ID: FS-226939.
+Type: --.
+Status: New.
+
+16.8.1 / Input Signal.
+
+Requirement ID: FS-226940.
+Type: --.
+Status: New.
+
+16.8.1.1 / Input Signal from HMI HMI.
+
+Requirement ID: FS-226941.
+Type: --.
+Status: New.
+
+**Signal name: 0x354.MHU_AHB_On.**
+Description: HMA Switch HMA.  
+Value range:  
+0 "OFF"  
+1 "ON"  
+2 "Reserved"  
+3 "Signal invalid"  
+
+**Signal name: 0x354.MHU_AHB_Sens.**  
+Description: HMA Sensitivity HMA.  
+Value range:  
+0 "Early"  
+1 "Normal"  
+2 "Late"  
+3 "Invalid"  
+
+16.8.1.2 / Input Signal from Body.
+Page 25
+16.8 / / Function Interface.
+
+Requirement ID: FS-226939. Type: --. Status: New.
+
+16.8.1 / / Input Signal.
+
+Requirement ID: FS-226940. Type: --. Status: New.
+
+16.8.1.1 / / Input Signal from HMI HMI.
+
+Requirement ID: FS-226941. Type: --. Status: New.
+
+- **Signal name:** 0x354.MHU_AHB_On  
+  - **Description:** HMA Switch HMA  
+  - **Value range:**  
+    - 0 "OFF"  
+    - 1 "ON"  
+    - 2 "Reserved"  
+    - 3 "Signal invalid"  
+
+- **Signal name:** 0x354.MHU_AHB_Sens  
+  - **Description:** HMA Sensitivity HMA  
+  - **Value range:**  
+    - 0 "Early"  
+    - 1 "Normal"  
+    - 2 "Late"  
+    - 3 "Invalid"  
+
+16.8.1.2 / / Input Signal from Body.
+
+Requirement ID: FS-226942. Type: --. Status: New.
+
+- **Signal name:** 0x106.BCM_TurnIndicatorSts  
+  - **Description:** Status of turn indicators  
+  - **Value range:**  
+    - 0 "OFF"  
+    - 1 "Left On"  
+    - 2 "Right On"  
+    - 3 "Left and Right On"  
+
+- **Signal name:** 0x106.BCM_FrntFogLmpSts  
+  - **Description:** Front fog lamp status  
+  - **Value range:**  
+    - 0 "OFF"  
+    - 1 "ON"  
+    - 2 "Fault (Reserved)"  
+    - 3 "Signal Invalid"  
+
+- **Signal name:** 0x106.BCM_HighBeamSts  
+  - **Description:** High beam status  
+  - **Value range:**  
+    - 0 "OFF"  
+    - 1 "ON"  
+    - 2 "Fault (Reserved)"  
+    - 3 "Signal Invalid"  
+
+- **Signal name:** RS_L_WiperSpeed (TBD)  
+  - **Description:** Wiper speed signal  
+  - **Value range:**  
+    - 0 "OFF"  
+    - 1 "Low speed Signal"  
+    - 2 "Low speed continuous"  
+    - 3 "High speed continuous"  
+    - 7 "Signal invalid"  
+
+- **Signal name:** 0x456.OP_WIPO_SZL_LIN  
+  - **Description:** Wiper Step (Right Stalk)  
+  - **Value range:**  
+    - 1 “Step 1”  
+    - 2 “Step 2”  
+    - 3 “Step 3”  
+    - 4 “Step 4”  
+    - 7 “Signal invalid”  
+
+- **Signal name:** 0x456.OP_WISW_SZL_LIN  
+  - **Description:** Wiper Status Signal (Right Stalk)  
+  - **Value range:**  
+    - Bit 0~1: Switch status on Automatic wiping, Wiper step 1, Wiper step 2 switch status.  
+    - Bit 2: Not used.
+Page 26
+16.7.2.2.2 / / ESP Active ESP.
+
+Requirement ID: FS-226935.  
+Type: --.  
+Status: New.  
+
+If ESP is active, the system shall enter high priority transform suppression condition. The system shall open or close this condition by parameter HMA_ESP.
+
+16.7.3 / / Failsafe Condition.
+
+Requirement ID: FS-226936.  
+Type: --.  
+Status: New.  
+
+Under some conditions like self-glare, sunray, splash, dark, out-of-focus, block, rain, snow, fog, misalignment, IFC shall enter failsafe status. In this status, HMA system shall never open high beam (ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam).  
+If the failsafe condition is related to a fault, HMA system will enter temporary fault or permanent fault status (ADAS_AHB_state = Fault and ADAS_AHB_check = Temporarily not available or Permanently not available). Otherwise, HMA system shall enter passive status (ADAS_AHB_state = HighBeam Passive or Inactive).  
+Note: Details about failsafe and faults strategy need to be further discussed later in related subjects.
+
+16.7.4 / / Night Condition.
+
+Requirement ID: FS-226937.  
+Type: --.  
+Status: New.  
+
+IFC shall detect if it is night or day. If it is in the daytime, HMA system should not work and the high beam should be off (ADAS_AHB_state = HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam).
+
+16.7.5 / / High Beam Active Grace.
+
+Requirement ID: FS-226938.  
+Type: --.  
+Status: New.  
+
+To avoid frequent switching of high beam status, there is a high beam active grace time. When the high beam active conditions are met, the output shall be changed after HMA_HIGHBEAM_ACTIVE_GRACE.
+
+16.8 / / Function Interface.
+
+Requirement ID: FS-226939.  
+Type: --.  
+Status: New.
+
+16.8.1 / / Input Signal.
+
+Requirement ID: FS-226940.  
+Type: --.  
+Status: New.
+
+16.8.1.1 / / Input Signal from HMI.
+
+Requirement ID: FS-226941.  
+Type: --.  
+Status: New.
+
+**Signal Name**:  
+- 0x354.MHU_AHB_On.  
+  **Description**: HMA Switch.  
+  **Value Range**:  
+  - 0: "OFF".  
+  - 1: "ON".  
+  - 2: "Reserved".  
+  - 3: "Signal Invalid".
+
+- 0x354.MHU_AHB_Sens.  
+  **Description**: HMA Sensitivity.  
+  **Value Range**:  
+  - 0: “Early”.  
+  - 1: “Normal”.  
+  - 2: “Late”.  
+  - 3: “Invalid”.
+
+16.8.1.2 / / Input Signal from Body.
+
+Requirement ID: FS-226942.  
+Type: --.  
+Status: New.
+
+**Signal Name**:  
+- 0x106.BCM_TurnIndicatorSts.  
+  **Description**: Status of turn indicators.  
+  **Value Range**:  
+  - 0: "OFF".  
+  - 1: "Left On".  
+  - 2: "Right On".  
+  - 3: "Left and Right On".
+
+- 0x106.BCM_FrntFogLmpSts.  
+  **Description**: Front fog lamp status.  
+  **Value Range**:  
+  - 0: "OFF".  
+  - 1: "ON".  
+  - 2: "Fault (Reserved)".  
+  - 3: "Signal Invalid".
+
+- 0x106.BCM_HighBeamSts.  
+  **Description**: High beam status.  
+  **Value Range**:  
+  - 0: "OFF".  
+  - 1: "ON".  
+  - 2: "Fault (Reserved)".  
+  - 3: "Signal Invalid".
+
+- RS_L_WiperSpeed (TBD).  
+  **Description**: Wiper speed signal.  
+  **Value Range**:  
+  - 0: "OFF".  
+  - 1: "Low Speed Signal".  
+  - 2: "Low Speed Continuous".  
+  - 3: "High Speed Continuous".  
+  - 7: "Signal Invalid".
+
+- 0x456.OP_WIPO_SZL_LIN.  
+  **Description**: Wiper Step (Right Stalk).  
+  **Value Range**:  
+  - 1: "Step 1".  
+  - 2: "Step 2".  
+  - 3: "Step 3".  
+  - 4: "Step 4".  
+  - 7: "Signal Invalid".
+
+- 0x456.OP_WISW_SZL_LIN.  
+  **Description**: Wiper Status Signal (Right Stalk).  
+  **Details**:  
+  - Bit 0~1: Switch status on automatic wiping, wiper step 1, and wiper step 2 switch status.  
+  - Bit 2: Not used (this bit is always 0).  
+  - Bit 3: Front mist switch status.  
+  - Bit 4: Front washer switch status.  
+  - Bit 5: Not used (this bit is always 0).  
+  - Bit 6: Rear wiping switch status.  
+  - Bit 7: Rear washing switch status.
+
+- 0x39D.BCM_ADAS_AHB_LBPos_feed.  
+  **Description**: HMA Request Feedback Signal (Left).  
+  **Value Range**:  
+  - 0: "Off or low beam".  
+  - 1: "High Beam".
+
+- 0x39D.BCM_ADAS_AHB_RBPos_feed.  
+  **Description**: HMA Request Feedback Signal (Right).  
+  **Value Range**:  
+  - 0: "Off or low beam".  
+  - 1: "High Beam".
+
+- 0x39D.BCM_AHB_Override.  
+  **Description**: Automatic High Beam Override by Driver using Stalk Lever.  
+  **Value Range**:  
+  - 0: "Not used".  
+  - 1: "Automatic High Beam Request".  
+  - 2: "AHB Inhibit by Driver".  
+  - 3: "Signal Invalid".
+
+16.8.1.3 / / Input Signal from Chassis and Powertrain.
+
+Requirement ID: FS-226943.  
+Type: --.  
+Status: New.
+
+Signal Name Description and Value Range are provided for BEV and ICE configurations.
+Page 27
+16.8 / / Function Interface.
+
+Requirement ID: FS-226939.  
+Type: --.  
+Status: New.  
+
+---
+
+16.8.1 / / Input Signal.
+
+Requirement ID: FS-226940.  
+Type: --.  
+Status: New.  
+
+---
+
+16.8.1.1 / / Input Signal from HMI HMI.
+
+Requirement ID: FS-226941.  
+Type: --.  
+Status: New.
+
+Signal name: 0x354.MHU_AHB_On.  
+Description: HMA Switch HMA.  
+Value range:  
+- 0: "OFF".  
+- 1: "ON".  
+- 2: "Reserved".  
+- 3: "Signal invalid".
+
+Signal name: 0x354.MHU_AHB_Sens.  
+Description: HMA Sensitivity HMA.  
+Value range:  
+- 0: “Early”.  
+- 1: “Normal”.  
+- 2: “Late”.  
+- 3: “Invalid”.  
+
+---
+
+16.8.1.2 / / Input Signal from Body.
+
+Requirement ID: FS-226942.  
+Type: --.  
+Status: New.
+
+Signal name: 0x106.BCM_TurnIndicatorSts.  
+Description: Status of turn indicators.  
+Value range:  
+- 0: "OFF".  
+- 1: "Left On".  
+- 2: "Right On".  
+- 3: "Left and Right On".
+
+Signal name: 0x106.BCM_FrntFogLmpSts.  
+Description: Front fog lamp status.  
+Value range:  
+- 0: "OFF".  
+- 1: "ON".  
+- 2: "Fault (Reserved)".  
+- 3: "Signal Invalid".
+
+Signal name: 0x106.BCM_HighBeamSts.  
+Description: High beam status.  
+Value range:  
+- 0: "OFF".  
+- 1: "ON".  
+- 2: "Fault (Reserved)".  
+- 3: "Signal Invalid".
+
+Signal name: RS_L_WiperSpeed (TBD).  
+Description: Wiper speed signal.  
+Value range:  
+- 0: "OFF".  
+- 1: "Low speed Signal".  
+- 2: "Low speed continuous".  
+- 3: "High speed continuous".  
+- 7: "Signal invalid".
+
+Signal name: 0x456.OP_WIPO_SZL_LIN.  
+Description: Wiper Step (Right Stalk).  
+Value range:  
+- 1: "Step 1".  
+- 2: "Step 2".  
+- 3: "Step 3".  
+- 4: "Step 4".  
+- 7: "Signal invalid".
+
+Signal name: 0x456.OP_WISW_SZL_LIN.  
+Description: Wiper Status Signal (Right Stalk).  
+Value range:  
+Bits:  
+- Bit 0~1: Switch status on Automatic wiping, Wiper step 1, Wiper step 2 switch status.  
+- Bit 2: Not used (always 0).  
+- Bit 3: Front mist switch status.  
+- Bit 4: Front washer switch status.  
+- Bit 5: Not used (always 0).  
+- Bit 6: Rear wiping switch status.  
+- Bit 7: Rear washing switch status.
+
+Signal name: 0x39D.BCM_ADAS_AHB_LBPos_feed.  
+Description: HMA Request Feedback Signal (Left) HMA.  
+Value range:  
+- 0: "Off or low beam".  
+- 1: "High beam".
+
+Signal name: 0x39D.BCM_ADAS_AHB_RBPos_feed.  
+Description: HMA Request Feedback Signal (Right) HMA.  
+Value range:  
+- 0: "Off or low beam".  
+- 1: "High beam".
+
+Signal name: 0x39D.BCM_AHB_Override.  
+Description: Automatic High Beam Override by Driver using Stalk lever HMA.  
+Value range:  
+- 0: "Not used".  
+- 1: "Automatic High Beam request".  
+- 2: "AHB Inhibit by Driver".  
+- 3: "Invalid".
+
+---
+
+16.8.1.3 / / Input Signal from Chassis and Powertrain.
+
+Requirement ID: FS-226943.  
+Type: --.  
+Status: New.
+
+Signal name: 0x20D.VehicleSpd.  
+Description: Vehicle Speed.  
+Value range: [0, 300] km/h.
+
+Signal name: 0x20D.VehicleSpdSts.  
+Description: Vehicle Speed Valid.  
+Value range:  
+- 0: "Valid".  
+- 1: "Invalid".
+
+Signal name: 0x23A.IDB_WheelDirection_FL.  
+Description: Front left wheel moving direction.  
+Value range:  
+- 0: "Standstill".  
+- 1: "Forward".  
+- 2: "Backward".  
+- 3: "Invalid".
+
+Signal name: 0x23A.IDB_WheelDirection_FR.  
+Description: Front right wheel moving direction.  
+Value range:  
+- 0: "Standstill".  
+- 1: "Forward".  
+- 2: "Backward".  
+- 3: "Invalid".
+
+Signal name: 0x23B.IDB_WheelDirection_RL.  
+Description: Rear left wheel moving direction.  
+Value range:  
+- 0: "Standstill".  
+- 1: "Forward".  
+- 2: "Backward".  
+- 3: "Invalid".
+
+Signal name: 0x23B.IDB_WheelDirection_RR.  
+Description: Rear right wheel moving direction.  
+Value range:  
+- 0: "Standstill".  
+- 1: "Forward".  
+- 2: "Backward".  
+- 3: "Invalid".
+
+Signal name: 0xD9.VCU_ACTGear.  
+Description: To indicate gear status.  
+Value range:  
+- 0: “P”.  
+- 1: “R”.
+Page 28
+16.7.2.2.2 / / ESP Active ESP.
+
+Requirement ID: FS-226935. 
+Type: --. 
+Status: New.
+
+If ESP is active, the system shall enter high priority transform suppression condition. The system shall open or close this condition by parameter HMA_ESP.
+
+16.7.3 / / Failsafe Condition.
+
+Requirement ID: FS-226936. 
+Type: --. 
+Status: New.
+
+Under some conditions like self-glare/sunray/splash/dark/out-of-focus/block/rain/snow/fog/misalignment, IFC shall enter failsafe status. In this status, HMA system shall never open high beam (ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam).
+
+If the failsafe condition is related to a fault, HMA system will enter temporary fault or permanently fault status (ADAS_AHB_state = Fault and ADAS_AHB_check = Temporarily not available or Permanently not available). Otherwise, HMA system shall enter passive status (ADAS_AHB_state = HighBeam Passive or Inactive).
+
+Note: Details about failsafe and faults strategy need to be further discussed later in related subjects.
+
+16.7.4 / / Night Condition.
+
+Requirement ID: FS-226937. 
+Type: --. 
+Status: New.
+
+IFC shall detect if it is night or day. If it is in the daytime, HMA system should not work and the high beam should be off (ADAS_AHB_state = HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam).
+
+16.7.5 / / High Beam Active Grace.
+
+Requirement ID: FS-226938. 
+Type: --. 
+Status: New.
+
+In order to avoid high beam status switched frequently, there is a high beam active grace time. When the high beam active conditions are met, the output should be changed after HMA_HIGHBEAM_ACTIVE_GRACE.
+
+16.8 / / Function Interface.
+
+Requirement ID: FS-226939. 
+Type: --. 
+Status: New.
+
+--
+
+16.8.1 / / Input Signal.
+
+Requirement ID: FS-226940. 
+Type: --. 
+Status: New.
+
+--
+
+16.8.1.1 / / Input Signal from HMI.
+
+Requirement ID: FS-226941. 
+Type: --. 
+Status: New.
+
+- Signal name: 0x354.MHU_AHB_On.  
+  - Description: HMA Switch HMA.  
+  - Value range:  
+    - 0 "OFF".  
+    - 1 "ON".  
+    - 2 "Reserved".  
+    - 3 "Signal invalid".  
+
+- Signal name: 0x354.MHU_AHB_Sens.  
+  - Description: HMA Sensitivity HMA.  
+  - Value range:  
+    - 0 “Early”.  
+    - 1 “Normal”.  
+    - 2 “Late”.  
+    - 3 “Invalid”.  
+
+16.8.1.2 / / Input Signal from Body.
+
+Requirement ID: FS-226942. 
+Type: --. 
+Status: New.
+
+- Signal name: 0x106.BCM_TurnIndicatorSts.  
+  - Description: Status of turn indicators.  
+  - Value range:  
+    - 0 "OFF".  
+    - 1 "Left On".  
+    - 2 "Right On".  
+    - 3 "Left and Right On".  
+
+- Signal name: 0x106.BCM_FrntFogLmpSts.  
+  - Description: Front fog lamp status.  
+  - Value range:  
+    - 0 "OFF".  
+    - 1 "ON".  
+    - 2 "Fault (Reserved)".  
+    - 3 "Signal Invalid".  
+
+- Signal name: 0x106.BCM_HighBeamSts.  
+  - Description: High beam status.  
+  - Value range:  
+    - 0 "OFF".  
+    - 1 "ON".  
+    - 2 "Fault (Reserved)".  
+    - 3 "Signal Invalid".  
+
+- Signal name: RS_L_WiperSpeed (TBD).  
+  - Description: Wiper speed signal.  
+  - Value range:  
+    - 0 "OFF".  
+    - 1 "Low speed Signal".  
+    - 2 "low speed continuous".  
+    - 3 "high speed continuous".  
+    - 7 "Signal invalid".  
+
+- Signal name: 0x456.OP_WIPO_SZL_LIN.  
+  - Description: Wiper Step (Right Stalk).  
+  - Value range:  
+    - 1 “Step 1”.  
+    - 2 “Step 2”.  
+    - 3 “Step 3”.  
+    - 4 “Step 4”.  
+    - 7 “signal invalid”.  
+
+- Signal name: 0x456.OP_WISW_SZL_LIN.  
+  - Description: Wiper Status Signal (Right Stalk). 
+  - Value range:  
+    - Bit 0~1 : Switch status on Automatic wiping, Wiper step 1, Wiper step 2 switch status.  
+    - Bit 2: Not used (this bit is always 0).  
+    - Bit 3: Front mist switch status.  
+    - Bit 4: Front washer switch status.  
+    - Bit 5: Not used (this bit is always 0).  
+    - Bit 6: Rear wiping switch status.  
+    - Bit 7: Rear washing switch status.  
+
+- Signal name: 0x39D.BCM_ADAS_AHB_LBPos_feed.  
+  - Description: HMA Request Feedback Signal (Left) HMA.  
+  - Value range:  
+    - 0 "Off or low beam".  
+    - 1 "high beam".  
+
+- Signal name: 0x39D.BCM_ADAS_AHB_RBPos_feed.  
+  - Description: HMA Request Feedback Signal (Right) HMA.  
+  - Value range:  
+    - 0 "Off or low beam".  
+    - 1 "high beam".  
+
+- Signal name: 0x39D.BCM_AHB_Override.  
+  - Description: Automatic High Beam Override by Driver using Stalk lever HMA.  
+  - Value range:  
+    - 0 "not used".  
+    - 1 "Automatic High Beam request".  
+    - 2 "AHB Inhibit by Driver".  
+    - 3 "invalid".  
+
+16.8.1.3 / / Input Signal from Chassis and Powertrain.
+
+Requirement ID: FS-226943. 
+Type: --. 
+Status: New.
+
+- Signal name: 0x20D.VehicleSpd.  
+  - Description: Vehicle Speed.  
+  - Value range: [0, 300] km/h.  
+
+- Signal name: 0x20D.VehicleSpdSts.  
+  - Description: Vehicle Speed Valid.  
+  - Value range:  
+    - 0 "Valid".  
+    - 1 "Invalid".  
+
+- Signal name: 0x23A.IDB_WheelDirection_FL/0x3C0.WheelSpeedFL Status.  
+  - Description: Front left wheel Moving direction.  
+  - Value range:  
+    - 0 "Standstill".  
+    - 1 "Forward".  
+    - 2 "Backward".  
+    - 3 "Invalid".  
+
+- Signal name: 0x23A.IDB_WheelDirection_FR/0x3C0.WheelSpeedFR Status.  
+  - Description: Front right wheel Moving direction.  
+  - Value range:  
+    - 0 "Standstill".  
+    - 1 "Forward".  
+    - 2 "Backward".  
+    - 3 "Invalid".  
+
+- Signal name: 0x23B.IDB_WheelDirection_RL/0x3C1.WheelSpeedRL Status.  
+  - Description: Rear left wheel Moving direction.  
+  - Value range:  
+    - 0 "Standstill".  
+    - 1 "Forward".  
+    - 2 "Backward".  
+    - 3 "Invalid".  
+
+- Signal name: 0x23B.IDB_WheelDirection_RR/0x3C1.WheelSpeedRR Status.  
+  - Description: Rear right wheel Moving direction.  
+  - Value range:  
+    - 0 "Standstill".  
+    - 1 "Forward".  
+    - 2 "Backward".  
+    - 3 "Invalid".  
+
+- Signal name: 0xD9.VCU_ACTGear/0x3F9.ST_GRSEL_DRV.  
+  - Description: Gear indication.  
+  - Value range:  
+    - 0 “P”.  
+    - 1 “R”.  
+    - 2 “N”.  
+    - 3 “D”.  
+    - 7 “Fault”.  
+
+- Signal name: 0xD9.VCU_ACTGearValid.  
+  - Description: Gear position valid (BEV).  
+  - Value range:  
+    - 0 "Valid".  
+    - 1 "Invalid".  
+
+- Signal name: 0x20D.ABSActive.  
+  - Description: Indication that ESP system (especially ABS Module) currently performs a brake intervention. Set when ABS Active.  
+  - Value range:  
+    - 0 "Inactive".  
+    - 1 "Active".
+Page 29
+16.8 / / Function Interface
+
+Requirement ID: FS-226939  
+Type: --  
+Status: New  
+
+---
+
+16.8.1 / / Input Signal
+
+Requirement ID: FS-226940  
+Type: --  
+Status: New  
+
+---
+
+16.8.1.3 / / Input Signal from Chassis and Powertrain
+
+Requirement ID: FS-226943  
+Type: --  
+Status: New  
+
+Signal name: 0x20D.VehicleSpd  
+Description: Vehicle Speed  
+Value range: [0, 300] km/h  
+
+---
+
+Signal name: 0x20D.VehicleSpdSts  
+Description: Vehicle Speed Valid  
+Value range:  
+- 0: "Valid"  
+- 1: "Invalid"  
+
+---
+
+Signal name: 0x23A.IDB_WheelDirection_FL / 0x3C0.WheelSpeedFLStatus  
+Description: Front left wheel moving direction  
+Value range:  
+- 0: "Standstill"  
+- 1: "Forward"  
+- 2: "Backward"  
+- 3: "Invalid"  
+
+---
+
+Signal name: 0x23A.IDB_WheelDirection_FR / 0x3C0.WheelSpeedFRStatus  
+Description: Front right wheel moving direction  
+Value range:  
+- 0: "Standstill"  
+- 1: "Forward"  
+- 2: "Backward"  
+- 3: "Invalid"  
+
+---
+
+Signal name: 0x23B.IDB_WheelDirection_RL / 0x3C1.WheelSpeedRLStatus  
+Description: Rear left wheel moving direction  
+Value range:  
+- 0: "Standstill"  
+- 1: "Forward"  
+- 2: "Backward"  
+- 3: "Invalid"  
+
+---
+
+Signal name: 0x23B.IDB_WheelDirection_RR / 0x3C1.WheelSpeedRRStatus  
+Description: Rear right wheel moving direction  
+Value range:  
+- 0: "Standstill"  
+- 1: "Forward"  
+- 2: "Backward"  
+- 3: "Invalid"  
+
+---
+
+Signal name: 0xD9.VCU_ACTGear / 0x3F9.ST_GRSEL_DRV  
+Description: To indicate which gear the DCT is in now  
+Value range:  
+- 0: "P"  
+- 1: "R"  
+- 2: "N"  
+- 3: "D"  
+- 7: "Fault"  
+
+Additional range for gear indication:  
+- 0: "Initialization"  
+- 1: "N"  
+- 2: "R"  
+- 3: "P"  
+- 4: "NP"  
+- 5: "1"  
+- 6: "2"  
+- 7: "3"  
+- 8: "4"  
+- 9: "5"  
+- 10: "6"  
+- 11: "7"  
+- 12: "8"  
+- 13: "9"  
+- 14-15: "Signal Invalid"  
+
+---
+
+Signal name: 0xD9.VCU_ACTGearValid  
+Description: Gear position valid (BEV)  
+Value range:  
+- 0: "Valid"  
+- 1: "Invalid"  
+
+---
+
+Signal name: 0x20D.ABSActive  
+Description: Indication that ESP system (especially ABS Module) currently performs a brake intervention. Set when ABS Active.  
+Value range:  
+- 0: "Inactive"  
+- 1: "Active"  
+
+---
+
+Signal name: 0x20D.VDCActive  
+Description: VDC is active  
+Value range:  
+- 0: "Inactive"  
+- 1: "Active"  
+
+---
+
+Signal name: 0x17D.YSS_YAW_RATE_UNFILTERED / 0x289.VYAW_VEH  
+Description: Unfiltered yaw rate  
+Value range: [-163.84, 163.83] deg/s  
+
+---
+
+Signal name: 0x17D.YSS_YAW_RATE_UNFILTERED_QUAL / 0x289.QU_VYAW_VEH  
+Description: Unfiltered yaw rate valid  
+Value range:  
+- 2: "VALID"  
+- 4: "SUBSTITUTE"  
+- 7: "INVALID"  
+- 14: "NOT AVAILABLE"  
+- 15: "Unfilled"  
+
+Extended classification:  
+- 2: "Signal value is valid (A-CAN)"  
+- 6: "Signal invalid (A-CAN)"  
+- 8: "Initialization"  
+- 15: "Signal invalid Not used"  
+
+---
+
+Signal name: 0x179.YSS_LAT_ACC_UNFILTERED / 0x289.AcceleratorY  
+Description: Unfiltered lateral acceleration  
+Value range: [-65.532, 65.532] m/s²  
+
+Alternative range format: [-21.5928, 21.5928] m/s²  
+
+---
+
+Signal name: 0x179.YSS_LAT_ACC_UNFILTERED_QUAL / 0x289.AyOutStatus  
+Description: Unfiltered lateral acceleration valid  
+Value range:  
+- 2: "VALID"  
+- 4: "SUBSTITUTE"  
+- 7: "INVALID"  
+- 14: "NOT AVAILABLE"  
+- 15: "Unfilled"  
+
+Extended classification:  
+- 0: "Valid"  
+- 1: "Invalid"
+Page 30
+16.8.2 / / Output Signal.
+
+Requirement ID: FS-226944.  
+Type: --  
+Status: New.  
+
+**Signal name: 0x352.ADAS_AHB_Mode_Feed.**  
+Description: HMA Switch Feedback.  
+Value range: 
+- 0 "Off" 
+- 1 "On".  
+Receiver: HMI.  
+
+**Signal name: 0x352.ADAS_AHB_sens_Feed (Dummy signal).**  
+Description: HMA Sensitivity Feedback.  
+Value range: 
+- 0 "Early" 
+- 1 "Normal" 
+- 2 "Late".  
+Receiver: HMI.  
+
+**Signal name: 0x352.ADAS_AHB_check.**  
+Description: HMA Fault.  
+Value range:
+- 0 "Available" 
+- 1 "Temporarily not available" 
+- 2 "Permanently not available".  
+Receiver: HMI.  
+
+**Signal name: 0x352.ADAS_AHB_state.**  
+Description: HMA system status.  
+Value range:
+- 0 "OFF State" 
+- 1 "HighBeam Passive or Inactive" 
+- 2 "HighBeam Active" 
+- 3 "Fault".  
+Receiver: HMI.  
+
+**Signal name: 0x206.ADAS_AHB_ICON_Feed.**  
+Description: HighBeam ICON Feedback Request.  
+Value range:
+- 0 "Off" 
+- 1 "Gray ICON" 
+- 2 "Green ICON".  
+Receiver: HMI.
+Page 31
+16.8.2 // Output Signal
+
+Requirement ID: FS-226944  
+Type: --  
+Status: New  
+
+- **Signal name:** 0x352.ADAS_AHB_Mode_Feed  
+  - **Description:** HMA Switch Feedback  
+  - **Value range:**  
+    - 0 "Off"  
+    - 1 "On"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x352.ADAS_AHB_sens_Feed (Dummy signal)  
+  - **Description:** HMA Sensitivity Feedback  
+  - **Value range:**  
+    - 0 "Early"  
+    - 1 "Normal"  
+    - 2 "Late"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x352.ADAS_AHB_check  
+  - **Description:** HMA Fault  
+  - **Value range:**  
+    - 0 "Available"  
+    - 1 "Temporarily not available"  
+    - 2 "Permanently not available"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x352.ADAS_AHB_state  
+  - **Description:** HMA system status  
+  - **Value range:**  
+    - 0 "OFF State"  
+    - 1 "HighBeam Passive or Inactive"  
+    - 2 "HighBeam Active"  
+    - 3 "Fault"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x206.ADAS_AHB_ICON_Feed  
+  - **Description:** HighBeam ICON Feedback Request  
+  - **Value range:**  
+    - 0 "Off"  
+    - 1 "Gray ICON"  
+    - 2 "Green ICON"  
+    - 3 "White ICON"  
+    - 4 "Yellow ICON"  
+    - 5 "Red ICON"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x206.ADAS_AHB_PopUp_Feed  
+  - **Description:** PopUP Messaging for HMA function  
+  - **Value range:**  
+    - 0 "Off"  
+    - 1 "Pop Up 1"  
+    - 15 "Invalid"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x352.ADAS_AHB_LBPos  
+  - **Description:** HMA request (Left)  
+  - **Value range:**  
+    - 0 "Off or low beam"  
+    - 1 "high beam"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x352.ADAS_AHB_RBPos  
+  - **Description:** HMA request (Right)  
+  - **Value range:**  
+    - 0 "Off or low beam"  
+    - 1 "high beam"  
+  - **Receiver:** HMI  
+
+- **Signal name:** 0x39C.ADAS_AHB_LBPos  
+  - **Description:** HMA request (Left)  
+  - **Value range:**  
+    - 0 "Off or low beam"  
+    - 1 "high beam"  
+  - **Receiver:** BCM  
+
+- **Signal name:** 0x39C.ADAS_AHB_RBPos  
+  - **Description:** HMA request (Right)  
+  - **Value range:**  
+    - 0 "Off or low beam"  
+    - 1 "high beam"  
+  - **Receiver:** BCM  
+
+16.9 // HMA State Machine
+
+Requirement ID: FS-226945  
+Type: --  
+Status: New
+Page 32
+16.9 / / HMA State Machine
+
+Requirement ID: FS-226945  
+Type: --  
+Status: New  
+
+**Fig. 9 HMA State Machine**  
+The figure outlines the different states of the HMA system, including conditions such as "HMA not Work," "Low Priority Transform Suppression," "High Priority Transform Suppression," "High Beam Active," "High Beam Passive," "Temporary Fault," and "Permanent Fault." Depending on configurations, faults, and other parameters, the HMA system transitions between these states.
+
+---
+
+16.9.1 / / IFC should be in OFF status if the HMA function is not configured.
+
+Requirement ID: FS-226946  
+Type: --  
+Status: New  
+
+In this status, `ADAS_AHB_state = OFF State` and `ADAS_AHB_LBPos` and `ADAS_AHB_RBPos = Off or low beam`. Below other statuses occur when the HMA function is configured.
+
+---
+
+16.9.2 / / If there is a related permanently fault detected, the system shall enter permanently fault status.
+
+Requirement ID: FS-226947  
+Type: --  
+Status: New  
+
+When a related permanently fault is detected, the system transitions into the permanently fault state as depicted in Fig. 9.
+Page 33
+16.9.3 // If there is a related temporary fault detected, the system shall enter temporary fault status.
+
+Requirement ID: FS-226948  
+Type: --  
+Status: New  
+
+In this status, ADAS_AHB_state = Fault and ADAS_AHB_check = Temporarily not available and ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam. If there is no related fault detected, the system shall enter below other status.
+
+16.9.4 // If IFC receives driver inhibit signal BCM_AHB_Override = AHB Inhibit by Driver,
+
+Requirement ID: FS-226949  
+Type: --  
+Status: New  
+
+The system should output ADAS_AHB_state = HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam. If IFC receives driver inhibit signal BCM_AHB_Override = Automatic High Beam request, the system shall enter below other status.
+
+16.9.5 // If IFC detects it is in day time, the system shall enter ‘not work’ status.
+
+Requirement ID: FS-226950  
+Type: --  
+Status: New  
+
+In this status, ADAS_AHB_state = HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam.
+
+16.9.6 // If IFC detects it is in night time, the system shall enter ‘Active’, ‘Passive’, ‘low priority transform suppression’ or ‘high priority transform suppression’ status according to current conditions.
+
+Requirement ID: FS-226951  
+Type: --  
+Status: New  
+
+If the high beam should be off, the system should output ADAS_AHB_state = HighBeam Passive or Inactive and ADAS_AHB_LBPos and ADAS_AHB_RBPos = Off or low beam. If the high beam should be active, the system shall output ADAS_AHB_state = HighBeam Active and ADAS_AHB_LBPos and ADAS_AHB_RBPos = High beam.
+Page 34
+should be on, the system should output ADAS_AHB_state = HighBeam Active and ADAS_AHB_LBPos and ADAS_AHB_RBPos = High beam.
+
+Note: Temporary faults include node missing, bus off, etc. Permanent faults include block/hardware fault, etc. Details will be defined later after DTC and faults are clarified.
+
+16.10 / / HMI Proposal.
+
+Requirement ID: FS-226953.  
+Type: --  
+Status: New.  
+
+- **Type: Icon.**
+  - **Conditions:** HMA Switched ON HMA.  
+  - **Signals:** ADAS_AHB_ICON_Feed = Green ICON.  
+
+- **Type: Icon.**
+  - **Conditions:** HMA in driver inhibited mode HMA.  
+  - **Signals:** ADAS_AHB_ICON_Feed = Gray ICON.  
+
+- **Type: Popup.**
+  - **Conditions:** HMA in fault mode when switched ON HMA.  
+  - **Signals:** ADAS_AHB_PopUp_Feed = Popup 1.
+
+16.11 / / Function Turning Parameters List.
+
+Requirement ID: FS-226954.  
+Type: --  
+Status: New.  
+
+| NO. | Parameter Name | Description | Value | Unit |
+|-----|----------------|-------------|-------|------|
+Page 35
+16.11 / / Function Turning Parameters List.
+
+Requirement ID: FS-226954  
+Type: --  
+Status: New  
+
+1. Parameter Name: SPEED_SWITCH_HIGH_BEAM_ON1.  
+   - Description: Limit to valid the speed condition.  
+   - Value: 25.  
+   - Unit: km/h.  
+
+2. Parameter Name: SPEED_SWITCH_HIGH_BEAM_OFF1.  
+   - Description: Limit to invalid the speed condition.  
+   - Value: 15.  
+   - Unit: km/h.  
+
+3. Parameter Name: BS_OB_EXIT_THRESH.  
+   - Description: Limit to valid ambient light condition without ambient light sensor.  
+   - Value: 6.  
+   - Unit: lux.  
+
+4. Parameter Name: BS_OB_ENTER_THRESH.  
+   - Description: Limit to invalid ambient light condition without ambient light sensor.  
+   - Value: 8.  
+   - Unit: lux.  
+
+5. Parameter Name: DELAY_HMA_INACTIVE_TO_FULL.  
+   - Description: Delay period for ambient light.  
+   - Value: 2500.  
+   - Unit: millisecond.
+Page 36
+1. SPEED_SWITCH_HIGH_BEAM_ON1: Limit to validate the speed condition. The value is 25 km/h.
+
+2. SPEED_SWITCH_HIGH_BEAM_OFF1: Limit to invalidate the speed condition. The value is 15 km/h.
+
+3. BS_OB_EXIT_THRESH: Limit to validate ambient light conditions without ambient light sensors. The value is 6 lux.
+
+4. BS_OB_ENTER_THRESH: Limit to invalidate ambient light conditions without ambient light sensors. The value is 8 lux.
+
+5. DELAY_HMA_INACTIVE_TO_FULL: Delay period for ambient light. The value is 2500 milliseconds.
+
+6. MAX_TAILLIGHT_DISTANCE_COUPLE: Maximum reaction distance for two-taillight objects. The value is 1000 meters.
+
+7. MAX_ONCOMING_DISTANCE_COUPLE: Maximum reaction distance for two-headlight objects. The value is 1000 meters.
+
+8. MAX_TAILLIGHT_DISTANCE_ONE: Maximum reaction distance for one-taillight objects. The value is 1000 meters.
+
+9. MAX_ONCOMING_DISTANCE_ONE: Maximum reaction distance for one-headlight objects. The value is 1000 meters.
+
+10. CONTROLLER_OC_NORMAL_TIME_DELAY: Valid delay for passed oncoming cars. The value is 500 milliseconds.
+Page 37
+11 CONTROLLER_OC_MIDDLE_DISAP_TIME_DELAY. Valid delay for disappeared oncoming cars is 1500 milliseconds.
+
+12 CONTROLLER_TL_NORMAL_TIME_DELAY. Valid delay for passed preceding cars is 0 milliseconds.
+
+13 CONTROLLER_TL_MIDDLE_DISAP_TIME_DELAY. Valid delay for disappeared preceding cars is 2500 milliseconds.
+
+14 CONTROLLER_IN_CURVE_RADIUS_ENTER_THRESH. The radius limit for entering the curving status is 250 meters.
+
+15 CONTROLLER_IN_CURVE_RADIUS_EXIT_THRESH. The radius limit for exiting the curving status is 500 meters.
+Page 38
+16. CONTROLLER_OC_CURVE_TIME_DELAY: Extra delay for oncoming cars during curving status is 700 milliseconds.
+
+17. CONTROLLER_IN_VERY_SHARP_CURVE_RADIUS_ENTER_THRESH: Radius limit for entering sharp-curve status is 50 meters.
+
+18. CONTROLLER_IN_VERY_SHARP_CURVE_RADIUS_EXIT_THRESH: Radius limit for exiting sharp-curve status is 80 meters.
+
+19. CONTROLLER_TL_OVERTAKE_HIGH_BEAM_SIDEWAYS_ANGLE: Valid angle limit (camera to the bumper) in overtaking condition is 25 degrees.
+
+20. CONTROLLER_TL_OVERTAKE_VEHICLE_LENGTH: Default vehicle length is 4.5 meters.
+Page 39
+21. Parameter Name: CONTROLLER_TL_OVERTAKE_TRUCK_LENGTH.  
+Description: Default truck length.  
+Value: 12.  
+Unit: m.  
+
+22. Parameter Name: LN_ONLY_SL_SPEED_EXIT.  
+Description: Exiting speed limit in urban detecting condition.  
+Value: 0.  
+Unit: kph.  
+
+23. Parameter Name: LN_ONLY_SL_SPEED_ENTER.  
+Description: Entering speed limit in urban detecting condition.  
+Value: 0.  
+Unit: kph.  
+
+24. Parameter Name: BS_ENTER_THRESH.  
+Description: Ambient light entering limit in urban detecting condition.  
+Value: 0.  
+Unit: lux.  
+
+25. Parameter Name: BS_EXIT_THRESH.  
+Description: Ambient light existing limit in urban detecting condition.  
+Value: 0.  
+Unit: lux.  
+
+26. Parameter Name: CONTROLLER_LOW_BEAM_ON_JUNCTION.  
+Description: Flag for opening.  
+Value: 1.  
+Unit: bool.
+Page 40
+27 CONTROLLER_LOW_BEAM_ON_TUNNEL: Flag for opening tunnel condition judgement with a value of 1 (bool).
+
+28 HMA_LAT_ACC_ENTER: Lateral acceleration limit for entering low priority transform suppression condition with a value of 3 m/s².
+
+29 HMA_LAT_ACC_EXIT: Lateral acceleration limit for exiting low priority transform suppression condition with a value of 2.7 m/s².
+
+30 HMA_YAW_RATE_ENTER: Yaw rate limit for entering low priority transform suppression condition with a value of 0.19 m/s².
+Page 41
+### Formatted Document (Based on Page 41)
+
+#### 35. HMA_YAW_RATE_EXIT
+Yaw rate limit for exit low priority transform suppression condition is **0.171 m/s²**.
+
+#### 36. HMA_HIGHBEAM_ACTIVE_GRACE
+Time delay to activate the high beam is **500 milliseconds**.
+
+#### 37. HMA_DRIVE_DIRECTION
+If the driving direction condition is open, the value is **1 (bool)**.
+
+#### 38. HMA_TURN_LAMP
+If the turning indicator condition is open, the value is **1 (bool)**.
+
+#### 39. HMA_ABS
+If the ABS judgment condition is open, the value is **1 (bool)**.
+Page 42
+36. HMA_ESP: If open ESP judgement condition ESP = 1 (bool).
+
+37. HMA_WIPER_TIME: Wiper judgement last time = 3 seconds (s).
+
+38. HMA_WIPER_ENABLE: If open wiper condition = 1 (bool).
+
+39. HMA_FOG_TIME: Wiper judgement last time = 3 seconds (s).
+
+40. HMA_FOG_ENABLE: If open fog light condition = 1 (bool).
+
+41. CONTROLLER_OC_NORMAL_TIME_DELAY_HW: Time delay for normal oncoming vehicle in highway FOV = 2500 milliseconds (ms).
+
+42. CONTROLLER_OC_MIDDLE_DISAP_TIME_DELAY_HW: Time delay for disappeared oncoming cars = 1000 milliseconds (ms).
+Page 43
+16.12 / / Function Performance.
+
+Requirement ID: FS-226955.  
+Type: --.  
+Status: New.  
+
+All the performance requirements should be decided and tested by VF and ZF together. The following performance requirements data is just for reference. Actual performance should be according to the validation results.
+
+16.12.1 / / Detection FOV FOV.
+
+Requirement ID: FS-226956.  
+Type: --.  
+Status: New.  
+
+The system shall be able to detect vehicles within a minimum horizontal FOV of ± 25°.  
+The system shall be able to detect vehicles within a minimum vertical FOV of 5° above the horizon and 10° below the horizon.
+
+16.12.2 / / Detection Distance.
+
+Requirement ID: FS-226957.  
+Type: --.  
+Status: New.  
+
+The range requirements below are applicable as long as the host vehicle is on an even straight road, when limitation of the maximum detection range of the system is not active and the target is in motion.
+Page 44
+The minimum distance at which the system shall detect an oncoming vehicle with two headlamps is 800 meters.  
+The minimum distance at which the system shall detect an oncoming vehicle with one headlamp is 500 meters.  
+The minimum distance at which the system shall detect a preceding vehicle with two taillights is 500 meters.  
+The minimum distance at which the system shall detect a preceding vehicle with one taillight is 250 meters.  
+The minimum distance at which the system shall detect an oncoming bicycle with a headlamp is 75 meters.
+
+16.12.3 // Angle Accuracy.  
+Requirement ID: FS-226958.  
+Type: ----  
+Status: New.  
+
+The angles used for the HMA shall have an accuracy of at least 0.1 degrees assuming a correctly calibrated camera.
+
+16.12.4 // Urban Area Detection Accuracy.  
+Requirement ID: FS-226959.  
+Type: ----  
+Status: New.  
+
+Based on the total number of urban areas available on the test route, incorrect deactivation of the high beam due to the false detection of urban areas shall occur at a rate less than or equal to 5%.
+
+16.12.5 // Detection Accuracy.  
+Requirement ID: FS-226960.  
+Type: ----  
+Status: New.  
+
+Upon initial detection of an oncoming vehicle with two headlamps at a range of 0–500 meters, the system shall send the request to switch off the high beam in less than 900 milliseconds for 95% of the test cases.  
+Upon initial detection of an oncoming bicycle headlamp at a range less than 75 meters, the system shall send the request to switch off the high beam in less than 2 seconds for 95% of the test cases.  
+Upon initial detection of a preceding vehicle with two taillamps at a range of 0–400 meters, the system shall send the request to switch off the high beam in less than 1 second for 90% of the test cases.
+Page 45
+16.12.6 / / Distance Accuracy.
+
+Requirement ID: FS-226961  
+Type: --  
+Status: New  
+
+When the actual distance from the objects with two lights to the host vehicle is within the range of 0 - 100m, the measure of the distance shall have an accuracy of maximum 10% for at least 97% of the measured values.  
+When the actual distance from the objects with twin lights to the host vehicle is within the range of 100 - 200m, the measure of the distance shall not exceed 20% for at least 97% of the measured values.  
+
+16.12.7 / / Tunnel Detection Performance.
+
+Requirement ID: FS-226962  
+Type: --  
+Status: New  
+
+The system shall detect that the host vehicle is no longer within a tunnel within 2 seconds or 50m (whichever occurs first) of exiting the tunnel with a Detection Rate of at least 95%.  
+The system shall achieve a False Positive Rate for detecting that the host vehicle is in a tunnel of less than 1/150 km.  
+
+16.13 / / Regulations.
+
+Requirement ID: FS-226963  
+Type: --  
+Status: New  
+
+The system shall be fully compliant to the ECE-R-48 regulations for automatically controlled headlamps.

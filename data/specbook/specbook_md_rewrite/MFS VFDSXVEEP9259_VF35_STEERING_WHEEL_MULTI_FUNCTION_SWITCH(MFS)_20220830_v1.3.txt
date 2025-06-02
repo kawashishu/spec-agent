@@ -1,0 +1,2423 @@
+Page 1
+MULTI-FUNCTION SWITCH (MFS_VFe35). 
+
+(SPEC BOOK).
+
+Third edition (09.2022).
+
+A central image displays the steering wheel of the VFe35 vehicle, showcasing the multi-function switch controls located on the left and right sides of the steering wheel. This provides an intuitive interface for vehicle functions.
+Page 2
+Scope. VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop the new VFe35. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production under the PREM Program.
+
+MFS VARIANT.
+
+1. **MFS-BASE**:
+   - Left button cluster (L1): Infotainment Controls - volume +/-, next/previous track, phone answer, voice command, source. Re-configurable controller for additional controls such as mirror adjust, steering wheel adjust, HUD adjust. Gear downshift functionality enabled. Includes IR LED.
+   - Right button cluster (R1): Adaptive Cruise Control, Lane Keep Assist (LKA), Intelligent Speed Adaptation (ISA). Gear upshift functionality enabled. Includes IR LED.
+
+2. **MFS-MID**:
+   - Left button cluster (L2): Infotainment Controls - volume +/-, next/previous track, phone answer, voice command, source. Re-configurable controller for additional controls such as mirror adjust, steering wheel adjust, HUD adjust. Includes IR LED.
+   - Right button cluster (R2): Adaptive Cruise Control, Lane Keep Assist (LKA), Intelligent Speed Adaptation (ISA). Includes IR LED.
+
+3. **MFS-HIGH**:
+   - Left button cluster (L2): Infotainment Controls - volume +/-, next/previous track, phone answer, voice command, source. Re-configurable controller for additional controls such as mirror adjust, steering wheel adjust, HUD adjust. Includes IR LED.
+   - Right button cluster (R3): Adaptive Cruise Control, Lane Keep Assist (LKA), Intelligent Speed Adaptation (ISA), STWH logic in PCB. Includes IR LED.
+
+Author: Kuldeep Singh. The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Approval Confirmed By.
+
+**Function: ER-PM**  
+Chief Engineer: Kevin Michael Nicholas Fisher  
+Signature:  
+Date:  
+
+**Function: ER-CV**  
+Chief Engineer:  
+Signature:  
+Date:  
+
+**Function: ER-MGL PWT**  
+Chief Engineer:  
+Signature:  
+Date:  
+
+**Function: ER-MGL Ch**  
+Chief Engineer:  
+Signature:  
+Date:  
+
+**Function: ER-MGL E/E**  
+Chief Engineer:  
+Signature:  
+Date:  
+
+**Function: ER-MGL BIW/DC**  
+Chief Engineer:  
+Signature:  
+Date:  
+
+**Function: ER-MGL Interior**  
+Chief Engineer: Gordon Tindale  
+Signature:  
+Date:  
+
+**Function: ER-MGL Exterior**  
+Chief Engineer:  
+Signature:  
+Date:
+Page 4
+Index.
+
+Approval Confirmed By................................................................................................................................... 3.  
+Index.................................................................................................................................................................. 4.  
+Change History ................................................................................................................................................ 7.  
+
+1. General Document Guidelines ............................................................................................................... 8.  
+   1.1 Purpose and Legal Binding .................................................................................................................. 8.  
+   1.2 Language ............................................................................................................................................. 8.  
+   1.3 Obligation of Requirement Wording .................................................................................................... 8.  
+       1.3.1 Vehicle Profile ............................................................................................................................. 8.  
+       1.3.2 Sales Markets ............................................................................................................................. 8.  
+
+2. General Project Guidelines ..................................................................................................................... 9.  
+   2.1 Development Scope Abstract .............................................................................................................. 9.  
+   2.2 Initial Situation and Objective .............................................................................................................. 9.  
+   2.3 Classification of the System/Component ........................................................................................... 9.  
+   2.4 Execution Regulations ....................................................................................................................... 9.  
+   2.5 Development and Supply Scope ....................................................................................................... 11.  
+       2.5.1 Work Interface Chart (RASI) ...................................................................................................... 11.  
+       2.5.2 Development Interface Agreement (DIA) .................................................................................. 13.  
+   2.6 Quotation Scope ............................................................................................................................... 13.  
+   2.7 Properties, Condition, and Durability ................................................................................................. 13.  
+   2.8 Development Process ........................................................................................................................ 13.  
+       2.8.1 Gates and Milestones ................................................................................................................. 13.  
+           2.8.1.1 Gates ................................................................................................................................... 13.  
+           2.8.1.2 Milestones ........................................................................................................................... 13.  
+           2.8.1.3 Reviews ............................................................................................................................... 14.  
+       2.8.2 Prototype Statuses .................................................................................................................... 14.  
+       2.8.3 Prototype Quantities .................................................................................................................. 15.  
+       2.8.4 Acceptance Procedure .............................................................................................................. 15.  
+       2.8.5 Type Approval and Certification ................................................................................................ 15.  
+   2.9 Quality and Reliability ....................................................................................................................... 15.  
+       2.9.1 Quality Concepts ........................................................................................................................ 15.  
+       2.9.2 Risk Management ....................................................................................................................... 15.  
+       2.9.3 Validation of the SW Development ............................................................................................ 15.  
+   2.10 Content Amendments ...................................................................................................................... 15.  
+
+3. Project Management and Organization ............................................................................................... 15.  
+   3.1 Responsibilities in the Project and Project Management Plan .......................................................... 15.  
+   3.2 Documentation ................................................................................................................................... 15.  
+       3.2.1 Hardware Documentation ........................................................................................................... 15.  
+       3.2.2 Software Documentation ............................................................................................................ 15.  
+       3.2.3 Conformity Requirements .......................................................................................................... 15.  
+
+4. System Environment ............................................................................................................................. 16.  
+   4.1 Functional System Environment ......................................................................................................... 16.  
+   4.2 Physical System Environment/Mechanical Interfaces ....................................................................... 16.  
+   4.3 System Diagram ................................................................................................................................ 16.  
+
+5. Functional and Technical Requirements ............................................................................................ 17.  
+   5.1 Naming and Part ID No ...................................................................................................................... 17.  
+   5.2 Block and Principle Diagram ............................................................................................................... 18.  
+       5.2.1 Elements of Systems .................................................................................................................. 19.  
+   5.3 Functions ............................................................................................................................................ 19.  
+       5.3.1 Detailed Functions Description ................................................................................................... 19.  
+
+6. Function Safety, Homologation, and Safety Regulations ................................................................. 28.  
+   6.1 Functional Safety Requirements ....................................................................................................... 28.  
+       6.1.1 Homologation and Safety Regulation Requirements ................................................................. 28.  
+           6.1.1.1 North America ...................................................................................................................... 28.
+Page 5
+Index  
+Approval Confirmed By................................................................................................................................... 3  
+Index.................................................................................................................................................................. 4  
+Change History ................................................................................................................................................ 7  
+
+1 General Document Guidelines ............................................................................................................... 8  
+1.1 Purpose and Legal Binding ........................................................................................................... 8  
+1.2 Language ....................................................................................................................................... 8  
+1.3 Obligation of Requirement Wording ............................................................................................ 8  
+1.3.1 Vehicle Profile ..................................................................................................................... 8  
+1.3.2 Sales Markets ..................................................................................................................... 8  
+
+2 General Project Guidelines ..................................................................................................................... 9  
+2.1 Development Scope Abstract ........................................................................................................ 9  
+2.2 Initial Situation and Objective ........................................................................................................ 9  
+2.3 Classification of the System / Component .................................................................................... 9  
+2.4 Execution Regulations .................................................................................................................. 9  
+2.5 Development and Supply Scope ................................................................................................ 11  
+2.5.1 Work Interface Chart (RASI) ............................................................................................. 11  
+2.5.2 Development Interface Agreement (DIA) ......................................................................... 13  
+2.6 Quotation Scope .......................................................................................................................... 13  
+2.7 Properties, Condition and Durability .......................................................................................... 13  
+2.8 Development Process ................................................................................................................ 13  
+2.8.1 Gates and Milestones ....................................................................................................... 13  
+2.8.1.1 Gates ............................................................................................................................ 13  
+2.8.1.2 Milestones ..................................................................................................................... 13  
+2.8.1.3 Reviews ......................................................................................................................... 14  
+2.8.2 Prototype Statuses ............................................................................................................ 14  
+2.8.3 Prototype Quantities .......................................................................................................... 15  
+2.8.4 Acceptance Procedure ....................................................................................................... 15  
+2.8.5 Type Approval and Certification ....................................................................................... 15  
+2.9 Quality and Reliability ................................................................................................................ 15  
+2.9.1 Quality Concepts ............................................................................................................... 15  
+2.9.2 Risk Management ............................................................................................................. 15  
+2.9.3 Validation of the SW Development .................................................................................. 15  
+2.10 Content Amendments .................................................................................................................. 15  
+
+3 Project Management and Organization ............................................................................................... 15  
+3.1 Responsibilities in the Project and Project Management Plan ................................................... 15  
+3.2 Documentation ............................................................................................................................. 15  
+3.2.1 Hardware Documentation .................................................................................................. 15  
+3.2.2 Software Documentation ................................................................................................... 15  
+3.2.3 Conformity Requirements .................................................................................................. 15  
+
+4 System Environment ............................................................................................................................. 16  
+4.1 Functional System Environment ................................................................................................. 16  
+4.2 Physical System Environment / Mechanical Interfaces ............................................................. 16  
+4.3 System Diagram ......................................................................................................................... 16  
+
+5 Functional and Technical Requirements ............................................................................................ 17  
+5.1 Naming and Part ID No ............................................................................................................... 17  
+5.2 Block and Principle Diagram ........................................................................................................ 18  
+5.2.1 Elements of Systems ........................................................................................................ 19  
+5.3 Functions ..................................................................................................................................... 19  
+5.3.1 Detailed Functions Description ......................................................................................... 19  
+
+6 Function Safety, Homologation and safety regulations .................................................................... 28  
+6.1 Functional Safety Requirements ................................................................................................. 28  
+6.1.1 Homologation and safety regulation requirements ............................................................ 28  
+
+VinFast Released
+Page 6
+Index.
+
+6.16.3 Low Voltage Energy Management.  
+6.16.3.1 Energy Management Requirements.  
+6.16.4 High Voltage Energy Management.  
+6.16.5 Electromagnetic Compatibility.  
+6.16.5.1 EMC Requirements.  
+6.16.6 Electrostatic Discharge.  
+6.16.6.1 ESD Requirements.  
+
+6.17 Climatic Requirements / Thermal Management.  
+6.17.1 Thermal Management Requirements.  
+6.18 Service Requirements.  
+6.19 Transport Protection.  
+6.20 Logistics Requirements.  
+6.21 Quality Assurance Requirements.  
+6.22 Content Amendments.  
+
+7 Testing and Validation.  
+7.1 Proof of Compliance.  
+7.2 Testing Plan (DVP + FRS Plan).  
+7.2.1 Package.  
+7.2.2 Electrical Systems & Functions.  
+7.3 Virtual Testing and Simulation.  
+7.4 Vehicle Testing.  
+7.5 Tests.  
+
+8 Definitions and List of Abbreviations.  
+8.1 Definitions.  
+8.2 List of Abbreviations.  
+
+9 Further Applicable Documents.
+Page 7
+Change History.
+
+Release Version: 1.3.  
+Date: September-2022.  
+
+Version | Chapter | Brief Description | Date | Responsible Person  
+--------|---------|-------------------|------|-------------------  
+1.0     |         | Initial Version   | 14-Aug-2021 | Kuldeep Singh  
+1.1     | 1.      | Added ISO and VF Standard in Section 2.4  
+        | 2.      | Added Timing Plan for VF8 in Section 2.8.1.2  
+        | 3.      | Added Mounting Diagrams and Connector details in Section 6.3 | 19-July-2022 | Marpu Niranjan  
+1.2     |         | Updated part numbers 5.1 | 30-August-2022 | Markus Witte  
+1.3     |         | Removed Spec Book Number VFDSXVEEP7002 and updated Spec Book Number VFDSXVEEP9259 into Spec Book | 30-September-2022 | Shubham Tamshetti.
+Page 8
+1 General Document Guidelines.
+
+1.1 Purpose and Legal Binding.
+This version is legally binding.
+
+This document is based on the VDA component requirement specification structure. It consists of universal requirements for the “General Project Requirements for Suppliers” (Part 1 - level 1), Common Electric Specifications (applicable documents of Part 1 - level 1), the “System / Component Specification Book for Supplier” for mechanical and mechatronic system / components (Part 2 - level 2), and general “Further Applicable Documents” (Part 3 - level 3).
+
+Requirement documents are divided into three levels, which are complementary to each other (e.g., what is not included in Part 1 can be included in Part 2, and so on). All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g., level 3 vs level 2 → level 2 is applicable).
+
+1.2 Language.
+This document is written in English.
+
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.
+
+1.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document.
+
+- Shall: The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.
+- Should: The word “should” is used for preferences or desires in implementation that are not strictly binding.
+- May: The word “may” is used to denote options that are left to the implementer.
+
+1.3.1 Vehicle Profile.
+See Appendix_PALS.
+
+1.3.2 Sales Markets.
+LHD countries: Vietnam, USA, EU, CANADA.
+Page 9
+2 General Project Guidelines.
+
+2.1 Development Scope Abstract.
+This technical specification is a written summary of requirements to be taken into account in the development of the Multi Functional Switches (MFS). The requirements described in this technical specification relate primarily to functional characteristics. The Contractor ensures that the development of the components respect all applied standards, characteristics, and project requirements. Any possible cost savings as a result of improvements in design, production, or validation details have to be reported immediately. The contractor is a "System Development Supplier", with complete responsibility of the supplied system within the system boundaries.
+
+2.2 Initial Situation and Objective.
+MFS buttons are necessary to MHU and cruise control function. Comfort functions like multimedia control can be controlled at multimedia device itself or via buttons.
+
+2.3 Classification of the System / Component.
+LIN component (intelligent) which is in every trim necessary. Only one variant for Vietnamese market and one variant for US market.
+
+2.4 Execution Regulations.
+All safety regulations are handled via corresponding main ECU like cruise control and not in MFS.
+
+**Standard Table**:
+- **Standard Number**: IEC 60529-2013.
+  - **Name**: Degrees of protection provided by enclosures (IP Code).
+  - **Remarks**: Not provided.
+- **Standard Number**: ISO 16750.1-2006.
+  - **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment —Part 1: General.
+  - **Remarks**: Not provided.
+- **Standard Number**: ISO 16750.2-2012.
+  - **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment —Part 2: Electrical loads.
+  - **Remarks**: Not provided.
+- **Standard Number**: ISO 16750.3-2012.
+  - **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment —Part 3: Mechanical loads.
+  - **Remarks**: Not provided.
+- **Standard Number**: ISO 16750.4-2010.
+  - **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment —Part 4: Climatic loads.
+  - **Remarks**: Not provided.
+- **Standard Number**: ISO 16750.5-2010.
+  - **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 5: Chemical load.
+  - **Remarks**: Not provided.
+Page 10
+2 General Project Guidelines
+
+2.1 Development Scope Abstract.  
+This technical specification is a written summary of requirements to be taken into account in the development of the Multi Functional Switches (MFS). The requirements described in this technical specification relate primarily to functional characteristics. The Contractor ensures that the development of the components respect all applied standards, characteristics and project requirements.  
+Any possible cost savings as a result of improvements in design, production or validation details, have to be reported immediately.  
+The contractor is a "System Development Supplier," with complete responsibility of the supplied system within the system boundaries.
+
+2.2 Initial Situation and Objective.  
+MFS buttons are necessary to MHU and cruise control function. Comfort function like multimedia control can be controlled at multimedia device itself or via buttons.
+
+2.3 Classification of the System / Component.  
+LIN component (intelligent) which is in every trim necessary. Only one variant for Vietnamese market and one variant for US market.
+
+2.4 Execution Regulations.  
+All safety regulations are handled via corresponding main ECU like cruise control and not in MFS.
+
+### Table 1: MFS Execution Regulations
+1. **Standard**: IEC 60529-2013  
+   **Name**: Degrees of protection provided by enclosures (IP Code).  
+
+2. **Standard**: ISO 16750.1-2006  
+   **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 1: General.  
+
+3. **Standard**: ISO 16750.2-2012  
+   **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 2: Electrical loads.  
+
+4. **Standard**: ISO 16750.3-2012  
+   **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 3: Mechanical loads.  
+
+5. **Standard**: ISO 16750.4-2010  
+   **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 4: Climatic loads.  
+
+6. **Standard**: ISO 16750.5-2010  
+   **Name**: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 5: Chemical load.  
+
+7. **Standard**: ISO 8820-1  
+   **Name**: Road vehicles Fuse links.  
+
+8. **Standard**: ISO 3795  
+   **Name**: Road vehicles, tractors and machinery for agriculture and forestry – Determination of burning behavior of interior materials.  
+
+9. **Standard**: ISO 14040:2006  
+   **Name**: Environmental management.  
+
+10. **Standard**: IEC 60068-2-14  
+    **Name**: Environmental testing - Part 2-14: Tests. Test N: Change of temperature.  
+
+11. **Standard**: IEC 60068-2-38  
+    **Name**: Environmental testing - Part 2: Tests. Test Z/AD: Composite temperature/humidity cyclic test.  
+
+12. **Standard**: IEC 60068-2-78  
+    **Name**: Test Cab: Damp heat, steady state.  
+
+13. **Standard**: ISO 11898.1-2015  
+    **Name**: Road vehicles — Controller area network (CAN) — Part 1: Data link layer and physical signal.  
+
+14. **Standard**: ISO 11898.2-2015  
+    **Name**: Road vehicles — Controller area network (CAN) — Part 2: High-speed medium access unit.  
+
+15. **Standard**: CISPR25  
+    **Name**: Vehicles, boats and internal combustion engines – Radio disturbance characteristics - Limits and methods of measurement for the protection of on-board receivers.  
+
+16. **Standard**: CISPR22  
+    **Name**: Information technology equipment - Radio disturbance characteristics – Limits and methods of measurement.  
+
+17. **Standard**: ISO 7637.1  
+    **Name**: Road vehicles-electrical disturbances from conduction and coupling-part 1: definitions and general considerations.  
+
+18. **Standard**: ISO 7637.2  
+    **Name**: Road vehicles — Electrical disturbance by conduction and coupling.  
+
+19. **Standard**: ISO 7637.3  
+    **Name**: Road vehicles — Electrical disturbances from conduction and coupling — Part 3: Electrical transient transmission by capacitive and inductive coupling via lines other than supply lines.  
+
+Additional specifications include VinFast's proprietary standards for EMC, diagnostics, thermal management, coding, and cybersecurity (detailed within proprietary tables like VFDSP50000002, VFDSP50000020, VFDSXVEEP0048, etc.).
+Page 11
+2.5 Development and Supply Scope.
+
+2.5.1 Work Interface Chart (RASI).
+The chart outlines gates, stages, deliverables, and the roles of VF Engineering, VF Purchasing, Supplier, SQE, and Manufacturing. Each row defines the responsibilities and contributions across concept and series development.
+
+1. PV - CONCEPT PHASE.
+   - Deliverable: List of Concept in Commodity.
+   - Roles: VF Engineering - R, VF Purchasing - S, Supplier - I, SQE - I, Manufacturing - I.
+
+2. PV.
+   - Deliverable: SOR for Concept in Commodity.
+   - Roles: VF Engineering - R, VF Purchasing - S, Supplier - I, SQE - I, Manufacturing - I.
+
+3. PPS.
+   - Deliverable: SOB through LOI - Letter of Intent for Concept in Commodity.
+   - Roles: VF Engineering - S, VF Purchasing - R, Supplier - S, SQE - I, Manufacturing - I.
+
+4. PPS.
+   - Deliverable: EDD order release for Concept in Commodity.
+   - Roles: VF Engineering - S, VF Purchasing - R, Supplier - S, SQE - I, Manufacturing - I.
+
+5. PPS.
+   - Deliverable: Deliver Bill of Materials in Team center.
+   - Roles: VF Engineering - R, VF Purchasing - I, Supplier - I, SQE - I, Manufacturing - I.
+
+6. PPS.
+   - Deliverable: Supply chain strategy - Deliver Sourcing Strategy.
+   - Roles: VF Engineering - S, VF Purchasing - R, Supplier - I, SQE - S, Manufacturing - I.
+
+7. PPS.
+   - Deliverable: Commodity Timing plan in business areas supports Program timing.
+   - Roles: VF Engineering - S, VF Purchasing - S, Supplier - R, SQE - S, Manufacturing - I.
+
+8. PPS.
+   - Deliverable: Organization and resources for concept phase and resource planning.
+   - Roles: VF Engineering - S, VF Purchasing - S, Supplier - R, SQE - S, Manufacturing - I.
+
+9. PPS.
+   - Deliverable: Opportunities and risks detailed; measures defined for optimization.
+   - Roles: VF Engineering - A, VF Purchasing - S, Supplier - R, SQE - S, Manufacturing - I.
+
+10. PPS.
+    - Deliverable: Quality planning to meet program requirements - APQP Kickoff.
+    - Roles: VF Engineering - R, VF Purchasing - S, Supplier - S, SQE - S, Manufacturing - I.
+
+The document continues sequentially outlining the specific deliverables and roles across stages in concept and series development.
+
+VinFast Released.
+Page 12
+2.5 Development and Supply Scope.
+
+2.5.1 Work Interface Chart (RASI).
+The Work Interface Chart describes the sequence of deliverables, roles, and responsibilities across different project phases for the Multi Functional Switches (MFS). The chart defines tasks under the Concept Phase, Series Development, and Launch Phase, outlining contributions from VF Engineering, VF Purchasing, Supplier, SQE, and Manufacturing teams.
+
+The main supplier obligations are categorized as follows:
+- **Responsible (R):** The person or entity accountable for executing the activity. They may request necessary support from the project team.
+- **Approval (A):** The person or entity responsible for releasing or deciding the deliverable. In the absence of a defined decider, the Responsible person assumes this role.
+- **Support (S):** The person or entity obligated to actively assist the Responsible individual or team. This includes providing knowledge resources, capacity, or expertise.
+- **Informed (I):** The stakeholders informed of ongoing activities and progress without a direct obligation for action.
+
+Responsibilities across phases:
+- **Concept Phase:** Begins with creating a list of concepts and preliminary SOR (Statement of Requirement). Tasks include supply chain strategy development, target validation for cost and weight, system integration testing plans, manufacturing feasibility analyses, CAD/3D submissions, and design optimization.
+- **Series Development:** Continues with the development of PFMEA, technical convergence for PR levels, and systematic validation plans. Emphasis is laid upon tools order release, engineering change management kick-off, and quality planning measures to meet milestone requirements.
+- **Launch Phase:** Concludes with process validation, nominal fit assessments, PV completion, appearance approvals, and engineering sign-offs.
+
+The RASI definitions and tasks enable effective coordination for supplier operations and adherence to project requirements.
+Page 13
+VinFast  
+Management System  
+VFDSXVEEP9259  
+
+Version: 1  
+Uncontrolled copy when printed  
+13 | 55  
+Print date  
+Status  
+Functional Responsibility  
+
+I: Information  
+Right to information. This team member is entitled to demand information from R.  
+
+**2.5.2 Development Interface Agreement (DIA)**  
+Refer SOR  
+
+### **2.6 Quotation Scope**  
+
+### **2.7 Properties, Condition and Durability**  
+**Category:** C-BEV Variant  
+- **Operation system:** Passenger car EV  
+- **Microcontroller:** -  
+- **Communication interface:** LIN and CAN  
+- **Inputs:** Clamps, Powers, HS, LS, I/O Analog and Digitails  
+- **Functional:**  
+  - Message Routing  
+  - Signal Routing  
+  - Network Management  
+  - Diagnostics  
+  - Flashing via OBD  
+  - FOTA  
+  - Cybersecurity  
+- **SW Architecture:** Autosar 4.3 or above  
+- **Lifetime:** 10 years – 160,000 km  
+- **Functional Safety:** ASIL-B  
+- **Operating Temperature:** -40℃ to +85℃  
+- **Mechanical Properties:** IP5K0, Material PA66-PPE  
+- **Location:** Cabin  
+- **Target cost PPC (35K/yrs):** TBD  
+
+*Table 2: Properties, Condition and Durability*  
+
+### **2.8 Development Process**  
+#### **2.8.1 Gates and Milestones**  
+##### **2.8.1.1 Gates**  
+###### **2.8.1.1.1 Function Release Steps**  
+Several validation cycles for electrical systems and functions are planned in the FRS Plan (see “VINFAST_FRS_plan.pdf”). The FRS plan has to be fulfilled in timing and content by every electric component.  
+
+##### **2.8.1.2 Milestones**  
+VinFast Released
+Page 14
+2.8.1.1.1 Function Release Steps  
+Several validation cycles for electrical systems and functions are planned in the FRS Plan (see “VINFAST_FRS_plan.pdf”).  
+The FRS plan has to be fulfilled in timing and content by every electric component.  
+
+**Timing Plan:**  
+*Figure 1: Timing Plan*  
+
+2.8.1.3 Reviews  
+Not Applicable.  
+
+2.8.2 Prototype Statuses  
+
+**A-Sample (Engineering Sample):**  
+Main purpose is to show basic communication and some base functionality is already implemented. It could be either a development board or a design intent housing already.  
+
+**B-Sample (DV-Sample):**  
+All functionality shall be implemented already. All required environmental and EMC tests shall be done.  
+
+**C-Sample (PV-Sample):**  
+100% production intent part – all functionality as well as all design validation tasks shall be done.  
+
+**D-Sample (PPAP-Sample):**  
+Used to deliver the parts for PPAP. (Series parts)
+Page 15
+### 2.8.3 Prototype Quantities
+According to quotation for PTO1 and PTO2 build-up. Additional quantities are handled via special quotations.
+
+### 2.8.4 Acceptance Procedure
+Not Applicable.
+
+### 2.8.5 Type Approval and Certification
+General homologation requirements are defined in Part 1 of the component specification book. Examples of relevant legal requirements for separate technical units, parts, and systems are listed below:
+
+| Item Description                  | REG No.   | REG Name                                             |
+|-----------------------------------|-----------|-----------------------------------------------------|
+| Interior Fittings                 | UN-R 21_01| Interior Fittings                                   |
+| Steering control protection / steering control rearward displacement | UN-R 12_04 | Steering control protection, steering control rearward displacement |
+| Electromagnetic compatibility     | UN-R 10_05| Electromagnetic Compatibility                       |
+
+For regulations regarding Environmental Compatibility, see Part 1.
+
+### 2.9 Quality and Reliability
+#### 2.9.1 Quality Concepts
+Not Applicable.
+
+#### 2.9.2 Risk Management
+Not Applicable.
+
+#### 2.9.3 Validation of the SW Development
+Not Applicable.
+
+### 2.10 Content Amendments
+Not Applicable.
+
+---
+
+### 3 Project Management and Organization
+#### 3.1 Responsibilities in the Project and Project Management Plan
+(Details provided elsewhere in the document.)
+
+#### 3.2 Documentation
+##### 3.2.1 Hardware Documentation
+The supplier shall deliver the hardware-related quality report for every FRS step.
+
+##### 3.2.2 Software Documentation
+Vendors should be required to document the following pieces of software at various stages.
+
+##### 3.2.3 Conformity Requirements
+(Requirements listed in additional sections.)
+Page 16
+4 System Environment
+
+4.1 Functional System Environment
+
+4.2 Physical System Environment / Mechanical Interfaces
+
+Figure 2: The System Environment Diagram visually represents the connection between mechanical components such as the MFS Left, MFS Right, airbag, horn, steering wheel heater, and clock spring, along with electronic interfaces like XGW, MHU, and MDU.
+
+4.3 System Diagram
+
+The System Diagram outlines the functional and electronic connectivity of various system components. It includes interfaces between MFS Left, MFS Right, MHU, Screen, BCM, ADAS, XGW, DMS, GS, VCU, TCU, and PRND buttons, highlighting the specific communication links such as CAN-L, CAN-H, and LIN networks.
+Page 17
+4 System Environment  
+4.1 Functional System Environment  
+
+4.2 Physical System Environment / Mechanical Interfaces  
+
+Figure 2: System Environment Diagram  
+
+4.3 System Diagram  
+
+Figure 3: System Diagram  
+
+4.4 Content Amendments  
+Not Applicable  
+
+5 Functional and Technical Requirements  
+5.1 Naming and Part ID No  
+VFe35: Vietnam, Europe CANADA & US region  
+
+Table 3: Part Number Details  
+
+| No | Part Name                                | Part No.     | Qtty | Material | Purchase level | VFe35 ECO | VFe35 PLUS |
+|----|------------------------------------------|--------------|------|---------|----------------|-----------|------------|
+| 1  | MFS_MULTIFUNCTION_SWITCH_HIGH            | Replaced with EEP30007061 | 1  | PC, ABS | P              | X         | X          |
+|    |                                          | EEP30007056  |      |         | P              | X         | X          |
+|    |                                          |              |      |         |                |           |            |
+| 2  | MFS_MULTIFUNCTION_SWITCH_HIGH            | EEP30007061  | 1    | PC, ABS | P              | X         | X          |
+|    |                                          |              |      |         |                | X         | X          |
+
+VinFast Released
+Page 18
+5.2 Block and Principle Diagram
+
+Figure 4 represents the Block and Principle Diagram for the US BEV Market. It illustrates the interconnected system architecture of various components, including:
+
+- **Steering Wheel Heater**: Integrated with MFS Left and MFS Right, benefiting from NTC temperature sensors.
+- **MFS Left and MFS Right**: Communication interfaces with multiple input signals.
+- **Clock Spring**: Facilitates connections between steering wheel functionalities and the SCM (Steering Column Module).
+- **SCM**: Hosts the microcontroller (μC) managing signal routing and communication between peripheral systems.
+- **ADAS (Advanced Driver Assistance Systems)**: Level 3 functionality linked to Driver Monitor Camera and other safety features.
+- **XGW (Gateway Module)**: Manages CAN network communications across multiple components.
+- **VCU (Vehicle Control Unit)**: Operates with high-priority CAN connections.
+- **HUD (Head-Up Display)**: Provides information via integrated vehicle systems.
+- **MHU (Multimedia Head Unit)**: Supports advanced multimedia management with CAN inputs.
+- **ACM (Access Control Module)** and **BCM (Body Control Module)**: Handle power distribution and vehicle body management.
+
+The diagram details wiring systems, signal routing, and connections for vehicle functionalities. It is essential for defining component integration and fault diagnostics.
+Page 19
+5.2 Block and Principle Diagram  
+
+Figure 5: Electrical block diagram (CDS) – BEV PLUS  
+
+5.2.1 Elements of Systems  
+
+5.3 Functions  
+
+5.3.1 Detailed Functions Description  
+
+Multi-Functional Switches include the following functionalities:  
+Routing via SCM to XGW & ADAS ECU:  
+
+**MFS L**  
+Infotainment Controls:  
+- Volume up  
+- Volume fast up  
+- Volume down  
+- Volume fast down  
+- Next track  
+- Previous track  
+- Mute  
+- Jump into phone at MHU  
+- Voice recognition  
+- Source  
+
+Re-configurable controller for additional controls:  
+- Mirror adjust  
+- Steering wheel adjust  
+- HUD adjust  
+
+Additional Features:  
+- Media Control  
+- IR LED  
+
+**MFS R**  
+Key Functions:  
+- Cruise Control  
+- Adaptive Cruise Control  
+- LKA – Lane Keep Assist  
+- ISA – Intelligent Speed Adaptation  
+- IR LED  
+- STWH  
+
+5.3.1.1.1 MFS  
+
+The MFS right block includes complete intelligence, a LIN transmitter, STWH, NTC, and IR LED, along with all connectors.
+Page 20
+5.3 Detailed Functions Description.  
+
+Multi-Functional Switches include the following functionalities:
+- **Routing via SCM to XGW & ADAS ECU:**  
+  - **MFS L:**  
+    - Infotainment Controls: Volume up, volume fast up, volume down, volume fast down, next track, previous track, mute, jump into phone at MHU, voice recognition, Source.  
+    - Re-configurable controller for additional controls: mirror adjust, steering wheel adjust, HUD adjust.  
+    - Media Control.  
+    - IR LED.  
+  - **MFS R:**  
+    - Cruise Control.  
+    - Adaptive Cruise Control.  
+    - LKA – Lane Keep Assist.  
+    - ISA – Intelligent Speed Adaptation.  
+    - IR LED, STWH.
+
+5.3.1.1.1 MFS.  
+- **MFS right block includes:**  
+  - Complete intelligence, LIN transmitter, STWH, NTC, IR LED, and all connectors.
+
+Additional Features Include:
+- Power Supply: GND and LIN.  
+- Multimedia controlling to XGW.  
+- Cruise controlling to XGW and ADAS ECU.  
+- MFS DTC stored in XGW.  
+- Hardware routing for steering wheel heating.  
+- Multifunctional switch background illumination via LIN.  
+- Line resistor coding directed to the right MFS switch block.  
+- UDS standard requests are not fulfilled for LIN master.  
+- **Steering Wheel Heating** configured only for US BEV PLUS.
+
+**Figure 6: Functional overview located at switches:**  
+Displays three categories of Multi-Functional Switch setups:  
+1. **MFS-BASE:**  
+   - L1: Infotainment Controls, Gear Downshift, IR LED.  
+   - R1: Adaptive Cruise Control, Lane Keep Assist, Intelligent Speed Adaptation, Gear Upshift, IR LED.  
+2. **MFS-MID:**  
+   - L2: Infotainment Controls, Gear Downshift, IR LED.  
+   - R2: Adaptive Cruise Control, Lane Keep Assist, Intelligent Speed Adaptation, IR LED.  
+3. **MFS-HIGH:**  
+   - L2: Infotainment Controls, Gear Downshift, IR LED.  
+   - R3: Adaptive Cruise Control, Lane Keep Assist, Intelligent Speed Adaptation, STWH Logic in PCB, IR LED.
+Page 21
+Feature/Part Number:
+- EEP30007017
+  - PADDLE SHIFTER: X
+  - IR LED: X
+  - Adaptive Cruise Control: X
+  - ISA: X
+  - LDW/LKA: X
+  - MFS Both Side: X
+- EEP30007018
+  - IR LED: X
+  - Adaptive Cruise Control: X
+  - ISA: X
+  - LDW/LKA: X
+  - MFS Both Side: X
+- EEP30007022
+  - IR LED: X
+  - Adaptive Cruise Control: X
+  - ISA: X
+  - LDW/LKA: X
+  - STWH: X
+  - MFS Both Side: X
+
+---
+
+**Figure 7: IR LED**
+
+**Feature:**
+- ADAS operates the driver-monitoring camera.
+- The camera captures pictures of the driver’s face.
+- Camera flashes IR LED simultaneously to enhance the surrounding lighting and optimize image quality.
+- Camera controls the LED function by supplying power to the LED.
+- The top diagram represents the general block diagram.
+- The bottom diagram illustrates the detailed connection between the camera and the IR LED.
+- Dimensions of IR LED: 10mm × 10mm × 6mm.
+
+**Connection:**
+- Camera supplies power to IR LED.
+- Two wires pass through the clock spring and connect to the right MFS unit.
+- LED units are connected in serial.
+- Wires between MFS Left and Right are managed by the supplier.
+- IR LED is protected by a translucent black window of thickness less than 2mm (LEXAN material).
+- Distance between IR LED and the laser window must be under 3.8mm.
+- IR LED location CAD data has been shared with SK by VF.
+Page 22
+### MFS LIN _Message List:
+
+#### Table 4: MFS LIN _Message List
+1. **Signal Name:** MFS_TelephoneCall_EndCall  
+   **Frames:** MFS_BC_VOL_CONT  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Input  
+   **Remarks:** Telephone Call functionality control.  
+
+2. **Signal Name:** MFS_VoiceRecognitionOn_Off  
+   **Frames:** MFS_BC_VOL_CONT  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** VoiceRecognition control.  
+
+3. **Signal Name:** MFS_SourceControl  
+   **Frames:** MFS_Control_Button  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** Resource Control.  
+
+4. **Signal Name:** MFS_UpControl  
+   **Frames:** MFS_Control_Button  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** Up Control.  
+
+5. **Signal Name:** MFS_DownControl  
+   **Frames:** MFS_Control_Button  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** Down Control.  
+
+6. **Signal Name:** MFS_LeftControl  
+   **Frames:** MFS_Control_Button  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** Left Control.  
+
+7. **Signal Name:** MFS_RightControl  
+   **Frames:** MFS_Control_Button  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** Right Control.  
+
+8. **Signal Name:** MFS_OK_Control  
+   **Frames:** MFS_Control_Button  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** OK Control.  
+
+9. **Signal Name:** MFS_LKAControl  
+   **Frames:** MFS_Control_Button  
+   **Publisher:** MFS  
+   **Subscribers:** XGW  
+   **Input/Output:** Output  
+   **Remarks:** LKA Control.  
+
+10. **Signal Name:** MFS_ISAControl  
+    **Frames:** MFS_Control_Button  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** ISA Control.  
+
+11. **Signal Name:** MFS_Failure  
+    **Frames:** MFS_Control_Button  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** Multi-Function Switch Failure.  
+
+12. **Signal Name:** MFS_CruiseOn_Off  
+    **Frames:** MFS_CRUISE_CONT  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** Cruise control On/Off.  
+
+13. **Signal Name:** MFS_CruiseSpeedIncrease  
+    **Frames:** MFS_CRUISE_CONT  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** Cruise Speed Increase.  
+
+14. **Signal Name:** MFS_CruiseSpeedDecrease  
+    **Frames:** MFS_CRUISE_CONT  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** Cruise Speed Decrease.  
+
+15. **Signal Name:** MFS_CruiseGapIncrease  
+    **Frames:** MFS_CRUISE_CONT  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** Cruise Gap Increase.  
+
+16. **Signal Name:** MFS_CruiseGapDecrease  
+    **Frames:** MFS_CRUISE_CONT  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** Cruise Gap Decrease.  
+
+17. **Signal Name:** MFS_CruiseCancel  
+    **Frames:** MFS_CRUISE_CONT  
+    **Publisher:** MFS  
+    **Subscribers:** XGW  
+    **Input/Output:** Output  
+    **Remarks:** Cruise functionality Cancel.  
+
+18. **Signal Name:** Heating Control  
+    **Frames:** XGW_Information  
+    **Publisher:** XGW  
+    **Subscribers:** MFS  
+    **Input/Output:** Output  
+    **Remarks:** Heating Control.  
+
+19. **Signal Name:** PWM_ILUM_SW_LIN  
+    **Frames:** XGW_Information  
+    **Publisher:** XGW  
+    **Subscribers:** MFS  
+    **Input/Output:** Input  
+    **Remarks:** PWM Illumination request to MFS, Parking light on/off based on clamp58.  
+
+20. **Signal Name:** XGW_BackGround_Light  
+    **Frames:** XGW_Information  
+    **Publisher:** XGW  
+    **Subscribers:** MFS  
+    **Input/Output:** Input  
+    **Remarks:** Parking light on/off based on clamp58.  
+
+---
+
+### MFS L Functions:
+- Infotainment Controls: Volume +/-, Next/Previous track, Phone answer, Voice Command, Source.  
+- Re-configurable controller for additional controls: mirror adjust, Steering wheel adjust, HUD adjust.  
+- IR LED functionality.
+
+Below listed table includes LIN messages for the MFS L switch block. All infotainment LIN messages are sent through the MFS to XGW to MHU. Each function receives an acknowledgment on the MHU screen.
+Page 23
+VinFast Management System  
+VFDSXVEEP9259  
+
+Version: 1  
+Uncontrolled copy when printed  
+23 | 55  
+
+Print date  
+Status  
+Functional Responsibility  
+
+**Table 5: MFS L message List**  
+
+**MFS R**  
+**Table 6: MFS R message List**  
+
+**MFS-R**  
+Adaptive Cruise Control (ACC) provides adaptive speed control capabilities.  
+Lane Keep Assist (LKA) assists in maintaining a central lane position.  
+Intelligent Speed Adaptation (ISA) helps adhere to speed limits.  
+
+IR LED and Steering Wheel Heating (STWH) functionalities are integrated.  
+
+ADSA function MFS sends the message to XGW to ADAS ECU for system interaction.  
+
+**Basic Cruise Control:**  
+When you press the button, Basic Cruise Control turns ON. Speed can be set using RES+ and SET-.  
+Cruise function turns OFF using the Cruise Button. If you press the CAN button, it switches to standby mode. Pressing RES again recalls the previous speed setting.  
+
+**LKA/LDW Function:**  
+*Signal Name:*  
+
+Pressing the button activates LDW (Lane Departure Warning). Similarly, the first press disables LDW while enabling LKA.  
+
+*Activation/Deactivation:*  
+
+1. MFS_TelephoneCall_EndCall  
+   - Telephone call functionality control: TBC  
+
+2. MFS_VoiceRecognitionOn_Off  
+   - Voice recognition control: NO  
+
+3. MFS_SourseControl  
+   - Resource control: YES  
+
+4. MFS_UpControl  
+   - Up control: YES  
+
+5. MFS_DownControl  
+   - Down control: YES  
+
+6. MFS_LeftControl  
+   - Left control: YES  
+
+7. MFS_RightControl  
+   - Right control: YES  
+
+8. MFS_OK_Control  
+   - OK control: YES  
+
+9. MFS_LKAControl  
+   - LKA control: TBC  
+
+10. MFS_ISAControl  
+    - ISA control: YES  
+
+11. MFS_Failure  
+    - Multi-function switch failure: NO  
+
+12. MFS_CruiseOn_Off  
+    - Cruise control On/Off: YES  
+
+13. MFS_CruiseSpeedIncrease  
+    - Cruise speed increase: TBC  
+
+14. MFS_CruiseSpeedDecrease  
+    - Cruise speed decrease: TBC  
+
+15. MFS_CruiseGapIncrease  
+    - Cruise gap increase: TBC  
+
+16. MFS_CruiseGapDecrease  
+    - Cruise gap decrease: TBC  
+
+17. MFS_CruiseCancel  
+    - Cruise functionality cancel: TBC  
+
+18. HeatingControl  
+    - Heating control: YES  
+
+19. PWM_ILUM_SW_LIN  
+    - PWM illumination requests to MFS, parking light on/off based on clamp58: YES  
+
+**Message Routing Examples:**  
+- MFS_CruiseOn_Off controls Cruise On/Off using the frame MFS_CRUISE_CONT.  
+- MFS_CruiseSpeedIncrease modifies cruise speed using the frame MFS_CRUISE_CONT.  
+- MFS_CruiseSpeedDecrease reduces cruise speed using the frame MFS_CRUISE_CONT.  
+- MFS_CruiseCancel disables cruise functionalities using the frame MFS_CRUISE_CONT.  
+- MFS_LKAControl manages lane-keeping assistance using the frame MFS_Control_Button.  
+
+VinFast Released
+Page 24
+VinFast Management System VFDSXVEEP9259
+
+Version: 1  
+Uncontrolled copy when printed  
+24 | 55  
+Print date  
+Status  
+Functional Responsibility  
+
+LDW Fitted:  
+- LDW Off: Press LDW/LKA Button → LDW Off.  
+
+LDW & LKA Fitted:  
+- LDW & LKA Off:  
+  Press LDW/LKA Button → LDW On,  
+  Press LDW/LKA Button → LKA On.  
+
+'Lane Assistance' Settings:  
+- **Lane Assistance:**  
+  - **Mode:**  
+    - OFF  
+    - Lane Departure Warning  
+    - Lane Keep Assist  
+
+  - **Sensitivity:**  
+    - Early  
+    - Normal  
+    - Late  
+
+  - **Audible Warning:**  
+    - OFF  
+    - ON  
+
+- Additional Notes:  
+  - Settings in MHU, architecture to be agreed.  
+  - Copy to be agreed.  
+  - TBA volume not user configurable.  
+  - Whether settings to be vehicle or profile linked to be agreed.
+Page 25
+ISA – Intelligent Speed Adaptation:  
+ISA – ON-OFF same Button. When you press the ISA button, ISA turns ON. Set the speed by RES+ and SET- & GAP by GAP+, GAP-. The CAN Button is on standby; when you press RES again, the previous speed will be set.
+
+ACC-Adaptive Cruise Control:  
+ACC – ON-OFF same Button. When you press the ACC button, ACC turns ON. Set the speed by RES+ and SET- & GAP by GAP+, GAP-. The CAN Button is on standby; when you press RES again, the previous speed will be set.
+
+### MFS_Steering Wheel Heat Logic  
+
+**Block Diagram:**  
+Figure 9 illustrates the MFS Steering wheel heat logic. It shows the communication between the MHU (HMI), XGW, and the MFS Right Side via CAN communication for the steering wheel heat function.
+
+MHU to MFS via XGW:  
+- ON Steering wheel Heat Function  
+- OFF Steering wheel Heat Function  
+
+**Steering Wheel Heater ON-OFF Logic:**  
+The block diagram represents how the logic operates for turning the steering wheel heater function ON and OFF logically.
+Page 26
+5.3.1.1.2 VF Logic for STWH ON-OFF through MFS R and MHU-logic steps.
+
+1. An ON signal is sent through communication.  
+2. MFS-R switches on the internal logic, and the STWH circuit begins operation. The heater starts heating.  
+3. An NTC temperature sensor monitors the temperature.  
+4. When the maximum temperature threshold is reached, the MFS-R stops the heating process momentarily, allowing the STWH to cool down.  
+5. The temperature sensor continues monitoring the temperature.  
+6. Once the minimum temperature threshold is reached, the MFS-R switches the STWH back ON.  
+7. During operation, the temperature oscillates between the maximum and minimum thresholds.  
+8. If the driver turns the STWH OFF through the multifunction screen, MFS-R receives the signal via communication.  
+9. MFS-R opens the logic and switches OFF the STWH function, allowing the steering wheel to cool down to ambient temperature.  
+
+*Note:* STWH refers to "Steering Wheel Heater."
+
+### 5.3.1.1.2 Input Parameter
+#### 5.3.1.1.2.1 LIN Inputs  
+**XGW_General_Information**
+
+| Sr. No. | Signal Name                     | Frames              | Publisher       | Subscribers |
+|---------|---------------------------------|---------------------|-----------------|-------------|
+| 1       | MFS_TelephoneCall_EndCall       | MFS_BC_VOL_CONT     | MFS             | XGW         |
+| 2       | MFS_VoiceRecognitionOn_Off      | MFS_BC_VOL_CONT     | MFS             | XGW         |
+| 3       | MFS_SourseControl               | MFS_Control_Button  | MFS             | XGW         |
+| 4       | MFS_UpControl                   | MFS_Control_Button  | MFS             | XGW         |
+| 5       | MFS_DownControl                 | MFS_Control_Button  | MFS             | XGW         |
+| 6       | MFS_LeftControl                 | MFS_Control_Button  | MFS             | XGW         |
+| 7       | MFS_RightControl                | MFS_Control_Button  | MFS             | XGW         |
+| 8       | MFS_OK_Control                  | MFS_Control_Button  | MFS             | XGW         |
+| 9       | MFS_LKAControl                  | MFS_Control_Button  | MFS             | XGW         |
+| 10      | MFS_ISAControl                  | MFS_Control_Button  | MFS             | XGW         |
+| 11      | MFS_Failure                     | MFS_Control_Button  | MFS             | XGW         |
+| 12      | MFS_CruiseOn_Off                | MFS_CRUISE_CONT     | MFS             | XGW         |
+| 13      | MFS_CruiseSpeedIncrease         | MFS_CRUISE_CONT     | MFS             | XGW         |
+| 14      | MFS_CruiseSpeedDecrease         | MFS_CRUISE_CONT     | MFS             | XGW         |
+| 15      | MFS_CruiseGapIncrease           | MFS_CRUISE_CONT     | MFS             | XGW         |
+| 16      | MFS_CruiseGapDecrease           | MFS_CRUISE_CONT     | MFS             | XGW         |
+| 17      | MFS_CruiseCancel                | MFS_CRUISE_CONT     | MFS             | XGW         |
+
+*Table 7: XGW General Information.*
+Page 27
+5.3.1.1.3 Output Parameter
+
+Table 8: XGW Output Parameter
+- **PWM_ILUM_SW_LIN:** PWM Illumination request to MFS, Parking light on/off based on clamp58. Publisher: XGW Information. Output Subscriber: MFS.
+- **XGW_BackGround_Light:** Parking light on/off based on clamp58. Publisher: XGW Information. Output Subscriber: MFS.
+
+5.3.1.1.3.1 HW Outputs
+- **MFS BEV PLUS:** MFS system provides current for steering wheel heating function. The steering wheel contains an integrated weld connected to MFS. 
+- **Temperature Sensor Controlled Protection:** The system measures temperature and deactivates if a specific degree is reached.
+
+5.3.1.1.3.2 LIN Outputs
+
+5.3.1.1.4 Functional Description
+- **Communication via LIN:** This concept supports signal encoding for actions such as short or long presses.
+
+### Short or Long Press Detected
+#### Signal Names and Logical Encoding:
+1. **MFS_TelephoneCall_EndCall:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+   
+2. **MFS_VoiceRecognitionOn_Off:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+3. **MFS_SourseControl:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+4. **MFS_LKAControl:**
+   - 0: Button not pressed  
+   - 1: Button pressed  
+
+5. **MFS_ISAControl:**
+   - 0: Button not pressed  
+   - 1: Button pressed  
+
+### Long Press Detected
+#### Signal Names and Logical Encoding:
+1. **MFS_TelephoneCall_EndCall:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+2. **MFS_VoiceRecognitionOn_Off:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+3. **MFS_SourseControl:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+4. **MFS_UpControl:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+5. **MFS_DownControl:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+6. **MFS_LeftControl:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+7. **MFS_RightControl:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+8. **MFS_OK_Control:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+9. **MFS_CruiseOn_Off:**
+   - 0: Button not pressed  
+   - 1: Short press  
+   - 2: Long press  
+   - 3: Reserved  
+   - 4: Signal invalid  
+
+10. **MFS_CruiseSpeedIncrease:**
+    - 0: Button not pressed  
+    - 1: Short press  
+    - 2: Long press  
+    - 3: Reserved  
+    - 4: Signal invalid  
+
+11. **MFS_CruiseSpeedDecrease:**
+    - 0: Button not pressed  
+    - 1: Short press  
+    - 2: Long press  
+    - 3: Reserved  
+    - 4: Signal invalid  
+
+12. **MFS_CruiseGapIncrease:**
+    - 0: Button not pressed  
+    - 1: Short press  
+    - 2: Long press  
+    - 3: Reserved  
+    - 4: Signal invalid  
+
+13. **MFS_CruiseGapDecrease:**
+    - 0: Button not pressed  
+    - 1: Short press  
+    - 2: Long press  
+    - 3: Reserved  
+    - 4: Signal invalid  
+
+Table 9: Signal & Encoding Tables.
+Page 28
+5.3.1.1.5 Preconditions  
+MFS is active with clamp 15 (ignition). Steering wheel heating is active with clamp 50 (engine run).  
+
+5.3.1.1.6 Failsafe Behavior  
+
+5.3.1.1.7 Diagnostic  
+MFS is LIN slave with diagnostic class II.  
+
+6. Function Safety, Homologation and Safety Regulations.  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+6.1 Functional Safety Requirements.  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+
+**Note:** ISO 26262:2018 standard, Road vehicles – Functional safety: Not applicable  
+
+6.1.1 Homologation and Safety Regulation Requirements.  
+
+6.1.1.1 North America  
+**a. Homologation and Safety Regulation Activities**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g. European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+**b. Self-Certification and Test Report(s)**  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of Manufacturer Handbook.  
+
+**c. Duty to Notify VinFast of a Non-Compliance with an FMVSS/CMVSS or European Regulations**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.  
+
+6.1.1.2 Europe  
+**a. Homologation and Safety Regulation Activities**
+Page 29
+5.3.1.1.5 Preconditions.  
+MFS is active with clamp 15 (ignition). Steering wheel heating is active with clamp 50 (engine run).
+
+5.3.1.1.6 Failsafe Behavior.
+
+5.3.1.1.7 Diagnostic.  
+MFS is LIN slave with diagnostic class II.
+
+6. Function Safety, Homologation and safety regulations.  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+6.1 Functional Safety Requirements.  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+**Note:** ISO 26262:2018 standard, Road vehicles – Functional safety: Not applicable.
+
+6.1.1 Homologation and safety regulation requirements.
+
+6.1.1.1 North America.  
+a. **Homologation and safety regulation activities.**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g. European, Federal motor vehicle safety standards (FMVSS), and Canadian motor vehicle safety standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. **Self-certification and test report(s).**  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain of the FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer Appendix 8 of Manufacturer_Handbook.
+
+c. **Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations.**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+6.1.1.2 Europe.  
+a. **Homologation and safety regulation activities.**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. **Test report(s) and Certificate(s).**  
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain of the UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+VinFast also requests suppliers must provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities in order to get certification for the EC vehicle type-approval (if any).  
+The supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+c. **Duty to notify VinFast of a non-compliance with UN-ECE regulations.**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+**Supplier should meet the below regulation:**  
+__US (FMVSS)/Canada (CMVSS)__  
+FMVSS No. 101 - Controls and Displays.  
+CMVSS No. 101 - Controls and Displays.  
+
+__UNECE__  
+R 121 Identification of controls, tell-tales & indicators.  
+FMVSS No. 302 - Flammability of Interior Materials.  
+R 118 Fire resistance of interior materials.
+
+6.1.2 Faulty Operation.
+
+6.1.3 Emergency Operation.
+
+6.1.4 Display and Operation concept (HMI).
+
+6.1.5 Service and Application Functions.
+Page 30
+6.1.6 Diagnostics.  
+XGW will store the fault of MFS.  
+
+6.2 E/E System Schematic.  
+- Power.  
+- GND CL. 31.  
+
+MFS Illumination.  
+MFS Illumination through LIN.  
+
+6.3 Control Unit Concept.  
+
+6.3.1 Hardware.  
+
+6.3.1.1 Hardware Comprising.  
+The supplier shall share details of the microcontroller chip and CAN transceivers and any other configurable devices (flash memory etc.) on the PCB with VinFast and/or the contractor. The supplier shall also share details of the ECU plastic body and the aluminium heat sink and other main items on the BOM with VinFast and/or the contractor. This is to be included on the 2D drawing for releases.
+Page 31
+VinFast Management System VFDSXVEEP9259.
+
+Version: 1. Uncontrolled copy when printed.
+
+31 | 55.
+
+Print date.  
+Status.  
+Functional Responsibility.  
+
+**Isometric View (1:2):**  
+The isometric view provides a detailed exploded diagram showcasing all the components of the MFS system. The wiring connections, assembly parts, PCB boards, and individual control buttons are displayed in numbered sections corresponding to their respective labels.
+
+**Exploded View Components:**  
+This detailed view breaks down the individual elements of the structure:
+1. Left base (#PC23185xx).
+2. Left PCBA (#PW18982xx).
+3. IR lens (#PC23185xx/SP18982xx).  
+...  
+42. Right trim (#PW18158xx).  
+43. Right IR lens (#PC19281xx).  
+44. Wiring assembly (#ST18987xx).  
+
+The diagram serves to identify key assembly relationships and functionality as per the detailed part specifications in the adjoining lookup table.
+Page 32
+6.3.1.2 Connector Details.
+
+Section J-J:
+Connector diagram displaying the wiring interface for the component, showing detailed side and bottom views of the structure with precise dimensional specifications.
+
+Section K-K:
+Detailed view of the structural design for the connector, providing dimensional specifications for reference.
+
+Part Number Code:
+A breakdown of the coding format used for identifying parts:
+- **Part number**: 11 digits, position 1-11.
+- **Version**: 2 digits, position 12-13.
+- **Supplier ID**: 7 digits, position 14-20.
+- **Date of Production**: 6 digits, formatted as YYMMDD, position 21-26.
+- **Shift production**: 1 digit, N or D, position 27.
+- **Day Production Counter**: 5 digits, range 00001-99999, position 28-32.
+
+Connector C:
+- Pin configuration displayed for Connector C, including pin numbers from 1 to 6.
+- Visual depiction and design specification of Connector C with a labeled diagram showing top and isometric views.
+Page 33
+6.1.6 Diagnostics.  
+XGW will store the fault of MFS.
+
+6.2 E/E System Schematic.  
+- Power.  
+- GND CL. 31.  
+
+MFS Illumination.  
+MFS Illumination through LIN.
+
+6.3 Control Unit Concept.  
+6.3.1 Hardware.  
+6.3.1.1 Hardware Comprising.  
+The supplier shall share details of the microcontroller chip and CAN transceivers and any other configurable devices (flash memory etc.) on the PCB with VinFast and/or the contractor. The supplier shall also share details of the ECU plastic body and the aluminium heat sink and other main items on the BOM with the VinFast and/or the contractor. This is to be included on the 2D drawing for releases.
+
+6.3.1.2 Connector Details.  
+
+Figure 11: Connector Drawings.  
+6.3.2 Software.  
+
+6.4 Electrical Interfaces.  
+6.4.1 Signal Characteristics.  
+All network signals refer to CAN/LIN signal matrix. This shall be shared as a master DBC file as part of the development process. Signals and their descriptions shall also be explained in the SRS document.
+
+6.4.2 Diagnostics.  
+6.4.2.1 Diagnostic Requirements.  
+Please refer to CES_VINFAST_EE_VFDSP50000033_Basic_Diagnostics_Specification and CES_VINFAST_EE_VFDSP50000034_Basic_DID_PID_Specification in the latest version in case of diagnosis functionality.
+
+6.4.3 Network Management.  
+6.4.3.1 Network Management Requirements.  
+Please refer to CES_VINFAST_EE_VFDSP50000010_CAN or CES_VINFAST_EE_VFDSP50000012_LIN_Specification in the latest version in case of network management functionality.
+
+6.4.4 Flashing and Coding.  
+LIN Class II.
+Page 34
+6.4.4.1 Flashing and Coding Requirements  
+Please refer to CES_VINFAST_EE_VFDSP50000035_Flash_Specification, CES_VINFAST_EE_VFDSP50000036_Coding_Specification, and CES_VINFAST_EE_VFDSP50000037_Security_Access_Algorithm in the latest version in case of flashing and coding functionality.  
+
+6.4.5 Pin Assignment  
+
+**Figure 12: Pin Assignment**
+
+6.5 Specific Characteristics  
+N/A  
+
+6.6 Safety Requirements  
+
+6.6.1 Vehicle Safety regarding Person and Passenger Protection  
+**General Requirements**  
+The supplier is responsible to actively support the integration of vehicle safety functions. Lifetime relevant laws and ratings of selling markets as well as OEM requirements must be taken into account.  
+
+6.6.2 Vehicle Safety  
+
+6.7 Mechanical Energy Management  
+
+6.7.1 Weight Targets  
+MFS system shall not exceed 0.150kg.  
+
+Because the vehicle weight has a significant influence on the energy consumption of the vehicle, the major goal of weight management is to minimize the complete vehicle weight. Throughout the whole development, attention must be paid to a weight-optimized design of all components. All weight reduction potentials have to be shown by the supplier, also with their impact on cost, timing, quality, etc.  
+
+6.7.2 Fuel Consumption & Driving Performance  
+Not relevant
+Page 35
+6.8 Installation. 
+
+6.8.1 Installation Location.
+Vehicle Architecture.  
+The complete vehicle must pass the requirements from the vehicle layout plans. All changes on parts and modules, which are affecting the vehicle layout dimensions or geometric coherence of the vehicle, have to be communicated to VinFast immediately by the supplier for separate evaluation. The definition and technical geometric specification regarding complete vehicle dimensions in interior and exterior are based on GCIE 2016 measurement definitions.  
+
+6.8.2 Assembly Concept and Requirement from Production.  
+
+6.8.3 Geometry.  
+
+**Figure 13: Dimensions and Sizes.**
+This figure illustrates the dimensions, sizes, and assembly layout for the components, including detailed technical specifications, such as product label placement and harness assembly length (300 ± 10mm).
+Page 36
+6.8 Installation.
+
+6.8.1 Installation Location.
+Vehicle Architecture: The complete vehicle must pass the requirements from the vehicle layout plans. All changes on parts and modules, which are affecting the vehicle layout dimensions or geometric coherence of the vehicle, have to be communicated to VinFast immediately by the supplier for separate evaluation. The definition and technical geometric specification regarding complete vehicle dimensions in interior and exterior are based on GCIE 2016 measurement definitions.
+
+6.8.2 Assembly Concept and Requirement from Production.
+
+6.8.3 Geometry.
+
+Figure 13: Dimensions and Sizes.
+
+6.8.4 Tolerances.
+
+6.9 Styling and Design.
+Styling has been defined. Following outer shape dimensions can be assumed: One toggle switch on left and right side and with additional press function shall be developed.
+
+Figure 15: Left side styling.
+
+Figure 16: Right side styling.
+
+The surrounding material shall be also leather which requires a slight over pressing by MFS buttons. This shall be done by mounting on back side with a to be defined screw. The following mounting concept shall be supported:
+
+Export from drawing.
+Page 37
+Styling Technique Convergence. All changes on parts and modules affecting the exterior and/or interior styling surfaces of the vehicle must be communicated to VinFast immediately by the supplier for separate evaluation. Part or system-related technical input requirements for styling evolution loops must be provided by the supplier, based on defined requirements from VF module leads. Technical input can be provided as office documents, 3D CAD data, or sections.
+
+**6.10 Ergonomics**
+
+*6.10.1 Optical Characteristics and Surface Feel*
+
+*6.10.2 Actuation Acoustics*
+
+Actuation Noises. The sound of actuation noises must not be audible and should represent a high-quality impression integrated into the complete vehicle. Unpleasant noises perceived by customers must be ruled out through the selection of suitable materials, surfaces, and foaming. The requirements must be performed under all specified environmental and thermic conditions (storage temperatures: -40°C to +85°C, operating temperatures: -30°C to +80°C, relative humidity: 10%-95%). During serial manufacturing, a capable quality assurance process must be established. The supplier must provide components for testing and NVH tuning and ensure specialist participation during local testing and troubleshooting processes.
+
+Touch & Feels Buttons. All steering wheel buttons will undergo Haptic tests, including "Look, Touch & Feels Buttons" tests according to VFDST00054600 and VFDSP10006592.
+
+*6.10.3 Handling*
+
+Ergonomics. The complete vehicle must pass ergonomic tests based on VF internal procedures. Dimensional and material changes that affect ergonomics on parts and modules must be communicated to VinFast immediately by the supplier for separate evaluation. Final sign-off of ergonomic targets will be done in close cooperation with VinFast, which is responsible for interior and exterior styling. VinFast will approve targets by evaluations using styling bucks.
+
+**6.11 Technical Material Requirements**
+
+Environmental Compatibility. The minimization of environmental impacts through a product's complete lifecycle is a key factor in developing innovative products. Environmental impact minimization includes:  
+- Use of recyclable materials.  
+- Use of recycled materials and renewable resources.  
+- Prevention of hazardous substances.  
+- Minimization of compartment emissions, including odors.
+Page 38
+ Minimization of consumption of resources.  
+ Strategy for waste prevention.  
+ Parts marking for identification at end of life.  
+ Depollution and drainage at end of life.  
+ Part should meet all the regulatory, ROHS, and homologation requirement for the US region.  
+ All electronic components/assembly should be lead-free and prevent hazardous substances.  
+
+The requirements of the following standards have to be met:
+- Reuse, Recycling & Recoverability obligations for vehicles, components, and parts according to UN Regulation No. 133.  
+- Parts marking for identification of materials at the end of life of vehicles, components, and parts according to ISO standards.  
+- Prohibition & Restriction of substances according to Vietnam Law on Chemicals No. 06/2007/QH12 (including national chemical inventory, 2017).  
+- Prohibition & Restriction of substances according to the Global Automotive Declarable Substances List (GADSL).  
+- Supplier needs to submit IMDS data that must be reviewed and accepted by VinFast before it is considered complete.
+
+### 6.12 Resistance to Media and Chemical Requirements  
+
+#### 6.12.1 Contamination  
+
+#### 6.12.2 Cleaning  
+
+#### 6.12.3 Corrosion Protection  
+**Generally:**  
+For determination of corrosion requirements, the corrosivity position needs to be classified for each component in the system:  
+1. **Corrosivity Low:** Used when the position is not affected by macro wetness, mud/dirt, or road (deicing) salts.  
+2. **Corrosivity Medium:** Used when the position is at most moderately affected by macro wetness, mud/dirt, or road (deicing) salts.  
+3. **High Corrosivity:** Default for all exterior positions directly affected by road spray.  
+4. **Very High Corrosivity:** Default for all positions directly affected by road spray, stone chipping, and dirt accumulation.  
+
+Electrically functional units in casings and boxes with enclosed air volumes, such as different types of control units, shall be ventilated via a moisture/wetness resistant membrane (type Gortex), when in wet locations.  
+Material combinations shall be chosen so that galvanic corrosion does not occur. This includes fasteners and attached brackets.  
+
+Avoid direct contact with more noble metals like steel, stainless steels, copper, brass, nickel, and conductive or anti-static rubber in environments affected by wetness. Use surface treatment on steel fasteners, etc., that are long-term corrosion-resistant and fully compatible with other materials.  
+
+The electrical components must be installed so that vibrations do not generate fretting corrosion.  
+**Terminals, connectors:** Do not place terminals on the lowest points. Corrosion protection of terminals is primarily a requirement for tightness: Electrical connections must be protected from humidity.  
+**Groundings:** Connecting surfaces of grounding must be water-tight if placed in a corrosive environment.  
+**Aluminium/sealing surfaces:** Aluminium alloys with copper and iron content of >1% are very sensitive to corrosion and should be avoided for components that have sealing surfaces.  
+
+**Reason:** Corrosion may penetrate the seal very fast, opening it for moisture to enter.  
+
+**Corrosion tests:**  
+The parts have to pass system/component tests as well as a complete vehicle corrosion test. Before and after corrosion testing, a functional testing is to be carried out.  
+
+- Component test for metallic surfaces: **Salt spray test:** ISO 9227, acceptance criteria defined.  
+- For organic coatings: **Cyclic corrosion test (CCT):** ISO 11997 Cycle B, acceptance criteria defined.
+Page 39
+6.12 Resistance to Media and Chemical Requirements.
+
+Alternative tests are possible if proposed by the supplier and accepted by the corrosion engineer.
+
+**Test Criteria:**
+The test criteria for various areas based on corrosivity levels are as follows:
+
+- **Interior, mounted parts, dry area (Low Corrosivity):**
+  - Metallic coatings: 240 h NSS ISO 9227.
+  - Organic coatings: 96 h ISO 6270 CH.
+  - Pass criteria: No red rust.
+
+- **Exterior, engine compartment, underbody, wet area (Medium Corrosivity):**
+  - Metallic coatings: 480 h NSS ISO 9227.
+  - Organic coatings: 5 cycles, CCT ISO 11997 Cycle B.
+  - NSS: No red rust.
+  - CCT: Refer to the acceptance criteria below.
+
+- **High/not visible for customer:**
+  - Metallic coatings: 480 h NSS ISO 9227.
+  - Organic coatings: 10 cycles, CCT ISO 11997 Cycle B.
+
+- **High/visible, very high:**
+  - Metallic coatings: 720 h NSS ISO 9227.
+  - Organic coatings: 10 cycles, CCT ISO 11997 Cycle B with stone chipping protection where needed.
+
+**Table 10: Test Criteria.**
+
+**Pass Criteria for Organic Coatings After CCT:**
+- Rust creep (per ISO 4628-8):
+  - Galvanized steel: d = 4 mm.
+  - Steel and aluminum sheet: d = 1–2 mm.
+- Blistering: Blister size max. S2 (Assessment as per DIN EN ISO 4628-2).
+- Edge corrosion: ≤ 10%.
+- Weld seam corrosion: ≤ 5%.
+- Degree of rusting (per ISO 4628-3): ≤ Ri 1.
+
+**Steel Structural Components (e.g., brackets):**
+- Metallic surfaces: Neutral Salt Spray Test (NSS) ISO 9227 according to corrosivity level.
+- Organic coatings: Cyclic corrosion test ISO 11997-1 Cycle B according to corrosivity level.
+- Pass Criteria: No red rust; slight corrosion on edges and threads is acceptable. Further details are provided in the table above.
+
+**Aluminum Components:**
+- **Painted Aluminum:**
+  Requirements and criteria are aligned with painted steel.
+- **Anodized Aluminum:**
+  - Component Test: 240 h ISO 9227 NSS.
+  - Pass Criteria: No visible changes.
+  - The position in the test chamber must replicate its position in the vehicle.
+  - Anodized aluminum parts connected to rubber parts must be tested together as installed in the vehicle.
+
+**Pass Criteria for Functional Units in Casings and Boxes:**
+- Testing must mimic the component’s position as installed in the vehicle, including original connections.
+- No base metal corrosion along sealing planes (maximum rust extension of 2 mm from steel edges).
+- No surface changes inside the housing.
+- No functional limitations.
+
+**Attached Metal Parts:**
+- Coated steel fasteners or other attached metal components must avoid significant galvanic corrosion in aluminum alloys. Their design must optimize mechanical strength.
+- Fasteners' protective coatings must not show significant consumption (less than 10% of the area).
+
+**VinFast Released.**
+Page 40
+6.12.4 Tightness and Protection Classes.
+
+6.13 Environmental Compatibility.
+6.13.1 Material Selection.
+
+**Material Information.**  
+The supplier has to provide detailed information about the specific trade names and quality of the planned materials (e.g., ABS+PC; trade name:???, supplier: ???) before the milestone procurement release. Material safety data sheets (SDS) according to Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017) have to be provided for milestone concept confirmation. Consider local rules for SDS creation and UN-guidelines acc. GHS Globally Harmonized System of Classification, Labelling, and Packaging of Chemicals. Material safety data sheets have to be provided by the supplier to VinFast.
+
+**Material Compliance.**  
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier. 
+- The conformance to prohibited substances has to be ensured by the supplier through the complete product life cycle.  
+- For PPAP material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002 - 022 are required. Updates are required for changes.
+
+Material data sheets have to be provided by the supplier to VinFast:  
+**Project Vinfast IMDS-ID @ 192996.**  
+All materials and components have to meet the latest legal requirements of the UN regulations according to restricted and prohibited materials and substances for automotive applications. At least all materials and substances used for automotive products have to meet the Global Automotive Declarable Substances List (GADSL).  
+
+Further information:  
+[https://www.gadsl.org/](https://www.gadsl.org/)
+
+**Recycled Materials.**  
+When selecting materials, attention is to be focused on reducing the variety of materials and ensuring compatibility with available recycling procedures (so-called 'proven recycling technologies'). Secondary raw materials (post-consumer recyclates and post-production recyclates, e.g., recycled polymeric PET fiber, recycled textiles, recycled foams, recycled thermoplastics, etc.) have to be preferred with respect to market availability. Recycled materials have to be marked according to parts marking standards defined in this specification book and must be reported to the environmental compliance experts team at VinFast.
+
+6.13.2 End of Life Treatment.
+
+**Dismantling Scheme.**  
+The dismantling scheme describes the requirements to the contractor for simple, unmixed dismantling of the component and its accessibility when assembled. The dismantling scheme has to be provided to the environmental expert’s team at milestone PTO Production Try-Out.
+
+**Recycling Scheme.**  
+This chapter establishes the general project-wide requirements for the recycling and repair scheme in the development of a component. Design for recycling of parts and components is required to enable cost-effective recycling at the end of life. The recycling scheme provided by the contractor has to show a simple layout for the possible recycling process of the component, including information about preferred recycling partners and cost estimation. The recycling scheme has to be provided to the environmental experts team at VinFast before milestone PTO Production Try-Out.
+
+**Pyrotechnic Initiator Neutralization.**
+Page 41
+6.12.4 Tightness and Protection Classes
+
+6.13 Environmental Compatibility
+
+6.13.1 Material Selection  
+**Material Information**  
+The supplier has to provide detailed information about the specific trade names and quality of the planned materials (e.g., ABS+PC; trade name: ???, supplier: ???) before the milestone procurement release. Material safety data sheets (SDS) according to Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017) have to be provided for milestone concept confirmation. Consider local rules for SDS creation and UN-guidelines acc. GHS Globally Harmonized System of Classification, Labelling, and Packaging of Chemicals. Material safety data sheets have to be provided by the supplier to VinFast.  
+
+**Material Compliance**  
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier.  
+- The conformance to prohibited substances has to be ensured by the supplier through the complete product life cycle.  
+- For PPAP material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002-022 are required. Updates are required for changes.  
+- Material data sheets have to be provided by the supplier to VinFast: Project VinFast IMDS-ID @ 192996.  
+
+All materials and components have to meet the latest legal requirements of the UN regulations regarding restricted and prohibited materials and substances for automotive applications. At least all materials and substances used for automotive products have to meet the Global Automotive Declarable Substances List (GADSL). Further information: [https://www.gadsl.org/](https://www.gadsl.org/).  
+
+**Recycled Materials**  
+When selecting materials, attention is to be focused on reducing the variety of materials and on compatibility with available recycling procedures (so-called "proven recycling technologies").  
+Secondary raw materials (post-consumer recyclates and post-production recyclates, e.g., recycled polymeric PET fiber, recycled textiles, recycled foams, recycled thermoplastics, etc...) have to be preferred in respect to availability on the market. Recycled materials have to be marked according to parts marking standards defined in this specification book and must be reported to the environmental compliance experts team at VinFast.  
+
+6.13.2 End of Life Treatment  
+**Dismantling Scheme**  
+The dismantling scheme describes the requirements to the contractor in terms of a simple, unmixed dismantling of the component as well as its accessibility when assembled. Dismantling scheme must be provided to the environmental experts team at the milestone PTO Production Try-Out.  
+
+**Recycling Scheme**  
+This chapter establishes the general project-wide requirements for the recycling and repair scheme in the development of a component. Design for recycling of parts and components is required in order to enable cost-effective recycling at the end of life.  
+The recycling scheme provided by the contractor must show a simple layout for the possible recycling process of the component including information about preferred recycling partners and cost estimation. Recycling scheme must be provided to the environmental experts team at VinFast before milestone PTO Production Try-Out.  
+
+**Pyrotechnic Initiator Neutralization**  
+To ensure a cost-effective recycling of end-of-life vehicles, a recycling function (central ability for inflation) shall be provided for, via the diagnosis interface/central data interface for pyrotechnical components, complying with the following requirements:  
+- Enable sequential deployment of all components (avoidance of noise and pressure peaks/check of deployment per component).  
+- After deployment of the pyrotechnical components, no solid combustion residues shall remain that are classified, according to the status of the respective valid waste legislation, as toxic waste or hazardous substances (otherwise, the components must be dismantled and disposed of separately as hazardous substances).  
+- A successful deployment of pyrotechnical components shall be immediately and clearly visible (acoustically and/or directly at the vehicle/via the feedback at the deployment tool).  
+- Marking of positions of pyrotechnical components (especially "hidden" components, e.g., battery safety terminal clamp, active safety headrest).  
+- In case of non-deployment, the removal of pyrotechnical components is required. Technical pre-dismantling, if possible, shall be avoided (accessibility of fasteners).  
+
+6.13.3 Eco-Design  
+**Parts Marking**  
+Parts marking should be carried out using the rule "as few characters as possible but as many as necessary." The marking consists of brief type designations, which have been defined by DIN, EN, or ISO standards (ISO takes priority). The codes are put into arrowed brackets, which consist of the mathematical signs for "more than" (>) and "less than" (<).  
+6.13.4 Lifecycle Analysis  
+
+6.13.5 Emissions & Toxicology  
+**Harmful Substances in Components and Materials**  
+The emission behavior of the E/E product with direct contact to the interior compartment must be checked on representative components as soon as possible. Emissions of volatile organic compounds in the passenger compartment must be minimized accordingly. Required measurements for confirmation of the emission characteristics must be performed by the supplier in agreement with the specialist department of VinFast. Testing institutes approved by VinFast must perform the tests. It is recommended to obtain an overview of all approved testing institutes from VinFast. Additional requirements can be found in project-specific documents (e.g., Emission Guideline).  
+
+Volatile organic compounds of components must be checked according to ISO12219. The conformance to prohibited substances must be ensured throughout the complete product life cycle.  
+The specialist department of VinFast evaluates the test results. In any case, the harmlessness of the volatile compounds for human health must be attested in written form on demand. The supplier must provide measurement results regarding VOC and Fogging for the materials before the milestone purchase release.  
+
+6.14 Mechanical Requirements  
+
+6.14.1 Load  
+**Operating Loads**  
+Operating loads are the loads that occur during the intended use of the vehicle. These loads are derived by measurements with the selected benchmark vehicles on tracks defined by VF.  
+The definition of the customer usage is based on the VinFast standard for the long-distance durability run. The tested mileage is derived from the target for the desired customer mileage of the car as specified in Chapter 5.18.  
+
+**Special Events**  
+Special events are occurrences of small frequency (approx. < 100), which belong to the intended use of the vehicle, e.g., ABS braking.  
+The vehicle must be dimensioned in a way that special events do not affect the function while no safety-relevant damages occur and the intended service life will not be reduced.
+Page 42
+6.14 Mechanical Requirements
+
+6.14.1 Load  
+**Operating loads:**  
+Operating loads are the loads, which occur during the intended use of the vehicle. These loads are derived by measurements with the selected benchmark vehicles on tracks defined by VF. The definition of customer usage is based on the VinFast standard for the long-distance durability run. The tested mileage is derived from the target for the desired customer mileage of the car as specified in chapter 5.18.
+
+**Special events:**  
+Special events are occurrences of small frequency (approx. < 100), which belong to the intended use of the vehicle, e.g., ABS-braking. The vehicle must be dimensioned in a way that special events do not affect the function while no safety-relevant damages occur and the intended service life will not be reduced.
+
+**Misuse events:**  
+Misuse events are events that are not included in the vehicle usage intention, e.g., curbstone impact. The vehicle must be dimensioned so that:  
+- Damages after misuse are clearly recognizable by the driver (e.g., steering wheel inclined conditions, wheel inclined conditions, etc.).  
+- A defined damage chain is kept after misuse (e.g., easily replaceable parts before body structure).  
+
+Cracks or damage only occur together with clearly recognizable plastic deformations, either to the same or at neighboring components (principle “deformation before break”).
+
+6.14.2 Vibration Behavior  
+The eigen frequency of the component when mounted to the vehicle shall not be less than 30Hz. Thus, the supplier has to align the fixation concept with VF. Additional structural dynamics requirements may be specified in chapter 5.17.6 if necessary.
+
+6.14.3 Stiffness and Cushioning Characteristics  
+No additional requirements from Operational Strength, Stiffness, Fatigue.
+
+6.14.4 Deformation  
+No additional requirements from Operational Strength, Stiffness, Fatigue.
+
+6.14.5 Pressure  
+No additional requirements from Operational Strength, Stiffness, Fatigue.
+
+6.14.6 NVH / Acoustic Performance  
+**S&R, General:**  
+Noises, which are perceived by customers as disturbing, have to be ruled out through the selection of suitable materials, surfaces, gaps, and forming. The supplier has to guarantee that their components are free of disturbing noise in their vehicle environment and their geometrical integration. Similarly, at vehicle- and audio system excitation under all environmental conditions and over the fixed component service life.  
+There must not be squeak or rattle noises due to excitation of the body (wind load, torsional flexing, etc.) if real relative movements occur on the surface. This has to be guaranteed over the whole operating and environmental conditions (temperature, humidity). To evidence disturbing noise freedom, the requirements must be coordinated with the testing team responsible.  
+
+The supplier is responsible for supporting the development of vibration and acoustic behavior of the subsystem within the complete vehicle environment and has to ensure constant acoustic quality of delivered parts. This includes the active support of pointing out problems as well as making proposals to solve them actively. Suppliers must deliver necessary parts for comparison, tuning, and evaluation as requested free of charge.
+
+6.15 Durability / Life Time  
+The lifetime mileage of the complete vehicle shall be at least 160,000 km, and the vehicle lifetime shall be at least 10 years.  
+The environmental operating conditions are:  
+- -30°C to +50°C ambient.
+Page 43
+6.15 Durability / Life Time.
+
+The lifetime mileage of the complete vehicle shall be at least 160,000 km, and the vehicle lifetime shall be at least 10 years. The environmental operating conditions are:
+- -30°C to +50°C ambient.
+- 0 - 100% relative humidity.
+- -100 m to 3500 m above mean sea level.
+
+6.16 Electrical Requirements.
+
+6.16.1 Description of the Requirements.  
+The following subchapters refer to the corresponding standards. These standards apply in their last version, and deviations to this have to be agreed upon with the project.
+
+6.16.2 Power Consumption.  
+
+6.16.2.1 Power Consumption Requirements.  
+Please refer to CES_VINFAST_EE_VFDSP50000005_Energy_Management and CES_VINFAST_EE_VFDSP50000004_General_Electric in the latest version.
+
+6.16.3 Low Voltage Energy Management.  
+
+6.16.3.1 Energy Management Requirements.  
+Please refer to CES_VINFAST_EE_VFDSP50000005_Energy_Management in the latest version.
+
+6.16.4 High Voltage Energy Management.  
+
+6.16.4.1 Energy Management Requirements.  
+Please refer to CES_VINFAST_EE_VFDSP50000005_Energy_Management in the latest version.
+
+6.16.5 Electromagnetic Compatibility.
+
+6.16.5.1 EMC Requirements.  
+Please refer to CES_VINFAST_EE_VFDST00026302_EMC_Standard_Component in the latest version.
+
+6.16.6 Electrostatic Discharge.  
+
+6.16.6.1 ESD Requirements.  
+Please refer to CES_VINFAST_EE_VFDST00026302_EMC_Standard_Component in the latest version.
+
+6.17 Climatic Requirements / Thermal Management.  
+
+Environmental operating conditions.
+
+The environmental operating conditions for the complete vehicle are defined as:
+- -30°C to +50°C ambient temperature.
+- 0 - 100% relative humidity.
+- -100 m to 3500 m above mean sea level.
+Page 44
+Heat protection.  
+The development and validation of the heat protection in the complete vehicle ensures that all relevant component temperatures remain below the maximum allowed limits, which are derived from vehicle operation within the environmental operating temperatures. The heat protection validation tests for the components are performed in the climatic wind tunnel (CWT) and on-road.  
+All relevant component temperatures and measurement points have to be defined in accordance with the responsible modules and will be specified in the respective component specifications. Vehicle tests have to be completed and follow the VF Thermal Testing Standard during the MULE, Super-MULE, and PTO Vehicle Generation.  
+
+6.17.1 Thermal Management Requirements.  
+Please refer to CES_VINFAST_EE_VFDSP50000008_Thermal_Management in the latest version.  
+
+6.18 Service Requirements.  
+
+6.19 Transport Protection.  
+
+6.20 Logistics Requirements.  
+
+6.21 Quality Assurance Requirements.  
+
+6.22 Content Amendments.  
+
+7 Testing and Validation.  
+7.1 Proof of Compliance.  
+
+7.2 Testing Plan (DVP + FRS Plan).  
+Refer to DVP no: VFDSXVEEP7102_DVP_component_MFS_SWITCH  
+
+7.2.1 Package.  
+Please refer to ISO 16750.  
+
+7.2.2 Electrical Systems & Functions.  
+Architecture and the electrical system will be developed according to the below-mentioned standards and shall be fulfilled. In principle, all work standards and specifications apply in their most recent version and in their entire scope. Compliance with these standards and specifications is obligatory.  
+The assemblies and their parts must be tested according to the following specifications, and proof must be furnished that the requirements have been met (i.e. components with coding function have to fulfill the CES_Coding). Any deviation of the requirement shall be aligned in the project.  
+
+Specification Name:  
+- CES_General_Electric  
+- CES_Coding  
+- CES_Energy_Management  
+- CES_ECU_Identifier
+Page 45
+CTS_Energy_Management  
+CES_Basic_DID_definition  
+CTS_Load_Analysis  
+CES_Clamp_Concept  
+CES_Thermal_Management  
+CES_Basic_software_on_CAN_ECUs  
+CTS_Thermal_Management  
+CES_Logistic_data  
+CES_High_Current_Consumers  
+SUP_Software_Logistics  
+CES_Basic_Diagnostic  
+CES_Security_Access_Algorithm  
+CES_EMC_Standard_Component  
+CES_Learning_sequence  
+CES_EMC_Standard_Vehicle  
+VINFAST_FRS_plan  
+CES_CAN  
+CES_Look&Feel  
+CES_Residual_Bus_Simulation_on_CAN_ECUs  
+CES_Warning_Message_Catalog  
+CES_LIN  
+CES_Flashing  
+
+**Table 11: Specifications**
+
+Several validation cycles for electrical systems and functions are planned to guarantee correct implementation and will be carried out according to the standards mentioned. The generic Function Release Step (FRS) is outlined in the picture. The detailed timing and description of each FRS is defined in the FRS Plan (see “VINFAST_FRS_plan.pdf”). The FRS plan has to be fulfilled by every electric component.
+
+**Physical Testing**  
+For early physical and software testing Lab Cars, Network Test Bench, and several Subsystem Test Benches will be set up. Parts like ECUs, sensors, actuators, connectors, etc., shall be delivered free of charge for physical testing (e.g., 12 units for FRS LC2).  
+Key electrical tests will be defined to support the road release of test vehicles.  
+Generally, all main simulation and testing activities on vehicle level are outlined in DVP. Tests in supplier responsibility are outlined in respective component/system specifications.  
+Engine start needs to be possible after 5 weeks of the vehicle’s non-operative state (idle time).
+
+**7.3 Virtual Testing and Simulation**
+
+**7.4 Vehicle Testing**  
+The testing must be performed as defined in the VF testing standards. The component has to withstand the following tests on complete vehicle level:
+
+**Durability Testing:**
+- Rough road durability run  
+- Lateral force durability run  
+- Driving train shortened durability run  
+- Long distance durability run (mixed circuit)  
+
+**Special Events:**  
+The design and development process covers the following events:  
+- Extreme braking (ABS-braking forward/rearward on Belgium block from 40kph)  
+- Bump & Pothole test with 40kph
+Page 46
+7.5 Tests  
+All test details—such as Test Details, Properties and Condition, Test Parameters, and Operation Condition—will be updated in VFDSXVEEP7102_DVP_Component_MFS_SWITCH.
+Page 47
+## 8 Definitions and List of Abbreviations
+
+### 8.1 Definitions
+
+### 8.2 List of Abbreviations
+
+| Abbreviation | Explanation                                              |
+|--------------|----------------------------------------------------------|
+| AA           | Attack Angle                                             |
+| ABG          | Airbag control module                                    |
+| ABS          | Acrylonitrile Butadiene Styrene                          |
+| ABS          | Anti-lock braking system                                 |
+| AC           | Alternating current                                      |
+| AC           | Alternating Current                                      |
+| ACM          | Airbag control module                                    |
+| ADAS         | Advanced Driver Assistance Systems                       |
+| ADC          | Analog to Digital Converter                              |
+| AI           | Articulation Index                                       |
+| AIA          | Activity Interface Agreement = Work Interface Chart (RASI)|
+| AKS          | Aktiver Kurzschluss (Active short circuit)               |
+| APQP         | Advanced Product Quality Planning                        |
+| ASIL         | Automotive Safety Integrity Level                        |
+| ASM          | Assembly                                                 |
+| ASM          | Asynchronous Machine                                     |
+| AWD          | All wheel drive                                          |
+| BCM          | Body control module                                      |
+| BDU          | Battery disconnect unit                                  |
+| BEV          | Battery Electric Vehicle                                 |
+| BFR          | Basic Function Requirement                               |
+| BIW          | Body in White                                            |
+| BMU          | Battery management unit                                  |
+| BOM          | Bill Of Material                                         |
+| BSM          | Blind Spot Monitoring                                    |
+| CAD          | Computer Aided Design                                    |
+| CAD          | Crank Angle Degree                                       |
+| CAE          | Computer-Aided Engineering                               |
+| CAM          | Computer-Aided Manufacturing                             |
+| CAN          | Controller Area Network                                  |
+| CAS          | Computer-Aided Styling                                   |
+| CAX          | Computer-Aided Exercise                                  |
+| CAx          | Computer-Aided Technologies                              |
+| CC           | Cruise Control                                           |
+| CC           | Gate "Concept Confirmation"                              |
+Page 48
+VinFast Management System VFDSXVEEP9259
+
+Version: 1  
+Uncontrolled copy when printed  
+48 | 55  
+Print Date  
+
+**8 Definitions and List of Abbreviations**  
+
+**8.1 Definitions**  
+
+**8.2 List of Abbreviations**
+
+| Abbreviation | Explanation                                             |
+|--------------|---------------------------------------------------------|
+| cc           | cubic centimeters                                       |
+| CCC          | Center Clutch Control                                   |
+| CCL          | Center Clutch                                           |
+| CCT          | Cyclic corrosion test                                   |
+| CHMSL        | Center High Mounted Stop Lamp                           |
+| CI / CIP     | Continuous Improvement Process                          |
+| CM           | Charging mode                                           |
+| CMP          | Customer Market Profile                                 |
+| C-NCAP       | China NCAP                                              |
+| CoC          | Center of Competence/ Certificate of Conformity         |
+| CON-SF       | Consolidated Safety Function                            |
+| CoP          | Conformity of Production                                |
+| COP          | Carry Over Parts                                        |
+| CP           | Charging process                                        |
+| CPA          | Connector Position Assurance                           |
+| CPU          | Central Processing Unit                                 |
+| CR           | Curvature Radius                                        |
+| CRL          | Cross Reference List of hofer                           |
+| CTS          | Component Technical Specification                       |
+| CV           | Complete Vehicle                                        |
+| CVW          | Curb vehicle weight                                     |
+| DC           | Direct current                                          |
+| DCM          | Data Control Model                                      |
+| DFA          | Design for Assembly                                     |
+| DFL          | Design for Logistics                                    |
+| DFM          | Design for Manufacture                                  |
+| DFMA         | Design for Manufacture and Assembly                     |
+| DFMEA        | Design Failure Mode and Effects Analysis                |
+| DF-x         | Data Freeze Generation x                                |
+| DIA          | Development Interface Agreement                         |
+| DMU          | Digital Mock-Up                                         |
+| DSR          | Development Sample Report                               |
+| DVP          | Design Verification Plan                                |
+| DVP&R        | Design Verification Plan & Report                       |
+| DW           | Driver Wish                                             |
+| E / E        | Electrics / Electronics                                 |
+| e.g.         | for example (ital.: exempli gratia)                     |
+| E/E          | Electrical and/or Electronic                            |
+| ECE          | Economic Commission for Europe                          |
+| ECU          | Electronic Control Unit                                 |
+| ED           | Electric Drive                                          |
+| EDS          | Electric Drive System (EM+PE)                          |
+| EDU          | Electric Drive Unit (EM+PE+Gearbox)                     |
+| EM           | Electric Machine                                        |
+Page 49
+### 7.5 Tests
+All test details, including Test Details, Properties and Conditions, Test Parameters, and Operation Conditions, will be updated in **VFDSXVEEP7102_DVP_Component_MFS_SWITCH.**
+
+---
+
+### 8 Definitions and List of Abbreviations
+
+#### 8.1 Definitions
+
+*(No textual definitions provided in this section.)*
+
+#### 8.2 List of Abbreviations
+
+**Abbreviation** | **Explanation**
+--- | ---
+AA | Attack Angle  
+ABG | Airbag control module  
+ABS | Acrylonitrile Butadiene Styrene  
+ABS | Anti-lock braking system  
+AC | Alternating current  
+ACM | Airbag control module  
+ADAS | Advanced Driver Assistance Systems  
+ADC | Analog to Digital Converter  
+AI | Articulation Index  
+AIA | Activity Interface Agreement (Work Interface Chart, RASI)  
+AKS | Aktiver Kurzschluss (Active short circuit)  
+APQP | Advanced Product Quality Planning  
+ASIL | Automotive Safety Integrity Level  
+ASM | Assembly  
+ASM | Asynchronous Machine  
+AWD | All-wheel drive  
+BCM | Body control module  
+BDU | Battery disconnect unit  
+BEV | Battery Electric Vehicle  
+BFR | Basic Function Requirement  
+BIW | Body in White  
+BMU | Battery management unit  
+BOM | Bill of Material  
+BSM | Blind Spot Monitoring  
+CAD | Computer-Aided Design  
+CAD | Crank Angle Degree  
+CAE | Computer-Aided Engineering  
+CAM | Computer-Aided Manufacturing  
+CAN | Controller Area Network  
+CAS | Computer-Aided Styling  
+CAX | Computer-Aided Exercise  
+CAx | Computer-Aided Technologies  
+CC | Cruise Control  
+CC | Gate "Concept Confirmation"  
+cc | Cubic centimeters  
+CCC | Center Clutch Control  
+CCL | Center Clutch  
+CCT | Cyclic corrosion test  
+CHMSL | Center High Mounted Stop Lamp  
+CI/CIP | Continuous Improvement Process  
+CM | Charging mode  
+CMP | Customer Market Profile  
+C-NCAP | China NCAP  
+CoC | Center of Competence/Certificate of Conformity  
+CON-SF | Consolidated Safety Function  
+CoP | Conformity of Production  
+COP | Carry Over Parts  
+CP | Charging process  
+CPA | Connector Position Assurance  
+CPU | Central Processing Unit  
+CR | Curvature Radius  
+CRL | Cross Reference List of Hofer  
+CTS | Component Technical Specification  
+CV | Complete Vehicle  
+CVW | Curb vehicle weight  
+DC | Direct current  
+DCM | Data Control Model  
+DFA | Design for Assembly  
+DFL | Design for Logistics  
+DFM | Design for Manufacturing  
+DFMA | Design for Manufacturing and Assembly  
+DFMEA | Design Failure Mode and Effects Analysis  
+DF-x | Data Freeze Generation x  
+DIA | Development Interface Agreement  
+DMU | Digital Mock-Up  
+DSR | Development Sample Report  
+DVP | Design Verification Plan  
+DVP&R | Design Verification Plan & Report  
+DW | Driver Wish  
+E/E | Electrics/Electronics  
+ECE | Economic Commission for Europe  
+ECU | Electronic Control Unit  
+ED | Electric Drive  
+EDS | Electric Drive System (EM + PE)  
+EDU | Electric Drive Unit (EM + PE + Gearbox)  
+EM | Electric Machine  
+EM/INV | E-Motor/Inverter  
+EMC | Electromagnetic Compatibility  
+EMF | Electromotive Force  
+EMS | Engine Management System (equivalent to ECU)  
+EOA | End of All Activities  
+EPB | Electric Parking Brake  
+EPDM | Ethylene Propylene Diene Monomer  
+E-REV | Extended Range Electric Vehicle  
+ER-FSI | Engineering Responsible Functional Safety Item  
+ER-FSM | Engineering Responsible Functional Safety Manager  
+ESC | Electronic Stability Control  
+ESP | Electronic Stability Program  
+EW | Use Safe Substitute Value (Ersatzwert verwenden)  
+FB | Function Block  
+FC | Functional Concept  
+FC | Gate "Functional Confirmation"  
+FCEV | Fuel Cell Electric Vehicle  
+FEM | Finite Elements Method  
+FHEV | Full-Hybrid Electric Vehicle  
+FIT | Failures in Time  
+FM | Function Module  
+FMEA | Failure Modes and Effects Analysis  
+FMVSS | Federal Motor Vehicle Safety Standard  
+FOC | Field Oriented Control  
+FOP | Finance One Pager  
+FPGA | Field Programmable Gate Array  
+FPU | Front Power Unit  
+FRB | Fuse Relay Box  
+FRS | Functional Release Step  
+FS | Functional Safety  
+FSC | Functional Safety Concept  
+FSG | Safety Goal Identification  
+FSR | Functional Safety Requirement  
+FTA | Fault Tree Analysis  
+FTOK | First Time OK  
+FTTI | Fault Tolerance Time Interval  
+FuSa | Functional Safety  
+FW | Firmware (VHDL-Code for the FPGA)  
+GADSL | Global Automotive Declarable Substances List (www.gadsl.org)  
+GHS | Globally Harmonized System of Classification, Labeling, and Packaging of Chemicals  
+GPF | Gasoline Engine Particulate Filter  
+GSLP | Gear Selector Lever Position  
+GVW | Gross Vehicle Weight  
+
+*(Continues with additional abbreviations on subsequent pages.)*
+Page 50
+8 Definitions and List of Abbreviations.
+
+8.1 Definitions.
+
+8.2 List of Abbreviations.
+
+Abbreviation | Explanation
+-------------|------------
+HARA         | Hazard analysis and risk assessment
+HCU          | Hybrid control module
+HDT          | Heat deflection temperature
+HMI          | Human machine interface
+HR           | Human Resources
+HSI          | Hardware-Software Interface
+HV           | High voltage
+HV PTC       | High-voltage positive temperature coefficient
+HVAC         | Heating, Ventilation and Air Conditioning
+HVB          | High Voltage Battery
+HVDC         | High-voltage direct current
+HVIL         | Hazardous Voltage Interlock Loop
+HW           | Hardware
+IC           | Instrument Cluster
+ICE          | Internal Combustion Engine
+ID           | Identification
+IDE          | Item Definition
+I-ELI-DIE-xx | ITEM-EXTERIOR LIGHTING-ITEM DEFINITION
+I-ELI-SG-xx  | ITEM-EXTERIOR LIGHTING-SAFETY GOAL
+IMDS         | International Material Data Sheet
+ISO          | International Organization for Standardization
+IT           | Information Technology
+I-Team       | Integration Team
+ITEM         | An item is a functional system or array of systems to implement and/or develop vehicle functions. It consists of E/E and mechanical systems.
+KCC          | Key Control Characteristics
+KPC          | Key Product Characteristics
+LB           | Power limitation (Leistungsbegrenzung)
+LCM          | Life Cycle Management
+LED          | Light Emitting Diode
+LH           | Part left hand
+LHD          | Left Hand Driver
+LIDAR        | Light detection and ranging
+LL           | Lessons Learned
+lpm          | litres per minute
+LS           | Gate "Launch Sign-off"
+LV           | Low voltage
+LVB          | Low Voltage Battery (12 V nominal voltage)
+MDS          | Material Data Sheet
+MG           | Module Group
+MGL          | Module Group Leader
+MHEV         | Mild-Hybrid Electric Vehicle
+MKS          | Physical system of units (Meter–Kilogram–Second)
+ML           | Module Leader
+Page 51
+### 7.5 Tests
+All test details—such as Test Details, Properties and Conditions, Test Parameters, and Operation Conditions—will be updated in VFDSXVEEP7102_DVP_Component_MFS_SWITCH.
+
+---
+
+### 8 Definitions and List of Abbreviations
+
+#### 8.1 Definitions
+No specific definitions are provided in the text.
+
+#### 8.2 List of Abbreviations
+
+**Abbreviation | Explanation**
+- MRD: Material Required Date
+- MSA: Measurement Systems Analysis
+- MTC: Master Timing Chart
+- MVI: Melt Volume Index
+- N/A: Not Applicable
+- NA: Naturally Aspirated engine (i.e., no turbocharger)
+- Nr.: Number
+- NTC: Negative Temperature Coefficient (Sensor)
+- NVH: Noise Vibration Harshness
+- OAR: Optical + acoustical reaction (optische und akkustische Reaktion)
+- OEM: Original Equipment Manufacturer
+- OM: Operation Mode
+- OR: Optical reaction (optische Reaktion)
+- PC: Poly Carbonate
+- PCB: Printed Circuit Board
+- PCR: Post-crash
+- PDC: Park Distance Control
+- PDM: Product Data Management
+- PDP: Product Development Process
+- PDU: Power Distribution Unit
+- PE: Power Electronics
+- PEEQ: Equivalent plastic strain (term of Abaqus/CAE)
+- PES: Poly Ellipsoid System
+- PFB: Pre-Fuse Box
+- PFMEA: Process Failure Mode and Effects Analysis
+- PHEV: Plug-In Hybrid Electric Vehicle
+- PLM: Product Lifecycle Management
+- PLS: Parking Lock System
+- PM-E: Project Manager Engineering
+- PMO: Project Management Office
+- PMU: Physical Mock-Up
+- PP: Gate "Pilot Production"
+- PPA: Production Part Approval
+- PPAP: Production Part Approval Process
+- ppm: parts per million
+- PPS: Gate "Preliminary Product Specification"
+- PS: Gate "Process Stability"
+- PSM: Permanent Magnet Synchronous Machine
+- PSO: Process Sign-Off
+- PT: Prototype
+- PTFA: Prototype Functional Acceptance
+- PTM: Prototype Management
+- PTO: Gate "Production Try-Out"
+Page 52
+### VinFast Management System (VFDSXVEEP9259)
+
+#### 8 Definitions and List of Abbreviations
+
+##### 8.1 Definitions
+
+##### 8.2 List of Abbreviations
+
+| Abbreviation         | Explanation                                                     |
+|-----------------------|-----------------------------------------------------------------|
+| PV                   | Gate "Product Vision"                                          |
+| PWM                  | Pulse Width Modulation                                         |
+| PWT                  | Powertrain                                                    |
+| Q                    | Quality                                                       |
+| QM                   | Quality Management                                            |
+| RADAR                | Radio detection and ranging                                   |
+| RAL                  | Color standard                                                |
+| RASI                 | Work Interface Chart = Activity Interface Agreement (AIA)     |
+| REEV                 | Range-Extender Vehicle                                        |
+| RFQ                  | Request for Quotation                                         |
+| RH                   | Part Right hand                                               |
+| RI                   | Rating Index                                                  |
+| rpm                  | revolutions per minute                                        |
+| RPU                  | rear power unit                                               |
+| RR                   | Rear                                                          |
+| RR                   | Road Release                                                  |
+| RVC                  | Rear View Camera                                              |
+| S/R sensor Bracket   | Solar Rain sensor Bracket                                     |
+| SA                   | Immediate switch off (Sofortiges Abschalten)                  |
+| SAE                  | Society of Automotive Engineers                               |
+| SCM                  | Steering column module                                        |
+| SCM                  | Supply Chain Management                                       |
+| SDS                  | System Development Supplier                                   |
+| SE                   | Simultaneous Engineering                                      |
+| SF                   | Safety Function                                               |
+| SFMEA                | System Failure Mode and Effects Analysis                      |
+| SG                   | Safety Goal                                                   |
+| SLS                  | Selective Laser Sintering                                     |
+| SM                   | safety mechanism                                              |
+| SOC                  | State of charge                                               |
+| SOP                  | Gate "Start of Production"                                    |
+| SPC                  | Statistical Process Control                                   |
+| SPO                  | Save Pulse Off                                                |
+| SQA                  | Supplier Quality Assurance                                    |
+| STC                  | Styling Technical Convergence                                 |
+| STS                  | System Technical Specification                                |
+| SVM                  | Surround View Monitoring                                      |
+| SW                   | Software                                                     |
+| t.b.d                | to be defined                                                |
+| TA                   | Gate "Target Agreement"                                       |
+| TAH                  | Technical Area Head                                           |
+| tbc                  | To be confirmed                                               |
+Page 53
+8 Definitions and List of Abbreviations  
+
+8.1 Definitions  
+
+8.2 List of abbreviations  
+
+Abbreviation | Explanation  
+--- | ---  
+tbd | To be decided  
+TC | Technical concept  
+TCO | Total Cost of Ownership  
+TCU | Transmission Control Unit  
+TDC | Top Dead Center = Highest position of the engine piston  
+TECS | Top End Control System = VCU. A new abbreviation for VCU since VCU also is frequently used for Vehicle Control Unit  
+TIS | Technical Input Stop  
+TPA | Terminal Position Assurance  
+TPD | Technical Product Documentation  
+TPMS | Tire Pressure Monitoring System  
+TS | Technical Specification  
+TSC | Technical Safety Concept  
+UV | Ultraviolet light  
+UV | Ultra Violet rays  
+VCU | Vehicle control unit  
+VCU | Valve Control Unit  
+VDA | Verband der Automobilindustrie (Association of the Automotive Industry)  
+VDC | Vehicle dynamics control  
+VF | Vinfast  
+VOC | Volatile organic compounds  
+VPT | Virtual Prototype  
+WAW | Wash and wipe  
+WSS | Wheel speed sensor  
+
+Table 12: List of Abbreviations  
+
+8.3 List of Tables  
+
+8.3.1 Table1: MFS Execution regulation  
+8.3.2 Table2: Properties, Condition and Durability  
+8.3.3 Table 3: Part Number Details  
+8.3.4 Table 4: MFS LIN _Message List  
+8.3.5 Table 5: MFS L message List  
+8.3.6 Table 6: MFS R message List  
+8.3.7 Table 7: XGW General Information  
+8.3.8 Table 8: XGW Output Parameters  
+8.3.9 Table 9: Signal & Encoding Tables  
+8.3.10 Table 10: Test Criteria  
+8.3.11 Table 11: Specifications  
+8.3.12 Table 12: List of Abbreviations
+Page 54
+**8.4 List of Figures**
+8.4.1 Figure 1: Timing Plan  
+8.4.2 Figure 2: System Environment Diagram  
+8.4.3 Figure 3: System Diagram  
+8.4.4 Figure 4: US BEV market  
+8.4.5 Figure 5: Electrical Block diagram  
+8.4.6 Figure 6: Functional Overview located at Switches  
+8.4.7 Figure 7: IR LED  
+8.4.8 Figure 8: Lane Assistance Settings  
+8.4.9 Figure 9: MFS Steering wheel heat logic  
+8.4.10 Figure 10: Steering wheel heater On-Off logic  
+8.4.11 Figure 11: Connector Drawings  
+8.4.12 Figure 12: Pin Assignment  
+8.4.13 Figure 13: Dimensions and sizes  
+8.4.14 Figure 14: Mounting Overview (principle Concept)  
+8.4.15 Figure 15: Left Side Sliding  
+8.4.16 Figure 16: Right Side Sliding  
+
+**9 Further Applicable Documents**
+| **Req ID** | **Checkin date**  |
+|------------|-------------------|
+| 11513      | 19.12.18          |
+
+| **Document Type** | **Title**                          | **Part Number**      | **Version**        |
+|--------------------|------------------------------------|----------------------|--------------------|
+| CES                | General Electrical                | VFDSP50000004        | latest version     |
+| CES                | FRS Plan                          |                      | latest version     |
+| CES                | Energy Management                 | VFDSP50000005        | latest version     |
+| CTS                | Energy Management                 | VFDSP50000006        | latest version     |
+| CTS                | Load analysis                     | VFDSP50000007        | latest version     |
+| CES                | Thermal Management                | VFDSP50000008        | latest version     |
+| CTS                | Thermal Management                | VFDSP50000009        | latest version     |
+| CES                | High Current Consumers            | VFDSP5xxxxxxx        | latest version     |
+| CES                | Basic Diagnostic                  | VFDSP5xxxxxxx        | latest version     |
+| CES                | EMC Standard Component            | VFDSP50000002        | latest version     |
+| CES                | EMC Standard Vehicle              | VFDSP50000001        | latest version     |
+| CES                | CAN                               | VFDSP50000010        | latest version     |
+| CES                | Residual Bus Simulation on CAN ECUs | VFDSP50000011        | latest version     |
+| CES                | LIN                               | VFDSP50000012        | latest version     |
+Page 55
+**9 Further Applicable Documents**
+
+- CES Coding, Part Number: VFDSP5xxxxxxx, Version: latest version.
+- CES Flexray, Version: latest version.
+- CES ECU Identifier, Part Number: VFDSP50000013, Version: latest version.
+- CES Basic DID definition, Part Number: VFDSP5xxxxxxx, Version: latest version.
+- CES Clamp concept, Part Number: VFDSP50000014, Version: latest version.
+- CES Basic Software on CAN ECUs, Part Number: VFDSP50000015, Version: latest version.
+- SUP Software logistics, Version: latest version.
+- CES Security Access Algorithm, Part Number: VFDSP5xxxxxxx, Version: latest version.
+- System schematics, Version: latest version.
+- HMI book, Version: latest version.
+- CES Warning Message Catalog, Part Number: VFDSP50000003, Version: latest version.

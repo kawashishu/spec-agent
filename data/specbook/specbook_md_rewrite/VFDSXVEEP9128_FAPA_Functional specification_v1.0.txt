@@ -1,0 +1,4939 @@
+Page 1
+FUNCTIONAL SPECIFICATION. 
+
+Fully-Automated Parking Assistance.
+Page 2
+Table of contents.
+
+13 APL27_FAPA ................................................................................................................... 9  
+13.1 Document Issued ........................................................................................................ 9  
+13.2 Introduction .............................................................................................................. 10  
+13.2.1 Function Introduction .......................................................................................... 10  
+13.2.2 References to Documents and Specifications ................................................. 11  
+13.2.3 System Introduction .......................................................................................... 12  
+13.2.4 System Architecture ......................................................................................... 13  
+13.2.5 Component Parameter ..................................................................................... 16  
+13.2.5.1 Camera Optical Parameter ......................................................................... 16  
+13.2.5.2 Camera Sensor performance ................................................................... 18  
+13.2.5.3 UPA USS Parameter .................................................................................. 20  
+13.2.5.4 FAPA USS Parameter ................................................................................ 22  
+13.3 System Description ................................................................................................ 25  
+13.3.1 System State Machine ...................................................................................... 26  
+13.3.1.1 E1: Power on (KL15), self-check passed ................................................. 29  
+13.3.1.2 E2: The system receives the user's turn on signal .................................. 30  
+13.3.1.3 E3: The user clicks the parking start button (FAPA) .............................. 31  
+13.3.1.4 E4: The FAPA function completed ......................................................... 33  
+13.3.1.5 E5: Finished state lasts for 4s ................................................................. 34  
+13.3.1.6 E6: The pause condition is triggered ...................................................... 34  
+13.3.1.7 E7: The pause condition disappears. The user clicks the "restore" button (FAPA). ......................................................................................................................... 35  
+13.3.1.8 E8: The Abort condition is triggered ........................................................ 35  
+13.3.1.9 E9: The suspension condition has not disappeared. The user quits actively or the system has timed out ............................................................................ 35  
+13.3.1.10 E10: Abort state lasts for 4s ................................................................... 36  
+13.3.1.11 E11: The user actively exited or the Abort condition was triggered ..... 37  
+13.3.1.12 E12: The system power off ...................................................................... 37
+Page 3
+13.3.1.13 E13: The system itself fails.
+
+13.3.2 Interactive signal.
+
+13.4 Function Description.
+
+13.4.1 Usage Scenario Description.
+13.4.1.1 Perpendicular parking slot with parking line.
+13.4.1.2 Parallel parking slot with parking line.
+13.4.1.3 Angled parking slot with parking line (45°～60°).
+13.4.1.4 Perpendicular parking slot without parking lines.
+13.4.1.5 Parallel parking slot without parking lines.
+13.4.1.6 Parking slot on slopes ranging from 0 to 8% (Unidirectional slope compatibility).
+13.4.1.7 Open slot with parking lines.
+
+13.4.2 Subsystem Description.
+
+13.4.3 Function Definition.
+13.4.3.1 FAPA can only work in the power mode where the vehicle can run (VCU_HV_DRVsystem_status = 1: normal).
+13.4.3.2 ACC functions should be inhibited during FAPA Active.
+13.4.3.3 When FAPA detects that there is a trailer on the tow hook (TrailerDetected = 1: Trailer detected), FAPA should be suppressed.
+
+13.4.3.4 Automatic Parking In.
+13.4.3.4.1 Step 1.
+13.4.3.4.2 Step 2.
+13.4.3.4.3 Step 3.
+13.4.3.4.4 Step 4.
+13.4.3.4.5 Step 5.
+13.4.3.4.5.1 FAPA system failure.
+13.4.3.4.5.2 Related system failure.
+Page 4
+13.4.3.4.5.3 The ACC system is turned on.  
+13.4.3.4.5.4 The ESC sub-function is turned on.  
+
+13.4.3.4.6 Step 6:  
+APA_slot_ID_1_P0_X = xxx.  
+APA_slot_ID_1_P0_Y = xxx.  
+APA_slot_ID_1_P1_X = xxx.  
+APA_slot_ID_1_P1_Y = xxx.  
+APA_slot_ID_1_P2_X = xxx.  
+APA_slot_ID_1_P2_Y = xxx.  
+APA_slot_ID_1_P3_X = xxx.  
+APA_slot_ID_1_P3_Y = xxx.  
+APA_slot_1 = 1 ~ 6.  
+
+13.4.3.4.7 Step 7.  
+13.4.3.4.8 Step 8.  
+13.4.3.4.9 Step 9.  
+13.4.3.4.10 Step 10.  
+
+13.4.3.4.11 Step 11:  
+- The driver’s door opens.  
+- The front passenger's side door is opened.  
+- Open the left rear door.  
+- There is a car door open.  
+- The luggage compartment door is opened.  
+- The front engine room cover is opened.  
+
+13.4.3.4.12 FAPA will automatically exit if the following situations occur in the car:
+- FAPA system failure.  
+- Failure of the associated system.  
+- The vehicle speed exceeds the limit.  
+
+13.4.3.4.13 Step 12.  
+13.4.3.4.14 Step 13.
+Page 5
+13.4.3.4.15 Step 14 describes specific cases related to system performance.
+13.4.3.4.15.1 Case 1 details particular operational conditions or outcomes under which the system operates.
+13.4.3.4.15.2 Case 2 provides alternative scenarios or conditions affecting system functionality.
+
+13.4.3.4.16 Step 15 outlines several mechanical and system interactions that trigger automated responses:
+13.4.3.4.16.1 The main driving door opens when specific criteria are met.
+13.4.3.4.16.2 The co-driver door opens under certain conditions.
+13.4.3.4.16.3 The left rear door opens based on defined system triggers.
+13.4.3.4.16.4 The right back door opens in case of predefined scenarios.
+13.4.3.4.16.5 The luggage compartment door opens indicating system activation.
+13.4.3.4.16.6 The front engine room cover opens if associated requirements are fulfilled.
+13.4.3.4.16.7 The main driver's seat belt is loosened; a signal for system action.
+13.4.3.4.16.8 Obstacles in the track are detected; leading to system adjustments.
+
+13.4.3.4.17 Step 16 specifies additional automated behaviors not explicitly detailed in prior steps.
+
+13.4.3.4.18 Step 17 defines further stages in automated system operation.
+
+13.4.3.4.19 Step 18 is the final sequence detailing cases for system exit or override:
+13.4.3.4.19.1 The parking time is over, signaling the completion of the operation.
+13.4.3.4.19.2 The driver intervenes in the gear position, prompting manual override.
+13.4.3.4.19.3 The driver intervenes in the throttle, affecting autonomous control.
+13.4.3.4.19.4 The driver intervenes in the steering wheel, overriding system decisions.
+13.4.3.4.19.5 The driver intervenes in the handbrake, halting automatic actions.
+13.4.3.4.19.6 The number of parking times exceeds the limit (D → R and R → D), suggesting operational limits.
+13.4.3.4.19.7 The slope is too large, exceeding defined parameters for automatic functionality.
+13.4.3.4.19.8 Too many pauses disrupt the intended flow of autonomous processes.
+13.4.3.4.19.9 Related ECU failure impacts system operations.
+13.4.3.4.19.10 The vehicle speed exceeds the limit, triggering system halt.
+13.4.3.4.19.11 FAPA failure interrupts automated parking assistance functions.
+13.4.3.4.19.12 The gear cannot be switched, suggesting incompatibility for continuing system actions.
+13.4.3.4.19.13 The driver quits actively, stopping autonomous processes intentionally.
+13.4.3.4.19.14 The vehicle cannot move, preventing system continuation.
+Page 6
+13.4.3.4.19.15 Parking slot is restricted.
+
+13.4.3.4.20 Step 19.
+
+13.4.3.4.21 Step 20.
+13.4.3.4.21.1 Find a parking slot.
+13.4.3.4.21.2 The parking slot selection has been completed.
+13.4.3.4.21.3 During FAPA/RP/SM automatic control process.
+13.4.3.4.21.4 Parking is completed.
+
+13.4.3.5 Automatic Parking Out.
+13.4.3.5.1 Step 1.
+13.4.3.5.2 Step 2.
+13.4.3.5.3 Step 3.
+13.4.3.5.4 Step 4.
+13.4.3.5.5 Step 5.
+13.4.3.5.6 Step 6.
+13.4.3.5.7 Step 7.
+13.4.3.5.8 Step 8.
+
+13.4.3.6 FAPA Paused Conditions.
+13.4.3.6.1 Obstacles are detected in the parking track and cannot be avoided.
+13.4.3.6.2 The main driver's side door is opened.
+13.4.3.6.3 The front passenger side door is opened.
+13.4.3.6.4 The left rear door is opened.
+13.4.3.6.5 The right rear door is opened.
+13.4.3.6.6 The back door is opened.
+13.4.3.6.7 The engine room cover is opened.
+13.4.3.6.8 The seat belt is opened.
+
+13.4.3.7 FAPA Termination Conditions.
+13.4.3.7.1 The driver interferes with the steering wheel.
+13.4.3.7.2 The driver interferes with the accelerator pedal.
+13.4.3.7.3 Driver intervention in EPB.
+Page 7
+13.4.3.7.4 The driver intervenes in the gear position.  
+13.4.3.7.5 The number of parking times (R → D or D → R) exceeds the limit.  
+13.4.3.7.6 Limited parking slot size.  
+13.4.3.7.7 The number of interruptions exceeds the limit.  
+13.4.3.7.8 The slope exceeds the limit.  
+13.4.3.7.9 The vehicle speed exceeds the limit.  
+13.4.3.7.10 The parking process reached overtime.  
+13.4.3.7.11 FAPA system failure.  
+13.4.3.7.12 Correlation system failure.  
+13.4.3.7.13 The vehicle cannot move.  
+13.4.3.7.14 The gear position cannot be switched normally.  
+13.4.3.7.15 The driver quits actively.  
+13.4.3.7.16 Unexpected ESC function activation (ABS/TCS, etc.).  
+13.4.3.7.17 Parking failed.  
+
+13.4.3.8 FAPA Complete.  
+13.4.3.9 The interaction between FAPA and EPS.  
+13.4.3.10 The interaction between FAPA and IDB.  
+13.4.3.11 The interaction between FAPA and VCU.  
+
+13.5 Performance Requirements.  
+13.5.1 KPI Key Performance Indicator.  
+13.5.1.1 The max speed for parking spot detection.  
+13.5.1.2 The max speed of parking process.  
+13.5.1.3 The side distance of vehicle and parking slot.  
+13.5.1.4 The standard length of parking slot.  
+13.5.1.5 The min length of parking slot.  
+13.5.1.6 The min diameter of a circular object.  
+13.5.1.7 The min length of a square object.  
+13.5.1.8 The min radius of curve.  
+13.5.1.9 Maximum identifiable angle.
+Page 8
+13.5.1.10 The minimum height of the curb must be sufficient to ensure proper detection and safe maneuvering during parking.
+
+13.5.1.11 Safe parking distance should enable clearance between the vehicle and obstacles or neighboring vehicles to avoid collision risk.
+
+13.5.1.12 The maximum number of vehicle adjustments during a parking process must not exceed predetermined thresholds to maintain efficiency.
+
+13.5.1.13 The parking recognition rate must achieve robust accuracy in identifying suitable parking spots based on varying conditions.
+
+13.5.1.14 The parking success rate must ensure the system consistently executes parking maneuvers with reliability under typical environmental scenarios.
+
+13.5.1.15 The vehicle angle after parking is complete should conform to specified alignment parameters to ensure proper orientation within the parking slot.
+
+13.5.1.16 Parking time limit defines the maximum allowable duration for the automated parking process to complete successfully under design constraints.
+Page 9
+13 APL27_FAPA.
+
+Requirement ID: FS-225893.  
+Type: Information.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References:**  
+No Downstream References.  
+
+**Associations:**  
+None.  
+
+---
+
+13.1 Document Issued.  
+
+Requirement ID: FS-226555.  
+Type: Information.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References:**  
+No Downstream References.  
+
+**Associations:**  
+None.  
+
+**Versions:**  
+- **V1.0**:  
+  Author: Calmcar.  
+  Date: 2021/7/6.  
+  Description: 编制compile.  
+
+- **V1.1**:  
+  Author: Calmcar.  
+  Date: 2021/10/26.  
+  Description:  
+  1. 修订3.1.1中第14条提示信息; Revision of the prompt information in Article 14 within 3.1.1.  
+  2. 增加EPS/VCU/IDB交互逻辑及失效策略; Add EPS/VCU/IDB interaction logic and failure strategy.  
+  3. 修订第四章节KPI内容; Revise the KPI content within Chapter 4.  
+  4. 增加3.3章节FAPA运行前提; Added Chapter 3.3 FAPA Operation Prerequisites.  
+
+- **V1.2**:  
+  Author: Calmcar.  
+  Date: 2021/11/12.  
+  Description:  
+  1. 增加1.2内标准文件; Add standard documents within Chapter 1.2.  
+  2. 修订状态机; Revise the state machine.  
+  3. 更改3.1内斜列泊车角度; Modify the angle of "angled parking" within Chapter 3.1.
+Page 10
+13 APL27_FAPA.
+
+Requirement ID: FS-225893.  
+Type: Information.  
+Status: New.  
+Upstream References: No Upstream References.  
+Downstream References: No Downstream References.  
+Associations: None.  
+
+13.1 Document Issued.
+
+Requirement ID: FS-226555.  
+Type: Information.  
+Status: New.  
+Upstream References: No Upstream References.  
+Downstream References: No Downstream References.  
+Associations: None.  
+
+Versions:  
+- V1.0 (Author: Calmcar, Date: 2021/7/6, Description: 编制compile).  
+- V1.1 (Author: Calmcar, Date: 2021/10/26):  
+  1. 修订3.1.1中第14条提示信息; Revision of the prompt information in Article 14 in 3.1.1.  
+  2. 增加EPS/VCU/IDB交互逻辑及失效策略; Add EPS/VCU/IDB interaction logic and failure strategy.  
+  3. 修订第四章节KPI内容; Revise the KPI content in Chapter 4.  
+  4. 增加3.3章节FAPA运行前提; Added Chapter 3.3 FAPA Operation Prerequisites.  
+- V1.2 (Author: Calmcar, Date: 2021/11/12):  
+  1. 增加1.2内标准文件; Add standard documents in Chapter 1.2.  
+  2. 修订状态机; Revise the state machine.  
+  3. 更改3.1内斜列泊车角度; Modify the angle of "angled parking."  
+  4. 修改全文英文错误描述; Modify the English error description of the full text.  
+  5. 删除3.3章节Autohold 要求; Delete the Autohold requirement in Chapter 3.3.  
+  6. 修改3.3章节拖车信号; Modify the trailer signal in section 3.3.  
+  7. 修订系统架构图; Revise the system architecture diagram.
+
+13.2 Introduction.
+
+Requirement ID: FS-226556.  
+Type: Information.  
+Status: New.  
+Upstream References: No Upstream References.  
+Downstream References: No Downstream References.  
+Associations: None.  
+
+13.2.1 Function Introduction.
+
+Requirement ID: FS-226557.  
+Type: Functional.  
+Status: New.  
+Upstream References: No Upstream References.  
+Downstream References:  
+- HT-296728 (FAPA_SC_076).  
+- HT-296726 (FAPA_SC_074).
+Page 11
+13 APL27_FAPA.
+
+Requirement ID: FS-225893. Type: Information. Status: New.  
+
+No Upstream References. No Downstream References. No Associations.  
+
+13.1 Document Issued.
+
+Requirement ID: FS-226555. Type: Information. Status: New.  
+
+No Upstream References. No Downstream References. No Associations.  
+
+Versions:  
+- **V1.0**  
+  - **Author:** Calmcar.  
+  - **Date:** 2021/7/6.  
+  - **Description:** 编制compile.  
+
+- **V1.1**  
+  - **Author:** Calmcar.  
+  - **Date:** 2021/10/26.  
+  - **Description:**  
+    1. 修订3.1.1中第14条提示信息；Revision of the prompt information in Article 14. in 3.1.1.  
+    2. 增加EPS/VCU/IDB交互逻辑及失效策略；Add EPS/VCU/IDB interaction logic and failure strategy.  
+    3. 修订第四章节KPI内容；Revise the KPI content in Chapter 4.  
+    4. 增加3.3章节FAPA运行前提；Added Chapter 3.3 FAPA Operation Prerequisites.  
+
+- **V1.2**  
+  - **Author:** Calmcar.  
+  - **Date:** 2021/11/12.  
+  - **Description:**  
+    1. 增加1.2内标准文件；Add standard documents in chapter 1.2.  
+    2. 修订状态机；Revise the state machine.  
+    3. 更改3.1内斜列泊车角度；Modify the Angle of "angled parking."  
+    4. 修改全文英文错误描述；Modify the English error description of the full text.  
+    5. 删除3.3章节Autohold要求；Delete the Autohold requirement in Chapter 3.3.  
+    6. 修改3.3章节拖车信号；Modify the trailer signal in section 3.3.  
+    7. 修订系统架构图；Revise the system architecture diagram.  
+
+13.2 Introduction.
+
+Requirement ID: FS-226556. Type: Information. Status: New.  
+
+No Upstream References. No Downstream References. No Associations.  
+
+13.2.1 Function Introduction.
+
+Requirement ID: FS-226557. Type: Functional. Status: New.  
+
+No Upstream References.  
+Downstream References (14):  
+- HT-296728: FAPA_SC_076.  
+- HT-296726: FAPA_SC_074.  
+- HT-279197: FAPA_SC_029.  
+- HT-279240: FAPA_SC_072.  
+- HT-279178: FAPA_SC_010.  
+- HT-279177: FAPA_SC_009.  
+- HT-279176: FAPA_SC_008.  
+- HT-279174: FAPA_SC_006.  
+- HT-279169: FAPA_SC_001.  
+- HT-279175: FAPA_SC_007.  
+- HT-279173: FAPA_SC_005.  
+- HT-279172: FAPA_SC_004.  
+- HT-279171: FAPA_SC_003.  
+- HT-279170: FAPA_SC_002.  
+
+No Associations.  
+
+Fully Automated Parking Assistance (FAPA) is a driver assistance system that helps the driver to enter and exit parking slots. The driver has to supervise the system under all conditions and must be available to take over the control of the vehicle.  
+
+13.2.2 References to Documents and Specifications.
+
+Requirement ID: FS-226558. Type: Information. Status: New.  
+
+No Upstream References.  
+Downstream References (4):  
+- HT-296728: FAPA_SC_076.  
+- HT-296726: FAPA_SC_074.  
+- HT-279197: FAPA_SC_029.  
+- HT-279240: FAPA_SC_072.
+Page 12
+4 May 2022  
+Uncontrolled copy when printed  
+12 | 146  
+Print date  
+Status  
+Functional Responsibility  
+  
+VinFast  
+Management System  
+
+VFDSXVEEP9128  
+
+HT-279178: FAPA_SC_010  
+HT-279177: FAPA_SC_009  
+HT-279176: FAPA_SC_008  
+HT-279175: FAPA_SC_007  
+HT-279174: FAPA_SC_006  
+HT-279173: FAPA_SC_005  
+HT-279172: FAPA_SC_004  
+HT-279171: FAPA_SC_003  
+HT-279170: FAPA_SC_002  
+HT-279169: FAPA_SC_001  
+
+No Associations:  
+ISO16787:2017 Intelligent transport systems—Assisted parking system (APS)—Performance requirements and test procedures.  
+
+ISO 17386:2010 Transport information and control systems—Manoeuvring Aids for Low Speed Operation (MALSO)—Performance requirements and test procedures.  
+
+ECE R79-03 uniform provisions concerning the approval of vehicles with regard to steering equipment.  
+
+### 13.2.3 System Introduction  
+Requirement ID: FS-226559  
+Type: Functional  
+Status: New  
+
+Upstream References: (0)  
+No Upstream References  
+
+Downstream References: (14)  
+- HT-296728: FAPA_SC_076  
+- HT-296726: FAPA_SC_074  
+- HT-279197: FAPA_SC_029
+Page 13
+13.2.4 System Architecture.
+
+Fully Automated Parking Assistance uses on-board sensors (USS and SVM camera) to identify the effective parking slot around the vehicle. The system controls the vehicle's moving, steering, shifting, and braking functions, enabling the vehicle to park into a parking slot or park out from a parking slot in a safe state. It is a driver assistance system that automatically controls a vehicle to park or exit a parking slot.
+
+Fully Automated Parking Assistance includes both automatic parking in and automatic parking out functions. 
+
+Requirement ID: FS-226560  
+Type: Functional  
+Status: New  
+
+**Downstream References (27):**
+- HT-297139: FAPA_SC_089  
+- HT-297138: FAPA_SC_088  
+- HT-279240: FAPA_SC_072  
+- HT-279178: FAPA_SC_010  
+- HT-279177: FAPA_SC_009  
+- HT-279176: FAPA_SC_008  
+- HT-279175: FAPA_SC_007  
+- HT-279174: FAPA_SC_006  
+- HT-279173: FAPA_SC_005  
+- HT-279172: FAPA_SC_004  
+- HT-279171: FAPA_SC_003  
+- HT-279170: FAPA_SC_002  
+- HT-279169: FAPA_SC_001
+Page 14
+HT-297137 FAPA_SC_087  
+HT-297136 FAPA_SC_086  
+HT-297135 FAPA_SC_085  
+HT-297134 FAPA_SC_084  
+HT-297133 FAPA_SC_083  
+HT-297132 FAPA_SC_082  
+HT-297131 FAPA_SC_081  
+HT-297130 FAPA_SC_080  
+HT-297129 FAPA_SC_079  
+HT-297128 FAPA_SC_078  
+HT-296729 FAPA_SC_077  
+HT-296728 FAPA_SC_076  
+HT-296726 FAPA_SC_074  
+HT-279197 FAPA_SC_029  
+HT-279240 FAPA_SC_072  
+HT-279178 FAPA_SC_010  
+HT-279177 FAPA_SC_009  
+HT-279176 FAPA_SC_008  
+HT-279175 FAPA_SC_007  
+HT-279174 FAPA_SC_006  
+HT-279173 FAPA_SC_005  
+HT-279172 FAPA_SC_004  
+HT-279171 FAPA_SC_003  
+HT-279170 FAPA_SC_002
+Page 15
+short name: FAPA  
+full name: Fully Automatic Parking Assistance  
+Chinese description: 全自动泊车  
+
+short name: VCU  
+full name: Vehicle Control Unit  
+Chinese description: 车辆控制单元  
+
+short name: IDB  
+full name: Integrated Dynamic Brake  
+Chinese description: 综合电子制动器  
+
+short name: RCU  
+full name: EPB (Electric Park Brake)  
+Chinese description: 电子手刹控制器  
+
+short name: EPS  
+full name: Electric Power Steering  
+Chinese description: 电子助力转向系统
+Page 16
+MHU refers to Media Head Unit and is described as the 媒体终端单元 (Media Terminal Unit). BCM indicates Body Control Module and is referred to as 车身控制器 (Body Controller). The FAPA system includes 1 controller, 12 ultrasonic radars, and 4 cameras. Its operation depends on the collaboration of multiple vehicle actuators, such as EPS, MHU, IDB, VCU, BCM, and additional modules.
+
+### 13.2.5 Component Parameter
+
+Requirement ID: FS-226561  
+Type: Information  
+Status: New  
+
+Sensor parameters are subject to the final confirmation of VF.
+
+### 13.2.5.1 Camera Optical Parameter
+
+Requirement ID: FS-226562  
+Type: Information  
+Status: New  
+
+#### Downstream References (26)
+- HT-297139: FAPA_SC_089  
+- HT-297138: FAPA_SC_088  
+- HT-297137: FAPA_SC_087  
+- HT-297136: FAPA_SC_086  
+- HT-297135: FAPA_SC_085  
+- HT-297134: FAPA_SC_084
+Page 17
+13.2.5.1 Camera Optical Parameters:
+
+- **F/No:** 2.0 ± 5%.
+- **Focal Length:** 0.95 mm ± 0.05 mm.
+- **FOV (Field of View):** Angled, 220° ± 5°.
+Page 18
+Parallel: 198°±5°.  
+Perpendicular: 150°±5°.  
+Resolution: Center (0-field) is 550LW/PH. Corner (0.8-field) is not applicable.  
+Distortion: Optical distortion is -129%. TV distortion is not listed.  
+Relative illumination: 40%.  
+Chief ray angle: 9.5°.  
+Lens construction: 2G4P.  
+IR Filter: 650nm±10nm.  
+
+### 13.2.5.2 Camera Sensor Performance  
+Requirement ID: FS-226563.  
+Type: Information.  
+Status: New.  
+
+Upstream References: None.  
+Downstream References: 28.  
+- HT-297139: FAPA_SC_089.  
+- HT-297138: FAPA_SC_088.  
+- HT-297137: FAPA_SC_087.  
+- HT-297136: FAPA_SC_086.  
+- HT-297135: FAPA_SC_085.  
+- HT-297134: FAPA_SC_084.
+Page 19
+Sensor model: Aptina AR0147.
+Page 20
+Optical format is 1/4-inch. The number of max pixels is 1280*960. The pixel size is 3μm*3μm.
+
+---
+
+**13.2.5.3 UPA USS Parameter:**
+
+Requirement ID: FS-226564  
+Type: Information  
+Status: New  
+
+**Upstream References**  
+(0) – No Upstream References  
+
+**Downstream References**  
+HT-297139 – FAPA_SC_089  
+HT-297138 – FAPA_SC_088  
+HT-297137 – FAPA_SC_087  
+HT-297136 – FAPA_SC_086  
+HT-297135 – FAPA_SC_085  
+HT-297134 – FAPA_SC_084  
+HT-297133 – FAPA_SC_083  
+HT-297132 – FAPA_SC_082  
+HT-297131 – FAPA_SC_081  
+HT-297130 – FAPA_SC_080  
+HT-297129 – FAPA_SC_079  
+HT-297128 – FAPA_SC_078  
+HT-296729 – FAPA_SC_077  
+HT-296728 – FAPA_SC_076
+Page 21
+No Associations.
+
+Items: Operating Frequency.
+Parameter Values:
+- Min: 43 kHz.
+- Typ: 48 kHz.
+- Max: 53 kHz.
+
+Items: Minimum Distance.
+Parameter Values: 0.3 m.
+
+Items: Maximum Distance.
+Parameter Values: 1.8 m.
+
+Items: Beam Pattern - Perpendicular FOV.
+Parameter Values:
+- Min: 30°.
+- Typ: 40°.
+- Max: 50°.
+
+Items: Beam Pattern - Parallel FOV.
+Parameter Values:
+- Min: 90°.
+- Typ: 100°.
+- Max: 110°.
+Page 22
+Response time: 52.  
+
+Resolution: 0.1m.  
+
+Accuracy: 5%.  
+
+Support Working Mode includes Indirect and Direct Mode.  
+
+Number of Echo Support: 1.  
+
+Support Width & Height of Echoes: Yes.  
+
+Support Fault Information: Yes.  
+
+Operating Voltage ranges from 9V, 12V, to 16V.  
+
+Power Consumption: 2W.  
+
+Operating Temperature ranges from -30°C to +80°C.  
+
+Storage Temperature ranges from −40°C to +85°C.  
+
+Sensor Protection Class is IP6K9K.  
+
+Humidity: 90% max.  
+
+Interface: LIN 2.1.  
+
+Safety Level: ASIL QM.
+Page 23
+HT-297139: FAPA_SC_089  
+HT-297138: FAPA_SC_088  
+HT-297137: FAPA_SC_087  
+HT-297136: FAPA_SC_086  
+HT-297135: FAPA_SC_085  
+HT-297134: FAPA_SC_084  
+HT-297133: FAPA_SC_083  
+HT-297132: FAPA_SC_082  
+HT-297131: FAPA_SC_081  
+HT-297130: FAPA_SC_080  
+HT-297129: FAPA_SC_079  
+HT-297128: FAPA_SC_078  
+HT-296729: FAPA_SC_077  
+HT-296728: FAPA_SC_076  
+HT-296727: FAPA_SC_075  
+HT-296726: FAPA_SC_074  
+HT-279197: FAPA_SC_029  
+HT-279178: FAPA_SC_010  
+HT-279177: FAPA_SC_009  
+HT-279176: FAPA_SC_008  
+HT-279175: FAPA_SC_007  
+HT-279174: FAPA_SC_006  
+HT-279173: FAPA_SC_005  
+HT-279171: FAPA_SC_003
+Page 24
+HT-279170: FAPA_SC_002.  
+HT-279169: FAPA_SC_001.  
+
+### No Associations  
+
+#### Items and Parameter Values:  
+
+**Operating Frequency:**  
+- Min: 47 kHz  
+- Typ: 52 kHz  
+- Max: 57 kHz  
+
+**Minimum Distance:** 0.3m  
+
+**Maximum Distance:** 4.5m  
+
+**Beam Pattern:**  
+- Perpendicular FOV: Min: 30°, Typ: 35°, Max: 40°  
+- Parallel FOV (**): Min: 50°, Typ: 55°, Max: 60°  
+
+**Response Time:** 70ms  
+
+**Distance Resolution:** 0.1m  
+
+**Distance Accuracy:** 5%  
+
+**Support Working Mode:** Direct Mode  
+
+**Number of Echo Support:** 2  
+
+**Support Width & Height of Echoes:** Yes  
+
+**Support Fault Information:** Yes  
+
+**Operating Voltage:**  
+- Min: 9V  
+- Typ: 12V  
+- Max: 16V  
+
+**Power Consumption:** 2W  
+
+**Operating Temperature:** -30°C to +80°C
+Page 25
+Storage Temperature: −40°C to +85°C.
+Sensor Protection Class: IP6K9K.
+Humidity: 90% max.
+Interface: LIN 2.1.
+Safety Level: ASIL QM.
+
+13.3 System Description.
+
+Requirement ID: FS-226566.
+Type: Functional.
+Status: New.
+
+Upstream References: No Upstream References.
+Downstream References: 
+- HT-277725: FAPA_TC_043.
+- HT-277724: FAPA_TC_042.
+- HT-277723: FAPA_TC_041.
+- HT-277722: FAPA_TC_040.
+- HT-277721: FAPA_TC_039.
+- HT-277720: FAPA_TC_038.
+- HT-277719: FAPA_TC_037.
+- HT-277718: FAPA_TC_036.
+- HT-277717: FAPA_TC_035.
+- HT-277716: FAPA_TC_034.
+- HT-277715: FAPA_TC_033.
+- HT-277714: FAPA_TC_032.
+Page 26
+13.3.1 System State Machine.
+
+Requirement ID: FS-226567. Type: Functional. Status: New.
+
+Upstream References (0): No Upstream References.  
+Downstream References (36):  
+HT-277725 - FAPA_TC_043  
+HT-277724 - FAPA_TC_042  
+HT-277723 - FAPA_TC_041  
+HT-277722 - FAPA_TC_040  
+HT-277721 - FAPA_TC_039  
+HT-277720 - FAPA_TC_038  
+HT-277719 - FAPA_TC_037  
+HT-277718 - FAPA_TC_036  
+HT-277717 - FAPA_TC_035  
+HT-277716 - FAPA_TC_034  
+HT-277715 - FAPA_TC_033  
+HT-277714 - FAPA_TC_032  
+HT-277713 - FAPA_TC_031  
+HT-277712 - FAPA_TC_030  
+HT-277711 - FAPA_TC_029  
+HT-277707 - FAPA_TC_025  
+HT-277703 - FAPA_TC_021  
+HT-277702 - FAPA_TC_020  
+HT-277699 - FAPA_TC_017  
+HT-277710 - FAPA_TC_028  
+HT-277709 - FAPA_TC_027  
+HT-277708 - FAPA_TC_026  
+HT-277706 - FAPA_TC_024.
+Page 27
+13.3.1 System State Machine.
+
+Requirement ID: FS-226567.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (36):  
+HT-277725: FAPA_TC_043.  
+HT-277724: FAPA_TC_042.  
+HT-277723: FAPA_TC_041.  
+HT-277722: FAPA_TC_040.  
+HT-277721: FAPA_TC_039.  
+HT-277720: FAPA_TC_038.  
+HT-277719: FAPA_TC_037.  
+HT-277718: FAPA_TC_036.  
+HT-277717: FAPA_TC_035.  
+HT-277716: FAPA_TC_034.  
+HT-277715: FAPA_TC_033.  
+HT-277714: FAPA_TC_032.  
+HT-277713: FAPA_TC_031.  
+HT-277712: FAPA_TC_030.  
+HT-277711: FAPA_TC_029.  
+HT-277710: FAPA_TC_028.  
+HT-277707: FAPA_TC_025.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277699: FAPA_TC_017.  
+HT-277709: FAPA_TC_027.  
+HT-277708: FAPA_TC_026.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277698: FAPA_TC_016.  
+HT-277697: FAPA_TC_015.  
+HT-277696: FAPA_TC_014.
+Page 28
+HT-277695  
+FAPA_TC_013.  
+
+HT-277694  
+FAPA_TC_012.  
+
+HT-277693  
+FAPA_TC_011.  
+
+HT-277690  
+FAPA_TC_008.  
+
+HT-277692  
+FAPA_TC_010.  
+
+HT-277691  
+FAPA_TC_009.  
+
+No Associations.
+
+Conditions:
+
+1. **OFF (睡眠状态 / Sleep state):** The system is turned off.  
+2. **Standby (待命状态 / Standby state):** In this state, the vehicle is in standby and all systems are ready for further operations.  
+3. **Enable (准备状态 / Enable state):** In this state, all preparation phases necessary for the functional control must be completed before further movement execution.  
+4. **Active (活动状态 / Active state):** In this state, the vehicle is actively operating based on user instructions; it automatically controls itself during movement.  
+5. **Finish (完成状态 / Finish state):** The function is completed, and the process enters a conclusion phase.  
+6. **Pause (暂停状态 / Pause state):** The vehicle halts operation and remains stationary, waiting for further user input to proceed.  
+7. **Abort (中止状态 / Abort state):** The function is terminated due to manual intervention or safety conditions.  
+8. **Failure (故障状态 / Failure state):** The system enters failure recovery or shutdown mode due to its own system errors.
+Page 29
+13.3.1.1 E1: Power on (KL15), self-check passed.
+
+Requirement ID: FS-226568. The type is Functional and the status is New.
+
+Upstream References (0):
+No Upstream References.
+
+Downstream References (29):
+- HT-277725: FAPA_TC_043
+- HT-277724: FAPA_TC_042
+- HT-277722: FAPA_TC_040
+- HT-277721: FAPA_TC_039
+- HT-277720: FAPA_TC_038
+- HT-277719: FAPA_TC_037
+- HT-277718: FAPA_TC_036
+- HT-277717: FAPA_TC_035
+- HT-277716: FAPA_TC_034
+- HT-277715: FAPA_TC_033
+- HT-277714: FAPA_TC_032
+- HT-277713: FAPA_TC_031
+- HT-277712: FAPA_TC_030
+- HT-277711: FAPA_TC_029
+- HT-277710: FAPA_TC_028
+- HT-277709: FAPA_TC_027
+- HT-277708: FAPA_TC_026
+- HT-277707: FAPA_TC_025
+- HT-277706: FAPA_TC_024
+- HT-277705: FAPA_TC_023
+- HT-277704: FAPA_TC_022
+Page 30
+13.3.1.2 E2: The system receives the user's turn on signal.
+
+Requirement ID: FS-226569.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (28):  
+HT-277725 - FAPA_TC_043  
+HT-277724 - FAPA_TC_042  
+HT-277723 - FAPA_TC_041  
+HT-277722 - FAPA_TC_040  
+HT-277721 - FAPA_TC_039  
+HT-277720 - FAPA_TC_038  
+HT-277719 - FAPA_TC_037  
+HT-277718 - FAPA_TC_036  
+HT-277717 - FAPA_TC_035  
+HT-277703 - FAPA_TC_021  
+HT-277702 - FAPA_TC_020  
+HT-277701 - FAPA_TC_019  
+HT-277700 - FAPA_TC_018  
+HT-277699 - FAPA_TC_017  
+HT-277695 - FAPA_TC_013  
+HT-277694 - FAPA_TC_012  
+HT-277698 - FAPA_TC_016
+Page 31
+13.3.1.3 E3: The user clicks the parking start button (FAPA).
+
+Requirement ID: FS-226570.  
+Type: Functional.  
+Status: New.  
+
+No Associations.  
+--  
+
+Downstream References:  
+HT-277716: FAPA_TC_034.  
+HT-277715: FAPA_TC_033.  
+HT-277714: FAPA_TC_032.  
+HT-277713: FAPA_TC_031.  
+HT-277712: FAPA_TC_030.  
+HT-277711: FAPA_TC_029.  
+HT-277710: FAPA_TC_028.  
+HT-277709: FAPA_TC_027.  
+HT-277708: FAPA_TC_026.  
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277698: FAPA_TC_016.  
+HT-277695: FAPA_TC_013.
+Page 32
+13.3.1.3 E3: The user clicks the parking start button (FAPA).
+
+Requirement ID: FS-226570  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (30):  
+HT-277725 - FAPA_TC_043  
+HT-277724 - FAPA_TC_042  
+HT-277723 - FAPA_TC_041  
+HT-277722 - FAPA_TC_040  
+HT-277721 - FAPA_TC_039  
+HT-277720 - FAPA_TC_038  
+HT-277719 - FAPA_TC_037  
+HT-277718 - FAPA_TC_036  
+HT-277717 - FAPA_TC_035  
+HT-277716 - FAPA_TC_034  
+HT-277715 - FAPA_TC_033  
+HT-277714 - FAPA_TC_032  
+HT-277713 - FAPA_TC_031  
+HT-277712 - FAPA_TC_030  
+HT-277711 - FAPA_TC_029  
+HT-277710 - FAPA_TC_028  
+HT-277709 - FAPA_TC_027  
+HT-277708 - FAPA_TC_026  
+HT-277707 - FAPA_TC_025  
+HT-277706 - FAPA_TC_024  
+HT-277705 - FAPA_TC_023  
+HT-277704 - FAPA_TC_022  
+HT-277703 - FAPA_TC_021
+Page 33
+13.3.1.4 E4: The FAPA function completed.
+
+Requirement ID: FS-226571.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0): No Upstream References.  
+
+Downstream References (7):  
+HT-277718, FAPA_TC_036.  
+HT-277717, FAPA_TC_035.  
+HT-277716, FAPA_TC_034.  
+HT-277715, FAPA_TC_033.  
+HT-277701, FAPA_TC_019.  
+HT-277700, FAPA_TC_018.  
+HT-277699, FAPA_TC_017.  
+
+No Associations: --
+Page 34
+13.3.1.5 Finished state lasts for 4s.
+
+Requirement ID: FS-226572  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (9):  
+- HT-277718: FAPA_TC_036  
+- HT-277717: FAPA_TC_035  
+- HT-277716: FAPA_TC_034  
+- HT-277715: FAPA_TC_033  
+- HT-277708: FAPA_TC_026  
+- HT-277703: FAPA_TC_021  
+- HT-277701: FAPA_TC_019  
+- HT-277700: FAPA_TC_018  
+- HT-277699: FAPA_TC_017  
+
+No Associations:  
+
+---
+
+13.3.1.6 The pause condition is triggered.
+
+Requirement ID: FS-226573  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (0):  
+No Downstream References  
+
+No Associations:
+Page 35
+13.3.1.7 E7: The pause condition disappears; the user clicks the "restore" button (FAPA).
+
+Requirement ID: FS-226574  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+No Downstream References  
+
+No Associations  
+--  
+
+13.3.1.8 E8: The Abort condition is triggered.
+
+Requirement ID: FS-226575  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (6):  
+HT-277714: FAPA_TC_032  
+HT-277713: FAPA_TC_031  
+HT-277712: FAPA_TC_030  
+HT-277711: FAPA_TC_029  
+HT-277710: FAPA_TC_028  
+HT-277709: FAPA_TC_027  
+
+No Associations  
+--  
+
+13.3.1.9 E9: The suspension condition has not disappeared; the user quits actively or the system has timed out.
+
+Requirement ID: FS-226576  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+No Downstream References  
+
+No Associations  
+--
+Page 36
+13.3.1.10 E10: Abort state lasts for 4 seconds.
+
+Requirement ID: FS-226577  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (1):  
+- HT-277709: FAPA_TC_027  
+
+No Associations.  
+--
+Page 37
+13.3.1.11 E11: The user actively exited or the Abort condition was triggered.
+
+Requirement ID: FS-226578  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (2):  
+- HT-277698: FAPA_TC_016  
+- HT-277695: FAPA_TC_013  
+
+No Associations  
+--
+
+13.3.1.12 E12: The system power off.
+
+Requirement ID: FS-226579  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (6):  
+- HT-277697: FAPA_TC_015  
+- HT-277696: FAPA_TC_014  
+- HT-277693: FAPA_TC_011  
+- HT-277692: FAPA_TC_010  
+- HT-277691: FAPA_TC_009  
+- HT-277690: FAPA_TC_008  
+
+No Associations  
+--
+Page 38
+13.3.1.13 E13: The system itself fails.
+
+Requirement ID: FS-226580  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (0):  
+No Downstream References  
+
+No Associations --  
+
+---
+
+13.3.2 Interactive signal.
+
+Requirement ID: FS-226581  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (36):  
+HT-277725 FAPA_TC_043  
+HT-277724 FAPA_TC_042  
+HT-277723 FAPA_TC_041  
+HT-277722 FAPA_TC_040  
+HT-277721 FAPA_TC_039  
+HT-277720 FAPA_TC_038  
+HT-277719 FAPA_TC_037  
+HT-277718 FAPA_TC_036  
+HT-277717 FAPA_TC_035  
+HT-277716 FAPA_TC_034  
+HT-277715 FAPA_TC_033  
+HT-277714 FAPA_TC_032  
+HT-277713 FAPA_TC_031
+Page 39
+13.3.1.13 E13: The system itself fails.
+
+Requirement ID: FS-226580  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References: No Downstream References  
+No Associations  
+--  
+
+13.3.2 Interactive signal.
+
+Requirement ID: FS-226581  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References (36):  
+- HT-277725: FAPA_TC_043  
+- HT-277724: FAPA_TC_042  
+- HT-277723: FAPA_TC_041  
+- HT-277722: FAPA_TC_040  
+- HT-277721: FAPA_TC_039  
+- HT-277720: FAPA_TC_038  
+- HT-277719: FAPA_TC_037  
+- HT-277718: FAPA_TC_036  
+- HT-277717: FAPA_TC_035  
+- HT-277716: FAPA_TC_034  
+- HT-277715: FAPA_TC_033  
+- HT-277714: FAPA_TC_032  
+- HT-277713: FAPA_TC_031  
+- HT-277712: FAPA_TC_030  
+- HT-277711: FAPA_TC_029  
+- HT-277710: FAPA_TC_028  
+- HT-277709: FAPA_TC_027  
+- HT-277708: FAPA_TC_026  
+- HT-277707: FAPA_TC_025  
+- HT-277706: FAPA_TC_024  
+- HT-277705: FAPA_TC_023  
+- HT-277704: FAPA_TC_022  
+- HT-277703: FAPA_TC_021  
+- HT-277702: FAPA_TC_020  
+- HT-277701: FAPA_TC_019  
+- HT-277700: FAPA_TC_018  
+- HT-277699: FAPA_TC_017  
+- HT-277698: FAPA_TC_016  
+- HT-277697: FAPA_TC_015  
+- HT-277696: FAPA_TC_014  
+- HT-277695: FAPA_TC_013  
+- HT-277694: FAPA_TC_012  
+- HT-277693: FAPA_TC_011  
+- HT-277692: FAPA_TC_010  
+- HT-277691: FAPA_TC_009  
+- HT-277690: FAPA_TC_008  
+
+No Associations: FAPA_CAN_Matrix_V1.xlsx
+Page 40
+13.4 Function Description.
+
+Requirement ID: FS-226582.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (30):  
+1. HT-277725: FAPA_TC_043.  
+2. HT-277724: FAPA_TC_042.  
+3. HT-277723: FAPA_TC_041.  
+4. HT-277722: FAPA_TC_040.  
+5. HT-277721: FAPA_TC_039.  
+6. HT-277720: FAPA_TC_038.  
+7. HT-277719: FAPA_TC_037.  
+8. HT-277718: FAPA_TC_036.  
+9. HT-277717: FAPA_TC_035.  
+10. HT-277716: FAPA_TC_034.  
+11. HT-277715: FAPA_TC_033.  
+12. HT-277714: FAPA_TC_032.  
+13. HT-277713: FAPA_TC_031.  
+14. HT-277712: FAPA_TC_030.  
+15. HT-277711: FAPA_TC_029.  
+16. HT-277710: FAPA_TC_028.  
+17. HT-277709: FAPA_TC_027.  
+18. HT-277708: FAPA_TC_026.  
+19. HT-277707: FAPA_TC_025.
+Page 41
+13.4 Function Description.
+
+Requirement ID: FS-226582.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (30):  
+HT-277725 — FAPA_TC_043  
+HT-277724 — FAPA_TC_042  
+HT-277723 — FAPA_TC_041  
+HT-277722 — FAPA_TC_040  
+HT-277721 — FAPA_TC_039  
+HT-277720 — FAPA_TC_038  
+HT-277719 — FAPA_TC_037  
+HT-277718 — FAPA_TC_036  
+HT-277717 — FAPA_TC_035  
+HT-277716 — FAPA_TC_034  
+HT-277715 — FAPA_TC_033  
+HT-277714 — FAPA_TC_032  
+HT-277713 — FAPA_TC_031  
+HT-277712 — FAPA_TC_030  
+HT-277711 — FAPA_TC_029  
+HT-277710 — FAPA_TC_028  
+HT-277709 — FAPA_TC_027  
+HT-277708 — FAPA_TC_026  
+HT-277707 — FAPA_TC_025  
+HT-277706 — FAPA_TC_024  
+HT-277705 — FAPA_TC_023  
+HT-277704 — FAPA_TC_022  
+HT-277703 — FAPA_TC_021  
+HT-277702 — FAPA_TC_020  
+HT-277701 — FAPA_TC_019  
+HT-277700 — FAPA_TC_018  
+HT-277699 — FAPA_TC_017  
+HT-277698 — FAPA_TC_016  
+HT-277697 — FAPA_TC_015  
+HT-277696 — FAPA_TC_014  
+
+No Associations.  
+--
+
+13.4.1 Usage Scenario Description.
+
+Requirement ID: FS-226583.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (22):  
+HT-277725 — FAPA_TC_043  
+HT-277724 — FAPA_TC_042  
+HT-277720 — FAPA_TC_038  
+HT-277719 — FAPA_TC_037  
+HT-277718 — FAPA_TC_036  
+HT-277715 — FAPA_TC_033
+Page 42
+13.4.1.1 Perpendicular parking slot with parking line:
+
+Requirement ID: FS-226584  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (14)  
+HT-277714 FAPA_TC_032  
+HT-277713 FAPA_TC_031  
+HT-277712 FAPA_TC_030  
+HT-277711 FAPA_TC_029  
+HT-277710 FAPA_TC_028  
+HT-277709 FAPA_TC_027  
+HT-277708 FAPA_TC_026  
+HT-277707 FAPA_TC_025  
+HT-277706 FAPA_TC_024  
+HT-277705 FAPA_TC_023  
+HT-277704 FAPA_TC_022  
+HT-277703 FAPA_TC_021  
+HT-277702 FAPA_TC_020  
+HT-277701 FAPA_TC_019  
+
+No Associations  
+--
+Page 43
+13.4.1.2 Parallel parking slot with parking line:
+
+Requirement ID: FS-226585  
+Type: Functional  
+Status: New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (15):**  
+- HT-277716: FAPA_TC_034  
+- HT-277715: FAPA_TC_033  
+- HT-279237: FAPA_SC_069  
+- HT-279236: FAPA_SC_068  
+- HT-279230: FAPA_SC_062  
+- HT-279225: FAPA_SC_057  
+- HT-279223: FAPA_SC_055  
+- HT-279200: FAPA_SC_032  
+- HT-279186: FAPA_SC_018  
+- HT-279185: FAPA_SC_017  
+- HT-279184: FAPA_SC_016  
+- HT-279183: FAPA_SC_015  
+- HT-279170: FAPA_SC_002  
+- HT-279174: FAPA_SC_006  
+
+**No Associations**  
+--  
+
+**Figures:**  
+Several images are displayed showcasing different types of parallel parking slots with parking lines. These pictures illustrate indoor parking lots, outdoor parking spaces, and marked parking areas designed for efficient vehicle alignment.
+Page 44
+13.4.1.3 (45°～60°) Angled parking slot with parking line (45°～60°):
+
+Requirement ID: FS-226586  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References:  
+
+- HT-277718: FAPA_TC_036  
+- HT-277717: FAPA_TC_035  
+- HT-277711: FAPA_TC_029  
+- HT-277704: FAPA_TC_022  
+- HT-277701: FAPA_TC_019  
+- HT-277699: FAPA_TC_017  
+- HT-279222: FAPA_SC_054  
+- HT-279220: FAPA_SC_052  
+- HT-279214: FAPA_SC_046  
+- HT-279199: FAPA_SC_031  
+- HT-279193: FAPA_SC_025  
+- HT-279190: FAPA_SC_022  
+- HT-279189: FAPA_SC_021  
+- HT-279188: FAPA_SC_020  
+- HT-279173: FAPA_SC_005  
+
+No Associations  
+Images depict example 45°～60° angled parking slots with visible parking lines, demonstrating the intended application and alignment of vehicles.
+Page 45
+4 May 2022  
+Uncontrolled copy when printed  
+45 | 146  
+Print date  
+Status  
+Functional Responsibility  
+
+VinFast  
+Management System  
+
+VFDSXVEEP9128  
+
+No Upstream References  
+Downstream References (18):  
+HT-279241 - FAPA_SC_073  
+HT-279239 - FAPA_SC_071  
+HT-279234 - FAPA_SC_066  
+HT-279233 - FAPA_SC_065  
+HT-279228 - FAPA_SC_060  
+HT-279219 - FAPA_SC_051  
+HT-279212 - FAPA_SC_044  
+HT-279211 - FAPA_SC_043  
+HT-279210 - FAPA_SC_042  
+HT-279209 - FAPA_SC_041  
+HT-279208 - FAPA_SC_040  
+HT-279203 - FAPA_SC_035  
+HT-279191 - FAPA_SC_023  
+HT-279181 - FAPA_SC_013  
+HT-279178 - FAPA_SC_010  
+HT-279177 - FAPA_SC_009  
+HT-279176 - FAPA_SC_008  
+HT-279169 - FAPA_SC_001  
+
+No Associations  
+--  
+
+Images:  
+The first image depicts a vehicle parked within an angled parking slot, showing alignment with visible parking lines.  
+The second image illustrates several parallel parking spaces situated along a street. These spaces are marked clearly with white parking lines.
+Page 46
+13.4.1.4 Perpendicular parking slot without parking lines:
+
+Requirement ID: FS-226587.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+No Upstream References.  
+
+Downstream References (11):  
+- HT-297133: FAPA_SC_083.  
+- HT-297132: FAPA_SC_082.  
+- HT-297129: FAPA_SC_079.  
+- HT-297128: FAPA_SC_078.  
+- HT-296727: FAPA_SC_075.  
+- HT-279224: FAPA_SC_056.  
+- HT-279213: FAPA_SC_045.  
+- HT-279207: FAPA_SC_039.  
+- HT-279195: FAPA_SC_027.  
+- HT-279192: FAPA_SC_024.  
+- HT-279172: FAPA_SC_004.  
+
+No Associations.
+Page 47
+13.4.1.5 Parallel parking slot without parking lines:
+
+Requirement ID: FS-226588  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (19):  
+HT-297139 — FAPA_SC_089  
+HT-297138 — FAPA_SC_088  
+HT-297137 — FAPA_SC_087  
+HT-297136 — FAPA_SC_086  
+HT-297135 — FAPA_SC_085  
+HT-296729 — FAPA_SC_077  
+HT-296726 — FAPA_SC_074  
+HT-279240 — FAPA_SC_072  
+HT-279232 — FAPA_SC_064  
+HT-279227 — FAPA_SC_059  
+HT-279221 — FAPA_SC_053  
+HT-279217 — FAPA_SC_049  
+HT-279215 — FAPA_SC_047  
+HT-279205 — FAPA_SC_037  
+HT-279204 — FAPA_SC_036  
+HT-279198 — FAPA_SC_030  
+HT-279196 — FAPA_SC_028  
+HT-279187 — FAPA_SC_019  
+HT-279175 — FAPA_SC_007  
+
+No Associations
+Page 48
+13.4.1.6 Parking slot on slopes ranging from 0 to 8% (Unidirectional slope compatibility):
+
+Requirement ID: FS-226589.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (1):  
+- HT-279196: FAPA_SC_028.  
+
+No Associations.
+
+---
+
+13.4.1.7 Open slot with parking lines:
+
+Requirement ID: FS-226590.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (18):  
+- HT-279238: FAPA_SC_070.  
+- HT-279232: FAPA_SC_064.  
+- HT-279231: FAPA_SC_063.  
+- HT-279229: FAPA_SC_061.  
+- HT-279227: FAPA_SC_059.  
+- HT-279221: FAPA_SC_053.  
+- HT-279217: FAPA_SC_049.  
+- HT-279215: FAPA_SC_047.  
+- HT-279205: FAPA_SC_037.  
+- HT-279204: FAPA_SC_036.  
+- HT-279198: FAPA_SC_030.  
+- HT-279196: FAPA_SC_028.  
+- HT-279187: FAPA_SC_019.  
+- HT-279175: FAPA_SC_007.  
+- HT-279172: FAPA_SC_004.  
+- HT-279189: FAPA_SC_021.  
+- HT-279190: FAPA_SC_022.  
+- HT-279191: FAPA_SC_023.  
+
+No Associations.
+Page 49
+13.4.2 Subsystem Description.
+
+Requirement ID: FS-226591.
+Type: Functional.
+Status: New.
+
+Upstream References (0).
+No Upstream References.
+
+Downstream References (39). 
+- HT-277724: FAPA_TC_042. 
+- HT-277723: FAPA_TC_041. 
+- HT-277722: FAPA_TC_040. 
+- HT-277721: FAPA_TC_039. 
+- HT-277720: FAPA_TC_038. 
+- HT-277719: FAPA_TC_037. 
+- HT-277718: FAPA_TC_036. 
+- HT-277717: FAPA_TC_035. 
+- HT-277716: FAPA_TC_034. 
+- HT-277715: FAPA_TC_033. 
+- HT-277714: FAPA_TC_032. 
+- HT-277713: FAPA_TC_031. 
+- HT-277712: FAPA_TC_030. 
+- HT-277711: FAPA_TC_029. 
+- HT-277710: FAPA_TC_028. 
+- HT-277709: FAPA_TC_027. 
+- HT-277708: FAPA_TC_026. 
+- HT-277707: FAPA_TC_025. 
+- HT-277706: FAPA_TC_024. 
+- HT-277705: FAPA_TC_023. 
+- HT-277704: FAPA_TC_022. 
+- HT-277703: FAPA_TC_021. 
+- HT-277702: FAPA_TC_020. 
+- HT-277701: FAPA_TC_019. 
+- HT-277700: FAPA_TC_018. 
+- HT-277699: FAPA_TC_017. 
+- HT-279241: FAPA_SC_073. 
+- HT-279239: FAPA_SC_071. 
+- HT-279234: FAPA_SC_066. 
+- HT-279233: FAPA_SC_065. 
+- HT-279228: FAPA_SC_060. 
+- HT-279219: FAPA_SC_051. 
+- HT-279212: FAPA_SC_044. 
+- HT-279211: FAPA_SC_043. 
+- HT-279203: FAPA_SC_035. 
+- HT-279194: FAPA_SC_026. 
+- HT-279182: FAPA_SC_014. 
+- HT-279171: FAPA_SC_003.
+
+No Associations.
+Page 50
+13.4.2 Subsystem Description.
+
+Requirement ID: FS-226591.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (39):  
+- HT-277724: FAPA_TC_042.  
+- HT-277723: FAPA_TC_041.  
+- HT-277722: FAPA_TC_040.  
+- HT-277721: FAPA_TC_039.  
+- HT-277719: FAPA_TC_037.  
+- HT-277718: FAPA_TC_036.  
+- HT-277717: FAPA_TC_035.  
+- HT-277716: FAPA_TC_034.  
+- HT-277715: FAPA_TC_033.  
+- HT-277714: FAPA_TC_032.  
+- HT-277713: FAPA_TC_031.  
+- HT-277712: FAPA_TC_030.  
+- HT-277711: FAPA_TC_029.  
+- HT-277710: FAPA_TC_028.  
+- HT-277709: FAPA_TC_027.  
+- HT-277708: FAPA_TC_026.  
+- HT-277707: FAPA_TC_025.  
+- HT-277706: FAPA_TC_024.  
+- HT-277705: FAPA_TC_023.  
+- HT-277704: FAPA_TC_022.  
+- HT-277703: FAPA_TC_021.  
+- HT-277702: FAPA_TC_020.  
+- HT-277701: FAPA_TC_019.  
+- HT-277700: FAPA_TC_018.  
+- HT-277699: FAPA_TC_017.  
+
+No Associations.
+Page 51
+Fully Automatic Parking Assist (FAPA): The parking slot and surrounding environment are perceived by the sensors around the vehicle. After the parking slot is determined, the system will carry out trajectory planning, and then the system will control the vehicle's moving, steering, gear shifting, and braking functions, so as to park the vehicle into the target parking slot within 7 times and the safest state.
+
+Automatic parking system is divided into several sub-functions. Details are provided in the following table:
+
+| System | Sub System  | Function Introduction  |
+|--------|-------------|-------------------------|
+| FAPA   | Parking In  | After entering the automatic parking function, the user drives the vehicle forward, and the system can identify the parking slot and judge the type of parking slot (parallel, perpendicular, and angled). After the target parking slot is determined, the user activates the automatic control of the vehicle, and then the vehicle can be parked smoothly in the target parking slot without the driver's operation. |
+Page 52
+parking out  
+After entering the automatic parking function, the system will ask the driver to choose the direction and type of parking. After the preparation measures are completed, the user can activate the automatic control of the vehicle, and the vehicle will automatically and stably park out of the parking space (parallel, perpendicular, angled) without the driver's operation.
+
+13.4.3 Function Definition  
+
+Requirement ID: FS-226592  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (24)  
+HT-277725 FAPA_TC_043  
+HT-277724 FAPA_TC_042  
+HT-277721 FAPA_TC_039  
+HT-277719 FAPA_TC_037  
+HT-277718 FAPA_TC_036  
+HT-277717 FAPA_TC_035  
+HT-277716 FAPA_TC_034  
+HT-277715 FAPA_TC_033  
+HT-277714 FAPA_TC_032  
+HT-277713 FAPA_TC_031  
+HT-277712 FAPA_TC_030  
+HT-277711 FAPA_TC_029  
+HT-277710 FAPA_TC_028  
+HT-277709 FAPA_TC_027
+Page 53
+In the process of FAPA operation, the following requirements are required for the vehicle functions:
+
+13.4.3.1 A. FAPA can only work in the power mode where the vehicle can run (VCU_HV_DRVsystem_status = 1: normal).
+
+**Requirement ID:** FS-226593  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References:** (0)  
+No Upstream References  
+
+**Downstream References:** (25)  
+- HT-277725 FAPA_TC_043  
+- HT-277724 FAPA_TC_042  
+- HT-277723 FAPA_TC_041  
+- HT-277721 FAPA_TC_039  
+- HT-277719 FAPA_TC_037  
+- HT-277718 FAPA_TC_036
+Page 54
+13.4.3.2 B, ACC functions should be inhibited during FAPA Active.
+
+Requirement ID: FS-226594.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References:  
+HT-277717 - FAPA_TC_035.  
+HT-277716 - FAPA_TC_034.  
+HT-277715 - FAPA_TC_033.  
+HT-277714 - FAPA_TC_032.  
+HT-277713 - FAPA_TC_031.  
+HT-277712 - FAPA_TC_030.  
+HT-277710 - FAPA_TC_028.  
+HT-277709 - FAPA_TC_027.  
+HT-277708 - FAPA_TC_026.  
+HT-277707 - FAPA_TC_025.  
+HT-277706 - FAPA_TC_024.  
+HT-277705 - FAPA_TC_023.  
+HT-277704 - FAPA_TC_022.  
+HT-277703 - FAPA_TC_021.  
+HT-277702 - FAPA_TC_020.  
+HT-277701 - FAPA_TC_019.  
+HT-277700 - FAPA_TC_018.  
+HT-277699 - FAPA_TC_017.  
+HT-277694 - FAPA_TC_012.  
+
+No Associations.  
+--
+Page 55
+13.4.3.2 B, ACC functions should be inhibited during FAPA Active.
+
+Requirement ID: FS-226594  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References (24):  
+- HT-277725: FAPA_TC_043  
+- HT-277724: FAPA_TC_042  
+- HT-277723: FAPA_TC_041  
+- HT-277721: FAPA_TC_039  
+- HT-277719: FAPA_TC_037  
+- HT-277718: FAPA_TC_036  
+- HT-277717: FAPA_TC_035  
+- HT-277716: FAPA_TC_034  
+- HT-277715: FAPA_TC_033  
+- HT-277714: FAPA_TC_032  
+- HT-277713: FAPA_TC_031  
+- HT-277712: FAPA_TC_030  
+- HT-277710: FAPA_TC_028  
+- HT-277709: FAPA_TC_027  
+- HT-277708: FAPA_TC_026  
+- HT-277707: FAPA_TC_025  
+- HT-277706: FAPA_TC_024  
+- HT-277705: FAPA_TC_023  
+- HT-277704: FAPA_TC_022  
+- HT-277703: FAPA_TC_021  
+- HT-277702: FAPA_TC_020  
+- HT-277701: FAPA_TC_019  
+- HT-277700: FAPA_TC_018
+Page 56
+13.4.3.3 C, When FAPA detects that there is a trailer on the tow hook (TrailerDetected = 1: Trailer detected), FAPA should be suppressed.
+
+Requirement ID: FS-226595.  
+Type: Functional.  
+Status: New.
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (24):  
+HT-277725 (FAPA_TC_043).  
+HT-277724 (FAPA_TC_042).  
+HT-277723 (FAPA_TC_041).  
+HT-277721 (FAPA_TC_039).  
+HT-277719 (FAPA_TC_037).  
+HT-277718 (FAPA_TC_036).  
+HT-277717 (FAPA_TC_035).  
+HT-277716 (FAPA_TC_034).  
+HT-277715 (FAPA_TC_033).  
+HT-277714 (FAPA_TC_032).  
+HT-277713 (FAPA_TC_031).  
+HT-277712 (FAPA_TC_030).  
+HT-277710 (FAPA_TC_028).  
+HT-277709 (FAPA_TC_027).  
+HT-277708 (FAPA_TC_026).  
+HT-277707 (FAPA_TC_025).  
+HT-277706 (FAPA_TC_024).  
+HT-277705 (FAPA_TC_023).  
+HT-277704 (FAPA_TC_022).  
+HT-277703 (FAPA_TC_021).  
+HT-277702 (FAPA_TC_020).  
+HT-277701 (FAPA_TC_019).  
+HT-277700 (FAPA_TC_018).  
+HT-277699 (FAPA_TC_017).
+Page 57
+13.4.3.4 Automatic Parking In.
+
+Requirement ID: FS-226596.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (18):  
+- HT-277714: FAPA_TC_032.  
+- HT-277713: FAPA_TC_031.  
+- HT-277712: FAPA_TC_030.  
+- HT-277711: FAPA_TC_029.  
+- HT-277710: FAPA_TC_028.  
+- HT-277709: FAPA_TC_027.  
+- HT-277708: FAPA_TC_026.  
+- HT-277707: FAPA_TC_025.
+Page 58
+13.4.3.4.1 Step 1.
+
+Requirement ID: FS-226597.  
+Type: Functional.  
+Status: New.  
+
+Upstream References: (0).  
+No Upstream References.  
+
+Downstream References: (27).  
+HT-277714 - FAPA_TC_032.  
+HT-277713 - FAPA_TC_031.  
+HT-277712 - FAPA_TC_030.  
+HT-277711 - FAPA_TC_029.  
+HT-277710 - FAPA_TC_028.  
+HT-277709 - FAPA_TC_027.  
+HT-277708 - FAPA_TC_026.  
+HT-277706 - FAPA_TC_024.  
+HT-277705 - FAPA_TC_023.  
+HT-277704 - FAPA_TC_022.  
+HT-277703 - FAPA_TC_021.  
+HT-277702 - FAPA_TC_020.  
+HT-277701 - FAPA_TC_019.  
+HT-277700 - FAPA_TC_018.  
+HT-277699 - FAPA_TC_017.  
+HT-277698 - FAPA_TC_016.  
+HT-277695 - FAPA_TC_013.
+Page 59
+VinFast Management System VFDSXVEEP9128.
+
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.  
+HT-279189: FAPA_SC_021.  
+HT-279188: FAPA_SC_020.  
+HT-279187: FAPA_SC_019.  
+HT-279186: FAPA_SC_018.  
+HT-279185: FAPA_SC_017.  
+HT-279184: FAPA_SC_016.  
+HT-279183: FAPA_SC_015.  
+HT-279182: FAPA_SC_014.  
+HT-279181: FAPA_SC_013.  
+HT-279180: FAPA_SC_012.  
+HT-279179: FAPA_SC_011.
+
+No Associations:  
+After the controller is powered on, it will enter the APA_State = Standby state. When the vehicle speed is ≤30km/h, the HMI will display the parking button. When the speed exceeds 30km/h, the HMI will hide the parking button.
+Page 60
+13.4.3.4.2 Step 2.
+
+Requirement ID: FS-226598.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (52):  
+- HT-277714: FAPA_TC_032.  
+- HT-277713: FAPA_TC_031.  
+- HT-277712: FAPA_TC_030.  
+- HT-277711: FAPA_TC_029.  
+- HT-277710: FAPA_TC_028.  
+- HT-277709: FAPA_TC_027.  
+- HT-277708: FAPA_TC_026.  
+- HT-277707: FAPA_TC_025.  
+- HT-277706: FAPA_TC_024.  
+- HT-277705: FAPA_TC_023.  
+- HT-277704: FAPA_TC_022.  
+- HT-277703: FAPA_TC_021.  
+- HT-277702: FAPA_TC_020.  
+
+The displayed image pertains to the parking button functionality in the user interface, relevant during low-speed vehicle operations. It visually assists in understanding the automatic parking system at this step.
+Page 61
+13.4.3.4.2 Step 2.
+
+Requirement ID: FS-226598.  
+Type: Functional.  
+Status: New.
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (52):  
+HT-277714, FAPA_TC_032.  
+HT-277713, FAPA_TC_031.  
+HT-277712, FAPA_TC_030.  
+HT-277711, FAPA_TC_029.  
+HT-277710, FAPA_TC_028.  
+HT-277709, FAPA_TC_027.  
+HT-277708, FAPA_TC_026.  
+HT-277707, FAPA_TC_025.  
+HT-277706, FAPA_TC_024.  
+HT-277705, FAPA_TC_023.  
+HT-277704, FAPA_TC_022.  
+HT-277703, FAPA_TC_021.  
+HT-277702, FAPA_TC_020.  
+HT-277701, FAPA_TC_019.  
+HT-277700, FAPA_TC_018.  
+HT-277699, FAPA_TC_017.  
+HT-277698, FAPA_TC_016.  
+HT-279212, FAPA_SC_044.  
+HT-279210, FAPA_SC_042.  
+HT-279209, FAPA_SC_041.  
+HT-279208, FAPA_SC_040.  
+HT-279207, FAPA_SC_039.  
+HT-279206, FAPA_SC_038.  
+HT-279205, FAPA_SC_037.  
+HT-279204, FAPA_SC_036.  
+HT-279203, FAPA_SC_035.  
+HT-279202, FAPA_SC_034.  
+HT-279201, FAPA_SC_033.  
+HT-279200, FAPA_SC_032.  
+HT-279199, FAPA_SC_031.  
+HT-279191, FAPA_SC_023.  
+HT-279190, FAPA_SC_022.  
+HT-279189, FAPA_SC_021.  
+HT-279188, FAPA_SC_020.  
+HT-279187, FAPA_SC_019.  
+HT-279186, FAPA_SC_018.  
+HT-279185, FAPA_SC_017.
+Page 62
+When the vehicle speed is greater than 0, after the user clicks the parking button on the HMI, the MHU will send the signal "MHU_APA_ShowAPAReq = 0x1: Request APA on" to FAPA. After receiving the signal from the MHU, the FAPA will feedback the signal "APA_ShowAPAFdbck = 0x1: Request APA on" and "APA_FuncModeFdbck = 0x1: parking in" to MHU, and enter APA_State = Enable state. MHU enters the automatic parking function interface after receiving FAPA's feedback signal, as shown in the figure below. This interface is displayed by MHU and does not include the surround camera image.
+Page 63
+13.4.3.4.3 Step 3.
+
+Requirement ID: FS-226599.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (17):  
+- HT-277714: FAPA_TC_032.  
+- HT-277713: FAPA_TC_031.  
+- HT-277712: FAPA_TC_030.  
+- HT-277711: FAPA_TC_029.  
+- HT-277710: FAPA_TC_028.  
+- HT-277709: FAPA_TC_027.  
+- HT-277708: FAPA_TC_026.  
+- HT-277707: FAPA_TC_025.  
+- HT-277706: FAPA_TC_024.  
+- HT-277705: FAPA_TC_023.  
+- HT-277704: FAPA_TC_022.  
+- HT-277703: FAPA_TC_021.  
+- HT-277702: FAPA_TC_020.  
+- HT-277701: FAPA_TC_019.  
+- HT-277700: FAPA_TC_018.  
+- HT-277699: FAPA_TC_017.  
+- HT-277695: FAPA_TC_013.  
+
+No Associations.
+
+When the speed is equal to 0, after the user clicks the parking button on the HMI, the MHU will send the signal "MHU_APA_ShowAPAReq = 0x1: Request APA on" to FAPA. After receiving the signal.
+Page 64
+13.4.3.4.4 Step 4.
+
+Requirement ID: FS-226600.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (32):  
+1. HT-277714: FAPA_TC_032.  
+2. HT-277713: FAPA_TC_031.  
+3. HT-277712: FAPA_TC_030.  
+4. HT-277711: FAPA_TC_029.  
+5. HT-277710: FAPA_TC_028.  
+6. HT-277709: FAPA_TC_027.  
+7. HT-277708: FAPA_TC_026.  
+8. HT-277707: FAPA_TC_025.  
+9. HT-277706: FAPA_TC_024.  
+10. HT-277705: FAPA_TC_023.  
+11. HT-277704: FAPA_TC_022.  
+12. HT-277703: FAPA_TC_021.  
+13. HT-277702: FAPA_TC_020.  
+14. HT-277701: FAPA_TC_019.  
+15. HT-277700: FAPA_TC_018.  
+16. HT-277699: FAPA_TC_017.  
+17. HT-279235: FAPA_SC_067.  
+
+The FAPA will feedback the signal "APA_ShowAPAFdbck = 0x1: Request APA on" and "APA_MHU_Displayparkingtype = 0x1: Request" to the MHU.
+Page 65
+13.4.3.4.5 Step 5.
+
+Requirement ID: FS-226601.
+Type: Functional.
+Status: New.
+
+Upstream References (0): No Upstream References.
+Downstream References (8): 
+- HT-277697: FAPA_TC_015.
+
+No Associations.  
+When the user selects parking in, MHU will send the signal "MHU_APA_FuncMode = 0x1: parking in" to FAPA. FAPA will feedback the signal "APA_FuncModeFdbck = 0x1: parking in" to MHU, and MHU will enter the automatic parking interface after receiving the feedback signal.
+Page 66
+13.4.3.4.5.1 FAPA system failure.
+
+Requirement ID: FS-226602.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References: No Downstream References.  
+No Associations.  
+
+--
+
+13.4.3.4.5.2 Related system failure.
+
+Requirement ID: FS-226603.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References: No Downstream References.  
+No Associations.  
+
+--
+Page 67
+13.4.3.4.5.3 The ACC system is turned on.
+
+Requirement ID: FS-226604.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (2):  
+HT-277697: FAPA_TC_015.  
+HT-277692: FAPA_TC_010.  
+
+No Associations.  
+--  
+
+13.4.3.4.5.4 The ESC sub-function is turned on.
+
+Requirement ID: FS-226605.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (1):  
+HT-277701: FAPA_TC_019.  
+
+No Associations.  
+--  
+
+13.4.3.4.6 Step 6.
+
+Requirement ID: FS-226606.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (31).
+Page 68
+13.4.3.4.6 Step 6
+
+Requirement ID: FS-226606  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (31)  
+- HT-277714: FAPA_TC_032  
+- HT-277713: FAPA_TC_031  
+- HT-277712: FAPA_TC_030  
+- HT-277711: FAPA_TC_029  
+- HT-277710: FAPA_TC_028  
+- HT-277709: FAPA_TC_027  
+- HT-277708: FAPA_TC_026  
+- HT-277707: FAPA_TC_025  
+- HT-277706: FAPA_TC_024  
+- HT-277705: FAPA_TC_023  
+- HT-277704: FAPA_TC_022  
+- HT-277703: FAPA_TC_021  
+- HT-277702: FAPA_TC_020  
+- HT-277701: FAPA_TC_019  
+- HT-277700: FAPA_TC_018  
+- HT-277699: FAPA_TC_017  
+- HT-279218: FAPA_SC_050  
+- HT-279217: FAPA_SC_049  
+- HT-279216: FAPA_SC_048  
+- HT-279215: FAPA_SC_047  
+- HT-279214: FAPA_SC_046  
+- HT-279213: FAPA_SC_045  
+- HT-279212: FAPA_SC_044  
+- HT-279211: FAPA_SC_043  
+
+No Associations  
+
+--
+Page 69
+13.4.3.4.6.1 APA_slot_ID_1_P0_X = xxx.
+
+Requirement ID: FS-226607.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (16):  
+- HT-277714: FAPA_TC_032.  
+- HT-277713: FAPA_TC_031.  
+- HT-277712: FAPA_TC_030.  
+- HT-277711: FAPA_TC_029.  
+- HT-277710: FAPA_TC_028.  
+- HT-277709: FAPA_TC_027.  
+- HT-277708: FAPA_TC_026.  
+- HT-277707: FAPA_TC_025.  
+
+No Associations.  
+
+When the user enters the automatic parking interface, the system will search for parking slots on both the left and right sides at the same time. When the parking slot is found, FAPA will send the parking slot signal coordinates to the MHU. As shown below, when the MHU receives the following signal, it will display the "Out of parking slot" information on the MHU interface.
+Page 70
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.  
+
+No Associations.  
+
+13.4.3.4.6.2 APA_slot_ID_1_P0_Y = xxx.  
+
+Requirement ID: FS-226608.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (16):  
+HT-277714: FAPA_TC_032.  
+HT-277713: FAPA_TC_031.  
+HT-277712: FAPA_TC_030.  
+HT-277711: FAPA_TC_029.  
+HT-277710: FAPA_TC_028.  
+HT-277709: FAPA_TC_027.  
+HT-277708: FAPA_TC_026.  
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.
+Page 71
+13.4.3.4.6.3 APA_slot_ID_1_P1_X = xxx.
+
+Requirement ID: FS-226609.  
+Type: Functional.  
+Status: New.  
+
+Upstream References: (0).  
+No Upstream References.  
+
+Downstream References: (16).  
+HT-277714: FAPA_TC_032.  
+HT-277713: FAPA_TC_031.  
+HT-277712: FAPA_TC_030.  
+HT-277711: FAPA_TC_029.  
+HT-277710: FAPA_TC_028.  
+HT-277709: FAPA_TC_027.  
+HT-277708: FAPA_TC_026.  
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.  
+
+No Associations.  
+--
+Page 72
+13.4.3.4.6.4 APA_slot_ID_1_P1_Y = xxx.
+
+Requirement ID: FS-226610.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (16):  
+1. HT-277714: FAPA_TC_032.  
+2. HT-277713: FAPA_TC_031.  
+3. HT-277712: FAPA_TC_030.  
+4. HT-277711: FAPA_TC_029.  
+5. HT-277710: FAPA_TC_028.  
+6. HT-277709: FAPA_TC_027.  
+7. HT-277708: FAPA_TC_026.  
+8. HT-277707: FAPA_TC_025.  
+9. HT-277706: FAPA_TC_024.  
+10. HT-277705: FAPA_TC_023.  
+11. HT-277704: FAPA_TC_022.  
+12. HT-277703: FAPA_TC_021.  
+13. HT-277702: FAPA_TC_020.  
+14. HT-277701: FAPA_TC_019.  
+15. HT-277700: FAPA_TC_018.  
+16. HT-277699: FAPA_TC_017.  
+
+No Associations.  
+--
+Page 73
+13.4.3.4.6.5 APA_slot_ID_1_P2_X = xxx.
+
+Requirement ID: FS-226611.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (16):  
+HT-277714: FAPA_TC_032.  
+HT-277713: FAPA_TC_031.  
+HT-277712: FAPA_TC_030.  
+HT-277711: FAPA_TC_029.  
+HT-277710: FAPA_TC_028.  
+HT-277709: FAPA_TC_027.  
+HT-277708: FAPA_TC_026.  
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.  
+
+No Associations: --.
+Page 74
+13.4.3.4.6.6 APA_slot_ID_1_P2_Y = xxx.
+
+Requirement ID: FS-226612.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (16):  
+HT-277714: FAPA_TC_032.  
+HT-277713: FAPA_TC_031.  
+HT-277712: FAPA_TC_030.  
+HT-277711: FAPA_TC_029.  
+HT-277710: FAPA_TC_028.  
+HT-277709: FAPA_TC_027.  
+HT-277708: FAPA_TC_026.  
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277701: FAPA_TC_019.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.  
+
+No Associations.  
+--
+Page 75
+13.4.3.4.6.7 APA_slot_ID_1_P3_X = xxx.
+
+Requirement ID: FS-226613  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (16):  
+- HT-277714: FAPA_TC_032  
+- HT-277713: FAPA_TC_031  
+- HT-277712: FAPA_TC_030  
+- HT-277711: FAPA_TC_029  
+- HT-277710: FAPA_TC_028  
+- HT-277709: FAPA_TC_027  
+- HT-277708: FAPA_TC_026  
+- HT-277707: FAPA_TC_025  
+- HT-277706: FAPA_TC_024  
+- HT-277705: FAPA_TC_023  
+- HT-277704: FAPA_TC_022  
+- HT-277703: FAPA_TC_021  
+- HT-277702: FAPA_TC_020  
+- HT-277701: FAPA_TC_019  
+
+No Associations:  
+--
+Page 76
+13.4.3.4.6.8 APA_slot_ID_1_P3_Y = xxx.
+
+Requirement ID: FS-226614  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (16):  
+HT-277714 - FAPA_TC_032  
+HT-277713 - FAPA_TC_031  
+HT-277712 - FAPA_TC_030  
+HT-277711 - FAPA_TC_029  
+HT-277710 - FAPA_TC_028  
+HT-277709 - FAPA_TC_027  
+HT-277708 - FAPA_TC_026  
+HT-277707 - FAPA_TC_025  
+HT-277706 - FAPA_TC_024  
+HT-277705 - FAPA_TC_023  
+HT-277704 - FAPA_TC_022  
+HT-277703 - FAPA_TC_021  
+HT-277702 - FAPA_TC_020  
+HT-277701 - FAPA_TC_019  
+HT-277700 - FAPA_TC_018  
+HT-277699 - FAPA_TC_017  
+
+No Associations.
+Page 77
+HT-277699  
+FAPA_TC_017  
+
+No Associations  
+--
+
+13.4.3.4.6.9 APA_slot_1 = 1 ~ 6  
+
+Requirement ID: FS-226615  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (16)  
+HT-277714 FAPA_TC_032  
+HT-277713 FAPA_TC_031  
+HT-277712 FAPA_TC_030  
+HT-277711 FAPA_TC_029  
+HT-277710 FAPA_TC_028  
+HT-277709 FAPA_TC_027  
+HT-277708 FAPA_TC_026  
+HT-277707 FAPA_TC_025  
+HT-277706 FAPA_TC_024  
+HT-277705 FAPA_TC_023  
+HT-277704 FAPA_TC_022  
+HT-277703 FAPA_TC_021  
+HT-277702 FAPA_TC_020  
+HT-277701 FAPA_TC_019  
+HT-277700 FAPA_TC_018  
+HT-277699 FAPA_TC_017
+Page 78
+No Associations  
+Note: The coordinate signal is the vehicle coordinate system, and the HMI will automatically convert the coordinate system after receiving the signal.
+
+13.4.3.4.7 Step 7.
+
+Requirement ID: FS-226616.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (14):  
+- HT-277714 FAPA_TC_032.  
+- HT-277713 FAPA_TC_031.  
+- HT-277711 FAPA_TC_029.  
+- HT-277710 FAPA_TC_028.  
+- HT-277709 FAPA_TC_027.  
+- HT-277708 FAPA_TC_026.  
+- HT-277707 FAPA_TC_025.  
+- HT-277706 FAPA_TC_024.  
+- HT-277705 FAPA_TC_023.  
+- HT-277704 FAPA_TC_022.  
+- HT-277703 FAPA_TC_021.  
+- HT-277702 FAPA_TC_020.  
+- HT-277700 FAPA_TC_018.  
+- HT-277699 FAPA_TC_017.  
+
+No Associations.
+Page 79
+When the system finds a parking slot, the system will automatically recommend a parking slot as the target parking slot, and will send a signal "APA_RecommendSlotID = 1~6" to the HMI, and the HMI will perform special display processing on the corresponding parking slot and display it to the user.
+
+13.4.3.4.8 Step 8.
+
+Requirement ID: FS-226617.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (15):  
+HT-277714: FAPA_TC_032.  
+HT-277713: FAPA_TC_031.  
+HT-277712: FAPA_TC_030.  
+HT-277711: FAPA_TC_029.  
+HT-277710: FAPA_TC_028.  
+HT-277709: FAPA_TC_027.  
+HT-277708: FAPA_TC_026.  
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.  
+
+No Associations.
+Page 80
+When the user selects a parking slot, either the recommended one or any other available one, the system will send a signal "APA_ReqInfoDispTxt2 = 0x5: please put the gear into P" to prompt the user to stop and switch the gear to P gear.
+
+13.4.3.4.9 Step 9.
+
+Requirement ID: FS-226618.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.
+
+Downstream References (17):  
+1. HT-277714, FAPA_TC_032.  
+2. HT-277713, FAPA_TC_031.  
+3. HT-277712, FAPA_TC_030.  
+4. HT-277711, FAPA_TC_029.  
+5. HT-277710, FAPA_TC_028.  
+6. HT-277709, FAPA_TC_027.  
+7. HT-277708, FAPA_TC_026.  
+8. HT-277707, FAPA_TC_025.  
+9. HT-277706, FAPA_TC_024.  
+10. HT-277705, FAPA_TC_023.  
+11. HT-277704, FAPA_TC_022.  
+12. HT-277703, FAPA_TC_021.  
+13. HT-277702, FAPA_TC_020.  
+14. HT-277700, FAPA_TC_018.  
+15. HT-277699, FAPA_TC_017.  
+16. HT-279193, FAPA_SC_025.  
+17. HT-279192, FAPA_SC_024.  
+
+No Associations.
+Page 81
+When the user switches the gear to P, the system will send the signal "APA_MHU_DisplaystartbuttonReq = 0x1: FAPA Request" to MHU, let MHU display the parking start button and let the user release the brake and steering wheel.
+
+13.4.3.4.10 Step 10.
+
+Requirement ID: FS-226619.  
+Type: Functional.  
+Status: New.
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (33):  
+HT-277714 - FAPA_TC_032.  
+HT-277713 - FAPA_TC_031.  
+HT-277712 - FAPA_TC_030.  
+HT-277711 - FAPA_TC_029.  
+HT-277710 - FAPA_TC_028.  
+HT-277709 - FAPA_TC_027.  
+HT-277708 - FAPA_TC_026.  
+HT-277707 - FAPA_TC_025.  
+HT-277706 - FAPA_TC_024.  
+HT-277705 - FAPA_TC_023.  
+HT-277704 - FAPA_TC_022.  
+HT-277703 - FAPA_TC_021.  
+HT-277702 - FAPA_TC_020.  
+HT-277700 - FAPA_TC_018.  
+HT-277699 - FAPA_TC_017.
+Page 82
+VinFast Management System VFDSXVEEP9128.
+
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+HT-277700: FAPA_TC_018.  
+HT-277699: FAPA_TC_017.  
+HT-279197: FAPA_SC_029.  
+HT-279196: FAPA_SC_028.  
+HT-279195: FAPA_SC_027.  
+HT-279194: FAPA_SC_026.  
+HT-279193: FAPA_SC_025.  
+HT-279192: FAPA_SC_024.  
+HT-279191: FAPA_SC_023.  
+HT-279190: FAPA_SC_022.  
+HT-279189: FAPA_SC_021.  
+HT-279188: FAPA_SC_020.  
+HT-279187: FAPA_SC_019.  
+HT-279186: FAPA_SC_018.  
+HT-279185: FAPA_SC_017.  
+HT-279184: FAPA_SC_016.  
+HT-279183: FAPA_SC_015.  
+HT-279182: FAPA_SC_014.  
+HT-279181: FAPA_SC_013.  
+HT-279180: FAPA_SC_012.
+Page 83
+When the driver clicks the parking start button, the system will enter the automatic control phase.
+
+13.4.3.4.11 Step 11.
+Requirement ID: FS-226620.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (6):  
+HT-277707: FAPA_TC_025.  
+HT-277706: FAPA_TC_024.  
+HT-277705: FAPA_TC_023.  
+HT-277704: FAPA_TC_022.  
+HT-277703: FAPA_TC_021.  
+HT-277702: FAPA_TC_020.  
+
+---
+
+During the parking slot search phase, if the following situations occur, the system reminds the driver:
+
+13.4.3.4.11.1 The driver's door opens.  
+Requirement ID: FS-226621.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (1):  
+HT-277705: FAPA_TC_023.  
+
+No Associations.  
+--
+Page 84
+13.4.3.4.11.2 The front passenger's side door is opened.
+
+Requirement ID: FS-226622  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277704: FAPA_TC_022  
+
+No Associations  
+--  
+
+13.4.3.4.11.3 Open the left rear door.
+
+Requirement ID: FS-226623  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277706: FAPA_TC_024  
+
+No Associations  
+--  
+
+13.4.3.4.11.4 There is a car door open.
+
+Requirement ID: FS-226624  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277707: FAPA_TC_025  
+
+No Associations  
+--
+Page 85
+13.4.3.4.11.5 The luggage compartment door is opened.
+
+Requirement ID: FS-226625  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277702: FAPA_TC_020  
+
+No Associations  
+--  
+
+13.4.3.4.11.6 The front engine room cover is opened.
+
+Requirement ID: FS-226626  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277703: FAPA_TC_021  
+
+No Associations  
+--  
+
+13.4.3.4.12 FAPA will automatically exit if the following situations occur in the car.
+
+Requirement ID: FS-313501  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (0)  
+No Downstream References  
+
+No Associations  
+--
+Page 86
+**13.4.3.4.12.1** FAPA system failure.
+
+- **Requirement ID:** FS-226627  
+- **Type:** Functional  
+- **Status:** New  
+- **Upstream References:** None  
+- **Downstream References:** None  
+- **No Associations:** --  
+
+---
+
+**13.4.3.4.12.2** Failure of the associated system.
+
+- **Requirement ID:** FS-226628  
+- **Type:** Functional  
+- **Status:** New  
+- **Upstream References:** None  
+- **Downstream References:** None  
+- **No Associations:** --  
+
+---
+
+**13.4.3.4.12.3** The vehicle speed exceeds the limit.
+
+- **Requirement ID:** FS-226629  
+- **Type:** Functional  
+- **Status:** New  
+- **Upstream References:** None  
+- **Downstream References:** None  
+- **No Associations:**  
+In this case, VCU will disconnect the handshake and IDB will actively brake the vehicle, FAPA will also request to brake the vehicle, and pull up the EPB+P gear.
+
+---
+
+**13.4.3.4.13** Step 12.
+Page 87
+Requirement ID: FS-226630.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (22):  
+- HT-277700: FAPA_TC_018.  
+- HT-277699: FAPA_TC_017.  
+- HT-279218: FAPA_SC_050.  
+- HT-279217: FAPA_SC_049.  
+- HT-279216: FAPA_SC_048.  
+- HT-279215: FAPA_SC_047.  
+- HT-279214: FAPA_SC_046.  
+- HT-279202: FAPA_SC_034.  
+- HT-279201: FAPA_SC_033.  
+- HT-279200: FAPA_SC_032.  
+- HT-279199: FAPA_SC_031.  
+- HT-279198: FAPA_SC_030.  
+- HT-279197: FAPA_SC_029.  
+- HT-279196: FAPA_SC_028.  
+- HT-279195: FAPA_SC_027.  
+- HT-279194: FAPA_SC_026.  
+- HT-279193: FAPA_SC_025.  
+- HT-279192: FAPA_SC_024.  
+- HT-279191: FAPA_SC_023.  
+- HT-279190: FAPA_SC_022.  
+- HT-279189: FAPA_SC_021.  
+- HT-279211: FAPA_SC_043.
+Page 88
+When the vehicle enters the automatic control phase, FAPA enters the APA_State = Active state. At this time, FAPA will request the SVM to be turned on. The SVM in the FAPA state will only display "Front single view + top-view" and "Rear single view" according to the D/R gear and is not controlled by the user.
+
+### 13.4.3.4.14 Step 13
+
+#### Requirement ID:
+FS-226631
+
+#### Type:
+Functional
+
+#### Status:
+New
+
+#### Upstream References:
+- No Upstream References
+
+#### Downstream References:
+- HT-279173: FAPA_SC_005
+- HT-279172: FAPA_SC_004
+- HT-279171: FAPA_SC_003
+- HT-279170: FAPA_SC_002
+- HT-279169: FAPA_SC_001
+- HT-279231: FAPA_SC_063
+- HT-279230: FAPA_SC_062
+- HT-279229: FAPA_SC_061
+- HT-279228: FAPA_SC_060
+- HT-279227: FAPA_SC_059
+- HT-279224: FAPA_SC_056
+- HT-279223: FAPA_SC_055
+- HT-279222: FAPA_SC_054
+- HT-279221: FAPA_SC_053
+- HT-279220: FAPA_SC_052
+
+#### Associations:
+- No Associations
+Page 89
+In the SVM image under the FAPA function, there is a schematic view of the field of view in the upper left corner of the single view, as shown in the figure below, follow the current display direction to change.
+
+13.4.3.4.15 Step 14.
+
+**Requirement ID:** FS-226632  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References:**  
+No Downstream References  
+
+**No Associations:**  
+
+When the vehicle enters the automatic control phase, the HMI will have some information to remind the user.  
+
+13.4.3.4.15.1 Case 1.
+
+**Requirement ID:** FS-226633  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (4):**  
+- HT-279173: FAPA_SC_005  
+- HT-279172: FAPA_SC_004  
+- HT-279170: FAPA_SC_002  
+
+**No Associations:**
+Page 90
+No Associations  
+When the vehicle starts to park, if it detects that the user has stepped on the brake, FAPA will send the signal "APA_ReqInfoDispTxt2 = 0x3" to MHU, requesting MHU to display the reminder message "Please release the brake".  
+
+13.4.3.4.15.2 Case 2  
+
+Requirement ID: FS-226634  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (11)  
+HT-279184 - FAPA_SC_016  
+HT-279183 - FAPA_SC_015  
+HT-279182 - FAPA_SC_014  
+HT-279181 - FAPA_SC_013  
+HT-279180 - FAPA_SC_012  
+HT-279179 - FAPA_SC_011  
+HT-279178 - FAPA_SC_010  
+HT-279177 - FAPA_SC_009  
+HT-279176 - FAPA_SC_008  
+HT-279174 - FAPA_SC_006  
+HT-279175 - FAPA_SC_007  
+
+No Associations  
+When the vehicle is in parking control and there is no other FAPA prompt information, FAPA will send the signal "APA_ReqInfoDispTxt2 = 0x4" to MHU, requesting MHU to display the reminder message "Please pay attention to the surrounding environment".
+Page 91
+13.4.3.4.16 Step 15.
+
+Requirement ID: FS-226635.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+No Upstream References.  
+Downstream References:  
+- HT-277708: FAPA_TC_026.  
+- HT-277707: FAPA_TC_025.  
+- HT-277706: FAPA_TC_024.  
+- HT-277705: FAPA_TC_023.  
+- HT-277704: FAPA_TC_022.  
+- HT-277703: FAPA_TC_021.  
+- HT-277702: FAPA_TC_020.
+
+No Associations.  
+When the following situation occurs, the vehicle will enter the pause mode, FAPA will send the signal "APA_ReqInfoDispTxt3 = xxx" to MHU. MHU will display the corresponding prompt according to the signal, and request the driver to eliminate the pause condition.  
+In pause mode, the vehicle will be braked and standstill, waiting for the next action.  
+
+13.4.3.4.16.1 The main driving door opens.  
+
+Requirement ID: FS-226636.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+No Upstream References.  
+Downstream References:  
+- HT-277705: FAPA_TC_023.  
+
+No Associations.  
+--
+Page 92
+13.4.3.4.16.2 The co-driver door opens.
+
+Requirement ID: FS-226637  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277704  
+FAPA_TC_022  
+
+No Associations  
+--
+
+13.4.3.4.16.3 The left rear door opens.
+
+Requirement ID: FS-226638  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277706  
+FAPA_TC_024  
+
+No Associations  
+--
+
+13.4.3.4.16.4 The right back door opens.
+
+Requirement ID: FS-226639  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277707  
+FAPA_TC_025  
+
+No Associations  
+--
+Page 93
+13.4.3.4.16.5 The luggage compartment door opens.
+
+Requirement ID: FS-226640  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277702 FAPA_TC_020  
+
+No Associations  
+
+13.4.3.4.16.6 The front engine room cover opens.
+
+Requirement ID: FS-226641  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (0)  
+No Downstream References  
+
+No Associations  
+
+13.4.3.4.16.7 The main driver's seat belt is loosened.
+
+Requirement ID: FS-226642  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277708 FAPA_TC_026  
+
+No Associations
+Page 94
+13.4.3.4.16.8 There are obstacles in the track.
+
+Requirement ID: FS-226643  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+13.4.3.4.17 Step 16.
+
+Requirement ID: FS-226644  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+Downstream References (13)  
+HT-279228 FAPA_SC_060  
+HT-279227 FAPA_SC_059  
+HT-279226 FAPA_SC_058  
+HT-279211 FAPA_SC_043  
+HT-279210 FAPA_SC_042  
+HT-279209 FAPA_SC_041  
+HT-279205 FAPA_SC_037  
+HT-279194 FAPA_SC_026  
+HT-279192 FAPA_SC_024  
+HT-279183 FAPA_SC_015  
+HT-279178 FAPA_SC_010  
+
+No Associations.
+Page 95
+13.4.3.4.16.8 There are obstacles in the track.
+
+Requirement ID: FS-226643  
+Type: Functional  
+Status: New  
+Upstream References: None  
+Downstream References: None  
+Associations: None  
+
+---
+
+13.4.3.4.17 Step 16.
+
+Requirement ID: FS-226644  
+Type: Functional  
+Status: New  
+Upstream References: None  
+Downstream References:  
+- HT-279228: FAPA_SC_060  
+- HT-279227: FAPA_SC_059  
+- HT-279226: FAPA_SC_058  
+- HT-279211: FAPA_SC_043  
+- HT-279210: FAPA_SC_042  
+- HT-279209: FAPA_SC_041  
+- HT-279205: FAPA_SC_037  
+- HT-279194: FAPA_SC_026  
+- HT-279192: FAPA_SC_024  
+- HT-279183: FAPA_SC_015  
+- HT-279178: FAPA_SC_010  
+- HT-279176: FAPA_SC_008  
+- HT-279174: FAPA_SC_006  
+
+Associations: None  
+
+When the user eliminates the suspension condition, the system will send the signal "APA_MHU_DisplayrecoverbuttonReq = 1: request" to MHU, and MHU will display the parking recovery button after receiving the signal, as shown below:  
+
+---
+
+13.4.3.4.18 Step 17.
+
+Requirement ID: FS-226645  
+Type: Functional  
+Status: New  
+Upstream References: None  
+Downstream References: None  
+Associations: None  
+
+When the user clicks the button, HMU will send the signal "MHU_APA_RecoverParking = 1:request" to FAPA, and FAPA will continue to park after receiving the signal.  
+
+---
+
+13.4.3.4.19 Step 18.
+
+Requirement ID: FS-226646  
+Type: Functional  
+Status: New  
+Upstream References: None  
+Downstream References: None  
+Associations: None
+Page 96
+13.4.3.4.19.1 The parking time is over. 
+
+Requirement ID: FS-226647  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References (1): HT-277709 (FAPA_TC_027).  
+
+No Associations.  
+Parking duration: 4 minutes.  
+
+---
+
+13.4.3.4.19.2 The driver intervenes in the gear position. 
+
+Requirement ID: FS-226648  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References (1): HT-277713 (FAPA_TC_031).  
+
+No Associations.
+Page 97
+13.4.3.4.19.3 The driver intervenes in the throttle.
+
+Requirement ID: FS-226649.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+No Associations.
+
+The accelerator pedal signal value is ≥3% (tunable).
+
+13.4.3.4.19.4 The driver intervenes in the steering wheel.
+
+Requirement ID: FS-226650.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+No Associations.
+
+≥3NM for 100ms (tunable).  
+EPS will disconnect the handshake, FAPA will control VCU and IDB to brake the vehicle first, then request EPB and P gear, and finally exit.
+
+13.4.3.4.19.5 The driver intervenes in the handbrake.
+
+Requirement ID: FS-226651.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+No Associations.
+Page 98
+13.4.3.4.19.6 The number of parking times exceeds the limit (D → R and R → D).
+
+Requirement ID: FS-226652  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+No Downstream References  
+No Associations  
+--  
+
+13.4.3.4.19.7 The slope is too large.
+
+Requirement ID: FS-226653  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+No Downstream References  
+No Associations  
+
+Maximum 8%  
+
+13.4.3.4.19.8 Too many pauses.
+
+Requirement ID: FS-226654  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+No Downstream References  
+No Associations  
+
+8 times  
+
+13.4.3.4.19.9 Related ECU failure.
+
+Requirement ID: FS-226655  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+No Downstream References  
+No Associations
+Page 99
+13.4.3.4.19.10 The vehicle speed exceeds the limit.
+
+Requirement ID: FS-226656.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References:  
+- HT-277711: FAPA_TC_029.  
+
+No Associations.  
+The vehicle speed exceeds 5km/h.
+
+---
+
+13.4.3.4.19.11 FAPA failure.
+
+Requirement ID: FS-226657.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+
+No Associations.  
+--
+
+---
+
+13.4.3.4.19.12 The gear cannot be switched.
+
+Requirement ID: FS-226658.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+
+No Associations.  
+--
+Page 100
+13.4.3.4.19.13 The driver quits actively.
+
+Requirement ID: FS-226659  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+
+No Associations  
+--
+
+13.4.3.4.19.14 The vehicle cannot move.
+
+Requirement ID: FS-226660  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+Downstream References (1)  
+HT-277712  
+FAPA_TC_030  
+
+No Associations  
+--
+
+13.4.3.4.19.15 Parking slot is restricted.
+
+Requirement ID: FS-226661  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+
+No Associations  
+--
+Page 101
+13.4.3.4.20 Step 19.
+
+Requirement ID: FS-226662.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (13):  
+HT-277714 (FAPA_TC_032).  
+HT-277713 (FAPA_TC_031).  
+HT-277712 (FAPA_TC_030).  
+HT-277711 (FAPA_TC_029).  
+HT-277710 (FAPA_TC_028).  
+HT-277709 (FAPA_TC_027).  
+HT-277708 (FAPA_TC_026).  
+HT-277707 (FAPA_TC_025).  
+HT-277706 (FAPA_TC_024).  
+HT-277705 (FAPA_TC_023).  
+HT-277704 (FAPA_TC_022).  
+HT-277702 (FAPA_TC_020).  
+HT-277703 (FAPA_TC_021).  
+
+No Associations.
+
+When the vehicle termination condition is triggered, the system control will be disconnected. FAPA will send the signal "APA_ReqInfoDispTxt3 = xxx" to MHU, which will exit the display. FAPA will then send a signal.
+Page 102
+13.4.3.4.21 Step 20.
+
+Requirement ID: FS-226663.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (2):  
+- HT-277701 FAPA_TC_019.  
+- HT-277700 FAPA_TC_018.  
+
+No Associations.  
+There will be some sound reminders during the parking process. When the system is in the following conditions, FAPA will send a signal to MHU.  
+
+13.4.3.4.21.1 Find a parking slot.
+
+Requirement ID: FS-226664.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (1):  
+- HT-277701 FAPA_TC_019.  
+
+No Associations.  
+
+13.4.3.4.21.2 The parking slot selection has been completed.
+
+Requirement ID: FS-226665.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (2):  
+- HT-277701 FAPA_TC_019.  
+- HT-277700 FAPA_TC_018.  
+
+No Associations.
+Page 103
+13.4.3.4.21 Step 20.
+
+*Requirement ID:* FS-226663.  
+*Type:* Functional.  
+*Status:* New.  
+*Upstream References:* None.  
+*Downstream References (2):*  
+- HT-277701 (FAPA_TC_019)  
+- HT-277700 (FAPA_TC_018).  
+
+*No Associations.*  
+
+There will be some sound reminders during the parking process. When the system is in the following conditions, FAPA will send a signal to MHU.
+
+---
+
+13.4.3.4.21.1 Find a parking slot.
+
+*Requirement ID:* FS-226664.  
+*Type:* Functional.  
+*Status:* New.  
+*Upstream References:* None.  
+*Downstream References (1):*  
+- HT-277701 (FAPA_TC_019).  
+
+*No Associations.*  
+
+---
+
+13.4.3.4.21.2 The parking slot selection has been completed.
+
+*Requirement ID:* FS-226665.  
+*Type:* Functional.  
+*Status:* New.  
+*Upstream References:* None.  
+*Downstream References (2):*  
+- HT-277701 (FAPA_TC_019).  
+- HT-277700 (FAPA_TC_018).  
+
+*No Associations.*  
+
+---
+
+13.4.3.4.21.3 During FAPA/RP/SM automatic control process.
+
+*Requirement ID:* FS-226666.  
+*Type:* Functional.  
+*Status:* New.  
+*Upstream References:* None.  
+*Downstream References (2):*  
+- HT-277701 (FAPA_TC_019).  
+- HT-277700 (FAPA_TC_018).  
+
+*No Associations.*  
+
+---
+
+13.4.3.4.21.4 Parking is completed.
+
+*Requirement ID:* FS-226667.  
+*Type:* Functional.  
+*Status:* New.  
+*Upstream References:* None.  
+*Downstream References (2):*  
+- HT-277701 (FAPA_TC_019).  
+- HT-277700 (FAPA_TC_018).  
+
+*No Associations.*
+Page 104
+13.4.3.5 Automatic Parking Out.
+
+Requirement ID: FS-226668.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References:  
+- HT-277725: FAPA_TC_043.  
+- HT-277724: FAPA_TC_042.  
+- HT-277723: FAPA_TC_041.  
+- HT-277722: FAPA_TC_040.  
+- HT-277721: FAPA_TC_039.  
+- HT-277720: FAPA_TC_038.  
+- HT-277719: FAPA_TC_037.  
+- HT-277718: FAPA_TC_036.  
+- HT-277717: FAPA_TC_035.  
+- HT-277716: FAPA_TC_034.  
+- HT-277715: FAPA_TC_033.  
+
+No Associations.  
+
+Automatic parking is only supported when the vehicle is in a stationary state. If the vehicle is in a non-stationary state, the system will automatically skip the "Automatic parking out" selection button and directly enter the "Automatic parking in" function.  
+
+### 13.4.3.5.1 Step 1.
+
+Requirement ID: FS-226669.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References:  
+- HT-277725: FAPA_TC_043.  
+
+No Associations.
+Page 105
+13.4.3.5 Automatic Parking Out.
+
+Requirement ID: FS-226668.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0)  
+No Upstream References.  
+
+Downstream References (11):  
+HT-277725 - FAPA_TC_043,  
+HT-277724 - FAPA_TC_042,  
+HT-277723 - FAPA_TC_041,  
+HT-277722 - FAPA_TC_040,  
+HT-277721 - FAPA_TC_039,  
+HT-277720 - FAPA_TC_038,  
+HT-277719 - FAPA_TC_037,  
+HT-277718 - FAPA_TC_036,  
+HT-277717 - FAPA_TC_035,  
+HT-277716 - FAPA_TC_034,  
+HT-277715 - FAPA_TC_033.  
+
+No Associations.  
+
+Automatic parking is only supported when the vehicle is in a stationary state. If the vehicle is in a non-stationary state, the system will automatically skip the "Automatic parking out" selection button and directly enter the "Automatic parking in" function.
+
+13.4.3.5.1 Step 1.
+
+Requirement ID: FS-226669.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0)  
+No Upstream References.  
+
+Downstream References (23):  
+HT-277725 - FAPA_TC_043,  
+HT-277724 - FAPA_TC_042,  
+HT-277723 - FAPA_TC_041,  
+HT-277722 - FAPA_TC_040,  
+HT-277721 - FAPA_TC_039,  
+HT-277720 - FAPA_TC_038,  
+HT-277719 - FAPA_TC_037,  
+HT-277718 - FAPA_TC_036,  
+HT-277717 - FAPA_TC_035,  
+HT-277716 - FAPA_TC_034,  
+HT-277715 - FAPA_TC_033,  
+HT-279228 - FAPA_SC_060,  
+HT-279227 - FAPA_SC_059,  
+HT-279226 - FAPA_SC_058,  
+HT-279219 - FAPA_SC_051,  
+HT-279220 - FAPA_SC_052,  
+HT-279221 - FAPA_SC_053,  
+HT-279222 - FAPA_SC_054,  
+HT-279223 - FAPA_SC_055,  
+HT-279224 - FAPA_SC_056,  
+HT-279225 - FAPA_SC_057,  
+HT-279230 - FAPA_SC_062,  
+HT-279234 - FAPA_SC_066.  
+
+No Associations.  
+
+When the speed is equal to 0, after the user clicks the parking button on the HMI, the MHU will send the signal "MHU_APA_ShowAPAReq = 0x1: Request APA on" to FAPA. After receiving the signal from the MHU, the FAPA will feedback the signal "APA_ShowAPAFdbck = 0x1: Request APA on".
+Page 106
+13.4.3.5.2 Step 2.
+
+Requirement ID: FS-226670.
+Type: Functional.
+Status: New.
+
+Upstream References: None.
+Downstream References:
+- HT-277725 (FAPA_TC_043).
+- HT-277724 (FAPA_TC_042).
+- HT-277723 (FAPA_TC_041).
+- HT-277722 (FAPA_TC_040).
+- HT-277721 (FAPA_TC_039).
+- HT-277720 (FAPA_TC_038).
+- HT-277719 (FAPA_TC_037).
+- HT-277718 (FAPA_TC_036).
+- HT-277717 (FAPA_TC_035).
+- HT-277716 (FAPA_TC_034).
+- HT-277715 (FAPA_TC_033).
+- HT-279228 (FAPA_SC_060).
+- HT-279227 (FAPA_SC_059).
+- HT-279226 (FAPA_SC_058).
+- HT-279241 (FAPA_SC_073).
+- HT-279234 (FAPA_SC_066).
+- HT-279230 (FAPA_SC_062).
+
+No Associations.
+
+Description:
+When the speed is equal to 0, after the user clicks the parking button on the HMI, the MHU will send the signal "MHU_APA_ShowAPAReq = 0x1: Request APA on" to FAPA. After receiving the signal from the MHU, the FAPA will provide feedback with the signal "APA_ShowAPAFdbck = 0x1: Request APA on" and "APA_MHU_Displayparkingtype = 0x1: Request" to the MHU. As a result, the HMI will display both "Automatically parked in" and "Automatically parked out" buttons.
+Page 107
+13.4.3.5.3 Step 3.
+
+Requirement ID: FS-226671.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (23):  
+- HT-277725: FAPA_TC_043.  
+- HT-277724: FAPA_TC_042.  
+- HT-277723: FAPA_TC_041.  
+- HT-277722: FAPA_TC_040.  
+- HT-277721: FAPA_TC_039.  
+- HT-277720: FAPA_TC_038.  
+- HT-277719: FAPA_TC_037.  
+- HT-277718: FAPA_TC_036.  
+- HT-277717: FAPA_TC_035.  
+- HT-279228: FAPA_SC_060.  
+- HT-279227: FAPA_SC_059.  
+- HT-279226: FAPA_SC_058.  
+- HT-279219: FAPA_SC_051.  
+- HT-279220: FAPA_SC_052.  
+- HT-279221: FAPA_SC_053.  
+- HT-279222: FAPA_SC_054.  
+- HT-279223: FAPA_SC_055.  
+- HT-279224: FAPA_SC_056.  
+- HT-279225: FAPA_SC_057.  
+- HT-279230: FAPA_SC_062.  
+- HT-279234: FAPA_SC_066.  
+
+No Associations:  
+When the user selects the "Automatically parked out" button, MHU will send the signal MHU_APA_FuncMode = 0x2: Parking out to FAPA. After receiving the signal, FAPA will feedback the signal APA_FuncModeFdbck = 0x2: Parking out to MHU.
+Page 108
+13.4.3.5.4 Step 4.
+
+Requirement ID: FS-226672.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (23):  
+- HT-277725: FAPA_TC_043.  
+- HT-277724: FAPA_TC_042.  
+- HT-277723: FAPA_TC_041.  
+- HT-277722: FAPA_TC_040.  
+- HT-277721: FAPA_TC_039.  
+- HT-277720: FAPA_TC_038.  
+- HT-277719: FAPA_TC_037.  
+- HT-277718: FAPA_TC_036.  
+- HT-277717: FAPA_TC_035.  
+- HT-277716: FAPA_TC_034.  
+- HT-277715: FAPA_TC_033.  
+- HT-279234: FAPA_SC_066.  
+- HT-279230: FAPA_SC_062.  
+- HT-279228: FAPA_SC_060.  
+- HT-279227: FAPA_SC_059.  
+- HT-279226: FAPA_SC_058.  
+- HT-279225: FAPA_SC_057.  
+- HT-279224: FAPA_SC_056.  
+- HT-279223: FAPA_SC_055.  
+- HT-279222: FAPA_SC_054.  
+- HT-279221: FAPA_SC_053.  
+- HT-279220: FAPA_SC_052.  
+- HT-279219: FAPA_SC_051.  
+
+No Associations.  
+
+After the user selects the automatic parking button, FAPA will send the signal APA_ParkOutModeDisReq = 1: request to MHU, requesting MHU to display the parking type, and the HMI will display "perpendicular parking Out", "parallel Parking Out", and "angled Parking out." After the user clicks on one of the parking methods, MHU will send the signal MHU_APA_ParkOutModeConfirm = 0x1: Perpendicular Parking / 0x2: Parallel Parking / 0x3: Angled Parking to FAPA.
+Page 109
+13.4.3.5.5 Step 5.
+
+Requirement ID: FS-226673.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (23):  
+- HT-277725 (FAPA_TC_043).  
+- HT-277724 (FAPA_TC_042).  
+- HT-277723 (FAPA_TC_041).  
+- HT-277722 (FAPA_TC_040).  
+- HT-277721 (FAPA_TC_039).  
+- HT-277720 (FAPA_TC_038).  
+- HT-277719 (FAPA_TC_037).  
+- HT-277718 (FAPA_TC_036).  
+- HT-277717 (FAPA_TC_035).  
+- HT-277716 (FAPA_TC_034).  
+- HT-277715 (FAPA_TC_033).  
+- HT-279234 (FAPA_SC_066).  
+- HT-279230 (FAPA_SC_062).  
+- HT-279228 (FAPA_SC_060).  
+- HT-279227 (FAPA_SC_059).  
+- HT-279226 (FAPA_SC_058).  
+- HT-279225 (FAPA_SC_057).  
+- HT-279224 (FAPA_SC_056).  
+- HT-279223 (FAPA_SC_055).  
+- HT-279222 (FAPA_SC_054).  
+- HT-279221 (FAPA_SC_053).  
+- HT-279220 (FAPA_SC_052).  
+- HT-279219 (FAPA_SC_051).  
+
+No Associations.  
+
+After receiving the signal, FAPA will issue APA_ParkOutDircnDisReq = 1: request to MHU for displaying the parking direction selection interface. When the user selects a direction, MHU will send signals such as MHU_APA_ParkOutDirConfirm = 0x1: forward, 0x2: backward, or 0x3: perpendicular parking to FAPA for further processing.
+Page 110
+13.4.3.5.5 Step 5.
+
+Requirement ID: FS-226673.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (23):  
+HT-277725 — FAPA_TC_043.  
+HT-277724 — FAPA_TC_042.  
+HT-277723 — FAPA_TC_041.  
+HT-277722 — FAPA_TC_040.  
+HT-277721 — FAPA_TC_039.  
+HT-277720 — FAPA_TC_038.  
+HT-277719 — FAPA_TC_037.  
+HT-277718 — FAPA_TC_036.  
+HT-277717 — FAPA_TC_035.  
+HT-277716 — FAPA_TC_034.  
+HT-277715 — FAPA_TC_033.  
+HT-279234 — FAPA_SC_066.  
+HT-279230 — FAPA_SC_062.  
+HT-279228 — FAPA_SC_060.  
+HT-279227 — FAPA_SC_059.  
+HT-279226 — FAPA_SC_058.  
+HT-279225 — FAPA_SC_057.  
+
+No Associations.  
+
+When the user selects the parking direction by tapping the screen, MHU will send the signal "MHU_APA_ParkOutDircnConfirm = 0x1:Left/0x2:Right" to FAPA.
+Page 111
+13.4.3.5.6 Step 6.
+
+Requirement ID: FS-226674.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (23):  
+HT-277725 - FAPA_TC_043.  
+HT-277724 - FAPA_TC_042.  
+HT-277723 - FAPA_TC_041.  
+HT-277722 - FAPA_TC_040.  
+HT-277721 - FAPA_TC_039.  
+HT-277720 - FAPA_TC_038.  
+HT-277719 - FAPA_TC_037.  
+HT-277718 - FAPA_TC_036.  
+HT-277717 - FAPA_TC_035.  
+HT-277716 - FAPA_TC_034.  
+HT-277715 - FAPA_TC_033.  
+HT-279234 - FAPA_SC_066.  
+HT-279230 - FAPA_SC_062.  
+HT-279228 - FAPA_SC_060.  
+HT-279227 - FAPA_SC_059.  
+HT-279226 - FAPA_SC_058.  
+HT-279225 - FAPA_SC_057.  
+HT-279224 - FAPA_SC_056.  
+HT-279223 - FAPA_SC_055.  
+HT-279222 - FAPA_SC_054.  
+HT-279221 - FAPA_SC_053.  
+HT-279220 - FAPA_SC_052.  
+HT-279219 - FAPA_SC_051.  
+
+No Associations.  
+
+After receiving the signal, FAPA will send the P gear request signal "APA_ReqInfoDispTxt2=0x5: please put the gear into P" to MHU according to whether the gear is in the P gear position, requesting the user to put the vehicle into the P gear. P gear, this step has been adjusted. If the gear is in a non-P gear, a signal request will be sent to MHU according to the above logic to request the user to engage in P gear.
+Page 112
+13.4.3.5.7 Step 7.
+
+Requirement ID: FS-226675.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References (23):**  
+- HT-277725 FAPA_TC_043.  
+- HT-277716 FAPA_TC_034.  
+- HT-277715 FAPA_TC_033.  
+- HT-279234 FAPA_SC_066.  
+- HT-279230 FAPA_SC_062.  
+- HT-279228 FAPA_SC_060.  
+- HT-279227 FAPA_SC_059.  
+- HT-279226 FAPA_SC_058.  
+- HT-279225 FAPA_SC_057.  
+- HT-279224 FAPA_SC_056.  
+- HT-279223 FAPA_SC_055.  
+- HT-279222 FAPA_SC_054.  
+- HT-279221 FAPA_SC_053.  
+- HT-279220 FAPA_SC_052.  
+- HT-279219 FAPA_SC_051.  
+
+No Associations.
+
+**Description:**  
+After the P gear is engaged, FAPA will send the signal "APA_MHU_DisplaystartbuttonReq = 0x1: FAPA Request" to MHU. This prompts MHU to display the parking start button and instructs the user to release the brake and steering wheel. At this stage, MHU should block the RP parking start button from functioning. If the user clicks the RP button, no signal will be sent to FAPA.
+Page 113
+13.4.3.5.7 Step 7.
+
+Requirement ID: FS-226675.  
+Type: Functional.  
+Status: New.
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References (23):**  
+- HT-277725: FAPA_TC_043  
+- HT-277724: FAPA_TC_042  
+- HT-277723: FAPA_TC_041  
+- HT-277722: FAPA_TC_040  
+- HT-277721: FAPA_TC_039  
+- HT-277720: FAPA_TC_038  
+- HT-277719: FAPA_TC_037  
+- HT-277718: FAPA_TC_036  
+- HT-277717: FAPA_TC_035  
+- HT-277716: FAPA_TC_034  
+- HT-277715: FAPA_TC_033  
+- HT-279234: FAPA_SC_066  
+- HT-279230: FAPA_SC_062  
+- HT-279228: FAPA_SC_060  
+- HT-279227: FAPA_SC_059  
+- HT-279226: FAPA_SC_058  
+- HT-279225: FAPA_SC_057  
+- HT-279224: FAPA_SC_056  
+- HT-279223: FAPA_SC_055  
+- HT-279222: FAPA_SC_054  
+- HT-279221: FAPA_SC_053  
+- HT-279220: FAPA_SC_052  
+- HT-279219: FAPA_SC_051  
+
+**No Associations:**  
+When the user clicks the FAPA parking start button on the HMI, FAPA enters the automatic parking control process.
+Page 114
+13.4.3.5.8 Step 8.
+
+Requirement ID: FS-226676.
+Type: Functional.
+Status: New.
+
+Upstream References (0).
+No Upstream References.
+
+Downstream References (23):
+- HT-277725 FAPA_TC_043.
+- HT-277724 FAPA_TC_042.
+- HT-277723 FAPA_TC_041.
+- HT-277722 FAPA_TC_040.
+- HT-277721 FAPA_TC_039.
+- HT-277720 FAPA_TC_038.
+- HT-277719 FAPA_TC_037.
+- HT-277718 FAPA_TC_036.
+- HT-277717 FAPA_TC_035.
+- HT-277716 FAPA_TC_034.
+- HT-277715 FAPA_TC_033.
+- HT-279234 FAPA_SC_066.
+- HT-279230 FAPA_SC_062.
+- HT-279228 FAPA_SC_060.
+- HT-279227 FAPA_SC_059.
+- HT-279226 FAPA_SC_058.
+- HT-279225 FAPA_SC_057.
+- HT-279224 FAPA_SC_056.
+- HT-279223 FAPA_SC_055.
+- HT-279222 FAPA_SC_054.
+- HT-279221 FAPA_SC_053.
+- HT-279220 FAPA_SC_052.
+- HT-279219 FAPA_SC_051.
+Page 115
+13.4.3.6 FAPA Paused Conditions.
+
+Requirement ID: FS-226677.
+
+Type: Functional.
+
+Status: New.
+
+Upstream References (0).
+No Upstream References.
+
+Downstream References (6).
+HT-277725: FAPA_TC_043.  
+HT-277724: FAPA_TC_042.  
+HT-277722: FAPA_TC_040.  
+HT-277721: FAPA_TC_039.  
+HT-277720: FAPA_TC_038.  
+HT-277719: FAPA_TC_037.
+
+No Associations.
+When the parking pause is triggered, the system enters the pause mode. The vehicle will be stopped by brake only. When the driver eliminates the factors and clicks "Continue Parking" (no need to step on the brake), the parking control resumes.  
+The interruption conditions for resuming parking are as follows (customers can also define by themselves):
+Page 116
+13.4.3.6.1 Obstacles are detected in the parking track and cannot be avoided.
+
+Requirement ID: FS-226678  
+Type: Functional  
+Status: New
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277696 FAPA_TC_014  
+
+No Associations  
+--
+
+13.4.3.6.2 The main driver's side door is opened.
+
+Requirement ID: FS-226679  
+Type: Functional  
+Status: New
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277722 FAPA_TC_040  
+
+No Associations  
+--
+
+13.4.3.6.3 The front passenger side door is opened.
+
+Requirement ID: FS-226680  
+Type: Functional  
+Status: New
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277721 FAPA_TC_039  
+
+No Associations  
+--
+Page 117
+--  
+
+13.4.3.6.4 The left rear door is opened.
+
+Requirement ID: FS-226681  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277723: FAPA_TC_041  
+
+No Associations  
+--  
+
+13.4.3.6.5 The right rear door is opened.
+
+Requirement ID: FS-226682  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277724: FAPA_TC_042  
+
+No Associations  
+--  
+
+13.4.3.6.6 The back door is opened.
+
+Requirement ID: FS-226683  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277722: FAPA_TC_040  
+
+No Associations  
+--
+Page 118
+13.4.3.6.7 The engine room cover is opened.
+
+Requirement ID: FS-226684.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: HT-277720 (FAPA_TC_038), HT-277703 (FAPA_TC_021).  
+No Associations.
+
+13.4.3.6.8 The seat belt is opened.
+
+Requirement ID: FS-226685.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: HT-277725 (FAPA_TC_043).  
+No Associations.
+
+13.4.3.7 FAPA Termination Conditions.
+Page 119
+13.4.3.7 FAPA Termination Conditions
+
+Requirement ID: FS-226686. FAPA’s parking termination refers to the scenario where FAPA cannot continue to park and must exit the parking scenario. FAPA controls the IDB to brake the vehicle, requests the IDB to automatically pull up the EPB, and simultaneously engages the P gear. Finally, FAPA controls the IDB to exit the parking. The termination conditions are as follows (customers can also define them themselves):
+
+13.4.3.7.1 The driver interferes with the steering wheel.
+
+Requirement ID: FS-226687. Type: Functional. Status: New. Upstream References: None. Downstream References: None. No Associations. When the driver applies ≥3NM for 100ms (tunable) to the steering wheel, EPS will disconnect the handshake. FAPA will then control VCU and IDB to brake the vehicle first, request EPB and P gear, and finally exit.
+
+13.4.3.7.2 The driver interferes with the accelerator pedal.
+
+Requirement ID: FS-226688. Type: Functional. Status: New. Upstream References: None. Downstream References: None. No Associations. When the accelerator pedal signal value is ≥3% (tunable), the termination process is initiated.
+Page 120
+13.4.3.7.3 Driver intervention in EPB.
+
+Requirement ID:
+FS-226689.
+
+Type:
+Functional.
+
+Status:
+New.
+
+Upstream References (0):
+No Upstream References.
+
+Downstream References:
+No Downstream References.
+
+No Associations:
+--  
+
+13.4.3.7.4 The driver intervenes in the gear position.
+
+Requirement ID:
+FS-226690.
+
+Type:
+Functional.
+
+Status:
+New.
+
+Upstream References (0):
+No Upstream References.
+
+Downstream References:
+No Downstream References.
+
+No Associations:
+--  
+
+13.4.3.7.5 The number of parking times (R→D or D→R) exceeds the limit.
+
+Requirement ID:
+FS-226691.
+
+Type:
+Functional.
+
+Status:
+New.
+
+Upstream References (0):
+No Upstream References.
+
+Downstream References:
+No Downstream References.
+
+No Associations:
+--  
+
+13.4.3.7.6 Limited parking slot size.
+
+Requirement ID:
+FS-226692.
+
+Type:
+Functional.
+
+Status:
+New.
+
+Upstream References (0):
+No Upstream References.
+
+Downstream References:
+No Downstream References.
+
+No Associations:
+--
+Page 121
+13.4.3.7.7 The number of interruptions exceeds the limit.
+
+Requirement ID: FS-226693  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References: No Downstream References  
+No Associations  
+--  
+
+13.4.3.7.8 The slope exceeds the limit.
+
+Requirement ID: FS-226694  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References: No Downstream References  
+No Associations  
+More than 8%  
+
+13.4.3.7.9 The vehicle speed exceeds the limit.
+
+Requirement ID: FS-226695  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References: No Downstream References  
+No Associations  
+5km/h
+Page 122
+13.4.3.7.10 The parking process reached overtime.
+
+Requirement ID: FS-226696  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+4 minutes from maneuver started  
+
+---
+
+13.4.3.7.11 FAPA system failure.
+
+Requirement ID: FS-226697  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+---
+
+13.4.3.7.12 Correlation system failure.
+
+Requirement ID: FS-226698  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+---
+
+13.4.3.7.13 The vehicle cannot move.
+
+Requirement ID: FS-226699  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations
+Page 123
+13.4.3.7.14 The gear position cannot be switched normally.
+
+Requirement ID: FS-226700  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References:  
+No Downstream References  
+
+No Associations  
+--
+
+13.4.3.7.15 The driver quits actively.
+
+Requirement ID: FS-226701  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References:  
+No Downstream References  
+
+No Associations  
+--
+
+13.4.3.7.16 Unexpected ESC function activation (ABS/TCS, etc.).
+
+Requirement ID: FS-226702  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References:  
+No Downstream References  
+
+No Associations  
+--
+Page 124
+13.4.3.7.17 Parking failed.
+
+Requirement ID: FS-226703.  
+Type: Functional.  
+Status: New.  
+
+Upstream References: None.  
+No Upstream References.  
+No Downstream References.  
+No Associations.  
+
+---
+
+13.4.3.8 FAPA Complete.
+
+Requirement ID: FS-314380.  
+Type: Functional.  
+Status: New.  
+
+Upstream References: None.  
+No Upstream References.  
+No Downstream References.  
+No Associations.  
+
+FAPA will apply P gear and EPB, then FAPA turn off, and the user can do what they want.
+
+---
+
+13.4.3.9 The interaction between FAPA and EPS.
+
+Requirement ID: FS-226704.  
+Type: Functional.  
+Status: New.  
+
+Upstream References: None.  
+No Upstream References.  
+
+Downstream References:  
+HT-277701 FAPA_TC_019.  
+
+Associations:  
+- From: Association Type.  
+- To:
+Page 125
+13.4.3.9 The interaction between FAPA and EPS.
+
+Requirement ID: 
+FS-226704 
+Type:  
+Functional 
+Status: 
+New 
+Upstream References (0) 
+No Upstream References 
+Downstream References (1) 
+HT-277701 
+  FAPA_TC_019 
+
+Associations (1) 
+Fr
+o
+m 
+Asso
+ciatio
+n 
+Type 
+To 
+
+EPS receives FAPA's steering request during the FAPA process and executes FAPA's lateral control. The normal handshake signal sequence is as follows:
+
+**Handshake before:**  
+- `FAPA:ADAS_EPS_Status # 0x7 failed`  
+- `EPS:EPS_ADAS_ControlAvailable = 0x0 Available`  
+
+**Handshake complete:**  
+- `ADAS_EPS_StrConReq = 0x1: Request`  
+- `EPS_ADAS_StrAngRes = 0x1: Active`  
+
+**Angle request:**  
+- `ADAS_EPS_AngleReq = xxx`  
+- `ADAS_EPS_FuncMode = FAPA Mode`  
+- `SAS_SteerWheelAngle = xxx`  
+
+**Handshake disconnect:**  
+- `ADAS_EPS_StrConReq = No Request`  
+- `EPS_ADAS_StrAngRes = Inactive`
+
+The maximum time for EPS to respond to FAPA handshake does not exceed 500ms.  
+After the handshake is completed, FAPA will send an angle request to the EPS.  
+When the FAPA pause condition is triggered, FAPA will suspend sending new angle request values and maintain previous requested angle value.
+Page 126
+13.4.3.7.17 Parking failed.
+
+Requirement ID: FS-226703  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References (0): No Downstream References  
+No Associations.  
+--
+
+13.4.3.8 FAPA Complete.
+
+Requirement ID: FS-314380  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References (0): No Downstream References  
+No Associations.  
+FAPA will apply P gear and EPB, then FAPA turn off and the user can do what they want.  
+--
+
+13.4.3.9 The interaction between FAPA and EPS.
+
+Requirement ID: FS-226704  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References (1): HT-277701  
+  FAPA_TC_019  
+Associations (1).  
+Framework dependency: <t
+his>.  
+EPS receives FAPA's steering request during the FAPA process and executes FAPA's lateral control. The normal handshake signal sequence is as follows:  
+
+The figure illustrates handshake timeliness and disconnection process. The maximum time for EPS to respond to FAPA handshake does not exceed 500ms. After handshake completed angle request sends-handshake may suspend conditions previously-angle.  
+EPS functionality disengage disconnect-stablise if severe-parallel suspension.  
+Any schedule scale assess-control effectively-final shutdown override-disable via AbortFAPA/PartialInterrupt retire-on stalled actors.
+-Visual intuition graph-reset stats node normalized textbox fault scaling inertia modal exports.
+Page 127
+13.4.3.10 The interaction between FAPA and IDB.
+
+Requirement ID: FS-226705  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (0)  
+No Downstream References  
+
+No Associations  
+
+IDB is responsible for the deceleration in the longitudinal control during the FAPA process.  
+
+The normal handshake signal sequence is as follows:
+Page 128
+### 13.4.3.10 The interaction between FAPA and IDB  
+Requirement ID: FS-226705  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+No Downstream References.  
+No Associations.  
+IDB is responsible for the deceleration in the longitudinal control during the FAPA process.  
+
+### Emergency Braking Sequence Diagram:
+FAPA establishes a handshake with IDB, allowing for control request signals to dictate braking and disengagement processes. The diagram visually outlines the sequence of signals exchanged between ADCU and IDB during emergency braking operations.  
+
+1. **Handshake Complete:**  
+   - `ADAS_IDB_ControlReq = 0x1`: Request.  
+   - `ESC_ADAS_Active = 0x1`: Active.  
+
+2. **Functional Mode Interaction:**  
+   - `ADAS_IDB_BrakeModeReq = 0x1`: Comfortable Brake.  
+   - `ADAS_IDB_FuncMode = 0x1`: FAPA Mode.  
+   - `ADAS_IDB_PrefillReq = 0x1`: Request.  
+
+3. **Comfort Brake Activation:**  
+   - `ESC_ADAS_BrakeMode = 0x1`: Comfort Brake Active.  
+   - `ESC_ADAS_FuncMode = 0x1`: APA Mode.  
+   - `ESC_PrefillStatus = 0x2`: Prefilled/Ox1: Prefilling.  
+
+4. **Target Deceleration and Stop Request:**  
+   - `ADAS_IDB_TargetDecl = xxx n/s²:` Defines braking intensity limits.  
+   - `ADAS_IDB_Stoprequest = Ox0`: No Request/Ox1: Request.  
+
+5. **Disengagement Process:**  
+   - Upon parking completion, FAPA brakes the vehicle and requests the VCU to engage the P gear. IDB automatically activates EPB in accordance with the P gear.  
+   - `ADAS_IDB_ControlReq = Ox0`: No Request.  
+   - `ESC_ADAS_Active = Ox0`: Inactive.  
+   - Handshake disconnect.
+
+### Diagram Contextual Entities:
+- ADCU manages cognitive operations imperative for angle and speed calculations.
+- IDB's operational states enable successive activation and deactivation phases for emergency braking and EPB engagement.
+Page 129
+When the following conditions are triggered, FAPA will actively disconnect IDB control.
+
+1. ADAS_IDB_Status = 0x7: Failed;  
+   FAPA fails (the state machine is normal), ADAS_IDB_Status = 0x7: Failed.  
+
+2. Trigger the FAPA exit logic.
+Page 130
+2. The speed exceeds the limit (speed > 5 km/h);  
+3. IDB failure or IDB signal loss (ESC_ADAS_Available = 0x1: Not Available);  
+
+The ADCU active disconnection control sequence is shown in the following figure:  
+
+**Figure 5**  
+The diagram illustrates the ADCU actively disconnecting the handshake process. The sequence starts with the loss of requests from IDB and proceeds to terminate the active control, ensuring both handshake and ESC_ADAS_Active signals become inactive.
+
+When the following conditions are triggered, IDB will actively disconnect the handshake with FAPA.  
+1. FAPA fails (the state machine is normal), ADAS_IDB_Status = 0x7: Failed (Which one of FAPA and IDB executes first will execute per their respective exit logic);  
+2. Vehicle speeding (in FAPA and IDB, whoever executes the failure first initiates disconnection logic);  
+3. The vehicle cannot move;  
+4. Unexpected EPB intervention;  
+5. ESC sub-function activation.  
+
+The IDB active disconnection sequence is shown in the following figure:  
+
+**Figure 6**  
+The graphic entails the IDB's specific disconnection logic upon detecting conditions such as braking failures or excessive speed. The handshake termination sequence is reflected through controlled signal interactions between ADCU and ESC systems, effectively isolating the system from future inputs.
+Page 131
+13.4.3.11 The interaction between FAPA and VCU.
+
+Requirement ID: FS-226706  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+When the IDB fails (without losing braking ability), IDB sets its state to `ESC_ADAS_Available = 0x1: Not Available`. IDB automatically executes emergency braking, interrupts the handshake with FAPA, pulls up the EPB, and disconnects the handshake. The timing diagram illustrating these events is shown in 图6. At this point, FAPA requests the VCU to engage the P gear after the vehicle stops.
+
+If the IDB fails and loses braking ability, iBooster must take the initiative to perform emergency braking. Once the vehicle stops, IDB/iBooster actively pulls up the EPB, and the handshake signal timing diagram for these events is depicted in 图6.
+
+If the RCU fails, it sends a signal status: EPB Fault Status = `4 Temporary Fail` / `5 Permanent Fail`. In response, FAPA controls the IDB to perform an emergency stop. Once the vehicle stops, the P gear is engaged, and the disconnection handshake timing diagram (Figure 6) applies. After FAPA exits, IDB must maintain braking until the driver resumes control of the vehicle.
+
+If FAPA requests the VCU to engage the P gear, but the VCU fails to engage within 2 seconds, IDB automatically pulls up the EPB.
+Page 132
+13.4.3.11 The interaction between FAPA and VCU.
+
+Requirement ID: FS-226706.
+
+Type: Functional.
+
+Status: New.
+
+No Upstream References.
+
+Downstream References (1):  
+HT-277701 - FAPA_TC_019.
+
+No Associations.
+
+The VCU receives FAPA's acceleration and change gear request during the parking process, and executes the acceleration and change gear action of the vehicle.
+
+Sequence diagram of normal control signal:  
+图7 illustrates the control signal sequence during normal operations.
+
+When the following situations occur, FAPA will actively disconnect the handshake with the VCU:  
+1. ADAS_VCU_State = 0x7: Failed.  
+   FAPA fails (the state machine is normal), ADAS_VCU_State = 0x7: Failed.  
+   (Which one of FAPA or VCU responds quickly first will execute according to whose exit logic.)  
+2. VCU failure or VCU signal loss (VCU_ADAS_Available = 0x1: Not Available).
+Page 133
+When the following situations occur, FAPA will actively disconnect the handshake with the VCU:
+1. Vehicle speeding (in FAPA and IDB, whoever executes the fast first will execute according to whose exit logic).
+2. Trigger the FAPA exit logic.
+3. The gear cannot be switched.
+4. The driver intervenes in the gear position.
+5. The vehicle cannot move.
+
+The interrupt control sequence is shown below.
+
+图8
+
+The VCU will actively disconnect the handshake with FAPA in the following situations:
+1. FAPA fails (the state machine is normal); ADAS_VCU_State = 0x7: Failed.
+2. The vehicle is speeding.
+3. VCU failure (VCU_ADAS_Available = 0x1: Not available).
+4. FAPA signal or node loss.
+
+The interrupt control sequence is shown in the figure below.
+Page 134
+When the VCU fails, the VCU signal becomes VCU_ADAS_Available = 0x1: Not available.  
+VCU_ADAS_CtrlAbortFeedback = 0x4: cannot change gear.  
+VCU needs to monitor the gear switching time. If the gear switching time exceeds 2 seconds, it needs to feedback VCU_ADAS_CtrlAbortFeedback = 0x4: cannot change gear.  
+
+During the FAPA automatic control process, when the driver steps on the accelerator pedal, the VCU should suppress the accelerator response.
+
+### 13.5 Performance Requirements
+#### Requirement ID: FS-226707  
+**Type:** Functional  
+**Status:** New  
+
+Upstream References:  
+- No upstream references.  
+
+Downstream References:  
+- No downstream references.  
+
+Associations:  
+- None.
+Page 135
+13.5.1 KPI Key Performance Indicator.
+
+Requirement ID: FS-226708.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+No Downstream References.  
+No Associations.  
+
+
+13.5.1.1 The max speed for parking spot detection.
+
+Requirement ID: FS-226709.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (19):  
+HT-279189 - FAPA_SC_021.  
+HT-279216 - FAPA_SC_048.  
+HT-279208 - FAPA_SC_040.  
+HT-279206 - FAPA_SC_038.  
+HT-279183 - FAPA_SC_015.  
+HT-279182 - FAPA_SC_014.  
+HT-279181 - FAPA_SC_013.  
+HT-279180 - FAPA_SC_012.  
+HT-279179 - FAPA_SC_011.  
+HT-279178 - FAPA_SC_010.  
+HT-279177 - FAPA_SC_009.  
+HT-279176 - FAPA_SC_008.  
+HT-279175 - FAPA_SC_007.
+Page 136
+4 May 2022  
+Uncontrolled copy when printed  
+136 | 146  
+
+VinFast Management System  
+VFDSXVEEP9128  
+
+HT-279174 - FAPA_SC_006  
+HT-279173 - FAPA_SC_005  
+HT-279172 - FAPA_SC_004  
+HT-279171 - FAPA_SC_003  
+HT-279170 - FAPA_SC_002  
+HT-279169 - FAPA_SC_001  
+
+No Associations  
+
+Parking Performance Requirements.  
+Description: The max speed for parking spot detection.  
+Value: ≤30 km/h.  
+
+13.5.1.2 The max speed of parking process.  
+Requirement ID: FS-226710.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0)  
+No Upstream References.  
+No Downstream References.  
+No Associations.  
+
+Description: The max speed of parking process.  
+Value: ≤5 km/h.  
+
+13.5.1.3 The side distance of vehicle and parking slot.
+Page 137
+13.5.1 KPI Key Performance Indicator.
+
+Requirement ID: FS-226708.  
+Type: Functional.  
+Status: New.  
+
+13.5.1.1 The max speed for parking spot detection.
+
+Requirement ID: FS-226709.  
+Type: Functional.  
+Status: New.  
+Upstream References (0).  
+No Upstream References.  
+Downstream References (19):  
+- HT-279189: FAPA_SC_021.  
+- HT-279216: FAPA_SC_048.  
+- HT-279208: FAPA_SC_040.  
+- HT-279206: FAPA_SC_038.  
+- HT-279183: FAPA_SC_015.  
+- HT-279182: FAPA_SC_014.  
+- HT-279181: FAPA_SC_013.  
+- HT-279180: FAPA_SC_012.  
+- HT-279179: FAPA_SC_011.  
+- HT-279178: FAPA_SC_010.  
+- HT-279177: FAPA_SC_009.  
+- HT-279176: FAPA_SC_008.  
+- HT-279175: FAPA_SC_007.  
+- HT-279174: FAPA_SC_006.  
+- HT-279173: FAPA_SC_005.  
+- HT-279172: FAPA_SC_004.  
+- HT-279171: FAPA_SC_003.  
+- HT-279170: FAPA_SC_002.  
+- HT-279169: FAPA_SC_001.  
+
+No Associations.  
+Parking Performance Requirements:  
+- Description: The max speed for parking spot detection.  
+- Value: ≤30 km/h.  
+
+13.5.1.2 The max speed of parking process.
+
+Requirement ID: FS-226710.  
+Type: Functional.  
+Status: New.  
+Upstream References (0).  
+No Upstream References.  
+No Downstream References.  
+No Associations.  
+Description:
+- The max speed of parking process.  
+- Value: ≤5 km/h.  
+
+13.5.1.3 The side distance of vehicle and parking slot.
+
+Requirement ID: FS-226711.  
+Type: Functional.  
+Status: New.  
+Upstream References (0).  
+No Upstream References.  
+Downstream References (9):  
+- HT-279196: FAPA_SC_028.  
+- HT-279197: FAPA_SC_029.  
+- HT-279195: FAPA_SC_027.  
+- HT-279194: FAPA_SC_026.  
+- HT-279193: FAPA_SC_025.  
+- HT-279192: FAPA_SC_024.  
+- HT-279191: FAPA_SC_023.  
+- HT-279190: FAPA_SC_022.  
+- HT-279189: FAPA_SC_021.  
+
+No Associations.  
+Description:  
+- The side distance of vehicle and parking slot.  
+- Value: 50~180 cm.  
+
+13.5.1.4 The Standard length of parking slot.
+
+Requirement ID: FS-226712.  
+Type: Functional.  
+Status: New.  
+Upstream References (0).  
+No Upstream References.  
+Downstream References (17):  
+- HT-279232: FAPA_SC_064.  
+- HT-279227: FAPA_SC_059.
+Page 138
+13.5.1.5 The Min length of parking slot.
+
+Requirement ID: FS-226713.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References: None.  
+No Associations.  
+
+Description:  
+Value: Vehicle length + 0.5 m (parallel). Vehicle width + 0.5 m (perpendicular).
+Page 139
+13.5.1.5 The Min length of parking slot.
+
+Requirement ID: FS-226713  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References.  
+Downstream References: None.  
+No Associations.
+
+Description:  
+The Min length of parking slot.  
+
+Value:  
+- Vehicle length + 1m (parallel).  
+- Vehicle width + 0.8m (perpendicular).  
+
+13.5.1.6 The min diameter of a circular object.
+
+Requirement ID: FS-226714  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References.  
+Downstream References (7):  
+- HT-279231 (FAPA_SC_063).  
+- HT-279227 (FAPA_SC_059).  
+- HT-279212 (FAPA_SC_044).  
+- HT-279190 (FAPA_SC_022).  
+- HT-279182 (FAPA_SC_014).  
+- HT-279181 (FAPA_SC_013).  
+- HT-279171 (FAPA_SC_003).  
+
+No Associations.
+
+Description:  
+The min diameter of a circular object.  
+
+Value:  
+- 0.5m.
+Page 140
+13.5.1.7 The min length of a square object.
+
+Requirement ID: FS-226715.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+No Upstream References.  
+
+Downstream References (4):  
+HT-279207: FAPA_SC_039.  
+HT-279200: FAPA_SC_032.  
+HT-279189: FAPA_SC_021.  
+HT-279177: FAPA_SC_009.  
+
+No Associations.  
+
+Description:  
+The min length of a square object.  
+
+Value:  
+0.5m.  
+
+13.5.1.8 The min radius of curve.
+
+Requirement ID: FS-226716.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+No Upstream References.  
+
+Downstream References (1):  
+HT-279175: FAPA_SC_007.  
+
+No Associations.  
+
+Description:  
+The min radius of curve.  
+
+Value:  
+40m.
+Page 141
+**13.5.1.9 Maximum identifiable angle**
+
+*Requirement ID:* FS-226717  
+*Type:* Functional  
+*Status:* New  
+
+**Upstream References (0)**  
+No Upstream References  
+
+**No Downstream References**  
+No Associations  
+
+**Description**  
+**Value**  
+Maximum identifiable angle: ≤± 6°  
+
+---
+
+**13.5.1.10 Minimum height of the curb**
+
+*Requirement ID:* FS-226718  
+*Type:* Functional  
+*Status:* New  
+
+**Upstream References (0)**  
+No Upstream References  
+
+**Downstream References (9)**  
+HT-297133 - FAPA_SC_083  
+HT-297128 - FAPA_SC_078  
+HT-297139 - FAPA_SC_089  
+HT-297138 - FAPA_SC_088  
+HT-297137 - FAPA_SC_087  
+HT-297136 - FAPA_SC_086  
+HT-297135 - FAPA_SC_085  
+HT-297134 - FAPA_SC_084  
+HT-297130 - FAPA_SC_080  
+
+**No Associations**  
+
+**Description**  
+**Value**  
+Minimum height of the curb: >3 cm
+Page 142
+13.5.1.9 Maximum identifiable angle.
+
+Requirement ID: FS-226717  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References (0): No Downstream References  
+No Associations  
+
+**Description:** Maximum identifiable angle  
+**Value:** ≤± 6°  
+
+---
+
+13.5.1.10 Minimum height of the curb.
+
+Requirement ID: FS-226718  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References (9):  
+HT-297133 - FAPA_SC_083  
+HT-297128 - FAPA_SC_078  
+HT-297139 - FAPA_SC_089  
+HT-297138 - FAPA_SC_088  
+HT-297137 - FAPA_SC_087  
+HT-297136 - FAPA_SC_086  
+HT-297135 - FAPA_SC_085  
+HT-297134 - FAPA_SC_084  
+HT-297130 - FAPA_SC_080  
+
+No Associations  
+
+**Description:** Minimum height of the curb  
+**Value:** 15cm  
+
+---
+
+13.5.1.11 Safe parking distance.
+
+Requirement ID: FS-226719  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References (0): No Downstream References  
+No Associations  
+
+**Description:** Safe parking distance  
+**Value:** 30cm  
+
+---
+
+13.5.1.12 Max. number of vehicle adjustments.
+
+Requirement ID: FS-226720  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References  
+Downstream References (0): No Downstream References  
+No Associations  
+
+**Description:** Max. number of vehicle adjustments  
+**Value:** 7 times
+Page 143
+13.5.1.13 Parking recognition rate.
+
+Requirement ID: FS-226721  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (9):  
+HT-279196 - FAPA_SC_028  
+HT-279195 - FAPA_SC_027  
+HT-279194 - FAPA_SC_026  
+HT-279193 - FAPA_SC_025  
+HT-279192 - FAPA_SC_024  
+HT-279191 - FAPA_SC_023  
+HT-279170 - FAPA_SC_002  
+HT-279169 - FAPA_SC_001  
+HT-296726 - FAPA_SC_074  
+
+No Associations.  
+
+Description: Parking recognition rate.  
+Value: 90%.  
+
+---
+
+13.5.1.14 Parking success rate.
+
+Requirement ID: FS-226722  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (8):  
+HT-279195 - FAPA_SC_027  
+
+No Associations.  
+
+Description: Parking success rate.  
+Value: 90%.
+Page 144
+13.5.1.15 The vehicle angle after parking is complete.
+
+Requirement ID: FS-226723  
+Type: Functional  
+Status: New  
+
+Upstream References:  
+No Upstream References  
+
+Downstream References:  
+HT-279196 FAPA_SC_028  
+HT-279195 FAPA_SC_027  
+HT-279194 FAPA_SC_026  
+HT-279193 FAPA_SC_025  
+HT-279192 FAPA_SC_024  
+HT-279190 FAPA_SC_022  
+HT-279170 FAPA_SC_002  
+HT-279169 FAPA_SC_001  
+HT-296726 FAPA_SC_074  
+
+No Associations  
+
+Description:  
+Value:  
+The vehicle angle after parking is complete ≤±5°.
+Page 145
+13.5.1.15 The vehicle angle after parking is complete.
+
+Requirement ID: FS-226723  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References (9):  
+- HT-279196: FAPA_SC_028  
+- HT-279195: FAPA_SC_027  
+- HT-279194: FAPA_SC_026  
+- HT-279193: FAPA_SC_025  
+- HT-279192: FAPA_SC_024  
+- HT-279190: FAPA_SC_022  
+- HT-279170: FAPA_SC_002  
+- HT-279169: FAPA_SC_001  
+- HT-296726: FAPA_SC_074  
+
+No Associations.  
+
+Description: The vehicle angle after parking is complete.  
+Value: ≤±3°  
+
+---
+
+13.5.1.16 Parking time limit.
+
+Requirement ID: FS-226724  
+Type: Functional  
+Status: New  
+Upstream References (0): No Upstream References  
+Downstream References (10):  
+- HT-279196: FAPA_SC_028  
+- HT-279195: FAPA_SC_027  
+- HT-279194: FAPA_SC_026  
+- HT-279193: FAPA_SC_025  
+- HT-279192: FAPA_SC_024  
+- HT-279191: FAPA_SC_023  
+- HT-279190: FAPA_SC_022  
+- HT-279170: FAPA_SC_002  
+- HT-279169: FAPA_SC_001  
+- HT-296726: FAPA_SC_074  
+
+No Associations.  
+
+Description: Parking time limit.  
+Value: ≤5 minutes.
+Page 146
+13.5.1.16 Parking time limit.
+
+Requirement ID: FS-226724  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (10):  
+1. HT-279196 - FAPA_SC_028  
+2. HT-279195 - FAPA_SC_027  
+3. HT-279194 - FAPA_SC_026  
+4. HT-279193 - FAPA_SC_025  
+5. HT-279192 - FAPA_SC_024  
+6. HT-279191 - FAPA_SC_023  
+7. HT-279190 - FAPA_SC_022  
+8. HT-279170 - FAPA_SC_002  
+9. HT-279169 - FAPA_SC_001  
+10. HT-296726 - FAPA_SC_074  
+
+No Associations.  
+
+Description:  
+Parking time limit.  
+
+Value:  
+240s.  
+
+Refer to the following documents for parking standards:  
+KPI Of APA System.pdf

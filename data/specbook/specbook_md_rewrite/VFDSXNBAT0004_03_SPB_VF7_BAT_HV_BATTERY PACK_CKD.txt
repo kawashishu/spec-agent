@@ -1,0 +1,2056 @@
+Page 1
+Spec book.
+
+VF7 VinES CKD Battery System Specification Book (SPB).
+Page 2
+Contents.
+
+1. BATTERY PACK SUMMARY ............................................................................... 4.
+
+2. SPECIFICATION SUMMARY ............................................................................ 5.
+
+3. ADDITIONAL TECHNICAL OR FUNCTIONAL DESCRIPTIONS .................... 6.
+   3.1 System Diagram ................................................................................................. 6.
+   3.2 Cell .................................................................................................................... 6.
+       3.2.1 Technical parameters of cell ....................................................................... 6.
+   3.3 Module Design ................................................................................................. 8.
+   3.4 Cooling System ................................................................................................ 8.
+   3.5 BDU Unit and Pyro-Fuse .................................................................................. 12.
+       3.5.1 BDU Description ..................................................................................... 12.
+       3.5.2 Pyro-Fuse Description ............................................................................ 13.
+   3.6 BMS (Battery Management System) Technical Parameter ............................. 15.
+   3.7 HV Bus Bar and LV Harness ............................................................................18.
+   3.8 Battery Pack Design ......................................................................................... 18.
+       3.8.1 Technical parameters of battery pack Table 8 .......................................... 19.
+       3.8.2 Installation structure and electrical principle ........................................... 20.
+       3.8.3 Battery system control strategy .............................................................. 26.
+       3.8.4 Traceability and Labeling ....................................................................... 35.
+
+4. FURTHER INFORMATION ................................................................................. 37.
+   4.1 Packaging ........................................................................................................ 37.
+   4.2 Transportation ................................................................................................. 38.
+   4.3 Maintenance .................................................................................................... 38.
+   4.4 Risk Warning .................................................................................................. 38.
+   4.5 Recycling ......................................................................................................... 39.
+
+5. FUSA ....................................................................................................................40.
+
+6. CYBERSECURITY ...............................................................................................45.
+
+7. DVP ......................................................................................................................49.
+Page 3
+Release.
+
+Version: 2.0.  
+Date: Jan-2025.  
+
+Function.  
+Engineer - Battery system: Lê Tiến Thủy, Lê Công Huy.  
+MGL - Battery System: Aditya Kumar Tiwari.  
+
+Revisions since previous version.  
+
+Version: 1.0.  
+Change Description: Initial Release.  
+Signature: —  
+Date: 01-06-2023.  
+
+Version: 2.0.  
+Change Description: Update with VG cells and other parameters improvements.  
+Signature: —  
+Date: 03-01-2025.
+Page 4
+1. Battery Pack Summary.
+
+SpecBook Number: VFDSXNBAT0004.  
+Component DVP Number: DVPRXNBAT0004.  
+SOR Number: VFSRXNBAT0002.  
+Full vehicle DVP Number: if relevant.  
+
+**Part Number / Rev:**  
+- CKD with Gotion cell Part No: EEP71060090 for VN.  
+- CKD with VinES-Gotion cell Part No: BAT71060080 for VN.  
+
+**Component:** HV Battery Pack.  
+
+**Written By:**  
+Lê Tiến Thủy, Aditya Kumar Tiwari.  
+
+**Authorised By:**  
+Aditya Kumar Tiwari.  
+
+**Project:** VF7.  
+
+**Module Group:** HV Battery Pack.  
+
+**Supplier:** VinFast.  
+
+**Pack configuration:** 3P122S.  
+
+**Component Weight:** 500±10 Kg (±2% Kg).  
+
+**Nominal Voltage @1/3C- RT:** 390.4V.  
+
+**Nominal/Useful Energy @1/3C- RT:** 60.9kwh/59.6kwh.  
+
+**Capacity @1/3C- RT:** 156Ah.  
+
+**Chemistry:** LFP.
+Page 5
+1. Battery Pack Summary.
+SpecBook Number: VFDSXNBAT0004.
+Component DVP Number: DVPRXNBAT0004.
+SOR Number: VFSRXNBAT0002.
+Full vehicle DVP Number: If relevant.
+
+Part Number / Rev:
+CKD with Gotion cell Part No: EEP71060090 for VN.
+CKD with VinES-Gotion cell Part No: BAT71060080 for VN.
+
+Component: HV Battery Pack.
+
+Written By: Lê Tiến Thủy, Aditya Kumar Tiwari.
+Authorised By: Aditya Kumar Tiwari.
+Project: VF7.
+Module Group: HV Battery Pack.
+Supplier: VinFast.
+
+Pack Configuration: 3P122S.
+Component Weight: 500±10 Kg (±2% Kg).
+Nominal Voltage @1/3C-RT: 390.4V.
+Nominal/Useful Energy @1/3C-RT: 60.9kwh/59.6kwh.
+Capacity @1/3C-RT: 156Ah.
+Chemistry: LFP.
+
+---
+
+2. Specification Summary.
+Material: Refer to drawing, E-BOM, component specs.
+
+Functional / Performance: Refer to cell spec, battery pack solution, VinES testing reports, and EOL testing.
+
+Battery Quality: Refer to VinES thermal simulation reports, mechanical simulation reports, DV, and PV testing reports.
+
+Durability / Fatigue: Design load cases for CAE Analysis, load cases for test procedure.
+
+Durability / Impact: Design load cases for CAE Analysis, load cases for test procedure.
+
+Durability / Corrosion: VinES DV testing report.
+
+Safety – Security: VinES DV and PV testing report.
+
+Thermal and Aero: VinES thermal simulation reports, DV, and PV testing report.
+
+EMC: VinES DV and PV testing report.
+
+Safety: VinES mechanical simulation reports, DV, and PV testing.
+
+Figure 1. HV Battery Pack View: The figure depicts the design and layout of the HV Battery Pack, showcasing its configuration and structural setup as part of the tested battery system.
+Page 6
+3 Additional Technical or Functional Descriptions.
+
+3.1 System Diagram.  
+The HV battery circuit includes the main positive and negative contactor, pre-charge contactor, pre-charge resistor, shunt and current sensor, and the BMS master board with two slave boards. The electrical schematic is provided in the diagram labeled Figure 2 HV Diagram.  
+Remark: During discharging and charging, the BMS is supplied with 12V constant power from the vehicle battery. During fast charging, it is powered by the 12V auxiliary power supply of the charging pile.
+
+Figure: Figure 2 HV Diagram illustrates the layout of the HV battery circuit, including communication interfaces, voltage monitor, BMS slave boards, battery modules, and electrical connections.
+
+3.2 Cell.  
+The cell used is a 52Ah LFP prismatic cell. It is mass-produced by Gotion. Below are the key technical parameters of these cells.
+
+3.2.1 Technical Parameters of Cell.  
+1. **Cell Model:**  
+   - Gotion Cell: LFP28148115A-52Ah.  
+   - VinES-Gotion Cell: LFP28148115B-52Ah.  
+
+2. **Chemistry:**  
+   - LFP (Lithium Iron Phosphate).  
+
+3. **Capacity:**  
+   - 52Ah (discharge rate: 0.33C).  
+
+4. **Nominal Voltage:**  
+   - 3.2V.
+Page 7
+**VinFast Management System**
+
+**VFDSXNBAT0004**
+Version: 2.0  
+Uncontrolled copy when printed  
+Page: 7 | 49  
+Print date: 18.Jan.2025  
+Status: Functional Responsibility  
+
+---
+
+**3.2.1 Technical Parameters of Cell**
+
+**5. Cell weight:**  
+- 966±30g for Gotion Cell.  
+- 985±20g for VG Cell.  
+
+**6. Dimensions (L×W×H):**  
+- 28.2×148×118.6mm with ±0.5mm tolerance on each side.  
+
+**7. Weight energy density:**  
+- Greater than or equal to 175Wh/kg at 0.33C.  
+
+**8. Volume energy density:**  
+- 350Wh/L at 0.33C.  
+
+**9. Optimum working temperature:**  
+- Range from 10℃ to 35℃.  
+
+**10. Operating temperature:**  
+- Discharging temperature: -30℃ to 60℃.  
+- Charging temperature: -20℃ to 55℃.  
+
+**11. Storage temperature:**  
+- Storage range from -20℃ to 45℃ is recommended.  
+
+**12. Regular Charge (Slow Charge):**  
+- Constant current: 26A.  
+- Constant voltage: 3.65V.  
+- Cut-off condition: Terminating at 2.6A.  
+- Temperature range: 10℃ ≤ T < 45℃.  
+
+**13. Step Charge:**  
+- See the detailed step charge profile for reference.  
+
+**14. Charging Characteristic Curve:**  
+- Illustrates SOC-OCV evolution at various temperatures.  
+- Remarks: Testing conducted at 25℃.  
+
+**15. Discharge Characteristic Curve:**  
+- Represents discharge behavior under different SOC conditions at varying temperatures.  
+- Remarks: Testing conducted at 25℃.  
+
+**16. Cycle Life Curve (Room Temperature):**  
+- Greater than or equal to 1200 cycles at 1C charge and discharge.  
+- Battery capacity retention of ≥80% is achieved at 25℃.  
+
+---
+
+VinFast Released
+Page 8
+3 Additional Technical or Functional Descriptions.
+
+3.1 System Diagram.  
+The HV battery circuit includes a main positive and negative contactor, pre-charge contactor, pre-charge resistor, shunt and current sensor, and a BMS master board with two slave boards. The electrical schematic is provided.  
+Remark: During discharging and charging, the BMS is supplied with 12V constant power from the vehicle battery. It is powered by a 12V auxiliary power supply of a charging pile during fast charging.
+
+Figure 2 HV Diagram.
+
+3.2 Cell.  
+This cell is a 52Ah LFP prismatic cell, which is a mass-produced product by Gotion. Below are the key cell parameters:  
+
+3.2.1 Technical Parameters of Cell.  
+Item 1: The cell model is defined as Gotion Cell: LFP28148115A-52Ah and VinES-Gotion Cell: LFP28148115B-52Ah.  
+Item 2: The chemistry is LFP (Lithium Iron Phosphate).  
+Item 3: The capacity is specified at 52Ah @ 0.33C.  
+Item 4: The nominal voltage is 3.2V.
+
+3.3 Module Design.  
+The battery module is a subassembly installed inside a battery pack. Module assembly includes cells, end plates, CCS, side plates, glue, etc. There are two types of modules: 3P26S and 3P18S. Below is an exploded view of the module and the corresponding parameters:  
+
+VF7 Program Modules:
+
+- Configuration: 3P18S and 3P26S.
+- Capacity (Ah): 156 for both configurations.
+- Energy (kWh): 3P18S = 8.986 kWh, 3P26S = 12.979 kWh.
+- Weight (kg): ~59kg for 3P18S, ~84.5kg for 3P26S.
+- Density (Wh/kg): ~152.3 Wh/kg for 3P18S, ~153.6 Wh/kg for 3P26S.
+- Thermal Management: Liquid cooling for both.
+- Harness: FPC for both.
+- Dimension (mm): 3P18S dimensions are 861.9×303.5×125mm, 3P26S dimensions are 1203.9×303.5×125mm.
+
+Table 1 Module Parameters.
+
+Figure 3 3P26S and 3P18S Module Exploded View.
+
+3.4 Cooling System.  
+Figure 4 illustrates the cooling system which consists of a cooling plate, cooling hose, and thermal glue between the cooling plate and module assembly, as well as insulation padding between the cooling plate and battery housing.  
+The cooling plate is assembled into the battery housing, and red arrow directions show the coolant flow. The material used is 3003-series aluminum, comprising two pieces of very thin aluminum sheets.
+Page 9
+metal, light-weight design. The coolant volume is approximately 2.31L. When the coolant flow rate is around 20.5L/min, the maximum pressure drop is less than 53.5kPa.
+
+Following are the thermal management simulation results, based on the B sample carried out by supplier Gotion on 15th April 2022:
+
+**Figure 4 Cooling Plate and Pressure Cloud**
+
+### Performance Status Summary
+
+1. **Fast charge at room temperature:**
+   - Working condition: Ambient temperature: 25℃; PACK initial temperature: 25℃; Evaluation conditions: 10~70% SOC, 1.5C fast charge; Coolant parameters: 20.5L/min, 25℃.
+   - Target value: Battery temperature Tmax≤40℃, Battery temperature between batteries ΔT≤5℃.
+   - Evaluation result: Tmax=37.8℃, ΔT=1.6℃.
+   - Remark: Fulfill requirements.
+
+2. **Charge at high temperature:**
+   - Working condition: Ambient temperature: 45℃; PACK initial temperature: 45℃; Evaluation conditions: Charge from 0% SOC to 100% SOC; Coolant parameters: 20.5L/min, 45℃.
+   - Target value: Battery temperature Tmax≤55℃, Battery temperature between batteries ΔT≤5℃.
+   - Evaluation result: Tmax=55℃, ΔT=1℃.
+   - Remark: Fulfill requirements.
+
+3. **High-speed climbing:**
+   - Working condition: Ambient temperature: 45℃; PACK initial temperature: 45℃; Evaluation conditions: 100km/h (54.45kW); Coolant parameters: 20.5L/min, 45℃.
+   - Target value: Battery temperature Tmax≤50℃, Battery temperature between batteries ΔT≤5℃.
+   - Evaluation result: Tmax=48.5℃, ΔT=1℃.
+   - Remark: Fulfill requirements.
+
+4. **Max speed:**
+   - Working condition: Ambient temperature: 25℃; PACK initial temperature: 30℃; Evaluation conditions: 100km/h (66.64kW); Coolant parameters: 20.5L/min, 30℃.
+   - Target value: Battery temperature Tmax≤40℃, Battery temperature between batteries ΔT≤5℃.
+   - Evaluation result: Tmax=39.4℃, ΔT=1.4℃.
+   - Remark: Fulfill requirements.
+
+5. **Flow resistance:**
+   - Working condition: Coolant temperature: 25℃; Coolant flow rate: 20.5L/min.
+   - Target value: Maximum pressure drop ≤ 76.0kPa.
+   - Evaluation result: Flow resistance: 53.5kPa for light pipe, 76.0kPa for bellows.
+   - Remark: Fulfill requirements.
+Page 10
+# VinFast Management System
+
+## VFDSXNBAT0004  
+**Version:** 2.0  
+**Print date:** 18.Jan.2025  
+**Page:** 10 | 49   
+
+---
+
+### Flow Field Simulation
+
+**Simulation Details:**
+- **Coolant Type:** 50% ethylene glycol in water  
+- **Coolant temperature:** 25°C  
+- **Flow rate:** 20.5L/min  
+
+#### First Simulation:
+- **Simulation result:** 53.5kPa  
+- **Highlighted Feature:** Light pipe segment  
+
+#### Pressure Drop Analysis:
+1. **Pressure Drop Curve:**  
+   - Displays the pressure variation over different iterations.  
+2. **Pressure Drop Cloud Map:**  
+   - Illustrates the distribution of pressure across the cooling plate.  
+
+---
+
+#### Second Simulation:
+- **Simulation result:** 76.0kPa  
+- **Highlighted Feature:** Bellows  
+
+#### Pressure Drop Analysis:
+1. **Pressure Drop Curve:**  
+   - Shows the pressure trend over various iterations.  
+2. **Pressure Drop Cloud Map:**  
+   - Visualizes pressure distribution along the cooling plate.  
+
+---
+
+**Figures:**
+- Figures display the flow dynamics through inlet and outlet, including detailed simulations of pressure regions and flow path segments.
+
+VinFast Released
+Page 11
+# 3 Additional Technical or Functional Descriptions
+
+### 3.1 System Diagram
+The HV battery circuit includes main positive and negative contactor, pre-charge contactor, pre-charge resistor, shunt and current sensor, BMS master board with two slave boards. The electrical schematic is as follows:
+- **Remark**: During discharging and charging, the BMS is supplied with 12V constant power from the vehicle battery. It is powered by a 12V auxiliary power supply of charging pile during fast charging.
+
+---
+
+### 3.2 Cell
+This cell is a 52Ah LFP prismatic cell, and it’s a mass-produced product in Gotion. Below is the cell key parameters:
+
+#### 3.2.1 Technical Parameters of Cell
+1. **Cell model**:
+   - Gotion Cell: LFP28148115A-52Ah
+   - VinES-Gotion Cell: LFP28148115B-52Ah
+2. **Chemistry**: LFP - Energy/Prismatic
+3. **Capacity**: 52Ah @ 0.33C
+4. **Nominal voltage**: 3.2V
+5. **Cell weight**:
+   - 966±30g: Gotion Cell
+   - 985±20g: VG Cell
+6. **Dimensions (L×W×H)**: 28.2×148×118.6mm, ±0.5mm on each side
+7. **Weight energy density**: ≥175Wh/kg @ 0.33C
+8. **Volume energy density**: 350Wh/L @ 0.33C
+9. **Optimum working temperature**: 10–35°C
+10. **Operating temperature**:
+    - Discharge: -30~60°C
+    - Charge: -20~55°C
+11. **Storage temperature**: -20~45°C (recommended for storage)
+12. **Regular charge (slow charge)**:
+    - Constant current: 26A
+    - Constant voltage: 3.65V
+    - Cut-off condition (terminating): 2.6A
+    - Temperature: 10°C ≤ T < 45°C
+13. **Step charge**: See step charge profile
+14. **Charging characteristic curve**: Remarks: 25°C
+15. **Discharge characteristic curve**: Remarks: 25°C
+16. **Cycle life curve (room temperature)**:
+    - ≥1200 cycles at 1C charge and discharge
+    - Capacity retention ≥80%, at 25°C
+17. **AC Impedance**: 0.5mΩ ≤ R ≤ 0.8mΩ @ 25°C ±2°C
+18. **DC Impedance**: ≤2.5mΩ @ 50% SOC, 25°C ±2°C
+19. **More information**: Refer to cell specification. For detailed information refer to Q/GX 030 -2019.
+
+---
+
+### 3.3 Module Design
+The battery module is a subassembly installed inside a battery pack. Module assembly includes cells, end plates, CCS, side plates, glue, etc. There are two types of modules:
+- 3P26S modules
+- 3P18S modules
+
+#### VF7 Program Modules (Table 1)
+1. **Configuration**:
+   - 3P18S
+   - 3P26S
+2. **Capacity**: 156 Ah for both configurations
+3. **Energy**: 
+   - 3P18S: 8.986 kWh
+   - 3P26S: 12.979 kWh
+4. **Weight**:
+   - 3P18S: ~59kg
+   - 3P26S: ~84.5kg
+5. **Density (Wh/kg)**:
+   - 3P18S: ~152.3
+   - 3P26S: ~153.6
+6. **Thermal Management**: Liquid-based for both configurations
+7. **Harness**: FPC harness for both configurations
+8. **Dimension (mm)**:
+   - 3P18S: 861.9 × 303.5 × 125
+   - 3P26S: 1203.9 × 303.5 × 125
+
+**Figure 3**: Exploded view of 3P26S and 3P18S modules.
+
+---
+
+### 3.4 Cooling System
+The cooling system includes a cooling plate, cooling hose, and thermal glue between the cooling plate module assembly. Insulation pads are also placed between the cooling plate and battery housing.
+
+The cooling plate is assembled into the battery housing. Coolant flows in the direction shown by red arrows. Material utilized is 3003 series aluminum, consisting of two thin aluminum sheets.
+
+- **Coolant volume**: 2.31L.
+- **Flow rate**: 20.5L/min with a maximum pressure drop of less than 53.5kPa.
+
+#### Thermal Management Simulation Results
+Thermal management results based on “B sample” carried out by supplier Gotion on April 15, 2022.
+
+**Performance Status Summary**:
+1. **Fast charge at room temperature**:
+   - Working condition: Ambient temperature: 25°C, initial temperature: 25°C, coolant temperature: 25°C, flow rate: 20.2L/min.
+   - Target value: Battery temperature Tmax ≤ 40°C.
+   - Evaluation result: Tmax = 37.8°C with a maximum temperature difference of 1.6°C. 
+   - **Conclusion**: Fulfill requirements.
+2. **High-speed climbing**:
+   - Working condition: Ambient temperature: 45°C, initial temperature: 45°C, gradient: 5%, output: 51.45kW @ 100km/h for 1800 seconds.
+   - Target value: Battery temperature Tmax ≤ 60°C.
+   - Evaluation result: Tmax = 48.5°C with a maximum temperature difference of 1.0°C.
+   - **Conclusion**: Fulfill requirements.
+3. **Charge at high temperature**:
+   - Working condition: Ambient temperature: 45°C, initial temperature: 45°C, coolant temperature: 45°C, flow rate: 20.2L/min.
+   - Target value: Battery temperature Tmax ≤ 55°C.
+   - Evaluation result: Tmax = 50.2°C with a maximum temperature difference of 0.8°C.
+   - **Conclusion**: Fulfill requirements.
+
+**Figure 4**: Cooling plate, pressure cloud, and flow simulation analysis (including inlet and outlet points with key metrics).
+Page 12
+3.5 BDU Unit and Pyro-fuse.
+
+3.5.1 BDU description.  
+There are two BDU units (Figure 5): one is for positive power, and the other for negative power.
+
+Below table outlines the parameters of the BDU:
+
+### Positive Power
+- **Interface name:** HV  
+- **Brand series:** TE-070  
+  - **BDU connector model:**  
+    - Connector: 174929-1  
+    - Terminal: 173633-1 (0.2-0.3mm²), 173645-1 (0.5-1.25mm²)  
+  - **Plug model:**  
+    - Connector: 174922-1  
+    - Terminal: 173630-1 (0.2-0.3mm²), 173631-1 (0.5-1.25mm²)  
+  - **Pin definitions:**  
+    - Pin 1: V1+  
+    - Pin 2: V2+  
+    - Pin 3: V3+  
+    - Pin 4: /  
+  - **Wire diameter:** 0.5mm² or 20AWG  
+
+### LV Control
+- **Interface name:** LV  
+- **Brand series:** TE-025  
+  - **BDU connector model:**  
+    - Connector: 1565804-1  
+  - **Plug model:**  
+    - Connector: 1376352-1  
+    - Terminal: 2005097-1 (0.13-0.22mm²)  
+  - **Pin definitions:**  
+    - Pin 1: Main pos+ (positive main power)  
+    - Pin 2: Precharge+  
+    - Pin 3: NTC1+  
+  - **Wire diameter:** 0.35mm²  
+
+### Figure 5.  
+BDU representation for positive and negative power units.
+Page 13
+3.5 BDU Unit and Pyro-fuse.
+
+3.5.1 BDU Description.
+There are two BDU units, as shown in Figure 5. One unit is for positive power, and the other is for negative power.
+
+Below is the parameter table for BDU:
+
+**Table 2: BDU Parameters.**
+
+- **Positive Power (HV):**
+  - Interface name: TE-070.
+  - Connector: 174929-1.
+    - Terminal: 173633-1 (0.2-0.3mm²), 173645-1 (0.5-1.25mm²).
+  - Plug:
+    - Model: 174922-1.
+    - Terminal: 173630-1 (0.2-0.3mm²), 173631-1 (0.5-1.25mm²).
+  - Pin definitions:
+    - V1+: 0.5mm² or 20AWG.
+    - V2+.
+    - V3+.
+  - LV Control (HV):
+    - Interface name: TE-025.
+    - Connector: 1565804-1.
+    - Plug:
+      - Connector: 1376352-1.
+      - Terminal:
+        - 2005097-1 (0.13-0.22mm²).
+
+  - Pin definitions:
+    - Main pos+: 0.35mm².
+    - Precharge+.
+    - NTC1+.
+
+- **Negative Power (HV):**
+  - Interface name: TE-070.
+  - Connector: 174928-1.
+    - Terminal: 173633-1 (0.2-0.3mm²), 173645-1 (0.5-1.25mm²).
+  - Plug:
+    - Connector: 174921-1.
+    - Terminal:
+      - 173630-1 (0.2-0.3mm²), 173631-1 (0.5-1.25mm²).
+  - Pin definitions:
+    - V1-: 0.5mm² or 20AWG.
+    - V2-.
+
+  - LV Control (HV):
+    - Interface name: TE-025.
+    - Connector: 1473407-1.
+    - Terminal:
+      - 2005098-1 (0.13-0.22mm²).
+      - Connector: 1318774-1.
+      - Terminal:
+        - 2005097-1 (0.13-0.22mm²).
+    - Pin definitions:
+      - Main Neg: 0.35mm² or 22AWG.
+      - NTC2.
+      - Uc.
+      - CAN_H.
+      - S+.
+      - T+.
+      - Main Neg-.
+      - NTC2_GND.
+
+3.5.2 Pyro-Fuse Description.
+The basic function of the Pyro-Fuse component, shown in Figure 6, is the controlled creation of permanent galvanic isolation for high-voltage safety applications. Similar to a circuit breaker or fuse, this component is a normally closed device, enabling current flow between its two high-voltage contacts (copper busbars). Upon receiving a specific trigger signal, it interrupts current flow and isolates the two HV contacts permanently.
+
+The operation principle is illustrated in the figure: when triggered, the pyrotechnic igniter propels a piston that cuts the copper busbar at two distinct points. The severed section is fixed in the end position.
+
+Below is a table listing the key functional specifications of the CB500-2. More stringent requirements than those listed are possible, but extensive testing must confirm their feasibility.
+
+**Figure 6 Pyro-Fuse.**
+Page 14
+3.5 BDU Unit and Pyro-fuse.
+
+3.5.1 BDU description.  
+There are 2 BDU units, one for positive power and one for negative power.
+
+**Table 2: BDU-Parameter.**  
+Positive Power (HV):  
+- Connector model: TE-070, connector: 174929-1, terminal: 173633-1 (0.2-0.3mm²), 173645-1 (0.5-1.25mm²).  
+- Plug model: 174922-1, terminal: 173630-1 (0.2-0.3mm²), 173631-1 (0.5-1.25mm²).  
+- Pin definition: V1+, V2+, V3+, Main pos+, precharge+, NTC1+.  
+- Wire diameter: 0.5mm² or 20AWG.  
+
+Negative Power (HV):  
+- Connector model: TE-070, connector: 174928-1, terminal: 173633-1 (0.2-0.3mm²), 173645-1 (0.5-1.25mm²).  
+- Plug model: 174921-1, terminal: 173630-1 (0.2-0.3mm²), 173631-1 (0.5-1.25mm²).  
+- Pin definition: Main Neg-, NTC2, Uc, CAN_H, S+, T+, NTC2_GND.  
+- Wire diameter: 0.35mm² or 22AWG.  
+
+LV control Positive power:  
+- Connector model: TE-025, connector: 1565804-1, terminal: 2005097-1 (0.13-0.22mm²).  
+- Pin definition: Main pos+, precharge+, NTC1+.  
+
+LV control Negative power:  
+- Connector model: TE-025, connector: 1473407-1, terminal: 2005098-1 (0.13-0.22mm²), 1674742-1 (0.22-0.5mm²).  
+- Pin definition: Main Neg+, CAN_H, NTC2_GND.
+
+**Figure 5: BDU.**
+
+3.5.2 Pyro-Fuse Description.  
+The basic function of this component is the controlled creation of a permanent galvanic isolation for HV-safety applications. It operates akin to a circuit breaker or fuse and is normally a closed device conducting current via its two HV contacts. When triggered, its pyrotechnic component propels a piston to cut the copper busbar, permanently isolating the HV contacts.
+
+**Figure 6: Pyro-Fuse.**
+
+3.5.3 Pyro-Fuse Specifications.  
+
+**Table 3: Pyro-Fuse Specification (a).**  
+- Standard separation capability: voltage (500V), current (12.5kA), inductance (20 µH).  
+- Switching time: <1.5ms.  
+- Continuous current: 300A.  
+- Ambient temperature: -40°C to +85°C.  
+- Contact temperature: max. +150°C.  
+- Clearance distance: >3.3mm (DIN EN 60664-1:2008).  
+- Creep distance: >15mm (DIN EN 60664-1:2008).  
+- Volume resistance HV-HV: <50µΩ (before activation, at room temperature).  
+- Isolation resistance HV-HV: >50MΩ (after activation).  
+- Isolation resistance HV-LV: >50MΩ.  
+- Dielectric strength HV-LV: 3000V.  
+- Weight: approx. 160g.  
+
+**Table 4: Pyro-Fuse Specification (b).**  
+- Igniter resistance (LV-LV resistance): 1.7Ω < RLV-LV < 2.5Ω.  
+- Weight: <200g.  
+- Isolation resistance and dielectric strength (HV-LV resistance): >50MΩ (measured with 3000V DC for 60s).  
+- Volume resistance HV-HV (measured at room temperature): <50µΩ.  
+- Visual investigation with rattle test: No visual damage, no rattling.  
+
+**Table 5: Pyro-Fuse Specification (c).**  
+- Compliance standards:  
+  - LV 16: 2012-07 - Electric igniters for pyrotechnic systems.  
+  - LV 123: 2014-02 - Electric properties and electric safety of high-voltage components in vehicles.  
+  - LV 124: 2013-06 - Electric components in motor vehicles.  
+  - SAE/USCAR-28: 2005-06 - Initiator Technical Requirements and Validation.
+Page 15
+3.6 BMS (Battery Management System) Technical Parameter.
+
+The Battery Management System (BMS) is the core component of electric and hybrid electric vehicles and acts as the heart of the power system. Its primary functionality includes online detection and real-time monitoring of vehicle batteries, providing information such as power battery voltage, current, temperature, State of Charge (SOC), insulation state, and other details to the vehicle. The system assesses the running state of the battery in real-time and sends fault signals and warnings to the vehicle if any issues arise.
+
+The BMS implemented in the VF7 program consists of one master board and two slave boards. Communication is established through a daisy chain between the master and the slave boards. Additionally, the BMS is designed to meet ASIL C Functional Safety requirements and incorporates cybersecurity functionality.
+
+Table 7 lists the technical parameters of the BMS:
+
+| Num | Project                      | Technical Indicators                                      |
+|-----|------------------------------|----------------------------------------------------------|
+| 1   | Supply voltage range         | 9V—16V                                                   |
+| 2   | Working current              | ≤4A (with contactor)                                     |
+| 3   | Low power consumption        | <4.2W                                                    |
+| 4   | Voltage measurement accuracy | ≤±1% FS@200V ~600V                                       |
+|     |                              | ≤±2% FS@100 ~200V @-40～85℃                              |
+| 5   | Voltage measurement range    | 0～600V                                                  |
+| 6   | Current measurement accuracy | Accuracy ±1.5%FSR, range current -500A~500A             |
+| 7   | Current measurement range    | 0～500V                                                  |
+Page 16
+### VinFast Management System Technical Specifications
+
+#### Table 6 Pyro-fuse Specification (d)
+- **Separation time:** Less than 2 ms (from start of trigger signal until zero current).
+- **Igniter resistance (LV–LV resistance):** Greater than 100 Ω.
+- **Weight:** Less than 200 g.
+- **Isolation resistance and dielectric strength between HV contacts and igniter pins (HV–LV resistance):** Greater than 50 MΩ (measured with 3000 VDC for 60 seconds).
+- **Isolation resistance and dielectric strength between HV contacts (HV–HV resistance):** Greater than 50 MΩ (measured with 1000 VDC for 60 seconds).
+
+---
+
+### 3.6 BMS (Battery Management System) Technical Parameter
+The Battery Management System (BMS) is the core component of electric and hybrid electric vehicles, serving as the heart of power management. It is primarily used for online detection and real-time monitoring of car batteries. Functions include:
+- Providing power battery voltage, current, temperature, SOC, insulation state, and other critical information to the vehicle.
+- Judging the battery's running state in real time and sending fault signals and warnings to the vehicle promptly in case of malfunctions.
+- Monitoring fault status of battery cells, battery temperature, cell voltage, and equilibrium status in real time with warning functions for battery packs.
+- Communicating with the vehicle controller or charger via CAN interface.
+- Cutting off the high-voltage charge and discharge circuit for the battery pack to ensure safety against overcharge, overtemperature, and over-discharge abuse.
+
+#### BMS Design Features:
+The BMS for the VF7 program includes one master board and two slave boards connected through daisy chain communication. It meets ASIL C FUSA requirements alongside cybersecurity functionality.
+
+---
+
+### Technical Parameters of the BMS (Table 7)
+1. **Supply voltage range:** 9 V – 16 V.  
+2. **Working current:** Less than or equal to 4 A (with contactor).  
+3. **Low power consumption:** Less than 4.2 W.  
+4. **Voltage measurement accuracy:**  
+   - Less than or equal to ±1% FS @ 200 V – 600 V.  
+   - Less than or equal to ±2% FS @ 100 V – 200 V, at temperature range -40℃ to +85℃.  
+5. **Voltage measurement range:** 0 V – 600 V.  
+6. **Current measurement accuracy:** ±1.5% FSR, range current -500 A to +500 A.  
+7. **Current measurement range:** 0 V – 500 V.  
+8. **Temperature measurement accuracy:** ±1.5℃, range temperature -40℃ to +85℃.  
+9. **Temperature measurement range:** -40℃ to +125℃.  
+10. **SOC calculation error:** Less than 5%.  
+11. **SOH estimation error:** Less than 5%.  
+
+---
+
+### BMS Functionality
+1. SOC battery pack remaining power estimation function.  
+2. Single cell balancing function.  
+3. Battery pack thermal management function.  
+4. Insulation detection function.  
+5. High-voltage charge/discharge circuit control function.  
+6. Software update and upgrade management functions.  
+7. Real-time monitoring and fault warning for battery cells, temperature, voltage, and equilibrium.  
+8. Communicative functionality with external chargers for charging management.  
+9. Safety features to protect the battery pack from damage caused by abuse such as overcharge, overtemperature, and over-discharge.
+
+---
+
+### Additional Specifications:
+13. **Overcurrent warning (A):** See specific strategies.  
+14. **Balance:** Passive balance, current less than or equal to 100 mA.  
+15. **CAN communication protocol:** External charging protocol compliant with "GB/T27930–2015 Communication Protocol between Off-Board Conductive Charger and Battery Management System for Electric Vehicles." External network communication compatibility is provided.
+Page 17
+### 3.6 BMS (Battery Management System) Technical Parameter
+
+BMS is the core component of electric and hybrid electric vehicles and the heart of power. It is primarily used for online detection and real-time monitoring of car batteries, providing information such as power battery voltage, current, temperature, SOC, insulation state, and other essential data for the vehicle. At the same time, the BMS can evaluate the running state of the battery in real time and send fault signals and warnings to the vehicle if any issues arise.
+
+This BMS for the VF7 program consists of one master board and two slave boards, with daisy chain communication between the master and slave boards. It meets ASIL C FUSA requirements and complies with cybersecurity functionality.
+
+Below **Table 7** lists the parameters of the Battery Management System (BMS):
+
+| **Num** | **Project**                        | **Technical Indicators**                                                  |
+|---------|------------------------------------|---------------------------------------------------------------------------|
+| 1       | Supply voltage range              | 9V—16V                                                                   |
+| 2       | Working current                   | ≤4A (with contactor)                                                     |
+| 3       | Low power consumption             | <4.2W                                                                    |
+| 4       | Voltage meas. accuracy            | ≤±1% FS@200V ~600V<br>≤±2% FS@100 ~200V<br>@-40～85℃                      |
+| 5       | Voltage meas. range               | 0～600V                                                                  |
+| 6       | Current meas. accuracy            | Accuracy ±1.5% FSR, range current -500A~500A                             |
+| 7       | Current meas. range               | 0～500V                                                                  |
+| 8       | Temperature meas. accuracy        | Accuracy ± 1.5℃, range temperature -40℃～+85℃                            |
+| 9       | Temperature meas. range           | 40℃～125℃                                                               |
+| 10      | SOC calculation error             | <5%                                                                      |
+| 11      | SOH estimation error              | <5%                                                                      |
+| 12      | Function                          | - Monitors battery fault status, temperature, cell voltage, equilibrium status, etc., in real time.<br>- Sends real-time warnings for battery packs.<br>- Communicates with the vehicle controller or charger via the CAN interface.<br>- Self-protects the battery pack by cutting off the high-voltage circuit for charging and discharging to prevent damage due to overcharge, overtemperature, and over-discharge.<br>- Performs external charging management functions.<br>- Provides SOC battery power estimation.<br>- Enables single-cell balancing.<br>- Manages battery pack thermal management.<br>- Conducts insulation detection.<br>- Controls the on-off function of high-voltage charge and discharge circuits.<br>- Handles software update and system upgrade functionalities. |
+| 13      | Overcurrent warning (A)           | Specific strategies are applied                                          |
+| 14      | Balance                           | Passive balance, current ≤100mA                                           |
+| 15      | CAN communication protocol        | External charging complies with "GB/T27930-2015 Communication Protocol between Off-Board Conductive Charger and Battery Management System for Electric Vehicles" and the protocol provided by Party A. |
+| 16      | Range of working temperature      | -40～85℃                                                                 |
+| 17      | Range of work humidity            | 10%～85%                                                                 |
+| 18      | Storage temperature               | -40～125℃                                                                |
+| 19      | Altitude                          | 500m～5000m                                                              |
+| 20      | Warranty                          | 8 years or 160,000 km in normal condition with ≥70% SOH.                 |
+| 21      | BMS installation location         | The slave controller is installed in the battery pack.                   |
+| 22      | Recharge Control                  | / (Information unavailable from supplier data).                          |
+| 23      | Relay control                     | 6 relays (main, main-, Pre-charge + 3 optional relays).                  |
+| 24      | Number of external CAN interfaces | 4 CAN interfaces (Vehicle CAN, XCP, Current sensor, DC CAN)<br>DC CAN or LIN (optional). |
+| 25      | Thermal Runaway Detection         | Supports access to external sensors.                                     |
+| 26      | Thermal Management                | 2 optional.                                                              |
+| 27      | IP class                          | IP40.                                                                    |
+| 28      | SCU size                          | 225×107×25 mm.                                                           |
+| 29      | CSC size                          | 280×80×20 mm.                                                            |
+| 30      | CSC voltage meas. range           | -2.5～5.5V                                                               |
+| 31      | CSC voltage meas. accuracy        | ±1.2mV (V< 2V)<br>±1.5mV (V<3.3V)<br>±2mV (V<4.2V)<br>±3mV (V<5.5V)<br>@-40～125℃ |
+| 32      | More information                  | Refer to Gotion Gen3 BMS specification.                                  |
+
+**Table 7: BMS Parameter**
+Page 18
+### 3.7 HV Bus Bar and LV Harness
+
+The harness connects the module to the BMS slave board, the slave board to the master board, and the master board to the LV connector, as depicted in Figure 7. The wiring harness should comply with the requirements of QC/T29106-2004 "Technical Conditions for Low-Voltage Wire Harness for Automobiles."
+
+- **Working Temperature Range of Wiring Harness:** -40℃ to 125℃.
+
+Figure 8 illustrates 14 pieces of HV bus bars with material specification Cu T2 (attachment required). The HV bus bars are designed to have a withstand voltage of ≥2500V, and their insulation resistance is specified as ≥500MΩ @ 1000VDC.
+
+- **Working Temperature Range of Bus Bars:** -40℃ to 125℃.
+
+---
+
+### 3.8 Battery Pack Design
+
+The battery pack consists of the following components:
+- Cells
+- Module assembly
+- Thermal management system
+- HV and LV harness assembly
+- BMS
+- BDU unit
+- Pyro-fuse
+- Mechanical housing assembly
+
+The battery pack provides energy storage and power to the E-motor. The interior layout of the battery pack is shown in Figure 9.
+Page 19
+### 3.8 Battery Pack Design
+The battery pack includes cells, module assembly, thermal management system, HV and LV harness assembly, BMS, BDU unit, Pyro-fuse, and mechanical housing assembly. The battery pack provides energy storage and power to the E-motor.
+
+The inside layout of the battery pack is shown in Figure 9 below.
+
+**Figure 9 Battery Pack**
+
+### 3.8.1 Technical Parameters of Battery Pack Table 8
+
+| Num | Project                       | Index            |
+|-----|-------------------------------|------------------|
+| 1   | Battery pack voltage operating range | 275-445.3V      |
+| 2   | Nominal voltage/Nominal capacity      | 390.4V/156Ah    |
+| 3   | Configuration                 | 3P122S           |
+Page 20
+### 3.7 HV Bus bar and LV harness
+The harness connects the module to the BMS slave board, the slave board to the master board, and the master board to the LV connector as shown in Figure 7.
+
+The wiring harness should meet the requirements of QC/T29106-2004 "Technical Conditions for Low-Voltage Wire Harness for Automobiles."  
+The working temperature range of the wiring harness is -40℃～125℃.
+
+Figure 8 shows 14 pieces of HV bus bar with material specification Cu T2 (Attachment required). The HV busbars should have a withstand voltage of ≥2500V, and the insulation resistance of the busbars is ≥500MΩ@1000VDC.  
+The working temperature range of the busbars is -40℃～125℃.  
+
+### 3.8 Battery Pack Design
+The battery pack includes cells, module assembly, thermal management system, HV and LV harness assembly, BMS, BDU unit, Pyro-fuse, and mechanical housing assembly. The battery pack provides energy storage and power to the E-motor.  
+
+The inside layout of the battery pack is shown in Figure 9.
+
+---
+#### 3.8.1 Technical Parameters of Battery Pack (Table 8)
+| Num | Project                          | Index                                  |
+|-----|----------------------------------|---------------------------------------|
+| 1   | Battery pack voltage operating range | 275-445.3V                           |
+| 2   | Nominal voltage/Nominal capacity     | 390.4V/156Ah                         |
+| 3   | Configuration                       | 3P122S                               |
+| 4   | Battery charging capability (25℃)   | max continuous 234A (1.5C) (SOC<80%) |
+|     |                                      | max transient 10s 312A (2C) (SOC<80%) feedback charging |
+| 5   | Battery discharge capacity (25℃)    | max continuous 202.8A (1.3C) (SOC>20%) |
+|     |                                      | max transient 10s 468A (3C) (SOC>20%) |
+| 6   | Battery charging capability (-10℃)  | max duration not allowed              |
+|     |                                      | max transient 10s not allowed        |
+| 7   | Cell voltage difference             | Static ≤100mV@50 %SOC                |
+|     |                                      | Dynamic ≤300mV@50 %SOC               |
+| 8   | Standard discharge capacity         | 156A (1/3C) (25℃)                    |
+| 9   | Battery SOC working range           | 0%~100%                              |
+| 10  | Working temperature uniformity      | <10℃                                 |
+| 11  | Battery Pack Cycle Life (Cycle Conditions) | 1200 cycles (1C charge and discharge, 25℃) |
+| 12  | Insulation properties               | >500Ω/V (25℃, 40%RH)                |
+| 13  | Relative humidity                   | <85% RH                              |
+| 14  | Battery pack dimension/number       | The pack dimension refers to 3D model, 1 pack |
+| 15  | IP rating                           | IP67                                 |
+| 16  | Anti-corrosion grade of battery pack| Follow VF requirements               |
+| 17  | Status SOC as shipment              | 50%                                  |
+| 18  | Capacity decay of battery during warranty period | 80%                             |
+| 19  | Battery pack thermal method         | Bottom liquid cooling                |
+
+### 3.8.2 Installation Structure and Electrical Principle
+
+#### 3.8.2.1 Dimensions and Connectors of Battery Box
+The battery pack system contains 1 box, as shown in Figure 10 below.
+
+---
+Figures:  
+- **Figure 7:** LV Harness Assembly  
+- **Figure 8:** HV Bus bar  
+- **Figure 9:** Battery Pack  
+- **Figure 10:** Dimensions and connectors of the battery box.
+Page 21
+3.8 HV Bus bar and LV harness. 
+
+The harness connects the module to the BMS slave board, slave board to the master board, and master board to the LV connector as shown in Figure 7. The wiring harness should meet the requirements of QC/T29106-2004 "Technical Conditions for Low-Voltage Wire Harness for Automobiles." The working temperature range of the wiring harness is -40℃ to 125℃.
+
+Figure 8 shows 14 pieces of HV bus bars with the material specification Cu T2 (attachment required). The HV busbars should withstand a voltage of ≥2500V, and the insulation resistance of the busbars is ≥500MΩ@1000VDC. The working temperature range of the busbars is -40℃ to 125℃.
+
+3.8 Battery Pack Design.
+
+The battery pack includes cells, module assembly, thermal management system, HV and LV harness assembly, BMS, BDU unit, Pyro-fuse, and mechanical housing assembly. The battery pack provides energy storage and power to the E-motor. The inside layout of the battery pack is illustrated in Figure 9 below.
+
+### Figure 7 LV Harness Assembly
+Describing the LV harness connecting modules and BMS components.
+
+### Figure 8 HV Bus Bar
+Illustrating 14 HV bus bars used in voltage insulation and noted material specifications.
+
+### Figure 9 Battery Pack
+An internal schematic of the battery pack showing components like modules, connections, and EE components.
+
+3.8.1 Technical parameters of the battery pack.
+
+Table 8: Battery Pack Parameters.
+
+1. Battery pack voltage operating range: 275-445.3V  
+2. Nominal voltage/nominal capacity: 390.4V/156Ah  
+3. Configuration: 3P122S  
+4. Battery charging capability (25℃): Maximum continuous: 234A (1.5C) (SOC<80%), Maximum transient (10 seconds): 312A (2C) (SOC<80%) feedback charging  
+5. Battery discharge capacity (25℃): Maximum continuous: 202.8A (1.3C) (SOC>20%), Maximum transient ten seconds: 468A (3C) (SOC>20%)  
+6. Battery charging capability (-10℃): Max duration: Not allowed, Max transient ten seconds: Not allowed  
+7. Cell voltage difference: Static - ≤100mV@50% SOC, Dynamic - ≤300mV@50% SOC  
+8. Standard discharge capacity: 156A (1/3C) (25℃)  
+9. Battery SOC working range: 0%-100%  
+10. Working temperature uniformity: <10℃  
+11. Battery Pack Cycle Life: 1200 cycles with conditions of 1C charge and discharge at 25℃  
+12. Insulation properties: >500Ω/V (25℃, 40%RH)  
+13. Relative humidity: <85% RH  
+14. Battery pack dimensions/number: Dimensions refer to 3D model (1 pack)  
+15. IP rating: IP67  
+16. Anti-corrosion grade of battery pack: Follows VF requirement  
+17. Status SOC as shipment: 50%  
+18. Capacity decay of battery during warranty period: 80%  
+19. Battery pack thermal method: Bottom liquid cooling  
+
+3.8.2 Installation structure and electrical principle.
+
+3.8.2.1 Dimensions and connectors of the battery box.
+
+The battery pack system has one box, as shown in Figure 10 below.
+
+### Figure 10 Battery Pack Outer Profile
+Depicting the external casing and design structure.
+
+### Figure 11 Battery Pack 2D Drawing
+Outlining the layout and dimensions (width, length, and internal framework).
+Page 22
+3.8.2.2 High-voltage connection between the vehicle and the battery box:
+The vehicle and battery box connection utilizes the following components:
+
+**Vehicle end connector components:**
+- **Amphenol Plug:** PL182X-301-70-5.
+- **Socket:** PL082X-301-10M8.
+- **Cable diameter:** 70 mm².
+- **Cable length & remarks:** Not applicable (NA).
+
+**Table 9 High Voltage Connection**
+- This connection includes heating interfaces defined for a 2-core high-voltage connector.
+
+**(1) PACK end heating interface:**
+- **Plug:** PL182X-301-70-5.
+- **Socket:** PL082X-301-10M8.
+- **Pins definition and remarks:**
+    - **Pin B:** Battery pack +. Specification: 2-pin connector, crimp 4mm².
+    - **Pin A:** Battery pack -.
+
+**Table 10 High Voltage Connection**
+For detailed specifications, refer to "PL182-300" documentation, as required.
+
+---
+
+**3.8.2.3 Low voltage wiring harness connectors for communication between the vehicle and the battery pack:**
+
+**Vehicle connector details:**
+- **Vehicle connector (plug):** HC18B-S32_CD.
+- **PACK connector (socket):** HC08B-P32R_CD.
+- **Cable diameter:** Not provided.
+- **Remark:** Connector manufactured by Amphenol.
+
+**Table 11 Low Voltage Connection**
+**Pin definitions for the low-voltage communication interface on the PACK side (Socket HC08B-P32R):**
+1. **KL30/POWER** – Power supply (12V).
+2. **KL15/KEY ON** – Activation signal.
+3. **PT-CANHi** – CAN signal high.
+4. **PT-CANLi** – CAN signal low.
+5. **ACM turn off pyro+** – Signal for pyrotechnic disengagement (positive).
+6. **ACM turn off pyro-** – Signal for pyrotechnic disengagement (negative).
+7. **KL30/POWER #2** – Secondary power supply (12V).
+8. **Debug-CANHi** – Debug interface signal high.
+9. **Debug-CANLi** – Debug interface signal low.
+10. **Crash Signal** – Emergency signal during crash scenarios.
+11. **HVIL IN** – Signal for high voltage interlock input.
+12. **HVIL OUT** – Signal for high voltage interlock output.
+13. **NA** – Not assigned.
+
+---
+For further configuration details, refer to the connectors and specifications provided by the manufacturer or the respective standard documents.
+Page 23
+3.8.2.2 High-voltage connection between the vehicle and the battery box.
+
+Table 9 High Voltage Connection:
+- Vehicle end connector: Amphenol Plug PL182X-301-70-5.
+- PACK Termination Plug: Socket PL082X-301-10M8.
+- Cable diameter: 70 mm².
+
+PACK end heating interface 2-core high-voltage connector pin definition:
+- Plug: PL182X-301-70-5.
+- Socket: PL082X-301-10M8.
+- Pin B: Battery pack + (2-pin connector, crimp 4mm²).
+- Pin A: Battery pack -.
+
+For more detailed information, please refer to the "PL182-300" specification.
+
+3.8.2.3 Low voltage wiring harness connectors for communication between the vehicle and the battery pack.
+
+Table 11 Low Voltage Connection:
+- Vehicle connector (plug): HC18B-S32_CD.
+- PACK connector (socket): HC08B-P32R_CD.
+- Cable diameter: NA.
+- Remark: Amphenol.
+
+Pin definition of the low-voltage communication interface connector on the PACK side:
+- Socket: HC08B-P32R.
+  - Pin 1: KL30/POWER, Power (12V).
+  - Pin 2: KL15/KEY ON, Signal.
+  - Pin 3: PT-CANHi, Signal.
+  - Pin 4: PT-CANLi, Signal.
+  - Pin 5: ACM turn off pyro+, Signal.
+  - Pin 6: ACM turn off pyro-, Signal.
+  - Pin 7: KL30/POWER #2, Power (12V).
+  - Pin 8: Debug-CANHi, Signal.
+  - Pin 9: Debug-CANLi, Signal.
+  - Pin 10: Crash signal, Signal.
+  - Pin 11: HVIL IN, Signal.
+  - Pin 12: HVIL OUT, Signal.
+  - Pin 13: NA.
+  - Pin 14: KL31/ POWER GND, Ground (12V).
+  - Pin 15–18: NA.
+
+Table 12 Pin Definition:
+For further details, refer to HC08B-P32R.
+
+3.8.2.4 Battery Pack List of Components:
+1. HV battery: Part/No 5040032079, 390.4V/156Ah – 60.9 KWh, weight 500.000kg.
+2. Housing lid: Part/No 5040031985, PCM, weight 7.600kg.
+3. Box sealing ring 4: Part/No 5040032971, Foam silica gel, weight 0.290kg.
+4. Pipeline: Part/No 5040032076, PA12, weight 0.100kg.
+5. PC insulation plate: Part/No 5040041217, PC, weight 0.005kg.
+6. Cross recessed pocket hex bolt flat spring washer assembly: Part/No 5040042002, Steel, weight 0.005kg.
+7. Box sealing ring 5: Part/No 5040031975, Foam silica gel, weight 0.290kg.
+8. Box sealing ring 3: Part/No 5040032962, Foam silica gel, weight 0.001kg.
+9. Box sealing ring 1: Part/No 5040031976, Foam silica gel, weight 0.288kg.
+10. Soft busbar 2: Part/No 5040032042, Copper, weight 0.150kg.
+11. Soft busbar 3: Part/No 5040032041, Copper, weight 0.090kg.
+12. Soft busbar 4: Part/No 5040032040, Copper, weight 0.080kg.
+13. Soft busbar 5: Part/No 5040032039, Copper, weight 0.187kg.
+14. Soft busbar 6: Part/No 5040032034, Copper, weight 0.500kg.
+15. Housing tray: Part/No 5040031974, AL, weight 83.000kg.
+16. Soft busbar 7: Part/No 5040032033, Copper, weight 0.100kg.
+17. Soft busbar 8: Part/No 5040032032, Copper, weight 0.280kg.
+18. Soft busbar 9: Part/No 5040032030, Copper, weight 0.220kg.
+19. Soft busbar 10: Part/No 5040032029, Copper, weight 0.150kg.
+20. Soft busbar 11: Part/No 5040032028, Copper, weight 0.180kg.
+21. Soft busbar 12: Part/No 5040032027, Copper, weight 0.090kg.
+22. High voltage connector (with 4 screws m6*16 hexagon socket): Part/No 5040032670, Amphenol PL082X-301-10M8, weight 0.200kg.
+23. Host wiring harness: Part/No 5040032037, Copper, weight 0.500kg.
+24. Low-voltage wiring harness in battery box: Part/No 5040032044, Copper, weight 0.650kg.
+Page 24
+### Table 12 Pin Definition:
+14. **KL31/POWER GND** - Ground (12V).  
+15-18. **NA** - No additional information provided.
+
+### 3.8.2.4 Battery Pack List of Components:
+1. **Part/No:** 5040032079  
+   **Description:** HV battery  
+   **Specification:** 390.4V/156Ah – 60.9 KWh  
+   **Weight:** 500.000 kg  
+
+2. **Part/No:** 5040031985  
+   **Description:** Housing lid  
+   **Specification:** PCM  
+   **Weight:** 7.600 kg  
+
+3. **Part/No:** 5040032971  
+   **Description:** Box sealing ring 4  
+   **Specification:** Foam silica gel  
+   **Weight:** 0.290 kg  
+
+4. **Part/No:** 5040032076  
+   **Description:** Pipeline  
+   **Specification:** PA12  
+   **Weight:** 0.100 kg  
+
+5. **Part/No:** 5040041217  
+   **Description:** PC insulation plate  
+   **Specification:** PC  
+   **Weight:** 0.005 kg  
+
+6. **Part/No:** 5040042002  
+   **Description:** Cross recessed pocket hex bolt flat spring washer assembly  
+   **Specification:** Steel  
+   **Weight:** 0.005 kg  
+
+7. **Part/No:** 5040031975  
+   **Description:** Box sealing ring 5  
+   **Specification:** Foam silica gel  
+   **Weight:** 0.290 kg  
+
+8. **Part/No:** 5040032962  
+   **Description:** Box sealing ring 3  
+   **Specification:** Foam silica gel  
+   **Weight:** 0.001 kg  
+
+9. **Part/No:** 5040031976  
+   **Description:** Box sealing ring 1  
+   **Specification:** Foam silica gel  
+   **Weight:** 0.288 kg  
+
+10. **Part/No:** 5040032042  
+    **Description:** Soft busbar 2  
+    **Specification:** Copper  
+    **Weight:** 0.150 kg  
+
+11. **Part/No:** 5040032041  
+    **Description:** Soft busbar 3  
+    **Specification:** Copper  
+    **Weight:** 0.090 kg  
+
+12. **Part/No:** 5040032040  
+    **Description:** Soft busbar 4  
+    **Specification:** Copper  
+    **Weight:** 0.080 kg  
+
+13. **Part/No:** 5040032039  
+    **Description:** Soft busbar 5  
+    **Specification:** Copper  
+    **Weight:** 0.187 kg  
+
+14. **Part/No:** 5040032034  
+    **Description:** Soft busbar 6  
+    **Specification:** Copper  
+    **Weight:** 0.500 kg  
+
+15. **Part/No:** 5040031974  
+    **Description:** Housing tray  
+    **Specification:** AL  
+    **Weight:** 83.000 kg  
+
+16. **Part/No:** 5040032033  
+    **Description:** Soft busbar 7  
+    **Specification:** Copper  
+    **Weight:** 0.100 kg  
+
+17. **Part/No:** 5040032032  
+    **Description:** Soft busbar 8  
+    **Specification:** Copper  
+    **Weight:** 0.280 kg  
+
+18. **Part/No:** 5040032030  
+    **Description:** Soft busbar 9  
+    **Specification:** Copper  
+    **Weight:** 0.220 kg  
+
+19. **Part/No:** 5040032029  
+    **Description:** Soft busbar 10  
+    **Specification:** Copper  
+    **Weight:** 0.150 kg  
+
+20. **Part/No:** 5040032028  
+    **Description:** Soft busbar 11  
+    **Specification:** Copper  
+    **Weight:** 0.180 kg  
+
+21. **Part/No:** 5040032027  
+    **Description:** Soft busbar 12  
+    **Specification:** Copper  
+    **Weight:** 0.090 kg  
+
+22. **Part/No:** 5040032670  
+    **Description:** High voltage connector (with 4 screws m6*16 hexagon socket)  
+    **Specification:** Amphenol PL082X-301-10M8  
+    **Weight:** 0.200 kg  
+
+23. **Part/No:** 5040032037  
+    **Description:** Host wiring harness  
+    **Specification:** Copper  
+    **Weight:** 0.500 kg  
+
+24. **Part/No:** 5040032044  
+    **Description:** Low-voltage wiring harness in battery box  
+    **Specification:** Copper  
+    **Weight:** 0.650 kg  
+
+### Table Continuation:
+25. **Part/No:** 5040032038  
+    **Description:** Low-voltage wiring harness in battery box  
+    **Specification:** Copper  
+    **Weight:** 0.650 kg  
+
+26. **Part/No:** 5040031506  
+    **Description:** BDU main positive  
+    **Specification:** PC+ABS, Copper  
+    **Weight:** 1.000 kg  
+
+27. **Part/No:** 5040031505  
+    **Description:** BDU main negative  
+    **Specification:** PC+ABS, Copper  
+    **Weight:** 1.000 kg  
+
+28. **Part/No:** 5040031289  
+    **Description:** BMS slave  
+    **Specification:** PC  
+    **Weight:** 0.290 kg  
+
+29. **Part/No:** 5040032036  
+    **Description:** Fuse  
+    **Specification:** MEV50A600-38G7  
+    **Weight:** 0.150 kg
+Page 25
+### Table 12 Pin Definition.
+1. Pin 14: **KL31/POWER GND** - Description: Ground (12V).  
+2. Pins 15 to 18: **NA**.
+
+For more detailed information, please refer to HC08B-P32R.
+
+---
+
+### 3.8.2.4 Battery Pack List of Components
+
+1. **Part/No:** 5040032079 — Description: HV battery — Specification: 390.4V/156Ah – 60.9 KWh — Weight: **500.000 kg**.
+2. **Part/No:** 5040031985 — Description: Housing lid — Specification: PCM — Weight: **7.600 kg**.
+3. **Part/No:** 5040032971 — Description: Box sealing ring 4 — Specification: Foam silica gel — Weight: **0.290 kg**.
+4. **Part/No:** 5040032076 — Description: Pipeline — Specification: PA12 — Weight: **0.100 kg**.
+5. **Part/No:** 5040041217 — Description: PC insulation plate — Specification: PC — Weight: **0.005 kg**.
+6. **Part/No:** 5040042002 — Description: Cross recessed pocket hex bolt flat spring washer assembly — Specification: Steel — Weight: **0.005 kg**.
+7. **Part/No:** 5040031975 — Description: Box sealing ring 5 — Specification: Foam silica gel — Weight: **0.290 kg**.
+8. **Part/No:** 5040032962 — Description: Box sealing ring 3 — Specification: Foam silica gel — Weight: **0.001 kg**.
+9. **Part/No:** 5040031976 — Description: Box sealing ring 1 — Specification: Foam silica gel — Weight: **0.288 kg**.
+10. **Part/No:** 5040032042 — Description: Soft busbar 2 — Specification: Copper — Weight: **0.150 kg**.
+11. **Part/No:** 5040032041 — Description: Soft busbar 3 — Specification: Copper — Weight: **0.090 kg**.
+12. **Part/No:** 5040032040 — Description: Soft busbar 4 — Specification: Copper — Weight: **0.080 kg**.
+13. **Part/No:** 5040032039 — Description: Soft busbar 5 — Specification: Copper — Weight: **0.187 kg**.
+14. **Part/No:** 5040032034 — Description: Soft busbar 6 — Specification: Copper — Weight: **0.500 kg**.
+15. **Part/No:** 5040031974 — Description: Housing tray — Specification: AL — Weight: **83.000 kg**.
+16. **Part/No:** 5040032033 — Description: Soft busbar 7 — Specification: Copper — Weight: **0.100 kg**.
+17. **Part/No:** 5040032032 — Description: Soft busbar 8 — Specification: Copper — Weight: **0.280 kg**.
+18. **Part/No:** 5040032030 — Description: Soft busbar 9 — Specification: Copper — Weight: **0.220 kg**.
+19. **Part/No:** 5040032029 — Description: Soft busbar 10 — Specification: Copper — Weight: **0.150 kg**.
+20. **Part/No:** 5040032028 — Description: Soft busbar 11 — Specification: Copper — Weight: **0.180 kg**.
+21. **Part/No:** 5040032027 — Description: Soft busbar 12 — Specification: Copper — Weight: **0.090 kg**.
+22. **Part/No:** 5040032670 — Description: High voltage connector (with 4 screws m6*16 hexagon socket) — Specification: Amphenol PL082X-301-10M8 — Weight: **0.200 kg**.
+23. **Part/No:** 5040032037 — Description: Host wiring harness — Specification: Copper — Weight: **0.500 kg**.
+24. **Part/No:** 5040032044 — Description: Low-voltage wiring harness in battery box — Specification: Copper — Weight: **0.650 kg**.
+25. **Part/No:** 5040032038 — Description: Low-voltage wiring harness in battery box — Specification: Copper — Weight: **0.650 kg**.
+26. **Part/No:** 5040031506 — Description: BDU main positive — Specification: PC+ABS, Copper — Weight: **1.000 kg**.
+27. **Part/No:** 5040031505 — Description: BDU main negative — Specification: PC+ABS, Copper — Weight: **1.000 kg**.
+28. **Part/No:** 5040031289 — Description: BMS slave — Specification: PC — Weight: **0.290 kg**.
+29. **Part/No:** 5040032036 — Description: Fuse — Specification: MEV50A600-38G7 — Weight: **0.150 kg**.
+30. **Part/No:** 5040036452 — Description: PFUSE base — Specification: PC — Weight: **0.100 kg**.
+31. **Part/No:** 5040036451 — Description: Pfuse cover — Specification: PC — Weight: **0.100 kg**.
+32. **Part/No:** 5040021560 — Description: Fuse base — Specification: PC — Weight: **0.100 kg**.
+33. **Part/No:** 5040021559 — Description: FUSE cover — Specification: PC — Weight: **0.100 kg**.
+34. **Part/No:** 5040031983 — Description: Mounting plate inside the battery box — Specification: Steel — Weight: **0.264 kg**.
+35. **Part/No:** 5040031484 — Description: Pfuse — Specification: CB500-2 — Weight: **0.160 kg**.
+36. **Part/No:** 5040029432 — Description: Buckle tie — Specification: PC — Weight: **0.001 kg**.
+37. **Part/No:** 5040032984 — Description: Buckle tie — Specification: PC — Weight: **0.001 kg**.
+38. **Part/No:** 5040032015 — Description: Integrated cover plate assembly-8S — Specification: PC+Al — Weight: **0.427 kg**.
+39. **Part/No:** 5040032010 — Description: Integrated cover plate assembly-10S — Specification: PC+Al — Weight: **0.515 kg**.
+40. **Part/No:** 5040031998 — Description: Integrated cover plate assembly-12S — Specification: PC+Al — Weight: **0.603 kg**.
+
+For subsequent part numbers and descriptions, please refer to the continuation of the component list.
+Page 26
+3.8.3 Battery System Control Strategy.
+
+3.8.3.1 Security Protection Parameters and Strategies.
+
+1. Fault Name: Max cell voltage limit critically exceeded Level 4 warning.
+   Fault Threshold: 3.90 V.
+   Unit: V.
+   Description: HV cut off.
+   Remark: None.
+
+2. Fault Name: Max cell voltage limit critically exceeded Level 2 warning.
+   Fault Threshold: 3.70 V.
+   Unit: V.
+   Description: VCU reduces power to 50%.
+   Remark: None.
+
+3. Fault Name: Min cell voltage limit critically exceeded Level 4 warning.
+   Fault Threshold: 2.3 V.
+   Unit: V.
+   Description: HV cut off.
+   Remark: None.
+
+4. Fault Name: Min cell voltage limit critically exceeded Level 2 warning.
+   Fault Threshold: 2.5 V.
+   Unit: V.
+   Description: VCU reduces power to 50%.
+   Remark: None.
+
+5. Fault Name: The total voltage is too high Level 4 warning.
+   Fault Threshold: 443 V.
+   Unit: V.
+   Description: HV cut off.
+   Remark: None.
+
+6. Fault Name: The total voltage is too low Level 4 warning.
+   Fault Threshold: 305 V.
+   Unit: V.
+   Description: HV cut off.
+   Remark: None.
+Page 27
+3.8.3 Battery System Control Strategy.
+
+3.8.3.1 Security Protection Parameters and Strategies.
+
+1. Max cell voltage limit critically exceeded Level 4 warning: Threshold is 3.90V. HV cut-off initiated.
+2. Max cell voltage limit critically exceeded Level 2 warning: Threshold is 3.70V. VCU reduces power by 50%.
+3. Min cell voltage limit critically exceeded Level 4 warning: Threshold is 2.3V. HV cut-off initiated.
+4. Min cell voltage limit critically exceeded Level 2 warning: Threshold is 2.5V. VCU reduces power by 50%.
+5. The total voltage is too high Level 4 warning: Threshold is 443V. HV cut-off initiated.
+6. The total voltage is too low Level 4 warning: Threshold is 305V. HV cut-off initiated.
+7. Voltage deviation error between cells Level 4 warning: Threshold is 700mV. HV cut-off initiated.
+8. Level 4 warning for excessive discharge current: Threshold equals Ireq*110% & Ireq + 5A, continuous for 6 seconds. HV cut-off initiated.
+9. Level 2 warning for excessive discharge current: Threshold equals Ireq*105% & Ireq + 5A, continuous for 6 seconds. VCU reduces power by 50%.
+10. Level 4 warning for excessive charging current: Threshold equals Ireq*110% & Ireq + 5A, continuous for 6 seconds. HV cut-off initiated.
+11. Level 2 warning for excessive charging current: Threshold equals Ireq*105% & Ireq + 5A, continuous for 6 seconds. VCU reduces power by 50%.
+12. Temperature is too high Level 4 warning: Discharge threshold is 60°C, Charge threshold is 58°C. HV cut-off initiated.
+13. Temperature is too high Level 2 warning: Threshold is 55°C. VCU reduces power by 50%.
+14. Temperature is too low Level 4 warning: Threshold is -35°C. HV cut-off initiated, TBD.
+15. Temperature is too low Level 2 warning: Threshold is -30°C. VCU reduces power by 50%.
+16. SOC is too low Level 2 warning: Threshold is 2%. VCU reduces power by 50%.
+17. Isolation resistance warning Level 4: Threshold is 500Ω/V. Charging circuit disconnected, warning issued.
+18. Isolation resistance warning Level 2: Threshold is 300Ω/V. Charging circuit disconnected, and VCU power reduced by 50%.
+
+Note: Detailed information can be referred to the UDS file.
+Page 28
+**3.8.3.2 Charging Control Strategy.**
+
+The Battery Management System (BMS) supports two types of chargers: on-board AC slow chargers and off-board DC fast chargers.
+
+**BMS Charging Parameters in Table 13:**
+
+- **1. AC charge CAN**: Shared with PT CAN, controlled by VCU.  
+- **2. Fast charge CAN**: Shared with PT CAN, controlled by VCU.  
+- **3. Set charge request voltage**: 445.3V.  
+- **4. Fast charge request maximum current**: 234A (1.5C).  
+- **5. AC charge request maximum current**: Determined by the current of the AC gun.  
+- **6. Charge cut-off current**: 1.6A (-20℃ >50% SOC).  
+- **7. Cell charge cut-off voltage**: 3.65V.
+
+**DC Charge:**
+
+Detailed DC charging characteristics are highlighted in the table. This table delineates charging parameters such as cell voltage, SOC percentages, and operating temperatures. It visually identifies optimal ranges for safer and efficient charging operations. Yellow-highlighted segments indicate specific high-performance charging ranges.
+Page 29
+### 3.8.3.2 Charging Control Strategy
+BMS supports on-board (AC slow charging) chargers and off-board (DC fast charging) chargers for charging.
+
+#### Table 13 Charging Control Strategy:
+1. **AC charge CAN:** Shared with PT CAN, controlled by VCU.  
+2. **Fast charge CAN:** Shared with PT CAN, controlled by VCU.  
+3. **Set charge request voltage:** 445.3V.  
+4. **Fast charge request maximum current:** 234A (1.5C).  
+5. **AC charge request maximum current:** According to the current of the AC gun.  
+6. **Charge cut-off current:** 1.6A (-20°C >50% SOC).  
+7. **Cell charge cut-off voltage:** 3.65V.  
+
+---
+
+### DC Charge
+
+The DC charge section utilizes a structured table showcasing charging parameters at various SOC levels and temperature ranges. This allows precise charging adjustments based on specific conditions, ensuring optimal performance and safety.
+
+---
+
+### AC charge
+
+#### 3.8.3.2.1 Charge Start Condition:
+When the external charging conditions are met (e.g., CCCP is valid), and there is no relevant warning on the battery, and the battery SOC is not 100%, the BMS starts the charging process.
+
+#### 3.8.3.2.2 Charging Process Control:
+During the charging process, the BMS detects voltage, current, and temperature in real time, estimates the SOC, and assesses related warnings. Based on voltage, SOC, and temperature conditions, the charging request current is adjusted dynamically.
+
+#### 3.8.3.2.3 Charge Completion Condition:
+During charging, when the highest voltage of the cell reaches the "cell charge cut-off voltage", or the battery pack voltage reaches the "battery pack charge cut-off voltage", the charging current begins to decrease. Charging is completed once the voltage exceeds the "charge cut-off voltage of the battery pack", and the charging current falls below the "charge cut-off current". When this condition is met, the SOC is corrected to 100%.
+Page 30
+3.8.3.3 BMS self-check.
+
+If the self-test is abnormal, it is not allowed to enter the charging and discharging mode, including the hardware status, the on-off of the collected signal line, the current detection status, the temperature status of the battery box, and the internal communication status of the BMS.
+Page 31
+3.8.3.4 Battery power limit parameters.
+
+3.8.3.4.1 Discharge power limit parameters.
+Remarks: Below -20℃ (excluding -20℃), the maximum allowable discharge current is 10A.
+
+Below Table 14 is the battery 10S discharge limit power at different temperatures.  
+
+**Table 14: Battery 10S Discharge Limit Power and Different Temperature**
+- **T°C/SOC% Breakdown**  
+  - -30°C: Power ranges from 0 at 0% SOC to 31.9 for SOC levels 70%-100%.
+  - -20°C: Power ranges from 26.1 at 5% SOC to 79.8 for SOC levels 70%-100%.
+  - -10°C: Power ranges from 45.0 at 5% SOC to 121.8 for SOC levels 70%-100%.
+  - 0°C: Power ranges from 74.0 at 5% SOC to 152.3 for SOC levels 70%-100%.
+  - 10°C: Power ranges from 74.0 at 5% SOC to 182.7 for SOC levels 70%-100%.
+  - 20°C to 50°C: Power steady at max (213.2/214.6 from 20°C, decreasing by 50% in progression by 40° upper steps).
+
+Reflect handling all variable dynamic temperature isolators + By increasing threshold on key at-risk behave-unit. Units/s described match power screening above
+Page 32
+3.8.3.4 Battery Power Limit Parameters.
+
+3.8.3.4.1 Discharge Power Limit Parameters.
+
+Remarks: Below -20℃ (excluding -20℃), the maximum allowable discharge current is 10A. Below Table 14 is the battery 10S discharge limit power at different temperatures. Below Table 15 is the battery 30S discharge limit power at different temperatures.
+
+### Table 14: Battery 10S Discharge Limit Power at Different Temperatures:
+- Temperature range from -30°C to 50°C.
+- State of Charge (SOC) ranging from 0% to 100%.
+- Power limits vary at different SOC levels for each temperature.
+
+### Table 15: Battery 30S Discharge Limit Power at Different Temperatures:
+- Temperature range from -30°C to 50°C.
+- State of Charge (SOC) ranging from 0% to 100%.
+- Power limits vary at different SOC levels for each temperature.
+
+3.8.3.4.2 Feedback Charging Power Limit Parameters.
+
+Remarks: Feedback charging is not allowed below 0℃ (excluding 0℃), SOC is above 90% (excluding 90%), and the maximum cell voltage is above 4.1V.
+
+### Table 17: Battery 10S Feedback Charge Limit Power at Different Temperatures:
+- Temperature range from -30°C to 50°C.
+- State of Charge (SOC) ranging from 0% to 100%.
+- Feedback power limits detailed for each SOC at varying temperatures.
+
+### Table 18: Battery 30S Feedback Charge Limit Power at Different Temperatures:
+- Temperature range from -30°C to -10°C.
+- State of Charge (SOC) ranging from 0% to 100%.
+- Feedback power limits detailed for each SOC at varying temperatures.
+
+Below Table 16 is the battery 60S discharge limit power at different temperatures.
+
+### Table 16: Battery 60S Discharge Limit Power at Different Temperatures:
+- Temperature range from -30°C to 50°C.
+- State of Charge (SOC) ranging from 0% to 100%.
+- Power limits vary at different SOC levels for each temperature.
+Page 33
+3.8.3.7 Thermal Management Strategy.  
+Battery pack best working temperature range is 10~30℃, so battery thermal management is critical in achieving performance and extended life of batteries in electric and hybrid vehicles under real driving conditions. Appropriate modeling for predicting thermal behavior of battery systems in vehicles helps to make decisions for improved design and shortens the development process.  
+
+The importance of battery thermal management: the thermal-related problems of batteries are the key factors that determine their performance, safety, life, and cost.  
+
+The battery thermal management system is designed to deal with the thermal-related problems of the battery, and its main functions include heat dissipation and preheating.  
+
+This battery thermal management system includes liquid cooling and liquid heating. The cooling temperature and flowrate are controlled by the VCU, and BMS sends only a requirement signal to the VCU if the battery needs cooling or heating.
+
+**Details on Thermal Management Process:**  
+
+| Thermal Management               | Liquid Cooling & Liquid Heating                                                         |
+|----------------------------------|---------------------------------------------------------------------------------------|
+| **AC Charge Heating Strategy**  |
+| Heating On                      | Tmin (cell temperature) ≤ 5℃                                                          |
+| Heating Off                     | Tmin (cell temperature) > 10℃                                                         |
+| Heating Liquid Temperature and Flowrate | Minimum of 2L/min*, 40℃; Increases with temperature                                   |
+| **DC Charge Heating Strategy**  |
+| Heating On                      | Cell temperature Tmin ≤ 10℃                                                          |
+| Heating Off                     | Cell Tmin > 20℃                                                                      |
+| Heating Liquid Temperature and Flowrate | Minimum of 2L/min*, 40℃; Increases with temperature                                   |
+| **Driving Heating Strategy**    |
+| Heating On                      | Cell temperature Tmin ≤ -10℃                                                        |
+| Heating Off                     | Cell temperature Tmin > 0℃                                                           |
+| Heating Liquid Temperature and Flowrate | Minimum of 2L/min*, 40℃; Increases with temperature                                   |
+| **Fast Charge Cooling Strategy**|
+| Cooling On                      | Cell temperature Tmax ≥ 32℃                                                          |
+| Cooling Off                     | Cell temperature Tmax < 27℃                                                          |
+| Cooling Liquid Temperature and Flowrate | 15L/min, 20℃                                                              |
+| **AC Charge Cooling Strategy**  |
+| Cooling On                      | Cell temperature Tmax ≥ 43℃                                                          |
+| Cooling Off                     | Cell temperature Tmax < 40℃                                                          |
+Page 34
+3.8.3.7 Thermal Management Strategy
+
+The thermal management strategy is essential to maintaining the optimal operational range of the battery pack, which is 10~30°C. Effective thermal management ensures that battery performance, safety, lifespan, and cost are controlled under real driving conditions. Through predictive thermal behavior modeling, design decisions can be optimized, and the development process shortened.
+
+### Introduction to Battery Thermal Management
+The battery thermal management system addresses heat-related issues, including heat dissipation and preheating. The main components of this system are liquid cooling and liquid heating. The VCU controls cooling temperature and flow rate based on requirements from the BMS.
+
+### Cooling and Heating Strategies
+**Driving Cooling Strategy**  
+- **Cooling on**: When cell temperature Tmax ≥ 35°C.  
+- **Cooling off**: When cell temperature Tmax < 30°C.  
+- **Cooling temperature and coolant flow rate**: 15L/min, 20°C.  
+
+**Temperature Balance Strategy**  
+- **On**: When Tmax-Tmin ≥ 10°C & Tmax < 40°C & Tmin >-20°C, flow rate at 15L/min.  
+- **Off**: When Tmax-Tmin ≤ 7°C || Tmax > 45°C || Tmin ≤ -20°C.  
+
+**Emergency Battery Cooling (Offline)**  
+- Only battery cooling is activated.  
+- **Cooling on**: When battery temperature exceeds 52°C.  
+- **Cooling off**: When battery temperature drops below 45°C.  
+
+**Wake-Up Function Heating Strategy**  
+- **Heating on**: When cell temperature Tmin ≤ -22°C.  
+- **Heating off**: When cell temperature Tmin > -20°C.  
+- **Heating liquid temperature and flow rate**: 2L/min, 40°C.  
+
+**Wake-Up Function Cooling Strategy**  
+- **Cooling on**: When cell temperature Tmax ≥ 45°C.  
+- **Cooling off**: When cell temperature Tmax < 40°C.  
+- **Cooling liquid temperature and flow rate**: 15L/min, 20°C.  
+
+**Fast Charge Cooling Strategy**  
+- **Cooling on**: When cell temperature Tmax ≥ 32°C.  
+- **Cooling off**: When cell temperature Tmax < 27°C.  
+- **Cooling liquid temperature and flow rate**: 15L/min, 20°C.  
+
+**AC Charge Cooling Strategy**  
+- **Cooling on**: When cell temperature Tmax ≥ 43°C.  
+- **Cooling off**: When cell temperature Tmax < 40°C.  
+- **Cooling liquid temperature and flow rate**: 15L/min, 20°C.  
+
+### Summary Table
+| Thermal Management Type         | Conditions for Activation               | Conditions for Deactivation           | Cooling/Heating Parameters        |
+|----------------------------------|-----------------------------------------|---------------------------------------|------------------------------------|
+| **Driving Cooling Strategy**     | Tmax ≥ 35°C                             | Tmax < 30°C                           | 15L/min, 20°C                     |
+| **Temperature Balance Strategy** | Tmax-Tmin ≥ 10°C & Tmax < 40°C & Tmin > -20°C | Tmax-Tmin ≤ 7°C || Tmax > 45°C || Tmin ≤ -20°C | 15L/min, 20°C                     |
+| **Emergency Battery Cooling**    | Battery temperature > 52°C             | Battery temperature < 45°C            | Cooling only                      |
+| **Wake-Up Heating Function**     | Tmin ≤ -22°C                           | Tmin > -20°C                          | Min flow rate: 2L/min, 40°C       |
+| **Wake-Up Cooling Function**     | Tmax ≥ 45°C                            | Tmax < 40°C                           | Min flow rate: 15L/min, 20°C      |
+| **Fast Charge Cooling Strategy** | Tmax ≥ 32°C                            | Tmax < 27°C                           | Flow rate: 15L/min, 20°C          |
+| **AC Charge Cooling Strategy**   | Tmax ≥ 43°C                            | Tmax < 40°C                           | Flow rate: 15L/min, 20°C          |
+
+Table 19 Thermal Management Strategy.
+Page 35
+3.8.4 Traceability and Labeling.  
+The battery pack label content and label location are shown in Figure 12 below.
+
+**Figure 12 Labels and Location Specification** (May change based on requirement):  
+- **Danger Label**: Located near the front side of the pack.  
+- **High Voltage Warning Label**: Positioned on the front side of the pack.  
+- **Rating Label**: Found on the rear side of the pack.
+
+Figure 13 illustrates the HV battery pack Rating Label (may change based on requirements).
+
+VinFast Released
+Page 36
+### 3.8.4 Traceability and Labeling
+The battery pack label content and label location are shown below in **Figure 12**, which illustrates the **Labels and Location Specification**. This may change based on requirements.
+
+#### Figure 12 Labels and Location Specification
+- **Danger Label**: Placed near the front side of the battery pack.
+- **High Voltage Warning Label**: Positioned in the center area of the front side of the battery pack.
+- **Rating Label**: Located on the rear side of the battery pack.
+
+Below in **Figure 13**, the **HV battery pack Rating Label** is shown, which specifies its content. This label may change based on requirement implementation.
+
+---
+
+### Figure 13 Rating Label Content Requirements
+The **Rating Label** includes several key details about the HV battery pack, such as model name, production date, technical specifications, and a QR code for traceability. 
+
+---
+
+Below in **Figure 14**, the **Health and Safety Label** specifies dimension and content requirements.
+
+#### Figure 14 Health and Safety Label Content Requirements
+- **Dimensions**: 
+  - Height: 50mm, Width: 150mm
+  - Includes die cutting edge specifications.
+  - Additional 3xR2 rounded edges.
+
+- **Content**:
+  1. Instructions for handling and maintenance precautions.
+  2. High voltage recycling guidance.
+  3. Cautions against disassembly or misuse.
+  4. Contact information for local VinFast services.
+  5. Safety warning icons such as "High Voltage," "Fire Hazard," "Recycle," and "Battery Damage."
+
+The label includes both English and Vietnamese language for accessibility and clarity across usage contexts.
+Page 37
+4 Further Information.
+
+4.1 Packaging.  
+Below Figure 15 is the packaging specification. The packing case material is wood.
+
+**Figure 15 Battery Packaging Specification Transport and Logistics:**  
+The packaging includes the following specifications:
+- The X and Y of the battery are fixed with plywood blocks.
+- The Z of the battery is fixed with plywood blocks and the fixed position is in the hanging ear.
+- The bottom of the battery is raised by 50 mm.
+- The bottom of the wooden box is padded with small plywood blocks, used for easy hoisting.
+- Around the battery, the interior is filled with 500 g of desiccant for moisture prevention during transport.
+- The outer packing tape is fixed after the wooden box is stacked and wrapped with winding film to prevent dust and water.
+Page 38
+4 Further Information
+
+4.2 Transportation.
+
+1. Battery Pack should be transported at the SOC of 50%, and the maximum temperature should be less than 45℃.
+2. Complete packaging must be ensured during transportation.
+3. During transportation, the battery pack should be handled with care to prevent inclined hoisting, falling, rolling, heavy pressure, severe vibration, impact, and extrusion.
+4. The transportation process must follow the stacking method specified by the supplier.
+5. Actions must be taken to prevent direct sunlight, rain, moisture, and water during transportation.
+6. During transportation, the storage area must have clear safety signs to warn about safety risks.
+
+4.3 Maintenance.
+
+1. The Battery Pack SOC must always be above 30% for storage.
+2. The Battery Pack can be stored for three months in a suitable environment (10~35°C is recommended; humidity should be <95%). Maintenance checks should be performed using a CAN tool.
+3. If the customer plans to store the Battery Pack for 3~6 months, maintenance involving a full discharge cycle is recommended.
+4. Storage beyond six months is not suggested.
+
+4.4 Risk Warning.
+
+A warning label with safety instructions is provided to ensure safe handling and usage. The label includes information on avoiding accidents, maintaining battery integrity, and consulting professionals for technical assistance.
+Page 39
+### 4.5 Recycling
+
+#### Green and Low Carbon Solutions
+1. Internal circulation - Feidong circulation park:
+   - Make full use of the existing resources of the park to achieve win-win results.
+   - Recycle materials to reduce CO₂ emissions and enhance sustainability.
+
+2. External circulation - Power battery industry chain:
+   - Includes battery teardown, recycling processes, and utilization of materials.
+   - Completes the closed loop of the new energy industrial chain by refining end-of-life batteries.
+
+#### Green Low Carbon Battery Recycling Demonstration Park
+1. Key Features:
+   - Battery-grade iron phosphate, lithium carbonate recovery projects.
+   - Reduction of CO₂ emissions by a significant amount:
+     - Maanshan Iron and Steel Hefei Plate Co., Ltd: Reduction of 0.62 tons.
+     - Hefei Gotion New Material Technology Co., Ltd: Reduction by 132,000 tons.
+     - Other projects contribute to reductions of thousands of tons of emissions.
+
+2. Project Highlights:
+   - Internal circulation - Feidong park forms an internal material and energy cycle.
+   - Reduces 147,200 tons of carbon dioxide and fixes 11,000 tons of carbon dioxide.
+   - Cuts down 10,000 tons of hazardous waste.
+   - Promotes the "green low-carbon + digital + intelligent" low-carbon demonstration park initiative on a global scale.
+
+#### Innovation Elements
+- Promotes clean technology and enhances the efficiency of recycling lithium-ion batteries.
+- Supports sustainable production and environmental goals.
+Page 40
+5 FuSa.
+
+**Safety Requirements from SOR:**
+
+| FS #          | Requirement                              | Description                                                                                      | ASIL Level | VF FSR Allocation v0.6          | Safe State                                          |
+|---------------|------------------------------------------|--------------------------------------------------------------------------------------------------|------------|----------------------------------|----------------------------------------------------|
+| SOR_FS_1      | Cell Voltage Sensing                    | The BCU shall be able to sense all individual Cell voltages bricks.                              | ASIL C     | FSR0019, FSR0020                 | < 2 go to limp mode / Delay power down             |
+|               |                                          | VF31-22P - 1Brick is indicated as individual cell.                                               |            |                                  | > 2 cannot sense, open contactor                   |
+|               |                                          | VF32-47P - 1Brick is indicated as individual cell.                                               |            |                                  |                                                    |
+| SOR_FS_2      | Module Temperature Sensing              | The BCU shall be able to sense all the temperature sensor values inside the Modules.             | ASIL C     | FSR002, FSR019, FSR020           | Open HV contactor                                  |
+| SOR_FS_3      | Module Voltage Sensing                  | The BCU shall be able to sense all individual module voltages.                                   | ASIL C     | FSR002, FSR019, FSR020           | Open HV contactor                                  |
+|               |                                          | It shall be calculated using the sum of cell voltages from the same brick measurement components.|            |                                  |                                                    |
+| SOR_FS_4      | Module Voltage Monitoring (out of range)| The BCU shall be able to detect over and undervoltage levels for each cell (brick of cells).      | ASIL C     | FSR002, FSR020, FSR024, FSR025   | Open HV contactor (out of range). Limp home mode suggested (monitoring failure). |
+| SOR_FS_5      | Battery HV Voltage Sensing              | The BCU shall be able to sense the battery HV voltage.                                           | ASIL A     | FSR002                           | Open HV contactor                                  |
+| SOR_FS_6      | Traction Net HV Voltage Sensing         | The BCU shall be able to sense the traction net HV voltage.                                      | ASIL A     |                                  |                                                    |
+| SOR_FS_7      | HV DC Traction Net Voltage Monitoring   | This is fulfilled, as long as there is only one voltage level in the HV DC traction net.         | ASIL A     |                                  |                                                    |
+Page 41
+5 FuSa  
+**Safety Requirements from SOR**  
+
+- **SOR_FS_8 Overcurrent Detection:**  
+  The BCU shall be able to detect a battery overcurrent.  
+  ASIL Level: C  
+  VF FSR Allocation: FSR001, FSR020, FSR024, FSR025  
+  Safe State: SPF Overcurrent - Open HV contactor. Loosing monitoring - Limp home mode.  
+
+- **SOR_FS_9 Overcurrent Limit Calibration:**  
+  The overcurrent limit shall be calibratable.  
+  ASIL Level: XCP calibration technics  
+
+- **SOR_FS_10 Short Circuit Detection:**  
+  The BMS BCU shall be able to detect a HV short circuit on the traction net.  
+  VF FSR Allocation: Supplier Feedback, FSR020  
+
+- **SOR_FS_11 Fuse Voltage Monitoring:**  
+  Fuse voltage shall be checked to detect the short circuit and take preventive action.  
+
+- **SOR_FS_12 Overcurrent Fault Reaction:**  
+  If an overcurrent fault is detected, the main contactors shall be opened after a calibratable time.  
+  ASIL Level: C  
+  VF FSR Allocation: FSR001, FSR020  
+  Safe State: Open HV contactor.  
+
+- **SOR_FS_13 Short Circuit Fault Reaction:**  
+  If a short circuit fault is detected, the main contactors shall be opened after a calibratable time.  
+  ASIL Level: C  
+  VF FSR Allocation: FSR020  
+  Safe State: Open HV contactor.  
+
+- **SOR_FS_14 Temperature Sensor Broken Wire Detection:**  
+  The MCU shall be able to detect a broken wire fault on module temperature sensors.  
+
+- **SOR_FS_15 Temperature Sensor Broken Wire Single Fault Reaction:**  
+  If a single temperature sensor broken wire fault is detected, there shall be fault reactions to drive in limp home mode.  
+  VF FSR Allocation: FSR002, FSR019  
+  Safe State: Limp home mode.  
+
+- **SOR_FS_16 Notes on Charging and Startup:**  
+  During charging, it is acceptable to stop charging; at startup, it is acceptable not to close the contactors.  
+
+- **SOR_FS_17 Temperature Sensor Multiple Fault Reaction:**  
+  If multiple temperature faults are detected while HV net is active, the BCU should allow only a limited battery.  
+  ASIL Level: C  
+  VF FSR Allocation: FSR002, FSR019, FSR020  
+  Safe State: Open HV contactor.  
+
+- **SOR_FS_18 Fault Occurrence:**  
+  Noted whether the issue occurs in one module or multiple modules.  
+
+- **SOR_FS_19 Temperature Sensor Multiple Fault Activation Prevention:**  
+  If multiple temperature faults are detected while HV net is inactive, the BCU should prevent the HV net activation.  
+  ASIL Level: C  
+  VF FSR Allocation: FSR002, FSR019, FSR020  
+  Safe State: Keep HV contractor open.  
+
+- **SOR_FS_20 Temperature Sensor Broken Wire Fault Calibration:**  
+  The threshold for multiple fault reactions shall be calibratable per MCU and total.  
+  ASIL Level: C  
+  VF FSR Allocation: FSR002, FSR019, FSR020  
+  Safe State:  
+  - <2 open circuits - Bring to Limp home mode.  
+  - >=2 open circuits - Open HV contactor.  
+
+- **SOR_FS_21 HVIL Source Generation:**  
+  The BCU shall be able to sense that the HVIL source generation circuit is working properly during initialization.  
+  In case of supplier hardware, the PWM is produced by the microcontroller, and LPF checks must be made at startup.  
+  ASIL Level: B  
+  VF FSR Allocation: FSR022, FSR023  
+  Safe State:  
+  - Charging: Open Contactor.  
+  - Driving: DTC logged.  
+  - Idle: Not allow to close contactor.  
+
+- **SOR_FS_22 Insulation Detection:**  
+  The BCU shall be able to sense that the insulation of the battery pack can be measured within 1s.  
+  ASIL Level: B  
+  VF FSR Allocation: FSR022, FSR023  
+  Safe State:  
+  - Charging: Turn off in BMS.  
+  - Discharging: Level 0-1 - Send warning, Level 2 - Limp home mode.  
+  - Idle: N/A.  
+
+- **SOR_FS_23 Contactor Power Monitoring:**  
+  The BCU shall be able to sense that the contactor power is available before closing the contactor.  
+  ASIL Level: A  
+  VF FSR Allocation: FSR004  
+
+- **SOR_FS_24 CAN Signal Minimum Cell Voltage:**  
+  The minimum cell voltage shall be provided via CAN to the VCU.  
+  VF FSR Allocation: FSR016  
+
+- **SOR_FS_25 CAN Signal Maximum Cell Voltage:**  
+  The maximum cell voltage shall be provided via CAN to the VCU.  
+  VF FSR Allocation: FSR016  
+
+- **SOR_FS_26 CAN Signal Average Cell Voltage:**  
+  The average cell voltage shall be provided via CAN to the VCU.  
+  VF FSR Allocation: FSR016  
+
+- **SOR_FS_27 CAN Signal Battery Voltage:**  
+  The measured battery voltage shall be provided via CAN to the VCU.  
+  VF FSR Allocation: FSR016
+Page 42
+**4.5 Recycling**
+
+Green and low carbon solutions:
+
+- The internal circulation Feidong circulation park utilizes the existing resources of the park to achieve win-win results. It includes DMC, CO₂ reduction, resource utilization, and output products.
+- The external circulation power battery industry chain focuses on the tear-down, recycling, and utilization of end-of-life batteries to generate new battery products.
+
+**Green low carbon battery recycling demonstration park:**
+
+- The internal circulation-Feidong park project maximizes internal resources to form a material and energy cycle, reducing carbon dioxide emissions by 147,200 tons and fixing 11,000 tons of carbon dioxide. It also aims to reduce 10,000 tons of hazardous waste. The Feidong park strives to build a "green low-carbon + digital + intelligent" low-carbon demonstration park to promote environmental benefits on both national and global levels.
+
+---
+**5 FuSa**
+
+Safety requirements from SOR:
+
+**SOR_FS_8 Overcurrent detection**  
+The BCU shall detect battery overcurrent.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR001, FSR020, FSR024, FSR025  
+- **Safe State:** Open HV contactor during SPF Overcurrent. Limp home mode for loosing monitoring errors.  
+
+**SOR_FS_9 Overcurrent limit calibration**  
+The overcurrent limit must be calibratable.  
+- **ASIL Level:** Not specified.  
+- **VF FSR Allocation:** XCP calibration techniques.  
+
+**SOR_FS_10 Short circuit detection**  
+The BMS BCU shall detect a HV short circuit on the traction net.  
+- **ASIL Level:** Not specified.  
+- **VF FSR Allocation:** FSR020  
+
+**SOR_FS_11 Fuse voltage fault reaction**  
+Fuse voltage shall be checked to detect short circuits and take preventive action.  
+
+**SOR_FS_12 Overcurrent fault reaction**  
+For detected overcurrent fault, the main contactors shall open after a calibratable time.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR001, FSR020  
+- **Safe State:** Open HV contactor.  
+
+**SOR_FS_13 Short circuit fault reaction**  
+Short circuit faults will lead to opening of main contactors after a calibratable time.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR020  
+- **Safe State:** Open HV contactor.  
+
+**SOR_FS_14 Temperature sensor broken wire detection**  
+The MCU shall detect broken wire faults on module temperature sensors.  
+- **Safe State:** Not specified.  
+
+**SOR_FS_15 Single temperature sensor wire fault reaction**  
+Detection of single broken sensor wires will initiate a limp home mode.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR002, FSR019  
+
+**SOR_FS_17 Temperature sensor multiple fault**  
+Detection of multiple temperature faults will allow only limited battery functionality while HV net is active.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR002, FSR019, FSR020  
+- **Safe State:** Open HV contactor.  
+
+**SOR_FS_19 Multiple sensor fault activation prevention**  
+When HV net is inactive, multiple faults will prevent HV net activation.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR002, FSR019, FSR020  
+- **Safe State:** Keep HV contactor open.  
+
+**SOR_FS_21 HVIL source generation**  
+BCU must verify the HVIL source generation circuit during initialization.  
+- **ASIL Level:** B  
+- **VF FSR Allocation:** FSR022, FSR023  
+- **Safe State:** Charging: Open contactor; Driving: Log DTC; Ideal: Prevent contactor closure.  
+
+**SOR_FS_22 Insulation detection**  
+The BCU measures insulation capabilities within 1 second.  
+- **ASIL Level:** B  
+- **VF FSR Allocation:** FSR022, FSR023  
+- **Safe State:** Charging: Turn off; Discharging (Level 0-1): Warn; Level 2: Limp home mode.  
+
+**SOR_FS_28 CAN signal battery current**  
+Measured battery current shall be transmitted via CAN to VCU.  
+- **VF FSR Allocation:** FSR016  
+
+**SOR_FS_33 Low Power Monitoring**  
+Continuous monitoring of low voltage power ensures safe state upon fault detection.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR014, FSR020  
+- **Safe State:** Open HV contactor. Delay power down.  
+
+---
+
+**Additional from SOR**
+
+**SOR_FS_34 Over temperature detection**  
+BMS monitors temperature, transitions to safe state upon detecting over temperature.  
+- **ASIL Level:** C  
+- **VF FSR Allocation:** FSR024, FSR025, FSR029  
+- **Safe State:** Open HV contactor. Limp home mode upon monitoring failure.
+
+**SOR_FS_35 Crash detection**  
+Upon receiving crash signals from VCU, BMS initiates immediate safe states.  
+- **ASIL Level:** B  
+- **VF FSR Allocation:** FSR025  
+- **Safe State:** Open HV contactor immediately.  
+
+---
+**FSR Requirements**
+
+**FSR002 Signal validation**  
+Ensure the validity of sensor readings (voltage, temperature) to maintain states.  
+- **ASIL Level:** C  
+
+**FSR016 Safety-critical signal qualification (CAN, hardwire)**  
+All critical signals between modules must be qualified.  
+- **ASIL Level:** Dependent on signal type.
+Page 43
+FSR019: The Battery Management System (BMS) shall use a fail-safe strategy based on two or more fully independent functional paths. ASIL C. Safe State: Open HV contactors and delayed power down.
+
+FSR020: The BMS shall continuously monitor its internal faults. ASIL C. Safe State: Open HV contactors and delayed power down.
+
+FSR021: In case of BMS internal fault conditions, the BMS shall transition into the safe state corresponding to the safety goal within the established fault tolerant time. (Detail referred to in B-BEV-C-SUV WnDC RESS.pdf.) ASIL C. Safe State: Warning to driver, degradation, and open HV contactor within 4 seconds.
+
+FSR022: The BMS shall continuously monitor electric shock conditions. ASIL B.
+- HVIL:
+  - Charging: Open HV contactors and delayed power down.
+  - Driving: DTC is logged, allowing normal operation.
+  - Ideal: Detect HVIL failure; prevent closing HV contactors.
+- Insulation:
+  - Charging: Turn off in BMS without action.
+  - Discharging: Levels 0 & 1 send warnings via CAN, Level 2 results in degradation and limp home mode. Fault tolerant time: 1 second.
+
+FSR023: In case of electric shock conditions, the BMS shall transition into the safe state corresponding to the safety goal. ASIL B. Safe State: Same as FSR022.
+
+FSR024: The BMS shall continuously monitor thermal event conditions (e.g., over-temperature, over-charge, over-discharge, over-current, internal/external short). ASIL C. Safe State: Open HV contactors and delayed power down within 1 second under charging and discharging conditions.
+
+FSR025: In case of thermal event conditions, the BMS shall transition into the safe state corresponding to the safety goal. ASIL C. Safe State: Same as FSR024.
+
+FSR029: In case of cell venting conditions (e.g., over-temperature), the BMS shall transition into the safe state corresponding to the safety goal. ASIL B. Safe State: Same as FSR025.
+
+FSR035: If crash detection signals are received from the vehicle (ACM-CAN or hardwired), the BMS shall transition into the safe state. ASIL B. Safe State: Emergency shut down within 50 milliseconds.
+
+FSR038: The BMS shall continuously monitor main contactor faults (e.g., sticking, welded, chatter). ASIL A. Safe State: Open HV contactors and delayed power down.
+Fault tolerant time:
+  - 1.5 seconds: HSD & LSD Driver Fault due to overcurrent and over-temperature.
+  - 2.1 seconds: High or low driver current detection.
+  - 3.2 seconds: Diagnostic status.
+  - 4.1 seconds: Physical contactor status.
+
+FSR039: In case of one or more main contactor faults (e.g., sticking, welded, chatter), the BMS shall transition into the safe state corresponding to the safety goal. ASIL C. Safe State: Power down within the same timelines as FSR038.
+
+FSR043: The HVIL sensors shall conduct self-diagnostics to detect failures and report possible electric shock conditions. ASIL B. Safe State: Same as FSR022.
+Page 44
+FSR044: In case the HVIL circuit is violated (e.g. by intrusions into the high-voltage power circuit), the BMS shall transition into a safe state of the corresponding safety goal within the established fault-tolerant time. ASILB. Safe State: Same as FSR022.
+
+FSR045: The BMS shall send a warning to the driver when conditions indicate the potential for or the existence of a violation of safety goals. ASILA. Safe State: The PT CAN information shall be used by HMI ECU to provide the warning. If the safety goal is violated, no warning shall be issued; action will be taken, which is delayed power down.
+
+FSR057: HV Insulation fault and crash shall result in emergency shutdown without FTTI. ASILC.
+
+FSR058: The RESS (BMS system) shall continuously monitor faults in measuring HV voltage at all HV Voltage Measurement Points under all operating conditions (HV_ON and HV_OFF states) and transit to the BMS safe state SS[BMS].04 within an FTTI of 2s (TBC by VF). ASILA. Safe State: SS[BMS].04 remains temporarily disconnected from HV Power Net.
+
+FSR059: The RESS (BMS system) shall avoid FOTA/SOTA reprogramming while the vehicle is in driving mode (vehicle speed > 0kph). QM. Safe State: If unintended reprogramming requests during driving are detected, the BMS stays in the application software rather than jumping to the bootloader and provides a warning to the driver.
+
+FSR060: The RESS (BMS system) shall support diagnostic DTC for field monitoring and maintenance per ISO26262 part 7 concerning potential safety-related incidents related to the item. QM. Safe State: NA.
+
+### Table 22 FSR Requirements
+
+| FSR #    | Description                                                                                              | ASIL Level | Safe State                                 |
+|----------|----------------------------------------------------------------------------------------------------------|------------|--------------------------------------------|
+| SF Signal 1 | More than one cell voltage measurement line open fault (as per AFE selection and supportability).        | ASIL C     | Open Contactor                              |
+| SF Signal 2 | Contactor stuck close/open - the stuck close state and open state must be identified.                   | ASIL C     | N/A                                        |
+| SF Signal 3 | OVD – Over Voltage Detection functionality restricts the contactor from being closed for the next cycle once detected. Violations will be logged as events. If no OVD is detected, the contactor remains closed on VCU request. | ASIL C     | N/A                                        |
+Page 45
+SF Signal 4: Under Voltage Detection. The under-voltage detection functionality shall not allow the contactor to close for the next cycle once detected. It shall be recorded for event logging. If there is no under-voltage detection (UVD), then the contactor shall be in a closed state as per the request from the VCU. ASIL C.
+
+SF Signal 5: Over Temperature Detection. The over-temperature detection functionality shall not allow the contactor to close for the next cycle once detected. It shall be recorded for event logging. If there is no over-temperature detection (OTD), then the contactor shall be in a closed state as per the request from the VCU. ASIL C.
+
+SF Signal 6: Under Temperature Detection. The under-temperature detection functionality shall not allow the contactor to close for the next cycle once detected. It shall be recorded for event logging. If there is no under-temperature detection (UTD), then the contactor shall be in a closed state as per the request from the VCU. ASIL C.
+
+SF Signal 7: Over Current Detection. The over-current detection functionality shall not allow the contactor to close for the next cycle once detected. It shall be recorded for event logging. If there is no over-current detection (OCD), then the contactor shall be in a closed state as per the request from VCU. ASIL C.
+
+**Also check on the CAN signals requirements:**
+Limp Home Mode is defined as transitioning with a gradient of 15A/S to reach the Safe State. This process should give enough time to enter Limp Home Mode. The transit time should be calibratable, with the current time set to 10 seconds.
+
+**Table 23: Safety Critical Signals.**
+
+### Assumptions:
+Assume 1: The BMS will always follow VCU commands to control as a higher priority except when faults are detected by BMS, which will bring the system into its defined safe state.
+
+**Table 24: Assumptions.**
+
+### Cybersecurity:
+CS Group: Secure Update.  
+CS Goal: CS_SECURE_SW_DOWNLOAD.  
+Cybersecurity Requirement ID: CS_BMS_REQ_01.  
+Accepted by Supplier: Accepted.  
+Alignment Status: Alignment.  
+Implementation Timeline: 15-July-2023.
+Page 46
+SECURE UPDATE  
+CS_SECURE_SW_UPDATE CS_BMS_REQ_02 Accepted Alignment 15-July-2023  
+
+SECURE DIAGNOSTICS  
+CS_SECURE_DIAGNOSTICS CS_BMS_REQ_03 Accepted Alignment 15-July-2023  
+CS_SECURE_DIAGNOSTICS CS_BMS_REQ_04 Accepted Alignment 15-July-2023  
+CS_SECURE_DIAGNOSTICS CS_BMS_REQ_05 Accepted Alignment 15-July-2023  
+CS_SECURE_DIAGNOSTICS CS_BMS_REQ_06 Accepted Alignment 15-July-2023  
+CS_SECURE_DIAGNOSTICS CS_BMS_REQ_07 Accepted Alignment 15-July-2023  
+CS_SECURE_DIAGNOSTICS CS_BMS_REQ_08 Accepted Alignment 15-July-2023  
+
+SECURE DEBUG  
+CS_SECURE_DEBUG CS_BMS_REQ_09 Accepted Alignment 15-July-2023  
+
+SECURE KEY MANAGEMENT  
+CS_SECURE_KEY_PROVISIONING CS_BMS_REQ_10 Accepted Alignment 15-July-2023  
+CS_SECURE_KEY_PROVISIONING CS_BMS_REQ_11 Accepted Alignment 15-July-2023  
+
+MISCELLANEOUS  
+CS_ECU_TAMPER_PROOF CS_BMS_REQ_12 Accepted Alignment 15-July-2023
+Page 47
+### VinFast Management System
+
+#### Version: 2.0  
+**Uncontrolled copy when printed**  
+**Page: 47 of 49**  
+**Print date: 18.Jan.2025**  
+**Status**  
+**Functional Responsibility**
+
+---
+
+**Secure Communication**  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_13  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_14  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_16  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_17  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_18  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_19  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_20  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+- **CS_SECURE_CAN_MSG**  
+  **Cyber Security Requirement ID:** CS_BMS_REQ_21  
+  **Status:** Accepted  
+  **Alignment:** Alignment  
+  **Implementation Timeline:** 15-July-2023  
+
+---
+
+**VinFast Released**
+Page 48
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_22 Accepted Alignment 15-July-2023  
+
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_23 Accepted Alignment 15-July-2023  
+
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_24 Accepted Alignment 15-July-2023  
+
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_25 Accepted Alignment 15-July-2023  
+
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_26 Accepted Alignment 15-July-2023  
+
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_27 Accepted Alignment 15-July-2023  
+
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_28 Accepted Alignment 15-July-2023  
+
+SECURE COMMUNICATION  
+CS_SECURE_CAN_MSG CS_BMS_REQ_29 Accepted Alignment 15-July-2023
+Page 49
+VinFast 
+Management System 
+
+SECURE COMMUNICATION.  
+CS_SECURE_CAN_MSG CS_BMS_REQ_30 Accepted Alignment 15-July-2023.  
+
+7 DVP (Please reference the DVP document).  
+Gotion performed Pre-DV, DV, and PV on VF6 LFP battery pack (60.9 kWh).  
+VinES planned to perform Delta PV on CKD battery pack as per DVPRACBAT0004. Similar delta testing can be repeated for VinES JV Cells.  
+
+Detailed test plan for tests outlined in file DVP&R and collaboration required with the Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- Description of equipment and devices used for testing, including pictures of the testing setup.  
+- Location of testing performed (internal/external).  
+- Duration and timeline of testing (in project plan format).  
+- Description of part variants and components tested.  
+- Quantity of tested parts/components.

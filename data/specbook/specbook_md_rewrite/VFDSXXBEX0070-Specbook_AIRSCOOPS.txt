@@ -1,0 +1,901 @@
+Page 1
+VinFast Management System VFDSXXBEX0070 Version: 2.0 Uncontrolled copy when printed.
+
+Spec book. 
+
+Print date: 24.01.2023. 
+
+Status: B2P. 
+
+AIRSCOOPS Specification Book (SPB).
+Page 2
+Scope and purpose.
+
+VinFast LLC (VinFast Trading and Production Limited Liability Company) has started to design and develop vehicle projects: VFe36. Environmental impact and sustainability of the program are taken into account as essential target features. The document shall provide details for all components for mass production.
+
+Responsible Contact: Cindy Heinrichs.
+
+The reproduction, distribution and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Index.
+
+Contents:
+
+SCOPE AND PURPOSE ..................................................................................................... 2
+
+Index ................................................................................................................................... 3
+
+1. SCOPE OF PRODUCT/ COMMODITY .............................................................. 6  
+   1.1. Sales Markets ............................................................................................................... 6  
+   1.2. Production volume ........................................................................................................ 6  
+   1.3. Build Plan .................................................................................................................... 6  
+
+2. DEFINITIONS AND APPLICABLE DOCUMENTS ............................................. 6  
+   2.1. CAD Data/ Transfer data-CAD Requirements ............................................................ 6  
+   2.2. Change Documentation and Part History Documentation .......................................... 6  
+
+3. REQUIREMENTS ............................................................................................... 7  
+   3.1. Contact ....................................................................................................................... 7  
+   3.2. Technical requirement ................................................................................................. 7  
+        Function:  
+        - Overall function ......................................................................................................... 9  
+        - Stiffness / rigidity / stability of shape ....................................................................... 9  
+        - Product characteristics ............................................................................................. 9  
+        Materials ..................................................................................................................... 10  
+        Variants ...................................................................................................................... 10  
+        Interfaces ................................................................................................................... 10  
+        NVH and Driving Comfort .......................................................................................... 10  
+        Vehicle Safety:  
+          - Specific demands ............................................................................................... 11  
+          - General demands ............................................................................................... 11  
+        Operational Strength (Stiffness/Strength/Durability) .................................................... 12  
+        Weight Management .................................................................................................... 13  
+        Vehicle Dynamics & Fuel System Integration ............................................................. 13  
+   3.3. Testing and validation and DVP&R .......................................................................... 13  
+        3.3.1. Test plan .......................................................................................................... 14  
+        3.3.2. Test plan example ........................................................................................... 14  
+        3.3.3. Testing ............................................................................................................. 15  
+        3.3.4. Test-report/-information .................................................................................. 16  
+        3.3.5. Documentation of result ................................................................................. 16  
+        3.3.6. Archival storage of tested parts ...................................................................... 17  
+        3.3.7. Virtual testing .................................................................................................. 17  
+        3.3.8. Component testing ......................................................................................... 17  
+        3.3.9. Mechanical integration tests .......................................................................... 17  
+   3.4. General CAE Requirements ..................................................................................... 18  
+   3.5. Material requirement & Corrosion ............................................................................ 18  
+   3.6. Traceability ............................................................................................................... 21  
+   3.7. Labeling of Parts ...................................................................................................... 21  
+   3.8. Vehicle Architecture ................................................................................................. 21  
+   3.9. Vehicle Safety .......................................................................................................... 22  
+   3.10. Operational Strength (Stiffness / Strength / Durability) ............................................ 23  
+   3.11. Environment Compatibility ....................................................................................... 23
+Page 4
+Index
+
+Contents:
+4 HOMOLOGATION AND SAFETY REGULATIONS ....................................................... 25
+4.1 Homologation and safety regulation requirements ............................................................. 26
+4.1.1 North America ............................................................................................................ 26
+4.1.2 Europe ....................................................................................................................... 26
+
+5 DELIVERABLES ............................................................................................................. 27
+5.1 Technical deliverables ....................................................................................................... 27
+5.2 Details deliverables and RASI .......................................................................................... 27
+
+6 SUPPLIER RESPONSIBILITIES ....................................................................................... 28
+
+7 INTELLECTUAL PROPERTY / COPYRIGHT ................................................................. 29
+
+8 INSURANCE / WARRANTIES .......................................................................................... 29
+
+9 VINFAST GTC & PART PACKAGING AND INCOTERMS ............................................. 29
+
+10 DEFINITIONS AND LIST OF ABBREVIATIONS ............................................................. 29
+Page 5
+Release.
+
+Version: 2.0.  
+Date: Jan-2023.  
+
+Updated by:  
+
+| Function      | Name             |
+|---------------|------------------|
+| Lead Engineer | Cindy Heinrichs  |
+
+Revisions since previous version.
+
+| Version | Change Description                                         | Signature | Date       |
+|---------|------------------------------------------------------------|-----------|------------|
+| 1.0     | First edition                                              | CH        | 08/12/2021 |
+| 2.0     | ICE deleted / Update to PR / DVP update / Part Number update | CH        | 24/01/2023 |
+Page 6
+1 Scope of product/ commodity.
+
+1.1 Sales Markets.
+LHD countries: Vietnam (VN), NA: North America (US: United States, CA: Canada), EU (Europe).
+
+Vehicle profile:
+Refer to appendix:
+- VFDSXXCVC0501.
+- Appendix_5_Features list.
+
+1.2 Production volume.
+Refer to Purchasing Request for Quotation.
+
+1.3 Build Plan.
+Refer to appendix:
+- VFDSXXCVC1101.
+- DSUV_CVC_Appendix_1_Buid Plan.
+
+2 Definitions and applicable documents.
+
+2.1 CAD Data/ Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. CAD data transfer from VinFast to the supplier will be done through the Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.
+
+2.2 Change Documentation and Part History Documentation.
+During the development and production process, all the history of changes within the framework of the contractor have to be documented and provided to VinFast. The form of the data can be defined by the contractor. 
+
+Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements, must be remarked on the drawings. 
+
+The reasons and the characteristics which have to be documented are listed by authorities. These demands will be requested during the development of the part and latest in PTO phase.
+Page 7
+### 3 Requirements  
+
+#### 3.1 Contact  
+**Contact Information:**  
+| **Contact**                  | **Name**                      | **Email ID**                       | **Contact Number**       |
+|------------------------------|-------------------------------|-------------------------------------|--------------------------|
+| Commodity Buyer              | Đặng Ngọc Kiên               | v.KienDN3@vinfast.vn               | 0979913643               |
+| Commodity Buyer Manager      | Duong Xuan Hai               | v.haidx2@vinfast.vn                | +84(0) 904515468         |
+| Commodity Engineering        | Cindy Heinrichs              | cindy.heinrichs@edag.com           | +49(0)536179919721       |
+| Commodity Engineering Manager VF | Ersan Yildirim        | v.ersany@vinfast.vn                | +84(0)819048960          |
+| Commodity Engineering Manager EDAG | Joachim Jordan    | joachim.jordan@edag.com            | +49(0)1718881327         |
+| SQE (Site Engineer)          | Prescott Michael Philip      | v.michaelpp@vinfast.vn             | +84 812252266            |
+| SQE Manager                  | Nguyen Thanh Nam             | v.namnt36@vinfast.vn               | +84 912 379 568          |
+| SCM Analyst                  | Dilshod Tokhtasinov          | v.dilshod@vinfast.vn               | +84(0) 888352662         |
+| Packaging Analyst            | Attsawarungsun Nimnaul       | v.nimnaula@vinfast.vn              | +84(0) 888329955         |
+| SCM Manager                  | Benjamin Peter Stewart       | v.bens@vinfast.vn                  | +84(0) 888798855         |
+
+---
+
+#### 3.2 Technical Requirement  
+**Reinforcement Front Bumper**  
+The Reinforcement Front Bumper is a part of a system that provides reinforcement to front-end components, protection for the vehicle during low-speed impacts, and provides support, location, and attachment for other vehicle components.  
+
+**Part Details:**  
+| **Number** | **Part Name**                 | **Part Number** | **Pieces** | **Material** | **Thickness** |
+|------------|-------------------------------|-----------------|------------|--------------|----------------|
+| 1          | REINFORCEMENT_FRONT_BUMPER   | BEX80150130     | 1          | PP-TD20      | 2.8 mm*        |
+
+**Testing Requirements:**  
+- **Pull-Out Test:** For testing pull-out strength of the threaded insert, a bolt must be screwed into the insert and gradual axial load will be applied using a pull tester until the insert separates from the boss. The target minimum pull-out strength is **3500 N**.  
+- **Torque-Out Test:** For testing torque-out of the threaded insert, a bolt must be driven into the insert, and gradual torque will be applied using a digital torque wrench until the insert loosens from the boss. The target minimum torque-out strength is **40 N-m**.  
+
+**Supplier Requirements:**  
+- Suppliers must submit a material technical data sheet (mechanical properties) along with their quotes.  
+- Engineering-grade thermoplastic must be used for the Reinforcement Front Bumper.  
+- Supplier quotes should provide a detailed breakdown showing individual component and process costs.
+Page 8
+### Table 1: Technical Information Table
+
+#### Part Details:
+1. **Part Name**: REINFORCEMENT_BUMPER_FRONT  
+   **Part Number**: BEX80111165  
+   **Quantity**: 1  
+   **Material**: PP+EPDM-TD15  
+   **Purchase Level**: H  
+   **Applicable Models**: VFe36 SMART, PLUS, PREMIUM (ALL MARKETS).  
+
+2. **Part Name**: SCOOP_EXTENSION_LH  
+   **Part Number**: BEX80111245  
+   **Quantity**: 1  
+   **Material**: PP+EPDM-TD15  
+   **Purchase Level**: H  
+   **Applicable Models**: VFe36 SMART, PLUS, PREMIUM (ALL MARKETS).  
+
+3. **Part Name**: SCOOP_EXTENSION_RH  
+   **Part Number**: BEX80111246  
+   **Quantity**: 1  
+   **Material**: PP+EPDM-TD15  
+   **Purchase Level**: H  
+   **Applicable Models**: VFe36 SMART, PLUS, PREMIUM (ALL MARKETS).  
+
+4. **Part Name**: SCOOP_EXTENSION_UPPER_LH  
+   **Part Number**: BEX80111353  
+   **Quantity**: 1  
+   **Material**: PP+EPDM-TD15  
+   **Purchase Level**: H  
+   **Applicable Models**: VFe36 SMART, PLUS, PREMIUM (ALL MARKETS).  
+
+5. **Part Name**: SCOOP_EXTENSION_UPPER_RH  
+   **Part Number**: BEX80111354  
+   **Quantity**: 1  
+   **Material**: PP+EPDM-TD15  
+   **Purchase Level**: H  
+   **Applicable Models**: VFe36 SMART, PLUS, PREMIUM (ALL MARKETS).  
+
+#### Diagram Explanation:
+Below the table, a diagram illustrates the five parts listed, with individual labels corresponding to their description:
+- **Part 1** represents the REINFORCEMENT_BUMPER_FRONT part in red.  
+- **Parts 2 and 3** depict the SCOOP_EXTENSION_LH and SCOOP_EXTENSION_RH parts, shown in green.  
+- **Parts 4 and 5** represent the SCOOP_EXTENSION_UPPER_LH and SCOOP_EXTENSION_UPPER_RH parts, both illustrated in blue.
+Page 9
+Function.
+
+Overall function.
+
+Development targets:
+- Prevention of functional and qualitative problems out of known systems.
+- Use of standard and common parts if possible or reasonable.
+- Process reliability at production, packaging, transport and assembly.
+- Minimize effort of overall production sequence: production, packaging, transport and assembly on line.
+- Prevention of displacement.
+- Integration of all pertinent partners in the overall process of the part package (Simultaneous Engineering) from the concept phase onward. Early inclusion of the developers of neighboring components.
+- General reduction of cost compared to predecessor models.
+- Further improvement of the functional characteristics.
+- Functionality has to be ensured within requested temperature range.
+
+Stiffness / rigidity / stability of shape:
+- Especially in the area of the operating elements, the components and bracket design have to assure that no instability is noticeable.
+- Irregular shapes of joints, excessive clearance, visible waviness under climatic change loads are prohibited.
+
+Product characteristics:
+- The components must be designed in consideration of all tolerances of parts and assemblies including heat extension.
+- The function of the component must be proven in consideration of all existing tolerances including heat extension.
+- The material-specific thermal expansions have to be considered during the definition of the gap tolerances.
+- The deformation after climate test has to be under the fixed tolerance of flush and gap dimension.
+- Tolerance analyses must be submitted to the departments or persons responsible for the development.
+- Assemble ability with adjoining components.
+- Safety of function under all loads stated in drawings, test specifications, quality specifications and texts of laws.
+- Avoiding of noise caused by the function of components or by joints due to unfavorable tolerances.
+- With regard to safety-relevant matters, proof must be given that the respective legal requirements have been met.
+- All components have to be functional over the whole temperature range.
+Page 10
+**VinFast Management System**
+
+**VFDSXXBEX0070**
+
+**Version: 2.0**  
+Uncontrolled copy when printed.  
+Page 10 of 29.  
+
+**Materials**
+
+Material and production-compliant design layout of the components is essential for avoiding production-related surface flaws or defects such as tool parting points, streaks, flow marks, wall thickness irregularities, stress zones, etc. Material-compliant fits, curvatures, and corners should allow for visual parallel alignment of joints and offset-free surfaces. Uniform and material-compliant run-out of component edges, corners, and ribs must be ensured.
+
+The selection of concepts and production methods should facilitate homogeneous structures and grain structures. All visible and tactile zones must remain free of burrs, while correct material pairing, surfaces, structures, and connection concepts have to be secured. Components must be free of disturbing noise in contact with the environment at all temperatures and driving conditions.
+
+Surfaces must comply with DINENISO 1302 standards. Suppliers must meet quality requirements defined in “VFDST00055300.” Coordination of form and surface should involve corresponding samples including Cubing reports and Appearance Approval reports according to VFDST00038400 (Color matching/Appearance Approval and VDA 280 part 1). These reports should be submitted to VinFast’s approval offices. Matching parts from the supplier must adhere to timelines established by the matching department.
+
+**Variants**
+
+There should be one variant for all vehicle models.
+
+**Interfaces**
+
+The parts package must account for all tolerances in component parts and assemblies such as the body, cooling pack, front axle carrier, bumper beam, front bumper, and heat insulation. Components must ensure functionality in combination with all adjoining systems and interfaces.
+
+**Performance Specification**
+
+**NVH and Driving Comfort**  
+The VINFAST targeted system for the Front End Module (GOR) is based on reference vehicles. The design of the Front End Module system and its structure, including the Reinforcement Front Bumper, must eliminate visible vibrations and mode shapes across the entire speed range (0 km/h – Vmax). Structural stiffness must account for engine excitation and wind (aerodynamic) excitation.
+
+Components involved in aero acoustics must remain burr-free from manufacturing processes, though exceptions may be granted if approved by the function specialist. All fixation points, such as bolts, clips, and rivets, must be sealed airtight unless explicitly allowed by the function specialist.
+Page 11
+Component must be mechanically stable up to the highest possible speed range. No deformation of the component is allowed. Flat surfaces must be supported by an appropriate stiffening structure underneath. The component must remain stable over its lifetime. No deformation or shrinkage due to temperature, moisture, dirt, or UV radiation is allowed. Adhesion properties of the glue must remain as specified.
+
+The supplier must ensure that components are free from disturbing noises within the vehicle environment. The system must not generate any disturbing noises (e.g., relative movement, wind noise, squeak, rattle, temperature effects, torsional flexing) during operation.
+
+### Vehicle Safety
+The supplier is responsible for actively supporting the integration of vehicle safety functions. Lifetime relevant laws, ratings of selling markets (Vietnam), and OEM requirements must be considered.
+
+#### Specific Demands:
+- Support pedestrian protection through the development of deformation characteristics.
+- Up to five local module load cases will be defined by VF.
+- An example of one module load case could be deformation X-resistance between KN-span at specific YZ positions.
+- An UN-R21 pendulum device with specified mass and speed shall be considered as an impactor; impact energy details will be provided by VF.
+
+#### General Demands:
+- Vehicle safety functions must be optimally prepared at the system level with expertise, CAE data, and testing.
+- Project-relevant supplier data must be provided to VF upon request, free of charge.
+- Spread effect performances must be validated by an adequate number of worst results from identical test series.
+- Part/system CAE models must be provided on demand to support vehicle data freeze milestones. Models must be created using LsDyna and must be numerically and physically validated.
+- Finite Element Analysis (FE) meshes must adhere to part axles/geometry guidelines, with a mesh density of 8-10 mm. Non-compliant meshes must be revised.
+- Validated CAE material cards must be developed and tested by the supplier, which includes system and component tests.
+- Supplier test matrices must align with full vehicle timing demands. Optimization test series must be conducted before higher scaled tests (e.g., sled or vehicle crash tests).
+- Supplier-specific parts required for testing at any stage of the project must be provided to testing facilities free of charge.
+Page 12
+Component must be mechanically stable up to the highest possible speed range. Flat surfaces must be supported by an appropriate stiffening structure underneath. The component must remain stable over its lifetime, with no deformation or shrinkage due to temperature, moisture, dirt, UV radiation, or other factors. Adhesion of glues must stay within the specified limits. Suppliers must ensure that components are free of disturbing noise in the vehicle environment. Disturbing noise caused by relative movement, wind noise, squeak and rattle, temperature effects, or torsional flexing must be avoided during all operations.
+
+**Vehicle Safety**
+Suppliers are responsible for supporting the integration of vehicle safety functions actively, considering laws, ratings in selling markets (Vietnam), and OEM requirements.
+
+**Specific Demands:**
+- Development of deformation characteristics for pedestrian protection needs to be supported.
+- Up to five localized module load cases will be defined by VinFast.
+- Example of a load case: deformation X-resistance between KN span in a specific YZ position.
+- UN-R21 pendulum device with particular mass and speed as an impactor must be considered; further details on the impact energy are provided by VinFast.
+
+**General Demands:**
+Suppliers must adhere to the following points unless further specific definitions are provided:
+- Vehicle safety functions must be maximally supported at the system level with expertise, CAE, and testing. 
+- Supplier data relevant to the project must be delivered upon VinFast’s request and without charge.
+- Performance targets must be validated, ensuring spread effects through adequate test series repetitions.
+- Part/system CAE models must be available on demand in LsDyna; they must be validated and numerically/physically stable.
+- FE meshes must conform to part axes/geometry guidelines with a density of 8-10mm; revisions must be made if guidelines aren’t followed.
+- Activities for validated CAE material card generation (testing system/components) must be performed and funded by suppliers.
+- Testing matrices should be aligned with the full vehicle timing requirements; optimization test series at the supplier’s end must be completed before scaled tests (e.g., sled or vehicle crash) are conducted.
+- Test parts for any project-related testing must be freely provided by suppliers; cost demands for physical parts/CAE models must be managed by the supplier.
+- Requests arising from vehicle crash optimization processes at VinFast (e.g., material definitions, changes in thickness, additional components) must be accepted without additional costs.
+   
+**General Requirements Include:**
+- A 20% safety margin applied to all target values.
+- No edges below 3.2mm during and after impacts within the occupant survival area integrity.
+- Electrical system integrity pre-impact and in post-crash functions.
+- Robust target achievement with consideration for tolerances.
+- Investigating asymmetric scenarios for both sides to confirm reliable worst cases.
+
+**Specific Demands Continued:**
+Additional requirements may be pointed out:
+- Observed issues must result in tracking actions by concerned parties for components/data/CAE models from further suppliers.
+- Required equipment such as test bucks, sled setups, etc., should be prepared by suppliers using unfinished parts like non-prepped body-in-white (BIW).
+
+Suppliers must prepare homologation and/or certificate documents for targets achieved totally/partially at the system level. Documentation is to be provided to VinFast free of charge. System requirements fulfillment for carry-over components can be demonstrated with donor vehicle performance data.
+
+**Operational Strength (Stiffness/Strength/Durability)**
+Suppliers must ensure sufficient operational strength for intended, vehicle-specific conditions (operating loads and special events). Product-typical characteristics should be verified based on the application profile. All requirements to ensure strength at the complete vehicle, subsystem, and component levels must be defined (used as the basis for technical specifications).
+
+**Operational Loads:**
+Defined by benchmarking vehicles on VinFast-selected tracks, operational loads must reflect intended vehicle use. Usage testing reflects the customer's desired mileage target, which is 160,000km.
+Page 13
+Special events: Special events are occurrences of small frequency (approximately less than 100), which belong to the intended use of the vehicle, such as ABS-braking. The vehicle must be dimensioned in a way that special events do not affect the function while no safety-relevant damages occur and the intended service life will not be reduced.
+
+Weight Management: Because the vehicle weight has a big influence on the energy consumption of the vehicle, the major goal of weight management is to minimize the complete vehicle weight. Throughout the whole development, attention must be paid to a weight-optimized design of all components. All weight reduction potentials must be shown by the supplier, along with their impacts on cost, timing, and quality.
+
+Vehicle Dynamics & Fuel System Integration: To enable sufficient brake cooling, the openings at the Front End Module must meet functional requirements as defined by Heat Management & Powertrain Cooling, Aerodynamics, and Chassis Module. The requirements have been aligned and checked in the Styling Technique Convergence meetings.
+
+3.3 Testing and validation and DVP&R: DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Levels must align with the Complete Vehicle Specification book in the concept phase. A detailed test plan for hardware tests is filed in DVP&R and must align with Testing & Validation department activities:
+
+- Testing with declaration of standard, norm, legal requirement.
+- How and with which devices the testing was performed (description of testing set-up with pictures).
+- Where the testing was performed (internal/external).
+- Duration and time flow of the testing (provided as a project plan).
+- Part variant description of the component.
+- Number of tested components/parts.
+- For PPAP, material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002-122 are required. Updates are mandated for changes.
+- Material data sheets must be provided by the supplier to VinFast IMDS-ID 214435.
+
+Mileage Target: Ensure target life of 160,000 km or 10 years, whichever comes first. Refer to DVP VFDSXXBEX1158.
+Page 14
+3.3.1 Test plan. 
+
+The test plan regulates by whom and when the testing will be done and which testing devices are necessary. This plan also shows the results in good visual state and the progress of testing. The controlling of the test results has to be ensured at all times. 
+
+For tests, the B2P SUP is contracted.
+
+The test procedures and the documentation have to be approved by the corresponding validation engineer and component lead engineer of VF. 
+
+The test plan must be supplemented and updated weekly, or if new data/information due to development changes is needed. 
+
+The B2P SUP has to ensure that VinFast gets all relevant test protocols/reports for verification and that VinFast can attend any testing at the B2P SUP site or their testing centers. Deviations from approved testing procedures have to be agreed between VinFast/B2P SUP.
+
+If testing was done with wrong parts, missing parts, or different testing procedures, the testing has to be redone on the costs of B2P SUP. In case of negative test results, the tests have to be re-planned, and the retesting has to be paid by B2P SUP if they are responsible for the failure.
+
+Following data has to be included in the DVP&R:
+- Testing with declaration of standard, norm, and legal requirement.
+- How and with which devices the testing was performed (description of testing set-up with pictures).
+- Responsible test department.
+- Where the testing was performed (internal/external).
+- Duration and time flow of the testing (in form of project plan).
+- Part variant, description of the part.
+- Number of tested components/parts.
+
+The B2P SUP is responsible for using the draft DVP&R provided by the VF testing department. 
+
+The B2P SUP has to plan a DVP for each development stage, prototype (if defined in the master timing chart), and serial stage. 
+
+In principle, the sequence of testing and the number of test specimens are to be determined in cooperation with the corresponding validation engineer and component lead engineer of VF. Upon request, the B2P SUP must use a test plan for each single component.
+
+3.3.2 Test plan example.
+
+DVP has to be weekly updated with the following points by the supplier.
+Page 15
+### 3.3.3 Testing
+
+#### 3.3.3.1 General
+The B2P SUP must provide a detailed testing plan on time, in consideration of the vehicle timing chart. It must be guaranteed that the worst-case component/system variant is tested. To prevent double testing, mechanical and electrical tests must be combined wherever possible.
+
+The supplier must download the VinFast test standards via the Supplier Collaboration Portal/TC. Unless otherwise expressly agreed, all sample part shipments must include a measurement report.
+
+The component developer is responsible for ensuring compliance with all relevant legislations for their components and guaranteeing adherence to all internal VF requirements specified in performance criteria.
+
+All test results must be documented with accompanying photos in the reports and submitted to VF. Law obligations for all target markets must be fulfilled. Documentation of tests should follow VinFast standards unless B2P SUP standards are agreed upon.
+
+The B2P SUP must evaluate and conduct tests across development phases and submit results in the required DVP&R template as an attachment to the offer. Samples for sample inspections must be available on time or by agreed deadlines as coordinated with the test department.
+
+To coordinate forms and surfaces, corresponding samples must be presented by the B2P SUP at VinFast approval offices along with the Cubing report and Appearance Approval report (refer to VF Standard Color Matching/ Appearance Approval VFDST00038400). Matching parts must be prepared by B2P SUP—timing will be coordinated by the matching department.
+Page 16
+### 3.3.3 Testing
+
+#### 3.3.3.1 General
+The B2P SUP provides in-time a detailed testing plan in consideration of the vehicle timing chart. It must be guaranteed that the worst-case component/system variant will be tested. To prevent double testing, mechanical and electrical tests must be combined as far as possible.
+
+The supplier must download the VinFast test standards via the Supplier Collaboration Portal/TC. Unless otherwise expressly agreed, a measurement report for each sample part must be enclosed in the delivery. The component developer must ensure compliance with all relevant legislations related exclusively to their component. Furthermore, it must be guaranteed that all internal VF requirements outlined in the performance specification are fulfilled.
+
+Test results must be documented with photos and committed to VF. All relevant target market law obligations must be achieved. Tests should be documented according to VinFast standards or, alternatively, using B2P SUP standards if accepted by VF.
+
+The B2P SUP must evaluate and perform tests for all development phases as per the specification. Tests must be formatted into the required DVP&R template (as an enclosure to the offer). Samples for sample inspections must be made available in time or by the agreed deadline as coordinated with the test department. Corresponding samples must be presented at approval offices with Cubing reports and Appearance Approval reports as outlined in VF Standard Color Matching / Appearance Approval (VFDST00038400). Matching parts, with provided timing, must be presented by B2P SUP as managed by the matching department.
+
+#### 3.3.3.2 Release by Test Departments
+The responsible VF test department will release the components only if the agreed test targets are achieved during the complete vehicle integration tests. Positive test reports for all required tests outlined in DVP&R must be submitted by B2P SUP. If any problems occur (negative results, wrong parameters/processes, etc.), a test report addressing issues and proposed solutions must be presented to keep milestones and observe targets.
+
+The first page of the report must clearly state an OK or NOK result.
+
+#### 3.3.3.3 Analyses and Test Reports
+The B2P SUP must provide measurement reports (VFDST00008900) in electronic format, which include agreed alignments and measurement concepts for all parts during prototype generations. After individual tests, the test samples must be analyzed in detail. Measurements and test results must be proven through individual values and documented in a detailed test report. Reports must be submitted to the responsible VF department for release.
+
+Initially inspected samples and data captured during development must be submitted to the responsible department for release upon request. Tests during series production must be planned and documented at regular intervals or as required.
+
+#### 3.3.3.4 Test Report Information
+Test reports must include the following:
+- Description/picture of the part with documentation (part no., change index, materials, production process, additives like grease, and deviations from the approved serial process).
+- Labeling of all tested parts with appropriate descriptions.
+- Reasons for testing (e.g., negative test results) and inclusion of earlier test reports.
+- Precise naming of testing standards, norms, legal requirements, or agreed-upon procedures.
+
+#### 3.3.3.5 Documentation of Results
+Documentation of test results must include:
+- A concise summary of the results (pictures, data tables, detailed findings, and photo documentation).
+- Comparison with the specification book, testing specifications, legal requirements, etc.
+- Recommendations for corrective measures or further actions in the event of negative test results.
+Page 17
+3.3.3 Testing.
+
+3.3.3.1 General.  
+The B2P SUP provides a detailed testing plan in consideration of the vehicle timing chart. It must be guaranteed that the worst-case component/system variant will be tested. In order to prevent double testing, mechanical and electrical tests must be combined as far as possible. The supplier has to download the VinFast test standards via the Supplier Collaboration Portal/TC. Unless otherwise agreed, a measurement report for each sample part must be enclosed in the delivery. The component developer must assure compliance with all relevant legislations for their component while ensuring that all internal VF requirements outlined in the performance specification are met.  
+
+All test results must be documented with photos and committed to VF. Relevant target market law obligations must be achieved. Tests must adhere to VinFast standards, or B2P SUP standards if accepted by VF. The B2P SUP is responsible for evaluating and performing tests using DVP&R templates and for ensuring scheduled availability of samples for inspection.  
+
+In order to coordinate form and surface, samples must be submitted by B2P SUP and evaluated at VF approval offices according to standards including Cubing reports and Appearance Approval reports (e.g., VF Standard Color Matching/Appearance Approval VFDST00038400). Matching parts must be present from B2P SUP; timing is managed by the matching department.
+
+3.3.6 Archival storage of tested parts.  
+Test parts may only be scrapped with approval from the VinFast test department. Upon demand, all testing documentation—including reports and descriptions of parts—must be provided.
+
+3.3.7 Virtual testing.  
+The B2P SUP is responsible for using detailed calculation methods and models for component performance evaluation, ensuring optimization and compliance with specifications. FEM calculations are required for mechanical properties such as strength and dimensional stability. Injection molding dimensions are to be optimized through simulations. Calculation models must be shared upon request with VF departments for internal integration work.  
+
+The B2P SUP must provide FEM models without additional costs upon request. Calculative documentation (e.g., FEM) of tests performed during evaluation must be completed before tool dimensioning.
+
+3.3.8 Component testing.  
+Required testing will be defined in the DVP and agreed upon between VF, VinFast, and B2P SUP. Compliance with DVP is mandatory.
+
+3.3.9 Mechanical integration tests.  
+The mechanical integration tests include:  
+- Climatic change test (VFDST00046100).  
+- Sunlight simulation (VFDST00053800).  
+- Mounting/dismounting (VFDST00009000).  
+- Vibration combined with temperature (VFDST00062600).  
+
+No distortion or functional disturbance is permitted across the whole functional temperature range in accordance with VTS standards. Behavioral consistency is required when using materials with varying thermal expansion coefficients.
+Page 18
+The tolerances of the flush and gap plan after the climate test and sun simulation must not be exceeded. If VinFast orders parts for testing on their own, the detailed description of the parts has to be attached. Parts needed for testing activities at VinFast test department have to be provided by the B2P SUP free of charge.
+
+### 3.4 General CAE Requirements
+Refer to SOR:  
+**VFSRXXCVC0201**  
+**DSUV_Appendix_2_CAE_FEM_General requirements**
+
+### 3.5 Material Requirement & Corrosion
+#### Prohibited or Restricted Substances, Emissions & Toxicology
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle according to **VFDST00007601**.  
+
+IMDS material data sheets have to be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and **VFDST00007601**.  
+
+Specific targets on vehicle indoor air quality are defined according to:  
+**VFDSXVCVC3401-VIAQ_Testing_Guideline**
+
+#### Corrosion Classification
+For determination of corrosion requirements, the corrosivity position needs to be classified for each component in the system:  
+1. **Corrosivity Low:**  
+   Used when the position is not affected by macro wetness, mud/dirt, road (deicing) salts.  
+2. **Corrosivity Medium:**  
+   Used when the position is at most moderately affected by macro wetness, mud/dirt, road (deicing) salts.  
+3. **High Corrosivity:**  
+   Default for all exterior positions directly affected by road spray.  
+4. **Very High Corrosivity:**  
+   Default for all positions directly affected by road spray, stone chipping, and dirt accumulation.
+
+The vehicle exterior is generally considered as an area with high corrosivity.
+
+#### Additional Material Requirements
+Material combinations shall be chosen so that galvanic corrosion does not occur. This includes fasteners and attached brackets. In case of a critical material combination, a proper coating must be added (e.g., paint, plastic coating, insulating spacers).  
+
+Water and dirt accumulation must be avoided; always provide drainage in the lowest positions.
+Page 19
+Also avoid dirt traps, where sand can work as an abrasive and damage the painted body by micro movements.  
+Contact surfaces to the body shall be dry, large enough for low pressure and made of non-abrasive material. Minimize micro-movement.  
+Edge coverage: Ensure burr-free edges and a paint system with good edge coverage.  
+
+### Corrosion tests:
+The parts have to pass system/component tests as well as a complete vehicle corrosion test.  
+
+**Component test for Metallic surfaces:**  
+- Salt spray test: ISO9227, acceptance criteria see below.  
+
+**For Organic coatings:**  
+- Cyclic corrosion test (CCT): ISO11997 Cycle B, acceptance criteria see below.  
+
+*Alternative tests possible, if proposed by supplier and accepted by corrosion engineer.*  
+
+#### Test criteria:
+| Area                              | Corrosivity         | Metallic coatings               | Organic coatings               | Pass criteria             |
+|-----------------------------------|---------------------|----------------------------------|--------------------------------|---------------------------|
+| Interior, mounted parts, dry area | Low                 | 240 h NSS → ISO 9227            | 96 h → ISO6270 CH             | No red rust              |
+| Exterior, engine compartment, underbody, Wet area | Medium | 480 h NSS → ISO 9227 | 5 cycl. CCT → ISO11997 Cycle B | NSS: No red rust          |
+| Exterior, engine compartment, underbody, Wet area | High/not visible for customer | 480 h NSS → ISO 9227 | 10 cycl. CCT → ISO11997 Cycle B | CCT: See below           |
+| High/visible, very high           | 720 h NSS → ISO 9227 | 10 cycl. CCT → ISO11997 Cycle B + stonechipping protection where needed | See below |
+
+#### Pass criteria for organic coatings after CCT:
+- **Rust creep according to ISO4628-8:**
+  - Galvanized steel: d ≤ 4 mm.
+  - Steel (non-galvanized) and aluminum sheet: d ≤ 1–2 mm.  
+
+- **Blistering:**  
+  - Blister size max. S2 (according to DIN EN ISO 4628-2).  
+
+- **Edge corrosion:**  
+  - ≤ 10%.  
+
+- **Weld seam corrosion:**  
+  - ≤ 5%.  
+
+- **Degree of rusting:**  
+  - ≤ Ri 1 (according to ISO4628-3).
+Page 20
+Stainless steel:  
+Avoid direct contact with other metals (galvanic corrosion); in most cases, an insulating coating is needed. Test criteria for high visible parts: 720 h NSS ISO 9227 without change of surface. Check especially areas with crevices. Execute component tests with assembled sub-systems, where possible, and in a position as installed on the vehicle.
+
+Aluminium parts:  
+Aluminium parts in high visible areas have to be painted or anodized.  
+- Test criteria Painted Aluminium: see test criteria for organic coatings.  
+- Test criteria Anodized Aluminium: 480 h NSS ISO 9227 without change of surface.  
+Execute component tests with assembled sub-systems, where possible, and in a position as installed on the vehicle.
+
+Chromed metal parts:  
+240 h NSS ISO9227 without base material corrosion.
+
+Chromed plastic parts:  
+CASS-Test According DIN EN ISO 9227 with the following durations:  
+- 48h for Exterior.  
+- 24h for Interior.  
+Acceptance criteria: no surface defects.  
+Additionally, 240h NSS ISO9227 without surface defects.  
+
+Electric parts:  
+Electrically functional units in casings and boxes with enclosed air volumes, such as different types of control units, shall be ventilated via a moisture/wetness-resistant membrane (type Gortex) when in wet locations.  
+
+Material combinations shall be chosen to prevent galvanic corrosion. This includes fasteners and attached brackets.  
+- Avoid direct contact with more noble metals like steel, stainless steels, copper, brass, nickel, and conductive or anti-static rubber in environments affected by wetness.  
+- Use surface treatments on steel fasteners, ensuring long-term corrosion resistance and compatibility with other materials.  
+
+The electrical components must be installed to avoid vibrations generating fretting corrosion.  
+Terminals and connectors: Do not place terminals at the lowest points. Corrosion protection for terminals primarily requires tightness. Electrical connections must be protected from humidity.
+Page 21
+Groundings: Connecting surfaces of grounding must be water-tight if placed in a corrosive environment.
+
+Aluminium/sealing surfaces: Aluminium alloys with copper and iron content of > 1% are very sensitive to corrosion and should be avoided for components that have sealing surfaces. Reason: corrosion may penetrate the seal very fast, opening it for moisture to enter.
+
+**Prevention of stone chipping issues:**
+The risk of damage to the bodywork and related parts by stone chipping must be minimized by design measures:
+- Wherever possible, provide shielding parts for easily damageable parts.
+- Enlarging radii of parts in high-risk areas can help to prevent severe issues.
+- In areas of high stone-hitting risk, choose part materials and paint which have the same color to avoid easily visible abrasion marks.
+- Avoid developing parts which have edges pointing in the vehicle’s driving direction.
+- For chromed styling elements on the lower areas of the vehicle, deepen them so that they cannot be hit easily by stones.
+
+**3.6 Traceability**
+For part requirements follow specification please refer to VinFast standard VFDST00010501.
+
+**3.7 Labeling of Parts**
+Suppliers follow VinFast standard VFDST00000010. Need to make a figure for the position to stick the label on parts (position labels set up with pictures).
+
+**3.8 Vehicle Architecture**
+The complete vehicle must pass the requirements from the vehicle layout plans. All changes on parts and modules affecting the vehicle layout dimensions or geometric coherence of the vehicle must be communicated to VinFast immediately by the supplier for separate evaluation. 
+
+The definition and technical geometric specifications regarding complete vehicle dimensions in the interior and exterior are based on GCIE 2016 measurement definitions.
+
+**Styling Technique Convergence:**
+All changes on parts and modules, which are affecting the Exterior and/or Interior styling surfaces of the vehicle, must be communicated to VinFast immediately by the supplier for separate evaluation. 
+
+Part or system-related technical input requirements for styling evolution loops must be provided by the supplier (e.g. tooling demands, assembly sequence), based on defined requirements from VF module leads. Technical input can be provided as office documents, 3D CAD data, or sections.
+Page 22
+3.9 Vehicle Safety.
+
+**Cooperation with VinFast vehicle safety department**  
+The supplier is responsible to support the integration of vehicle safety functions actively. Lifetime relevant laws and ratings of selling markets as well as OEM requirements must be taken into account.
+
+**General demands**  
+Unless further specific definitions will be given, the following points must be considered by the supplier:  
+- Vehicle safety functions must be maximally prepared on system level by expertise, CAE, and testing.
+- Project relevant supplier data must be handed over to VF on request and free of charge. VF is allowed to forward this to other parties within the project.
+- Target fulfillment of performances with spread effects must be secured by an adequate number of worst results from identical test series.
+- Part/system CAE models must be provided on demand to support and help reach vehicle data freeze milestones. Models must be realized within LsDyna and validated to ensure numerical and physical stability.
+- FE meshes must be homogeneous, according to part axes/geometry, and must have a density of 8–10 mm. In case of meshes not conforming to meshing guidelines, FE meshes must be re-worked.
+- For generating validated CAE material cards, activities must be planned, performed, and financed by the supplier. This includes principle tests on the system as well as on components.
+- Supplier test matrix must be defined according to full vehicle timing demands. Before higher scaled tests (sled or vehicle crash tests), supplier optimization test series must be completed.
+- Supplier-specific parts required for testing activities at any party of the project must be provided by the supplier free of charge to the relevant testing facilities. Costs for physical parts and CAE models needed by the supplier must not be passed on to VF.
+- Integration of requests from the full vehicle crash optimization process at VF must occur without additional supplier costs. Examples include material definitions, material thicknesses, additional parts, and optimization work.
+
+**General requirements**  
+- For each single target value, a mandatory 20% safety margin must be applied.
+- Occupant survival area integrity vs. part behavior and fluids must be guaranteed. This includes parts directly in contact or not directly in contact with passengers.
+- No edges below 3.2 mm during and after impact.
+- Electrical system integrity must remain during impact and for post-crash functions.
+- Relevant tolerances must be accounted for.
+- Robust target achievement must be ensured.
+- Asymmetries must be investigated on each side until VF confirms a reliable worst-case scenario.
+- No modifiers are permissible for any rating.
+Page 23
+3.9 Vehicle Safety.
+
+The supplier is responsible to support the integration of vehicle safety functions actively. Lifetime relevant laws and Ratings of selling markets as well as OEM requirements must be taken into account.
+
+**General demands:**
+- Vehicle safety functions must be maximally prepared on a system level through expertise, CAE, and testing.
+- Project-relevant supplier data must be handed over to VF upon request and free of charge. VF is permitted to forward this to other parties within the project.
+- Target fulfillment of performances with spread effects must be secured by an adequate number of identical test series’ worst results.
+- Part/system CAE models must be provided on demand, supporting and reaching vehicle data freeze milestones. These must be realized within LsDyna, and validated to ensure numerical and physical stability.
+- FE meshes must be homogeneous, following part axles/geometry with a density of 8-10mm. Non-compliant meshes must be reworked, with further VF-provided information if needed (e.g., conventions on numbering).
+- To generate validated CAE material cards, activities must be planned, performed, and financed by the supplier. Tests must include both system-wide considerations and individual components.
+- Supplier test matrices must align with full vehicle timing demands. Optimization test rounds should precede large-scale sled or crash tests.
+- Suppliers must provide any specific, project-required parts, models, or equipment free of charge for testing. Costs associated with additional parts or models of suppliers must also be covered by them.
+- Requests from full vehicle crash optimization processes at VF are to be integrated, without additional costs (related, e.g., to materials, dimensions, or added parts).
+
+**General requirements:**
+- Apply a mandatory safety margin of 20% for all target values.
+- Ensure occupant survival area integrity versus part behavior, including non-direct or indirect passenger contacts.
+- Avoid edges under 3.2mm during/after impacts.
+- Guarantee electrical system functionality during impact-based testing and post-crash conditions.
+- Account for tolerance variations.
+- Achieve robust performance targets.
+- Investigate asymmetries thoroughly to confirm reliable worst-case scenarios.
+- Ensure no rating-modifying measures are applied.
+
+---
+
+3.10 Operational Strength (Stiffness / Strength / Durability).
+
+Ensure sufficient operational strength under vehicle-typical operational conditions including operating loads and special events.
+
+**Operating loads:**
+- These loads occur during intended vehicle use, measured with benchmark vehicles on VF-approved test tracks.
+- Tested mileage aligns with the vehicle’s desired customer mileage target: 160,000 km.
+
+**Special events:**
+- These are low-frequency occurrences (< 100 events) inherent to intended vehicle use, such as ABS braking. 
+- Vehicles must sustain functionality without safety-relevant damage or reduced service life.
+
+---
+
+3.11 Environmental Compatibility.
+
+Minimize environmental impacts across the product’s lifecycle to align with future innovative development while prioritizing:
+- Use of recyclable and renewable materials.
+- Incorporating recycled materials.
+- Hazardous substance avoidance.
+- Reducing compartment emissions and odors.
+- Resource consumption efficiency.
+- Strategies preventing waste.
+Page 24
+3.11 Environment Compatibility.
+
+Parts marking for identification must be provided at the end of life, along with depollution and drainage.
+
+Compliance with the following standards is mandatory:
+- Reuse, Recycling & Recoverability obligations for vehicles, components, and parts as defined by UN Regulation No. 133.
+- Parts marking for identification at the end-of-life stage using ISO standards.
+- Prohibition & Restriction of substances as outlined in the Global Automotive Declarable Substances List (GADSL).
+- Adherence to Vietnam Law on Chemicals No. 06/2007/QH12, including the national chemical inventory 2017.
+- Compliance with California Proposition 65.
+- Compliance with ELV Directive 2000/53/EC and REACH (EC) No 1907/2006.
+- Regulation (EC) No 850/2004 concerning persistent organic pollutants.
+- Conflict Minerals Reporting for suppliers using tin, tungsten, tantalum, or gold in their products as per US Dodd-Frank Act Sec. 1502 (applicable to companies listed on US stock exchanges).
+- Reduction of environmental impacts aiming at Global Warming Potential (carbon footprint) and resource consumption in alignment with Life Cycle Analysis as per ISO 14040.
+
+**Material Information, Parts Marking & Substance Information for VinFast.**
+- The supplier must ensure compliance with prohibited and restricted substances throughout the entire product life cycle for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts.
+    - PPAP material data sheets (MDS) must follow IMDS Rules and Guidelines (IMDS 001 and Recommendations 002-022). Updates are required for changes.
+- Material data sheets must be submitted to VinFast IMDS-ID 214435.
+- Parts marking should use concise type designations defined by DIN, EN, or ISO standards, prioritized in ISO format.
+- Marking utilizes arrowed brackets consisting of mathematical signs for "more than" (>) and "less than" (<).
+
+**Material Safety Data Sheets (SDS):**
+- SDS must adhere to Vietnam Law on Chemicals No. 06/2007/QH12, including the national chemical inventory 2017, and must be submitted to VinFast for milestone concept confirmation.
+- Local rules and UN guidelines for SDS creation must be considered, in accordance with GHS Globally Harmonized System of Classification, Labelling, and Packaging of Chemicals.
+
+Further information is available at:  
+[UNECE GHS Guidelines](http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html)
+Page 25
+https://www.gadsl.org/  
+https://www.sec.gov  
+
+**Emissions & Toxicology:**  
+Not applicable.  
+
+**Pyrotechnic initiator neutralization:**  
+Not applicable.  
+
+**Recycling:**  
+
+**Recycled materials:**  
+When selecting materials, attention is to be focused on reducing the variety of materials and on compatibility with available recycling procedures (so called ‘proven recycling technologies’).  
+Secondary raw materials (post-consumer recyclates and post production recyclates, e.g. recycled polymeric PET fiber, recycled textiles, recycled foams, recycled thermoplastics, etc.) have to be preferred in respect to availability on market. Recycled materials have to be marked according to parts marking standards defined in this specification book and must be reported to the environmental compliance expert’s team at VinFast.  
+
+**Recycling scheme:**  
+This chapter establishes the general project-wide requirements on the recycling and repair scheme in the development of a component.  
+Design for recycling of parts and components is required in order to enable cost-effective recycling at end-of-life.  
+The recycling scheme provided by the contractor has to show a simple layout for the possible recycling process of the component including information about preferred recycling partners and cost estimation.  
+Recycling scheme has to be provided to the environmental expert team at VinFast before milestone PTO Production Try-Out.  
+
+**Evaporative emissions:**  
+Not applicable.  
+
+---
+
+**4 Homologation and safety regulations**  
+
+Safety is one of the key issues in the development and integration of automotive functionalities.  
+Functional safety is concerned with E/E systems.
+Page 26
+4.1 Homologation and safety regulation requirements.
+
+4.1.1 North America.
+
+a. Homologation and safety regulation activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b. Self-certification and test report(s).  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale. VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The Supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.    
+(*) Refer to Appendix 8 of Manufacturer_Handbook.  
+
+c. Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast about such an issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.  
+
+4.1.2 Europe.
+
+a. Homologation and safety regulation activities.  
+The Supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.  
+
+b. Test report(s) and Certificate(s).  
+The Supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale. VinFast requests Suppliers to conduct tests as specified in certain UN-ECE regulations at authorized technical services. The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+
+VinFast also requests the Supplier to provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities to obtain certification for the EC vehicle type-approval (if any).
+Page 27
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.
+
+## 5 Deliverables
+
+### 5.1 Technical Deliverables  
+Work Interface Chart (RASI): The main supplier obligations are described in the Work Interface Chart (RASI). The status of the supplier (“Built to Print”) is defined below System / Component Specification.  
+
+RASI is defined as follows:  
+**R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+**A: Approval**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+
+**S: Support**  
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how).  
+This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+**I: Information**  
+Right to information. This team member is entitled to demand information from R.
+
+### 5.2 Details Deliverables and RASI  
+Need to revise the date of RASI following Master Timing latest from PMO side.
+Page 28
+6 Supplier responsibilities  
+Supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.  
+
+**Customer service requirements**  
+
+**After-sales spare parts should be ready at startup**  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+**Spare Parts Support Cycle**  
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+
+**Maintenance Information of After-Sale Spare Parts**  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).
+Page 29
+7 Intellectual Property / Copyright  
+Refer to VinFast General Term and Condition (GTC).  
+
+If the supplier is proposing their existing parts, components or designs to be used, it must be ensured that there will be no Intellectual Property infringement. Suppliers must submit relevant documents or certificates in this regard.  
+
+Suppliers must notify VinFast if, at any stage, they believe there is a likelihood of infringement of third-party intellectual property rights by the manufacture, importation, use, or sale of the part anywhere in the world.  
+
+8 Insurance / Warranties  
+Refer to VinFast General Term and Condition (GTC).  
+
+9 VinFast GTC & Part Packaging and Incoterms  
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirement in the RFQ package.  
+
+10 Definitions and List of Abbreviations  
+
+DVP&R  
+Design Verification Plan & Report  
+
+ESO  
+Engineering Sign Off  
+
+GTC  
+General Term and Condition  
+
+LLS  
+Long Lead Suppliers on board  
+
+LLT  
+Long Lead Tooling  
+
+LOI  
+Letter of Intent  
+
+MFC  
+Manufacturing Feasibility Confirmation  
+
+MSC  
+Manufacturing Strategy Confirmation  
+
+MSI  
+Major Suppliers Identified  
+
+MSO  
+Manufacturing Sign Off  
+
+OTS  
+Off Tools Samples  
+
+PTP  
+Prototype Parts out of Serial tooling (Hand finished)  
+
+RFQ  
+Request For Quotation  
+
+SLS  
+Short Lead Suppliers on board  
+
+SOB  
+Supplier on Board  
+
+SOP  
+Start of Production  
+
+SOP-ID  
+SOP-Implementation Date  
+
+SOP-LM  
+SOP Launch Model (1 specific Model – “Edition”)  
+
+SST  
+Sourcing Strategy  
+
+TS  
+Theme Selection Model  
+
+FUSA  
+Functional Safety  
+
+T&V  
+Testing & Validation

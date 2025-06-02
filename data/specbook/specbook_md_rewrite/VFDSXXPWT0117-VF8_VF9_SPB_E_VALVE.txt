@@ -1,0 +1,722 @@
+Page 1
+Spec Book.
+
+Supersedes edition (06.2020).
+
+Spec Book for BEV E-valves.
+Page 2
+Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop a new C-SUV vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are considered essential target features. This Spec book provides details for all components for mass production in the PREM Program.
+
+Responsible Contact: Oscar Yanez Arreola.
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Contents.
+
+SCOPE AND PURPOSE ..................................................................................................... 2  
+SCOPE OF PRODUCT/COMMODITY ................................................................................ 6  
+1.1 Vehicle profile ................................................................................................................................ 6  
+VFDSXVCVC0501 ................................................... ERROR! BOOKMARK NOT DEFINED.  
+VF32_ICE_BEV_APPENDIX_5_FEATURES LIST . ERROR! BOOKMARK NOT DEFINED.  
+1.2 Sales Markets ................................................................................................................................ 6  
+1.3 Production volume ........................................................................................................................ 6  
+  1.3.1 For Vietnam market ........................................................................................................... 6  
+      VFDSXVCVC2101 ............................................................................................................... 6  
+      VF32+VF33_APPENDIX_1_PRODUCT_VOLUME ............................................................ 6  
+  1.3.2 For US market ................................................................................................................... 6  
+      VFDSXVCVC2101 ................................................... ERROR! BOOKMARK NOT DEFINED.  
+      VF32+VF33_APPENDIX_1_PRODUCT_VOLUME ............................................................ 6  
+
+PROGRAM TIMING AND BUILD PLAN ............................................................ 6  
+2.1 Timing plan .................................................................................................................................... 6  
+2.2 Build Plan ...................................................................................................................................... 6  
+
+ORGANIZATION AND CONTACT ..................................................................... 7  
+
+DEFINITIONS AND APPLICABLE DOCUMENTS ............................................. 7  
+4.1 CAD Data/ Tranfer data-CAD Requirements ................................................................................ 7  
+4.2 Change Documentation and Part History Documentation ............................................................ 7  
+
+DESCRIPTION AND SCOPE OF WORK ........................................................... 7  
+5.1 Technical requirement ................................................................................................................... 7  
+   We have two part nos for four way valves because of EE requirement. EE needs to have  
+   independent ID for each valve for communication. ....................................................................... 8  
+  5.1.1 System description ............................................................................................................ 8  
+  5.1.2 Package layout overview: .................................................................................................. 9  
+  5.1.3 Function ............................................................................................................................. 9  
+  5.1.4 System requirements ...................................................................................................... 10  
+  5.1.5 Interfaces ......................................................................................................................... 11  
+5.2 General CAE Requirements ........................................................................................................ 11  
+5.3 Material requirement ................................................................................................................... 12  
+5.4 Traceability .................................................................................................................................. 12  
+5.5 Labeling of Parts ......................................................................................................................... 12  
+
+TESTING AND VALIDATION AND DVP&R ..................................................... 12  
+
+FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS ..... 13  
+7.1 Functional Safety Requirements ................................................................................................. 13  
+7.2 Deliverables for Functional Safety .............................................................................................. 13  
+   a) FUSA Deliverables expected before nomination .............................................................. 13  
+   b) FUSA Deliverables expected after nomination ................................................................. 13  
+7.3 Homologation and safety regulation requirements ..................................................................... 14  
+  7.3.1 North America ................................................................................................................. 14  
+  7.3.2 Europe ............................................................................................................................. 14
+Page 4
+Contents.
+
+8 DELIVERABLES .............................................................................................. 15.
+8.1 Technical deliverables ................................................................................................................. 15.
+8.2 Details deliverables and RASI ..................................................................................................... 16.
+
+9 SUPPLIER RESPONSIBILITIES ...................................................................... 18.
+
+10 INTELLECTUAL PROPERTY / COPYRIGHT .................................................. 18.
+
+11 INSURANCE / WARRANTIES ......................................................................... 18.
+
+12 VINFAST GTC & PART PACKAGING AND INCOTERMS .............................. 18.
+
+13 DEFINITIONS AND LIST OF ABBREVIATIONS ............................................. 18.
+Page 5
+Release.
+
+Version: 13.0.  
+Date: Jun-2020.  
+
+Updated by:  
+Function: Powertrain.  
+Name: Oscar Yanez Arreola.  
+
+Revisions since previous version.  
+
+| Version | Change Description | Signature | Date        |
+|---------|---------------------|-----------|-------------|
+| 1.      | First Release       |           | 25.08.2020  |
+Page 6
+Scope of product/commodity.
+
+1.1 Vehicle profile.
+Refer to appendix: VFDSXXCVC0501 VF36/VFe36_Appendix_5_Feature list.
+
+1.2 Sales Markets.
+LHD countries: Vietnam (VN) & Asean, US.
+
+1.3 Production volume.
+1.3.1 For Vietnam market.
+Refer to appendix: VFDSXVCVC2101 VF32+VF33_Appendix_1_Product_Volume.
+
+1.3.2 For US market.
+Refer to appendix: Product_Volume.
+
+Program Timing and Build Plan.
+
+2.1 Timing plan.
+Appendix_1_Project timing.
+
+2.2 Build Plan.
+- Build volume under preparation. Will be communicated shortly with the updated plan by PMO side.
+Page 7
+**VinFast Management System**
+
+**VFDSXXPWT0117**
+
+**Version: 13**
+
+**Uncontrolled copy when printed**
+
+---
+
+### 3. Organization and Contact
+
+#### Contact Information:
+- **Commodity Buyer**  
+  - Name: Le Thi My Le  
+  - Email: v.leltm@vinfast.vn  
+  - Contact Number: 0833337086  
+
+- **Commodity Buyer Manager**  
+  - Name: Tran Thi Minh Huong  
+  - Email: v.huongttm5@vinfast.vn  
+  - Contact Number: 0963882622  
+
+- **Commodity Engineering**  
+  - Name: Oscar Yanez Arreola  
+  - Email: v.oscary@vinfast.vn  
+  - Contact Number: +84 814 153 366  
+
+- **Commodity Engineering Manager**  
+  - Name: Oscar Yanez Arreola  
+  - Email: v.oscary@vinfast.vn  
+  - Contact Number: +86 185 1614 7440  
+
+- **SQE (Site Engineer)**  
+  - Name: Mark Shannon  
+  - Email: v.shannonm@vinfast.vn  
+  - Contact Number: +86185 1614 7440  
+
+- **SQE Manager**  
+  - Name: Mark Shannon  
+  - Email: v.shannonm@vinfast.vn  
+  - Contact Number: +86185 1614 7440  
+
+- **SCM Analyst**  
+  - Name: Dilshod Tokhtasinov  
+  - Email: v.dilshod@vinfast.vn  
+  - Contact Number: +84(0) 888352662  
+
+- **Packaging Analyst**  
+  - Name: Attsawarungsun Nimnaul  
+  - Email: v.nimnaula@vinfast.vn  
+  - Contact Number: +84(0) 888329955  
+
+- **SCM Manager**  
+  - Name: Benjamin Peter Stewart  
+  - Email: v.bens@vinfast.vn  
+  - Contact Number: +84(0) 888798855  
+
+---
+
+### 4. Definitions and Applicable Documents
+
+#### 4.1 CAD Data/Transfer Data-CAD Requirements:
+- All CAD data must be designed with CATIA V5 adhering to VF standard VFDST00000014.  
+- CAD data transfer from VinFast to the supplier will occur through the Supplier Collaborative Module. For more details, refer to the Supplier Collaborative Module included in the RFQ package.
+
+#### 4.2 Change Documentation and Part History Documentation:
+- During development and production processes, all change history within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor. Examples include entries in a project manual.  
+- Documentation format can be defined by the contractor.  
+- Vehicle documentation systems or components fulfilling safety regulations or legal requirements must be highlighted in drawings.  
+- Authorities determine reasons and characteristics that require documentation.  
+- These requirements will be requested during part development and no later than the PTO phase.
+
+---
+
+### 5. Description and Scope of Work
+
+#### 5.1 Technical Requirement:
+- This specification establishes the technical cooling module requirements for BEV e-valves.  
+- VINFAST reserves the right to audit the observance of all requirements outlined in the technical specification at all times.  
+- The system developer is obligated to develop all technical solutions and requirements based on available vehicle and design data during the design process to fulfill the project objectives.
+Page 8
+The technical and commercial release will be processed by the customer according to change management. For BEV vehicles, the thermal management e-valve is one important component of the cooling system. The aim of the assignment is to have a validated e-valve for the BEV variants that support EDS cooling and battery cooling/heating.
+
+### Table 1:
+1. Part Name: E-VALVE_3-WAY, Part No.: PWT30203004, Quantity: 1, Material: P, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+2. Part Name: E_VALVE_3-WAY_BODY, Part No.: PWT30202047, Quantity: 1, Material: D, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+3. Part Name: E_VALVE_3-WAY_BRACKET, Part No.: PWT30202048, Quantity: 1, Material: D, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+4. Part Name: E_VALVE_3-WAY_BOLT, Part No.: PWT30202049, Quantity: 4, Material: D, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+5. Part Name: E-VALVE_3-WAY_BYPASS, Part No.: PWT30202065, Quantity: 1, Material: P, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+6. Part Name: E_VALVE_3-WAY_BYPASS_BODY, Part No.: PWT30202066, Quantity: 1, Material: D, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+7. Part Name: E_VALVE_3-WAY_BYPASS_BRACKET, Part No.: PWT30202067, Quantity: 1, Material: D, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+8. Part Name: E_VALVE_3-WAY_BYPASS_BOLT, Part No.: PWT30202068, Quantity: 4, Material: D, Purchase Level: VN+ASEAN (SMART, PLUS), US (PLUS).
+
+We have two part numbers for four-way valves because of EE requirements. EE needs to have an independent ID for each valve for communication.
+
+#### 5.1.1 System description
+The e-valve is one of the main auxiliary devices used to control the flow passing through the battery for heating and cooling. The objective is to collect product portfolio information to make an informed selection of e-valves necessary to support BEV applications.
+Page 9
+5.1.2 Package layout overview.
+Complete vehicle is still under development. Use dimensions provided as reference to confirm technical feasibility and provide initial quotation. More accurate dimensions/envelops will be provided once they are available.  
+The system designer has to coordinate all components of the module in relation to packaging, function, fixing, and tolerances.  
+
+Dimensions will be defined based on BEV layout, but the objective is a compact design. Taking into account overall low cost and acceptable quality, it is the responsibility of the supplier to confirm the most cost-effective alternative(s) for each variant.  
+
+5.1.3 Function.
+The coolant pump is subjected to:
+- Operating temperatures ranging from –30°C to +100°C.
+- System pressure: up to 2 bar.
+Page 10
+- Operating Voltage: 12V.
+- Communication methods: LIN / PWM / CAN.
+- Pressure drop requirement: 15 kPa at a flow rate of 25 lpm.
+- Weight specification: 500 grams.
+- Coolant specification: Ethylene Glycol-based coolant with corrosion inhibitors.
+- Robustness: All e-Valves must feature a robust construction and quiet operation.
+- Fixation and mounting: The e-Valve must include a fixation method and mounting points for integration into the vehicle. Fixation strategy shall be defined in collaboration with the supplier.
+- Electric and hydraulic connections: Must adapt individually as per system requirements.
+- Continuous operation efficiency: Each e-Valve must operate at maximum efficiency with the coolant under continuous conditions.
+- Vibration and stress resistance: The e-Valve must be free from undue vibration and able to withstand stresses experienced during startup, normal operation, and testing.
+- Water resistance: Components must endure water sprays, splashes, and submersion during wading scenarios.
+- Electrical connections: Earth and plus connections should be in a dry and clean location or resistant to water, dirt, and snow. Sensitive parts must feature waterproof designs.
+- Fixation bracket: E-Valve has to be delivered with a bracket for fixation.
+
+**5.1.4 System Requirements**
+
+System suppliers must define characteristic curve/values that are compatible with thermal and electrical requirements of high-voltage components.
+
+**Selection Criteria:** 
+e-Valve selection shall focus on flow rate and system pressure.
+
+**Fulfillment Requirements:**
+- Geometry specifications.
+- Acoustics, vibrations, and resonance behaviors.
+- Longevity aligning with operational profiles.
+- Serviceability and ease of repair.
+
+**Characteristic Curves:**
+Suppliers must provide characteristic charts showcasing the efficiency of tested E-Valves.
+
+**Coolant Requirements:**
+Coolant must be a solution mixed with hard water to optimize heat transfer and regulate operating temperature effectively.
+Page 11
+VinFast Management System  
+VFDSXXPWT0117  
+Version: 13  
+Uncontrolled copy when printed  
+11 | 19  
+
+---
+
+**Temperature of an engine and coolant function for ICE and BEV applications:**  
+Coolant is used to manage an engine's temperature. Besides cooling the system down, it contains ingredients to inhibit rust, corrosion, and scale while preventing cavitation, which is a frequent cause of structural damage.  
+
+For ICE and BEV applications, VinFast will use coolant mixed at 50% glycol and water (AF 2000).  
+
+---
+
+**Physical Properties of Coolant (AF2000):**  
+
+| % Mixture | Freezing Point (°C) | Boiling Point (°C) |  
+|-----------|---------------------|--------------------|  
+| 30%       | -15.5              | 103.3             |  
+| 50%       | -37.1              | 108.9             |  
+
+---
+
+**Ethylene Glycol (AF2000):**  
+
+| Property                            | Value   |  
+|-------------------------------------|---------|  
+| Specific Gravity @20°C             | 1.0701  |  
+| Specific Heat Kj/kg°K @ 25°C       | 3.442   |  
+| Freezing Point (50% Solution) (°C) | -36.66  |  
+| Boiling Point (°C)                 | 110.5   |  
+| Kinetic Viscosity mm²/sec @ 20°C   | 4.0     |  
+
+---
+
+**5.1.5 Interfaces**  
+
+Components must be designed to guarantee functionality in combination with all adjoining systems and interfaces.  
+**Major interface points:**  
+- Coolant Lines  
+- Electrical connection  
+- E-Valve mounting brackets  
+- BIW (clearances, packaging, resonances, stiffness)  
+- Chassis (Clearances to Chassis components, e.g., fuel system, braking system, piping, etc.)  
+- Complete vehicle performance targets  
+
+The system is subject to:  
+- Ambient temperature variations, ranging from -30°C to 100°C  
+- Corrosive environments  
+- All types of road load conditions, including moderate violence during reckless driving, poor roads, and under off-road conditions  
+
+---
+
+**Critical interface considerations:**  
+The pump mounting and fixation strategy are critical as these interfaces most influence pump positioning and clearances. These elements should improve durability, behavior, tolerances stack-up, and weight management.  
+
+---
+
+**5.2 General CAE Requirements:**  
+Please refer to Appendix 2: CAE-FEM-GENERAL
+Page 12
+5.3 Material Requirement.  
+Refer to table 1 outlined in Section 5.1.  
+
+5.4 Traceability.  
+For part requirements, follow the specifications listed in VinFast standard VFDST00010502 and VFDST00010501.  
+
+5.5 Labeling of Parts.  
+Suppliers must comply with VinFast standard VFDST00000010. Create a visual representation of the label's position on the parts, with setup pictures indicating label placement.  
+
+6 Testing and Validation and DVP&R.  
+Testing and validation responsibility is aligned with RASIC. Testing (virtual and physical) must correspond to System, Sub-system, and Component Level specifications found in the Complete Vehicle Specification Book during the conceptual phase. The detailed test plan for hardware tests is documented in the DVP&R file and should involve coordination with the Testing and Validation department.  
+
+Testing guidelines include:  
+- Declaration of standard, norm, and legal requirement.  
+- Description of the testing setup, including the devices used, with supporting pictures.  
+- Identification of the testing site (internal/external testing environment).  
+- Timeline and project plan illustrating the testing duration.  
+- Description of the tested part variants.  
+- Quantity of tested components/parts.  
+
+Ensure the Mileage Target Life is set at 160,000 km or 10 years, whichever comes first.  
+
+Refer to DVP – XXXX.  
+
+### Statement of Requirement (SOR) - Specification Book.
+
+**VinFast General FE Modelling and Analysis Requirements.**  
+Finite Element Modelling requirements to support VinFast SOR.  
+
+**Range of Validity:**  
+Project VINFAST.  
+
+The reproduction, distribution, and utilization of this document, along with the communication of its contents, are prohibited without explicit authorization. Offenders are liable for damages. All rights reserved pending the grant of a patent, utility model, or design. Nothing in this standard overrides applicable laws and regulations.
+Page 13
+7 Function Safety, Homologation and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### 7.1 Functional Safety Requirements.
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+< MGL and FuSa to add here reference to system-specific Functional Safety Requirements document. >
+
+### 7.2 Deliverables for Functional Safety.
+Indicative RASIC* for expected deliverables:
+
+| 5.5 Work Products | VINFAST | SUPPLIER |
+|--------------------|---------|----------|
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R | I |
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3. | R | S |
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3. | A | R |
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3. | A | R |
+| 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I | R |
+| 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3. | R | S |
+| 6.5.3 Safety case, resulting from 6.4.6. | A | R |
+
+---
+
+**RASIC Description in Section “Deliverables”.**
+
+#### a) FUSA Deliverables Expected Before Nomination.
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5.  
+  **Note:** The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+#### b) FUSA Deliverables Expected After Nomination.
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or completed.
+Page 14
+7 Function Safety, Homologation and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+7.1 Functional Safety Requirements.
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, which specifies quality management system requirements for automotive production. Additionally, suppliers must ensure compliance with ISO 26262:2018 standard for "Road vehicles – Functional safety."
+
+< MGL and FuSa to add here reference to system-specific Functional Safety Requirements document. >
+
+7.2 Deliverables for Functional Safety.
+Indicative RASIC for expected deliverables:
+- **5.5 Work Products:**
+  - **5.5.1 Supplier selection report** resulting from requirements 5.4.2.1 and 5.4.2.2 (R: VinFast, I: Supplier).
+  - **5.5.2 Development interface agreement (DIA)** resulting from requirement 5.4.3 (R: VinFast, S: Supplier).
+  - **5.5.3 Supplier's project plan** resulting from requirement 5.4.3 (A: VinFast, R: Supplier).
+  - **5.5.4 Supplier's safety plan** resulting from requirement 5.4.3 (A: VinFast, R: Supplier).
+  - **5.5.5 Functional safety assessment report** resulting from requirements 5.4.5.1 to 5.4.5.5 (I: VinFast, R: Supplier).
+  - **5.5.6 Supply agreement** resulting from requirements 5.4.6.2 to 5.4.6.3 (R: VinFast, S: Supplier).
+  - **6.5.3 Safety case**, resulting from 6.4.6 (A: VinFast, R: Supplier).
+
+*RASIC description in the "Deliverables" section.*
+
+- **FUSA Deliverables Expected Before Nomination:**
+  - Suppliers shall propose, for each safety requirement, a supplier acceptance statement and/or justification if they cannot meet the safety requirements.
+  - Based on the Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree on a Development Interface Agreement (DIA) as described in ISO 26262-8 clause 5.4.3.1.
+
+- **FUSA Deliverables Expected After Nomination:**
+  - The supplier shall submit a Safety Plan for VinFast approval, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan must contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+  - The supplier shall submit a Safety Case for VinFast approval, describing relevant information (outcome and results, deviations, and measures) of the functional safety activities. Note: The Safety Case must conform to ISO 26262-2 clause 6.5.3.
+
+7.3 Homologation and Safety Regulation Requirements.
+
+7.3.1 North America.
+- **Homologation and Safety Regulation Activities:**
+  - Suppliers must ensure compliance of their part(s), product(s), or system(s) with applicable regulations like FMVSS (Federal Motor Vehicle Safety Standards) and CMVSS (Canadian Motor Vehicle Safety Standards).
+  - Suppliers must provide and/or support documentation for submission to relevant authorities.
+  
+- **Self-Certification and Test Report(s):**
+  - Suppliers are responsible for “self-certifying” their part(s), product(s), or system(s) to meet FMVSS/CMVSS standards before sale.
+  - Suppliers must conduct tests as per FMVSS/CMVSS and provide test reports to VinFast as evidence of compliance.
+  - Suppliers must be familiar with laboratory test procedures referenced by U.S./Canadian Governments for evaluating compliance.
+
+(*) Refer Appendix 8 of Manufacturer_Handbook.
+
+- **Duty to Notify VinFast of Non-Compliance:**
+  - Suppliers shall notify VinFast within five working days after determining non-compliance with FMVSS/CMVSS or European regulations or identifying a safety-related defect.
+  - Suppliers shall propose appropriate risk assessment and resolution plans.
+
+7.3.2 Europe.
+- **Homologation and Safety Regulation Activities:**
+  - Suppliers must ensure compliance of their part(s), product(s), or system(s) with United Nations Economic Commission for Europe (UN-ECE) regulations.
+Page 15
+7 Function Safety, Homologation and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### 7.1 Functional Safety Requirements
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, which defines quality management system requirements for automotive production. Furthermore, the supplier shall ensure compliance with ISO 26262:2018 standard for road vehicles – functional safety.
+
+Additional references for system-specific functional safety requirements should be included by MGL and FuSa.
+
+### 7.2 Deliverables for Functional Safety
+The following deliverables are outlined with indicative RASIC definitions:
+- **5.5 Work Products:**  
+  - **5.5.1 Supplier selection report** resulting from requirements 5.4.2.1 and 5.4.2.2.  
+    - R: VinFast  
+    - I: Supplier  
+  - **5.5.2 Development interface agreement (DIA)** resulting from requirement 5.4.3.  
+    - R: VinFast  
+    - S: Supplier  
+  - **5.5.3 Supplier's project plan** resulting from requirement 5.4.3.  
+    - A: VinFast  
+    - R: Supplier  
+  - **5.5.4 Supplier's safety plan** resulting from requirement 5.4.3.  
+    - A: VinFast  
+    - R: Supplier  
+  - **5.5.5 Functional safety assessment report** resulting from requirements 5.4.5.1-5.4.5.5.  
+    - I: VinFast  
+    - R: Supplier  
+  - **5.5.6 Supply agreement** resulting from requirements 5.4.6.2-5.4.6.3.  
+    - R: VinFast  
+    - S: Supplier  
+  - **6.5.3 Safety case** resulting from 6.4.6.  
+    - A: VinFast  
+    - R: Supplier  
+
+**RASIC Key:**
+- R: Responsible  
+- A: Approval  
+- S: Support  
+- I: Information  
+
+#### FUSA Deliverables:
+**Before nomination:**  
+Suppliers are expected to propose acceptance statements for each safety requirement and, where applicable, justification for non-compliance.  
+
+A Development Interface Agreement (DIA) must be formulated in accordance with ISO 26262-8 clause 5, detailing responsibilities, resources, and safety goals.
+
+**After nomination:**  
+- A Safety Plan must be submitted for VinFast's approval, detailing processes, activities, and documentation requirements as defined in ISO 26262-2 clause 6.4.3.5.  
+- A Safety Case must be compiled in accordance with ISO 26262-2 clause 6.5.3, summarizing outcomes, deviations, and resolutions related to functional safety activities.
+
+### 7.3 Homologation and Safety Regulation Requirements
+
+#### 7.3.1 North America
+**a. Homologation activities:** Supplying companies must ensure compliance with applicable standards such as FMVSS and CMVSS. Documentation must be shared with relevant authorities.  
+
+**b. Self-certification:** Suppliers must self-certify products to meet relevant standards and provide test reports to VinFast. Familiarity with government laboratory testing procedures is expected (see Appendix 8 of Manufacturer_Handbook).  
+
+**c. Duty to notify:** Suppliers are obligated to report non-compliance or safety-related defects to VinFast within five working days, proposing risk assessments and corrective actions.
+
+#### 7.3.2 Europe
+**a. Homologation activities:** Suppliers must comply with UN-ECE regulations and support EC vehicle type-approvals.  
+
+**b. Test reports and certificates:**  
+Authorized services must conduct required tests, with test reports and certificates provided as evidence of compliance. Supporting technical documentation is also required.  
+
+**c. Duty to notify:** Suppliers are obligated to notify VinFast of non-compliance within five days, providing resolutions and risk assessments.
+
+---
+
+### 8 Deliverables
+
+#### 8.1 Technical Deliverables
+The work interface chart (RASI) outlines supplier obligations, defining "System Development Supplier" roles and responsibilities per specification.  
+
+RASI Definitions:  
+- **R: Responsible**: Executes activities ensuring fulfillment of requirements.  
+- **A: Approval**: Responsible for final decisions and releases.  
+- **S: Support**: Provides proactive assistance, including resource allocation and knowledge sharing.  
+- **I: Information**: Entitled to demand information from R.
+Page 16
+8.2 Details deliverables and RASI.
+
+Need to revise the date of RASI to follow the latest Master Timing from the PMO side.
+Page 17
+### 7. Function Safety, Homologation and Safety Regulations
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+#### 7.1 Functional Safety Requirements
+The supplier shall ensure that the developed/manufactured part(s) meet the following standards:
+- **IATF 16949:2016 standard** for quality management systems in automotive production.
+- **ISO 26262:2018 standard** for road vehicle functional safety.
+
+#### 7.2 Deliverables for Functional Safety
+The RASIC chart outlines the indicative deliverables:
+1. **Supplier selection report** resulting from requirement 5.4.2.1 and 5.4.2.2: `VinFast: R`, `Supplier: I`.
+2. **Development interface agreement** (DIA) resulting from requirement 5.4.3: `VinFast: R`, `Supplier: S`.
+3. **Supplier’s project plan** resulting from requirement 5.4.3: `VinFast: A`, `Supplier: R`.
+4. **Supplier’s safety plan** resulting from requirement 5.4.3: `VinFast: A`, `Supplier: R`.
+5. **Functional safety assessment report** from requirements 5.4.5.1–5.4.5.5: `VinFast: I`, `Supplier: R`.
+6. **Supply agreement** from requirements 5.4.6.2–5.4.6.3: `VinFast: R`, `Supplier: S`.
+7. **Safety case** resulting from requirement 6.4.6: `VinFast: A`, `Supplier: R`.
+
+Deliverables are expected both before and after nominations:
+- **Before nomination**: Suppliers should provide acceptance statements for safety requirements and discuss DIA based on ISO 26262-8 clause 5.
+- **After nomination**: Suppliers must propose a Safety Plan (ISO 26262-2 clause 6.4.3.5) and compile a Safety Case (ISO 26262-2 clause 6.5.3).
+
+#### 7.3 Homologation and Safety Regulation Requirements
+**7.3.1 North America**
+- Suppliers must ensure parts comply with FMVSS/CMVSS standards.
+- **Self-certification**: Suppliers must self-certify parts for compliance with applicable FMVSS/CMVSS standards and provide test reports to VinFast.
+- Suppliers must **notify VinFast** within five working days of discovering a non-compliance or safety-related defect.
+
+**7.3.2 Europe**
+- Suppliers must ensure parts comply with UN-ECE regulations.
+- Suppliers are responsible for obtaining test reports and/or certificates from authorized technical services and providing documentation for EC vehicle type-approval.
+- Suppliers must **notify VinFast** of non-compliance within five working days and propose risk assessments and resolution plans.
+
+---
+
+### 8. Deliverables
+#### 8.1 Technical Deliverables
+The main supplier obligations are described in the Work Interface Chart (RASI):
+- **Responsible (R):** Execute activities and fulfill requirements.
+- **Approval (A):** Decide and approve releases.
+- **Support (S):** Provide active assistance to those responsible.
+- **Information (I):** Be informed and demand necessary information. 
+
+#### 8.2 Detailed Deliverables and RASI
+RASI dates must follow the latest revision from PMO Master Timing.
+
+---
+
+### Deliverables Table
+| **No** | **Gate** | **Stage**                                             | **Deliverable**                                                                                              | **VF Engineering** | **VF Purchasing** | **Supplier** | **SQE** | **Manufacturing** |
+|--------|----------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|--------------------|-------------------|--------------|---------|-------------------|
+| 1      | PV       | List of Concept in Commodity                           | R                                                                                                           | S                 | I                | I            | I                   |
+| 2      | PV       | SOR for Concept in Commodity                           | R                                                                                                           | S                 | I                | I            | I                   |
+| 3      | PPS      | SOB through LOI - Letter of Intent for Concept in Commodity | S                                                                                                           | R                 | S                | I            | I                   |
+| 4      | PPS      | EDD order release for Concept in Commodity             | S                                                                                                           | R                 | S                | I            | I                   |
+| 5      | PPS      | Deliver Bill of Materials in Team Center               | R                                                                                                           | I                 | I                | I            | I                   |
+
+*(Table continues up to item 58 as per the provided text.)*
+Page 18
+9 Supplier responsibilities  
+Supplier is responsible to provide/ensure while completing the work. Supplier Responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.  
+
+### Customer service requirements  
+**After-sales spare parts should be ready at startup:**  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+**Spare Parts Support Cycle:**  
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+
+**Maintenance Information of After-Sale Spare Parts:**  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).  
+
+10 Intellectual Property / Copyright  
+Refer to VinFast General Term and Condition (GTC).  
+
+11 Insurance / Warranties  
+Refer to VinFast General Term and Condition (GTC).  
+
+12 VinFast GTC & Part Packaging and Incoterms  
+Refer to VinFast General Term and Condition, Part packaging requirements and Incoterms requirement in the RFQ package.  
+
+13 Definitions and List of Abbreviations  
+
+**DVP&R:** Design Verification Plan & Report  
+**ESO:** Engineering Sign Off  
+**GTC:** General Term and Condition  
+**LLS:** Long Lead Suppliers on board  
+**LLT:** Long Lead Tooling  
+**LOI:** Letter of Intent  
+**MFC:** Manufacturing Feasibility Confirmation  
+**MSC:** Manufacturing Strategy Confirmation  
+**MSI:** Major Suppliers Identified  
+**MSO:** Manufacturing Sign Off  
+**OTS:** Off Tools Samples
+Page 19
+9 Supplier responsibilities  
+Supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.  
+
+### Customer service requirements
+
+#### After-sales spare parts should be ready at startup  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+#### Spare Parts Support Cycle  
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.  
+
+#### Maintenance Information of After-Sale Spare Parts  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).  
+
+---
+
+10 Intellectual Property / Copyright  
+Refer to VinFast General Term and Condition (GTC).  
+
+---
+
+11 Insurance / Warranties  
+Refer to VinFast General Term and Condition (GTC).  
+
+---
+
+12 VinFast GTC & Part Packaging and Incoterms  
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirement in the RFQ package.  
+
+---
+
+### 13 Definitions and List of Abbreviations  
+
+**DVP&R**  
+Design Verification Plan & Report  
+
+**ESO**  
+Engineering Sign Off  
+
+**GTC**  
+General Term and Condition  
+
+**LLS**  
+Long Lead Suppliers on board  
+
+**LLT**  
+Long Lead Tooling  
+
+**LOI**  
+Letter of Intent  
+
+**MFC**  
+Manufacturing Feasibility Confirmation  
+
+**MSC**  
+Manufacturing Strategy Confirmation  
+
+**MSI**  
+Major Suppliers Identified  
+
+**MSO**  
+Manufacturing Sign Off  
+
+**OTS**  
+Off Tools Samples  
+
+**PTP**  
+Prototype Parts out of Serial tooling (Hand finished)  
+
+**RFQ**  
+Request For Quotation  
+
+**SLS**  
+Short Lead Suppliers on board  
+
+**SOB**  
+Supplier on Board  
+
+**SOP**  
+Start of Production  
+
+**SOP-ID**  
+SOP-Implementation Date  
+
+**SOP-LM**  
+SOP Launch Model (1 specific Model – “Edition”)  
+
+**SST**  
+Sourcing Strategy  
+
+**TS**  
+Theme selection Model  
+
+**FUSA**  
+Function Safety  
+
+**T&V**  
+Testing & Validation

@@ -1,0 +1,549 @@
+
+<filename>VFDSXVEEP8015_CHILD_PRESENCE_DETECTION_V1.0</filename>
+<pages>
+
+<page number="1">
+CHILD PRESENCE DETECTION (CPD). Specification Book (SPB).
+
+Supersedes edition (06.2020).
+</page>
+
+<page number="2">
+### CPD Radar Management System
+
+#### Scope and purpose:
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop a new C-SUV vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production in the PREM Program.
+
+#### Responsible Contact:
+Le Phuong [v.lepd1@vinfast.vn]
+</page>
+
+<page number="3">
+CPD Radar  
+Contents  
+
+SCOPE AND PURPOSE  2  
+
+1 SCOPE OF PRODUCT/COMMODITY  5  
+1.1 Vehicle profile  5  
+1.2 Sales Markets  5  
+1.3 Production volume  5  
+
+2 PROGRAM TIMING AND BUILD PLAN  6  
+2.1 Timing plan  6  
+2.2 Build Plan  6  
+
+3 ORGANIZATION AND CONTACT  6  
+
+4 DEFINITIONS AND APPLICABLE DOCUMENTS  7  
+4.1 CAD Data/Transfer data-CAD Requirements  7  
+4.2 Change Documentation and Part History Documentation  7  
+
+5 DESCRIPTION AND SCOPE OF WORK  7  
+5.1 Technical requirement  7  
+5.2 FUNCTIONAL REQUIREMENT  7  
+  5.2.1 Child Presence Detection (CPD)  8  
+    5.2.1.1 Elements of Systems  8  
+    5.2.1.2 Function definition  9  
+    5.2.1.3 Performance requirement  9  
+5.3 General CAE Requirements  9  
+5.4 Material requirement  9  
+5.5 Traceability  9  
+5.6 Labeling of Parts  9  
+5.7 Network Management  10  
+  5.7.1 Network Management Requirements  10  
+
+6 TESTING AND VALIDATION AND DVP&R  10  
+
+7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS  10  
+7.1 Functional Safety Requirements  10  
+7.2 Deliverables for Functional Safety  10  
+  a) FUSA Deliverables expected before nomination  11  
+  b) FUSA Deliverables expected after nomination  11  
+7.3 Homologation and safety regulation requirements  11  
+  7.3.5 North America  11  
+  7.3.6 Europe  12  
+
+8 DELIVERABLES  12  
+8.1 Technical deliverables  12  
+8.2 Details deliverables and RASI  13  
+
+9 SUPPLIER RESPONSIBILITIES  15  
+
+10 INTELLECTUAL PROPERTY / COPYRIGHT  15
+</page>
+
+<page number="4">
+11. Insurance / Warranties  15
+
+12. VinFast GTC & Part Packaging and Incoterms  15
+
+13. Definitions and List of Abbreviations  15
+</page>
+
+<page number="5">
+Release Version: 1.0. Approval confirmed by the following:
+
+- **Creator:** Le Phuong (email: v.lepd1@vinfast.vn).
+- **Approval:** Jeachun Lee (email: leejaechun@vinfast.vn).
+
+**Revisions since previous version:**
+- Version 1.0:
+  - Initial version created by Le Phuong on 19.06.2020.
+  - Updated DVP details by Le Phuong on 19.06.2020.
+
+---
+
+### 1. Scope of Product/Commodity
+
+#### 1.1 Vehicle Profile
+Refer to appendix VFDSXVCVC0501 CSUV_ICE_BEV_Appendix_5_Features list.
+
+#### 1.2 Sales Markets
+LHD countries targeted include Vietnam & ASEAN, and the US.
+
+#### 1.3 Production Volume
+1.3.1 Production volume for Vietnam Market:
+- Refer to appendix VFDSXVCVC2101 CSUV_Appendix_1_Product_Volume.
+
+1.3.2 Production volume for US Market:
+- Refer to appendix VFDSXVCVC2101 CSUV_Appendix_1_Product_Volume.
+</page>
+
+<page number="6">
+2. Program Timing and Build Plan. 
+
+2.1 Timing plan.  
+VFDSXVCVC1101_Appendix_1_Project timing.
+
+2.2 Build Plan.  
+*Build volume under preparation, will be communicated shortly with the updated plan by PMO side.*
+
+---
+
+3. Organization and Contact.  
+
+**Contact**  
+- **Commodity Buyer**  
+  Nguyễn Thị Thu  
+  Email: v.thunt47@vinfast.vn  
+  Contact: +0383435857  
+
+- **Commodity Buyer Manager**  
+  GayanSumiththa Perera  
+  Email: v.gayanp@vinfast.vn  
+  Contact: +0888593663  
+
+- **Commodity Engineering**  
+  Vũ Quý Hưng  
+  Email: v.hungvq9@vinfast.vn  
+  Contact: +84(0) 865259574  
+
+- **Commodity Engineering Manager**  
+  Jaechun Lee  
+  Email: leejaechun@vingroup.net  
+  Contact: +821087686140  
+
+- **SQE (Site Engineer)**  
+  Đỗ Quang Khải  
+  Email: v.khaidq@vinfast.vn  
+  Contact: +0987129718  
+
+- **SQE Manager**  
+  Stuart MC Laughlin Kinkade  
+  Email: v.kinkades@vinfast.vn  
+  Contact: 0888183396  
+
+- **SCM Analyst**  
+  Dilshod Tokhtasinov  
+  Email: v.dilshod@vinfast.vn  
+  Contact: +84(0) 888352662  
+
+- **Packaging Analyst**  
+  Attsawarungsun Nimnaul  
+  Email: v.nimnaula@vinfast.vn  
+  Contact: +84(0) 888329955  
+
+- **SCM Manager**  
+  Benjamin Peter Stewart  
+  Email: v.bens@vinfast.vn  
+  Contact: +84(0) 888798855
+</page>
+
+<page number="7">
+Definitions and applicable documents.
+
+4.1 CAD Data/Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. CAD data transfer from VinFast to the supplier will be done through the Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.
+
+4.2 Change Documentation and Part History Documentation.
+During the development and production process, all changes within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g., entries in a project manual). The form of the data can be defined by the contractor. Vehicle Documentation Systems or components that must fulfill safety regulations of authorities or legal requirements must be remarked on the drawings. The reasons and the characteristics that must be documented are listed by authorities. These demands will be requested during the development of the part and latest in the PTO phase.
+
+Description and scope of work.
+
+5.1 Technical requirement.
+The technical information should show the following information: VinFast designated part number, Usage per car, Procurement code, Part applicability for C-SUV ICE and C-SUV BEV. Technical requirements include Part design, Part requirements, Functional requirements, and Performance requirements at the VinFast level. For details, please refer to Table 1.
+
+Table 1: Technical information table.
+No: 1  
+Part Name: CPD_Child_Presense_Detection  
+Part No.: EEP3008015  
+Qty: 1  
+Material: CPD  
+Purchase level: P  
+Applicability:
+- ICE: Not applicable.
+- BEV:
+  - C-SUV:
+    - SMART PLUS VN+ ASEAN: Yes.
+    - SMART PLUS US: Yes.
+
+5.2 Functional Requirement.
+The mid and premium versions of VinFast vehicles shall be equipped with several ADAS features which strongly enhance road safety and driving comfort. Generally, the ADAS system on the vehicle targets level 2 automated driving. The system can assist the driver in many daily driving tasks, extending their capability to better understand the driving environment and resulting in significant safety improvements for passengers.
+
+One important requirement for the ADAS system is enabling VinFast vehicles to achieve ASEAN NCAP 5* status by road map 2025. The function implementation must strictly adhere to the NCAP testing protocol and satisfy its requirements. The supplier is requested to study NCAP requirements to implement the function correctly and achieve the targeted points.
+</page>
+
+<page number="8">
+4 Definitions and applicable documents.
+
+4.1 CAD Data/Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. CAD data transfer from VinFast to suppliers will be done through the Supplier collaborative module. For more details, refer to the Supplier collaborative module available in the RFQ package.
+
+4.2 Change Documentation and Part History Documentation.
+During the development and production process, all history of changes within the contractor’s framework must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g., entries in a project manual). The form of the data can be defined by the contractor. Systems or components requiring compliance with safety regulations of authorities or legal requirements must be marked on the drawings. Reasons and characteristics for documentation are listed by authorities. These demands are expected to be requested during part development and, at the latest, in the PTO phase.
+
+5 Description and scope of work.
+
+5.1 Technical requirement.
+The technical information should display: VinFast designated part number, usage per car, procurement code, part applicability to C-SUV ICE and C-SUV BEV. Technical requirements include part design, functional requirements, and performance requirements at the VinFast level. For details, refer to Table 1:
+
+**Table 1: Technical information table**  
+| No | Part Name                       | Part No.     | Qty | Material | Purchase Level | ICE | BEV |  
+|----|--------------------------------|--------------|-----|----------|----------------|-----|-----|  
+| 1  | CPD_Child_Presence_Detection  | EEP3008015   | 1   | CPD      | P              | -   | Y   | Y |  
+
+5.2 Functional requirement.
+The mid and premium versions of VinFast vehicles shall feature several ADAS capabilities strongly enhancing road safety and driving comfort. The ADAS system targets level 2 automated driving, assisting drivers with daily tasks and improving safety for passengers. To meet ASEAN NCAP 5* standards (road map 2025), the system must adhere to NCAP testing protocols and satisfy requirements. Suppliers are expected to study NCAP requirements to achieve target points.
+
+VINFAST aims to score their vehicles for U.S. NCAP 5* (2022–2025). Suppliers developing ADAS system architecture for SOP 2020 must allow scalability and feature additions for future compliance. In absence of U.S. NCAP documents, EU-NCAP guidelines can be adapted. System descriptions and supplier clarifications are essential. Refer to appendices for brief NCAP overviews. Requirements for features, variants, markets, and ASIL level are outlined below:
+
+**Feature Table:**  
+| Domains    | Ab. | Feature                 | Responsible         | Vietnam | Vietnam | U.S.  | ASIL |  
+|------------|-----|-------------------------|---------------------|---------|---------|-------|------|  
+| In-Cabin Monitoring | CPD | Child Presence Detection | Phuong Dinh Le       | YES     | YES     | YES   | QM   |  
+
+Suppliers are responsible for proposing comprehensive solutions comprising components, system architecture, etc., to implement the designated features.
+
+5.2.1 Child Presence Detection (CPD).
+Children are vulnerable and unable to escape from locked cars, risking fatal heatstroke (hyperthermia). In the U.S., there is increasing demand for systems detecting children in vehicles to alert drivers to risks.
+
+**Table—Child Presence Detection:**  
+| Part Name                   | Part No.      | Quantity | Task                              | Requirements |  
+|-----------------------------|---------------|----------|-----------------------------------|--------------|  
+| CHILD_PRESENT_PROTECTION_RADAR | EEP30008015 | 1        | Detect if there are children left in the car | TBD          |  
+
+5.2.1.1 Elements of Systems.  
+Various mechanisms exist to detect child presence in vehicles, including pressure-sensing pads under seat fabrics, visible and infrared light-based vision detection, and radar technology. Suppliers must define complete system components and confirm specifications with VINFAST.
+</page>
+
+<page number="9">
+**5.2.1.2 Function definition:**  
+The function shall detect the presence of infants or children in general and make the driver aware of their presence inside the car. In case the driver or connected persons do not respond, the system shall activate various warning/alarming mechanisms such as lamp flashing or horn beeping.
+
+**5.2.1.3 Performance requirement:**
+- The system shall be able to detect the presence of children under varying lighting conditions, ranging from normal daylight to a fully dark cabin.
+- The detection mechanism shall remain functional despite varying temperatures, up to 60 degrees inside cars. This may pose challenges.
+- The system shall be capable of detecting life under fabric covers, which often happens when children are placed on car seats.
+- The system shall comply with or account for the requirements of the E-NCAP 2022 and ASEAN NCAP 2021-2025 protocols.
+- Compliance for US and Canadian markets must address legal and consumerist requirements. Performance should enable VINFAST to obtain maximum CPD scoring based on consumerist protocols.
+- Additional requirements may be discussed between VINFAST and the Supplier.
+
+**Shortfall of Function:**  
+The indication of system malfunction shall be communicated to the driver.
+
+**5.3 General CAE Requirements:**  
+Please refer to Appendix 2: CAE-FEM-GENERAL.
+
+**5.4 Material requirement:**  
+Material details must include weight, grade, and density.
+
+**5.5 Traceability:**  
+For part requirements, follow specifications outlined in VinFast standards VFDST00010502 and VFDST00010501.
+
+**5.6 Labeling of Parts:**  
+Suppliers must adhere to VinFast standard VFDST00000010.
+</page>
+
+<page number="10">
+5.7 Network Management.
+
+5.7.1 Network Management Requirements.
+- Refer to CES_VINFAST_EE_VFDSP50000010_CAN or CES_VINFAST_EE_VFDSP50000012_LIN_Specification in the latest version for network management functionality.
+- CAN bus Network management: Autosar Network Management 4.3.1 must be considered in the quotation.
+
+6 Testing and validation and DVP&R.
+Refer to appendix VFDSXVEEP8115 CSUV_DVP_Component_CPU_Radar.
+
+7 Function Safety, Homologation, and Safety Regulations.
+
+7.1 Functional Safety Requirements.
+The supplier shall ensure that the developed/manufactured part(s) meet the IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet the ISO 26262:2018 standard, Road vehicles – Functional safety.  
+The DMS and CPP systems shall meet the following safety goals:  
+
+| No | Function                   | ASIL |
+|----|----------------------------|------|
+| 1  | Driver Monitoring System   | QM   |
+| 2  | Child Presence Protection  | QM   |
+
+7.2 Deliverables for Functional Safety.
+Indicative RASIC* for expected deliverables:
+
+5.5 Work products:  
+- Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. **Responsible: VINFAST | Informed: Supplier**  
+- Development interface agreement (DIA) resulting from requirement 5.4.3. **Responsible: VINFAST | Support: Supplier**  
+- Supplier's project plan resulting from requirement 5.4.3. **Accountable: VINFAST | Responsible: Supplier**  
+- Supplier's safety plan resulting from requirement 5.4.3. **Accountable: VINFAST | Responsible: Supplier**  
+- Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. **Informed: VINFAST | Responsible: Supplier**
+</page>
+
+<page number="11">
+5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.
+Responsible: VinFast  
+Supportive: Supplier  
+
+6.5.3 Safety case, resulting from requirement 6.4.6.
+Accountable: VinFast  
+Responsible: Supplier  
+
+*RASIC description is provided in the “Deliverables” section.
+
+---
+
+7.2 FUSA Deliverables Expected Before Nomination:
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or justification if unable to meet the safety requirements.
+- Based on the list of Safety Goals and Functional Safety Requirements, VinFast and the supplier shall discuss and agree to a DIA (Development Interface Agreement) as outlined in ISO 26262-8 clause 5. The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+7.2 FUSA Deliverables Expected After Nomination:
+- The supplier shall submit for VinFast approval a Safety Plan outlining the procedures, activities, resource plan, and documentation to be conducted and/or delivered. It shall adhere to ISO 26262-2 clause 6.4.3.5.
+- The supplier shall submit for VinFast approval a Safety Case providing relevant information (e.g., outcomes, results, deviations, and measures) of the functional safety activities. This case shall comply with ISO 26262-2 clause 6.5.3.
+
+---
+
+7.3 Homologation and Safety Regulation Requirements:
+7.3.5 North America:
+
+a. Homologation and Safety Regulation Activities:
+- The supplier must ensure compliance of their part(s), product(s), or system(s) with applicable regulations such as European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).
+- The supplier must provide and/or support any documentation for submission to the relevant authorities.
+
+b. Self-Certification and Test Report(s):
+- The supplier must self-certify their part(s), product(s), or system(s) to meet all FMVSS/CMVSS requirements before products are offered for sale.
+- Suppliers must conduct tests as specified under certain FMVSS/CMVSS protocols and provide test report(s) to VinFast as evidence of compliance.
+- Familiarity with laboratory test procedures used by USA/Canada Governments to evaluate product compliance with FMVSS/CMVSS is required. (*Refer to Appendix 8 of Manufacturer Handbook).
+</page>
+
+<page number="12">
+7.3.6 Europe.
+
+The Supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, such as United Nations Economic Commission for Europe (UN-ECE) Regulations. Suppliers are responsible for obtaining applicable UN-ECE Certificates and conducting tests specified in certain UN-ECE regulations through authorized technical services. Certification and supporting documentation must be shared with VinFast, including drawings for EC vehicle type-approval.
+
+Suppliers must inform VinFast within five working days if any non-compliance or safety defects are determined for items already certified. Technical risk assessments and solutions must also be offered after concluding defects verification testing in this laboratory That's consistent for global Package.Requested once ordered.
+
+Compliance for Tests/safety goals Clause  7.13-->
+</page>
+
+<page number="13">
+VinFast Management System  
+VFSRXVEEP8015  
+
+Version: 1.0  
+
+Uncontrolled copy when printed  
+13 | 16  
+
+Print date  
+
+Status  
+
+Functional Responsibility  
+
+CPD Radar  
+
+The main supplier obligations are described in the work interface chart (RASI).  
+
+The status of the supplier (“Built to Print” or “System Development Supplier”) is defined in Part 2 System / Component Specification.  
+
+RASI is defined as follows:  
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+- **A: Approval**  
+  Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution (R) is the decider.  
+- **S: Support**  
+  Obligated to active support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (R) in achieving the targets.  
+- **I: Information**  
+  Right to information. This team member is entitled to demand information from (R).  
+
+### 8.2 Details Deliverables and RASI  
+Need to revise the date of RASI following the Master Timing latest from PMO side.
+</page>
+
+<page number="14">
+VinFast Management System  
+VFSRXVEEP8015  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+14 | 16  
+
+CPD Radar  
+
+### No. Gate - Stage - Deliverable  
+| No | Gate | Stage | Deliverable | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|-------|-------------|----------------|---------------|----------|-----|---------------|
+| 1  | PV   |       | List of Concept in Commodity | R            | S             | I            | I       | I             |
+| 2  | PV   |       | SOR for Concept in Commodity | R            | S             | I            | I       | I             |
+| 3  | PPS  |       | SOB through LOI - Letter of Intent for Concept in Commodity | S | R | S | I | I |
+| 4  | PPS  |       | EDD order release for Concept in Commodity | S             | R             | S            | I       | I             |
+| 5  | PPS  |       | Deliver Bill of Materials in Team center | R            | I             | I            | I       | I             |
+| 6  | PPS  |       | Supply chain strategy - Deliver Sourcing Strategy | S             | R             | I | S       | I             |
+| 7  | PPS  |       | Commodity Timing plan in each business area supports Program timing for concept commodity | S             | S             | R            | S       | I             |
+| 8  | PPS  |       | Organization and resources for the concept phase, resource planning for series development | S             | S             | R            | S       | I             |
+| 9  | PPS  |       | Opportunities and risks for the program have been detailed and measures defined - Cost reductions, Design Optimization, Timing optimization | A | S | R | S | I |
+| 10 | PPS  |       | Quality planning to meet program requirements - APQP Kickoff | R             | S             | S            | S       | I             |
+| 11 | PPS  |       | Concept proposal for engineering review and finalization - For Concept Commodity | A             | I             | R            | I       | I             |
+| 12 | PPS  |       | Concept & Proposal development to meet the target material cost | A             | I             | R            | I       | I             |
+| 13 | PPS  |       | Parts list and BoM available; target values for lead vehicle cost and weight verified -C Class | A | I | R | I | I |
+| 14 | PPS  |       | Initial CAD data to support C class development for Concept commodity | A             | I             | R            | I       | I             |
+| 15 | PPS  |       | System & Sub-system Functional targets agreed and cascaded to Component level, Inline with Complete Vehicle Targets | A | S | R | I | I |
+| 16 | PPS  |       | DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests | A | S | R | I | I |
+| 17 | TA   |       | Package study to support B class surface development | A               | I             | R            | I       | I             |
+| 18 | PPS  |       | Manufacturing feasibility for CAS development for concept commodity | A             | I             | R            | I       | I             |
+| 19 | PPS  |       | Design and Validation & Testing plan for concept Commodity | A             | I             | R            | I       | I             |
+| 20 | TA   |       | Parts list and BoM available; target values for lead vehicle cost and weight verified -B Class | A | I | R | I | I |
+| 21 | TA   |       | Parts list and BoM available; target values for lead vehicle cost and weight verified -A Class | A | I | R | I | I |
+| 22 | TA   |       | Contract Series development - LON for Concept Commodity / LON for B2P Commodity | A | R | S | I | I |
+| 23 | TA   |       | Timing plan for the complete Program detailing milestones and critical activities for B2P Commodity | A | S | R | I | I |
+| 24 | TA   |       | Organization and resources for the concept phase, resource planning for series development | A | S | R | I | I |
+| 25 | TA   |       | RPS / Location and fixation strategy developed and reviewed (Before B Class freeze) | A | S | R | I | I |
+| 26 | TA   |       | DMU study for system level and sub system level | A               | S             | R            | I       | I             |
+| 27 | TA   |       | Functional CAE analysis | A               | S             | R            | I       | I             |
+| 28 | TA   |       | EE - Component Data Sheet (CDS ) inputs | A               | S             | R            | I       | I             |
+| 29 | TA   |       | Manufacturing feasibility for Built to Print Commodities | A             | S             | R            | I       | I             |
+| 30 | TA   |       | Stamping / Mold flow analysis for Concept commodity | A             | S             | R            | I       | I             |
+| 31 | TA   |       | DFMEA for Concept Commodity / SC/CC & Key characteristics Controls | A | S | R | I | I |
+| 32 | TA   |       | DTS - Fit and Finish document confirm gap and finish strategy for system & sub system level | A | S | R | I | I |
+| 33 | TA   |       | 3D design for B car class surface to be completed | A               | S             | R            | I       | I             |
+| 34 | TA   |       | 3D CAD and 2D - Drawing submission to VinFast Engineering for P & I release | A | S | R | I | I |
+| 35 | TA   |       | Tool order release for long lead parts, P Release for Tool Design and I Release for Tool Hardware, PR Release for tool machining | S | R | S | I | I |
+| 36 | TA   |       | CAD release for P & I for Long lead tooling kick-off | A | S | R | I | I |
+| 37 | TA   |       | 3D design to be finalized before A class (One week before TA) | A | S | R | I | I |
+| 38 | TA   |       | Feasibility confirmation to support A class surface development | A | S | R | I | I |
+| 39 | TA   |       | Development strategy for each Attributes confirmed and available for the serial development phase | A | S | R | I | I |
+| 40 | TA   |       | System, Sub-System & Component Level DVP for the Serial Development Phase has been created and agreed | A | S | R | I | I |
+| 41 | TA   |       | Define tooling concept / injection points / … | S               | I             | R            | S       | I             |
+| 42 | TA   |       | Feasibility / manufacturing study and confirmation for parts | S             | I             | R            | S       | I             |
+| 43 | TA   |       | Technical and Styling Convergence (By PR) | A               | S             | R            | I       | I             |
+| 44 | TA   |       | 3D CAD and 2D - Drawing Submission to VinFast Engineering for review & Commercial quote for PR level design | A | S | R | I | I |
+| 45 | PR   |       | VinFast review and release the PR cad and 2D Drawing | R               | S             | S            | I       | A             |
+| 46 | CC   |       | PFMEA | S               | I             | R            | A       | I             |
+| 47 | CC   |       | Commercial finalization for PR level design | S               | R             | S            | I       | I             |
+| 48 | CC   |       | System, Sub-System & Component Level DV Complete | A | S | R | I | I |
+| 49 | CC   |       | Deviations to module targets detected and measures agreed | A             | S             | R            | I       | I             |
+| 50 | CC   |       | Tooling order releases for all parts | I               | R             | S            | I       | I             |
+| 51 | CC   |       | Engineering change management release kick-off | R               | S             | S            | S       | S             |
+| 52 | CC   |       | On going engineering change management | R               | S             | S            | S       | S             |
+| 53 | LS   |       | Process Validation Completion before LS | A               | S             | R            | I       | I             |
+| 54 | PTO  |       | Parts fit to nominal | S               | I             | S            | R       | I             |
+| 55 | PTO  |       | System, Sub-System & Component Level PV Complete | A | S | R | S | I |
+| 56 | PTO  |       | System, Sub-System & Component Level target achievement confirmed | A | S | R | S | I |
+| 57 | LS   |       | Part level - Appearance approval, Color harmony, Grain approval | A | I | R | S | I |
+| 58 | LS   |       | Engineering sign-off | A               | S             | S            | S       | S             |
+</page>
+
+<page number="15">
+9. Supplier responsibilities.
+
+Supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.
+
+**Customer service requirements**
+- After-sales spare parts should be ready at startup.  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.
+- Spare Parts Support Cycle.  
+  The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SPB.
+- Maintenance Information of After-Sale Spare Parts.  
+  The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).
+
+10. Intellectual Property / Copyright.  
+Refer to VinFast General Term and Condition (GTC).
+
+11. Insurance / Warranties.  
+Refer to VinFast General Term and Condition (GTC).
+
+12. VinFast GTC & Part Packaging and Incoterms.  
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirement in the RFQ package.
+
+13. Definitions and List of Abbreviations.
+
+- **DVP&R:** Design Verification Plan & Report.  
+- **ESO:** Engineering Sign Off.  
+- **GTC:** General Term and Condition.  
+- **LLS:** Long Lead Suppliers on board.  
+- **LLT:** Long Lead Tooling.  
+- **LOI:** Letter of Intent.  
+- **MFC:** Manufacturing Feasibility Confirmation.  
+- **MSC:** Manufacturing Strategy Confirmation.  
+- **MSI:** Major Suppliers Identified.
+</page>
+
+<page number="16">
+9 Supplier responsibilities.
+The supplier is responsible for providing/ensuring while completing the work. Supplier responsibilities are itemized to help mitigate the risk to the organization of an employer-employee relationship arising under the contract.
+
+### Customer service requirements:
+
+#### After-sales spare parts should be ready at startup:
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.
+
+#### Spare Parts Support Cycle:
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SPB.
+
+#### Maintenance Information of After-Sale Spare Parts:
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).
+
+### 10 Intellectual Property / Copyright.
+Refer to VinFast General Term and Condition (GTC).
+
+### 11 Insurance / Warranties.
+Refer to VinFast General Term and Condition (GTC).
+
+### 12 VinFast GTC & Part Packaging and Incoterms.
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirements in the RFQ package.
+
+### 13 Definitions and List of Abbreviations.
+
+- **DVP&R**: Design Verification Plan & Report  
+- **ESO**: Engineering Sign Off  
+- **GTC**: General Term and Condition  
+- **LLS**: Long Lead Suppliers on board  
+- **LLT**: Long Lead Tooling  
+- **LOI**: Letter of Intend  
+- **MFC**: Manufacturing Feasibility Confirmation  
+- **MSC**: Manufacturing Strategy Confirmation  
+- **MSI**: Major Suppliers Identified  
+- **MSO**: Manufacturing Sign Off  
+- **OTS**: Off Tools Samples  
+- **PTP**: Prototype Parts out of Serial tooling (Hand finished)  
+- **RFQ**: Request For Quotation  
+- **SLS**: Short Lead Suppliers on board  
+- **SOB**: Supplier on Board  
+- **SOP**: Start of Production  
+- **SOP-ID**: SOP Implementation Date  
+- **SOP-LM**: SOP Launch Model (1 specific Model – "Edition")  
+- **SST**: Sourcing Strategy  
+- **TS**: Theme Selection Model  
+- **FUSA**: Function Safety  
+- **T&V**: Testing & Validation.
+</page>
+</pages>

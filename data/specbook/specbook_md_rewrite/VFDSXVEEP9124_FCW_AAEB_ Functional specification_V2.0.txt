@@ -1,0 +1,2226 @@
+Page 1
+FUNCTIONAL SPECIFICATION. Forwarding Collision Warning - Advanced Automatic Emergency Braking.
+
+SCOPE: VF8 / VF9.
+
+Function owner: Hoàng Ngọc Nhân (VF-KKSPTX-Module) (v.nhanhn@vinfast.vn).
+Page 2
+Table of contents.
+
+Table of contents .......................................................................................................................... 2.
+
+7 / APL13_FCW_APL18_AAEB ................................................................................................... 5.
+
+7.1 / / Document Management ............................................................................................. 5.
+
+7.2 / / Purpose ....................................................................................................................... 6.
+
+7.3 / / Glossary ...................................................................................................................... 7.
+
+7.4 / / Function Overview .................................................................................................... 8.
+
+7.4.1 / Detection .................................................................................................................. 8.
+
+7.4.2 / / FCW Function FCW ........................................................................................... 8.
+
+7.4.3 / / AEB Function AEB ............................................................................................ 10.
+
+7.4.4 / / HBA Function HBA ............................................................................................ 13.
+
+7.4.5 / / EBA Function EBA ............................................................................................ 13.
+
+7.4.6 / / JA Function JA ................................................................................................... 15.
+
+7.5 / Maximum Speed Reduction ...................................................................................... 17.
+
+7.5.1 / AEB Maximum Speed Reduction ..................................................................... 17.
+
+7.5.1.1 / Vehicle .............................................................................................................. 17.
+
+7.5.1.2 / VRU ................................................................................................................... 18.
+
+7.5.1.3 / Motorbike ......................................................................................................... 18.
+
+7.5.2 / JA Maximum Speed Reduction ........................................................................ 18.
+
+7.5.2.1 / vehicles ............................................................................................................. 18.
+
+7.5.2.2 / VRU ................................................................................................................... 19.
+
+7.5.2.3 / Motorbike ......................................................................................................... 19.
+
+7.6 / / Interfaces ..................................................................................................................... 19.
+
+7.6.1 / / Signals input ....................................................................................................... 19.
+
+7.6.1.1 / / Signals input from HMI .............................................................................. 20.
+
+7.6.1.2 / / Signals input from Body ........................................................................... 20.
+
+7.6.1.3 / / Signals input from Chassis and Powertrain ........................................ 22.
+
+7.6.2 / / Signals output ..................................................................................................... 29.
+
+7.6.2.1 / / Signals output to HMI ................................................................................ 29.
+
+7.6.2.2 / / Signals output to Brake System ............................................................. 31.
+
+7.7 / / Function Structure .................................................................................................... 32.
+
+7.8 / Condition Check .......................................................................................................... 33.
+Page 3
+Table of Contents.
+
+7 / APL13_FCW_APL18_AAEB.  
+7.1 / Document Management.  
+7.2 / Purpose.  
+7.3 / Glossary.  
+7.4 / Function Overview.  
+   7.4.1 / Detection.  
+   7.4.2 / FCW Function FCW.  
+   7.4.3 / AEB Function AEB.  
+   7.4.4 / HBA Function HBA.  
+   7.4.5 / EBA Function EBA.  
+   7.4.6 / JA Function JA.  
+7.5 / Maximum Speed Reduction.  
+   7.5.1 / AEB Maximum Speed Reduction.  
+      7.5.1.1 / Vehicle.  
+      7.5.1.2 / VRU.  
+      7.5.1.3 / Motorbike.  
+   7.5.2 / JA Maximum Speed Reduction.  
+      7.5.2.1 / Vehicles.  
+      7.5.2.2 / VRU.  
+      7.5.2.3 / Motorbike.  
+7.6 / Interfaces.  
+   7.6.1 / Signals Input.  
+      7.6.1.1 / Signals Input from HMI.  
+      7.6.1.2 / Signals Input from Body.  
+      7.6.1.3 / Signals Input from Chassis and Powertrain.  
+   7.6.2 / Signals Output.  
+      7.6.2.1 / Signals Output to HMI.  
+      7.6.2.2 / Signals Output to Brake System.  
+7.7 / Function Structure.  
+7.8 / Condition Check.  
+   7.8.1 / FCW Allowed Condition FCW.  
+   7.8.2 / AEB Allowed Condition AEB.  
+   7.8.3 / Cancel Condition.  
+7.9 / Typical Scenario.  
+   7.9.1 / Case 1.  
+   7.9.2 / Case 2.  
+   7.9.3 / Case 3.  
+   7.9.4 / Case 4.  
+   7.9.5 / Case 5.  
+   7.9.6 / Case 6.  
+   7.9.7 / Case 7.  
+   7.9.8 / Case 8.  
+7.10 / HMI Proposal.  
+   7.10.1 / Function Switch and Sensitivity Setting 功能开启和敏感度设置.  
+   7.10.2 / Icon, Warning and Popup.  
+7.11 / Performance Requirements.  
+7.12 / Technical Agreement FCW/AEB.  
+   7.12.1 / Test Method.  
+   7.12.2 / Marking Goal (Fusion).  
+   7.12.3 / Supported Deceleration.  
+   7.12.4 / Maximum Speed Reduction.  
+   7.12.5 / FCW Operation Speed Range.  
+   7.12.6 / AEB Operation Speed Range.  
+7.13 / AEB-JA.  
+   7.13.1 / Test Method.  
+   7.13.2 / Applicable Object Type.  
+   7.13.3 / Operation Speed Range.  
+   7.13.4 / Object Vehicle Speed Condition.  
+   7.13.5 / Marking Goal.  
+   7.13.6 / Maximum Deceleration Supported.  
+   7.13.7 / Maximum Speed Reduction.
+Page 4
+VinFast Management System
+
+VFDSXVEEP9124
+Page 5
+7 / APL13_FCW_APL18_AAEB.
+
+Requirement ID: FS-225887.  
+Type: Information.  
+Status: New.  
+
+---
+
+7.1 / / Document Management.
+
+Requirement ID: FS-226339.  
+Type: Information.  
+Status: New.  
+
+**VF version:**  
+
+| Version | Change by     | Change description                    | Initiator      | Approver           |
+|---------|---------------|----------------------------------------|----------------|--------------------|
+| 1.0     | ECR60004069   | Initial version released for LS phase | Duong Hoai An  | Ng Dennis Koon Siu |
+| 2.0     | ECR60005557   | Release for SOP phase                 | Duong Hoai An  | Ng Dennis Koon Siu |
+
+**Supplier version:**  
+
+| Release | Date       | Author        | Reviewer | Remarks / Changes             |
+|---------|------------|---------------|----------|--------------------------------|
+| V1.0    | 2021.11.19 | Zhao Jianzhou | Wang Qi  | Initial version for customer. |
+Page 6
+7 / APL13_FCW_APL18_AAEB.
+
+Requirement ID: FS-225887.  
+Type: Information.  
+Status: New.  
+
+---
+
+### 7.1 // Document Management.
+
+Requirement ID: FS-226339.  
+Type: Information.  
+Status: New.  
+
+#### VF Version.
+- **Version 1.0:** Change by ECR60004069. Initial version released for LS phase. Initiator: Duong Hoai An. Approver: Ng Dennis Koon Siu.  
+- **Version 2.0:** Change by ECR60005557. Release for SOP phase. Initiator: Duong Hoai An. Approver: Ng Dennis Koon Siu.  
+
+#### Supplier Version.  
+- **Release V1.0:** Date 2021.11.19. Author Zhao Jianzhou. Reviewer Wang Qi. Remarks/Changes: Initial version for customer.  
+
+- **Release V1.1:**  
+  Date: 2022.01.28.  
+  Author: Zhao Jianzhou.  
+  Reviewer: Wang Qi.  
+  Remarks/Changes:  
+  - Update interface.  
+  - Add information on motorbike.  
+  - Update allow and cancel conditions.  
+
+- **Release V1.2:**  
+  Date: 2022.04.14.  
+  Author: Zhao Jianzhou.  
+  Reviewer: Wang Qi.  
+  Remarks/Changes:  
+  - Update FCW, AEB and HBA trigger conditions.  
+  - Update interface 0x109.  
+  - Update allow and cancel conditions.  
+
+- **Release V1.3:**  
+  Date: 2022.06.21.  
+  Author: Zhao Jianzhou.  
+  Reviewer: Wang Qi.  
+  Remarks/Changes:  
+  - Update allow and cancel conditions.  
+  - Remove motorbike.  
+  - Update interface, replace 0x113 by 0xF1.  
+
+- **Release V1.4:**  
+  Date: 2022.08.10.  
+  Author: Zhao Jianzhou.  
+  Reviewer: Wang Qi.  
+  Remarks/Changes:  
+  - Remove MSR and TCS conditions.
+
+- **Release V1.5:**  
+  Date: 2022.10.26.  
+  Author: Zhao Jianzhou.  
+  Reviewer: Wang Qi.  
+  Remarks/Changes:  
+  - Extend host vehicle speed range for VRU target.  
+
+- **Release V1.6:**  
+  Date: 2022.12.16.  
+  Author: Zhao Jianzhou.  
+  Reviewer: Wang Qi.  
+  Remarks/Changes:  
+  - Add radar sensor status in allowed and canceled conditions.  
+
+---
+
+### 7.2 // Purpose.
+
+Requirement ID: FS-226340.  
+Type: Information.  
+Status: New.  
+
+This document is based on the FCW AEB JA function discussion between ZF and VF. ZF creates the draft. VF shall review and confirm. This document is the AEB(JA) function development requirement after the final approval by VF and ZF.
+Page 7
+7 / APL13_FCW_APL18_AAEB.
+
+Requirement ID: FS-225887. 
+Type: Information.
+Status: New.
+
+7.1 / Document Management.
+
+Requirement ID: FS-226339. 
+Type: Information. 
+Status: New.
+
+**VF version:**
+
+Version | Change by | Change description | Initiator | Approver
+--- | --- | --- | --- | ---
+1.0 | ECR60004069 | Initial version released for LS phase | Duong Hoai An | Ng Dennis Koon Siu
+2.0 | ECR60005557 | Release for SOP phase | Duong Hoai An | Ng Dennis Koon Siu
+
+**Supplier version:**
+
+Release | Date | Author | Reviewer | Remarks / Changes
+--- | --- | --- | --- | ---
+V1.0 | 2021.11.19 | Zhao Jianzhou | Wang Qi | Initial version for customer
+V1.1 | 2022.01.28 | Zhao Jianzhou | Wang Qi | Update interface. Add information on motorbike. Update allow and cancel condition.
+V1.2 | 2022.04.14 | Zhao Jianzhou | Wang Qi | Update FCW, AEB, and HBA trigger condition. Update interface 0x109. Update allow and cancel condition. 
+V1.3 | 2022.06.21 | Zhao Jianzhou | Wang Qi | Update allow and cancel condition. Remove motorbike. Update interface, replace 0x113 by 0xF1.
+V1.4 | 2022.08.10 | Zhao Jianzhou | Wang Qi | Remove MSR and TCS conditions.
+V1.5 | 2022.10.26 | Zhao Jianzhou | Wang Qi | Extend host vehicle speed range for VRU target.
+V1.6 | 2022.12.16 | Zhao Jianzhou | Wang Qi | Add radar sensor status in allowed and cancel conditions.
+
+7.2 / Purpose.
+
+Requirement ID: FS-226340. 
+Type: Information. 
+Status: New.
+
+This document is based on the FCW AEB JA function discussion between ZF and VF. ZF creates the draft. VF shall review and confirm. This document is the AEB(JA) function development requirement after final approval by VF and ZF.
+
+7.3 / Glossary.
+
+Requirement ID: FS-226341. 
+Type: Information. 
+Status: New.
+
+Acronym | Full Form
+--- | ---
+AEB | Automatic Emergency Braking
+FCW | Forward Collision Warning
+JA | Junction Assist 
+HBA | Hydraulic Brake Assist
+EBA | Emergency Brake Assist
+ESC | Electrical Stability Control
+EPB | Electrical Park Brake
+NCAP | New Car Assessment Process
+TTC | Time to collision
+ABS | Antilock Brake System
+TCS | Traction Control System
+MSR | Motor Control Slide Retainer
+ESC | Electrical Stability Controller
+HMI | Human Machine Interface
+VRU | Vulnerable Road Users
+PTW | Powered Two Wheelers
+Page 8
+7 / APL13_FCW_APL18_AAEB
+
+Requirement ID: FS-225887. 
+Type: Information. 
+Status: New.
+
+---
+
+7.1 // Document Management 
+
+Requirement ID: FS-226339. 
+Type: Information. 
+Status: New.
+
+**VF Version:**
+
+Version | Change by | Change description | Initiator | Approver  
+------- | ---------- | ------------------- | --------- | --------  
+1.0 | ECR60004069 | Initial version released for LS phase | Duong Hoai An | Ng Dennis Koon Siu  
+2.0 | ECR60005557 | Release for SOP phase | Duong Hoai An | Ng Dennis Koon Siu  
+
+**Supplier Version:**
+
+Release | Date | Author | Reviewer | Remarks/Changes.  
+------- | ---- | ------ | -------- | ----------------  
+V1.0 | 2021.11.19 | Zhao Jianzhou | Wang Qi | Initial version for customer  
+V1.1 | 2022.01.28 | Zhao Jianzhou | Wang Qi | Update interface, add information on motorbike, update allow and cancel condition.  
+V1.2 | 2022.04.14 | Zhao Jianzhou | Wang Qi | Update FCW, AEB and HBA trigger condition, update interface 0x109, update allow and cancel condition.  
+V1.3 | 2022.06.21 | Zhao Jianzhou | Wang Qi | Update allow and cancel condition, remove motorbike, update interface, replace 0x113 by 0xF1.  
+V1.4 | 2022.08.10 | Zhao Jianzhou | Wang Qi | Remove MSR and TCS conditions.  
+V1.5 | 2022.10.26 | Zhao Jianzhou | Wang Qi | Extend host vehicle speed range for VRU target.  
+V1.6 | 2022.12.16 | Zhao Jianzhou | Wang Qi | Add radar sensor status in allowed and cancel conditions.  
+
+---
+
+7.2 // Purpose  
+
+Requirement ID: FS-226340.  
+Type: Information.  
+Status: New.  
+
+This document is based on the FCW AEB JA function discussion between ZF and VF. ZF creates the draft. VF shall review and confirm. This document is the AEB(JA) function development requirement after final approve by VF and ZF.
+
+---
+
+7.3 // Glossary 
+
+Requirement ID: FS-226341.  
+Type: Information.  
+Status: New.  
+
+**Acronym** | **Full Form**  
+---------- | ------------   
+AEB | Automatic Emergency Braking  
+FCW | Forward Collision Warning  
+JA | Junction Assist  
+HBA | Hydraulic Brake Assist  
+EBA | Emergency Brake Assist  
+ESC | Electrical Stability Control  
+EPB | Electrical Park Brake  
+NCAP | New Car Assessment Process  
+TTC | Time to Collision  
+ABS | Antilock Brake System  
+TCS | Traction Control System  
+MSR | Motor Control Slide Retainer  
+ESC | Electrical Stability Controller  
+HMI | Human Machine Interface  
+VRU | Vulnerable Road Users  
+PTW | Powered Two Wheelers  
+
+---
+
+7.4 // Function Overview 
+
+Requirement ID: FS-226342.  
+Type: Information.  
+Status: New.  
+
+Automatic Emergency Braking (AEB) is a feature that automatically applies the host vehicle brakes to avoid or mitigate collisions with host vehicle and vehicle(s) or objects in the host vehicle path. The AEB function also can provide Forward Collision Warning (FCW), AEB-Prefill, Advanced Brake Assist (ABA), Emergency Brake Assist (EBA) and Junction Assist (JA). These features can be considered subsets of the AEB feature.  
+
+The AEB function shall detect and react to following objects to avoid collision:  
+- Vehicle: car, truck  
+- VRU: pedestrian, bicycle, motorbike  
+
+---
+
+7.4.1 // Detection 
+
+Requirement ID: FS-228416.  
+Type: Information.  
+Status: New.  
+
+The AEB function shall detect and react to the following objects to avoid collision:  
+- Vehicle: car, truck.  
+- VRU: pedestrian, bicycle, motorbike.  
+
+---
+
+7.4.2 // FCW Function FCW  
+
+Requirement ID: FS-226343.  
+Type: Information.  
+Status: New.  
+
+FCW function provides a visual and sound warning to the driver when there is an imminent collision. The intention is to remind the driver to take over and brake or to take proper action immediately to avoid AEB intervention or collision.
+Page 9
+### 7.4.2 / FCW Function FCW
+
+Requirement ID: FS-226343  
+Type: Information  
+Status: New  
+
+FCW function provides a visual and sound warning to the driver when there is an imminent collision. The intention is to remind the driver to take over and brake or to take proper action immediately to avoid AEB intervention or collision.
+
+Except activated/deactivated switches, there are sensitivity switches for FCW. Driver can select “Late,” “Normal,” or “Early.” As the name suggests, compared with “Late,” if “Early” was selected by the driver, the AEB function will send a warning earlier when critical conditions occur.
+
+FCW can only be active when the host vehicle speed is within the range for different objects.  
+
+### Target Speed Ranges
+
+- **Moving Vehicles:**  
+  Minimum Host Vehicle Speed - 5kph  
+  Maximum Host Vehicle Speed - 130kph  
+
+- **Stationary Vehicles:**  
+  Minimum Host Vehicle Speed - 5kph  
+  Maximum Host Vehicle Speed - 80kph  
+
+- **Moving VRU:**  
+  Minimum Host Vehicle Speed - 5kph  
+  Maximum Host Vehicle Speed - 80kph  
+
+- **Stationary or Crossing VRU:**  
+  Minimum Host Vehicle Speed - 5kph  
+  Maximum Host Vehicle Speed - 80kph  
+
+- **Moving Motorbike:**  
+  Minimum Host Vehicle Speed - 5kph  
+  Maximum Host Vehicle Speed - 80kph  
+
+- **Stationary Motorbike:**  
+  Minimum Host Vehicle Speed - 5kph  
+  Maximum Host Vehicle Speed - 80kph
+Page 10
+7.4.3 / / AEB Function AEB
+
+Requirement ID: FS-226344  
+Type: Information  
+Status: New  
+
+If an imminent collision is predicted, Autonomous Emergency Braking is applied to avoid the collision or mitigate its consequence.  
+
+Relative Speed TTC Table:  
+The table provides tuneable parameters as examples to configure the relative speed thresholds for Forward Collision Warning (FCW). The thresholds are divided based on three sensitivity settings: Early, Normal, and Late.
+
+- **For VRel (m/s)**:
+  - At 0.833 m/s, TTC thresholds are 1.3 seconds (Early), 1.1 seconds (Normal), and 0.9 seconds (Late).
+  - At 2.5 m/s, TTC thresholds are 1.34 seconds (Early), 1.14 seconds (Normal), and 0.94 seconds (Late).
+  - At 5.56 m/s, TTC thresholds increase to 1.63 seconds (Early), 1.43 seconds (Normal), and 1.23 seconds (Late).
+  - As speeds increment gradually to 50 m/s, TTC thresholds stabilize at approximately 2.51 seconds (Early), 2.31 seconds (Normal), and 2.11 seconds (Late).  
+
+### FCW Warning Levels Based on TTC Threshold
+- **Level 1**: Triggered when TTC is below the FCW threshold.  
+- **Level 2**: Triggered when TTC meets the Prefill threshold condition (advanced warning).  
+- **Level 3**: Triggered simultaneously with AEB/EBA activation, indicating the ADAS system's intervention in critical scenarios.
+Page 11
+7.4 / / Function Overview
+
+Requirement ID: FS-226342  
+Type: Information  
+Status: New  
+
+Automatic Emergency Braking (AEB) is a feature that automatically applies the host vehicle brakes to avoid or mitigate collisions with the host vehicle and vehicle(s) or objects in the host vehicle path. The AEB function also provides Forward Collision Warning (FCW), AEB-Prefill, Advanced Brake Assist (ABA), Emergency Brake Assist (EBA), and Junction Assist (JA). These features can be considered subsets of the AEB feature.
+
+The AEB function shall detect and react to the following objects to prevent collisions:  
+- Vehicle: car, truck  
+- VRU: pedestrian, bicycle, motorbike  
+
+---
+
+7.4.1 / Detection
+
+Requirement ID: FS-228416  
+Type: Information  
+Status: New  
+
+The AEB function shall detect and react to the following objects to avoid collisions:  
+- Vehicle: car, truck  
+- VRU: pedestrian, bicycle, motorbike  
+
+---
+
+7.4.2 / / FCW Function FCW
+
+Requirement ID: FS-226343  
+Type: Information  
+Status: New  
+
+FCW function provides visual and auditory warnings to the driver when there is an imminent collision. Its purpose is to prompt the driver to take over control, brake, or act immediately to avoid AEB intervention or collision.
+
+Drivers can adjust FCW sensitivity switches to select "Late," "Normal," or "Early." If "Early" is selected, a warning will be issued earlier under critical conditions compared to "Late."
+
+FCW can only activate if the host vehicle speed is within the target speed range for different objects:
+
+- **Moving Vehicles**: Minimum speed is 5kph, and maximum speed is 130kph.  
+- **Stationary Vehicles**: Minimum speed is 5kph, and maximum speed is 80kph.  
+- **Moving VRU**: Minimum speed is 5kph, and maximum speed is 80kph.  
+- **Stationary or Crossing VRU**: Minimum speed is 5kph, and maximum speed is 80kph.  
+- **Moving Motorbike**: Minimum speed is 5kph, and maximum speed is 80kph.  
+- **Stationary Motorbike**: Minimum speed is 5kph, and maximum speed is 80kph.
+
+---
+
+7.4.3 / / AEB Function AEB
+
+Requirement ID: FS-226344  
+Type: Information  
+Status: New  
+
+Autonomous Emergency Braking applies braking to avoid a predicted collision or reduce its severity. The AEB system is capable of requesting deceleration up to 9 m/s² based on object threat, vehicle dynamics, and speed reduction objectives.
+
+Braking may be interrupted or canceled if:
+- Detected objects change.
+- The driver presses the gas pedal or steers sharply to evade.
+
+Prior to full braking, pre-fill is applied. This slightly contacts brake pads with rotors to enable quicker response to AEB activation.
+
+The AEB system predicts and validates target trajectories based on environment data (targets and lanes) and vehicle dynamics. It triggers warnings or braking for critical objects.
+
+If the host vehicle stops due to AEB, the system will hold the vehicle stationary for 2 seconds for collision prevention, maintaining deceleration flags and setpoints.
+
+AEB activation depends on host vehicle speed being within the target speed range:
+
+- **Moving Vehicles**: Minimum speed is 5kph, and maximum speed is 130kph.
+Page 12
+7.4.3 / / AEB Function AEB
+
+Requirement ID: FS-226344  
+Type: Information  
+Status: New  
+
+If an imminent collision is predicted, Autonomous Emergency Braking is applied to avoid the collision or mitigate its consequence.  
+
+The AEB system has the capability to request up to 9 m/s² deceleration by calculating the threat of the detected object, host vehicle dynamics, and speed reduction objective. The brake request may be interrupted and canceled if the detected objects change or the driver presses the gas pedal or sharply steers for an escape maneuver. 
+
+Before the full amount of braking is applied, a short period of pre-fill braking will be initiated to allow the brake pads slight contact with the brake disc rotors, enabling a quicker response for Automatic Emergency Braking. The AEB system combines environmental information (targets and lane data) from the perception system and vehicle dynamic data to predict, monitor, and arbitrate the trajectory of the target and ego vehicle, triggering warnings or braking only for valid and critical objects. 
+
+When the host vehicle decelerates to a stop due to the AEB function, the system holds the vehicle in standstill for 2 seconds to prevent further collision. During this period, the deceleration flag and setpoint are maintained. AEB will activate only when the host vehicle (real) speed falls within the range for different target objects.
+
+**Table: Target Type and Host Vehicle Speed Range**  
+- Moving Vehicles: Min Host Vehicle Speed = 5 kph, Max Host Vehicle Speed = 130 kph.  
+- Stationary Vehicles: Min Host Vehicle Speed = 5 kph, Max Host Vehicle Speed = 80 kph.  
+- Moving VRU: Min Host Vehicle Speed = 5 kph, Max Host Vehicle Speed = 80 kph.  
+- Stationary or Crossing VRU: Min Host Vehicle Speed = 5 kph, Max Host Vehicle Speed = 80 kph.  
+- Moving Motorbike: Min Host Vehicle Speed = 5 kph, Max Host Vehicle Speed = 80 kph.  
+- Stationary Motorbike: Min Host Vehicle Speed = 5 kph, Max Host Vehicle Speed = 80 kph.  
+
+Note: The parameter values in the table are default calibrated values and will be finalized based on test performance.  
+
+**AEB TTC Threshold Team Table**  
+The Relative Speed TTC table specifies tuneable parameters as an example:  
+
+| VRel (m/s) | TTC |
+|------------|-----|
+| 0.833      | 1.1 |
+| 2.5        | 1.14|
+| 2.78       | 1.14|
+| 5.56       | 1.43|
+| 8.33       | 1.56|
+| 11.11      | 1.73|
+| 13.89      | 1.92|
+| 16.67      | 2.05|
+| 22.22      | 2.31|
+| 27.78      | 2.31|
+| 50         | 2.31|
+
+When the TTC is below the threshold, AEB will trigger automated braking to avoid collisions.
+Page 13
+7.4.5 / / EBA Function EBA
+
+Requirement ID: FS-226346  
+Type: Information  
+Status: New  
+
+Emergency Brake Assist (EBA) aims to enhance the brake efficiency when the driver actively applies the brakes in emergency situations to avoid collision. ADAS system detects the emergency brake condition based on the master cylinder pressure and driver input behavior, then provides assistance through ESC.
+Page 14
+7.4.4 Hydraulic Brake Assist (HBA) Function.
+
+Requirement ID: FS-226345.  
+Type: Information.  
+Status: New.  
+
+Hydraulic Brake Assist intends to provide a larger braking deceleration by building pressure actively when the driver presses the braking pedal under a collision situation. The ADAS system will send out a flag to the ESC according to the critical level, and the ESC shall create extra brake pressure besides the driver's input.  
+
+There are three levels of HBA output values, which are related to different master cylinder pressure rates of ESP.  
+
+The following requests correspond to three different risk levels:  
+- When the FCW function is triggered, the ADAS system sends an HBA Level 1 request to the ESP simultaneously.  
+- When the TTC meets the HBA threshold condition, the ADAS system requests ESP HBA Level 2.  
+- When the AEB/EBA function is triggered, the ADAS system sends an HBA Level 3 request to the ESP simultaneously.  
+
+The HBA TTC threshold is shown below (tuneable parameter, only as an example):  
+
+### Relative Speed TTC Table:
+
+- **VRel (m/s):**
+  0.833 | 2.5 | 2.78 | 5.56 | 8.33 | 11.11 | 13.89 | 16.67 | 22.22 | 27.78 | 50.  
+- **TTC:**
+  1.1 | 1.14 | 1.14 | 1.43 | 1.56 | 1.73 | 1.92 | 2.05 | 2.31 | 2.31 | 2.31.  
+
+---
+
+When the FCW Level 1 warning is triggered, the ADAS system sends an HBA Level 1 request simultaneously.  
+When the TTC meets the Prefill threshold condition, the ADAS system requests ESP HBA Level 2.  
+When the AEB/EBA function is triggered, the ADAS system sends an HBA Level 3 request to the ESP simultaneously.  
+
+---
+
+7.4.5 Emergency Brake Assist (EBA) Function.
+
+Requirement ID: FS-226346.  
+Type: Information.  
+Status: New.  
+
+The AEB function is designed to prevent or mitigate collisions when the driver takes no action. However, when the driver applies braking but insufficient force, the system amplifies the deceleration to avoid the collision. This is known as Emergency Brake Assist (EBA).  
+
+EBA can only be active when the host vehicle (real) speed is within the range for different targets:  
+
+### Target Type Speed Range:
+
+- **Moving Vehicles:**  
+  - Min Host Vehicle Speed: 5kph.  
+  - Max Host Vehicle Speed: 130kph.  
+
+- **Stationary Vehicles:**  
+  - Min Host Vehicle Speed: 5kph.  
+  - Max Host Vehicle Speed: 80kph.  
+
+- **Moving VRU:**  
+  - Min Host Vehicle Speed: 5kph.  
+  - Max Host Vehicle Speed: 80kph.  
+
+- **Stationary or Crossing VRU:**  
+  - Min Host Vehicle Speed: 5kph.  
+  - Max Host Vehicle Speed: 80kph.  
+
+- **Moving Motorbike:**  
+  - Min Host Vehicle Speed: 5kph.  
+  - Max Host Vehicle Speed: 80kph.  
+
+- **Stationary Motorbike:**  
+  - Min Host Vehicle Speed: 5kph.  
+  - Max Host Vehicle Speed: 80kph.
+Page 15
+7.4.4 Hydraulic Brake Assist (HBA) Function.
+
+Requirement ID: FS-226345.  
+Type: Information.  
+Status: New.  
+
+Hydraulic Brake Assist (HBA) provides increased braking deceleration by building pressure actively when the driver presses the brake pedal during a collision situation. The ADAS system sends a flag to the ESC based on the critical level, enabling the ESC to create extra brake pressure beyond the driver's input.  
+
+HBA consists of 3 output levels related to different master cylinder pressure rates of the ESP system. These levels correlate to various risk levels:  
+- When the FCW function is triggered, the ADAS system sends an HBA Level 1 request to the ESP.  
+- When TTC meets the HBA threshold condition, the ADAS system requests ESP HBA Level 2.  
+- When AEB/EBA is triggered, the ADAS system sends an HBA Level 3 request to the ESP.  
+
+HBA TTC threshold is detailed in the table below. The values are tuneable and for example purposes only.
+
+**Relative Speed TTC Table**
+- VRel (m/s): 0.833, 2.5, 2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 22.22, 27.78, 50.  
+- TTC: 1.1, 1.14, 1.14, 1.43, 1.56, 1.73, 1.92, 2.05, 2.31, 2.31, 2.31.  
+
+---
+
+7.4.5 Emergency Brake Assist (EBA) Function.
+
+Requirement ID: FS-226346.  
+Type: Information.  
+Status: New.  
+
+Emergency Brake Assist (EBA) amplifies deceleration when the driver applies insufficient braking action during a collision situation. If the driver initiates braking action, the system enhances the deceleration to prevent or mitigate a collision.  
+
+EBA applies only when the host vehicle’s speed is within the defined range for various objects.
+
+**Host Vehicle Speed Range Table**
+- Moving Vehicles (5kph - 130kph).  
+- Stationary Vehicles (5kph - 80kph).  
+- Moving VRU (5kph - 80kph).  
+- Stationary/Crossing VRU (5kph - 80kph).  
+- Moving Motorbike (5kph - 80kph).  
+- Stationary Motorbike (5kph - 80kph).  
+
+EBA TTC thresholds are listed as tuneable parameters for example purposes only.
+
+**Relative Speed TTC Table**
+- VRel (m/s): 0.833, 2.5, 2.78, 5.56, 8.33, 11.11, 13.89, 16.67, 22.22, 27.78, 50.  
+- TTC: 1.1, 1.14, 1.14, 1.43, 1.56, 1.73, 1.92, 2.05, 2.31, 2.31, 2.31.  
+
+---
+
+7.4.6 Junction Assist (JA) Function.
+
+Requirement ID: FS-226347.  
+Type: Information.  
+Status: New.
+
+Junction Assist (JA) is an extended function of AEB enabled by Camera and Radar sensor technologies. It assists drivers in avoiding accidents at road junction crossings.  
+
+JA detects potential collisions when the host vehicle is turning, and the target is moving straight, autonomously applying brakes. It supports scenarios such as:
+- Ego left-turning (Left-Hand Driving) colliding with an oncoming straight-moving vehicle.  
+- Ego turning left/right, colliding with a VRU crossing straight.  
+- Ego moving straight, colliding with a crossing vehicle.  
+
+JA is active only when the host vehicle’s speed is within the defined range for various objects.
+Page 16
+7.4.6 / / JA Function JA.
+
+Requirement ID: FS-226347.  
+Type: Information.  
+Status: New.  
+
+With the development of Camera and Radar sensor detection technology, AEB could be realized in more complex traffic situations. Junction Assist is the extended function which helps drivers avoid accidents, especially in junction crossing roads.  
+
+When the host vehicle is turning, and the target is moving straight, JA can realize the potential collision and brake autonomously.  
+
+The JA is applicable for the scenario of ego left turning (in case of Left-Hand Driving) may strike with an oncoming car that is straight moving, ego turning left/right strike with VRU straight crossing, or ego straight moving strike with a crossing car.  
+
+JA could be active only when the host vehicle (real) speed is within the range for different objects.
+
+**Host Vehicle Speed for JA:**  
+- Target Type: Vehicles. Min Host Vehicle Speed: **5kph**. Max Host Vehicle Speed: **28kph**.  
+- Target Type: VRU. Min Host Vehicle Speed: **7kph**. Max Host Vehicle Speed: **28kph**.  
+- Target Type: Motorbike. Min Host Vehicle Speed: **7kph**. Max Host Vehicle Speed: **28kph**.  
+
+**Target Speed Range for JA:**  
+- Target Type: Vehicles. Min Target Speed: **0kph**. Max Target Speed: **55kph**.  
+- Target Type: VRU. Min Target Speed: **0kph**. Max Target Speed: **20kph**.  
+- Target Type: Motorbike. Min Target Speed: **0kph**. Max Target Speed: **60kph**.  
+
+Note: The parameter values in the table are default calibrated values and need to be finally decided by test performance.
+Page 17
+7.4.6 / JA Function JA.
+
+Requirement ID: FS-226347.  
+Type: Information.  
+Status: New.  
+
+With the development of Camera and Radar sensor detection technology, AEB could be realized in more complex traffic situations. Junction Assist is the extended function which helps the driver avoid an accident, especially in junction crossing roads.  
+
+When the host vehicle is turning and the target is moving straight, JA can realize the potential collision and brake autonomously.  
+
+The JA is applicable for scenarios such as ego left turning (in the case of Left-Hand Driving) striking an oncoming car straight moving, ego turning left/right striking VRU straight crossing, or ego straight moving striking a crossing car.  
+
+JA could be active only when the host vehicle (real) speed is within the range for different objects.  
+
+### Targets Range Table:
+
+**Target Type**      | **Min Host Vehicle Speed** | **Max Host Vehicle Speed**  
+Vehicles             | 5kph                       | 28kph  
+VRU                  | 7kph                       | 28kph  
+Motorbike            | 7kph                       | 28kph  
+
+Note: The parameter values in the table are default calibrated values and need to be finally decided by test performance.  
+
+JA supports targets within the below range for different objects.  
+
+**Target Type**      | **Min Target Speed**       | **Max Target Speed**  
+Vehicles             | 0kph                       | 55kph  
+VRU                  | 0kph                       | 20kph  
+Motorbike            | 0kph                       | 60kph  
+
+### JA TTC Threshold Table:
+
+Relative Speed TTC Table:  
+**VRel (m/s)**       | 0.833 | 2.5  | 2.78 | 5.56 | 8.33 | 11.11 | 13.89 | 16.67 | 22.22 | 27.78 | 50  
+**TTC**              | 1.1   | 1.14 | 1.14 | 1.43 | 1.56 | 1.73  | 1.92  | 2.05  | 2.31  | 2.31  | 2.31  
+
+---
+
+7.5 / Maximum Speed Reduction.
+
+Requirement ID: FS-226348.  
+Type: Functional.  
+Status: Reopen.  
+
+---
+
+7.5.1 / AEB Maximum Speed Reduction.
+
+Requirement ID: FS-226349.  
+Type: Functional.  
+Status: Reopen.  
+
+In order to prevent rear-end collision, there is an AEB maximum speed reduction requirement. When the host vehicle speed reduction reaches the below requirement after AEB is triggered, AEB should quit:  
+
+---
+
+7.5.1.1 / Vehicle.
+
+Requirement ID: FS-226350.  
+Type: Functional.  
+Status: Reopen.  
+
+**Target Type**                        | **Fusion AEB Maximum Speed Reduction**  
+Vehicles                               | 50kph (BEV) | 42kph (ICE)
+Page 18
+7.5.1.2 / Fusion AEB Maximum Speed Reduction for VRU.
+Requirement ID: FS-226351.
+Type: Functional.
+Status: Reopen.
+Target Type: Fusion AEB Maximum Speed Reduction.
+Value: VRU - 40kph.
+
+7.5.1.3 / Fusion AEB Maximum Speed Reduction for Motorbike.
+Requirement ID: FS-226352.
+Type: Functional.
+Status: Reopen.
+Target Type: Fusion AEB Maximum Speed Reduction.
+Value: Motorbike - 40kph.
+
+Note: The parameter values in the table are default calibrated values and need to be finally decided by test performance.
+
+7.5.2 / JA Maximum Speed Reduction.
+Requirement ID: FS-226353.
+Type: Functional.
+Status: Reopen.
+
+For different object types, the speed reduction of JA shall meet the below table:
+
+7.5.2.1 / Vehicles.
+Requirement ID: FS-226354.
+Type: Functional.
+Status: Reopen.
+Page 19
+7.5.1.2 / VRU.
+
+Requirement ID: FS-226351.  
+Type: Functional.  
+Status: reopen.  
+
+Target Type: Fusion AEB Maximum Speed Reduction.  
+VRU: 40kph.  
+
+7.5.1.3 / Motorbike.
+
+Requirement ID: FS-226352.  
+Type: Functional.  
+Status: reopen.  
+
+Target Type: Fusion AEB Maximum Speed Reduction.  
+Motorbike: 40kph.  
+
+Note: The parameter values in the table are default calibrated value and need to be finally decided by test performance.
+
+7.5.2 / JA Maximum Speed Reduction.
+
+Requirement ID: FS-226353.  
+Type: Functional.    
+Status: reopen.  
+
+For different object types, the speed reduction of JA shall meet below table.  
+
+7.5.2.1 / Vehicles.
+
+Requirement ID: FS-226354.  
+Type: Functional.  
+Status: reopen.  
+
+Target Type: Fusion AEB JA Maximum Speed Reduction.  
+Vehicles: 20kph.  
+
+7.5.2.2 / VRU.
+
+Requirement ID: FS-226355.  
+Type: Functional.  
+Status: reopen.  
+
+Target Type: Fusion AEB JA Maximum Speed Reduction.  
+VRU: 20kph.  
+
+7.5.2.3 / Motorbike.
+
+Requirement ID: FS-226356.  
+Type: Functional.    
+Status: reopen.  
+
+Target Type: Fusion AEB JA Maximum Speed Reduction.  
+Motorbike: 20kph.  
+
+Note: The parameter values in the table are default calibrated value and need to be finally decided by test performance.
+
+7.6 / Interfaces.
+
+Requirement ID: FS-226357.  
+Type: Information.  
+Status: New.  
+
+7.6.1 / Signals input.
+Page 20
+7.6.1.2 / / Signals input from Body  
+
+Requirement ID: FS-226360  
+Type: Information  
+Status: New  
+
+Signal name: 0x123.Body_Signal_Indicator  
+Description: Indicator Status  
+Value range:  
+- 0 "OFF"  
+- 1 "ON"  
+
+Signal name: 0x124.Body_Signal_Brake  
+Description: Brake Pedal Position  
+Value range:  
+- 0 "Not Pressed"  
+- 1 "Pressed"  
+
+Signal name: 0x125.Body_Signal_Seatbelt  
+Description: Seatbelt Status  
+Value range:  
+- 0 "Unfastened"  
+- 1 "Fastened"  
+
+Signal name: 0x126.Body_Signal_Door  
+Description: Door Status  
+Value range:  
+- 0 "Closed"  
+- 1 "Open"  
+
+Note: The parameters in the table are default calibrated values and need to be finalized after testing performance.
+Page 21
+7.6.1.2 / Signals input from Body.
+
+Requirement ID: FS-226360  
+Type: Information  
+Status: New  
+
+Signal name: 0x456.BCM_Wiper_Front_Status  
+Description: Front wiper motor feedback signal.  
+Value range:  
+- 0 "OFF"  
+- 1 "Mist"  
+- 2 "IntermittentAuto"  
+- 3 "Low Speed"  
+- 4 "High Speed"  
+- 7 "Invalid"  
+
+Signal name: 0x109.BCM_TurnIndicator  
+Description: Status of turn indicators.  
+Value range:  
+- 0 "OFF"  
+- 1 "Left"  
+- 2 "Right"  
+
+Signal name: 0x106.BCM_StopLightSts  
+Description: Status of stop light.  
+Value range:  
+- 0 "OFF"  
+- 1 "ON"  
+- 2 "Fault (Reserved)"  
+- 3 "Signal Invalid"  
+
+Signal name: 0x381.ACM_Seat_Belt_Status_Driver  
+Description: Driver's seat belt signal.  
+Value range:  
+- 0 "Not_buckled"  
+- 1 "Buckled"  
+- 2 "Not_Available"  
+- 3 "Failure"  
+
+Signal name: 0x109.BCM_STAT_BrakeSwitch  
+Description: Brake pedal status.  
+Value range:  
+- 0 "Brake not pressed"  
+- 1 "Brake Pressed"  
+- 2 "Reserved"  
+- 3 "Signal invalid"  
+
+Signal name: 0x112.STAT_CL_15_1_L  
+Description: Ignition state.  
+Value range:  
+- 0 "OFF"  
+- 1 "ON"  
+
+Signal name: 0x105.BCM_STAT_DoorAjarFL  
+Description: Left front door status.  
+Value range:  
+- 0 "Closed"  
+- 1 "Opened"
+Page 22
+7.6.1.3 / Signals input from Chassis and Powertrain.
+
+Requirement ID: FS-226361.  
+Type: Information.  
+Status: New.  
+
+Signal name: 0x105.BCM_STAT_DoorAjarFR.  
+Description: Left front door status.  
+Value range:  
+0 "Closed".  
+1 "Opened".  
+
+Signal name: 0x105.BCM_STAT_DoorAjarRL.  
+Description: Left rear door status.  
+Value range:  
+0 "Closed".  
+1 "Opened".  
+
+Signal name: 0x105.BCM_STAT_DoorAjarRR.  
+Description: Right rear door status.  
+Value range:  
+0 "Closed".  
+1 "Opened".  
+
+Signal name: 0x105.BCM_STAT_TrunkAjar.  
+Description: Trunk status.  
+Value range:  
+0 "Closed".  
+1 "Opened".  
+
+Signal name: 0x105.BCM_STAT_BonnetAjar.  
+Description: Bonnet status.  
+Value range:  
+0 "Closed".  
+1 "Opened".  
+
+Signal name: 0xD9.VCU_ACPD_Percent.  
+Description: Acceleration pedal position (BEV/ICE).  
+Value range:  
+BEV: [0, 100] %%.    
+ICE: [0, 100] %%.
+Page 23
+7.6.1.3 / Signals input from Chassis and Powertrain.
+
+Requirement ID: FS-226361.  
+Type: Information.  
+Status: New.  
+
+Signal name: `0xD9.VCU_ACPD_Percent`.  
+Description: Acceleration pedal position.  
+Value range: [0, 100] (%).  
+
+Signal name: `0xD9.VCU_ACPD_Percent_Valid`.  
+Description: Acceleration pedal position validity.  
+Value range: 0 "Valid", 1 "Invalid".  
+
+Signal name: `0x32F.IDB_AEB_Active_Flag`.  
+Signal name (alternative): `0x136.ESC_AEB_Active`.  
+Description: Whether AEB function is activated.  
+Value range: 0 "Not active", 1 "Active".  
+
+Signal name: `0x32F.IDB_AEB_Available_Flag`.  
+Signal name (alternative): `0x136.ESC_AEB_Available`.  
+Description: Whether AEB function is available.  
+Value range: 0 "Not available", 1 "Available".  
+
+Signal name: `0x17D.YSS_YAW_RATE_UNFILTERED`.  
+Signal name (alternative): `0x289.VYAW_VEH`.  
+Description: Unfiltered yaw rate.  
+Value range: [-163.84, 163.83] (deg/s).  
+
+Signal name: `0x17D.YSS_YAW_RATEUNFILTERED_QUAL`.  
+Signal name (alternative): `0x289.QU_VYAW_VEH`.  
+Description: Unfiltered yaw rate validity.  
+Value range:  
+- 2 "VALID".  
+- 4 "SUBSTITUTE".  
+- 7 "INVALID".  
+- 14 "NOT AVAILABLE".  
+- 15 "UNFILLED".  
+Additional notes:  
+- 2 "Signal value is valid (A-CAN)".  
+- 6 "Signal invalid (A-CAN)".  
+- 8 "Initialisierung".  
+- 15 "Signal invalid Not used".
+Page 24
+Note: The parameter values in the table are default calibrated values and need to be finally decided by test performance.
+
+Unfiltered lateral acceleration is represented by signal names 0x179.YSS_LAT_ACC_UNFILTERED and 0x289.AcceleratorY, with a range of [-65.532, 65.532] m/s² and [-21.5928, 21.5928] m/s² respectively.
+
+Unfiltered lateral acceleration validity is represented by signal names 0x179.YSS_LAT_ACCUNFILTERED_QUAL and 0x289.AyOutStatus with values:
+- 2 "VALID"
+- 4 "SUBSTITUTE"
+- 7 "INVALID"
+- 14 "NOT AVAILABLE"
+- 15 "UNFILLED"
+Additional range indicates:
+- 0 "Valid" 
+- 1 "Invalid"
+
+Unfiltered longitudinal acceleration is represented by signal names 0x178.YSS_LONG_ACC_UNFILTERED and 0x289.AcceleratorX, with a range of [-65.532, 65.532] m/s² and [-21.5928, 21.5928] m/s² respectively.
+
+Unfiltered longitudinal acceleration validity is represented by signal names 0x178.YSS_LONG_ACCUNFILTERED_QUAL and 0x289.AxOutStatus with values:
+- 2 "VALID"
+- 4 "SUBSTITUTE"
+- 7 "INVALID"
+- 14 "NOT AVAILABLE"
+- 15 "UNFILLED"
+Additional range indicates:
+- 0 "Valid"
+- 1 "Invalid"
+
+FL Wheel direction is represented by signal name 0x23A.IDB_WheelDirection_FL with a value range of:
+- 0 "Standstill"
+Page 25
+7.6.1.4 / / Signals input from Chassis and Powertrain
+
+Requirement ID: FS-226361  
+Type: Information  
+Status: New  
+
+Signal name: 0x3C0.WheelSpeedFLStatus  
+Description: Speed direction of FL Wheel.  
+Value range: 1 "Forward", 2 "Backward", 3 "Invalid".  
+
+Signal name: 0x23A.IDB_WheelDirection_FR  
+Signal name: 0x3C0.WheelSpeedFRStatus  
+Description: Speed direction of FR Wheel.  
+Value range: 0 "Standstill", 1 "Forward", 2 "Backward", 3 "Invalid".  
+
+Signal name: 0x23B.IDB_WheelDirection_RL  
+Signal name: 0x3C1.WheelSpeedRLStatus  
+Description: Speed direction of RL Wheel.  
+Value range: 0 "Standstill", 1 "Forward", 2 "Backward", 3 "Invalid".  
+
+Signal name: 0x23B.IDB_WheelDirection_RR  
+Signal name: 0x3C1.WheelSpeedRRStatus  
+Description: Speed direction of RR Wheel.  
+Value range: 0 "Standstill", 1 "Forward", 2 "Backward", 3 "Invalid".  
+
+Signal name: 0x95.STAT_DSC  
+Description: ESC indicator bit.  
+Value range:  
+For IDB: 0 "IDB normal", 1 "Track Mode", 2 "IDB-OFF", 3 "Signal Invalid".  
+For ESC: 0 "ESC normal", 1 "Traction Mode", 2 "ESC-OFF", 3 "ESC Error".  
+
+Signal name: 0x20D.IDBFault  
+Signal name: 0x20D.ESCFault  
+Description: ESC alarm light status.  
+Value range: 0 "No Fault", 1 "Fault".  
+
+Signal name: 0x20D.VDCActive  
+Description: ESC status in regulation.  
+Value range: (Note: Applicable values missing from the provided table).
+Page 26
+7.6.1.3 / Signals input from Chassis and Powertrain
+
+Requirement ID: FS-226361  
+Type: Information  
+Status: New  
+
+Signal name: 0xD9.VCU_ACPD_Percent  
+Description: Acceleration pedal position.  
+Value range: [0, 100] %%!  
+
+Signal name: 0xD9.VCU_ACPD_Percent_Valid  
+Description: Acceleration pedal position valid.  
+Value range:  
+- 0 "Valid"  
+- 1 "Invalid"  
+
+Signal name: 0x32F.IDB_AEB_Active_Flag  
+Signal name: 0x136.ESC_AEB_Active  
+Description: Whether AEB function is activated.  
+Value range:  
+- 0 "Not active"  
+- 1 "Active"  
+
+Signal name: 0x32F.IDB_AEB_Available_Flag  
+Signal name: 0x136.ESC_AEB_Available  
+Description: Whether AEB function is available.  
+Value range:  
+- 0 "Not available"  
+- 1 "Available"  
+
+Signal name: 0x17D.YSS_YAW_RATE_UNFILTERED  
+Signal name: 0x289.VYAW_VEH  
+Description: Unfiltered yaw rate.  
+Value range: [-163.84, 163.83] deg/s  
+
+Signal name: 0x17D.YSS_YAW_RATEUNFILTERED_QUAL  
+Signal name: 0x289.QU_VYAW_VEH  
+Description: Unfiltered yaw rate valid.  
+Value range:  
+- 2 "VALID"  
+- 4 "SUBSTITUTE"  
+- 7 "INVALID"  
+- 14 "NOT AVAILABLE"  
+- 15 "UNFILLED"  
+
+7.6.1.4 / Signals input from Dynamics
+
+Signal name: 0x179.YSS_LAT_ACC_UNFILTERED  
+Signal name: 0x289.AcceleratorY  
+Description: Unfiltered lateral acceleration.  
+Value range:  
+- [-65.532, 65.532] m/s²  
+- [-21.5928, 21.5928] m/s²  
+
+Signal name: 0x179.YSS_LAT_ACCUNFILTERED_QUAL  
+Signal name: 0x289.AyOutStatus  
+Description: Unfiltered lateral acceleration valid.  
+Value range:  
+- 2 "VALID"  
+- 4 "SUBSTITUTE"  
+- 7 "INVALID"  
+- 14 "NOT AVAILABLE"  
+- 15 "UNFILLED"  
+- 0 "Valid"  
+- 1 "Invalid"  
+
+Signal name: 0x178.YSS_LONG_ACC_UNFILTERED  
+Signal name: 0x289.AcceleratorX  
+Description: Unfiltered longitudinal acceleration.  
+Value range:  
+- [-65.532, 65.532] m/s²  
+- [-21.5928, 21.5928] m/s²  
+
+Signal name: 0x178.YSS_LONG_ACCUNFILTERED_QUAL  
+Signal name: 0x289.AxOutStatus  
+Description: Unfiltered longitudinal acceleration valid.  
+Value range:  
+- 2 "VALID"  
+- 4 "SUBSTITUTE"  
+- 7 "INVALID"  
+- 14 "NOT AVAILABLE"  
+- 15 "UNFILLED"  
+- 0 "Valid"  
+- 1 "Invalid"  
+
+Signal name: 0x23A.IDB_WheelDirection_FL  
+Description: FL wheel speed direction.  
+Value range:  
+- 0 "Standstill"  
+- 1 "Forward"  
+- 2 "Backward"  
+- 3 "Invalid"  
+
+Signal name: 0x23A.IDB_WheelDirection_FR  
+Signal name: 0x3C0.WheelSpeedFRStatus  
+Description: FR wheel speed direction.  
+Value range:  
+- 0 "Standstill"  
+- 1 "Forward"  
+- 2 "Backward"  
+- 3 "Invalid"  
+
+Signal name: 0x23B.IDB_WheelDirection_RL  
+Signal name: 0x3C1.WheelSpeedRLStatus  
+Description: RL wheel speed direction.  
+Value range:  
+- 0 "Standstill"  
+- 1 "Forward"  
+- 2 "Backward"  
+- 3 "Invalid"  
+
+Signal name: 0x23B.IDB_WheelDirection_RR  
+Signal name: 0x3C1.WheelSpeedRRStatus  
+Description: RR wheel speed direction.  
+Value range:  
+- 0 "Standstill"  
+- 1 "Forward"  
+- 2 "Backward"  
+- 3 "Invalid"  
+
+Signal name: 0x95.STAT_DSC  
+Description: ESC indicator bit ESC.  
+Value range:  
+- 0 "IDB normal"  
+- 1 "Track Mode"  
+- 2 "IDB-OFF"  
+- 3 "Signal Invalid"  
+
+Value range:  
+- 0 "ESC normal"  
+- 1 "Traction Mode"  
+- 2 "ESC-OFF"  
+- 3 "ESC Error"  
+
+Signal name: 0x20D.IDBFault  
+Signal name: 0x20D.ESCFault  
+Description: ESC alarm light ESC.  
+Value range:  
+- 0 "No fault"  
+- 1 "Fault"  
+
+Signal name: 0x20D.VDCActive  
+Description: ESC in regulation.  
+Value range:  
+- 0 "Inactive"  
+- 1 "Active"  
+
+Signal name: 0x95.MSR_Active  
+Description: MSR in regulation MSR.  
+Value range:  
+- 0 "Inactive"  
+- 1 "Active"  
+- 2 "Reserved"  
+- 3 "Signal invalid"  
+
+Signal name: 0x20D.TCSActive  
+Description: TCS in regulation TCS.  
+Value range:  
+- 0 "Inactive"  
+- 1 "Active"  
+
+Signal name: 0x20D.ABSActive  
+Description: ABS in regulation ABS.  
+Value range:  
+- 0 "Inactive"  
+- 1 "Active"  
+
+Signal name: 0x20D.ABSFault  
+Description: ABS alarm light ABS.  
+Value range:  
+- 0 "No fault"  
+- 1 "Fault"  
+
+Signal name: 0xF1.IDB_Brake_Pedal_position  
+Description: Brake pedal position.  
+Value range: [0, 100] %%!  
+
+Signal name: 0xF1.IDB_Brake_Pedal_position_sts  
+Description: Qualifier for brake pedal position.  
+Value range:  
+- 0 "Valid"  
+- 1 "Invalid"
+Page 27
+7.6.1.3 / Signals input from Chassis and Powertrain.
+
+Requirement ID: FS-226361.  
+Type: Information.  
+Status: New.  
+
+Signal name: 0xD9.VCU_ACPD_Percent.  
+Description: Acceleration pedal position.  
+Value range: [0, 100] %%!.
+
+Signal name: 0xD9.VCU_ACPD_Percent_Valid.  
+Description: Acceleration pedal position valid.  
+Value range:  
+0 "Valid".  
+1 "Invalid".  
+
+Signal name: 0x32F.IDB_AEB_Active_Flag / 0x136.ESC_AEB_Active.  
+Description: Whether AEB function is activated (AEB).  
+Value range:  
+0 "Not active".  
+1 "Active".  
+
+Signal name: 0x32F.IDB_AEB_Available_Flag / 0x136.ESC_AEB_Available.  
+Description: Whether AEB function is available (AEB).  
+Value range:  
+0 "Not available".  
+1 "Available".  
+
+Signal name: 0x17D.YSS_YAW_RATE_UNFILTERED / 0x289.VYAW_VEH.  
+Description: Unfiltered yaw rate.  
+Value range: [-163.84, 163.83] deg/s.  
+
+Signal name: 0x17D.YSS_YAW_RATEUNFILTERED_QUAL / 0x289.QU_VYAW_VEH.  
+Description: Unfiltered yaw rate valid.  
+Value range:  
+2 "VALID".  
+4 "SUBSTITUTE".  
+7 "INVALID".  
+14 "NOT AVAILABLE".  
+15 "UNFILLED".  
+
+Signal name: 0x179.YSS_LAT_ACC_UNFILTERED / 0x289.AcceleratorY.  
+Description: Unfiltered lateral acceleration.  
+Value range:  
+[-65.532, 65.532] m/s².  
+[-21.5928, 21.5928] m/s2.  
+
+Signal name: 0x179.YSS_LAT_ACCUNFILTERED_QUAL / 0x289.AyOutStatus.  
+Description: Unfiltered lateral acceleration valid.  
+Value range:  
+2 "VALID".  
+4 "SUBSTITUTE".  
+7 "INVALID".  
+14 "NOT AVAILABLE".  
+15 "UNFILLED".  
+0 "Valid".  
+1 "Invalid".  
+
+Signal name: 0x178.YSS_LONG_ACC_UNFILTERED / 0x289.AcceleratorX.  
+Description: Unfiltered longitudinal acceleration.  
+Value range:  
+[-65.532, 65.532] m/s².  
+[-21.5928, 21.5928] m/s2.  
+
+Signal name: 0x178.YSS_LONG_ACCUNFILTERED_QUAL / 0x289.AxOutStatus.  
+Description: Unfiltered longitudinal acceleration valid.  
+Value range:  
+2 "VALID".  
+4 "SUBSTITUTE".  
+7 "INVALID".  
+14 "NOT AVAILABLE".  
+15 "UNFILLED".  
+0 "Valid".  
+1 "Invalid".  
+
+Signal name: 0x23A.IDB_WheelDirection_FL.  
+Description: FL Wheel speed direction.  
+Value range:  
+0 "Standstill".  
+
+Signal name: 0x3C0.WheelSpeedFLStatus.  
+Description: Speed direction.  
+Value range:  
+1 "Forward".  
+2 "Backward".  
+3 "Invalid".  
+
+Signal name: 0x23A.IDB_WheelDirection_FR / 0x3C0.WheelSpeedFRStatus.  
+Description: FR Wheel speed direction.  
+Value range:  
+0 "Standstill".  
+1 "Forward".  
+2 "Backward".  
+3 "Invalid".  
+
+Signal name: 0x23B.IDB_WheelDirection_RL / 0x3C1.WheelSpeedRLStatus.  
+Description: RL Wheel speed direction.  
+Value range:  
+0 "Standstill".  
+1 "Forward".  
+2 "Backward".  
+3 "Invalid".  
+
+Signal name: 0x23B.IDB_WheelDirection_RR / 0x3C1.WheelSpeedRRStatus.  
+Description: RR Wheel speed direction.  
+Value range:  
+0 "Standstill".  
+1 "Forward".  
+2 "Backward".  
+3 "Invalid".  
+
+Signal name: 0x95.STAT_DSC.  
+Description: ESC indicator bit.  
+Value range: ESC.  
+0 "ESC normal".  
+1 "Traction Mode".  
+2 "ESC-OFF".  
+3 "ESC Error".  
+
+Signal name: 0x20D.IDBFault / 0x20D.ESCFault.  
+Description: ESC alarm light ESC.  
+Value range:  
+0 "No Fault".  
+1 "Fault".  
+
+Signal name: 0x20D.VDCActive.  
+Description: ESC in regulation ESC.  
+Value range:  
+0 "Inactive".  
+1 "Active".  
+
+Signal name: 0x95.MSR_Active.  
+Description: MSR in regulation MSR.  
+Value range:  
+0 "Inactive".  
+1 "Active".  
+2 "Reserved".  
+3 "Signal invalid".  
+
+Signal name: 0x20D.TCSActive.  
+Description: TCS in regulation (TCS).  
+Value range:  
+0 "Inactive".  
+1 "Active".  
+
+Signal name: 0x20D.ABSActive.  
+Description: ABS in regulation (ABS).  
+Value range:  
+0 "Inactive".  
+1 "Active".  
+
+Signal name: 0x20D.ABSFault.  
+Description: ABS alarm light ABS.  
+Value range:  
+0 "No fault".  
+1 "Fault".  
+
+Signal name: 0xF1.IDB_Brake_Pedal_position.  
+Description: Brake pedal position.  
+Value range: [0, 100] %%!.  
+
+Signal name: 0xF1.IDB_Brake_Pedal_position_sts.  
+Description: Qualifier for Brake pedal position.  
+Value range:  
+0 "Valid".  
+1 "Invalid".  
+
+Signal name: 0x3C0.WheelSpeedFL.  
+Description: No filtered front left wheel speed.  
+Value range: [0-300] km/h.  
+
+Signal name: 0x3C0.WheelSpeedFR.  
+Description: No filtered front right wheel speed.  
+Value range: [0-300] km/h.  
+
+Signal name: 0x3C1.WheelSpeedRL.  
+Description: No filtered rear left wheel speed.  
+Value range: [0-300] km/h.  
+
+Signal name: 0x3C1.WheelSpeedRR.  
+Description: No filtered rear right wheel speed.  
+Value range: [0-300] km/h.  
+
+Signal name: 0x17E.SAS_SteerWheelAngle.  
+Description: Steering wheel angle.  
+Value range: [-780, 779.9] deg.  
+
+Signal name: 0x17E.SAS_SteerWheelAngleValid / 0x17E.SAS_SteeringAngleValid.  
+Description: Steering wheel angle valid.  
+Value range:  
+0 "Valid".  
+1 "Invalid".
+Page 28
+### 7.6.1.3 / / Signals Input from Chassis and Powertrain
+
+#### Requirement ID: FS-226361
+- Type: Information  
+- Status: New  
+
+#### Signal Details:
+1. **Signal Name:** 0x17E.SAS_SteerWhlRotSpd  
+   **Description:** Steering wheel rotation speed  
+   **Value Range:** [0, 1016] deg/s  
+
+2. **Signal Name:** 0x17E.SAS_SteerWhlRotSpdStatus  
+   **Description:** Steering wheel rotation speed valid  
+   **Value Range:**  
+   - 0 "Invalid"  
+   - 1 "Valid"  
+
+3. **Signal Name:** 0x17E.SAS_SASFailure  
+   **Description:** Internal SAS status  
+   **Value Range:**  
+   - 0 "Failure"  
+   - 1 "No Failure"  
+
+4. **Signal Name:** 0x20D.VehicleSpd  
+   **Description:** Vehicle speed  
+   **Value Range:** [0, 300] km/h  
+
+5. **Signal Name:** 0x20D.VehicleSpdSts  
+   **Description:** Vehicle speed valid  
+   **Value Range:**  
+   - 0 "Valid"  
+   - 1 "Invalid"  
+
+6. **Signal Name:** 0xD9.VCU_ACTGear  
+   **Description:** Gear position  
+   **Value Range:**  
+   - 0 "P"  
+   - 1 "R"  
+   - 2 "N"  
+   - 3 "D"  
+   - 7 "Fault"  
+
+7. **Signal Name:** 0x3F9.ST_GRSEL_DRV  
+   **Description:** Gear position  
+   **Value Range:**  
+   - 0 "Initialization"  
+   - 1 "N"  
+   - 2 "R"  
+   - 3 "P"  
+   - 4 "NP"  
+   - 5 "1"  
+   - 6 "2"  
+   - 7 "3"  
+   - 8 "4"  
+   - 9 "5"
+Page 29
+7.6.2 // Signals output.
+
+Requirement ID: FS-226362.
+Type: Information.
+Status: New.
+
+7.6.2.1 // Signals output to HMI.
+
+Requirement ID: FS-226363.
+Type: Information.
+Status: New.
+
+Signal name: 0x130.ADAS_AEB_Mode_Feed.
+Description: AEB OFF light AEB.
+Value range: 0 "Off", 1 "ON".
+Receiver: HMI.
+
+Signal name: 0x130.ADAS_AEB_State.
+Description: AEB Function Status AEB.
+Value range: 0 "OFF State", 1 "Standby Mode".
+Receiver: HMI.
+Page 30
+2 "Active Mode"  
+3 "Hold Mode".
+
+0x130.ADAS_AEB_check.  
+AEB Fault Light AEB.  
+
+0 "Available".  
+1 "Temporarily not available".  
+2 "Permanently not available".  
+
+Receiver: HMI.
+
+0x130.ADAS_AEB_Warning.  
+AEB Warning Status AEB.  
+
+0 "No warning".  
+1 "Braking".  
+2 “Post feedback".  
+
+Receiver: HMI.
+
+0x128.ADAS_FCW_Mode_Feed.  
+FCW OFF light FCW.  
+
+0 "Off".  
+1 "ON".  
+
+Receiver: HMI.
+
+0x128.ADAS_FCW_Sens_Feed.  
+FCW Sensitivity Feedback FCW.  
+
+0 "Early".  
+1 "Normal".  
+2 "Late".  
+3 "Reserved".  
+
+Receiver: HMI.
+
+0x128.ADAS_FCW_state.  
+FCW Function Status FCW.  
+
+0 "OFF State".  
+1 "Stand by state".  
+2 "Active state".  
+
+Receiver: HMI.
+
+0x128.ADAS_FCW_check.  
+FCW Fault Light FCW.  
+
+0 "Available".  
+1 "Temporarily not available".  
+2 "Permanently not available".  
+
+Receiver: HMI.
+
+0x128.ADAS_FCW_warning.  
+
+0 "No Warning".  
+1 "warning stage - 1".  
+
+Receiver: HMI.
+Page 31
+FCW Warning Status FCW: 
+Value range includes 2 "warning stage - 2" and 3 "warning stage - 3".
+
+7.6.2.2 // Signals output to Brake System.
+
+**Requirement ID:** FS-226364  
+**Type:** Information  
+**Status:** New  
+
+**Signals Information:**
+
+1. **Signal name:** 0x32E.ADAS_AEB_Target_Deceleration (BEV), 0x131.ADAS_AEB_DecCmd (ICE).  
+   **Description:** Deceleration setpoint.  
+   **Value range:** [-10.65, 2] m/s².  
+   **Receiver:** IDB/ESC.  
+
+2. **Signal name:** 0x32E.ADAS_AEB_Prefill (BEV), 0x131.ADAS_Prefill (ICE).  
+   **Description:** Prefill request.  
+   **Value range:** 0 "No prefill request", 1 "Prefill request".  
+   **Receiver:** IDB/ESC.
+
+3. **Signal name:** 0x32E.AEB_Hold (BEV), 0x131.ADAS_AEB_StandstillReq (ICE).  
+   **Description:** AEB request ESC hold AEBESC hold.  
+   **Value range:** 0 "not hold", 1 "hold".  
+   **Receiver:** IDB/ESC.
+
+4. **Signal name:** 0x32E.ADAS_AEB_Braking_Progress (BEV), 0x131.ADAS_AEB_DecCmdAct (ICE).  
+   **Description:** State of the function AEB in the detection.  
+   **Value range:** 0 "No demand", 1.  
+   **Receiver:** IDB/ESC.
+Page 32
+7.7 / / Function Structure.
+
+Requirement ID: FS-226365.  
+Type: Information.  
+Status: New.  
+
+Signal: 0x32E.ADAS_AEB_EBA_Req.  
+Linked Signal: --.  
+Description: AEB EBA request.  
+Device: AEB EBA.  
+Values:  
+- 0 "No demand".  
+- 1 "Demand".  
+Receiver: IDB/ESC.  
+
+Signal: 0x32E.ADAS_AEB_HBA_Req.  
+Linked Signal: 0x131.ADAS_AEB_ABA_HBAReq.  
+Description: AEB HBA request.  
+Device: AEB HBA.  
+Values:  
+- 0 "No demand".  
+- 1 "Demand".  
+Receiver: IDB/ESC.  
+
+Signal: 0x32E.ADAS_AEB_HBA_Level.  
+Linked Signal: 0x131.ADAS_AEB_ABA_HBACmd.  
+Description: AEB HBA threshold level.  
+Device: AEB HBA.  
+Values:  
+- 0 "Standard threshold".  
+- 1 "Threshold 1".  
+- 2 "Threshold 2".  
+- 3 "Threshold 3".  
+Receiver: IDB/ESC.
+Page 33
+Fig. FCW AEB JA Function System Architecture.
+
+### 7.8 / Condition Check
+
+**Requirement ID:** FS-226366  
+**Type:** Functional  
+**Status:** reopen  
+
+---
+
+### 7.8.1 / FCW Allowed Condition FCW
+
+**Requirement ID:** FS-226367  
+**Type:** Functional  
+**Status:** In progress  
+
+The FCW function (level 1 warning) shall only be allowed to request a warning when all of the below conditions are fulfilled when there is a collision risk:  
+
+- FCW function is switched on by the Driver.  
+- No FCW function-related faults (e.g., input signal-related faults like timeout/checksum/rolling counter/invalid/out of range; sensor detestation-related faults like blocked/misalignment; sensor ECU-related HW/SW faults, etc.)  
+- The sensor perception system is in a ready state, i.e., the sensor is in a fully operational state.  
+- The camera and radar sensor perception systems are in a ready state, i.e., the sensors are in a fully operational state, without failsafe or degradation.  
+- The system power mode is ON (high-voltage system mode for BEV).
+Page 34
+ON.
+
+• The driving direction is forwarding.  
+• The acceleration pedal is pressed less than [calibration] (default: 80%).  
+• The steering angle is less than [calibration] (default: 90 degrees). (Not applicable to JA).  
+• The steering angle speed is less than [calibration] (default: 90 degrees/s). (Not applicable to JA).  
+• The Subject Vehicle lateral acceleration under corresponding Subject Vehicle speed is less than [calibration]. (Depends on customer expectation for accepted lateral acceleration and test performance) (Not applicable to JA).  
+• The Subject Vehicle speed (real speed) shall be within the [specified speed range for corresponding object type] (default: refer Function Overview).  
+
+### 7.8.2 / / AEB Allowed Condition AEB
+
+**Requirement ID:** FS-226377  
+**Type:** Functional  
+**Status:** In progress  
+
+The AEB function shall only be allowed to request brake or brake assist when all below conditions are fulfilled when there is a collision risk:
+
+**AEB:**
+
+• AEB function is switched on by the Driver.  
+• No AEB function-related faults. (e.g., input signal-related fault like timeout/checksum/rolling counter/invalid/out of range. Sensor detestation-related faults like blocked/misalignment, sensor ECU related HW/SW faults, etc.).  
+• The sensor perception system is in a ready state, i.e., the sensor is in a fully operational state.  
+• The camera and radar sensor perception systems are in a ready state, i.e., the sensors are in fully operational state, without failsafe or degradation.  
+• The system power mode is ON (high-voltage system mode for BEV).  
+• ESC function is NOT switched off by the Driver.  
+• ESC AEB availability state is “available.”  
+• ESC is NOT in regulation.
+Page 35
+• TCS is NOT in regulation.  
+• The gear position is in one of "D" / "1" / "2" / "3" / "4" / "5" / "6" / "7" / "8" / "9" / "N".  
+• The driving direction is forwarding.  
+• The FL/FR/RL/RR doors, trunk and bonnet open state is closed.  
+• The Driver seatbelt buckled state is buckled.  
+• The time interval since last AEB intervention brake ending is longer than [calibration] (default: 10s).  
+
+The time interval only considers the AEB and JA automatic braking request, HBA and EBA are NOT considered.  
+
+• The acceleration pedal is pressed less than [calibration] (default: 80%).  
+• The current acceleration pedal change ratio compared with internal filtered acceleration pedal is less than [calibration] (default: 50%).  
+• The steering angle is less than [calibration] (default: 90 degree).  
+• The steering angle speed is less than [calibration] (default: 90 degree/s).  
+• The Subject Vehicle lateral acceleration under corresponding Subject Vehicle speed is less than [calibration] (depends on customer expectation for accepted lateral acceleration and test performance).  
+• The Subject Vehicle speed (real speed) shall be within the [specified speed range for corresponding object type] (default: refer <Function Overview>).  
+
+When the driver steps on the brake pedal and brake pedal position is greater than [calibration] (default: 30!) and current vehicle deceleration is less than [calibration] (default: -2 m/s²), the EBA shall be allowed.  
+
+### 7.8.3 / / Cancel Condition  
+
+**Requirement ID:** FS-226395  
+**Type:** Functional  
+**Status:** In progress  
+
+The FCW AEB JA function shall be cancelled when any of below conditions is fulfilled during function activation:
+
+**Cancel Condition**
+Page 36
+The camera or radar sensor perception system is not in ready state:
+- Applies to FCW, AEB, JA, and EBA.
+
+FCW function is switched off by the Driver:
+- Level 1 condition applies to FCW. 
+- This condition does not apply to AEB, JA, or EBA.
+
+FCW function related faults:
+- Applies to FCW.
+- Does not apply to AEB, JA, or EBA.
+
+AEB function is switched off by the Driver:
+- Level 2/3 condition applies to AEB, JA, and EBA.
+
+AEB function related faults:
+- Level 2/3 condition applies to AEB, JA, and EBA.
+
+The driving direction is not forwarding:
+- Applies to FCW, AEB, JA, and EBA.
+
+The acceleration pedal is pressed greater than [calibration] (default: 90%):
+- Applies to FCW, AEB, JA, and EBA.
+
+The steering angle is greater than [calibration] (default: 120 degree):
+- Applies to FCW, AEB, and EBA.
+- Does not apply to JA.
+
+The steering angle speed is greater than [calibration] (default: 150 degree/s):
+- Applies to FCW, AEB, and EBA.
+- Does not apply to JA.
+
+Summary:
+Conditions listed detail system states under which functions of FCW, AEB, JA, and EBA will be canceled or not allowed to activate based on perception system readiness, driver settings, pedal states, steering values, and driving dynamics.
+Page 37
+VinFast Management System  
+VFDSXVEEP9124  
+
+The Subject Vehicle lateral acceleration under corresponding Subject Vehicle speed is greater than [calibration] (depends on customer expectation for accepted lateral acceleration and test performance).
+
+ESC function is switched off by the Driver:  
+- NA  
+- P  
+- P  
+- P  
+
+ESC AEB availability state is “unavailable”:  
+- NA  
+- P  
+- P  
+- P  
+
+ESC is in regulation:  
+- NA  
+- P  
+- P  
+- P  
+
+Any of the FL/FR/RL/RR doors, trunk, and bonnet open state is not closed:  
+- NA  
+- P  
+- P  
+- P  
+
+The Driver seatbelt buckled state is not buckled:  
+- NA  
+- P  
+- P  
+- P  
+
+If the driver releases the brake pedal or brake pedal position is less than the [calibration] (default: 10%):  
+- NA  
+- NA  
+- NA  
+- P  
+
+7.9 / / Typical Scenario  
+Requirement ID: FS-226399  
+Type: Information  
+Status: New  
+
+---
+
+7.9.1 / / Case 1  
+Requirement ID: FS-226400  
+Type: Information  
+Status: New
+Page 38
+FCW AEB JA Illustrations and Description.
+
+**FCW AEB JA Scenario Description:**
+
+E-NCAP 2020 scenario for pedestrians and cyclists.
+
+**AEB Function Actions:**
+- FCW Warning.
+- Prefill Request.
+- AEB Request.  
+
+**7.9.2 / / Case 2.**
+
+Requirement ID: FS-226401.  
+Type: Information.  
+Status: New.
+Page 39
+VinFast Management System  
+VFDSXVEEP9124  
+
+E-NCAP 2020 Scenario for Vehicle.  
+AEB Function Action AEB:  
+- FCW Warning.  
+- Prefill Request.  
+- AEB Request.  
+
+7.9.3 / / Case 3  
+Requirement ID: FS-226402  
+Type: Information  
+Status: New
+Page 40
+Vehicle is traveling on a straight road and a pedestrian walks into the vehicle path but will be outside the host lane when the vehicle reaches the street crossing position.
+
+AEB Function Action:
+- FCW no Warning.
+- Prefill no Request.
+- AEB no Request.
+
+---
+
+7.9.4 // Case 4
+
+Requirement ID: FS-226403  
+Type: Information  
+Status: New  
+
+Vehicle is turning a long bend and a pedestrian stands on the outside of the vehicle road.
+
+AEB Function Action:
+- FCW no Warning.
+- Prefill no Request.
+- AEB no Request.
+Page 41
+7.9.5 // Case 5.
+
+Requirement ID: FS-226404.  
+Type: Information.  
+Status: New.
+
+E-NCAP 2020 scenario for Vehicle Car-to-Car Front turn-across-path (CCFtap).  
+E-NCAP 2020:  
+• JA Request.
+
+---
+
+7.9.6 // Case 6.
+
+Requirement ID: FS-226405.  
+Type: Information.  
+Status: New.
+
+E-NCAP 2020 scenario for Pedestrian Car-to-Pedestrian Turning Adult (CPTA).  
+E-NCAP 2020:  
+• JA Request.
+
+---
+
+7.9.7 // Case 7.
+
+Requirement ID: FS-226406.  
+Type: Information.  
+Status: New.
+Page 42
+7.9.8 / Case 8.
+
+Requirement ID: FS-226407.  
+Type: Information.  
+Status: New.  
+
+E-NCAP 2023 scenario for Motorbike Car-to-Motorcyclist Front turn across path (CMFtap).  
+
+E-NCAP 2023:  
+• JA Request.
+
+7.10 / HMI Proposal.
+
+Requirement ID: FS-226408.  
+Type: Functional.  
+Status: Reopen.  
+
+7.10.1 / Function Switch and Sensitivity Setting 功能开启和敏感度设置.
+Page 43
+Requirement ID: FS-226409  
+Type: Functional  
+Status: reopen  
+
+The FCW and AEB function shall be automatically reinstated at the initiation of each new ignition cycle. The driver can activate or deactivate FCW and AEB functions via the HMI and select the sensitivity of FCW during the driving cycle.
+
+After system power-on:
+- FCW is turned on by default. The default sensitivity is Normal. The system should always send the signals:
+  * ADAS_FCW_Mode_Feed = 0x1:ON  
+  * FCW_sens_Feed = 0x1:Normal  
+
+- AEB is turned on by default. The system should always send the signal:  
+  * ADAS_FCW_Mode_Feed = 0x1:ON  
+
+When the power mode is ON (STAT_CL_15_1_L = 0x1:ON):
+- If the system receives MHU_FCW_Mode = 0x1:ON continuously for 3 frames, it considers the FCW function switch is turned ON. The system should send the signal:  
+  * ADAS_FCW_Mode_Feed = 0x1:ON continuously  
+
+- If the system receives MHU_AEB_Mode = 0x1:ON continuously for 3 frames, it considers the AEB function switch is turned ON. The system should send the signal:  
+  * ADAS_AEB_Mode_Feed = 0x1:ON continuously  
+
+When the power mode is ON (STAT_CL_15_1_L = 0x1:ON) and the display speed (MHU_DigitSpeed) < calibration (default: 10 km/h):
+- If the system receives MHU_FCW_Mode = 0x0:OFF continuously for 3 frames, it considers the FCW function switch is turned OFF. The system should send the signal:  
+  * ADAS_FCW_Mode_Feed = 0x0:OFF continuously  
+
+- If the system receives MHU_AEB_Mode = 0x0:OFF continuously for 3 frames, it considers the AEB function switch is turned OFF. The system should send the signal:  
+  * ADAS_AEB_Mode_Feed = 0x0:OFF continuously  
+
+HMI Signal Settings:
+- HMI sends the signal MHU_FCW_sens = 0x0:Early / 0x1:Normal / 0x2:Late for three frames. The system should continuously send ADAS_FCW_Sens_Feed = 0x0:Early / 0x1:Normal / 0x2:Late as the feedback value.
+Page 44
+7.10.2 / Icon, Warning and popup.
+
+Requirement ID: FS-226410.  
+Type: Functional.  
+Status: reopen.  
+
+**Type:** Icon /warning.  
+**Conditions:** AEB or FCW in fault mode.  
+**Signals:** ADAS_FCW_check = 0x1:Temporarily not available /0x2:Permanently not available OR ADAS_AEB_check = 0x1:Temporarily not available /0x2:Permanently not available.  
+**Icon /warning:** Icon.  
+
+**Type:** Icon.  
+**Conditions:** AEB Switched OFF.  
+**Signals:** ADAS_AEB_Mode_Feed = OFF.  
+**Warning /popup:** Warning /popup.  
+
+**Type:** Warning /popup.  
+**Conditions:** FCW request warning.  
+**Signals:** ADAS_FCW_warning = 0x1:warning stage-1 /0x2:warning stage-2 /0x3:warning stage-3.  
+**Warning /popup:** Warning /popup.  
+
+**Type:** Warning /popup.  
+**Conditions:** AEB request Deceleration.  
+**Signals:** ADAS_AEB_Warning = 0x1:Braking.  
+**Popup:** Popup.  
+
+**Type:** Popup.  
+**Conditions:** Post AEB warning.  
+**Signals:** ADAS_AEB_Warning = 0x2:Post Feedback.  
+
+ADAS system will send out the related HMI signal, the final display will be responsible by OEM.  
+
+---
+
+7.11 / / Performance Requirements.
+
+Requirement ID: FS-226411.  
+Type: Information.  
+Status: New.  
+
+**Performance Requirements:** TBD. Wait for the vehicle validation.  
+
+---
+
+7.12 / Technical Agreement FCW/AEB.
+Page 45
+Requirement ID: FS-198265  
+Type: Information  
+Status: New  
+
+7.12.1 / Test method  
+
+Requirement ID: FS-198266  
+Type: Information  
+Status: New  
+
+Test method:  
+AEB_CCR, AEB_VRU_Ped, AEB_Cyclist referring to E-NCAP 2020  
+FCW/AEB [17/11Nhanhn]ok  
+
+7.12.2 / Marking goal (Fusion)  
+
+Requirement ID: FS-198267  
+Type: Information  
+Status: New  
+
+Marking goal (Fusion):  
+Meet E-NCAP 2020 AEB 5 stars  
+Note: Need to cooperate with Actuator  
+FCW/AEB [17/11Nhanhn]ok  
+
+7.12.3 / Supported deceleration  
+
+Requirement ID: FS-198268  
+Type: --  
+Status: New  
+
+Supported deceleration:  
+Up to 9m/s²  
+FCW/AEB [17/11Nhanhn]should correct unit  
+
+7.12.4 / Maximum speed reduction  
+
+Requirement ID: FS-198269  
+Type: Information  
+Status: New
+Page 46
+Maximum speed reduction CCRS≥50CCRm CCRb≥50AEB_VRU_Ped≥40  
+FCW/AEB [17/11Nhanhn]ok  
+
+### 7.12.5 / FCW operation speed range
+**Requirement ID:** FS-198270  
+**Type:** --  
+**Status:** New  
+
+**FCW operation speed range**  
+- For moving vehicles: 5km/h-130km/h  
+- For stationary vehicles: 5km/h-80km/h  
+- For stationary VRUs: 5km/h-60km/h  
+- For longitudinal VRUs: 5km/h-80km/h  
+- For crossing VRUs: 5km/h-60km/h  
+- For Motorbike TBD  
+
+FCW [17/11Nhanhn]ok  
+Update Crossing VRU to 60km/h  
+
+### 7.12.6 / AEB operation speed range
+**Requirement ID:** FS-198271  
+**Type:** --  
+**Status:** New  
+
+**AEB operation speed range**  
+- For moving vehicles: 5km/h-130km/h  
+- For stationary vehicles: 5km/h-80km/h  
+- For stationary VRUs: 5km/h-60km/h  
+- For longitudinal VRUs: 5km/h-80km/h  
+- For crossing VRUs: 5km/h-60km/h  
+- For Motorbike TBD  
+
+AEB [17/11Nhanhn]ok  
+Update Crossing VRU to 60km/h  
+
+### 7.13 / AEB-JA
+**Requirement ID:** FS-198382  
+**Type:** Information  
+**Status:** New  
+
+--Technical Agreement
+Page 47
+7.13.1 Test method.
+
+Requirement ID: FS-198383. Type: Information. Status: New.
+
+Test method: Only applicable to host vehicle left turning (left rudder vehicle) with oncoming vehicle scenario referring to euro-ncap-aeb-c2c-test-protocol-v3.0.2 and potential collision when host vehicle left or right turning with crossing pedestrian and bicycle.
+
+JA [nhanhn,17/11]OK.
+
+7.13.2 Applicable object type.
+
+Requirement ID: FS-198384. Type: Information. Status: New.
+
+Applicable object type: Vehicle, bicycle, pedestrian.
+
+JA [nhanhn,17/11]OK.
+
+7.13.3 Operation speed range.
+
+Requirement ID: FS-198385. Type: --. Status: New.
+
+Operation speed range: [8,30]km/h Calibratable.
+
+JA [nhanhn,17/11]OK.
+
+7.13.4 Object vehicle speed condition.
+
+Requirement ID: FS-198386. Type: --. Status: New.
+
+Object vehicle speed condition: [20,60]km/h.
+
+JA [nhanhn,17/11]OK.
+Page 48
+7.13.5 / Marking goal.
+
+Requirement ID: FS-198387  
+Type: Information  
+Status: New  
+
+Marking goal. E-NCAP 2020 5 stars.  
+JA [nhanhn,17/11]OK  
+
+7.13.6 / Maximum deceleration supported.
+
+Requirement ID: FS-198388  
+Type: --  
+Status: New  
+
+Maximum deceleration supported. Up to 9m/s².  
+JA Should update to 9m/s²  
+
+7.13.7 / Maximum speed reduction.
+
+Requirement ID: FS-198389  
+Type: --  
+Status: New  
+
+Maximum speed reduction. 30km/h.  
+JA [nhanhn,17/11]

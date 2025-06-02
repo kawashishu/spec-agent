@@ -1,0 +1,1222 @@
+
+<filename>VFDSXVEEP9295_01_SPB_VF8 Base_SRR</filename>
+<pages>
+
+<page number="1">
+VF8 BASE – SRR (Short Range Radar).  
+Specification Book (SPB).
+</page>
+
+<page number="2">
+Scope.
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new BEV vehicle. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production for the VF8 BASE Program.
+
+Figure 1: SRR CAD Model.  
+The SRR CAD Model is shown, highlighting the detailed structure and design of the Short Range Radar (SRR) component for the VF8 BASE Program.
+
+Responsible Contact: Dhandayuthapani Rajvignesh.  
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Contents.
+
+1. COMPONENT SUMMARY  6  
+   1.1 Specification summary  7  
+
+2. GENERAL DOCUMENT GUIDELINES  8  
+   2.1 Purpose and Legal Binding  8  
+   2.2 Language  8  
+   2.3 Obligation of Requirement Wording  8  
+       2.3.1 Vehicle Profile  8  
+       2.3.2 Sales Markets  8  
+
+3. GENERAL PROJECT GUIDELINES  9  
+   3.1 Development Scope Abstract  9  
+   3.2 Initial Situation and Objective 9  
+   3.3 Classification of the System / Component  9  
+       3.3.1 Millimeter wave radar sensor  9  
+   3.4 Execution Regulations  9  
+   3.5 Development and Supply Scope  11  
+       3.5.1 Work Interface Chart (RASI)  11  
+       3.5.2 Development Interface Agreement (DIA)  12  
+   3.6 Quotation Scope  12  
+   3.7 Properties, Condition and Durability  13  
+   3.8 Development Process  14  
+       3.8.1 Gates and Milestones  14  
+       3.8.2 Prototype Statuses  14  
+       3.8.3 Prototype Quantities  14  
+       3.8.4 Acceptance Procedure  14  
+       3.8.5 Type Approval and Certification  14  
+       3.8.6 Type Approval and Certification  15  
+   3.9 Quality and Reliability  15  
+       3.9.1 Quality Concepts  15  
+       3.9.2 Risk Management  15  
+       3.9.3 Validation of the SW Development  15  
+   3.10 Content Amendments  15  
+
+4. PROJECT MANAGEMENT AND ORGANIZATION  16  
+   4.1 Responsibilities in the Project and Project Management Plan  16  
+   4.2 Documentation  16  
+       4.2.1 Hardware Documentation  16  
+       4.2.2 Software Documentation  16  
+       4.2.3 Conformity Requirements  16  
+   4.3 Content Amendments  16  
+
+5. SYSTEM ENVIRONMENT  17  
+   5.1 Functional System Environment  17  
+   5.2 Physical System Environment / Mechanical Interfaces  17  
+   5.3 System Diagram  18  
+       5.3.1 RADAR Schematic  18  
+   5.4 Content Amendments  18  
+
+6. FUNCTIONAL AND TECHNICAL REQUIREMENTS  18  
+   6.1 Technical requirement  18  
+   6.2 Block and Principle Diagram  19  
+       6.2.1 Elements of Systems  19
+</page>
+
+<page number="4">
+Contents.
+
+1. Component Summary  6  
+   1.1 Specification Summary  7  
+
+2. General Document Guidelines  8  
+   2.1 Purpose and Legal Binding  8  
+   2.2 Language  8  
+   2.3 Obligation of Requirement Wording  8  
+       2.3.1 Vehicle Profile  8  
+       2.3.2 Sales Markets  8  
+
+3. General Project Guidelines  9  
+   3.1 Development Scope Abstract  9  
+   3.2 Initial Situation and Objective  9  
+   3.3 Classification of the System / Component  9  
+       3.3.1 Millimeter Wave Radar Sensor  9  
+   3.4 Execution Regulations  9  
+   3.5 Development and Supply Scope  11  
+       3.5.1 Work Interface Chart (RASI)  11  
+       3.5.2 Development Interface Agreement (DIA)  12  
+   3.6 Quotation Scope  12  
+   3.7 Properties, Condition and Durability  13  
+   3.8 Development Process  14  
+       3.8.1 Gates and Milestones  14  
+       3.8.2 Prototype Statuses  14  
+       3.8.3 Prototype Quantities  14  
+       3.8.4 Acceptance Procedure  14  
+       3.8.5 Type Approval and Certification  14  
+       3.8.6 Type Approval and Certification  15  
+   3.9 Quality and Reliability  15  
+       3.9.1 Quality Concepts  15  
+       3.9.2 Risk Management  15  
+       3.9.3 Validation of the SW Development  15  
+   3.10 Content Amendments  15  
+
+4. Project Management and Organization  16  
+   4.1 Responsibilities in the Project and Project Management Plan  16  
+   4.2 Documentation  16  
+       4.2.1 Hardware Documentation  16  
+       4.2.2 Software Documentation  16  
+       4.2.3 Conformity Requirements  16  
+   4.3 Content Amendments  16  
+
+5. System Environment  17  
+   5.1 Functional System Environment  17  
+   5.2 Physical System Environment / Mechanical Interfaces  17  
+   5.3 System Diagram  18  
+       5.3.1 Radar Schematic  18  
+   5.4 Content Amendments  18  
+
+6. Functional and Technical Requirements  18  
+   6.1 Technical Requirement  18  
+   6.2 Block and Principle Diagram  19  
+       6.2.1 Elements of Systems  19  
+   6.3 SRR Functions  19  
+       6.3.1 Short Range RADAR  19  
+   6.4 Control Unit Concept  26  
+       6.4.1 Hardware  26  
+   6.5 Electrical Interfaces  27  
+       6.5.1 Signal Characteristics  27  
+       6.5.2 Diagnostics  27  
+       6.5.3 Network Management  27  
+       6.5.4 Flashing and Coding  28  
+       6.5.5 Safety Function  28  
+       6.5.6 Weight Targets  28  
+   6.6 Physical Interface  28  
+       6.6.1 SRR Bumper Installation Location  28  
+       6.6.2 Assembly Concept and Requirement from Production  28  
+       6.6.3 Material List for Master Sensor  29  
+       6.6.4 List of Initial Material  30  
+       6.6.5 SRR Master System Sensor ICD  30  
+       6.6.6 SRR Slave System Sensor ICD  30  
+       6.6.7 2D Drawing  31  
+
+7. Testing and Validation and DVP&R  32  
+   7.1 Proof of Compliance  33  
+       7.1.1 Testing Plan (DVP+FRS Plan)  33  
+       7.1.2 Vehicle Testing  33  
+
+8. SRR Calibration  33  
+   8.1 Radar supports EOL calibration and after-sales (AS) calibration  33  
+   8.2 EOL Calibration document SharePoint link  34  
+   8.3 EOL Calibration Triggering Mechanism  34  
+
+9. Definition and List of Abbreviations  35.
+</page>
+
+<page number="5">
+Release.
+
+Version: 1.0  
+Date: May-2024.
+
+Review & Approval.  
+| Name                        | Function                   | Signature                  | Date       |
+|-----------------------------|----------------------------|----------------------------|------------|
+| Dhandayuthapani Rajvignesh  | ADAS Component Lead Engineer | [Signature Visualized]   | 29/5/2024  |
+| Nguyễn Tiến Tùng            | ADAS Function Owner        | [Signature Visualized]   | 30/5/2024  |
+| Vũ Quý Hưng                 | ADAS Manager               | [Signature Visualized]   | 04/6/2024  |
+
+Revision history.  
+| Version | Change Description | Responsible Person       | Date       |
+|---------|---------------------|--------------------------|------------|
+| 1.0     | First Version        | Dhandayuthapani Rajvignesh | 29/5/2024  |
+</page>
+
+<page number="6">
+# Component Summary
+
+**Spec Book Number:** VFDSXVEEP9295  
+**Component DVP Number:** DVPRXVEEP9295-VF8_BASE_SRR  
+**SOR Number:** VFSRACEEP1518  
+**Full Vehicle DVP Number:** NR  
+
+**Part Number / Revision:**  
+- **SRR Slave:** EEP30008231  
+- **SRR Master:** EEP30008232  
+
+**Component Description:** SHORT RANGE RADAR (SRR)
+
+**Written By:** RAJVIGNESH DHANDAYUTHAPANI  
+**Approved By:** Vũ Quý Hưng  
+
+**Project:** VF8Base  
+**Module Group:** ADAS  
+**Build to Print or Full Service Supplier:** Build to Print  
+**Supplier:** Balong  
+
+**Material:** Multi-material  
+**Component Weight:** 167 g  
+**Manufacturing Process:** NR  
+**Surface:** NR  
+**Colour / Type of Grain:** NR  
+
+### Visual Representation
+The image shows two units of the Short Range Radar (SRR), highlighting structural designs for both the master and slave systems, depicting their CAD models.
+</page>
+
+<page number="7">
+1.1 Specification summary.  
+
+**Technical requirements summary:**  
+- Lifetime: 201168 km or 10 years (whichever comes first).  
+- Operation temperature: -40°C to 80°C.  
+- Storage temperature: -40°C to 85°C.  
+- Material: Radome: PBT-30GF; Bottom: AC44300.  
+- IP protection grade: IP6K9K.  
+- Location: Rear bumper of vehicle.  
+- Working voltage: DC 9V to 16V.  
+- Memory: 576K.  
+- CAN terminal resistor: CAN0: 3.6KΩ; CAN1: 120Ω.  
+- CAN: 2 Channels.  
+
+**Abnormal voltage communication behavior:**  
+- Under low voltage (Below 6V): No CAN communication.  
+- Low voltage (6V to 9V): CAN communication.  
+- Normal voltage (9V to 16V): CAN communication.  
+- High voltage (16V to 19V): CAN communication.  
+- Over high voltage (Above 19V): No CAN communication.
+</page>
+
+<page number="8">
+2 General Document Guidelines.
+
+2.1 Purpose and Legal Binding.  
+This version is legally binding.  
+
+This document is based on the VDA component requirement specification structure and VF standard.  
+
+Requirement documents are divided into three levels, which are complementary to each other (e.g. what is not included in Part 1 can be included in Part 2, and so on). All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2, level 2 is applicable).  
+
+2.2 Language.  
+This document is written in English.  
+
+All official project documentations must be done in English. If documents are bilingual, the English text is binding.  
+
+2.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document.  
+
+- **Shall**  
+  The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+
+- **Should**  
+  The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+
+- **May**  
+  The word “may” is used to denote options that are left to the implementer.  
+
+2.3.1 Vehicle Profile.  
+NA  
+
+2.3.2 Sales Markets.  
+LHD Countries: Vietnam & Asia (Remark: Tbd).
+</page>
+
+<page number="9">
+### General Project Guidelines
+
+#### 3.1 Development Scope Abstract
+This document details the technical requirements of the short-range radar (SRR) used by VinFast in VF8 Base.  
+The requirements described in this technical specification relate primarily to functional characteristics.  
+The contractor ensures that the development of the components respect all applied standards, characteristics, and project requirements.  
+
+Any possible cost savings as a result of improvements in design, production, or validation details must be reported immediately.  
+The contractor is a "System Development Supplier" with complete responsibility for the supplied system within the system boundaries.  
+
+#### 3.2 Initial Situation and Objective
+The objective is to provide all the necessary technical information required to develop an SRR for VinFast cars.  
+
+#### 3.3 Classification of the System / Component  
+##### 3.3.1 Millimeter Wave Radar Sensor  
+Millimeter wave (mmWave) is a special class of radar technology that uses short-wavelength electromagnetic waves. Radar systems transmit electromagnetic wave signals that objects in their path then reflect. By capturing the reflected signal, a radar system can determine the range, velocity, and angle of the objects.  
+
+---
+
+#### 3.4 Execution Regulations  
+The supplier must ensure that the developed parts meet the requirements of applicable laws and specified requirements by VinFast. Suppliers need to obtain type certification of the parts and submit all necessary documents to support the type certification of the whole vehicle. When synchronous development is completed, suppliers are required to provide documentation proving their compliance with regulatory requirements.  
+
+##### Table of Relevant Standards:  
+- **ISO 20653:** Degrees of protection provided by enclosures (IP Code).  
+- **ISO 16750.1:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 1: General.
+</page>
+
+<page number="10">
+**General Project Guidelines**
+
+**Development Scope Abstract.**  
+This document details the technical requirements of the short-range radar (SRR) used by VinFast in the VF8 Base. The requirements described in this technical specification relate primarily to functional characteristics.  
+
+The contractor ensures that the development of the components respects all applied standards, characteristics, and project requirements. Any possible cost savings as a result of improvements in design, production, or validation details have to be reported immediately.  
+
+The contractor is classified as a "System Development Supplier" with complete responsibility over the supplied system within the system boundaries.
+
+**Initial Situation and Objective.**  
+The objective is to provide all the necessary technical information requirements to develop a SRR for VinFast cars.
+
+**Classification of the System/Component.**  
+**Millimeter-wave radar sensor.**  
+Millimeter wave (mmWave) is a special class of radar technology that uses short-wavelength electromagnetic waves. Radar systems transmit electromagnetic wave signals that objects in their path then reflect. By capturing the reflected signal, a radar system can determine the range, velocity, and angle of the objects.
+
+**Execution Regulations.**  
+The supplier must ensure that the developed parts meet the requirements of the laws and specified requirements of VinFast, obtain the type certification of the parts, and submit all necessary documents to support the type certification of the whole vehicle. When synchronous development is completed, suppliers must provide the necessary documentation to prove that their products have met the required regulatory requirements.  
+
+**Standards compliance for development:**  
+1. **ISO 20653:** Degrees of protection provided by enclosures (IP Code).  
+2. **ISO 16750.1:** Road vehicles—Environmental conditions and testing for electrical and electronic equipment—Part 1: General.  
+3. **ISO 16750.2:** Road vehicles—Environmental conditions and testing for electrical and electronic equipment—Part 2: Electrical loads.  
+4. **ISO 16750.3:** Road vehicles—Environmental conditions and testing for electrical and electronic equipment—Part 3: Mechanical loads.  
+5. **ISO 16750.4:** Road vehicles—Environmental conditions and testing for electrical and electronic equipment—Part 4: Climatic loads.  
+6. **ISO 16750.5:** Road vehicles—Environmental conditions and testing for electrical and electronic equipment—Part 5: Chemical loads.  
+7. **ISO 17387-2008:** Intelligent transport systems—Lane change decision aid systems (LCDAS)—Performance requirements and test procedures.  
+8. **EN 301 489-1/51:** Electromagnetic Compatibility (EMC) standard for radio equipment and services—Common technical requirements; Harmonized Standard for EMC.  
+9. **EN 301 091:** Electromagnetic compatibility and radio spectrum matters (ERM)—Road Transport and Traffic Telematics—Technical characteristics and test methods for radar equipment operating in the 76 GHz to 77 GHz band.  
+10. **EN 62311:** Assessment of electronic and electrical equipment related to human exposure restrictions for electromagnetic fields (0 Hz–300 GHz).  
+11. **IEC/EN62368-1:** Audio/video, information and communication technology equipment—Part 1: Safety requirements.  
+12. **ISO 14040:2006:** Environmental management.  
+13. **CISPR 25:** Vehicles, boats, and internal combustion engines—Radio disturbance characteristics—Limits and methods of measurement for the protection of onboard receivers.  
+14. **ISO 7637:** Road vehicles—Electrical disturbances from conduction and coupling parts 1, 2, 3.  
+15. **ISO 11452:** Component test methods for electrical disturbances caused by narrowband radiated electromagnetic energy—Parts 1, 2, 4, 9.  
+16. **ISO 10650:** Road vehicles—Test methods for electrical disturbances from electrostatic discharge.  
+17. **ISO 17987:** Road vehicles—Local Interconnect Network (LIN).  
+18. **ECE R10.6:** Uniform provisions concerning the approval of vehicles with regard to electromagnetic compatibility.  
+19. **IEC 60068-2-14:** Environmental testing—Part 2-14: Tests—Test N: Change of temperature.  
+20. **IEC 60068-2-38:** Environmental testing—Part 2: Tests—Test Z/AD: Composite temperature/humidity cyclic test.  
+21. **IEC 60068-2-78:** Damp heat—steady state testing.
+
+VinFast Released.
+</page>
+
+<page number="11">
+ISO 11898.1-2015 Road vehicles — Controller area network (CAN) — Part 1: Data link layer and physical signal.  
+ISO 11898.2-2015 Road vehicles — Controller area network (CAN) — Part 2: High-speed medium access unit.  
+VFDST00028101 Electrical and electronics component in motor - general requirement.  
+VFDST00028121 Electrical requirement and testing.  
+VFDST00028122 Electrical requirement and testing - Additional requirements to VFDST00028121.  
+ISO 21498‑2-2021 Electrically propelled road vehicles — Electrical specifications and tests for voltage class B systems and components — Part 2: Electrical tests for components.  
+VFDST00026301 EMC General requirements.  
+VFDST00026302 Electromagnetic Compatibility (EMC) 60V_LV.  
+VFDST00028131 Environmental requirement and testing.  
+VFDSP50000003 CES_Warning_Message_Catalog.  
+VFDSP50000005 Energy_Management.  
+VFDSP50000006 CTS_Energy_Management.  
+VFDSP50000007 CTS_Load_Analysis.  
+VFDSP50000009 CTS_Thermal_Management.  
+VFDST00000010 Marking_of_parts.  
+VFDSXVEEP0011 CUV_ECU_Residual_Bus_Simulation.  
+VFDSP50000012 CES_LIN.  
+VFDSXVEEP0013 CUV_ECU_ECU_Identifier_Specification.  
+VFDSP50000014 CES_Clamp_Concept.  
+VFDSP50000015 CES_Basic_software_on_CAN_ECUs.  
+VFDSAAEEP0033 Basic_Diagnostic_Specification.  
+VFDSAAEEP0034 Basic_DID_Definition_Specification.  
+VFDSP50000035 Flash Specification.  
+VFDSP50000036 Coding Specification.  
+VFDSAAEEP0037 Security_Access_Algorithm.  
+VFDSAAEEP0047 CAN_Specification.  
+VFDSXVEEP0009 CS Update Firmware Over The Air.  
+VFCSMCSS00110 VinFast-Cybersecurity-Requirements.  
+VFDST00000014 CAD_working_methodes_and_requirement_Catia.  
+VFDST00010501 Component identification marking.
+
+**Table 1: SRR Execution Regulations**
+
+### 3.5 Development and Supply Scope
+
+#### 3.5.1 Work Interface Chart (RASI)
+The main supplier obligations are described in the work interface chart (RASI).
+
+The status of the supplier ("Built to Print" or "System Development Supplier") is defined below System / Component Specification.
+
+**RASI is defined as follows:**  
+R: Responsible
+</page>
+
+<page number="12">
+3 General Project Guidelines.
+
+3.5 Development and Supply Scope.
+3.5.1 Work Interface Chart (RASI).
+The main supplier obligations are described in the work interface chart (RASI).
+
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+
+**A: Approval.**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.
+
+**S: Support.**  
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.
+
+**I: Information.**  
+Right to information. This team member is entitled to demand information from R.
+
+**Details Deliverables and RASI.**  
+
+**Table 2: RASI.**  
+Describes work responsibilities between Baolong and VF for the project development tasks.
+
+3.5.2 Development Interface Agreement (DIA).  
+Follow VF requirements with VF FUSA team as separate topics.
+
+3.6 Quotation Scope.  
+Not Applicable.
+</page>
+
+<page number="13">
+### 3.7 Properties, Condition and Durability
+
+#### Category: Variant  
+- **Lifetime:** 201168 km or 10 years (whichever comes first).  
+- **Operation temperature:** -40°C~80°C.  
+- **Storage temperature:** -40°C~85°C.  
+- **Material:** Radome: PBT-30GF; Bottom: AC44300.  
+- **IP protection grade:** IP6K9K.  
+- **Location:** Rear bumper of vehicle.  
+- **Working voltage:** DC 9V~16V.  
+- **Memory:** 576K.  
+- **CAN terminal resistor:** CAN0: 3.6KΩ, CAN1: 120Ω.  
+- **CAN:** 2 Channels.  
+
+#### Voltage Communication Behavior:  
+- **Under low voltage (Below 6V):** No CAN communication.  
+- **Low voltage (6V to 9V):** CAN communication.  
+- **Normal voltage (9V to 16V):** CAN communication.  
+- **High voltage (16V to 19V):** CAN communication.  
+- **Over high voltage (above 19V):** No CAN communication.
+</page>
+
+<page number="14">
+3.8 Development Process.
+
+3.8.1 Gates and Milestones.  
+
+3.8.1.1 Gates.  
+NA.  
+
+3.8.1.2 Milestones.  
+NA.  
+
+3.8.1.3 Reviews.  
+Not Applicable.  
+
+3.8.2 Prototype Statuses.  
+
+**A-Sample (Engineering Sample):**  
+The main purpose is to show basic communication and some base functionality that is already implemented. It could be either a development board or a design intent housing already.  
+
+**B-Sample (DV-Sample):**  
+All functionalities shall be implemented already. All required environmental and EMC tests shall be completed.  
+
+**C-Sample (PV-Sample):**  
+100% production intent part – all functionality as well as all design validation tasks shall be done.  
+
+**D-Sample (PPAP-Sample):**  
+Used to deliver the parts for PPAP (Series parts). Trial production parts, using production tooling, manufactured in the production line of the prototype.  
+
+3.8.3 Prototype Quantities.  
+Not Applicable.  
+
+3.8.4 Acceptance Procedure.  
+The supplier shall provide VinFast with a qualified test report (original), and the samples provided by the supplier shall meet all drawings, materials, and technical requirements for product development provided or approved by VinFast. VinFast shall carry out factory acceptance of the samples provided by the supplier. Qualified samples shall be collected and put into prototype/vehicle tests.  
+
+3.8.5 Type Approval and Certification.  
+VinFast is responsible for the integration and certification of the vehicle grade system. Vehicle level certification projects include urban simulation road test and enhanced road test. Suppliers of spare parts/subsystems will be responsible for timely response to failure reports found in the process of integration.
+</page>
+
+<page number="15">
+3 General Project Guidelines
+
+3.8 Development Process
+
+3.8.1 Gates and Milestones
+3.8.1.1 Gates: NA
+3.8.1.2 Milestones: NA
+3.8.1.3 Reviews: Not Applicable.
+
+3.8.2 Prototype Statuses
+- **A-Sample (Engineering Sample):** The main purpose is to show basic communication and some base functionality is already implemented. It could be either a development board or a design intent housing already.
+- **B-Sample (DV-Sample):** All functionalities shall be implemented already. All required environmental and EMC tests shall be completed.
+- **C-Sample (PV-Sample):** 100% production intent part – all functionality as well as all design validation tasks shall be done.
+- **D-Sample (PPAP-Sample):** Used to deliver the parts for PPAP (Series parts). Trial production parts, using production tooling, manufactured in the production line of the prototype.
+
+3.8.3 Prototype Quantities
+Not Applicable.
+
+3.8.4 Acceptance Procedure
+The supplier shall provide VinFast with a qualified test report (original), and the samples provided by the supplier shall meet all drawings, materials, and technical requirements for product development provided or approved by VinFast. VinFast shall carry out factory acceptance of the samples provided by the supplier. Qualified samples were collected and put into prototype/vehicle test.
+
+3.8.5 Type Approval and Certification
+VinFast is responsible for the integration and certification of the vehicle grade system. Vehicle-level certification projects include urban simulation road tests and enhanced road tests. Suppliers of spare parts/subsystems are responsible for timely response to failure reports found in the process of integration and certification of vehicle-level systems. All changes caused by the failure report must be executed by the supplier and approved by PPAP.
+
+The integration and certification of components/subsystems is the responsibility of the supplier of components/subsystems. The supplier must complete all parts/subsystems tests.
+
+The certification of parts/subsystems can be implemented by the supplier of parts/subsystems or by the supplier appointing a lower supplier or a third party after VinFast approval. In any case, the supplier is obliged to complete all specified test requirements. 
+
+The supplier of parts/subsystems must provide the VinFast Product Release Engineer with a complete test certification plan for parts/subsystems and obtain the approval of the Engineer. The plan should include at least the number of specimens, test sequence, place, and time of each test.
+
+3.8.6 Type Approval and Certification
+Not Applicable.
+
+3.9 Quality and Reliability
+
+3.9.1 Quality Concepts
+The supplier must satisfy the quality commitment made to VinFast, guaranteeing 100% no waste. Products per 1,000,000 pieces of spare parts sent to VinFast must meet PPM ≤ 100, and CPK ≥ 1.33.
+
+3.9.2 Risk Management
+The supplier shall notify the VinFast Product Release Engineer in writing of any potential technical matters such as problems, accidents, latest information, project changes, etc., which may lead to increased costs, delays in project nodes and plans, and delays in delivery dates.
+
+The supplier's written notice should include a specific repair plan and a risk assessment and description of the overall project schedule.
+
+3.9.3 Validation of the SW Development
+The supplier shall regularly report to VinFast the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design validation.
+
+If there are inconsistencies with the specified specification requirements, the supplier should work with VinFast to solve the problem. Suppliers also need to provide VinFast with competent on-site service personnel to support VinFast in resolving problems associated with supplier parts in vehicle assembly during the vehicle start-up phase.
+
+3.10 Content Amendments
+Not Applicable.
+</page>
+
+<page number="16">
+4. Project Management and Organization.
+
+4.1 Responsibilities in the Project and Project Management Plan.
+
+| Contact            | Name                        | Email ID                        | Contact Number |
+|--------------------|-----------------------------|---------------------------------|----------------|
+| Component Owner    | Dhandayuthapani Rajvignesh | v.dhandayuthapanir@vinfast.vn  | 08681970343    |
+| Function Owner     | Nguyễn Tiến Tùng           | v.tungnt92@vinfast.vn          | +4915140241518 |
+| ADAS MML Lead Engineer | Vi Như Quỳnh          | v.quynhvn4@vinfast.vn          | 0849839998     |
+| ADAS MML           | Ng Dennis Koon Siu         | v.siundk@vinfast.vn            | 0814445525     |
+| ADAS Manager       | Vũ Quý Hưng                | v.hungvq9@vinfast.vn           | 814445525      |
+| Sales              | Hu Qianfang                | carmenguanda@126.com           | 1521345692     |
+| Project Manager    | Liu Dengke                 | liudengke@cgjec.com            | 13983158990    |
+
+4.2 Documentation.
+
+4.2.1 Hardware Documentation.  
+The supplier shall deliver the hardware-related quality report for every FRS step.  
+
+4.2.2 Software Documentation.  
+Vendors should be required to document the following pieces of software at various stages.  
+
+4.2.3 Conformity Requirements.  
+Homologation ECE R10.6 for electromagnetic compatibility.  
+
+4.3 Content Amendments.  
+N/A.
+</page>
+
+<page number="17">
+## 5 System Environment
+
+### 5.1 Functional System Environment
+- Working temperature: -40°C~80°C.
+- Storage temperature: -40°C~85°C.
+
+### 5.2 Physical System Environment / Mechanical Interfaces
+The specifications for a primary connector and a secondary connector number used by the gateway are as follows:
+
+#### Table 3: Connectors Description
+| CONNECTOR | MATING CONNECTOR |  
+|-----------|------------------|  
+| PRIMARY   | Connector reference design: MOLEX 349681801 | MOLEX 349671001 |
+
+**Note:**  
+The connector and the housing are formed in one body. Connector reference design: MOLEX 349681801.
+
+#### SRR_RL_S Pin Description:
+- Pin 1: NC - Not used.
+- Pin 2: NC - Not used.
+- Pin 3: CAN1L - CAN1: Low signal (Private CAN).
+- Pin 4: CAN1H - CAN1: High signal (Private CAN).
+- Pin 5: NC - Not used.
+- Pin 6: NC - Not used.
+- Pin 7: NC - Not used.
+- Pin 8: NC - Not used.
+- Pin 9: VBAT - Supply voltage for sensor (KL30).
+- Pin 10: GND - Sensor ground connected to KL31.
+
+#### SRR_RR_M Pin Description:
+- Pin 1: NC - Not used.
+- Pin 2: NC - Not used.
+- Pin 3: CAN1L - CAN1: Low signal (Private CAN).
+- Pin 4: CAN1H - CAN1: High signal (Private CAN).
+- Pin 5: NC - Not used.
+- Pin 6: CAN0L - CAN0: Low signal (Body CAN).
+- Pin 7: CAN0H - CAN0: High signal (Body CAN).
+- Pin 8: NC - Not used.
+- Pin 9: VBAT - Supply voltage for sensor (KL30).
+- Pin 10: GND - Sensor ground connected to KL31.
+</page>
+
+<page number="18">
+5 System Environment
+
+5.1 Functional System Environment  
+Working temperature: -40°C~80°C.  
+Storage temperature: -40°C~85°C.
+
+5.2 Physical System Environment / Mechanical Interfaces  
+The specifications for a primary connector and a secondary connector number used by the gateway are as follows:  
+
+Table 3: Connectors description  
+- **Connector**: Primary  
+- **Connector reference design**: MOLEX 349681801  
+- **Mating connector**: MOLEX 349671001  
+
+Note: The connector and the housing are formed in one body. Connector reference design is MOLEX 349681801.
+
+5.3 System Diagram  
+
+Master radar and slave radar are connected via CAN communication system and interface with VBAT, PGND, CANH0, and CANL0 connections.  
+
+5.3.1 RADAR Schematic  
+
+The BSD RADAR includes the following components:  
+- A 10-pin connector providing connections for VBAT, VCAN, and PCAN.  
+- PMIC (MAX20430ATIG/VY+) regulating voltage at 1.8V and 3.3V.  
+- LDO (MAX25302BATDA/V+) providing 1.5V.  
+- A FLASH memory unit (GD25Q16CSAG) connected with the PMIC via QSPI interface.  
+- SOC CAL77S224-AE connected to a 2T4R antenna.  
+- CAN0 and CAN1 interfaces supported by TJA1043T transceivers for VCAN and PCAN communication.  
+
+5.4 Content Amendments  
+Not Applicable.
+
+6 Functional and Technical Requirements  
+
+6.1 Technical requirement  
+The technical information should include the details necessary for the radar system's specifications and functionality as outlined in the system diagram and schematic.
+</page>
+
+<page number="19">
+VinFast Management System
+
+VFDSXVEEP9295
+
+Version: 1  
+Uncontrolled copy when printed  
+19 | 35  
+Print date  
+
+Status  
+Functional Responsibility  
+
+VinFast designated part number, Usage per car, Procurement code, Part applicability.
+
+**Table 4: Technical Information Table**
+| No | Project   | Part Name          | Part No.     | Qtty | Material                      | Purchase level |
+|----|-----------|--------------------|--------------|------|------------------------------|----------------|
+| 1  | VF8 base  | SRR_LEFT_SLAVE     | EEP30008231  | 1    | Follow supplier recommendation | H              |
+| 2  | VF8 base  | SRR_RIGHT_MASTER   | EEP30008232  | 1    | Follow supplier recommendation | H              |
+
+---
+
+### 6.2 Block and Principle Diagram
+
+#### 6.2.1 Elements of Systems
+
+Diagram showing yaw, roll, and pitch functionalities, along with a connector pin configuration layout.
+
+---
+
+### 6.3 SRR Functions
+
+#### 6.3.1 Short Range RADAR  
+The Master and slave SRR detect obstacles located at the rear of the vehicle by transmitting microwaves. These microwaves, upon encountering obstacles, are returned and converted into electrical signals. The signals are sent to the SRR Master located on the right side. The SRR Master processes the data and calculates the obstacle positions and distances.  
+
+Once relevant distance and position information is obtained, this data is transmitted through the CAN bus to the instrument cluster and HMI. The HMI speaker provides an audible alarm, while the HMI displays the obstacle information.  
+
+The system includes a self-checking function. Whenever a fault is detected, an audible alert is triggered, and the corresponding fault is displayed on the HMI.  
+
+VinFast Released
+</page>
+
+<page number="20">
+**VinFast Management System**
+
+**VFDSXVEEP9295**  
+Version: 1  
+Uncontrolled copy when printed  
+20 | 35  
+Print date  
+
+### **Functional Responsibility**
+
+---
+
+### **Function**
+**BSD**  
+SRR Master and slave sensors could detect obstacles in the BSD range of vehicle heading, and the SRR Master could transmit distance and warning information to HMI.
+
+**Scenes to be used**  
+There is an obstacle in the near range of vehicle BSD zone.
+
+---
+
+### **6.3.1.1 Master Block Diagram / Bus Topology**  
+The bus topology is carried over from VF6 base, exactly the same.
+
+---
+
+### **6.3.1.2 SRR Technical Parameters**  
+
+#### **6.3.1.2.1 SRR Master Sensor**  
+
+**Rated Voltage**  
+12V  
+
+**Operating Voltage**  
+9V-16V  
+
+**Operating Current**  
+130mA  
+
+**Peak Current**  
+250mA  
+
+**Self-Protection Current Value**  
+1.85A@20℃
+</page>
+
+<page number="21">
+VinFast Management System
+
+VFDSXVEEP9295  
+Version: 1  
+Uncontrolled copy when printed  
+21 | 35  
+
+### Functional Responsibility  
+
+#### 6.3.1.2.2 SRR Slave Sensor  
+- **Rated Voltage**: 12V  
+- **Operating Voltage**: 9V-16V  
+- **Operating Current**: 130mA  
+- **Peak Current**: 250mA  
+- **Self-Protection Current Value**: 1.85A@20℃  
+- **Self-Protection Time**: 2.5s  
+
+#### 6.3.1.3 SRR Component Information  
+- **Program**:  
+  - Master SRR: 1 pc  
+  - Slave SRR: 1 pc  
+  - **Notes**:  
+    1. Audible alarm.  
+    2. DVD distance display.  
+    3. Master sensor with CAN function.  
+
+#### 6.3.1.4 SRR System Function Description  
+- **Function**:  
+  - Blind Spot Detection.  
+    - **Configuration**: 2 rear sensors.  
+    - **Description**: Slave sensors use three-wire sensor design.  
+
+- **System Power Supply Mode**:  
+  - IGN Power Supply: IGN electrical working mode.
+</page>
+
+<page number="22">
+6 Functional and Technical Requirements  
+
+6.3 SRR Functions  
+
+6.3.1 Short Range RADAR.  
+The Master and Slave SRR sensors detect obstacles in the rear of the vehicle by transmitting microwaves. The microwaves returned after encountering obstacles are converted into electrical signals and sent to the SRR Master on the right side. The SRR Master processes the data, calculates obstacles, and transmits information such as distance and position to the HMI through the CAN bus. The HMI speaker gives a sound alarm, and the HMI displays the obstacle information.  
+The system includes a self-checking function that issues an audible alarm and displays a corresponding fault on the HMI if a fault is detected.  
+
+6.3.1.4 SRR System Function Description.  
+- **Function:** Blind spot detection.  
+  - **Configuration:** Two rear sensors.  
+  - **Description:** Slave sensors utilize a three-wire sensor design.  
+
+- **Function:** System power supply mode.  
+  - **Configuration:** IGN power supply.  
+  - **Description:** Operates on IGN electrical working mode.  
+
+6.3.1.5 SRR System Self-Inspection Function.  
+The SRR system includes diagnostic trouble codes (DTCs) for identifying faults.  
+
+**Diagnostic Trouble Codes (DTC):**  
+- **DTC Number:** 0xD10017.  
+  - **Description:** Radar input voltage high - circuit voltage above threshold.  
+
+- **DTC Number:** 0xD10116.  
+  - **Description:** Radar input voltage low - circuit voltage below threshold.  
+
+- **DTC Number:** 0xD17488.  
+  - **Description:** Body CAN bus off - bus off.  
+
+- **DTC Number:** 0xD9F688.  
+  - **Description:** Private CAN bus off - bus off.  
+
+- **DTC Number:** 0xC14087.  
+  - **Description:** BCM message missing - missing message.  
+
+- **DTC Number:** 0xC42281.  
+  - **Description:** BCM data invalid - invalid serial data received.  
+
+- **DTC Number:** 0xC42282.  
+  - **Description:** BCM alive counter error - alive/sequence counter incorrect or not updated.  
+
+- **DTC Number:** 0xC42283.  
+  - **Description:** BCM checksum error - signal protection calculation value incorrect.  
+
+- **DTC Number:** 0xD10E87.  
+  - **Description:** IDB message missing - missing message.  
+
+- **DTC Number:** 0xD60E81.  
+  - **Description:** IDB data invalid - invalid serial data received.  
+
+- **DTC Number:** 0xD60E82.  
+  - **Description:** IDB alive counter error - alive/sequence counter incorrect or not updated.
+</page>
+
+<page number="23">
+0x99F497  
+B19F4-97  
+Master Radar Blocked - Component or system operation obstructed or blocked.
+
+0x99F597  
+B19F5-97  
+Slave Radar Blocked - Component or system operation obstructed or blocked.
+</page>
+
+<page number="24">
+VinFast Management System  
+
+VFDSXVEEP9295  
+
+Version: 1  
+
+6.3.1.5 SRR System Self-Inspection Function  
+
+The self-inspection function for the SRR system includes diagnostics for various operational faults and system irregularities. Below are the DTC numbers (hex), corresponding codes, and descriptions for identified issues:
+
+- **0xD60E83**: U160E-83 - IDB checksum error: signal protection calculation is incorrect.  
+- **0xC13187**: U0131-87 - SAS Message Missing: missing message.  
+- **0xC42081**: U0420-81 - SAS Data Invalid: invalid serial data received.  
+- **0xC42082**: U0420-82 - SAS alive counter error: sequence counter incorrect or not updated.  
+- **0xC42083**: U0420-83 - SAS checksum error: signal protection calculation is incorrect.  
+- **0xC12287**: U0122-87 - VCU Message Missing: missing message.  
+- **0xC41681**: U0416-81 - VCU Data Invalid: invalid serial data received.  
+- **0xC41682**: U0416-82 - VCU alive counter error: sequence counter incorrect or not updated.  
+- **0xC41683**: U0416-83 - VCU checksum error: signal protection calculation is incorrect.  
+- **0xC15587**: U0155-87 - IPC Message Missing: missing message.  
+- **0xC42381**: U0423-81 - IPC Data Invalid: invalid serial data received.  
+- **0xC42382**: U0423-82 - IPC alive counter error: sequence counter incorrect or not updated.  
+- **0xC42383**: U0423-83 - IPC checksum error: signal protection calculation calculation incorrect.  
+- **0xC15687**: U0156-87 - MHU Message Missing: missing message.  
+- **0xC45781**: U0457-81 - MHU Data Invalid: invalid serial data received.  
+- **0xC45782**: U0457-82 - MHU alive counter error: sequence counter incorrect or not updated.  
+- **0xC45783**: U0457-83 - MHU checksum error: signal protection calculation is incorrect.  
+- **0x99F054**: B19F0-54 - Master Radar Not Calibrated: missing calibration.  
+- **0x99F154**: B19F1-54 - Slave Radar Not Calibrated: missing calibration.  
+- **0x99F249**: B19F2-49 - Master Radar Hardware Fault: internal electronic failure.  
+- **0x99F349**: B19F3-49 - Slave Radar Hardware Fault: internal electronic failure.  
+- **0x99F497**: B19F4-97 - Master Radar Blocked: component or system operation obstructed or blocked.  
+- **0x99F597**: B19F5-97 - Slave Radar Blocked: component or system operation obstructed or blocked.  
+- **0xC9F787**: U09F7-87 - Slave Radar Missing: missing message.  
+- **0xF00255**: U3002-55 - VIN Not Configured: not configured.  
+- **0x99F064**: B19F0-64 - Master Radar Calibration Fault: signal plausibility failure.  
+- **0x99F164**: B19F1-64 - Slave Radar Calibration Fault: signal plausibility failure.  
+- **0x99F04A**: B19F0-4A - Master/Slave Radar Software Version Mismatch: incorrect component installed.
+
+6.3.1.6 Inspection Distance for SRR System Design  
+
+The SRR system inputs trigger alarms when objects are detected in the BSD Zone. The system links an alarm based on object distance within the specified conditions. 
+
+**Conditions**:  
+- Vehicle speed: 20-120km/h (calibratable).  
+- Transmission gear: D or N.  
+
+**Alarm Activation Levels**:
+- Trigger occurs when objects are detected within the BSD Zone.  
+- Distance-based warnings are transmitted based on system configuration.
+
+**Relevant Part Number**:
+- **SRR Slave Sensor**: EEP70008231.  
+- **SRR Master Sensor**: EEP70008232.
+
+**SharePoint Link**: VF00000_V1.2_VF678Base_SPEC_BSD-SRR.docx (sharepoint.com).
+</page>
+
+<page number="25">
+6.3.1.6 Inspection Distance for SRR System Design.
+
+The SRR system is designed to trigger warnings based on object distance in the BSD Zone. Details of SRR Slave (EEP70008231) and SRR Master (EEP70008232) are provided in the linked specification document. Objects in the BSD Zone activate alarms depending on proximity and speed conditions. Activation conditions specify that vehicle speed ranges between 20-120 km/h (calibrable) when in D or N gear.
+
+### SRR BSD Activation Conditions:
+- **Level 1 Alarm:**
+  - Horizontal direction: 0.5 to 3.5 meters.
+  - Vertical direction: -1 to 3 meters.
+  - Activation conditions: Relative speed to the warning target is less than 7.2 km/h. The system activates when the host vehicle overtakes the target or a target approaches the BSD area.
+  - Indicator behavior: The system indicator is always on.
+  - Alarm activation speed: Activated at 20 km/h.
+
+- **Level II Alarm:**
+  - Relational conditions: Level-1 alarm conditions are met, and the side turn signal is activated.
+  - Indicator behavior: The buzzer rings for a long time, and the system indicator flashes.
+
+- **End of Alarm:**
+  - Conditions: The warning target moves away, exceeding a relative speed of 7.2 km/h or leaving the warning area.
+  - Deactivation behavior: The LED light goes out, and sound stops.
+  - Deactivation speed: Under 15 km/h.
+  - Turn-off delay: 0.6 seconds.
+
+6.3.1.7 SRR Sensor Component Block Diagram.
+
+The block diagram details the sensor components:
+- **Power management** connected to battery inputs (9-16V) and the CAN_WAKE system.
+- **CAN module** featuring two communication channels integrates vehicle and private CAN categories.
+- **Memory module** linked to the SOC (System-on-Chip) via QSPI at 50 MHz clock speed.
+- Private CAN channel facilitates master/slave radar communication.
+
+6.3.1.8 RR Component Pin Block Diagram.
+
+This section displays the pin diagram for radar components, illustrating technical interconnection and design flow.
+</page>
+
+<page number="26">
+6.4 Control Unit Concept.
+
+6.4.1 Hardware.
+
+6.4.1.1 Hardware Comprising.
+
+The supplier shall share details of the microcontroller chip and CAN transceivers and any other configurable devices (flash memory etc.) on the PCB with VinFast and/or the contractor. The supplier shall also share details of the ECU plastic body and the aluminium heat sink and other main items on the BOM with VinFast and/or the contractor. This is to be included on the 2D drawing for releases.
+
+6.4.1.2 Master SRR.
+
+The image of the master SRR component is provided with detailed dimensions for proper assembly. It includes specifications for pin assignments and highlights total signals available for inputs and outputs. Additional notes specify paint requirements and a specific color code for specific components on the device.
+
+Purpose of diagram: The provided schematic and diagram illustrate how the master SRR integrates into the vehicle hardware setup, including its critical connections and mechanical dimensions.
+</page>
+
+<page number="27">
+6.4 Control Unit Concept.
+
+6.4.1 Hardware.
+
+6.4.1.1 Hardware Comprising.
+The supplier shall share details of the microcontroller chip and CAN transceivers and any other configurable devices (flash memory etc.) on the PCB with VinFast and/or the contractor. The supplier shall also share details of the ECU plastic body, the aluminum heat sink, and other main items on the BOM with VinFast and/or the contractor. This is to be included on the 2D drawing for releases.
+
+6.4.1.2 Master SRR.
+(An illustration is provided for the Master SRR detailing its dimensions and components.)
+
+6.4.1.3 Slave SRR.
+(An illustration is provided for the Slave SRR detailing its dimensions and components.)
+
+6.4.1.4 Connector Details.
+(An illustration is provided showing the pin configuration details of the connector.)
+
+6.5 Electrical Interfaces.
+
+6.5.1 Signal Characteristics.
+All network signals refer to CAN/LIN signal matrix. This shall be shared as a master DBC file as part of the development process. Signals and their descriptions shall also be explained in the SRS document.
+
+6.5.2 Diagnostics.
+Links to relevant documents:
+- <VFDSVAEEP0001_Generic Diagnostic_Specification_V1.6> VFDSVAEEP0001_Generic Diagnostic_Specification_V1.6.pdf.
+- <VFDSVAEEP0002_Basic_DID_PID_Specification_V1.5> VFDSVAEEP0002_Basic_DID_PID_Specification_V1.5.pdf.
+- <VF8Base_SRR_RR_M_ODX_V1.9> VF678Base_SRR_RR_M_ODX_V2.0.xlsx.
+
+6.5.3 Network Management.
+Links to relevant documents:
+- <CES_VINFAST_EE_VFDSXVEEP0047_CAN_Specification-V2.0.0> CES_VINFAST_EE_VFDSXVEEP0047_CAN_Specification-V2.0.0.pdf.
+</page>
+
+<page number="28">
+### 6.5 Flashing and Coding
+- <VF_FOTA_V1.8> VF_FOTA_V1.8.pdf  
+- <VFDSVAEEP0003_Flash_Specification_V3.0> VFDSVAEEP0003_Flash_Specification_V3.0.pdf  
+
+### 6.5.5 Safety Function
+- NA  
+
+### 6.5.6 Weight Targets
+- VF6: 167g  
+
+### 6.6 Physical Interface
+#### 6.6.1 SRR Bumper Installation Location
+The diagram illustrates the placement of the SRR sensors within the rear bumper assembly. The Master Sensor Assembly is positioned on either side of the bumper near the rear radar systems.  
+
+#### 6.6.2 Assembly Concept and Requirement from Production
+The schematic highlights the assembly concept, showcasing the radar sensor mounted within the rear bumper using brackets and screws for secure attachment. The alignment ensures proper orientation and function for the SRR system during vehicle operation.
+</page>
+
+<page number="29">
+### 5.6.3 Geometry  
+The specifications for VF8 SRR components are as follows:  
+- VF8 SRR_RL_S: Refer to 2D drawing EEP30008231.  
+- VF8 SRR_RR_M: Refer to 2D drawing EEP30008232.  
+
+---
+
+### 6.6.3 Material List for Master Sensor  
+#### Material details for the Master Sensor:
+1. **Antenna housing**  
+   - **Material quality:** PBT+30GF  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Plastic radome: insert molding plastic mold.  
+
+2. **Radar motherboard**  
+   - **Material quality:** PCBA  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Antenna & MCU PCBA, integrated antenna acquisition and MCU computing and processing functions.  
+
+3. **Heat conduction glue paste 01**  
+   - **Material quality:** Heat Conduction Material  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Adhesive: size 10.0*10.0mm * 2.0; thermal conductivity: 3.0.  
+
+4. **Heat conduction glue paste 02**  
+   - **Material quality:** Heat Conduction Material  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Adhesive: size 6.0*6.0mm * 2.0; thermal conductivity: 3.0.  
+
+5. **Waterproof rubber ring**  
+   - **Material quality:** Silica gel  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Silicone rubber material, with a diameter of 2.4mm, and waterproof function.  
+
+6. **Aluminum alloy back cover**  
+   - **Material quality:** ADC12  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Aluminum alloy cover: die casting, passivation; heat dissipation and loading.  
+
+7. **Waterproof breathable film**  
+   - **Material quality:** RUBBER  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Size: φ5.3*4.5mm; color: red; temperature requirement: -45°~120°.  
+
+8. **Screw**  
+   - **Material quality:** C1022A  
+   - **Quantity:** 4  
+   - **Unit:** PCS  
+   - **Description:** Self-tapping screw: ST3.9 * 12mm; screw length: L=12.0mm.  
+
+9. **Radar bracket**  
+   - **Material quality:** SPCC  
+   - **Quantity:** 1  
+   - **Unit:** PCS  
+   - **Description:** Sheet metal bracket: Thickness 1.5mm.  
+
+10. **Screw**  
+    - **Material quality:** C1022A  
+    - **Quantity:** 3  
+    - **Unit:** PCS  
+    - **Description:** M3*6 Anti-drop screw.
+</page>
+
+<page number="30">
+6.6.4 List of Initial Material
+The illustration depicts the disassembled view of the materials included in the initial assembly of the SRR sensor system.
+
+6.6.5 SRR Master System Sensor ICD
+The Master SRR Sensor Connector shows a pin definition labeling system:
+- Pin 1 (Red/R): CAN high/CAN H.
+- Pin 2 (Blue/L): CAN low/CAN L.
+- Pin 3 (Green/G): Power Ground/GND.
+- Pin 4 (Yellow/Y): Power Source/IGN.
+- Pin 5 (White/W): Video Signal/CVBS.
+- Pin 6 (Black/B): Shield/Screen.
+- Pin 7: Waterproof plug.
+
+Master SRR Pin Definition table:
+- Pin 3: Signal definition "Body CAN Low" (CAN_L).
+- Pin 4: Signal definition "Body CAN High" (CAN_H). 
+- Pin 7: Power supply (VBAT) and Grounding (PGND).
+
+6.6.6 SRR Slave System Sensor ICD
+The Slave SRR Sensor ICD depicts the definitions of its pins and connection ratings:
+- Pin descriptions relate to power supply, ground, and CAN communication.
+- Safety and current handling values represented for each connection. 
+
+VinFast Released
+</page>
+
+<page number="31">
+6.6.6 Slave SRR Pin Definition
+
+The table provides the socket pin numbers for the Slave SRR system, the signal definitions, drive definitions, and various electrical properties such as typical nominal current, peak current, block current, and overload current.
+
+Socket Number Pin Definitions:
+1. (No definition)
+2. (No definition)
+3. BUS - CAN1L (Private CAN Low), terminal resistor, nominal current: N/A.
+4. BUS - CAN1H (Private CAN High), terminal resistor, nominal current: N/A.
+5. (No definition)
+6. (No definition)
+7. BUS - CAN0L (Body CAN Low), no terminal resistor required, nominal current: N/A.
+8. BUS - CAN0H (Body CAN High), no terminal resistor required, nominal current: N/A.
+9. POWER_VCC - VBAT (Body power supply), nominal current: 0.013A.
+10. POWER_GND - PGND (Ground), nominal current: N/A.
+
+6.6.7 2D Drawing
+
+6.6.7.1 SRR Master 2D Drawing
+
+The 2D drawing illustrates the specifications and components of the Master SRR system. It includes the part numbers, material details, item dimensions, and the assembly requirements. Notable components listed include:
+- Antenna housing
+- Radar motherboard
+- Heat conduction paste
+- Waterproof rubber ring
+- Aluminum alloy back cover
+
+Assembly details include a complete exploded view of the SRR Master sensor, showing screws, brackets, and housing components.
+</page>
+
+<page number="32">
+6.6.7.2 SRR Slave 2D Drawing.
+
+7. Testing and Validation and DVP&R.
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Subsystem & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:
+
+- Testing with declaration of standard, norm, legal requirement.
+- How and with which devices the testing was performed (description of testing set-up with pictures).
+- Where the testing was performed (internal/external).
+- Duration and time flow of the testing (in form of project plan).
+- Part variant, description of part.
+- Number of tested components/parts.
+</page>
+
+<page number="33">
+7.1 Proof of Compliance.
+
+7.1.1 Testing Plan (DVP+FRS Plan).
+Refer to data from the T&V team:  
+VF8 DVPRXVEEP9295_DVPR_SRR-M-VF8Base.
+
+7.1.2 Vehicle Testing.  
+1. Vehicle Alarm Function Test.  
+Primarily through integrating the DBC communication matrix, various alarm scenarios were simulated to monitor whether the alarm signals met the expected criteria. Details are provided in the BSD test report.
+
+2. BSD Test.  
+Primarily, the motion trajectories of the ego-vehicle and the target vehicle were simulated to confirm whether radar detection was normal and whether the alarm met the customer’s requirements. Details are provided in the BSD test report.
+
+3. Calibration Test.  
+Primarily focused on confirming whether site calibration and after-sales dynamic calibration functions met the customer’s requirements. Details are provided in the SRR test report.
+
+8 SRR Calibration.
+
+8.1 Radar supports EOL calibration and after-sales (AS) calibration.  
+1. In the production line or AS change of a new radar, AS calibration will start automatically.  
+2. In the plant, turning on the hazard light for at least 5 seconds will initiate EOL calibration, regardless of whether the hazard light is on.  
+3. Once the EOL calibration starts, it should be finished within 80 seconds; otherwise, the time-out function will trigger, reverting the process to AS calibration. To restart EOL calibration, turn on the hazard light again for 5 seconds.  
+4. In the AS market, send a clear command by OBD for the following scenarios:  
+   - The radar has already been calibrated but requires recalibration due to movement or re-installation.  
+   - Radar has an angle error DTC resolved by staff.  
+
+**Note:** If a new sample does not receive any trigger commands, it will automatically undergo after-sales calibration.  
+
+The specific calibration process is illustrated in the accompanying figure.
+</page>
+
+<page number="34">
+8.2 EOL Calibration document sharepoint link.
+
+EOL+AS dynamic calibration process 20240118.docx (sharepoint.com)
+
+8.3 EOL calibration triggering Mechanism
+
+The EOL calibration triggering mechanism is visually represented using a flowchart. It outlines the processes for both End-of-Line (EOL) radar installation and after-sales radar installation. The mechanism operates through various triggers such as hazard light activation and OBD commands, followed by calibration processing, status readings, and problem-solving steps. Key decision points include the calibration timeout duration (80 seconds), calibration status, and result values against standard thresholds. Successful calibration results are stored, while failures result in diagnostic trouble codes (DTCs) and corresponding error storage.
+</page>
+
+<page number="35">
+## 9. Definition and List of Abbreviations
+
+| ID | Term Or Abbreviation | Description                           |
+|----|----------------------|---------------------------------------|
+| 1  | FPA                  | Front Parking Assist                 |
+| 2  | RPA                  | Rear Parking Assist                  |
+| 3  | PA                   | Parking Assist                       |
+| 4  | BCM                  | Body Control Module                  |
+| 5  | VCU                  | Vehicle Control Unit                 |
+| 6  | SCM                  | Steering Column Control Module       |
+| 7  | MHU                  | Head Unit                            |
+| 8  | ECU                  | Electrical Control Unit              |
+| 9  | USS                  | UltraSonic Sensor                    |
+| 10 | IDB                  | Main Brake Module                    |
+| 11 | EMC                  | Electro-Magnetic Compatibility       |
+| 12 | CAN                  | Controller Area Network              |
+| 13 | XGW                  | Central GateWay                      |
+| 14 | I/O                  | Input/ Output                        |
+| 15 | HMI                  | Human Machine Interface              |
+| 16 | SVM                  | Surround View Monitoring             |
+| 17 | PDC                  | Parking Distance Control             |
+| 18 | LVDS                 | Low Voltage Differential Signal      |
+| 19 | TBD                  | To Be Defined                        |
+| 20 | DIA                  | Development Interface Agreement      |
+| 21 | DTC                  | Diagnostic Trouble Code              |
+| 22 | APA                  | Automatic Parking Assistance         |
+</page>
+</pages>

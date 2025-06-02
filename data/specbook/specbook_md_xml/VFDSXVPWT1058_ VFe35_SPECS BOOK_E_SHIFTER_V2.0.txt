@@ -1,0 +1,1391 @@
+
+<filename>VFDSXVPWT1058_ VFe35_SPECS BOOK_E_SHIFTER_V2.0</filename>
+<pages>
+
+<page number="1">
+Specs book.
+
+Supersedes edition (05.2022).
+
+SPECS BOOK FOR E-SHIFTER.
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new VF35 and VF36 vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This Specs Book shall provide details for all components for mass production of the PREM Program.
+
+Responsible Contact: Chen Lei.
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Index.
+
+Contents:
+SCOPE AND PURPOSE  2  
+Index  3  
+
+1. SCOPE OF PRODUCT/COMMODITY 
+   1.1 Vehicle profile  6  
+   1.2 Sales Markets  6  
+   1.3 Production volume  6  
+        1.3.1 For Vietnam market  6  
+        1.3.2 For US market  6  
+
+2. PROGRAM TIMING AND BUILD PLAN  
+   2.1 Timing plan  6  
+   2.2 Build Plan  6  
+
+3. ORGANIZATION AND CONTACT  6  
+
+4. DEFINITIONS AND APPLICABLE DOCUMENTS  7  
+   4.1 CAD Data/Transfer data-CAD Requirements  7  
+   4.2 Change Documentation and Part History Documentation  7  
+
+5. DESCRIPTION AND SCOPE OF WORK  7  
+   5.1 Technical requirement  7  
+        5.1.1 Component/System description  8  
+   5.2 General CAE Requirements  23  
+   5.3 Material requirement  23  
+   5.4 Appearance Approval - Applicable for all Visible Parts  24  
+   5.5 Traceability  24  
+   5.6 Labeling of Parts  24  
+
+6. TESTING AND VALIDATION AND DVP&R  24  
+   6.1 Function Safety (FUSA)  25  
+   6.2 Operational strength  25  
+        6.2.1 General  25  
+   6.3 Function test  25  
+
+7. FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS  26  
+   7.1 Functional Safety Requirements  26  
+   7.2 Deliverables for Functional Safety  26  
+         a) FUSA Deliverables expected before nomination  26  
+         b) FUSA Deliverables expected after nomination  27  
+   7.3 Homologation and safety regulation requirements  27  
+        7.3.1 North America  27  
+        7.3.2 Europe  27  
+
+8. DELIVERABLES  28  
+   8.1 Technical deliverables  28  
+   8.2 Detailed deliverables and RASI  28  
+
+9. SUPPLIER RESPONSIBILITIES  31
+</page>
+
+<page number="4">
+VinFast Management System. 
+
+VFDSXVPWT1058 Version: 2.0. Uncontrolled copy when printed.
+
+Index.
+
+Contents.
+10. Intellectual Property / Copyright  31  
+11. Insurance / Warranties  31  
+12. VinFast GTC & Part Packaging and Incoterms  31  
+13. Definitions and List of Abbreviations  31
+</page>
+
+<page number="5">
+Release.
+
+Version: 2.0.  
+Date: May-2022.  
+
+Updated by:
+
+- **Chief Engineer:** Kevin Fisher (v.kevinf@vinfast.vn).  
+- **ER-CV:** Clifton Wellington Springer (v.cliftonsw@vinfast.vn).  
+- **ER-MGL PWT:** Nguyen Hoang Vu (v.nguyenhv3@vinfast.vn).  
+- **ER-MGL E/E:** Shane Robert Kimball (v.kimballsr@vinfast.vn).  
+- **ER-MGL BIW/DC + CHS:** Markus Kirchweger (v.markusk@vinfast.vn).  
+- **ER-MGL Interior/Exterior:** Gordon Laurence Tindale (v.gordont@vinfast.vn).  
+- **QSC-Quality & Standard Center:** Marcelo Maturano (v.marcelom@vinfast.vn).  
+
+Revisions since previous version:
+
+Version 1.0 (19/05/2021):  
+- Feature and comments added.  
+- Vehicle profile update.  
+- Material and weight table and electric test standard added.  
+- Circuit diagram and CAN message list added.  
+- **Update 5.1.1:** Component system/description.  
+  - Expected function lists: P function (Physical EPB function integration plan at Gear Shifter) cancelled – related comments deleted.  
+  - ICE and BEV CAN topology added.  
+  - System outline - function design diagram, state machine, function description, input/output & electric characteristic added.  
+  - Technical information table 1 updated.  
+  - 7.1 Functional Safety Requirements document list added.  
+
+Version 2.0 (20/04/2022):  
+- Added chapter 5.1.2 Network Management Requirement.  
+- Updated the GS P/N.
+</page>
+
+<page number="6">
+1 Scope of product/commodity.
+
+1.1 Vehicle profile.
+Refer to appendix:
+VFDSXVCVC0501  
+VF35_VFe35_Appendix_5_Features list.  
+*VF36 feature list is under discussion, the document will be updated by PMO shortly.*
+
+1.2 Sales Markets.
+LHD countries: Vietnam (VN), EU, US, CA.
+
+1.3 Production volume.
+
+1.3.1 For Vietnam market.
+Refer to Purchasing Request for Quotation.
+
+1.3.2 For US market.
+Refer to Purchasing Request for Quotation.
+
+2 Program Timing and Build Plan.
+
+2.1 Timing plan.  
+VFDSXVCVC1101 - VF35_VFe35_Material production Launch Schedule-Build plan_MRD.
+
+2.2 Build Plan.  
+VFDSXVCVC1101 - VF35_VFe35_Material production Launch Schedule-Build plan_MRD.
+
+3 Organization and contact.
+
+| Contact | Name                         | Email ID                  | Contact Number   |
+|---------|------------------------------|---------------------------|------------------|
+| Commodity Buyer | Abhijeet Shamrao Pilaware | v.abhijeeta@vinfast.vn | +91 8149125277 |
+| Commodity Buyer Manager | Gayan Sumiththa Perera | v.gayanp@vinfast.vn | +84(0)888593663 |
+| Commodity Engineering | Min KIM                    | v.mink@vinfast.vn       | +84(0)822193883 |
+| Commodity Engineering Manager | Min KIM           | v.mink@vinfast.vn       | +84(0)822193883 |
+| SQE (Site Engineer) | Gregory Alan Reed          | v.gregoryar@vinfast.vn  | 0826792232       |
+</page>
+
+<page number="7">
+SQE Manager: Steve Jeon (BEV), Email: v.jeons@vinfast.vn, Contact Number: +84(0)818303663.
+
+SCM Analyst: Dilshod Tokhtasinov, Email: v.dilshod@vinfast.vn, Contact Number: +84(0)888352662.
+
+Packaging Analyst: Attsawarungsun Nimnaul, Email: v.nimnaula@vinfast.vn, Contact Number: +84(0)888329955.
+
+SCM Manager: Benjamin Peter Stewart, Email: v.bens@vinfast.vn, Contact Number: +84(0)888798855.
+
+### 4 Definitions and Applicable Documents 
+#### 4.1 CAD Data/Transfer Data-CAD Requirements
+All CAD data must be designed using CATIA V5 according to VF standard VFDST00000014.  
+CAD data transfer from VinFast to suppliers will be done through the Supplier Collaborative Module.  
+For more details, refer to the Supplier Collaborative Module present in the RFQ package.  
+
+#### 4.2 Change Documentation and Part History Documentation
+During the development and production process, all changes within the contractor framework must be documented and shared with VinFast, OEM, and the supplier. This includes entries in a project manual.  
+The format of the data will be defined by the contractor.  
+Vehicle documentation systems and components requiring compliance with safety regulations or legal requirements must be marked on drawings.  
+Documentation characteristics, as defined by authorities, will be required during part development and at the latest during the PTO phase.  
+
+---
+
+### 5 Description and Scope of Work 
+#### 5.1 Technical Requirement
+The technical information should include:
+VinFast designated part number, Usage per car, Procurement code, Part applicability for VF35 (ICE and BEV).  
+Part design and requirements (functional and performance) must meet VinFast standards. Details are provided in Table 1 below.
+
+#### Table 1: Technical Information Table  
+1. **E_SHIFTER_BEV**  
+   - Assembly: PWT30141007  
+   - HW: PWT30141006  
+   - SW: SOW30141006  
+   - Quantity: 1  
+   - Material: PC+ABS  
+   - Purchase Level: P  
+   - Applicability: VF35 & VF36 across VN, EU, US/CA.  
+
+2. **E_SHIFTER_BEV**  
+   - Assembly: PWT80141003  
+   - HW: PWT30141006  
+   - SW: SOW30141006  
+   - Quantity: 1  
+   - Material: PC+ABS  
+   - Purchase Level: P  
+   - Applicability: VF36 across VN, EU, US/CA.
+</page>
+
+<page number="8">
+5.1.1 Component/System description.
+
+**Legal.**  
+The following factors must be considered:  
+- FMVSS 101, 102 - US regulation.  
+- Traceability - Labelling (Data Matrix Code).  
+- Product reliability.  
+- Labeling and operating instructions.  
+- Patents.  
+- Hazardous material in manufacturing - IMDS.  
+- Disposal at the end of vehicle life is a standard requirement agreed between VINFAST and Supplier.  
+
+**Reference feature:**  
+BEV Base/Med/High and ICE Med/High.  
+
+**Concept skin data BEV and ICE.**  
+The concept design illustrates the single-body shifter compatible with both BEV and ICE configurations.  
+
+**4 (P R N D) Single momentary switch at one-body shifter – must be compatible with TCU/VCU input.**  
+The design features a single switch mechanism supporting the Parking (P), Reverse (R), Neutral (N), and Drive (D) functions. Visualizations of the design emphasize compatibility with control units.
+</page>
+
+<page number="9">
+VinFast Management System  
+Version: 2.0  
+Uncontrolled copy when printed  
+Page: 9 | 33  
+
+**Component/System Description**
+
+- **Packaging way**: Fit in VINFAST skin data surrogated by supplier (single switch or 4 switches at one body).  
+- **Clearance specifications**: 
+  - **With console bezel**: 0.5mm  
+  - **With switch and chrome ring**: 0.3mm  
+- **Switch color**: Matte black  
+- **Grain specification**: To be confirmed.  
+- **Button movement**: Guaranteed button functionality throughout the entire vehicle lifecycle.  
+- **Switch connector**: Surrogated by supplier; proposed to VinFast before selection.  
+- **International Protection Marking**: IP53  
+
+**CAD Data Requirements**  
+- **Console layout**: CAD data released from VINFAST.  
+- **Interior shifter surface**: Appearance of the shifter must follow skin data standards set by VINFAST.  
+- **Switch Connector**: Provided and standardized by the supplier.  
+
+**Properties (To Be Confirmed)**  
+| Property                   | Specification                  |
+|----------------------------|--------------------------------|
+| Nominal Voltage            | 12 V                          |
+| Safety Function            | ISO26262 Compliance           |
+| Active Gear Indication     | P, R, N, D                    |
+| Background Illumination Driver | Surrogated by supplier    |
+| Wake Up Signal             | Surrogated by supplier        |
+| Position Detection         | Surrogated by supplier        |
+| Temperature Operating Range | -40°C to 85°C (long term)     |
+| Weight                     | Surrogated by supplier        |
+| Mounting Interface         | Surrogated by supplier.       |
+
+**Voltage Information from Shifter to TCU**  
+These values must be verified and mutually agreed upon by both parties following TCU supplier nomination.  
+
+**Circuit Diagram**  
+The circuit diagram specifies operational and design parameters including nominal voltage, safety function compliance, gear indication, and position detection. Surrogated suppliers are responsible for meeting specified design and performance criteria in collaboration with VinFast.
+</page>
+
+<page number="10">
+**VinFast Management System**  
+**VFDSXVPWT1058**  
+
+**Version**: 2.0  
+*Uncontrolled copy when printed*  
+**Page**: 10 | 33  
+
+---
+
+### Circuit Diagram Description
+
+The circuit diagram illustrates the electrical architecture of the **Gear Shifter Switch**. Below is a detailed breakdown of the key components and their connections:
+
+1. **Power Supply:**
+   - The system is powered by a 12V battery (BAT) through fused connections indicated as CL30 (B+) and CL31 (GND). 
+   - A **Voltage Regulator** is integrated to ensure consistent power delivery to the components.
+
+2. **Control Modules:**
+   - **BCM (Body Control Module):** Manages suspension lighting.
+   - **CAN Network:** Facilitates communication between all vehicle systems via a **CAN Transceiver**.
+   - **MCU (Microcontroller):** Central processing unit for the Gear Shifter Switch logic.
+
+3. **Gear Shifter Switch Logic:**
+   - Gear positions (P, R, N, D) are activated by corresponding circuit closures within the switch.
+   - Each gear position interacts with the MCU for functional validation.
+
+4. **Illumination and Indication:**
+   - LED backlighting for gear positions integrates high and low luminescence states with dedicated monitoring logic.
+   - The lighting system is designed for "P," "R," "N," and "D" indicators to enhance nighttime operation.
+
+5. **Additional Details:**
+   - **PWM Monitoring:** Supports pulse-width modulation for lighting control. 
+   - **Current Monitoring Circuits:** Ensure system stability and prevent overload.
+
+This diagram demonstrates the high-level integration of gear selection functionality into the overall vehicle electrical system while ensuring compliance with international safety and quality standards.
+</page>
+
+<page number="11">
+Connector specification.
+
+Main connector number: CL6425-0057-7 (Fit in HSG number: CL6424-0050-1).
+
+Pin table:
+- Pin 1: CL58.
+- Pin 2: NC.
+- Pin 3: NC.
+- Pin 4: CL31_GND.
+- Pin 5: CL30_B+.
+- Pin 6: CL30S.
+- Pin 7: CAN_H.
+- Pin 8: CAN_L.
+
+Position letters and marking:
+- Letter markings for gear positions (P, R, N, D) are laser-cut on the switch surface.
+</page>
+
+<page number="12">
+VinFast Management System  
+VFDSXVPWT1058  
+Version: 2.0  
+Uncontrolled copy when printed
+12 | 33  
+
+### Expected Function Lists
+
+- **3 different colors (reference):**
+  - Background LED color: white during IG On phase.
+  - Clamp strategy:
+    - **Park (P) position:** Red.
+    - **Shifting to R, N, D:** Surrogated by the supplier, following FMVSS standards such as visibility and brightness.
+    - **Reverse (R) button press:** Turns to "green or amber" color, and "P" turns off white in turn.
+    - **Park (P) button press:** Turns to "Red" color, and "R" reverts back to white.
+
+- **Ergonomic Force Direction:**  
+  The supplier must consider the force direction toward the button surface (+Y axis). The force must be vertical and applied against the button surface at the center position.
+
+- **Daytime/Nighttime Lighting Compliance (according to FMVSS 101):**
+  - Illumination is controlled via PWM from BCM through a single wire connection using High MosFET 1A.
+  - All colors are dimmable based on BCM PWM signals.
+  - CAN data from date/time can also be used for dimming (pending confirmation, discard wire signal if approved).
+  - **ICE Implementation:** Driven by the Transmission Control Unit, following the Transmission CAN message catalog.
+  - **BEV Implementation:** Uses an E Shifter, with functionality tailored to the BEV configuration.
+  - Brightness control and dimming must be confirmed by the VinFast quality team using BCM ILL standards.
+
+- **Additional Requirements:**
+  - LEDs must turn on/off simultaneously when another position is selected.
+  - **CAN Message Lists:**
+    - ICE (Intel byte order):
+      - `20_FA_CAN_Matrix_V3.0.5.xlsx`
+      - `03_Diag_CAN_Matrix_Common_V3.0.2_DRAFT.xlsx` (update ongoing)  
+    - BEV (Motorola byte order):
+      - `04_PT_BEV_CAN_Matrix_V3.0.37_Draft.xlsx` (update ongoing)
+      - `03_Diag_CAN_Matrix_Common_V3.0.2_DRAFT.xlsx` (update ongoing)  
+
+  - **Control Strategy:** Two different CAN software versions for ICE and BEV specifications. Additional features can be developed through CAN communication based on mutual agreement.
+  - The CAN catalog will be finalized with mutual agreement between all parties.
+  - Additional CAN-based features to accommodate regulations such as US standards may be implemented by the supplier.
+</page>
+
+<page number="13">
+### Requirements
+
+#### AutoSAR Network Management 4.3.1.
+- Under the consensus between both parties.
+- AutoSAR 3.1 implemented through CANBedded + Wrapper.
+
+#### ISO26262 Functional Safety Standard Compliance.
+- It must protect against rolling at uphill via shift by wire system (e-shifter, actuator, and electric control unit).
+- It must prevent unintended movement with shift by wire.
+- Shift by wire system must prohibit unintended vehicle launching.
+  - Example: The shift by wire system must monitor and avoid misinterpretation of button status. When a position error is recognized, the system must transfer to safety status within FTTI.
+- Further detailed investigation is mandatory to satisfy safety goals.
+
+#### Functional Safety Goal.
+- Achieve ASIL B compliance. FSS must consider USA market consensus, as VinFast plans to deploy BEVs in the United States.
+
+#### CAN Requirements.
+- Match VinFast’s general electric specifications with a clear understanding of the VinFast system.
+- Ensure CAN communication compatibility for both ICE and BEV systems.
+- Develop unified parts with differing software for ICE and BEV.
+- Include separate proposals for flash and diagnostic CAN schedules.
+
+#### General Requirements for ICE with CAN Message A.
+
+1. **Documents:**
+   - 0034_TEC_Explanation_message_catalogue_IK_v3.0
+   - 0035_TEC_Description_CRC-Alive_Calculation_IK_v4.0
+   - CES_VINFAST_EE_VFDSP50000017_Coding_Specification_V1.0.1
+   - 0036_TEC_Clamp-Concept_IK_v1.0
+   - 0037_TEC_Engine_Start_before_relocation_IK_v1.0
+
+#### General Requirements for BEV with CAN Message B.
+
+1. **Documents:**
+   - CES_VINFAST_EE_VFDSP5xxxxxxx_Basic_DID_PID_Specification_V1.0.0
+   - CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component-v1.0.0
+   - CES_VINFAST_EE_VFDSP50000016_Flash_Specification_V1.0.1
+   - CES_VINFAST_EE_VFDSP50000017_Coding_Specification_V1.0.1
+   - CES_VINFAST_EE_VFDSP50000019_Basic_Diagnostics_Specification_V0.5
+   - VFDSXVEEP0013_CUV_ECU_Identifier_Specification_V1.0.1
+   - VFDSXVEEP0047_CAN_Specification
+
+#### Perceived Quality.
+- VFDST00054600 Haptic-standard for switches, buttons, and control panels.
+</page>
+
+<page number="14">
+## Expected Function Lists  
+
+- **LED Color Styling Confirmation:**  
+   Reference:  
+   - P: Red  
+   - All backlight: White  
+
+- **LED Turn On/Off Simultaneously:**  
+   Reference:  
+   - R, N, and D: Amber  
+
+- **Interface Circuit Including Impedance and Debounce Time:**  
+   Configuration will be surrogated by supplier under the consensus.  
+
+## Assembly Method  
+
+- **Populate on the Center Console:**  
+   Consensus with both parties.  
+
+### Visual Representations:  
+
+1. **Bezel – Center Console:**  
+   The bezel layout is designed to fit into the center console structure, providing slots for switches and other functionality.  
+
+2. **E-Shifter:**  
+   The E-Shifter components feature the arrangement of gear selection buttons (P, R, N, D), integrated into a single functional body for efficient operation and integration.
+</page>
+
+<page number="15">
+### E- Shifter Fitment with Bezel
+
+#### Environmental Condition
+- **Environmental temperature:** -40 - 85°C, 120°C (up to 60 minutes, short time).
+- **Humidity:** 0-100%.
+- **Chemical resistance:** The shifting system must withstand exposure to the following fluids:
+  - All kinds of lemonade.
+  - Coffee.
+  - Water.
+  - All kinds of vehicle passenger compartment cleaners.
+
+#### Vehicle Interface
+- **CAN topology:** ICE and BEV network integration.
+- **VINFAST Network Topology version:** 1.4.0.
+</page>
+
+<page number="16">
+### ICE
+
+#### Environmental Condition
+- **Temperature Range:** -40°C to 85°C, with short-term tolerance up to 120°C (60 minutes).  
+- **Humidity:** 0% to 100%.  
+- **Chemical Resistance:** The shifting system must sustain exposure to common fluids such as lemonade, coffee, water, and various passenger compartment cleaners.  
+
+#### Vehicle Interface
+The vehicle interface between Internal Combustion Engine (ICE) and Battery Electric Vehicle (BEV) operates within the **VINFAST Network Topology Version 1.4.0** framework.  
+
+---
+
+#### ICE Network Topology
+
+The diagram illustrates the integration of key modules:
+1. **XGW:** Integrated HCM controlling multiple CAN networks.
+   - **Diag CAN:** Diagnostic CAN communication.
+   - **PT CAN:** Powertrain CAN communication.
+   - **Chassis CAN:** Chassis control network.
+   - **Info CAN:** Information-related communication.
+   - **Body CAN:** Body feature network.
+
+2. **Modules and Systems:**
+   - **EMS/TCU:** Engine and Transmission Control Units.
+   - **ADAS ECU:** Advanced Driver Assistance System, managing radars and cameras.
+   - **ESC/EPS:** Electronic Stability Control and Power Steering system.
+   - **MHU/HUD:** Multimedia Hub Unit and Head-Up Display device.
+   - **BCM:** Body Control Module managing features like IMMO and TPMS.
+   - **Other Modules:** Modules like ACM, TRM, ETG, CCU, PSM_D, APM, SHVU_F, and SHVU_R that support diverse functions per market configurations.
+
+3. **Termination Points:**
+   - CAN Termination (120Ω resistance).
+   - Flexray Termination (100Ω resistance).
+
+#### Legends
+The diagram includes specific notations:  
+- **Variants:** Designations for markets (Vietnam, US, Smart configurations).  
+- **Connections:** Identifiers for termination types, module powering, and aftermarket integration.
+
+---
+This topology provides integrated communication flow between chassis, body, powertrain, and infotainment systems for ICE vehicles.
+</page>
+
+<page number="17">
+### 5.1.1 Component/System Description.
+
+#### Legal Considerations.
+The following factors must be considered:
+- FMVSS 101, 102 (US regulations).
+- Traceability, including labeling with Data Matrix Code.
+- Product reliability.
+- Labeling and operating instructions.
+- Patents.
+- Hazardous materials in manufacturing (IMDS).
+- Disposal at the end of a vehicle's lifecycle, as agreed between VINFAST and supplier.
+
+**Reference Feature:** BEV Base/Medium/High and ICE Medium/High.
+
+#### Concept Skin Data for BEV and ICE.
+- 4 (P, R, N, D) single momentary switch at one-body shifter – must be compatible with TCU/VCU input.
+
+---
+
+### Packaging and Design Specifications.
+
+- **Packaging Requirements:** Must fit in VINFAST skin data, surrogated by the supplier, as either a single switch or 4 switches in one body.
+- **Clearance Guidelines:**
+  - Console bezel: 0.5 mm.
+  - Switch and chrome ring: 0.3 mm.
+- **Appearance:**
+  - Switch color: Matte black.
+  - Grain specification: To be confirmed.
+- **Button Integrity:** Ensure no button sticking occurs during the vehicle’s lifecycle.
+- **Switch Connector:** Surrogated by supplier and must be proposed to VINFAST before final selection.
+- **International Protection Marking:** IP53.
+
+#### CAD Data Considerations.
+- Console layout (CAD data released by VINFAST).
+- Interior shifter surface and appearance, following VINFAST skin data.
+- Switch connector provided by supplier.
+
+### Properties (To Be Confirmed).
+
+#### Voltage and Circuit Information.
+This should be confirmed between both parties after TCU supplier nomination. Key voltage and safety functionalities include:
+- **Nominal Voltage:** 12 V.
+- **Safety Function:** Compliant with ISO26262 standards.
+- **Active Gear Indication:** P, R, N, D.
+- **Background Illumination Driver:** Surrogated by supplier.
+- **Wake Up Signal, Position Detection:** Surrogated by supplier.
+- **Temperature Range:** -40°C to 85°C for long durations.
+- **Weight and Mounting Interface:** Surrogated by supplier.
+
+---
+
+### Expected Function Lists.
+
+- **LED Colors:** 
+  - Background LED color: White during IG-On phase.
+  - Park position: Red.
+  - Shifting to R, N, D: Surrogated by supplier per FMVSS visibility and brightness guidelines.
+  - Reverse button activates green/amber color, and P turns off.
+  - When the P button is pressed, parking illuminates red, and R switches back to white.
+- **Ergonomics:** Button force direction must be within +Y axis, applied vertically against the surface.
+- **Day/Night Dimming:**
+  - Controlled via BCM with PWM through a single wire.
+  - All indicator colors are dimmable based on PWM signal.
+- **Mode-Specific Features:**
+  - ICE: Communication driven by the Transmission Control Unit.
+  - BEV: 'E Shifter' mode operation checked against BEV configurations.
+
+#### CAN Message Lists.
+- **ICE:** 
+  - Files: 20_FA_CAN_Matrix_V3.0.5.xlsx, 03_Diag_CAN_Matrix_Common_V3.0.2_DRAFT.xlsx.
+- **BEV:** 
+  - Files: 04_PT_BEV_CAN_Matrix_V3.0.37_Draft.xlsx, 03_Diag_CAN_Matrix_Common_V3.0.2_DRAFT.xlsx.
+
+Additional functionalities tied to CAN communication are subject to agreement between all parties.
+
+---
+
+### Requirements.
+
+#### Functional Safety Standards.
+- **Compliance with ISO26262:** 
+  - Includes system-level protections against unintentional movements, vehicle launches, and ensuring position accuracy through FTTI.
+  - Investigation required to meet ASIL B safety goals.
+- **CAN Compatibility:**
+  - Alignment with VINFAST electrical specifications.
+  - ICE and BEV functions will utilize different software configurations.
+  - Flashing and diagnostics must adhere to CAN schedules.
+- **Quality Specifications:**
+  - Adherence to VINFAST haptic standards for buttons and switch panels.
+  - Subject to coding, diagnostic, EMC, and electrical standards as outlined in specific CES VINFAST documents.
+
+---
+
+### LED Configuration and Assembly.
+
+- **LED Configuration:** 
+  - Styling confirmation by 3/12.
+  - LED illumination reference:
+    - P: Red. 
+    - R, N, D: Amber.
+    - Background lighting: White.
+- **Interface Circuit:** 
+  - To be managed by supplier under consensus.
+- **Assembly Methodology:** 
+  - Populate on the center console via consensus.
+  
+---
+
+### Environmental and Interface Conditions.
+
+- **Environmental Tolerances:** 
+  - Temperature: -40°C to 85°C (up to 120°C for short durations).
+  - Humidity: 0–100%.
+  - Chemical Resistance: Withstands exposure to common liquids such as acidic beverages and cleaning agents.
+  
+- **Vehicle Interface:** 
+  - CAN topology compatibility must align for both ICE and BEV configurations, following VINFAST Network Topology v1.4.0.
+
+---
+
+### Control System Outline.
+
+**Gear Shifter Diagram:**
+- **Functions:**
+  - Gear position detection and indicator compatibility with TCU (ICE) and VCU (BEV).
+- Indicators for P, R, N, and D are managed via CAN communication feedback from gear position input.
+</page>
+
+<page number="18">
+**VinFast Management System**
+
+**VFDSXVPWT1058.**
+
+**Version: 2.0.**
+</page>
+
+<page number="18">
+of 33.
+
+---
+
+### 2) State Machine
+The state machine operation for the Gear Shifter system is displayed below:
+
+1. **Model States**:
+   - Initial State: IGN ON.
+   - Transition to GS Standby state.
+   - Button input detected for P/R/N/D states.
+   - Transmit CAN signal (Tx) for respective P/R/N/D state.
+   - Receive CAN signal (Rx) for P/R/N/D state.
+   - Highlight ON for active P/R/N/D state.
+   - If there are errors during the process, return to the last received P/R/N/D highlight state.
+
+---
+
+### 3) State Lead Time
+The lead time for executing the state actions is specified as follows:
+
+1. **Action: P/R/N/D button pushed**.
+   - **Error Check**: 50ms.
+   - **Transmit CAN signal (Tx)**: 10ms.
+   - **Receive CAN processing**: By VCU (BEV) or TCU (ICE).
+
+This defines the interaction time during each operational step, ensuring smooth transmission and response between components.
+
+---
+</page>
+
+<page number="19">
+### E-Shifter Function Description
+
+1. **CAN Data Structure - ICE**
+   - Input CAN signal: DT_DISP_GRDT (0x3FD)
+   - Output CAN signal: ST_GWS (0x197)
+   - Additional signals for GS (ICE):
+     - CRC_DT_DISP_GRDT  
+     - ALIV_DT_DISP_GRDT  
+     - DISP_PO_GRB  
+   - Additional signals for TCU (ICE):
+     - CRC_ST_GWS  
+     - ALIV_ST_GWS  
+     - OP_GWS  
+
+2. **CAN Data Structure - BEV**
+   - Input CAN signal: GS_DriveReq (0x108)
+   - Output CAN signal: VCU_HV_DrvSys_status (0x0D9)
+   - Additional signals for GS (BEV):
+     - CHKSM_GS_DriveReq  
+     - ALIVE_GS_DriveReq  
+     - GS_TargetGearReq  
+   - Additional signals for VCU (BEV):
+     - CRC_VCU_HV_DrvSys_status  
+     - ALIV_VCU_HV_DrvSys_status  
+     - VCU_ACTGear  
+
+---
+
+### Gear Shifter Function Description – To Be Determined (On-Going)
+
+#### 1. **Operation Mode Control**
+Based on vehicle condition, the Gear Shifter has three operation modes as follows:
+
+- **Initial Mode:**
+  - Function: Initializes the MCU to prepare the unit for operation.
+  - Behavior: Waits with backlight control while valid gear state signal is received.
+  - Status: Button signal inactive (X), Indicator output active for backlight only (O).
+
+- **Normal Mode:**
+  - Function: Detects gear button input and transmits data.
+  - Behavior: Controls brightness and performs error detection.
+  - Status: Button signal active (O), Indicator output active (O).
+
+- **Sleep Mode:**
+  - Function: Conserves power by entering low-power state.
+  - Behavior: Disables gear button detection and illumination controls.
+  - Status: Button signal inactive (X), Indicator output inactive (X).
+
+| Mode         | Button Signal | Indicator Output | Timer to Sleep |
+|--------------|---------------|------------------|----------------|
+| Initial Mode | X             | O (Backlight)    | N/A            |
+| Normal Mode  | O             | O                | N/A            |
+| Sleep Mode   | X             | X                | N/A            |
+
+---
+
+#### 2. **Error Control**
+- **Gear Switch Contact Error Detection:**
+  - Detects contact error states in each button. Detailed error types to be further described and categorized.
+</page>
+
+<page number="20">
+VinFast Management System VFDSXVPWT1058
+
+Version: 2.0  
+Uncontrolled copy when printed  
+Page: 20 of 33  
+Print date  
+
+**Status**  
+Functional Responsibility  
+
+### Error Detection Details
+
+#### Contact Error Types
+1. **Short to Battery:**  
+   - Error Condition: When contact input is determined as short to battery.  
+   - Time: Immediate detection.  
+   - Transmission Signal: Fault.
+
+2. **Short to Ground:**  
+   - Error Condition: When contact input is determined as short to ground.  
+   - Time: Immediate detection.  
+   - Transmission Signal: Fault.
+
+3. **Contact Stuck:**  
+   - Error Condition: One of the contacts is constantly pressed for a duration.  
+   - Time: 180 seconds before detection.  
+   - Transmission Signal: Stuck.
+
+#### Illumination Error Detection
+The fault information regarding illumination includes the following:  
+- Mismatch between received current gear information and highlight ON output information (exceptional case: Auto Park).  
+- Short to Battery or Short to Ground conditions.  
+- Simultaneous Highlight ON signals.
+
+---
+
+### CAN Communication Details
+High-speed CAN interface supports consistent performance across gear shifter functions.
+
+---
+
+### User Input Gear Button State Output Specifications
+
+1. **IGN Signal Detection:**  
+   - Detected via analog, where ON level is higher than 7V and OFF level is lower than 4V.  
+   - The reset condition occurs when IGN ON is within the 4V to 7V range.  
+
+2. **Gear Switch Contact Voltage Levels:**  
+   Four switch contact states are dependent on voltage input values:
+   
+   | Switch State             | Maximum Voltage | Typical Voltage | Minimum Voltage |
+   |--------------------------|-----------------|-----------------|-----------------|
+   | **SCB (Short Circuit Battery)** | Over 4.9V        | 4.8V           | 4.6V           |
+   | **OFF**                  | 4.4V            | 3.0V            | 2.8V           |
+   | **ON**                   | 4.4V            | 3.0V            | 2.8V           |
+   | **SCG (Short Circuit Ground)** | Under 1V         | -               | -              |
+</page>
+
+<page number="21">
+Functional Responsibility
+
+1. **Gear Switch Contact Error Detection**:
+   - Errors include "Short to Battery," "Short to Ground," and "Contact Stuck."
+   - Each error is detailed with conditions, detection time, and corresponding transmission signals:
+     - **Short to Battery**: Detected when the input contact reads as shorted to battery. Transmission time is immediate, and signal is "Fault".
+     - **Short to Ground**: Detected when the input contact reads as shorted to ground. Transmission time is immediate, and signal is "Fault."
+     - **Contact Stuck**: Detected when one of the gear contacts is constantly pressed for 180 seconds. Transmission signal is "Stuck."
+
+2. **Illumination Error Detection**:
+   - Errors include mismatches between received gear information and output highlight ON signals, short circuits (to battery or ground), and simultaneous highlight ON activations.
+
+3. **CAN Communication**:
+   - High-speed CAN interface is utilized for gear signal communication.
+
+4. **User Input Gear Button State Output**:
+   - IGN signal detection involves hardware detection of analog levels. Signals are categorized as follows: ON (>7V), OFF (<4V), or reset levels (4-7V).
+
+5. **Gear State Highlight Indicator Output**:
+   - Rheostat-level input (PWM signal) determines duty output for gear state indicators. Values are tunable and mapped as follows:
+     - Rheostat levels (0%-100%) progressively increase duty output frequency from 30% to 100%.
+     - Both highlight and backlight indicators follow the same progression.
+
+6. **Gear State Backlight Indicator Output**:
+   - Backlight is activated in Initial and Normal modes.
+   - If no gear state signal is received, the backlight remains ON, but the highlight is disabled.
+   - Brightness is controlled through rheostat levels or PWM ILL+ signals.
+
+7. **Gear Switch Contact Logic**:
+   - Includes specifications for input voltage levels for switch contacts:
+     - **Short Circuit Battery (SCB)**:
+       - Sw 1: Over 4.9V (max), 4.8V (typical), 4.6V (min).
+       - Sw 2: Over 4.9V (max), 4.2V (typical), 4V (min).
+       - Sw 3: Over 4.9V (max), 3.8V (typical), 3.6V (min).
+     - **OFF**:
+       - Voltage progressively decreases to under 1V.
+     - **ON**:
+       - Mid-level voltage ranges depend on switch type.
+     - **Short Circuit Ground (SCG)**:
+       - All switches exhibit voltages under 1V in SCG conditions.
+
+8. **Gear Shifter Signal Determination**:
+   - Button states are read and transmitted based on priority (order: P > N > D > R).
+
+9. **Gear Shifter Input/Output Characteristics**:
+   - Input signals are defined as logical variables and are mapped to physical gear switch voltage levels and statuses.
+</page>
+
+<page number="22">
+VinFast Management System VFDSXVPWT1058 Version: 2.0 Uncontrolled copy when printed
+
+**Functional Responsibility**
+
+**1. Gear Shifter Input/Output Characteristics**
+- **Symbols**:
+  - `L_`: Logic
+  - `C_`: CAN
+  - `P_`: PWM
+  - `V_`: Power/Ground
+  - `GND_`: Ground
+  - `A_`: Analog
+
+**2. External Interface**
+
+| No  | Pin Name                 | Description                | Type              | Remarks                 |
+|-----|--------------------------|----------------------------|-------------------|-------------------------|
+| A1  | CL.58 (P_ILLUMINATION_IN)| Illumination Bright Control | PWM Input         | CL.58 by BCM directly  |
+| A2  | L_RESERVED_IN            | Reserved Input             | Logic Input       | Low-side               |
+| A3  | L_RESERVED_OUT           | Reserved Output            | Logic Output      | Low-side               |
+| A4  | CL.31_GND (GND_ECU)      | Ground                     | Power             | CL.31                  |
+| A5  | CL.30_B+ (B+_ECU)        | Battery B+                 | Power             | CL.30                  |
+| A6  | CL.30S (A_IGN1_IN)       | IGN1                       | Power             | CL.30s by BCM via relay|
+| A7  | CAN_H (HS-CAN_HIGH)      | CAN High (High Speed)      | CAN Communication | 500kbps                |
+| A8  | CAN_L (HS-CAN_LOW)       | CAN Low (High Speed)       | CAN Communication | 500kbps                |
+| A9  | CL.58 (P_ILLUMINATION_IN)| Illumination Bright Control | PWM Input         | CL.58 by BCM directly  |
+| A10 | L_RESERVED_IN            | Reserved Input             | Logic Input       | Low-side               |
+
+**3. Electrical Characteristics**
+1. Rated Voltage: DC12V  
+2. Operating Voltage: DC9 - 16V  
+3. Operating Temperature: -35°C to +75°C  
+4. Storage Temperature Range: -40°C to +85°C  
+5. Dark Current: 1mA  
+6. Consumption Current: Under 3.0A  
+7. CAN Communication Speed: 500kbps.
+</page>
+
+<page number="23">
+5.1.2 Network management requirement. Gear shifter should monitor just NM message and disregard CL30s hardwire input. GS should act as an alternative mechanism to go to sleep. (The full mode should keep at VF SOP gate SW delivery.) Gear shifter should monitor clamps signal “STAT_Terminal” and disregard CL30s hardwire input.
+
+5.1.2.1 Operation Mode Change Condition:
+- CAN bus is ALIVE.
+- 2nd priority: Timer >= 5 seconds and CAN bus is SLEEP.
+- CAN_STAT_Terminal is 0x0.
+  <CAN signal STAT_Terminal value table>:
+  - 0x0: OFF (Comfort Enable),
+  - 0x1: ACC (Park),
+  - 0x2: ON (Driver Present),
+  - 0x3: Engine start (eMotor running),
+  - 0x4: SW Update OTA,
+  - 0x5~0x7: reserved or invalid.
+
+1st priority: CAN_STAT_Terminal is not 0x0.
+When ECU reset (S/W or H/W):
+
+NORMAL Mode:
+- Major Function - O.
+- CAN Bus - O.
+
+WAIT SLEEP Mode:
+- Major Function - X.
+- CAN Bus - O.
+
+SLEEP Mode:
+- Major Function - X.
+- CAN Bus - X.
+
+5.1.2.2 NM Mode Change Condition:
+- CAN_STAT_Terminal is not 0x1 and CAN_STAT_Terminal is not 0x2 and CAN_STAT_Terminal is not 0x3.
+- CAN_STAT_Terminal is 0x1 or CAN_STAT_Terminal is 0x2 or CAN_STAT_Terminal is 0x3.
+
+<CAN signal STAT_Terminal value table>:
+- 0x0: OFF (Comfort Enable),
+- 0x1: ACC (Park),
+- 0x2: ON (Driver Present),
+- 0x3: Engine start (eMotor running),
+- 0x4: SW Update OTA,
+- 0x5~0x7: reserved or invalid.
+
+NM Normal:
+- NM Tx - O,
+- NM Rx - O,
+- Application Tx - O,
+- Application Rx - O.
+
+NM Ready to Sleep:
+- NM Tx - X,
+- NM Rx - O,
+- Application Tx - O,
+- Application Rx - O.
+
+Note: If the GS NM requirement in 5.1.2 is conflicted with ‘CES_VINFAST_EE_VFDSXVEEP0014_CLAMP_Specification’, GS should follow the GS specs book requirement. 
+
+5.2 General CAE Requirements:
+Please refer to VFSRXXCVC0201/01-VFCAE-001-FEM-GENERAL_Analysis requirement.
+</page>
+
+<page number="24">
+5.3 Material requirement.
+
+* Prohibited or Restricted Substances, Emissions & Toxicology.
+   The conformance to prohibited and restricted substances and obligations in terms of notification must be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier throughout the complete product life cycle according to VFDST00007601. 
+
+   IMDS material data sheets are required to be submitted into VinFast IMDS ID following the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601.
+
+   Specific targets on vehicle indoor air quality must adhere to VFDSXVCVC3401-VIAQ_Testing_Guideline.
+
+* Defined material detail requirements:
+   - Weight.
+   - Grade.
+   - Density.
+</page>
+
+<page number="25">
+5.3 Material Requirement.
+
+Prohibited or Restricted Substances, Emissions & Toxicology.
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle according to VFDST00007601. IMDS material data sheets have to be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601. Specific targets on vehicle indoor air quality according to VFDSXVCVC3401-VIAQ_Testing_Guideline must be ensured. Detailed material descriptions including weight, grade, and density must be defined.
+
+E Shifter (ICE & BEV) – Reference BOM and Material.
+(Satin chrome changed to Dark Satin chrome dated on 22-Mar).
+Single part name / Material / Finish / Quantity / Weight (Kg) / Color:
+- BODY: PC+ABS / 1 / 0.1157 / -
+- BUTTON HOLDER-P: PC+ABS / 1 / 0.0068 / -
+- PRISM-P: PMMA / 1 / 0.0039 / -
+- BUTTON HOLDER-R: PC+ABS / 1 / 0.0084 / -
+- PRISM-R: PMMA / 1 / 0.0046 / -
+- BUTTON HOLDER-N: PC+ABS / 1 / 0.0098 / -
+- PRISM-N: PMMA / 1 / 0.0055 / -
+- BUTTON HOLDER-D: PC+ABS / 1 / 0.0114 / -
+- PRISM-D: PMMA / 1 / 0.0063 / -
+- CASE: ABS / 1 / 0.0352 / -
+- PCB CPT: FR-4 / Au Plate / 1 / 0.0228 / -
+- RUBBER CONTACT: SILICON / Au Plate / 1 / 0.0153 / -
+- BUTTON-P: PC / SPRAY / 1 / BKD BLACK / 0.0056 / -
+- BUTTON-R: PC / SPRAY / 1 / BKD BLACK / 0.0056 / -
+- BUTTON-N: PC / SPRAY / 1 / BKD BLACK / 0.0056 / -
+- BUTTON-D: PC / SPRAY / 1 / BKD BLACK / 0.0056 / -
+- DECO RING: PC+ABS / PLATE / 4 / SATIN CHROME / 0.0007.
+
+5.4 Appearance Approval - Applicable for All Visible Parts.  
+AAR is a PPAP deliverable. The Appearance Approval Record (AAR) process is described in VFDST00038401, which includes details about quantity and timing. For each step of the process, the supplier is responsible for submitting parts to VinFast Quality Design following agreed timing to ensure OK Shape, OKTG, and AAR approval. This process begins in the early phases of PT build to secure AAR approval at LS. Suppliers must incorporate this activity into their development process and ED&D costs.
+
+5.5 Traceability.  
+For part requirements, follow specifications as outlined in VinFast standard VFDST00010501.
+
+5.6 Labeling of Parts.  
+Suppliers must adhere to VinFast standard VFDST00000010. Labels must be positioned according to predefined setups with corresponding illustrations.
+
+6 Testing and Validation and DVP&R.  
+Design Verification Plan and Report (DVP&R) and Product Certification (PC) testing responsibilities follow RASIC guidelines. DVP includes virtual and physical testing for systems, subsystems, and components, aligning with the Complete Vehicle Specification Book during the concept phase.
+</page>
+
+<page number="26">
+VinFast Management System.
+
+Version: 2.0.
+
+Uncontrolled copy when printed.
+
+---
+
+Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:
+
+- Testing with declaration of standard, norm, legal requirement.
+- How and with which devices the testing was performed (description of testing set-up with pictures).
+- Where the testing was performed (internal/external).
+- Duration and time flow of the testing (in form of project plan).
+- Part variant, description of part.
+- Number of tested components/parts.
+
+Ensure Mileage Target Life: 160,000 km or 10 years (whichever comes first).
+
+**Refer DVP - VFDSXVPWT0104 – VF35_DVP_E-SHIFTER**.
+
+---
+
+### 6.1 Function Safety (FUSA)
+The supplier shall ensure that the developed/manufactured part(s) meet the IATF 16949:2016 standard, Quality Management System requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road Vehicles - Functional Safety.
+
+---
+
+### 6.2 Operational Strength
+
+#### 6.2.1 General
+Verification of the design regarding operational strength of the complete vehicle and all subsystems:
+
+- Ensuring sufficient operational strength concerning the intended, vehicle-typical operational conditions.
+- Consideration and verification of product-typical characteristics derived from the application profile.
+
+All contents are fully applicable for the respective subsystem unless stated otherwise.  
+Validation activities which are specifically required for the respective subsystem are defined in this section.  
+DVP&R on the component level is to be created by the supplier in accordance with the fulfillment of complete vehicle targets.
+
+---
+
+### 6.3 Function Test
+Functional testing is performed to ensure the functionality of the system under certain environmental conditions and loadings. The following are the test standards:
+
+#### 1. Test Standard
+- According to supplier specification.
+
+#### 2. Electric Test
+- According to CES_VINFAST_EE_VFDSP50000004_General_Electric_V3.0.1.
+- According to CES_VINFAST_EE_VFDSP50000001_EMC_Standard_Vehicle_V3.0.1.
+- According to CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component_V3.0.0.
+- According to CES_VINFAST_EE_VFDSP50000001_EMC_Standard_Vehicle_V3.0.0.
+</page>
+
+<page number="27">
+- according to CES_VINFAST_EE_VFDSP10006592_Look_and_Feel_V3.0.7
+
+**3. EMC Test**  
+- according to CES EMC Standard Specification.
+
+## **7 Function Safety, Homologation and Safety Regulations**
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### **7.1 Functional Safety Requirements**  
+The supplier shall ensure that the developed/manufactured part(s) meet:  
+- IATF 16949:2016 standard (Quality management system requirements for automotive production).  
+- ISO 26262:2018 standard (Road vehicles – Functional safety).  
+
+Please refer to the following documents for safety concepts and FuSa from the supplier:  
+- **7DCTx00_BMW_VINFAST_FuSa_SRS_20210305_R01.pdf**  
+- **7DCTx00_BMW_VINFAST_Safety_concept_2021209_R01.pdf**
+
+### **7.2 Deliverables for Functional Safety**  
+
+Indicative **RASIC** for expected deliverables regarding work products:  
+
+| **Work Products**                                              | **VINFAST** | **SUPPLIER** |
+|----------------------------------------------------------------|-------------|--------------|
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R           | I            |
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.   | R           | S            |
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3.                  | A           | R            |
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3.                  | A           | R            |
+| 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I         | R            |
+| 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.         | R           | S            |
+| 6.5.3 Safety case, resulting from 6.4.6.                                        | A           | R            |
+
+**RASIC Description:**
+- **R:** Responsible
+- **A:** Accountable
+- **S:** Supportive
+- **I:** Informed
+- **C:** Consulted  
+
+#### **a) FUSA Deliverables Expected Before Nomination**  
+1. The supplier shall propose, for each safety requirement, a **supplier acceptance statement** and/or justification if they cannot or do not meet the safety requirements.
+2. Based on the list of **Safety Goals & Functional Safety Requirements** and associated attributes, VinFast and the supplier shall discuss and agree upon a **DIA (Development Interface Agreement)**.
+</page>
+
+<page number="28">
+Interface Agreement as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+### FUSA Deliverables expected after nomination
+1. The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered.
+   - **Note:** The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+2. The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcomes and results, deviations, and measures) of the functional safety activities.
+   - **Note:** The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+
+---
+
+### 7.3 Homologation and Safety Regulation Requirements
+
+#### 7.3.1 North America
+1. **Homologation and Safety Regulation Activities:**
+   - The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).
+   - The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+2. **Self-Certification and Test Report(s):**
+   - The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.
+   - VinFast requests that suppliers conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.
+   - The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada governments use to evaluate the compliance of their products with each FMVSS/CMVSS.
+     - **(*) Refer Appendix 8 of Manufacturer Handbook.**
+
+3. **Duty to Notify VinFast of Non-Compliance with FMVSS/CMVSS or European Regulations:**
+   - If a supplier determines that a non-compliance with FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced:
+     - The supplier has a duty to notify VinFast of such an issue within five working days.
+     - The supplier must propose an appropriate risk assessment and resolution plan.
+
+---
+
+#### 7.3.2 Europe
+- Homologation and safety regulation activities.
+
+---
+</page>
+
+<page number="29">
+VinFast Management System  
+VFDSXVPWT1058  
+  
+Version: 2.0  
+Uncontrolled copy when printed  
+29 | 33  
+
+### Functional Responsibility  
+
+#### Homologation and Safety Regulation Requirements  
+
+**7.3.2 Europe**  
+
+**a. Homologation and safety regulation activities**  
+The Supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) regulations.  
+
+**b. Test report(s) and Certificate(s)**  
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+
+VinFast requests the Supplier to conduct tests as specified in certain of the UN-ECE at authorized technical services. The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+
+VinFast also requests the Supplier to provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities, in order to get certification for the EC vehicle type-approval (if any).  
+
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.  
+
+**c. Duty to notify VinFast of a non-compliance with UN-ECE regulations**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+
+The Supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.  
+
+---
+
+### Deliverables  
+
+**8 Deliverables**  
+
+**8.1 Technical deliverables**  
+
+**Work Interface Chart (RASI):**  
+The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“System Development Supplier”) is defined in System / Component Specification.  
+
+RASI is defined as follows:  
+
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+- **A: Approval**  
+  Obligation to decide/approve release. If no decider is defined, the person responsible for execution (R) is the decider.  
+
+- **S: Support**  
+  Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (R) in achieving the targets.
+</page>
+
+<page number="30">
+I: Information  
+Right to information. This team member is entitled to demand information from R.  
+
+8.2 Details deliverables and RASI.  
+The need to revise the date of RASI must follow the Master Timing latest from PMO side.
+</page>
+
+<page number="31">
+### VinFast Management System  
+**VFDSXVPWT1058**  
+Version: 2.0  
+Uncontrolled copy when printed
+</page>
+
+<page number="31">
+| 33  
+
+---
+
+### Detailed Deliverables and Responsibilities Matrix  
+
+**No** | **Gate** | **Stage** | **Deliverable** | **VF Engineering** | **VF Purchasing** | **Supplier** | **SQE** | **Manufacturing**  
+---|---|---|---|---|---|---|---|---  
+1 | PV | List of Concept in Commodity | R | S | I | I | I  
+2 | PV | SOR for Concept in Commodity | R | S | I | I | I  
+3 | PPS | SOB through LOI - Letter of Intent for Concept in Commodity | S | R | S | I | I  
+4 | PPS | EDD order release for Concept in Commodity | S | R | S | I | I  
+5 | PPS | Deliver Bill of Materials in Team center | R | I | I | I | I  
+6 | PPS | Supply chain strategy - Deliver Sourcing Strategy | S | R | I | S | I  
+7 | PPS | Commodity Timing plan in each business area supports Program timing for concept commodity | S | S | R | S | I  
+8 | PPS | Organization and resources for the concept phase, resource planning for series development | S | S | R | S | I  
+9 | PPS | Opportunities and risks for the program have been detailed and measures defined - Cost reductions, Design Optimization, Timing optimization | A | S | R | S | I  
+10 | PPS | Quality planning to meet program requirements - APQP Kickoff | R | S | S | S | I  
+11 | PPS | Concept proposal for engineering review and finalization - For Concept Commodity | A | I | R | I | I  
+12 | PPS | Concept & Proposal development to meet the target material cost | A | I | R | I | I  
+13 | PPS | Parts list and BoM available; target values for lead vehicle cost and weight verified - C Class | A | I | R | I | I  
+14 | PPS | Initial CAD data to support C class development for Concept commodity | A | I | R | I | I  
+15 | PPS | System & Sub-system Functional targets agreed and cascaded to Component level, inline with Complete Vehicle Targets | A | S | R | I | I  
+16 | PPS | DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests | A | S | R | I | I  
+17 | TA | Package study to support B class surface development | A | I | R | I | I  
+18 | PPS | Manufacturing feasibility for CAS development for concept commodity | A | I | R | I | I  
+19 | PPS | Design and Validation & Testing plan for concept Commodity | A | I | R | I | I  
+20 | TA | Parts list and BoM available; target values for lead vehicle cost and weight verified - B Class | A | I | R | I | I  
+21 | TA | Parts list and BoM available; target values for lead vehicle cost and weight verified - A Class | A | I | R | I | I  
+22 | TA | Contract Series development - LON for Concept Commodity / LON for B2P Commodity | A | R | S | I | I  
+23 | TA | Timing plan for the complete Program detailing milestones and critical activities for B2P Commodity | A | S | R | I | I  
+24 | TA | Organization and resources for the concept phase, resource planning for series development | A | S | R | I | I  
+25 | TA | RPS / Location and fixation strategy developed and reviewed (Before B Class freeze) | A | S | R | I | I  
+26 | TA | DMU study for system level and sub system level | A | S | R | I | I  
+27 | TA | Functional CAE analysis | A | S | R | I | I  
+28 | TA | EE - Component Data Sheet (CDS) inputs | A | S | R | I | I  
+29 | TA | Manufacturing feasibility for Built to Print Commodities | A | S | R | I | I  
+30 | TA | Stamping / Mold flow analysis for Concept commodity | A | S | R | I | I  
+31 | TA | DFMEA for Concept Commodity / SC/CC & Key characteristics Controls | A | S | R | I | I  
+32 | TA | DTS - Fit and Finish document confirm gap and finish strategy for system & sub-system level | A | S | R | I | I  
+33 | TA | 3D design for B car class surface to be completed | A | S | R | I | I  
+34 | TA | 3D CAD and 2D - Drawing submission to VinFast Engineering for P & I release | A | S | R | I | I  
+35 | TA | Tool order release for long lead parts, P Release for Tool Design and I Release for Tool Hardware, PR Release for tool machining | S | R | S | I | I  
+36 | TA | CAD release for P & I for Long lead tooling kick-off | A | S | R | I | I  
+37 | TA | 3D design to be finalized before A class (One week before TA) | A | S | R | I | I  
+38 | TA | Feasibility confirmation to support A class surface development | A | S | R | I | I  
+39 | TA | Development strategy for each Attributes confirmed and available for the serial development phase | A | S | R | I | I  
+40 | TA | System, Sub-System & Component Level DVP for the Serial Development Phase has been created and agreed | A | S | R | I | I  
+41 | TA | Define tooling concept/injection points/... | S | I | R | S | I  
+42 | TA | Feasibility/manufacturing study and confirmation for parts | S | I | R | S | I  
+43 | TA | Technical and Styling Convergence (By PR) | A | S | R | I | I  
+44 | TA | 3D CAD and 2D - Drawing Submission to VinFast Engineering for review & Commercial quote for PR level design | A | S | R | I | I  
+45 | PR | VinFast review and release the PR CAD and 2D Drawing | R | S | S | I | A  
+46 | CC | PFMEA | S | I | R | A | I  
+47 | CC | Commercial finalization for PR level design | S | R | S | I | I  
+48 | CC | System, Sub-System & Component Level DV Complete | A | S | R | I | I  
+49 | CC | Deviations to module targets detected and measures agreed | A | S | R | I | I  
+50 | CC | Tooling order releases for all parts | I | R | S | I | I  
+51 | CC | Engineering change management release kick-off | R | S | S | S | S  
+52 | CC | Ongoing engineering change management | R | S | S | S | S  
+53 | LS | Process Validation Completion before LS | A | S | R | I | I  
+54 | PTO | Parts fit to nominal | S | I | S | R | I  
+55 | PTO | System, Sub-System & Component Level PV Complete | A | S | R | S | I  
+56 | PTO | System, Sub-System & Component Level target achievement confirmed | A | S | R | S | I  
+57 | LS | Part level - Appearance approval, Color harmony, Grain approval | A | I | R | S | I  
+58 | LS | Engineering sign-off | A | S | S | S | S  
+
+**Concept Phase** | **Series Development**
+
+---
+</page>
+
+<page number="32">
+### 9. Supplier responsibilities  
+The supplier is responsible for providing/ensuring the completion of specified work. Supplier responsibilities are itemized to mitigate the risk of an employer-employee relationship arising under the contract.
+
+#### Customer service requirements  
+- **After-sales spare parts should be ready at startup.**  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+- **Spare Parts Support Cycle.**  
+  The support period for after-sales spare parts shall not be shorter than 10 years after VinFast starts production of the whole vehicle, unless specified otherwise in this specification book.
+
+- **Maintenance Information of After-Sale Spare Parts.**  
+  The supplier of the first-level assembly should provide VinFast’s after-sales engineering department with information about the design, use, and maintenance of the assembly before OTS. This includes:  
+  - BOM table,  
+  - Parts structure and function descriptions,  
+  - Fault diagnosis,  
+  - Special tools for maintenance, and  
+  - Relevant technical parameters (e.g., installation clearance, parts performance parameters).
+
+---
+
+### 10. Intellectual Property / Copyright  
+Refer to VinFast General Term and Condition (GTC).  
+
+---
+
+### 11. Insurance / Warranties  
+Refer to VinFast General Term and Condition (GTC).  
+
+---
+
+### 12. VinFast GTC & Part Packaging and Incoterms  
+Refer to VinFast General Term and Condition, part packaging requirements, and Incoterm requirements in the RFQ package.  
+
+---
+
+### 13. Definitions and List of Abbreviations  
+The following abbreviations are used throughout the document:  
+
+- **DVP&R**: Design Verification Plan & Report  
+- **ESO**: Engineering Sign Off  
+- **GTC**: General Term and Condition  
+- **LLS**: Long Lead Suppliers on board  
+- **LLT**: Long Lead Tooling  
+- **LOI**: Letter of Intent  
+- **MFC**: Manufacturing Feasibility Confirmation  
+- **MSC**: Manufacturing Strategy Confirmation  
+- **MSI**: Major Suppliers Identified  
+- **MSO**: Manufacturing Sign Off  
+- **OTS**: Off Tool Samples
+</page>
+
+<page number="33">
+9 Supplier responsibilities.  
+Supplier is responsible to provide/ensure while completing the work. Supplier Responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.  
+
+**Customer service requirements:**  
+- **After-sales spare parts should be ready at startup:**  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.
+- **Spare Parts Support Cycle:**  
+  The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this Specs Book.
+- **Maintenance Information of After-Sale Spare Parts:**  
+  The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).
+
+10 Intellectual Property / Copyright.  
+Refer to **VinFast General Term and Condition (GTC).**
+
+11 Insurance / Warranties.  
+Refer to **VinFast General Term and Condition (GTC).**
+
+12 VinFast GTC & Part Packaging and Incoterms.  
+Refer to **VinFast General Term and Condition**, **Part packaging requirements** and **Incoterms requirement** in the RFQ package.
+
+13 Definitions and List of Abbreviations:  
+- **DVP&R:** Design Verification Plan & Report.  
+- **ESO:** Engineering Sign Off.  
+- **GTC:** General Term and Condition.  
+- **LLS:** Long Lead Suppliers on board.  
+- **LLT:** Long Lead Tooling.  
+- **LOI:** Letter of Intent.  
+- **MFC:** Manufacturing Feasibility Confirmation.  
+- **MSC:** Manufacturing Strategy Confirmation.  
+- **MSI:** Major Suppliers Identified.  
+- **MSO:** Manufacturing Sign Off.  
+- **OTS:** Off Tools Samples.  
+- **PTP:** Prototype Parts out of Serial tooling (Hand finished).  
+- **RFQ:** Request For Quotation.  
+- **SLS:** Short Lead Suppliers on board.  
+- **SOB:** Supplier on Board.  
+- **SOP:** Start of Production.  
+- **SOP-ID:** SOP-Implementation Date.  
+- **SOP-LM:** SOP Launch Model (1 specific Model – “Edition”).  
+- **SST:** Sourcing Strategy.  
+- **TS:** Theme selection Model.  
+- **FUSA:** Function Safety.  
+- **T&V:** Testing & Validation.
+</page>
+</pages>

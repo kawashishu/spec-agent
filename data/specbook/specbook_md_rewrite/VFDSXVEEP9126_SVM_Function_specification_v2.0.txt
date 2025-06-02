@@ -1,0 +1,1371 @@
+Page 1
+FUNCTIONAL SPECIFICATION. Surround View Monitoring.
+
+Scope: VF8 / VF9.
+
+Function owner: Dao Thanh Trung (v.trungdt13@vinfast.vn).
+Page 2
+Table of contents.
+
+11 / APL23_SVM.
+
+11.1 / Document issued.
+
+11.2 / Introduction.
+11.2.1 / Function Introduction.
+11.2.2 / References To Documents And Specifications.
+11.2.3 / System Architecture.
+11.2.4 / Component Parameter.
+11.2.4.1 / Camera Optical Parameter.
+11.2.4.2 / Camera Sensor performance.
+
+11.3 / System Description.
+11.3.1 / System State Machine.
+11.3.1.1 / T1: The system is powered on and the function is awakened.
+11.3.1.2 / T2: The activation condition is triggered, and the SVM function is activated.
+11.3.1.3 / T3: The calibration condition is triggered.
+11.3.1.4 / T4: End of calibration process.
+11.3.1.5 / T5: The exit condition is triggered, and the SVM function exits.
+11.3.1.6 / T6: System power off.
+11.3.1.7 / T7: System failure.
+
+11.4 / Function Description.
+11.4.1 / Usage Scenario Description.
+11.4.1.1 / Road with limited width.
+11.4.1.2 / Reversing into the parking slot.
+11.4.1.3 / Narrow road passing by.
+11.4.2 / Interactive Signal.
+11.4.2.1 / SVM send signal.
+11.4.2.2 / SVM receive signal.
+11.4.3 / Functional Description.
+11.4.4 / Function Definition.
+11.4.4.1 / Function On.
+Page 3
+VinFast Management System  
+VFDSXVEEP9126  
+
+**11.4.4.1.1 / Switch to activate:**  
+The system provides specifications for the switch used to activate the Surround View Monitoring (SVM) feature.
+
+**11.4.4.1.2 / Gear turn on:**  
+When the SVM gear is turned on, the system functionality is enabled.
+
+**11.4.4.2 / Sub-function definition:**  
+The section outlines specific sub-functions related to the Surround View Monitoring system.
+
+**11.4.4.2.1 / 2D image switching:**  
+Details concerning the 2D image switching capabilities of the system are provided.
+
+**11.4.4.2.2 / Image switching:**  
+The system is capable of switching between multiple images.
+
+**11.4.4.2.3 / Top-view:**  
+An overview showcasing the top-view feature within the SVM system.
+
+**11.4.4.2.4 / Turn light switchover view:**  
+The system includes a view that activates switchover based on turn light usage.
+
+**11.4.4.2.5 / Auxiliary line display:**  
+The auxiliary line display improves guidance and visualization within the system.
+
+**11.4.4.2.6 / Hitch guidance line:**  
+Specifications for hitch guidance line visibility in the SVM system are discussed.
+
+**11.4.4.2.7 / RCTA Alarm:**  
+The SVM system integrates the Rear Cross Traffic Alert (RCTA) alarm function.
+
+**11.4.4.2.8 / Calibration:**  
+Details on the calibration process required to optimize the SVM system functionality.
+
+**11.4.4.2.9 / Trigger condition priority:**  
+This subsection explains the priority order for various trigger conditions.  
+
+- **11.4.4.2.9.1 / Condition 1:**  
+  The first specified condition outlines an operational requirement.
+
+- **11.4.4.2.9.2 / Condition 2:**  
+  The second condition expands on additional activation prerequisites.
+
+**11.4.4.3 / Function Exit:**  
+The section elaborates on ways the Surround View Monitoring function may be deactivated.
+
+- **11.4.4.3.1:**  
+  After the R gear enters the SVM, if the R gear signal disappears, the SVM actively exits. 
+
+- **11.4.4.3.2:**  
+  When the user clicks the SVM button to exit, SVM exits passively.
+
+- **11.4.4.3.3:**  
+  When the SVM speeds up, the SVM will exit immediately.
+
+**11.4.4.4 / Fault Detection:**  
+A description of possible faults that might arise within the Surround View Monitoring system.
+
+- **11.4.4.4.1 / Case 1:**  
+  Fault case 1 is described in detail.  
+
+- **11.4.4.4.2 / Case 2:**  
+  Explanation of the second type of fault scenario.  
+
+- **11.4.4.4.3 / Case 3:**  
+  Third type of fault is outlined.
+
+- **11.4.4.4.4 / Case 4:**  
+  A possible fourth case of error in the system is described.
+
+- **11.4.4.4.5 / Case 5:**  
+  Additional details on the fifth error mode.
+
+- **11.4.4.4.6 / Case 6:**  
+  The final case addresses fault detection mechanisms.
+
+**11.5 / Performance requirements:**  
+This section specifies performance metrics required for system operations.
+
+**11.5.1 / KPI / Key Performance Indicator:**  
+Key performance indicators that evaluate system functionality are discussed.
+
+- **11.5.1.1 / Splicing view requirement:**  
+  The system must meet specific requirements for splicing views.
+
+- **11.5.1.1.1 / Front display distance:**  
+  Details on the required front display distance for optimal operation.
+Page 4
+11.5.1.1.2 / Rear display distance.  
+11.5.1.1.3 / Left/right display distance.  
+11.5.1.1.4 / Front blind spot distance.  
+11.5.1.1.5 / Rear blind spot distance.  
+11.5.1.1.6 / Left side blind spot distance.  
+11.5.1.1.7 / Right side blind spot distance.  
+
+11.5.1.2 / Image Requirement.  
+11.5.1.2.1 / 3D interface sliding.  
+11.5.1.2.2 / Dislocation of 2D image seams.  
+11.5.1.2.3 / Dislocation of 3D image seams.
+Page 5
+11 / APL23_SVM.
+
+Requirement ID: FS-225891.  
+Type: Information.  
+Status: New.  
+
+VFDSXVEEP9126.  
+
+11.1 / Document issued.
+
+Requirement ID: FS-515472.  
+Type: Information.  
+Status: New.  
+
+### VinFast version.
+
+**Version 1.0**  
+- Change by: ECR60004069.  
+- Change description: Initial version released for LS phase.  
+- Initiator: Duong Hoai An.  
+- Approver: Ng Dennis Koon Siu.  
+
+**Version 2.0**  
+- Change by: ECR60005557.  
+- Change description: Release for SOP phase.  
+- Initiator: Duong Hoai An.  
+- Approver: Ng Dennis Koon Siu.  
+
+### Supplier version.
+
+**Version V1.0**  
+- Author: Calmcar.  
+- Date: 2021/7/6.  
+- Description: Compile.  
+
+**Version V1.1**  
+- Author: Calmcar.  
+- Date: 2021/09/22.  
+- Description:  
+  1. Revise the system architecture.  
+  2. Supplementary signal list.
+Page 6
+Requirement ID: FS-225891. This requirement is of type Information and has a status of New.
+
+Requirement ID: FS-515472. This requirement is of type Information and has a status of New.
+
+VinFast version:
+
+- **Version 1.0:**  
+  Change by: ECR60004069  
+  Change description: Initial version released for LS phase  
+  Initiator: Duong Hoai An  
+  Approver: Ng Dennis Koon Siu  
+
+- **Version 2.0:**  
+  Change by: ECR60005557  
+  Change description: Release for SOP phase  
+  Initiator: Duong Hoai An  
+  Approver: Ng Dennis Koon Siu  
+
+Supplier version:
+
+- **Version V1.0:**  
+  Author: Calmcar  
+  Date: 2021/7/6  
+  Description: Compile  
+
+- **Version V1.1:**  
+  Author: Calmcar  
+  Date: 2021/09/22  
+  Description:  
+  1. Revise the system architecture.  
+  2. Supplementary signal list.  
+  3. FPASVM Delete FPA and enable SVM.  
+  4. Increase hitch guidance line and opening method.  
+  5. RCTAIncrease RCTA alarm display.  
+  6. Modify the overspeed exit logic.  
+  7. Modify the speed limit.  
+  8. Increase signal interaction in the full text.  
+
+- **Version V1.2:**  
+  Author: Calmcar  
+  Date: 2021/09/28  
+  Description:  
+  1. Increase power mode signal.  
+  2. ICEBEVICE Add ICE gear signal, compatible with BEV and ICE models.  
+
+- **Version V1.3:**  
+  Author: Calmcar  
+  Date: 2021/10/20  
+  Description:  
+  1. Modify the left/right single view.  
+  2. Add front/rear/left/right view renderings.  
+  3. RCTA Delete RCTA priority.  
+  4. SVM Increase SVM receiving signal.  
+  5. Add hitch guidance line request.  
+
+- **Version V1.4:**  
+  Author: Calmcar  
+  Date: 2021/11/10  
+  Description:  
+  1. Revision of auxiliary line specifications.  
+  2. ST_GRSEL_GRBST_GRSEL_DRV: The signal ST_GRSEL_GRB is changed to ST_GRSEL_DRV.  
+
+Introduction.
+
+Requirement ID: FS-226457. This requirement is of type Information and has a status of Accepted.
+
+Function Introduction.
+
+Requirement ID: FS-226458. This requirement is of type Information and has a status of Accepted.
+
+360° Surround View Monitoring (SVM) is a driver assistance system that provides the entire surroundings of the vehicle by creating distortion-free stitched images for safe and comfortable parking.
+Page 7
+11 / APL23_SVM
+
+Requirement ID: FS-225891  
+Type: Information  
+Status: New  
+
+Requirement ID: FS-515472  
+Type: Information  
+Status: New  
+
+11.1 / Document issued  
+
+VinFast version:  
+Version 1.0  
+Change by: ECR60004069  
+Change description: Initial version released for LS phase  
+Initiator: Duong Hoai An  
+Approver: Ng Dennis Koon Siu  
+
+Version 2.0  
+Change by: ECR60005557  
+Change description: Release for SOP phase  
+Initiator: Duong Hoai An  
+Approver: Ng Dennis Koon Siu  
+
+Supplier version:  
+Version V1.0  
+Author: Calmcar  
+Date: 2021/7/6  
+Description: Compile  
+
+Version V1.1  
+Author: Calmcar  
+Date: 2021/09/22  
+Description:  
+1. Revise the system architecture  
+2. Supplementary signal list  
+3. FPASVM Delete FPA and enable SVM  
+4. Increase hitch guidance line and opening method  
+5. RCTA Increase RCTA alarm display  
+6. Modify the overspeed exit logic  
+7. Modify the speed limit  
+8. Increase signal interaction in the full text  
+
+Version V1.2  
+Author: Calmcar  
+Date: 2021/09/28  
+Description:  
+1. Increase power mode signal  
+2. ICEBEVICE Add ICE gear signal, compatible with BEV and ICE models  
+
+Version V1.3  
+Author: Calmcar  
+Date: 2021/10/20  
+Description:  
+1. Modify the left/right single view  
+2. Add front/rear/left/right view renderings  
+3. Delete RCTA priority  
+4. Increase SVM receiving signal  
+5. Add hitch guidance line request  
+
+Version V1.4  
+Author: Calmcar  
+Date: 2021/11/10  
+Description:  
+1. Revision of auxiliary line specifications  
+2. Signal ST_GRSEL_GRB is changed to ST_GRSEL_DRV  
+
+11.2 / Introduction  
+Requirement ID: FS-226457  
+Type: Information  
+Status: Accepted  
+
+11.2.1 / Function Introduction  
+Requirement ID: FS-226458  
+Type: Information  
+Status: Accepted  
+
+360° Surround View Monitoring (SVM) is a driver assistance system that provides the entire surroundings of the vehicle by creating distortion-free stitched images for a safe and comfortable parking experience. As a non-autonomous system, this feature does not actively intervene in the dynamic driving task.
+
+11.2.2 / References To Documents And Specifications  
+Requirement ID: FS-226459  
+Type: Information  
+Status: Accepted  
+
+11.2.3 / System Architecture  
+Requirement ID: FS-226460  
+Type: Information  
+Status: Accepted  
+
+System Architecture: APA and SVM are in the same controller, and the signals between the two interact through internal communication.
+
+11.2.4 / Component Parameter  
+Requirement ID: FS-226461  
+Type: Information  
+Status: Accepted
+Page 8
+11.2.4.1 / Camera Optical Parameter:
+
+Requirement ID: FS-226462  
+Type: Information  
+Status: Accepted  
+
+- F/No: 2.0±5%  
+- Focal Length: 0.95mm±0.05mm  
+- FOV:  
+  - Diagonal: 220°±5°  
+  - Horizontal: 198°±5°  
+  - Vertical: 150°±5°  
+- Resolution:  
+  - Center (0-field): 550LW/PH  
+  - Corner (0.8-field): /  
+- Distortion:  
+  - Optical: -129%  
+  - TV: /  
+- Relative illumination: 40%  
+- Chief ray angle: 9.5°  
+- Lens construction: 2G4P  
+- IR Filter: 650nm±10nm  
+
+11.2.4.2 / Camera Sensor Performance:
+
+Requirement ID: FS-226463  
+Type: Information  
+Status: Accepted  
+
+- Sensor model: Aptina AR0147
+Page 9
+11.3 / System Description.
+
+Requirement ID: FS-226464. Type: Information. Status: Accepted.
+
+360 Surround View Monitoring (SVM): through four cameras distributed around the vehicle, the images in all directions are collected and seamlessly spliced to form a bird's-eye view of the vehicle, and output to the MHU display terminal.
+
+11.3.1 / System State Machine.
+
+Requirement ID: FS-226465. Type: Information. Status: Accepted.
+
+System state machine includes the following states:
+- **OFF:** The system is in hibernation state.
+- **Standby:** The system is in standby state.
+- **Active:** SVM is active.
+- **Calibration:** The SVM is in calibration state.
+- **Failure:** SVM system failure.
+
+Transitions between states:
+- **T1:** The system is powered on and the function is awakened.
+- **T2:** The activation condition is triggered, and the SVM function is activated.
+- **T3:** The calibration condition is triggered.
+- **T4:** End of calibration process.
+- **T5:** The exit condition is triggered, and the SVM function exits.
+- **T6:** System power off.
+- **T7:** System failure.
+Page 10
+11.3.1 / System State Machine  
+
+11.3.1.1 / T1: The system is powered on and the function is awakened.  
+Requirement ID: FS-226466  
+Type: Information  
+Status: Accepted  
+
+11.3.1.2 / T2: The activation condition is triggered, and the SVM function is activated.  
+Requirement ID: FS-226467  
+Type: Information  
+Status: Accepted  
+
+11.3.1.3 / T3: The calibration condition is triggered.  
+Requirement ID: FS-226468  
+Type: Information  
+Status: Accepted  
+
+11.3.1.4 / T4: End of calibration process.  
+Requirement ID: FS-226469  
+Type: Information  
+Status: Accepted  
+
+11.3.1.5 / T5: The exit condition is triggered, and the SVM function exits.  
+Requirement ID: FS-226470  
+Type: Information  
+Status: Accepted  
+
+11.3.1.6 / T6: System power off.  
+Requirement ID: FS-226471  
+Type: Information  
+Status: Accepted
+Page 11
+11.3.1.7 / T7: System failure.
+
+Note: The AVM system will perform fault detection on all 4 cameras and will enter malfunction state if any one of them fails. If all 4 cameras fail, SVM will not display picture imaging.
+
+11.4 / Function Description.
+
+11.4.1 / Usage Scenario Description.
+
+Typical application scenarios:
+
+11.4.1.1 / Road with limited width.
+
+11.4.1.2 / Reversing into the parking slot.
+Page 12
+11.4.1.3 / Narrow road passing by.
+
+Requirement ID: FS-226477.  
+Type: Information.  
+Status: Accepted.  
+
+---
+
+11.4.2 / Interactive Signal.
+
+Requirement ID: FS-226478.  
+Type: Information.  
+Status: Accepted.  
+
+---
+
+11.4.2.1 / SVM send signal.
+
+Requirement ID: FS-226479.  
+Type: Information.  
+Status: Accepted.  
+
+Sender: ADAS.  
+Signal name: AVM_ShowAVMFdbck.  
+Signal description: AVM start feedback signal.  
+Value:  
+- 0x0: No Request  
+- 0x1: Hide  
+- 0x2: Show  
+- 0x3: Exceed speed limit  
+Send type: Cycle.
+
+Sender: ADAS.  
+Signal name: AVM_Sts.  
+Signal description: AVM Status.  
+Value:  
+- 0x0: Off  
+- 0x1: Standby  
+- 0x2: Show AVM  
+Send type: Cycle.
+Page 13
+11.3.1.7 / T7: System failure.
+
+Requirement ID: FS-226472  
+Type: Information  
+Status: Accepted.  
+
+Note: The AVM system will perform fault detection on all 4 cameras and will enter malfunction state if any one of them fails. If all 4 cameras fail, the SVM will not display picture imaging.  
+
+11.4 / Function Description.
+
+Requirement ID: FS-226473  
+Type: Information  
+Status: Accepted.  
+
+11.4.1 / Usage Scenario Description.  
+
+Requirement ID: FS-226474  
+Type: Information  
+Status: Accepted.  
+
+Typical application scenarios:  
+
+11.4.1.1 / Road with limited width.  
+
+Requirement ID: FS-226475  
+Type: Information  
+Status: Accepted.  
+
+11.4.1.2 / Reversing into the parking slot.  
+
+Requirement ID: FS-226476  
+Type: Information  
+Status: Accepted.  
+
+11.4.1.3 / Narrow road passing by.  
+
+Requirement ID: FS-226477  
+Type: Information  
+Status: Accepted.  
+
+11.4.2 / Interactive Signal.  
+
+Requirement ID: FS-226478  
+Type: Information  
+Status: Accepted.  
+
+11.4.2.1 / SVM send signal.  
+
+Requirement ID: FS-226479  
+Type: Information  
+Status: Accepted.  
+
+Sender: ADAS.  
+Signal name: AVM_ShowAVMFdbck.  
+Signal description: AVM start feedback signal.  
+Value:  
+- 0x0: No Request.  
+- 0x1: Hide.  
+- 0x2: Show.  
+- 0x3: Exceed speed limit.  
+Send type: Cycle.  
+
+Sender: ADAS.  
+Signal name: AVM_Sts.  
+Signal description: AVM Status.  
+Value:  
+- 0x0: Off.  
+- 0x1: Standby.  
+- 0x2: Show AVM.  
+- 0x3: Hide.  
+- 0x4: Calibration.  
+- 0x5: Fault.  
+Send type: Cycle.  
+
+Sender: ADAS.  
+Signal name: AVM_auxiliarylineSts.  
+Signal description: Open and closed state of auxiliary wire.  
+Value:  
+- 0: No Request.  
+- 1: Request.  
+Send type: Cycle.  
+
+11.4.2.2 / SVM receive signal.  
+
+Requirement ID: FS-226480  
+Type: Information  
+Status: Accepted.  
+
+Sender: MHU.  
+Signal name: MHU_AVM_ShowAVMReq.  
+Signal description: MHU request AVM active.  
+Value:  
+- 0x0: No Request.  
+- 0x1: Hide.  
+- 0x2: Show.  
+Send type: Event.  
+
+Sender: MHU.  
+Signal name: MHU_Xcoordinate.  
+Signal description: MHU_Xcoordinate.  
+Send type: Event.  
+
+Sender: MHU.  
+Signal name: MHU_Ycoordinate.  
+Signal description: MHU_Ycoordinate.  
+Send type: Event.  
+
+Sender: MHU.  
+Signal name: MHU_XGestureSpd.  
+Signal description: MHU_XGestureSpd.  
+Send type: Event.  
+
+Sender: MHU.  
+Signal name: MHU_YGestureSpd.  
+Signal description: MHU_YGestureSpd.  
+Send type: Event.  
+
+Sender: MHU.  
+Signal name: MHU_TouchEvtTyp.  
+Signal description: Touch screen event type.  
+Value:  
+- 0x0: No operation.  
+- 0x1: One finger single click.  
+- 0x2: One finger double click.  
+- 0x3: One finger long press.  
+- 0x4: Rotate (drag).  
+Send type: Event.
+Page 14
+11.3.1.7 / T7: System failure.
+
+Requirement ID: FS-226472  
+Type: Information  
+Status: Accepted  
+
+Note: The AVM system will perform fault detection on all 4 cameras and will enter malfunction state if any one of it fails. If all 4 cameras fail, SVM will not display picture imaging.
+
+11.4 / Function Description.
+
+Requirement ID: FS-226473  
+Type: Information  
+Status: Accepted  
+
+11.4.1 / Usage Scenario Description.
+
+Requirement ID: FS-226474  
+Type: Information  
+Status: Accepted  
+
+Typical application scenarios:
+
+11.4.1.1 / Road with limited width.
+
+Requirement ID: FS-226475  
+Type: Information  
+Status: Accepted  
+
+11.4.1.2 / Reversing into the parking slot.
+
+Requirement ID: FS-226476  
+Type: Information  
+Status: Accepted  
+
+11.4.1.3 / Narrow road passing by.
+
+Requirement ID: FS-226477  
+Type: Information  
+Status: Accepted  
+
+11.4.2 / Interactive Signal.
+
+Requirement ID: FS-226478  
+Type: Information  
+Status: Accepted  
+
+11.4.2.1 / SVM send signal.
+
+Requirement ID: FS-226479  
+Type: Information  
+Status: Accepted  
+
+| Sender | Signal name              | Signal description                          | Value                                          | Send type |
+|--------|--------------------------|---------------------------------------------|-----------------------------------------------|-----------|
+| ADAS   | AVM_ShowAVMFdbck         | AVM start feedback signal                  | 0x0: No Request<br>0x1: Hide<br>0x2: Show<br>0x3: Exceed speed limit | Cycle     |
+| ADAS   | AVM_Sts                  | AVM Status                                 | 0x0: Off<br>0x1: Standby<br>0x2: Show AVM      | Cycle     |
+| ADAS   | AVM_auxiliarylineSts     | Open and closed state of auxiliary wire    | 0 = No Request<br>1 = Request                 | Cycle     |
+
+11.4.2.2 / SVM receive signal.
+
+Requirement ID: FS-226480  
+Type: Information  
+Status: Accepted  
+
+| Sender | Signal name                    | Signal description                         | Value                                          | Send type |
+|--------|--------------------------------|-------------------------------------------|-----------------------------------------------|-----------|
+| MHU    | MHU_AVM_ShowAVMReq             | MHU request AVM Active                    | 0x0: No Request<br>0x1: Hide<br>0x2: Show      | Event     |
+| MHU    | MHU_Xcoordinate                | MHU_Xcoordinate                           |                                               | Event     |
+| MHU    | MHU_Ycoordinate                | MHU_Ycoordinate                           |                                               | Event     |
+| MHU    | MHU_XGestureSpd                | MHU_XGestureSpd                           |                                               | Event     |
+| MHU    | MHU_YGestureSpd                | MHU_YGestureSpd                           |                                               | Event     |
+| MHU    | MHU_TouchEvtTyp                | Touch screen event type                   | 0x0: No operation<br>0x1: One finger single click<br>0x2: One finger double click<br>0x3: One finger long press<br>0x4: Rotate (drag) | Event     |
+| MHU    | MHU_AVM_auxiliarylineReq       | Guideline status setting                  | 0 = No Request<br>1 = Request                 | Event     |
+| EPS    | SAS_SteerWheelAngle            | The current angle of the steering wheel (Positive, to left; Negative, to right) |                                               | Cycle     |
+| EPS    | SAS_SteerWheelAngleValid       | Effective signal for steering angle       | 0 Valid<br>1 Invalid                          | Cycle     |
+| IDB    | VehicleSpd                     | Vehicle Speed                             |                                               | Cycle     |
+| VCU    | VCU_ACTGear                    | Actual gear, Provide gear shift signal    | 0 P<br>1 R<br>2 N<br>3 D<br>4 Reserved<br>5 Reserved<br>6 Reserved<br>7 Fault | Cycle     |
+| XGW (ICE) | ST_GRSEL_DRV                 | The signal indicates the gear in which the gearbox is currently located. (only for ICE) | 0 Initialization<br>1 N<br>2 R<br>3 P<br>4 NP<br>5 1<br>6 2<br>7 3<br>8 4<br>9 5<br>10 6<br>11 7<br>12 8<br>13 9<br>15 Signal invalid | Cycle     |
+| BCM    | BCM_TurnIndicatorSts           | Turn light output status                 | 0 OFF<br>1 Left On<br>2 Right On<br>3 Left and Right On | Cycle     |
+| BCM    | STAT_CL_15_1_L                 | Logical clamp status                     | 0 OFF<br>1 ON<br>2 Failure<br>3 Signal invalid | Cycle     |
+| BCM    | TrailerDetected                | Trailer Detected status                  | 0 Invalid<br>1 Trailer detected              | Cycle     |
+Page 15
+0 "Trailer not detected."
+
+11.4.3 / Functional Description.
+
+Requirement ID: FS-226481  
+Type: Information  
+Status: Accepted  
+
+360° Surround View Monitor: Uses 4 cameras distributed around the vehicle to separately collect images in various directions for seamless stitching to form a bird's-eye view of the vehicle and output it to the MHU display terminal, so that the driver can monitor the real-time situation around the vehicle. SVM has many sub-functions; see the table below for details:
+
+| System | Sub System            | Function description                                                                                                                                             |
+|--------|------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SVM    | Top-view image         | After the SVM is started, the system will process the images of the four cameras, perform correction, stitching, and cropping, and finally output a top-view image so that the driver can see the images around the vehicle in real time. |
+| SVM    | 2D image               | After the SVM is turned on, the system displays the stitched panoramic image + single view on the MHU by default, including the front view, the back view, the left view and the right view, and the single view of each view. |
+| SVM    | Turn light switchover view | After entering the SVM, the user can switch to the view of the corresponding direction by dialing the turn signal, so as to easily see the situation at the turn. |
+| SVM    | 3D image               | In addition to displaying the panoramic stitching bird's-eye view, the SVM 3D perspective will change to a 3D stereoscopic view centered on the vehicle. The surrounding environment in the 3D view corresponds to the real scene and can be freely switched around the vehicle body at any 360° horizontal viewing angle. |
+| SVM    | Auxiliary line         | SVM will display auxiliary lines while displaying the 2D front and rear views. The position of the auxiliary lines varies with vehicle steering and movement dynamics. |
+Page 16
+**11.4.3 / Functional Description**
+
+Requirement ID: FS-226481  
+Type: Information  
+Status: Accepted  
+
+360° Surround View Monitor: Uses 4 cameras distributed around the vehicle to separately collect images in various directions for seamless stitching to form a bird's-eye view of the vehicle and output it to the MHU display terminal, so that the driver can monitor the real-time situation around the vehicle.
+
+SVM has many sub-functions, see the table below for details:
+
+**System Sub-System Function Description**  
+
+- **Top-view image:**  
+  After the SVM is started, the system will process the images of the four cameras, perform correction, stitching, and cropping, and finally output a top-view image, allowing the driver to see the images around the vehicle in real time.  
+
+- **2D image:**  
+  After the SVM is turned on, the system displays the stitched panoramic image and single view on the MHU by default, which includes the front view, back view, left view, and right view, along with the single view of each perspective.  
+
+- **Turn light switchover view:**  
+  After entering the SVM, the user can switch to the view of the corresponding direction by dialing the turn signal to easily view the situation at the turn.  
+
+- **3D image:**  
+  In addition to displaying the panoramic stitching bird's-eye view, the SVM 3D perspective switches to a stereoscopic view centered on the vehicle. The surrounding environment in the 3D view corresponds to the real scene and can be freely switched around the vehicle body at any 360° horizontal viewing angle.  
+
+- **Auxiliary line:**  
+  SVM will display auxiliary lines along with the 2D front and rear views. The position of the auxiliary lines will be adjusted in real-time following the rotation of the steering wheel.  
+
+- **Hitch guidance line:**  
+  If enabled, the SVM displays the hitch guide line when the rear view is shown. This guide line adjusts in real-time depending on the rotation of the steering wheel.  
+
+- **RCTA alarm:**  
+  When RCTA requires a warning, SVM displays the warning to the user in the form of images on its interface.  
+
+- **Calibration:**  
+  After the vehicle is off the assembly line, it undergoes a specially designated calibration process at a site to adjust and optimize the stitched image for optimal performance.  
+
+---
+
+**11.4.4 / Function Definition**
+
+Requirement ID: FS-226482  
+Type: Functional  
+Status: Reopen  
+
+The SVM function can only work under IGN ON power (STAT_CL_15_1_L = 1 on), and its working conditions are as follows:  
+
+- **Gear:**  
+  - **R:** Turn on, Unlimited speed.  
+  - **D/N:** Standby, Turned on, 0–15 km/h.  
+  - **P:** Close, NA.  
+
+To ensure compatibility with BEV and ICE models simultaneously, there are two gear signals, but only one signal is present per vehicle, requiring compatibility.  
+
+The display range of SVM on the HMI interface is defined as:  
+- 1328 x 792 pixels (red frame interval).  
+- Fixed key interval: 120 x 792.  
+- Single view + top-view: 850 x 531 and 362 x 531.  
+- Single view: 1216 x 760.
+Page 17
+11.4.4 / Function Definition.
+
+Requirement ID: FS-226482.  
+Type: Functional.  
+Status: reopen.  
+
+The SVM function can only work under IGN ON power (STAT_CL_15_1_L = 1 on), and its working conditions are as follows:  
+
+- Gear: R.  
+  - System State: Turn on.  
+  - Vehicle Speed: Unlimited speed.  
+
+- Gear: D/N.  
+  - System State: Standby, turned on.  
+  - Vehicle Speed: 0 ~ 15 km/h.  
+
+- Gear: P.  
+  - System State: Close.  
+  - Vehicle Speed: NA.  
+
+In order to adapt to BEV and ICE models at the same time, there are two gear signals, but there can only be one on the car, which needs to be compatible.  
+
+The display range of SVM on the HMI interface is: 1328*792 (red frame interval).  
+- Fixed key interval: 120*792.  
+- Single view + top-view: 850*531; 362*531.  
+- Single view: 1216*760.  
+
+Schematic diagram of the panoramic view size.  
+Schematic diagram of enlarged view size.  
+The top-left corner is the origin of the coordinate. The X-axis is positive to the right, and the Y-axis is positive to the down.  
+
+11.4.4.1 / Function On.
+
+Requirement ID: FS-226483.  
+Type: Functional.  
+Status: reopen.  
+
+SVM has two opening methods, and they correspond to different view interfaces. The details are as follows:
+Page 18
+11.4.4.1.1 / Switch to activate.
+
+Requirement ID: FS-226484  
+Type: Functional  
+Status: Reopen  
+
+There is an SVM switch button on the MHU interface. When the driver clicks the SVM switch, the MHU will send the opening signal “MHU_AVM_ShowAVMReq = show” and “MHU_FPA_Active = request (when the FPA is off)” to the SVM. The SVM feedbacks the display request signal “AVM_ShowAVMFdbck = show” to the MHU, and the MHU receives it, opening the SVM interface after the display request signal of the SVM. The displayed image is panoramic stitching + front single view.  
+
+When the speed exceeds 15 km/h, and the user clicks the SVM button, the MHU will send a signal, “MHU_AVM_ShowAVMReq = show” to the SVM. The MHU receives the SVM feedback signal, “AVM_ShowAVMFdbck = speed limit exceed.” After receiving this signal, the MHU will inform users that the SVM is unavailable.  
+
+11.4.4.1.2 / Gear turn on.
+
+Requirement ID: FS-226485  
+Type: Functional  
+Status: Reopen  
+
+When the SVM system detects that the current gear is R gear, the SVM system will send “AVM_ShowAVMFdbck = show” to the MHU. The MHU switches to the SVM interface, displaying the image as panoramic stitching + rear view single view (referred to as R gear interface).
+Page 19
+11.4.4.1.1 / Switch to activate:
+
+Requirement ID: FS-226484  
+Type: Functional  
+Status: reopen  
+
+There is an SVM switch button on the MHU interface. When the driver clicks the SVM switch, the MHU will send the opening signal “MHU_AVM_ShowAVMReq = show” and “MHU_FPA_Active = request (when the FPA is off)” to the SVM, and the SVM feedbacks the display request signal “AVM_ShowAVMFdbck = show” to the MHU. MHU receives it and opens the SVM interface after the display request signal of the SVM, and the displayed image is a panoramic stitching + front single view.
+
+When the speed exceeds 15km/h and the user clicks the SVM on button, the MHU will send a signal, “MHU_AVM_ShowAVMReq = show” to the SVM. The MHU will receive the SVM feedback signal “AVM_ShowAVMFdbck = speed limit exceed.” After the MHU receives the signal, it will inform users that SVM is unavailable.
+
+---
+
+11.4.4.1.2 / Gear turn on:
+
+Requirement ID: FS-226485  
+Type: Functional  
+Status: reopen  
+
+When the SVM system detects that the current gear is R gear, the SVM system will send “AVM_ShowAVMFdbck = show” to MHU. MHU switches to the SVM interface, and the displayed image is panoramic stitching + rear view single view (referred to as R gear interface).
+
+When the gear is triggered, to avoid the MHU display interface flashing when the R gear is passed quickly during the process of shifting gears, R gear needs to delay trigger after 250ms.
+
+---
+
+11.4.4.2 / Sub-function definition:
+
+Requirement ID: FS-226486  
+Type: Functional  
+Status: reopen  
+
+---
+
+11.4.4.2.1 / 2D image switching:
+
+Requirement ID: FS-226487  
+Type: Functional  
+Status: reopen  
+
+The SVM interface will set up an image switching option, and the image switching needs to be realized by pressing the button.
+Page 20
+11.4.4.2 / Sub-function definition
+
+Requirement ID: FS-226486  
+Type: Functional  
+Status: reopen  
+
+11.4.4.2.1 / 2D image switching
+
+Requirement ID: FS-226487  
+Type: Functional  
+Status: reopen  
+
+The SVM interface will set up an image switching option, and the image switching needs to be realized by pressing the button.  
+
+When the user clicks the view button in the figure above, the MHU will send the corresponding coordinate signal (MHU_Xcoordinate, MHU_Ycoordinate) to the SVM, and the SVM will determine the view that the user wants to switch based on the coordinate point information, and display it to the user.  
+
+View buttons include: front view, rear view, left view, right view, and 360° view.  
+
+Front view + top-view:
+Page 21
+11.4.4.1.1 / Switch to activate.
+
+Requirement ID: FS-226484.  
+Type: Functional.  
+Status: reopen.  
+
+When the driver clicks the SVM switch button on the MHU interface, the MHU sends the opening signals “MHU_AVM_ShowAVMReq = show” and “MHU_FPA_Active = request (when the FPA is off)” to the SVM. The SVM responds with the feedback signal “AVM_ShowAVMFdbck = show” to the MHU. Once received, the MHU opens the SVM interface. The displayed image is panoramic stitching + front single view.  
+
+When the vehicle speed exceeds 15 km/h and the user clicks the SVM “on” button, the MHU sends the signal “MHU_AVM_ShowAVMReq = show” to the SVM. The SVM responds with the feedback signal “AVM_ShowAVMFdbck = speed limit exceed.” The MHU informs the user that SVM is unavailable.  
+
+11.4.4.1.2 / Gear turn on.
+
+Requirement ID: FS-226485.  
+Type: Functional.  
+Status: reopen.  
+
+When the SVM system detects that the current gear is R, the SVM system sends the signal “AVM_ShowAVMFdbck = show” to the MHU. The MHU switches to the SVM interface. The displayed image is panoramic stitching + rear single view (referred to as R gear interface).  
+
+To avoid the MHU display interface flashing when rapidly passing through R gear during gear shifting, R gear triggers SVM activation with a delay of 250ms.  
+
+11.4.4.2 / Sub-function definition.  
+
+Requirement ID: FS-226486.  
+Type: Functional.  
+Status: reopen.  
+
+11.4.4.2.1 / 2D image switching.
+
+Requirement ID: FS-226487.  
+Type: Functional.  
+Status: reopen.  
+
+The SVM interface establishes an option for switching between images. Image switching is enabled by pressing the view button.  
+
+When the user clicks a view button, the MHU sends the corresponding coordinate signals (MHU_Xcoordinate, MHU_Ycoordinate) to the SVM. Based on the coordinate point information, the SVM determines the appropriate view and displays it for the user.  
+
+View buttons include:  
+- Front view.  
+- Rear view.  
+- Left view.  
+- Right view.  
+- 360° view.  
+
+**Front view + top view:**  
+Displays the front view, along with the stitched top-down view.
+
+**Front single view:**  
+Displays only the front view from the camera.  
+
+**Rear view + top view:**  
+Displays the rear view, combined with the stitched top-down glimpse.  
+
+**Rear single view:**  
+Displays only the view behind the vehicle from its rear camera.
+Page 22
+11.4.4.2.1 / 2D Image Switching:
+
+Requirement ID: FS-226487  
+Type: Functional  
+Status: reopen  
+
+When the user clicks the view button in the SVM interface, the MHU sends the corresponding coordinate signal (MHU_Xcoordinate, MHU_Ycoordinate) to the SVM. The SVM determines the view that the user wants to switch based on the coordinate point information and displays it to the user.
+
+**View Buttons include:**  
+- Front view  
+- Rear view  
+- Left view  
+- Right view  
+- 360° view  
+
+### Example Views:
+
+**Front view + top-view:**  
+Displays a combined bird’s-eye view and live front camera feed. This allows drivers to monitor the situation in front of the vehicle while having a complete perspective on surrounding areas.
+
+**Front single view:**  
+Displays only the live camera feed from the front of the vehicle, providing real-time imagery.
+
+**Rear view + top-view:**  
+Provides a bird’s-eye view combined with the rear camera feed. This facilitates safe reversal and situational awareness from multiple angles.
+
+**Rear single view:**  
+Displays only the rear camera feed directly, focusing solely on the back of the vehicle for reversing purposes.
+
+**Left single view:**  
+Displays imagery from the left side camera for monitoring objects or obstacles on the left of the vehicle.
+
+**Left view + top-view:**  
+Combines the left camera feed with a bird’s-eye view, assisting the driver in navigating tight spaces or left turns.
+
+**Right view + top-view:**  
+Combines the right camera feed with a bird’s-eye view to safely monitor the vehicle’s environment on the right side.
+
+**Right single view:**  
+Displays only the live camera feed from the right of the vehicle, simplifying side visibility during navigation.
+Page 23
+Right single view: This view displays only the right-side camera image on the MHU interface, providing a clear and focused look at the vehicle's right side.
+
+360° single view: This view displays a 360° perspective of the vehicle's surroundings, centered on the car, for an immersive monitoring experience.
+
+360° view + top view: This mode combines the 360° perspective with a bird's-eye top-down view, allowing the driver to monitor the surroundings and spatial context simultaneously.
+
+The view effect is subject to the final review result.
+Page 24
+11.4.4.2.2 / Image Switching.
+
+Requirement ID: FS-226488.  
+Type: Functional.  
+Status: Accepted.  
+
+When the user clicks the 360° view button, the corresponding coordinate signal will be sent to the SVM. The SVM judges that the driver needs to display the 3D view based on the coordinate information. After entering the 3D view, the user can drag the screen to the left or right to change the horizontal viewing angle.  
+
+---
+
+11.4.4.2.3 / Top-view.
+
+Requirement ID: FS-226489.  
+Type: Functional.  
+Status: Reopen.  
+
+When the user enters and clicks the SVM switch or triggers the R file to enter the SVM interface, the splicing view will automatically appear on the right side of the single view, as shown below.
+Page 25
+11.4.4.2.4 / Turn light switchover view.
+
+Requirement ID: FS-226490.  
+Type: Functional.  
+Status: Accepted.  
+
+When the user enters the SVM interface, the SVM can automatically switch to the response view after the user dials the left/right turn signal.
+
+11.4.4.2.5 / Auxiliary line display.
+
+Requirement ID: FS-226491.  
+Type: Functional.  
+Status: Accepted.  
+
+There is a car auxiliary line display setting item on the HMI. When the user clicks to set it, the MHU will send the signal “MHU_AVM_auxiliarylineReq = request/ no request” to the SVM. After SVM receiving the signal, the SVM will perform the user operation and give the feedback signal “AVM_auxiliarylineSts = request/ norequest” to the MHU. The state of this setting item is memorized by the MHU, and the SVM will synchronize its own signal state according to the MHU signal state each time it is powered on.
+
+The auxiliary line requirements of the car are as follows:
+- When the user setting status is off, the auxiliary line will be hidden.  
+- When the user setting status bit is turned on, the auxiliary line status will be displayed.  
+- The auxiliary line will be adjusted according to the steering wheel angle.
+
+The form requirements of the auxiliary line are as follows:
+Page 26
+11.4.4.2.6 / Hitch guidance line.
+
+Requirement ID: FS-226492.  
+Type: Functional.  
+Status: Accepted.
+
+When the vehicle is equipped with a towing hook, the system will have a towing hook guide line, and the user can easily dock the trailer according to this guide line.
+
+There is a hitch guidance line setting item in the rear view interface. The user can set the on/off state of it. When the user clicks to open, the MHU will send a coordinate signal to the SVM, and the SVM will display the hitch guidance line after receiving the user’s request. When the user clicks to close, the MHU will send a coordinate signal to the SVM, and the SVM will close the auxiliary line after receiving the user’s request.
+
+This setting item should be turned off by default, and the driver needs to take the initiative to turn it on.
+
+The form requirements for the hitch guidance line are as follows:
+- The width of the guidelines shall be 40 cm wider than the width of the actual vehicle (20 cm on each side).
+- There shall be a line indicating 30 cm from the vehicle to indicate the end of the safe zone. This correlates to the solid tone for PDC.
+Page 27
+11.4.4.2.6 / Hitch guidance line.
+
+Requirement ID: FS-226492.  
+Type: Functional.  
+Status: Accepted.  
+
+When the vehicle is equipped with a towing hook, the system will display a towing hook guide line, enabling the user to dock the trailer easily with this guide line.  
+
+A hitch guidance line setting feature is available within the rear-view interface. The user can toggle the on/off state of the hitch guidance line. When the user activates this feature, the MHU sends a coordinate signal to the SVM, prompting the SVM to render the hitch guidance line. Conversely, when the user deactivates this functionality, the MHU sends another signal to the SVM to hide the guidance line accordingly.  
+
+By default, the hitch guidance line is in an off state, requiring user initiation to activate it.  
+
+The form requirements for the hitch guidance line are outlined below:  
+
+- The width of the guidelines is 40 cm wider than the vehicle (20 cm on either side).  
+- A line indicating 30 cm clearance from the vehicle defines the safe zone's end.  
+- Alternate approach trajectory lines are clearly defined, allowing precise docking.  
+
+---
+
+11.4.4.2.7 / RCTA Alarm.
+
+Requirement ID: FS-226493.  
+Type: Functional.  
+Status: Accepted.  
+
+The SVM supports RCTA (Rear Cross Traffic Alert) alarm information. Upon receiving an RCTA alarm signal (ECU internal signal), the SVM displays the RCTA alarm in the rear-view interface for the user.  
+
+The displayed trajectory line maps back 3 meters, mirroring the standard trajectory lines to ensure consistent safety measures while navigating rear cross-traffic situations.
+Page 28
+If the SVM receives the left RCTA alarm, the image will display the left alarm. If the SVM receives the right alarm, the image will display the right alarm. If the SVM receives the alarm on both sides, both sides will be displayed.
+
+11.4.4.2.8 / Calibration.
+
+Requirement ID: FS-226494.  
+Type: Functional.  
+Status: Accepted.  
+
+Each vehicle will have errors during the installation process. In order to compensate for the errors, the SVM system must be calibrated through a special site after the vehicle is off the assembly line, so as to correct the image, so as to better display the various field of view images of the SVM.  
+Subject to calibration documents.  
+
+11.4.4.2.9 / Trigger condition priority.
+
+Requirement ID: FS-226495.  
+Type: Functional.  
+Status: Accepted.  
+
+11.4.4.2.9.1 / Condition 1.  
+
+Requirement ID: FS-226496.  
+Type: Functional.  
+Status: Accepted.
+Page 29
+The R gear has the highest priority, so in the R gear state, the SVM can only display the rear view, and the user's switching of the field of view operation is invalid.
+
+### 11.4.4.2.9.2 / Condition 2  
+
+**Requirement ID:** FS-226497  
+**Type:** Functional  
+**Status:** Accepted  
+
+In the SVM display interface, if the user dials the left and right turn signals, the SVM interface can jump the display interface to the corresponding viewing angle according to the turn signal, and then the user can manually switch to other interfaces. When the user dials the turn signal again, the interface can still jump automatically.
+
+### 11.4.4.3 / Function Exit  
+
+**Requirement ID:** FS-226498  
+**Type:** Functional  
+**Status:** Accepted  
+
+SVM has 3 exit methods: active exit, passive exit, and overspeed exit.  
+The exit conditions of SVM are as follows:
+
+#### 11.4.4.3.1 / After the R gear enters the SVM, if the R gear signal disappears, the SVM actively exits;  
+
+**Requirement ID:** FS-226499  
+**Type:** Functional  
+**Status:** Accepted  
+
+--
+
+#### 11.4.4.3.2 / When the user clicks the SVM button to exit, SVM exits passively;  
+
+**Requirement ID:** FS-226500  
+**Type:** Functional  
+**Status:** Accepted  
+
+--
+Page 30
+11.4.4.3.3 / When the SVM speeds up, the SVM will exit immediately.
+
+**Requirement ID:** FS-226501  
+**Type:** Functional  
+**Status:** Accepted  
+
+When SVM actively exits, SVM will send an exit interface request signal "AVM_ShowAVMFdbck = hide" to MHU. The MHU will exit the SVM interface after receiving the signal, and SVM will exit after a delay of 500ms.  
+
+When SVM exits passively, the MHU will send the exit signal "MHU_AVM_ShowAVMReq = hide" to SVM. After receiving the MHU signal, the SVM will send "AVM_ShowAVMFdbck = hide" to the MHU, and the MHU will exit immediately after receiving the SVM signal. The SVM system exits after a delay of 500ms.  
+
+When SVM exits at overspeed, SVM will send an exit request signal "AVM_ShowAVMFdbck = speed limit exceed" to MHU. After receiving the signal, MHU will exit the SVM display interface and display overspeed exit information to the user. When the vehicle speed is lower than 10km/h, SVM will send the signal "AVM_ShowAVMFdbck = show" to the MHU. Upon receiving the signal, the MHU will re-enter the SVM display interface. The SVM will maintain this state until the user manually exits.
+
+---
+
+11.4.4.4 / Fault Detection
+
+**Requirement ID:** FS-226502  
+**Type:** Functional  
+**Status:** Accepted  
+
+---
+
+11.4.4.4.1 / Case 1  
+
+**Requirement ID:** FS-226503  
+**Type:** Functional  
+**Status:** Accepted  
+
+When the SVM system fails, if the MHU sends a request signal to the SVM, the SVM will send the signal "AVM_Sts = fault" to the MHU, which can inform the user that the SVM is unavailable.
+
+---
+
+11.4.4.4.2 / Case 2  
+
+**Requirement ID:** FS-226504  
+**Type:** Functional  
+**Status:** Accepted  
+
+When the SVM camera fails, if the MHU sends the request signal "MHU_AVM_ShowAVMReq = show" to the SVM, the SVM will send the signals "AVM_Sts = fault" and "AVM_ShowAVMFdbck = show" to let the MHU inform the user that the SVM is not available.
+Page 31
+11.4.4.4.3 / Case 3.  
+When the vehicle speed signal is lost, the SVM display function will not be affected, but the system will not exit when the vehicle speed exceeds the limit.  
+
+Requirement ID: FS-226505.  
+Type: Functional.  
+Status: Accepted.  
+
+11.4.4.4.4 / Case 4.  
+When the gear signal is lost, the SVM display function will not be affected, but the SVM system will not enter when the R gear.  
+
+Requirement ID: FS-226506.  
+Type: Functional.  
+Status: Accepted.  
+
+11.4.4.4.5 / Case 5.  
+If the SVM ID is lost, MHU needs to deal with it according to its exit logic.  
+
+Requirement ID: FS-226507.  
+Type: Functional.  
+Status: Accepted.  
+
+11.4.4.4.6 / Case 6.  
+If the video signal of the SVM is lost, the MHU will prompt "Video signal loss" in the SVM interface.  
+
+Requirement ID: FS-226508.  
+Type: Functional.  
+Status: Accepted.  
+
+11.5 / Performance requirements.  
+
+Requirement ID: FS-226509.  
+Type: Information.  
+Status: Accepted.
+Page 32
+11.5.1.3 / Left/right display distance
+
+Requirement ID: FS-226514  
+Type: Information  
+Status: Accepted  
+
+Description  
+KPI  
+Left/right display distance  
+L≥2500mm
+Page 33
+11.5.1.1.1 / Left/right display distance.
+
+Requirement ID: FS-226514  
+Type: Information  
+Status: Accepted  
+
+Description:  
+KPI:  
+Left/right display distance B=C≥2000mm.  
+
+11.5.1.1.5/ Front blind spot distance
+
+Requires key spot-demanding access-feedback
+Page 34
+11.5.1 / KPI / Key Performance Indicator.
+
+Requirement ID: FS-226510.  
+Type: Information.  
+Status: Accepted.  
+
+11.5.1.1 / Splicing view requirement.
+
+Requirement ID: FS-226511.  
+Type: Information.  
+Status: Accepted.  
+
+11.5.1.1.1 / Front display distance.
+
+Requirement ID: FS-226512.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+Front display distance: A≥2500mm.  
+
+11.5.1.1.2 / Rear display distance.
+
+Requirement ID: FS-226513.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+Rear display distance: D≥2500mm.  
+
+11.5.1.1.3 / Left/right display distance.
+
+Requirement ID: FS-226514.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+Left/right display distance: B=C≥2000mm.  
+
+11.5.1.1.4 / Front blind spot distance.
+
+Requirement ID: FS-226515.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+Front blind spot distance: a≤200mm.  
+
+11.5.1.1.5 / Rear blind spot distance.
+
+Requirement ID: FS-226516.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+Rear blind spot distance: D≤250mm.  
+
+11.5.1.1.6 / Left side blind spot distance.
+
+Requirement ID: FS-226517.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+Left side blind spot distance: 0≤b≤50mm.  
+
+11.5.1.1.7 / Right side blind spot distance.
+
+Requirement ID: FS-226518.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+Right side blind spot distance: 0≤c≤50mm.  
+
+11.5.1.2 / Image Requirement.
+
+Requirement ID: FS-226519.  
+Type: Information.  
+Status: Accepted.  
+
+11.5.1.2.1 / 3D interface sliding.
+
+Requirement ID: FS-226520.  
+Type: Information.  
+Status: Accepted.  
+
+**Description:**  
+KPI:  
+3D interface sliding: Horizontal direction: 360° rotation.
+Page 35
+11.5.1.2.2 / Dislocation of 2D image seams.
+
+Requirement ID: FS-226521.  
+Type: Information.  
+Status: Accepted.  
+
+Description:  
+KPI.  
+Dislocation of 2D image seams.  
+Within 2m, the splicing error of the ground plane is ≤ 8cm.  
+
+11.5.1.2.3 / Dislocation of 3D image seams.
+
+Requirement ID: FS-226522.  
+Type: Information.  
+Status: Accepted.  
+
+Description:  
+KPI.  
+Dislocation of 3D image seams.  
+Within 2m, the splicing error of the ground plane is ≤ 8cm.

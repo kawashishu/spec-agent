@@ -1,0 +1,768 @@
+Page 1
+SPEC BOOK.
+
+First edition (06.2020).
+
+SAFETY RESTRAINTS. Applicable for System Development Supplier. SPEC BOOK (SPB).
+Page 2
+## Scope and Purpose
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new VF35/e35 vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production purposes under the PREM Program.
+
+**Responsible Contact:** Christopher Stalker  
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Index.
+
+Contents:
+SCOPE AND PURPOSE ............................................................................................... Page 2.
+
+Index ....................................................................................................................................... Page 3.
+
+**1.** SCOPE OF PRODUCT/COMMODITY ...................................................................... Page 6.
+1.1 Vehicle profile ......................................................................................................................... Page 6.
+VFDSXVCVC0501 VF35_ICE_BEV_APPENDIX_5_FEATURES LIST ................................. Page 6.
+1.2 Sales Markets .......................................................................................................................... Page 6.
+1.3 Production volume .................................................................................................................. Page 6.
+
+**2.** PROGRAM TIMING AND BUILD PLAN ................................................................... Page 6.
+2.1 Timing plan .............................................................................................................................. Page 6.
+2.2 Build Plan ................................................................................................................................ Page 6.
+
+**3.** ORGANIZATION AND CONTACT .......................................................................... Page 7.
+
+**4.** DEFINITIONS AND APPLICABLE DOCUMENTS .................................................... Page 7.
+4.1 CAD Data/Transfer CAD Requirements ................................................................................. Page 7.
+4.2 Change Documentation and Part History Documentation ...................................................... Page 7.
+
+**5.** DESCRIPTION AND SCOPE OF WORK .................................................................. Page 7.
+5.1 Technical requirement ............................................................................................................ Page 7.
+5.2 General CAE Requirements ................................................................................................... Page 9.
+5.3 Material requirement ............................................................................................................... Page 9.
+5.4 Traceability .............................................................................................................................. Page 9.
+5.5 Labeling of Parts .................................................................................................................... Page 9.
+5.6 Functional requirement ........................................................................................................... Page 9.
+  - 5.6.1 Requirements regarding functionality ......................................................................... Page 9.
+  - 5.6.2 Belt strap ..................................................................................................................... Page 12.
+  - 5.6.3 Sash guide .................................................................................................................. Page 12.
+  - 5.6.4 Anchor fitting .............................................................................................................. Page 13.
+  - 5.6.5 Fixation and stop button ............................................................................................ Page 13.
+  - 5.6.6 Belt clasp ................................................................................................................... Page 13.
+  - 5.6.7 Latch plate .................................................................................................................. Page 13.
+  - 5.6.8 Relay bow .................................................................................................................. Page 13.
+  - 5.6.9 Belt buckle ................................................................................................................. Page 13.
+  - 5.6.10 Electrical belt warning (hall sensor) ....................................................................... Page 13.
+  - 5.6.11 Elastic lower belt (acceleration safe design) .......................................................... Page 13.
+  - 5.6.12 Lower belt as tilt lock .............................................................................................. Page 14.
+  - 5.6.13 Lower belt as strap lock .......................................................................................... Page 14.
+  - 5.6.14 Lower belt with detachable fitting .......................................................................... Page 14.
+5.7 Appearance Approval - Applicable for all Visible Parts ......................................................... Page 14.
+
+**6.** TESTING AND VALIDATION AND DVP&R ............................................................ Page 15.
+
+**7.** FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS ............ Page 15.
+7.1 Functional Safety Requirements ............................................................................................ Page 15.
+7.2 Deliverables for Functional Safety ......................................................................................... Page 15.
+  - (a) FUSA Deliverables expected before nomination ........................................................ Page 16.
+Page 4
+Index  
+Contents  
+
+7. Function Safety, Homologation and Safety Regulations.  
+
+b) FUSA Deliverables expected after nomination.  
+
+7.3 Homologation and safety regulation requirements.  
+
+7.3.1 North America.  
+7.3.2 Europe.  
+
+8. Deliverables.  
+
+8.1 Technical deliverables.  
+8.2 Details deliverables and RASI.  
+
+9. Supplier Responsibilities.  
+10. Intellectual Property / Copyright.  
+11. Insurance / Warranties.  
+12. VinFast GTC & Part Packaging and Incoterms.  
+13. Definitions and List of Abbreviations.
+Page 5
+Release.
+
+Version: 1.0.  
+
+Date: Jun-2020.  
+
+**Updated by:**  
+
+*Function:*  
+- Chief Engineer  
+  John Nolan: v.nolanj@vinfast.vn  
+- ER-CV  
+  Gary Carroll: v.carrollg@vinfast.vn  
+- ER-MGL PWT  
+  Nicholas True: v.truen@vinfast.vn  
+- ER-MGL CHS  
+  Joseph Sawyer: v.sawyerja@vinfast.vn  
+- ER-MGL E/E  
+  Shane Kimball: v.kimballsr@vinfast.vn  
+- ER-MGL BIW/DC  
+  Markus Kirchweger: v.markusk@vinfast.vn  
+- ER-MGL Interior  
+  Rowan Surendra Lal: v.lalrs@vinfast.vn  
+
+**Revisions since previous version:**  
+
+| Version | Change Description | Signature | Date         |
+|---------|---------------------|-----------|--------------|
+| 1       | First edition       |           | 30/06/2020   |
+Page 6
+1 Scope of product/commodity.
+
+1.1 Vehicle profile.
+Refer to appendix:
+VFDSXVCVC0501.
+VF35_ICE_BEV_Appendix_5_Features list.
+
+1.2 Sales Markets.
+LHD countries: Vietnam (VN), ASEAN, US, EU.
+
+1.3 Production volume.
+Following purchase information.
+
+2 Program Timing and Build Plan.
+
+2.1 Timing plan.
+VFDSXVCVC1101_Appendix_1_Project timing.
+
+2.2 Build Plan.
+VF35_VFe35_Material production Launch Schedule-Build plan_MRD.
+Page 7
+3 Organization and contact
+
+**Contact Table**
+- **Commodity Buyer**: Nguyen Thi Thanh, Email: v.thanhnt78@vinfast.vn, Contact Number: N/A
+- **Commodity Buyer Manager**: Nethaji Subbarayalu, Email: v.nethajis@vinfast.vn, Contact Number: +84(0)888733322
+- **Commodity Engineering**: David Brierley, Email: v.brierleydj@vinfast.vn, Contact Number: +84(0)888142882
+- **Commodity Engineering Manager**: Chris Stalker, Email: v.stalkerc@vinfast.vn, Contact Number: N/A
+- **SQE (Site Engineer)**: Prescott Michael Philip, Email: v.michaelpp@vinfast.vn, Contact Number: +84(0)812252266
+- **SQE Manager**: Steve Jeon, Email: v.jeons@vinfast.vn, Contact Number: +82-10-8488-8367
+- **SCM Analyst**: Dilshod Tokhtasinov, Email: v.dilshod@vinfast.vn, Contact Number: +84(0)888352662
+- **Packaging Analyst**: Attsawarungsun Nimnaul, Email: v.nimnaula@vinfast.vn, Contact Number: +84(0)888329955
+- **SCM Manager**: Benjamin Peter Stewart, Email: v.bens@vinfast.vn, Contact Number: +84(0)888798855
+
+---
+
+4 Definitions and applicable documents
+
+**4.1 CAD Data/Transfer Data - CAD Requirements**
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. CAD data transfer from VinFast to supplier will be done through the Supplier Collaborative Module. For more details, refer to the Supplier Collaborative Module in the RFQ package.
+
+**4.2 Change Documentation and Part History Documentation**
+During the development and production process, all changes within the framework of the contractor must be documented and provided to VinFast and the OEM/Supplier by the contractor (e.g., entries in a project manual). The data format can be defined by the contractor. Vehicle documentation systems or components that must fulfill safety regulations or legal requirements must be marked on the drawings. The reasons and characteristics to be documented are listed by authorities. These demands will be requested during development and latest at the PTO phase.
+
+---
+
+5 Description and scope of work
+
+**5.1 Technical requirement**
+The technical information should include the following:
+- VinFast designated part number.
+- Usage per car.
+- Procurement code.
+- Part applicability: VF35-ICE, VFe35-BEV.
+- Technical requirements for part design.
+- Part requirements – functional and performance requirements – VinFast level. 
+
+For details, please refer to Table 1.
+Page 8
+**Table 1: Technical information table.**
+
+1. The "Front seatbelt assembly - driver" has part number BIN30031001, quantity of 1, material type VAR, and purchase level P. It applies to VF35 Smart in Vietnam (VN), VF35 Plus in the US, and VF35 Plus in VN with no application to EU or other conditions.
+2. The "Front seatbelt assembly - passenger" has part number BIN30031002, quantity of 1, material type VAR, and purchase level P. It applies to VF35 Smart in Vietnam (VN), VF35 Plus in the US, and VF35 Plus in VN with no application to EU or other conditions.
+3. The "Front seatbelt assembly - driver (with pretensioner)" has part number BIN30031003, quantity of 1, material type VAR, and purchase level P. It applies across ICE and BEV categories for VF35 models Smart and Plus, as well applicable rows.
+4. The assembly variations notes buckle rows are accordingly mapped. etc
+Page 9
+5.2 General CAE Requirements.
+
+Please refer to Appendix 2: CAE-FEM-GENERAL Statement of Requirement (SOR) Specification Book. VinFast General FE Modelling and Analysis Requirements.
+
+Finite Element Modelling Requirements to support VinFast SOR. Range of validity: Project VINFAST.
+
+---
+
+5.3 Material requirement.
+
+Off-the-shelf components to be identified by the supplier.
+
+---
+
+5.4 Traceability.
+
+For part requirements, follow specification please refer to VinFast standard VFDST00010502 and VFDST00010501.
+
+---
+
+5.5 Labeling of Parts.
+
+Suppliers must follow VinFast standard VFDST00000010. A figure showing the label's position on parts must be provided (position labels set-up with pictures).
+
+---
+
+5.6 Functional requirement.
+
+### 5.6.1 Requirements regarding functionality.
+The general requirements for component features are defined for the complete belt system. They also apply to the new belt generation. Additional or differing requirements are described in the Requirements Specification.
+
+#### 5.6.1.1 Individual components.
+- Individual components are to be designed in modular structure. The adaptation of additional functions shall not require significant interference in the basis component.
+- When joining individual components, the vehicle’s marginal conditions in terms of installation space, screw joints, twist, and mismatching protection and support surfaces must be observed.
+
+#### 5.6.1.2 Belt automat.
+- Activated locking systems (vehicle- and belt strap sensitive systems) in installed or dismantled conditions must automatically unlock when installed. The locking system must not catch during drive operation.
+Page 10
+VinFast Management System  
+VFDSXVBIN0049  
+Version: 1.0  
+Uncontrolled copy when printed  
+10 | 22  
+
+Print date  
+Status  
+Functional Responsibility  
+
+**Functional Requirements (continued)**  
+
+**5.6.1.2 Belt Automat**  
+
+- A non-magnetic vehicle-sensitive locking system is to be offered.  
+- The retraction spring (pull-out and retraction forces) is to be designed to achieve better comfort values (vehicle adaptation required). At parking length, the retraction force is between 2.0 N and 2.3 N under consideration of the spring tolerances. As per tests, the retraction force is a minimum of 80% of the force in new condition.  
+- Vehicle- and belt strap-sensitive locking systems are in park position to park position + 100 mm in turned-off condition (to be offered as an option).  
+- In the US market, children seat protections (KiSi) are mandatory on all seats (driver seat excepted).  
+- A significant audible function sound on present and turned-on KiSi (children seat protection) is to be guaranteed.  
+- The position of the KiSi-turn-on point is within 10 mm to 60 mm before full unrolling of the belt strap. The tolerance range of the KiSi-turn-off point is 50 mm.  
+- Exchange of left/right and front/rear is not permissible.  
+- Controlled and orderly retraction of the belt strap (straps are exactly aligned) is required.  
+- Contact with automat components resulting in damage to the belt strap or increased friction is not permissible. This function is to be guaranteed during transverse extension of the seat belt.  
+- A standard or reverse automat may be used as required.  
+- Installation of sound-isolating elements on the vehicle must be possible. With several automat variants for a vehicle (e.g., ECE/US), it must be observed not to impact the geometry of the sound-isolating element in the vehicle.  
+- The automatic belts are available as mirror variants if required (to be offered as an option). Directly unwinding automatic belts are to be coated black.  
+- When retracting the belt strap, folding and twisting must be avoided (e.g., through the geometry of the belt arrangement).  
+- On delivery, the retracted belt strap must be inside the housing geometry of the automat. Belt straps not retracted during delivery must be protected from damage and dirt during transport.  
+- Measures at the automat must counteract potential irregularities in the shell structure at the support surface of the automat.  
+- Covers to protect the belt strap from contact with adjoining components must be available. See also [VFDST00027801].  
+
+**5.6.1.3 Pretensioner**  
+
+- All requirements from 5.1.1 and [VFDST00027803] are to be fulfilled.  
+- All installation space specifications must be adhered to in automat with pretensioner.  
+- The system supplier ensures that the function of the pretensioner does not negatively impact the components of the safety belt (upper and lower belt) or all other interior components.  
+- The theoretical tension distance and tension performance as per [VFDST00027803] are to be fulfilled.
+Page 11
+VinFast Management System
+
+VFDSXVBIN0049  
+Version: 1.0  
+Uncontrolled copy when printed  
+11 | 22  
+
+5.6.1.3 Pretensioner  
+The variation of the tension performance over the temperature range is to be not more than 15%.
+
+The system supplier shall inform VinFast about temperatures in the defined temperature range, under which minimum and maximum tension and minimum and maximum pressure in the combustion chamber occur.
+
+At a crash with ECE pulse, ignition of the pretensioner in der 12.ms, 95% H3-Dummy on the modular system II front seat, the locking distance of the pretensioner unit is not to exceed 10 mm. These requirements are to be fulfilled in the temperature range and in the service life test.
+
+- The maximum permissible force at the belt strap on tensioning is 2.5.  
+- The remaining force at the belt strap after tensioning must not exceed 1000 N.  
+- The maximum force and remaining force at overlapping tensioning (e.g. double tensioning) are to be defined during development.
+
+5.6.1.4 Gas generator with electrical plug connection
+
+- [AK-LV 16] is to be observed for the igniter design. Before and during development the system supplier must guarantee direct coordination with the relevant VinFast department (Electronics).  
+- The fuel mass and composition (mixture ratio of basic substances) is to be determined by the system supplier according to the requirements of the tensioning system. Absence of azido and avoidance of other non-permissible materials and compounds is to be ensured, see also [VFDST00007601].  
+- Harmful material pollution (chemical composition and maximum concentration) in the vehicle interior and all other pyrotechnical components in the vehicle is to be limited according to VinFast specifications.  
+- Requirements for electromagnetic tolerance and particle emission are to be fulfilled.  
+
+A lead-wire variant with 700 mm cable (maximum length) and VinFast plug connection without short circuit jumper is to be offered. The pull-out force for the lead-wire must be 50 N at a minimum.  
+
+**Alternative:** A hitch plug as per specification [VFDST00027806] is to be designed for the plug connector.
+
+Appropriate measures are to exclude micro movements in the plug connections. Copper pipes in the monitored ignition cycle are to be tin-plated.
+
+5.6.1.5 Force limiter  
+Seats without front airbags must pass the loop load tests.
+
+The VinFast requirements are to be fulfilled.
+
+5.6.1.6 Mechanical force limiter  
+- All installation space specifications for this automat variant are to be fulfilled.  
+- The dispersions of limit force curves are to be limited at +/- 10% of the nominal value.
+
+5.6.1.7 Pyrotechnical (switchable) force limiter  
+- All VinFast requirements are to be fulfilled.  
+- All installation space specifications for this automat variant are to be fulfilled.  
+- The dispersions of limit force curves are to be limited at +/- 10% of the nominal value.
+Page 12
+5.6.1 Functional requirement.
+
+5.6.1.8 Belt automat without force limiter.  
+Upper belts without force limiter and otherwise similar features and vehicle connections as compared to serial upper belts are to be proved for the development assembly units. Compliance with legal requirements is expected.  
+The following requirements apply:  
+- The KiSi switches are to be adapted as per the specifications for the special edition.  
+- These automats are to fulfill all installation space specifications.  
+
+5.6.2 Belt strap.  
+Two belt strap colors (black + one world color) are to be offered.  
+The belt strap in black is to be developed as per VinFast specification belt strap.  
+Belt strap in black is to be provided as an option according to work group specification.  
+The colored belt strap is to be developed as per VinFast specification belt strap. A colored belt strap is to be provided as an option according to work group specification.  
+Coloring is executed in impregnating treatment.  
+The belt strap shall be aligned on the automat axle to provide the most favorable conditions in terms of extension and retraction forces and belt strap wear.  
+A tolerance range of ± 10 mm is to be allowed for the belt strap length.  
+
+5.6.3 Sash guide.  
+The friction between sash guide and belt strap is to be minimized.  
+Bursting or tearing of paneling (e.g., plastics) is not permissible at any of the required tests. Sash guide design is to avoid rattling of the bearings.  
+[FMVSS201] in the system sash guide / paneling B column / shell structure B column (possibly paneling and shell structure C column) is to be fulfilled. Required deformation elements at the sash guide and sufficient distance between sash guide and periphery are to be guaranteed.  
+A belt sash guide suitable for belt tensioning is to be provided as a standard.  
+A belt diverter pre-assembled with mounting screw, distance bushing, de-rattling screw, and loss protection is to be supplied.  
+As an alternative, a full metal sash guide integrated in the upper belt pre-assembled with mounting screw, distance bushing, de-rattling screw, and loss protection is to be supplied.
+Page 13
+5.6.4 Anchor fitting.  
+The contact area between the belt strap at the anchor fitting must be deburred. Damage to the belt strap must not occur in any test configuration. The anchor fittings are to be equipped with belt strap protection. The belt strap protection must be wear-resistant during service life. Protection against twisting and mismatching must be included in the design.
+
+5.6.5 Fixation and stop button.  
+Material must be compatible with belt strap material. Extension strength, when the belt strap is retracted, the stop button must not shear off when touching panels (e.g., vehicle, backrest, belt automat panel). The position of upper and lower parts on the belt strap is clearly defined. The tolerances for the fixation button position on the belt strap are a maximum of ± 10 mm, and for the position of the stop button, a maximum of ± 5 mm.
+
+5.6.6 Belt clasp.  
+The position of the belt clasp on the belt strap is clearly defined.
+
+5.6.7 Latch plate.  
+The latch is to be compatible with the belt buckle. The friction between the sash guide and belt strap is to be minimized. Bursting or tearing of paneling (e.g., plastics) is not permissible at any of the required tests. When using a belt clasp, plastic injection of the belt plate is to be executed without a gap for the fixation button.
+
+5.6.8 Relay bow.  
+For the positioning of the B column, the belt strap is relayed between the automat and sash guide. The relay bow is not an integral part of the upper or lower belt. Coating is to be optimized in terms of friction resistance. The specifications of the relay bow are defined by VinFast.
+
+5.6.9 Belt buckle.  
+
+5.6.10 Electrical belt warning (hall sensor).  
+Switches (non-contact) for all seats, e.g., for belt warning, must be provided. This is optional for the back seats. The specifications as per [VFDST00105100] must be fulfilled. A non-contact diagnostic sensor (two-wire system with condition monitoring) which clearly detects conditions „Occupant belt fastened“ and „Occupant belt non-fastened” must be provided (see [VFDST00028101, VFDST00028121]).  
+The supplier shall take suitable measures to avoid incorrect polarity of the pins (electrical, design, or process-related). The supplier must prove the efficiency of the measure.
+
+5.6.11 Elastic lower belt (acceleration safe design).  
+At a crash with ECE pulse, ignition of the pretensioner in 12 ms, 95% H3-Dummy on the serial seat, the locking path must not exceed 10 mm. These requirements must also be fulfilled in the temperature range and in the service life test.  
+The lower belt is to be provided with folding bellows as per VinFast specifications. Twisting and mismatching protection are to be provided for the fittings of the lower belt.
+Page 14
+5.6.4 Anchor fitting.  
+The contact area between the belt strap at the anchor fitting must be deburred. Damage to the belt strap must not occur in any test configuration. The anchor fittings are to be equipped with belt strap protection. The belt strap protection must be wear-resistant during service life. Protection against twisting and mismatching must be included in the design.
+
+5.6.5 Fixation and stop button.  
+Material must be compatible with belt strap material. When the belt strap is retracted, the stop button must not shear off when touching panels (e.g., vehicle, backrest, belt automat panel). The position of upper and lower parts on the belt strap is clearly defined. The tolerances for the fixation button position on the belt strap are a maximum of ±10 mm, and for the position of the stop button, a maximum of ±5 mm.
+
+5.6.6 Belt clasp.  
+The position of the belt clasp on the belt strap is clearly defined.
+
+5.6.7 Latch plate.  
+The latch is to be compatible with the belt buckle. The friction between the sash guide and belt strap is to be minimized. Bursting or tearing of paneling (e.g., plastics) is not permissible at any of the required tests. When using a belt clasp, plastic injection of the belt plate is to be executed without a gap for the fixation button.
+
+5.6.8 Relay bow.  
+For the positioning of the B column, the belt strap is relayed between the automat and the sash guide. The relay bow is not an integral part of the upper or lower belt. Coating is to be optimized in terms of friction resistance. The specifications of the relay bow are defined by VinFast.
+
+5.6.9 Belt buckle.
+
+5.6.10 Electrical belt warning (hall sensor).  
+Switches (non-contact) for all seats, e.g., for belt warning, must be provided. This is optional for the back seats. The specifications as per [VFDST00105100] must be fulfilled. A non-contact diagnostic sensor (two-wire system with condition monitoring) which clearly detects conditions "Occupant belt fastened" and "Occupant belt non-fastened” must be provided (see [VFDST00028101, VFDST00028121]). The supplier shall take suitable measures to avoid incorrect polarity of the pins (electrical, design, or process-related). The supplier must prove the efficiency of the measure.
+
+5.6.11 Elastic lower belt (acceleration safe design).  
+At a crash with ECE pulse, ignition of the pretensioner in 12 ms, 95% H3-Dummy on the serial seat, the locking path must not exceed 10 mm. These requirements must also be fulfilled in the temperature range and in the service life test. The lower belt is to be provided with folding bellows as per VinFast specifications. Twisting and mismatching protection are to be provided for the fittings of the lower belt. Twisting of the lock head from normal position around the vehicle z-axis must not exceed ±5° at delivery. Design shall avoid pushing locks into the backrest upholstery when the backrest is folded. Plug connections, cable lengths, and attachments are to be designed as per VinFast specifications. Cable-laying design is to guarantee no impairment of all functions of the belt system. The elastic lower belt is to be designed to fulfill the vertical and horizontal torsion and bending-change tests.
+
+5.6.12 Lower belt as tilt lock.  
+Lock fitting with fixed, elastically suspended lock for the outside seat position. The system supplier shall guarantee avoidance of noise.
+
+5.6.13 Lower belt as strap lock.  
+Belt strap protectors are to be provided at the belt buckle and the belt fitting. The belt strap is to be selected as per VinFast specifications. For belt strap length in sewn condition, tolerances of +5 mm / -10 mm are permissible. The design of the double lock (two lock heads at one fitting) shall avoid interaction between the lock heads or between the lock heads and belt plates in operational mode or the crash test. All tolerances are to be considered. The belt strap is to be provided with an additional seam for belt buckle fixation. The seam is to be applied after sewing of the belt strap to the fittings. The belt strap buckles are to be acceleration-proof.
+
+5.6.14 Lower belt with detachable fitting.  
+The opening mechanism is to be designed as per legal requirements (see also [MVSS 208]). One-piece lock bowls are preferred. The opening mechanism is to be red (RAL 3000), and the lock bowls are to be black. Like the belt buckle, rattling noises are not permissible. The belt strap to which the detachable fitting is attached is to be provided with an additional seam for fixation of the detachable fitting. Mismatching of the belt buckle plates and the plates of the detachable fitting must be avoided. The design of the double lock (two lock heads at one fitting) shall avoid interaction between the lock heads or between the lock heads and belt plates in operational mode or the crash test. All tolerances are to be considered. The belt strap is to be provided with an additional seam for belt buckle fixation. The seam is to be applied after sewing the belt strap to the fittings. The belt strap buckles are to be acceleration-proof.
+
+5.7 Appearance Approval - Applicable for all Visible Parts.  
+AAR is a PPAP deliverable. The AAR process is described in the [VFDST00038401] (quantity of parts, timing). For each step of the process, the supplier has the responsibility to submit parts to VF Quality Design following agreed timing with VF to get OK Shape, OKTG, and AAR Approval. The process will start in the early phase at PT build to secure AAR Approval at LS.
+Page 15
+6 Testing and validation and DVP&R  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need to work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of a project plan).  
+- Part variant, description of part.  
+- Number of tested components/parts.  
+
+Refer to appendix: VFDSXVBIN0149_DVP component_Safety_Restraints. Ensure Mileage Target Life: 160,000 km or 10 years (whichever comes first).  
+
+7 Function Safety, Homologation and safety regulations  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+7.1 Functional Safety Requirements  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+
+< MGL and FuSa to add here reference to system-specific Functional Safety Requirements document. >  
+
+7.2 Deliverables for Functional Safety  
+Indicative RASIC for expected deliverables:  
+- **5.5 Work products:**  
+  - **5.5.1 Supplier selection report** resulting from requirements 5.4.2.1 and 5.4.2.2.  
+    - VINFAST: R  
+    - SUPPLIER: I  
+  - **5.5.2 Development interface agreement (DIA)** resulting from requirement 5.4.3.  
+    - VINFAST: R  
+    - SUPPLIER: S  
+  - **5.5.3 Supplier's project plan** resulting from requirement 5.4.3.  
+    - VINFAST: A  
+    - SUPPLIER: R  
+  - **5.5.4 Supplier's safety plan** resulting from requirement 5.4.3.  
+    - VINFAST: A  
+    - SUPPLIER: R  
+  - **5.5.5 Functional safety assessment report** resulting from requirements 5.4.5.1 to 5.4.5.5.  
+    - VINFAST: I  
+    - SUPPLIER: R  
+  - **5.5.6 Supply agreement** resulting from requirements 5.4.6.2 to 5.4.6.3.  
+    - VINFAST: R  
+    - SUPPLIER: S  
+  - **6.5.3 Safety case,** resulting from 6.4.6.  
+    - VINFAST: A  
+    - SUPPLIER: R
+Page 16
+6 Testing and validation and DVP&R.  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. A detailed test plan for hardware tests in file DVP&R must be coordinated with the Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- No. of tested components/parts.  
+
+Refer to Appendix: VFDSXVBIN0149_DVP Component_Safety_Restraints. Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).  
+
+7 Function Safety, Homologation and Safety Regulations.  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+7.1 Functional Safety Requirements.  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+< MGL and FuSa to add here reference to the system-specific Functional Safety Requirements document. >  
+
+7.2 Deliverables for Functional Safety.  
+Indicative RASIC for expected deliverables:  
+- 5.5 Work Products:  
+  - 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2: VINFAST (R), SUPPLIER (I).  
+  - 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3: VINFAST (R), SUPPLIER (S).  
+  - 5.5.3 Supplier's project plan resulting from requirement 5.4.3: VINFAST (A), SUPPLIER (R).  
+  - 5.5.4 Supplier's safety plan resulting from requirement 5.4.3: VINFAST (A), SUPPLIER (R).  
+  - 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5: VINFAST (I), SUPPLIER (R).  
+  - 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3: VINFAST (R), SUPPLIER (S).  
+  - 6.5.3 Safety case resulting from 6.4.6: VINFAST (A), SUPPLIER (R).  
+
+*RASIC description in section “Deliverables”.  
+
+a) FUSA Deliverables Expected Before Nomination.  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree to a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+b) FUSA Deliverables Expected After Nomination.  
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.  
+
+7.3 Homologation and Safety Regulation Requirements.  
+
+7.3.1 North America.  
+a. Homologation and Safety Regulation Activities.  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS). The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b. Self-Certification and Test Reports.  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale. VinFast requests suppliers conduct tests as specified in certain of the FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also familiarize themselves with the laboratory test procedures(*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS. (*) Refer Appendix 8 of Manufacturer_Handbook.  
+
+c. Duty to Notify VinFast of Non-Compliance with FMVSS/CMVSS or European Regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced. The supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of a non-compliance or a safety-related defect. The supplier must propose an appropriate risk assessment and resolution plan.
+Page 17
+7.3.2 Europe
+
+a. Homologation and safety regulation activities  
+The Supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s)  
+The supplier is responsible for ensuring their part(s), product(s) or system(s) meet applicable UN-ECE regulations before those products can be offered for sale. VinFast requests suppliers to conduct tests as specified in certain of the UN-ECE at authorized technical service(s).  
+The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.
+
+VinFast also requests suppliers to provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities in order to get certification for the EC vehicle type-approval (if any).
+
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an UN-ECE regulation or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+
+The supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+---
+
+8 Deliverables  
+
+8.1 Technical deliverables  
+
+Work Interface Chart (RASI)  
+The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“System Development Supplier”) is defined in System / Component Specification.
+
+RASI is defined as follows:  
+
+**R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+
+**A: Approval**  
+Obligation to decide / responsible for release. If no decider is defined, the person who is responsible for execution (R) is the decider.
+
+**S: Support**  
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (R) in achieving the targets.
+Page 18
+### 8. Deliverables
+
+#### 8.1 Technical deliverables
+The Work Interface Chart (RASI) outlines the main supplier obligations. The supplier’s status as “System Development Supplier” is defined in System/Component Specification.
+
+##### RASI is defined as follows:
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+
+- **A: Approval**  
+  Obligation to decide/release. If no decider is defined, the person responsible for execution (R) is the decider.
+
+- **S: Support**  
+  Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible (R) in achieving targets.
+
+- **I: Information**  
+  Entitled to information. This team member can demand information from the appropriate sources.
+
+#### 8.2 Detailed Deliverables and RASI
+The RASI chart must be revised to follow the Master Timing schedule provided by PMO.
+
+---
+
+### 9. Supplier Responsibilities
+
+The supplier is responsible for providing and ensuring completion of the work. These responsibilities help mitigate risks of employer-employee relationship under contract.
+
+#### Customer Service Requirements
+- **After-sales spare parts should be ready at startup:**  
+  The spare parts supplied must be ready at the start of whole vehicle production.
+
+- **Spare Parts Support Cycle:**  
+  After-sales spare parts support period shall not be less than 10 years from the start of VINFAST’s whole vehicle production, unless specified otherwise in the SOR.
+
+- **Maintenance Information for After-Sales Spare Parts:**  
+  The first-level assembly supplier must provide VINFAST’s after-sales engineering department with complete design, usage, and maintenance information before OTS. This includes BOM tables, part structures, function descriptions, fault diagnosis tools, special maintenance tools, and relevant installation and performance data.
+
+---
+
+### 10. Intellectual Property / Copyright
+Refer to the VinFast General Terms and Conditions (GTC).
+
+---
+
+### 11. Insurance / Warranties
+Refer to VinFast General Terms and Conditions (GTC).
+
+---
+
+### 12. VinFast GTC, Part Packaging, and Incoterms
+Refer to the VinFast General Terms and Conditions, part packaging requirements, and Incoterm requirements outlined in the RFQ package.
+
+---
+
+### 13. Definitions and List of Abbreviations
+- **DVP&R:** Design Verification Plan & Report  
+- **ESO:** Engineering Sign Off  
+- **GTC:** General Terms and Conditions
+Page 19
+VinFast 
+Management System 
+
+VFDSXVBIN0049  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+19 | 22  
+Print date  
+Status  
+Functional Responsibility  
+
+**Abbreviations List**
+- **LLS**: Long Lead Suppliers on board  
+- **LLT**: Long Lead Tooling  
+- **LOI**: Letter of Intent  
+- **MFC**: Manufacturing Feasibility Confirmation  
+- **MSC**: Manufacturing Strategy Confirmation  
+- **MSI**: Major Suppliers Identified  
+- **MSO**: Manufacturing Sign Off  
+- **OTS**: Off Tools Samples  
+- **PTP**: Prototype Parts out of Serial tooling (Hand finished)  
+- **RFQ**: Request For Quotation  
+- **SLS**: Short Lead Suppliers on board  
+- **SOB**: Supplier on Board  
+- **SOP**: Start of Production  
+- **SOP-ID**: SOP-Implementation Date  
+- **SOP-LM**: SOP Launch Model (1 specific Model – “Edition”)  
+- **SST**: Sourcing Strategy  
+- **TS**: Theme selection Model  
+- **FUSA**: Function Safety  
+- **T&V**: Testing & Validation  
+
+**Applicable Specifications**  
+The following specifications, either in whole or relevant sections related to Safety and Restraints, must be adhered to:  
+
+**Legal and Industry Regulations/Standards**  
+- **ID 1**: Vietnam Law on Chemicals No. 06/2007/QH12 (including national chemical inventory 2017).  
+- **ID 2**: ECE-R21, Interior Fittings.  
+- **ID 3**: ECE-R32, Rear-end collision.  
+- **ID 4**: ECE-R33, Head-on collision.  
+- **ID 5**: ECE-R94, Frontal collision protection.  
+- **ID 6**: ECE-R95, Lateral collision protection.  
+- **ID 7**: ECE-R114, Airbag Modules (replacement).  
+- **ID 8**: ECE-R118, Flammability.  
+- **ID 9**: ECE-R133, Reusability, Recyclability, and Recoverability.  
+- **ID 10**: ECE-R135, Pole Side Impact (PSI).  
+- **ID 11**: ECE-R137, Restraint System in Frontal Impact.
+Page 20
+12 
+2015 / 863 / EC - Restriction of hazardous substances.  
+13 
+2000 / 53 / EC - EU Directive for End-of-life Vehicles.  
+14 
+168/2013/EU - C - VII - Electromagnetic compatibility (EMC).  
+15 
+168/2013/EU - B - XVII - Interior fittings.  
+16 
+EG95/28 - Flammability.  
+17 
+FMVSS 571.201 - Occupant protection in interior impact.  
+18 
+FMVSS 571.202a - Head Restraints.  
+19 
+FMVSS 571.203 - Impact Protection for the Driver from the Steering Control System.  
+20 
+FMVSS 571.204 - Steering control rearward displacement.  
+21 
+FMVSS 571.207 - Seating Systems.  
+22 
+FMVSS 571.208 - Occupant Crash Protection.  
+23 
+FMVSS 571.213 - Child Restraint Systems.  
+24 
+FMVSS 571.214 - Side impact protection.  
+25 
+FMVSS 571.226 - Ejection Mitigation.  
+26 
+FMVSS 571.302 - Flammability of interior materials.  
+27 
+FMVSS 575.105 - Vehicle rollover.  
+28 
+FMVSS 587 - Side Impact Moving Deformable Barrier and Offset Deformable Barrier.  
+29 
+GADSL - Global Automotive Declarable Substances List.  
+30 
+IATF 16949 - Quality management system requirements for automotive production.  
+
+## VinFast Specific Requirements
+
+### ID	- Document - Title
+1 
+VFDST00000010 - General Part Marking  
+2 
+VFDST00000011 - Reference Point System and Requirements.  
+3 
+VFDST00000014 - CAD working methods and requirement Catia v5.  
+4 
+VFDST00002900 - Recycling.  
+5 
+VFDST00007601 - Substances of concern – Materials and components; prohibited and declarable substances.  
+6 
+VFDST00007602 - Substances of concern – Process materials and auxiliary materials; prohibited and declarable substances.  
+7 
+VFDST00007604 - Substances of concern - Materials and components; constituents and emissions.  
+8 
+VFDST00007701 - VF Drawing Standard.  
+9 
+VFDST00008500 - Vibration examination of interior/exterior parts.  
+10 
+VFDST00008700 - Marking of sample parts.  
+11 
+VFDST00008800 - Development Sample Report (DSR).  
+12 
+VFDST00008900 - Preparation of measurement reports.    
+13 
+VFDST00009000 - Mounting/ dismounting.
+Page 21
+VinFast 
+Management System  
+
+VFDSXVBIN0049  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+21 | 22  
+Print date  
+Status  
+Functional Responsibility  
+
+VinFast Specific Requirements:
+
+ID | Document              | Title                                                                    
+---|----------------------|------------------------------------------------------------------------ 
+14 | VFDST00009300        | Dimensional Management – Functional Measurements Concept               
+15 | VFDST00009600        | Changes in drawings                                                   
+16 | VFDST00009705        | Title block                                                           
+17 | VFDST00010502        | Component identification marking                                      
+18 | VFDST00017601        | Technical drawings                                                   
+19 | VFDST00017700        | CAD product description                                              
+20 | VFDST00028101        | Electrical General requirements                                      
+21 | VFDST00034100        | Statistical evaluation of dynamic tests                              
+22 | VFDST00090200        | Air Bag-System module - Installation location steering wheel         
+23 | VFDST00096000        | QV side airbag and head airbag system (installation site: roof or seat)
+24 | VFDST00097500        | Airbag System                                                       
+
+Industry Standards:
+
+ID | Document        | Title                                                                  
+---|----------------|----------------------------------------------------------------------  
+1  | ISO 105        | Textiles - Tests for colour fastness                                  
+2  | ISO 2768       | General tolerances                                                  
+3  | ISO 3560       | Road vehicles — Frontal fixed barrier or pole impact test procedure 
+4  | ISO 5658       | Reaction to fire tests — Spread of flame                            
+5  | ISO 6487       | Road vehicles. Measurement techniques in impact tests. Instrumentation 
+6  | ISO 9001       | Quality management systems                                          
+7  | ISO 12097      | Road Vehicles – Airbag components                                   
+8  | ISO 13715      | Technical product documentation - Edges of undefined shape - Indication and dimensioning 
+9  | ISO 14040      | Environmental Management; Life Cycle Assessment                    
+10 | ISO 16750      | Road vehicles — Environmental conditions and testing for electrical and electronic equipment 
+11 | ISO/TS16949    | Quality management systems Special requirements when applying ISO 9001 
+12 | ISO/IEC 17020 | General criteria for the operation of various types of bodies performing inspection 
+13 | ISO/IEC 17021 | Conformity assessment - Requirements for bodies providing audit and certification of management systems 
+14 | ISO/IEC 17025 | General requirements for the competence of testing and calibration laboratories 
+15 | ISO 26262     | Road vehicles – Functional safety                                   
+16 | SAE J211/1    | Instrumentation for Impact Test - Part 1 - Electronic Instrumentation  
+17 | ASTM D6695    | Standard Practice for Xenon-Arc Exposures of Paint and Related Coatings
+Page 22
+VinFast 
+Management System 
+
+VFDSXVBIN0049 
+
+Version: 1.0 
+Uncontrolled copy when printed 
+22 | 22 
+Print date 
+Status 
+Functional Responsibility

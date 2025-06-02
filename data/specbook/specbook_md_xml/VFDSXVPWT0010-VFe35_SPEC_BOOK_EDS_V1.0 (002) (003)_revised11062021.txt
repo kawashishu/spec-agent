@@ -1,0 +1,2041 @@
+
+<filename>VFDSXVPWT0010-VFe35_SPEC_BOOK_EDS_V1.0 (002) (003)_revised11062021</filename>
+<pages>
+
+<page number="1">
+Spec Book.
+
+Supersedes edition (06.2021).
+
+Spec Book_ELECTRIC DRIVE SYSTEM.
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new VFe35 vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This Spec Book shall provide details for all components for mass production of the PREM Program.
+
+Responsible Contact: Oscar Yanez.  
+The reproduction, distribution and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Index.
+
+Contents.
+
+SCOPE AND PURPOSE  2.
+
+Index  3.
+
+1. SCOPE OF PRODUCT/COMMODITY  6.
+   1.1 Vehicle profile  6.
+      - VFDSXVCVC0501  6.
+      - VFE35_ICE_BEV_APPENDIX_5_FEATURES LIST  6.
+   1.2 Sales Markets  6.
+   1.3 Production volume  6.
+
+2. PROGRAM TIMING AND BUILD PLAN  6.
+   2.1 Timing plan  6.
+   2.2 Build Plan  6.
+
+3. ORGANIZATION AND CONTACT  6.
+
+4. DEFINITIONS AND APPLICABLE DOCUMENTS  7.
+   4.1 CAD Data / Transfer data-CAD Requirements  7.
+   4.2 Change Documentation and Part History Documentation  7.
+
+5. DESCRIPTION AND SCOPE OF WORK  7.
+   5.1 Technical requirement  7.
+      - 5.1.1 Component/System description  7.
+      - 5.1.2 Function  8.
+      - 5.1.3 Variant  8.
+      - 5.1.4 EDS main requirements  9.
+      - 5.1.5 Inverter requirements  13.
+      - 5.1.6 E-Motor requirement  14.
+      - 5.1.7 Interfaces  14.
+      - 5.1.8 Powertrain and EDS System Architecture  16.
+      - 5.1.9 Functional Requirements  17.
+      - 5.1.10 Electrical & Electronic Requirements  28.
+   5.2 General CAE Requirements  33.
+   5.3 Material requirement  33.
+   5.4 Appearance Approval - Applicable for all Visible Parts  33.
+   5.5 Traceability  33.
+   5.6 Labeling of Parts  33.
+
+6. TESTING AND VALIDATION AND DVP&R  34.
+
+7. FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS  34.
+   7.1 Functional Safety Requirements  34.
+   7.2 Deliverables for Functional Safety  34.
+      - FUSA Deliverables expected before nomination  35.
+      - FUSA Deliverables expected after nomination  35.
+   7.3 Homologation and safety regulation requirements  35.
+      - 7.3.1 North America  35.
+      - 7.3.2 Europe  36.
+</page>
+
+<page number="4">
+Index  
+Contents  
+
+8. DELIVERABLES  36  
+   8.1 Technical deliverables  36  
+   8.2 Details deliverables and RASI  37  
+
+9. SUPPLIER RESPONSIBILITIES  39  
+
+10. INTELLECTUAL PROPERTY / COPYRIGHT  39  
+
+11. INSURANCE / WARRANTIES  39  
+
+12. VINFAST GTC & PART PACKAGING AND INCOTERMS  39  
+
+13. DEFINITIONS AND LIST OF ABBREVIATIONS  39
+</page>
+
+<page number="5">
+Version: 1.0.  
+Date: Jun-2021.  
+Updated by:  
+
+Function: Powertrain.  
+Name: Mahesh M. Belgavi.  
+
+Revisions since previous version:  
+
+Version: 1.  
+Change Description: First edition.  
+Signature:  
+Date: 14/08/2020.
+</page>
+
+<page number="6">
+1 Scope of product/commodity.
+
+1.1 Vehicle profile.
+Refer to appendix:
+VFDSXVCVC0501.
+VFe35_ICE_BEV_Appendix_5_Features list.
+
+1.2 Sales Markets.
+LHD countries: Vietnam (VN) & Asean, US.
+
+1.3 Production volume.
+Production volume is based on PMO and Purchasing declaration.
+
+2 Program Timing and Build Plan.
+
+2.1 Timing plan.
+VFDSXXCVC1101_VF35_VFe35_Material production Launch Schedule-Build Plan_MRD.
+
+2.2 Build Plan.
+VFDSXXCVC1101_VF35_VFe36_Material production Launch Schedule-Build Plan_MRD.
+
+3 Organization and contact.
+
+| Contact                 | Name                                       | Email ID                     | Contact Number         |
+|-------------------------|--------------------------------------------|------------------------------|------------------------|
+| Commodity Buyer         | Kathiresan Palaniappan                    | v.kathiresanp@vinfast.vn     | +84(0)847172226        |
+| Commodity Buyer Manager | Trần Thị Minh Hương                       | v.huongttm5@vinfast.vn       | +84(0)963882622        |
+| Commodity Engineering   | Nguyen Hoang Vu                           | v.nguyenhv3@vinfast.vn       | +84(0)818823663        |
+| Commodity Engineering Manager | Nguyen Hoang Vu                     | v.nguyenhv3@vinfast.vn       | +84(0)818823663        |
+| SQE (Site Engineer)     | Nguyen Thanh Nam                          | v.namnt36@vinfast.vn         | +84(0)912379568        |
+| SQE Manager             | Đỗ Quang Khải (VF-KSX-KCL)                | v.khaidq@vinfast.vn          | +84(0)987129718        |
+| SCM Analyst             | Dilshod Tokhtasinov                       | v.dilshod@vinfast.vn         | +84(0)888352662        |
+| Packaging Analyst       | Attsawarungsun Nimnaul                    | v.nimnaula@vinfast.vn        | +84(0)888329955        |
+| SCM Manager             | Benjamin Peter Stewart                    | v.bens@vinfast.vn            | +84(0)888798855        |
+</page>
+
+<page number="7">
+4 Definitions and applicable documents.
+
+4.1 CAD Data/Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 R27 following VF standard VFDST00000014. CAD data transfer from VinFast to suppliers will be conducted through the Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.
+
+4.2 Change Documentation and Part History Documentation.
+During the development and production process, all changes within the contractor's framework must be documented and provided to VinFast and OEM/Supplier (e.g., entries in a project manual). The contractor may define the form of the data.
+
+Vehicle systems or components that must fulfill safety regulations or legal requirements must be noted on the drawings. The reasons and characteristics required for documentation are listed by authorities. These demands will be requested during part development and latest during the PTO phase.
+
+5 Description and scope of work.
+
+5.1 Technical requirement.
+
+5.1.1 Component/System description.
+The Electric Drive System (EDS), as an abbreviation, is defined as a 3-in-1 fully integrated system consisting of:
+- E-Motor.
+- Inverter (E-Motor Controller).
+- Reduction Drive, including:
+  - A helical gear set.
+  - A differential.
+  - A park lock (optional).
+- HV Wiring.
+</page>
+
+<page number="8">
+VINFAST aims to develop two main vehicle configurations including Front-Wheel Drive (FWD), which uses a Primary EDS in the front, and All-Wheel Drive (AWD), which uses an additional Assistant EDS in the rear. 
+
+Generally, Primary EDS indicates the EDS with higher output power while Assistant EDS refers to smaller output power EDS. However, EDS with smaller output power is also used as Primary EDS in certain vehicle configurations.
+
+Below is level 2 and 3 of Vinfast Bill of Materials (BoM) and Part Numbers (P/N):
+
+Detail BoM with usage per car will be defined once detail design commences. The EDS BoM shall include information under the following columns:
+- No
+- Part Name
+- Part No.
+- Qty
+- Material
+- ICE 
+  - Vehicle configurations for VF35 and VF36 under categories SMART and PLUS across markets: VN+ASEAN, US.
+- BEV
+  - Vehicle configurations for VFe35 and VFe36 under categories SMART and PLUS across markets: VN+ASEAN, US.
+
+Example entries include:
+1. **E-Motor_150kW_Front** (PWT30211006) with multiple materials. Part is applicable for ICE and BEV across all configurations.
+2. **E-Motor_150kW_Rear** (PWT30211007) with multiple materials. Part is specific to BEV configurations.
+
+---
+
+### 5.1.2 Function
+The Electric Drive System (EDS) converts electrical energy into mechanical energy, serving as the vehicle’s main source of power.
+
+---
+
+### 5.1.3 Variant
+Three primary vehicle variants are defined:
+- **Base Vehicle Entry Level:** 150kW FWD.
+- **Mid-Level Vehicle:** 150kW FWD.
+- **High-Level Vehicle:** 300kW AWD.
+</page>
+
+<page number="9">
+5.1.4 EDS main requirements.
+
+EDS #1 refers to the front anti-clockwise configuration, while EDS #2 refers to the rear clockwise configuration, used for AWD applications.
+
+The requirements for VFe35 are as follows:
+
+### I. EDS Performance & Targets
+
+#### 1. Hardware Characteristic & Properties
+1.1 Percentage of burst speed above max speed (testing): > 20% for both EDS #1 and EDS #2.
+1.2 EDS Drag Torque (over full speed range): <5% setting torque for both EDS #1 and EDS #2.
+1.3 EDS cooling media (E-Motor & Inverter): Liquid for both EDS #1 and EDS #2.
+1.4 EDS oil volume: TBD for EDS #1 and EDS #2.
+1.5 EDS oil type: TBD for EDS #1 and EDS #2.
+
+#### 2. EDS Peak Power and Torque
+2.1 EDS power peak: ≥ 150kW for both EDS #1 and EDS #2.
+2.2 EDS peak output torque: ≥ 2,995 Nm for both EDS #1 and EDS #2.
+2.3 EDS peak power duration: ≥ 30 seconds for both EDS #1 and EDS #2.
+
+#### 3. EDS Continuous Power and Torque
+3.1 EDS continuous power: ≥ 70kW for both EDS #1 and EDS #2.
+3.2 EDS continuous output torque: ≥ 1,450 Nm for both EDS #1 and EDS #2.
+3.4 EDS continuous power duration: ≥ 30 minutes for both EDS #1 and EDS #2.
+3.5 EDS continuous torque duration: ≥ 30 minutes for both EDS #1 and EDS #2.
+3.6 Torque Prediction: 
+- Ability to predict the continuous torque > 30s. 
+- At a stretch > 30p for both EDS #1 and EDS #2.
+
+#### 4. EDS Recuperation Performance
+4.1 EDS max constant recuperation power: ≥ 70kW for both EDS #1 and EDS #2.
+4.2 EDS max constant recuperation torque: ≥ 1,450 Nm for both EDS #1 and EDS #2.
+4.3 EDS max constant recuperation duration: ≥ 30 minutes for both EDS #1 and EDS #2.
+4.4 EDS max peak recuperation power: ≥ 150kW for both EDS #1 and EDS #2.
+</page>
+
+<page number="10">
+VinFast Management System  
+VFDSXVPWT0010  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+10 | 40  
+
+Print date  
+Status  
+Functional Responsibility  
+
+### 5.1.4 EDS Main Requirements  
+- EDS #1: Front anti-clockwise  
+- EDS #2: Rear clockwise (for AWD application)
+
+#### Requirements for Vehicle Model VFe35  
+##### Recuperation Performance  
+1. **EDS maximum peak recuperation torque:** Greater than or equal to 2,995 Nm.  
+2. **EDS maximum peak recuperation duration:** At least 30 seconds.  
+
+##### Efficiency  
+1. **System efficiency in motor mode:** Average cycle efficiency greater than 85%.  
+2. **System efficiency in generator mode:** Average cycle efficiency greater than 85%.  
+3. **Peak system efficiency in motor mode:** Greater than or equal to 92%.  
+4. **Peak system efficiency in generator mode:** Greater than or equal to 92%.  
+
+##### Controllability  
+1. **Rotation speed absolute control error:** Less than TBD rpm/min.  
+2. **EDS speed response rate:** Greater than TBD rpm/s.  
+3. **EDS torque dead time:** TBD.  
+
+##### High Voltage (HV) Performance  
+1. **EDS optimum performance voltage range:** Between 350–450 VDC.  
+2. **EDS degradation voltage range:** Between 210–350 VDC and 450–480 VDC.  
+3. **EDS rated voltage:** 400 VDC.  
+4. **Maximum HV DC voltage:** Less than or equal to 480 VDC.  
+5. **Minimum HV DC voltage:** Greater than or equal to 210 VDC.  
+
+##### Low Voltage (LV) Performance  
+1. **EDS LV consumption:** Less than TBD watts.  
+2. **EDS quiescent current consumption:** Less than TBD mA.  
+
+##### Noise, Vibration, and Harshness (NVH) Performance  
+1. **Powertrain global mode:** Greater than 800 Hz.
+</page>
+
+<page number="11">
+VinFast Management System
+
+Version: 1.0  
+Uncontrolled copy when printed  
+Page: 11/40  
+
+**Functional Responsibility**  
+
+### EDS Performance Parameters and Requirements  
+
+#### Powertrain Sound Radiation  
+- **EDS #1**: Overall Acoustic Level (OAL) is 76 dB, with an order level 15 dB below OAL.  
+- **EDS #2**: Overall Acoustic Level (OAL) is 76 dB, with an order level 15 dB below OAL.  
+
+#### Powertrain Vibration  
+- **EDS #1**: Overall Level: 2g; Order Level: 1g.  
+- **EDS #2**: Overall Level: 2g; Order Level: 1g.  
+
+#### Shell Local Mode  
+- **EDS #1**: Motor and Reducer Shell Local Mode > 2000 Hz.  
+- **EDS #2**: Motor and Reducer Shell Local Mode > 2000 Hz.  
+
+#### Motor Rotor Balance  
+- **EDS #1 and EDS #2**: Balance Specification G1.  
+
+#### PEU/PDU/MCU  
+- **EDS #1**: Mode > 500 Hz, Shell Local Mode > 800 Hz.  
+- **EDS #2**: Mode > 500 Hz, Shell Local Mode > 800 Hz.  
+
+### Transmission and Gear Specifications  
+
+#### Rotation Direction  
+- **EDS #1**: Anti-clockwise Direction (CCW).  
+- **EDS #2**: Clockwise Direction (CW).  
+
+#### Gear Ratio  
+- **Initial Ratio**: 10.418 for both EDS configurations.  
+- **Additional Gear Ratio**: Not requested for both EDS configurations.  
+
+#### P-Lock System  
+- **EDS #1**: Yes.  
+- **EDS #2**: No.  
+
+### Other Requirements  
+
+#### Lifetime Targets  
+- **Mileage Over Service Life**: ≥ 300,000 km for both EDS configurations.  
+- **Service Life**: ≥ 10 years for both EDS configurations.  
+- **Oil Changing Mileage**: 300,000 km for both EDS configurations.  
+
+#### Corrosion Requirements  
+- Both EDS systems must comply with ISO 9227 standards, including a 720h salt spray test with normal functionality expected post-test.  
+
+### Thermal and Environmental Requirements  
+
+#### Cooling Strategy  
+- Liquid cooling systems coordinated with the vehicle's cooling system.  
+
+#### Cooling Media  
+- Liquid for both configurations.  
+
+#### Cooling Flow Range  
+- 8–12 L/min or better for both EDS configurations.  
+
+#### Coolant Inlet Temperature Range  
+- Between 50°C and 60°C for both configurations.  
+
+#### Maximum Inlet Temperature  
+- ≤ 65°C for both configurations.  
+
+#### Cooling System Pressure  
+- Maximum pressure < 200 kPa for both configurations.  
+
+#### Pressure Drop Across EDS  
+- Must be < 30 kPa at 25°C with a cooling flow rate of 8 L/min.
+</page>
+
+<page number="12">
+4 Definitions and Applicable Documents.
+
+4.1 CAD Data/Transfer Data-CAD Requirements.
+All CAD data must be designed with CATIA V5R27 following VF standard VFDST00000014. CAD data transfer from VinFast to the supplier will be done through the Supplier collaborative module. More details are provided in the RFQ package Supplier collaboration module.
+
+4.2 Change Documentation and Part History Documentation.
+During development and production, all changes within the contractor's framework must be documented and shared with VinFast and OEM/Supplier. Documentation requirements include data entries in a project manual, noted safety regulation compliance, and legal requirement remarks on drawings. These demands will be highlighted during part development and the PTO phase.
+
+5 Description and Scope of Work.
+
+5.1 Technical Requirements.
+
+5.1.1 Component/System Description.
+The Electric Drive System (EDS) is defined as a 3-in-1 fully integrated system and includes:
+- E-MOTOR.
+- INVERTER (E-Motor Controller).
+- REDUCTION DRIVE:
+  - Helical gear set.
+  - Differential.
+  - Park lock (optional).
+- HV WIRING.
+
+5.1.2 Function.
+The EDS converts electrical energy into mechanical energy and serves as the primary vehicle power source.
+
+5.1.3 Variant.
+Vehicle configurations for EDS include:
+- Base Entry Level: 150kW FWD.
+- Mid-Level Vehicle: 150kW FWD.
+- High-Level Vehicle: 300kW AWD.
+
+5.1.4 EDS Main Requirements.
+EDS configurations and specifications include:
+- EDS #1 (Front): Anti-clockwise rotation.
+- EDS #2 (Rear for AWD): Clockwise rotation.
+
+Key parameters for EDS systems (Front EDS #1 and Rear EDS #2) include hardware characteristics, peak/continuous power, torque capabilities, recuperation performance, efficiency targets, controllability rates, HV/LV performance ranges, NVH benchmarks, transmission gear specifics, lifetime targets, corrosion resistance, thermal specifications, environmental protection levels, functional safety adherence, mechanical/geometrical constraints, and crash worthiness. Detailed requirements are outlined in corresponding sections of the table.
+</page>
+
+<page number="13">
+**VinFast Management System**
+
+**5.1.4 EDS Main Requirements**
+- **EDS #1**: front anti-clockwise.
+- **EDS #2**: rear clockwise (for AWD application).
+
+**Parameters and Requirements**  
+
+1. **EDS Performance & Targets**  
+   - **Hardware Characteristics & Properties**:  
+     1.1 Percentage of burst speed above max speed (testing): > 20%.  
+     1.2 EDS Drag Torque (over full speed range): < 5% setting torque.  
+     1.3 EDS cooling media (E-Motor & Inverter): Liquid.  
+     1.4 EDS oil volume: TBD.  
+     1.5 EDS oil type: TBD.  
+
+   - **EDS Peak Power and Torque**:  
+     2.1 EDS power peak: ≥ 150kW.  
+     2.2 EDS peak output torque: ≥ 2,995 Nm.  
+     2.3 EDS peak power duration: ≥ 30 s.  
+
+   - **EDS Continuous Power and Torque**:  
+     3.1 EDS continuous power: ≥ 70kW.  
+     3.2 EDS continuous output torque: ≥ 1,450 Nm.  
+     3.4 EDS continuous power duration: ≥ 30 min.  
+     3.5 EDS continuous torque duration: ≥ 30 min.  
+     3.6 Ability to predict and maintain continuous torque > 30 s.  
+
+   - **EDS Recuperation Performance**:  
+     4.1 EDS max constant recuperation power: ≥ 70kW.  
+     4.2 EDS max constant recuperation torque: ≥ 1,450 Nm.  
+     4.3 EDS max constant recuperation duration: ≥ 30 min.  
+     4.4 EDS max peak recuperation power: ≥ 150kW.  
+     4.5 EDS max peak recuperation torque: ≥ 2,995 Nm.  
+     4.6 EDS max peak recuperation duration: ≥ 30 s.  
+
+**5 EDS Efficiency**:
+- System efficiency in motor mode at rated voltage (average cycle efficiency): > 85%.  
+- System efficiency in generator mode at rated voltage (average cycle efficiency): > 85%.  
+- Peak system efficiency in motor mode at rated voltage: ≥ 92%.  
+- Peak system efficiency in generator mode at rated voltage: ≥ 92%.  
+
+**6 EDS Controllability**:
+- Rotation speed absolute control error: < TBD rpm/min.  
+- EDS speed response rate (at EDS output shaft): > TBD rpm/s.  
+- EDS torque dead time: TBD.  
+
+**7 EDS HV Performance**:
+- EDS optimum performance voltage range: 350–450 VDC.  
+- EDS degradation voltage range: 210–350 VDC/450–480 VDC.  
+- EDS rated voltage: 400 VDC.  
+- Maximal HV DC voltage: ≤ 480 VDC.  
+- Minimum HV DC voltage: ≥ 210 VDC.
+
+**8 EDS LV Performance**:
+- EDS LV consumption: < TBD W.  
+- EDS quiescent current consumption: < TBD mA.  
+
+**9 EDS NVH Performance**:
+- Powertrain global mode: > 800 Hz.  
+- Powertrain sound radiation (Bench test, 1m distance): OAL 76 dB; order level 15 dB below OAL.  
+- Powertrain vibration: Overall Level: 2g; Order Level: 1g.  
+- Motor and reducer shell local mode: > 2000 Hz.  
+- Motor rotor balance: G1.  
+- PEU/PDU/MCU mode: > 500 Hz.  
+- PEU/PDU/MCU shell local mode: > 800 Hz.
+
+**10 Transmission/Gear**:
+- Rotation: EDS #1 Anti-clockwise CCW / EDS #2 Clockwise CW.  
+- Gear ratio-initial: 10.418.  
+- Gear ratio-additional: Not requested.  
+- P-lock system: Yes for EDS #1 / No for EDS #2.
+
+**II Other Requirements**  
+
+1. **Lifetime Targets**:  
+   - Mileage over service life: ≥ 300,000 km.  
+   - Service life: ≥ 10 years.  
+   - Oil changing mileage: 300,000 km.  
+
+2. **Corrosion Requirement**:  
+   - Salt spray according to ISO 9227 standards: 720h salt spray test, EDS shall work normally.
+
+3. **Thermal and Environmental Requirements**:  
+   - Cooling strategy: Liquid, Vehicle cooling system.  
+   - Cooling media: Liquid.  
+   - Cooling Flow range: 8–12 L/min or better.  
+   - Coolant inlet temperature range: 50°C–60°C.  
+   - Maximum Inlet temperature: ≤ 65°C.  
+   - Maximum cooling system pressure: < 200 kPa.  
+   - Pressure drop EDS: < 30 kPa @ 25°C, 8L/min.
+
+**5.1 Mechanical and Geometrical Requirements**
+- **EDS weight as shipped:** ≤ 95kg  
+- Additional dimensions including installation angles: TBD.
+</page>
+
+<page number="14">
+### 5.1.6 E-Motor Requirements
+
+#### Parameters and Requirements:
+1. **E-Motor Type (Preferred but not limited to):**
+   - EDS #1 and EDS #2: Permanent magnet synchronous motor (PMSM).
+
+2. **Working System:**
+   - EDS #1 and EDS #2: Load and speed non-periodic change working system.
+
+3. **E-Motor Maximum Operational Speed:**
+   - EDS #1 and EDS #2: ≤ 16,000 rpm.
+
+4. **E-Motor Continuous Output Torque:**
+   - EDS #1 and EDS #2: ≥ 150 Nm.
+
+5. **E-Motor Peak Output Torque:**
+   - EDS #1 and EDS #2: ≥ 310 Nm.
+
+6. **E-Motor Continuous Power:**
+   - EDS #1 and EDS #2: ≥ 70 kW.
+
+7. **E-Motor Peak Power:**
+   - EDS #1 and EDS #2: ≥ 150 kW.
+
+8. **E-Motor Peak Current:**
+   - EDS #1 and EDS #2: 470 Arm/350v 30s or 420Arms/450v 30s.
+
+9. **Peak Efficiency:**
+   - EDS #1 and EDS #2: ≥ 95%.
+
+10. **Maximum Energy Consumption on E-Motor:**
+    - EDS #1 and EDS #2: TBD.
+
+11. **Operating Temperatures:**
+    - EDS #1 and EDS #2: -40°C ≤ T ≤ 85°C.
+
+12. **Cooling System:**
+    - EDS #1 and EDS #2: Liquid.
+
+13. **Lifetime:**
+    - EDS #1 and EDS #2: 10 years or 300,000 km.
+
+### 5.1.7 Interfaces
+
+#### The Electric Drive System (EDS) has the following interfaces:
+- **LV Wiring Harness:** 
+  - LV interface.
+  - CAN bus interface.
+
+- **HV Wiring Harness:**
+  - HV interface.
+
+- **EDU Components:**
+  - DC/AC Inverter (Controller).
+  - E-Motor.
+  - Transmission:
+    - Gears (fixed ratio).
+    - Differential.
+    - Park lock.
+
+- **Cooling Interface:**
+  - Connected to the vehicle thermal system.
+
+- **EDU Mount Interface:**
+  - Sub frame.
+
+- **Half Shaft Interface:**
+  - Integration with axle or drivetrain shafts.
+</page>
+
+<page number="15">
+5.1.6 E-Motor requirement.
+
+1. E-Motor Type:
+   - Preferred but not limited to permanent magnet synchronous motor (PMSM).
+
+2. Working system:
+   - Load and speed non-periodic change working system.
+
+3. E-Motor maximum operational speed:
+   - ≤ 16,000 rpm.
+
+4. E-Motor continuous output torque:
+   - ≥ 150 Nm.
+
+5. E-Motor peak output torque:
+   - ≥ 310 Nm.
+
+6. E-Motor continuous power:
+   - ≥ 70 kW.
+
+7. E-Motor peak power:
+   - ≥ 150 kW.
+
+8. E-Motor peak current:
+   - 470 Arm/350v 30s.
+   - 420 Arms/450v 30s.
+
+9. Peak Efficiency:
+   - ≥ 95%.
+
+10. Maximum Energy consumption on E-motor:
+   - TBD.
+
+11. Operating temperatures:
+   - -40°C ≤ T ≤ 85°C.
+
+12. Cooling System:
+   - Liquid.
+
+13. Lifetime:
+   - 10 years or 300,000 km.
+
+5.1.7 Interfaces.
+
+The EDS has the following interfaces:
+1. Cooling System Interface:
+   - Coolant spigot (input, output) at EDS housing according to EDS Module assembly drawing and thermal system definitions.
+
+2. Mechanical Interfaces:
+   - Geometrical interface to vehicle side shaft: TBD.
+   - Geometrical interface to vehicle brackets: TBD.
+   - Geometrical interface to vehicle roll restrictor: TBD.
+
+3. LV Electrical System Interface:
+   - All EDS electric and electronic components supplied by 12V shall fulfill the requirements and tests as specified in the ISO-16750 standard part 2.
+   - The EDS system shall fulfill functional status as defined in ISO-16750 part 2 for each test.
+   - All tests are to be applied without exceptions.
+   - The LV electrical interfaces include:
+     1. 12V Battery Plus (+).
+     2. 12V Battery Minus (vehicle ground).
+     3. Wake up signal.
+     4. Crash signal.
+     5. Powertrain CAN high.
+     6. Powertrain CAN low.
+     7. HVIL in.
+     8. HVIL out.
+
+4. HV Electrical System Interface:
+   - The HV electrical interfaces include:
+     1. HV Battery Plus (+).
+     2. HV Battery Minus (-).
+
+5. HV connector interface to PDU:
+   - The HV wiring harness shall comprise two DC wires (plus and minus) for the connection of the E-Drive Unit (EDS) to the Power Distribution Unit (PDU) and both connectors (PDU site and component site) with the following attributes:
+     1. Wire cross section: Front EDS 50 mm², Rear EDS 50 mm².
+     2. Length: Front EDS < 1500 mm, Rear EDS < TBD mm.
+     3. Connector specification EDS: TBD.
+     4. Connector specification PDU: TBD.
+   - Expected connection type:
+     - The wire connection of the E-Drive Unit (EDS) to the Power Distribution Unit shall follow the specified configuration.
+</page>
+
+<page number="16">
+### 5 Interfaces
+
+#### 5.1 Cooling System Interface
+- Coolant spigot (input, output) at EDS housing according to EDS Module assembly drawing and thermal system definitions.
+
+#### 5.2 Mechanical Interfaces
+- Geometrical interface to vehicle side shaft – TBD.
+- Geometrical Interface to vehicle brackets – TBD.
+- Geometrical Interface to vehicle roll restrictor – TBD.
+
+#### 5.3 LV Electrical System Interface
+- All EDS electric and electronic components supplied by 12V shall fulfill the requirements and tests as specified in the ISO-16750 standard part 2.
+- The EDS system shall fulfill functional status as defined in ISO-16750 part 2 for each test.
+- All tests are to be applied without exceptions.
+- The EDS shall have the following LV electrical interfaces:
+  1. 12V Battery Plus (+).
+  2. 12V Battery Minus (vehicle ground).
+  3. Wake up signal.
+  4. Crash signal.
+  5. Powertrain CAN high.
+  6. Powertrain CAN low.
+  7. HVIL in.
+  8. HVIL out.
+
+#### 5.4 HV Electrical System Interface
+- The EDS shall have the following HV electrical interfaces:
+  1. HV Battery Plus (+).
+  2. HV Battery Minus (-).
+
+#### 5.5 HV connector interface to PDU
+- The HV wiring harness shall comprise two DC wires (plus and minus) for the connection of the E-Drive Unit (EDS) to the Power Distribution Unit (PDU) and both connectors (PDU site and component site) with the following attributes:
+  1. Wire cross section: Front EDS 50 mm², Rear EDS 50 mm².
+  2. Length: Front EDS < 1500 mm, Rear EDS < TBD mm.
+  3. Connector specification EDS: TBD.
+  4. Connector specification PDU: TBD.
+  
+#### 5.6 Continuous DC Current
+- The HV wire connector of the EDS to the Power Distribution Unit shall be designed for a continuous DC current of ≥ TBD.
+
+#### 5.7 Peak DC Current
+- The wire connector of the EDS to the Power Distribution Unit shall be designed for a peak DC current (10s) of ≥ 600 Arms.
+
+---
+
+### 5.1.8 Powertrain and EDS System Architecture
+The diagram illustrates the system architecture of VinFast Powertrain and EDS System for an electric SUV configuration. Key components include:
+- **Front Electric Drive System:** Comprises the LV Electrical Control System, inverter, e-motor, and gearbox connected to the HV battery and LV battery systems.
+- **Rear Electric Drive Unit:** Consists of similar components (e-motor, gearbox, and inverter geared for AWD vehicles). 
+- **HV Battery System:** Includes HV modules, thermal systems, management systems, and charging interface.
+- **OnBoard Charger (OBC)/DC/DC Converter:** Facilitates simultaneous hardware control and energy management.
+- **Vehicle Control Unit:** Coordinates CAN and LIN interfaces for transmission and energy flow optimization.
+- **Brake System:** Combines ABS and parking brake mechanisms.
+- **Connection Types:** Electrical energy flows through HV connectors, LV interface, and mechanical-energy transmission.
+</page>
+
+<page number="17">
+5.1.9 Functional Requirements.
+
+5.1.9.1 Main Functions.
+
+5.1.9.1.1 Activation/Deactivation.
+
+1. Activation/Deactivation:
+‒ The EDS shall initialize communication by communication network.
+‒ The EDS shall prepare itself for normal operation on the HV system.
+‒ The EDS shall activate or deactivate when activation or deactivation functions are triggered.
+‒ Deactivation means the EDS reduces torque and DC current to a minimum value (target: 0A) to allow system deactivation at minimum main-contactor’s current.
+
+2. Activation/Deactivation:
+‒ The EDS shall be deactivated, and the HV system shall be de-energized in a coordinated way if the deactivation function is triggered.
+‒ The EDS shall ensure that the voltage of the HV system is below a threshold within four seconds upon request (active discharge) during the deactivation functions.
+
+3. Activation/Deactivation:
+‒ The HV system shall be deactivated within a defined time, ignoring the normal power-down sequence if an emergency power down is triggered.
+‒ Note: In this case, the EDS reduces the current flow to a minimum. No shutdown is executed.
+
+5.1.9.1.2 Power generation (electric/mechanic).
+
+1. Generation of electrical energy:
+‒ The EDS shall generate electrical energy during freewheeling mode, which shall be stored in the HV Battery. This function shall allow recovering energy on request.
+
+2. Generation of torque:
+‒ The EDS shall generate torque for propulsion with electrical energy from the HV Battery on request.
+
+3. Generation of electrical energy:
+‒ The EDS shall generate electrical energy during recuperation, which shall be stored in the HV Battery.
+‒ This function allows recovering energy on request. Requirements related to control performance are available in the torque control function area.
+</page>
+
+<page number="18">
+### 5.1.9 Functional Requirements
+
+#### 5.1.9.1 Main Functions
+
+##### 5.1.9.1.1 Activation/Deactivation
+
+1. **Activation/Deactivation:**
+   - EDS shall initialize communication by communication network.
+   - EDS shall prepare itself for normal operation on the HV system.
+   - EDS shall activate/deactivate when activation/deactivation functions are triggered.
+   - Deactivation means: EDS is reducing torque and DC current to a minimum value (target: 0A) to allow system deactivation at minimum main-contactor’s current.
+
+2. **Activation/Deactivation:**
+   - EDS shall be deactivated and HV system will de-energize in a coordinated way if the deactivation function is triggered.
+   - EDS shall ensure that the voltage of the HV system is below a threshold within 4 seconds upon request (active discharge) during the deactivation functions.
+
+3. **Activation/Deactivation:**
+   - HV system shall be deactivated within a defined time ignoring the normal power-down sequence if an emergency power-down is triggered.
+   - *Note*: In this case, the EDS reduces the current flow to a minimum. No shutdown is executed.
+
+##### 5.1.9.1.2 Power Generation (Electric/Mechanic)
+
+1. **Generation of Electrical Energy:**
+   - The EDS shall generate electrical energy during freewheeling mode, which shall be stored in the HV Battery. This function shall allow energy recovery on request.
+
+2. **Generation of Torque:**
+   - The EDS shall generate torque for propulsion with electrical energy from the HV Battery upon request.
+
+3. **Generation of Electrical Energy:**
+   - The EDS shall generate electrical energy during recuperation, which will be stored in the HV Battery.
+   - This function allows energy recovery on request. Requirements related to control performance are available in the torque control function area.
+
+4. **Peak Torque Availability:**
+   - EDS shall generate peak torque, which is available for 10 seconds, 2 times per minute.
+   - The peak torque sequence could be repeated 4 times in sequence within 2 minutes, starting at nominal environmental conditions (25°C environmental temp & component temperatures <30°C).
+
+#### 5.1.9.1.3 HV Protection
+
+**I. HV Protection:**
+
+1. **Active Discharge:**
+   - EDS shall monitor the temperature and health of the Motor winding and then, in case of any exceeding limits, indicate an error during wakeup to the VCU.
+
+2. **Active Discharge:**
+   - EDS shall send the status of active discharge to VCU as follows:
+     - Active discharge NOT ACTIVE.
+     - Active discharge is ACTIVE.
+     - Active discharge ACTIVATION ERROR.
+
+3. **Active Discharge:**
+   - The EDS shall discharge the HV system within 4 seconds from nominal HV voltage to 60V upon request. 
+   - *(The discharge request is transmitted in VCU).*
+
+**II. HVIL Interaction:**
+
+- The EDS shall provide HV safety to passengers by preventing direct contact with HV components and connectors.
+- This will be achieved by using HVIL to the system and isolating the HV system in power electronics.
+
+**III. Passive Discharge:**
+
+- The EDS shall provide a passive discharge function, ensuring that even in some uncontrolled state (with battery main contactors open), the DC link capacity of the INV (power electronics) is discharged within ~110 seconds.
+</page>
+
+<page number="19">
+5.1.9 Functional Requirements.
+
+5.1.9.2 Standard Functions.
+
+5.1.9.2.1 Control System Function.
+
+5.1.9.2.1.1 State Determination/Signal Acquisition and Processing.
+
+Function 1—Signal Acquisition & Processing.
+- This function shall execute the following steps:
+  - Gathering of hardwired input signals (e.g., acquisition from sensors).
+  - Plausibility check of these signals.
+  - Calculation of physical values out of the hardwired input.
+  - Provision of this information (including control unit states), which is needed as input for other module functions.
+
+5.1.9.2.1.2 DCU States.
+
+State 1—OFF.
+- DCU shall be in OFF state when the DCU is not powered up from VCU via the wakeup signal.
+- During OFF state, DCU shall not consume any LV power and shall not communicate on CAN (the inverter IGBT are open and the capacitance is discharged).
+- In OFF state, by hardware design, the ASC and active discharge are automatically active.
+
+State 2—STANDBY.
+- DCU shall be in STANDBY state in any of the following cases:
+  1. After VCU wake-up, DCU wakes up and checks the internal hardware.
+  2. When VCU explicitly requests the STANDBY state from the DRIVE state.
+  3. When VCU requests an ACTIVE SHORT CIRCUIT (ASC) state.
+  4. When VCU requests an ACTIVE DISCHARGE state.
+
+State 3—IGBT.
+- In STANDBY state, the IGBT shall be open with no current on the DC bus.
+- If ASC is requested, the IGBT shall not be open and shall activate Active Discharge.
+- If Active Discharge is requested, the IGBT may either be open, set to ASC, or discharge DC capacitance using additional resistance.
+- Passive discharge shall occur if Active Discharge is not requested but STANDBY state is active.
+
+State 4—DRIVE.
+- DCU shall be in DRIVE state when IGBT is connected, and torque requested from VCU can be fulfilled, or DCU can execute speed control.
+- Transition to DRIVE state can occur from STANDBY upon request from VCU, removal of ASC or active discharge request, or clearing of errors.
+</page>
+
+<page number="20">
+5.1.9.2 Standard Functions.
+
+5.1.9.2.1 Control System Function.
+
+5.1.9.2.1.1 State Determination/Signal Acquisition and Processing.
+
+Signal Acquisition & Processing:
+- This function shall execute the following steps:
+  - Gathering of hardwired input signals (e.g., acquisition from senSPBs).
+  - Plausibility check of these signals.
+  - Calculation of physical values out of the hardwired input.
+  - Provision of this information (including control unit states) needed as input for other module functions.
+
+5.1.9.2.1.2 DCU States.
+
+OFF:
+- DCU shall be in OFF state when it is not powered up from VCU via the wakeup signal.
+- During OFF state, DCU shall not consume any LV power and shall not communicate on CAN (the INV IGBT are open, and the capacitance is discharged).
+- In OFF state, ASC and active discharge shall be active by hardware design.
+
+STANDBY:
+- DCU shall be in STANDBY state in the following scenarios:
+  - After VCU wake-up, DCU performs hardware checks.
+  - When VCU requests this state directly from DRIVE state.
+  - Upon Active Short Circuit (ASC) state request from VCU.
+  - Upon Active Discharge state request from VCU.
+
+IGBT:
+- In STANDBY state, the IGBT will remain open with no DC bus current flow.
+- If ASC is requested, IGBT will not be opened and set to Active Discharge.
+- If Active Discharge is requested, IGBT could either be open, ASC, or discharge DC capacitance with resistance.
+- When Active Discharge is not requested, passive discharge of DC capacitance occurs in STANDBY state.
+
+DRIVE:
+- DCU shall transition to DRIVE state when torque or speed control request from VCU can be fulfilled.
+- This state may be requested from STANDBY, upon removing ASC or Active Discharge requests, or errors.
+
+ERROR:
+- DCU enters ERROR state if an error limits its functions or renders them unavailable.
+- DCU may exit ERROR state to STANDBY if healed or ASC/Active Discharge request is sent by VCU.
+
+Send Status:
+- DCU will send ASC or Active Discharge status on CAN bus across all states.
+
+Supported States:
+- Supported states include:
+  - OFF.
+  - STANDBY.
+  - DRIVE.
+  - ERROR.
+
+Sending Actual Status:
+- DCU shall transmit actual status on CAN for every state except OFF state.
+
+5.1.9.2.1.3 Activation/Deactivation.
+
+The activation/deactivation feature coordinates transitions between states, from OFF to STANDBY and vice versa.
+
+Wake Up Functions:
+1. Wake Up:
+   - DCU wakes upon activating the LV power supply.
+2. Initialization:
+   - DCU initializes itself and performs self-checks, ensuring safe HV bus and communication network operations.
+3. Initialization Time:
+   - Self-check completion within 200ms.
+4. Initialization Message:
+   - After initialization and self-check completion, DCU transmits "Drive Disabled/Stop" mode to EDS.
+
+Wake Up for Flash Job:
+- No special wake-up function planned.
+
+Wake Up for Diagnostic Job:
+- No special wake-up function planned.
+
+Power Up Function:
+- DCU influences HV system activation solely during diagnostic events.
+</page>
+
+<page number="21">
+5.1.9 Functional Requirements.
+
+5.1.9.2 Standard Functions.
+
+5.1.9.2.1 Control System Function.
+
+5.1.9.2.1.1 State determination/Signal Acquisition and Processing.
+
+1. Signal Acquisition & Processing.
+   ‒ This function shall execute the following steps:
+     ✓ Gathering of hardwired input signals (e.g., acquisition from senSPBs).
+     ✓ Plausibility check of these signals.
+     ✓ Calculation of physical values out of the hardwired input.
+     ✓ Provision of this information (incl. control unit states) which is needed as input for other module functions.
+
+5.1.9.2.1.2 DCU States.
+
+1. OFF.
+   ‒ DCU shall be in OFF state when the DCU is not powered up from VCU via the wakeup signal.
+   ‒ During OFF state DCU shall not consume any LV power and shall not communicate on CAN (the INV IGBT are open and the capacitance is discharged).
+   ‒ In OFF state it shall be by hardware design the ASC and active discharge are active.
+
+2. STANDBY.
+   ‒ DCU shall be in STANDBY state in case of any of the following cases:
+     ✓ After VCU wakeup and DCU wakes up respectively to check the internal hardware.
+     ✓ When VCU requests this STANDBY state directly from DRIVE state.
+     ✓ When VCU requests for an ACTIVE SHORT CIRCUIT (ASC) state.
+     ✓ When VCU requests for an ACTIVE DISCHARGE state.
+
+3. IGBT.
+   ‒ When DCU is in STANDBY state, the IGBT shall be open and there shall be no current on DC bus.
+   ‒ If ASC is requested, then the IGBT should not be opened and set to Active Discharge.
+   ‒ If Active Discharge is requested, then either the IGBT is open or in ASC, and the DC capacitance is discharged with additional resistance.
+   ‒ Passive discharge of the DC capacitance shall take place if Active Discharge is not requested but the state is set to STANDBY.
+
+4. DRIVE.
+   ‒ DCU shall be in DRIVE state when IGBT are connected, and torque requests from VCU can be fulfilled, or the DCU can execute a speed control.
+   ‒ This state can be reached from STANDBY by a request from VCU (STANDBY to DRIVE), removal of ASC or Active Discharge requests, or from ERROR to DRIVE if error is non-existent.
+
+5. ERROR.
+   ‒ DCU shall be in ERROR state when an error is detected, leading to limitation or non-availability of DCU functions.
+   ‒ DCU may exit ERROR state to STANDBY state if requested by ASC or active discharge.
+   ‒ Alternately, if the error is healed, ERROR may transition to DRIVE but not directly from STANDBY to DRIVE.
+
+6. Send Status.
+   ‒ DCU shall send the status of ASC or Active Discharge on CAN bus in all states.
+
+7. Supported States.
+   ‒ The following states shall be supported:
+     ✓ OFF.
+     ✓ STANDBY.
+     ✓ DRIVE.
+     ✓ ERROR.
+
+8. Sending of Actual Status.
+   ‒ DCU shall send its actual status on CAN bus for all states except OFF.
+
+5.1.9.2.1.3 Activation / Deactivation.
+
+The activation/deactivation feature shall coordinate the transition between states, from OFF to STANDBY and STANDBY to OFF.
+
+I. Wake Up Functions.
+   
+1. Wake Up.
+   ‒ The DCU shall wake up as soon as it gets activated via activation of the LV power supply.
+
+2. Initialization.
+   ‒ After activation, the DCU shall initialize itself and perform self-checking tests to ensure a safe operation on the HV bus and the communication network.
+
+3. Initialization Time.
+   ‒ The time for initialization and self-tests shall not exceed 200ms.
+
+4. Initialization Message.
+   ‒ The DCU shall send the control system operation mode "Drive Disabled/ Stop" on the interface EDS after initialization and self-checks are completed.
+
+II. Wake Up for Flash Job.
+
+1. Wake Up on Flash Job.
+   ‒ No special wake-up function is planned for flash job.
+
+III. Wake Up for Diagnostic Job.
+
+1. Wake Up on Diagnostic Job.
+   ‒ No special wake-up function is planned for diagnostic job.
+
+IV. Power Up Function.
+   ‒ The DCU has no power-up function. Activation of the HV system cannot be influenced by the DCU, except for diagnostic events.
+
+1. Generation of a Diagnostic Event.
+   ‒ The DCU shall generate a diagnostic event after wake-up if activation of the HV system is not allowed or safe due to DCU failure.
+
+V. Power Down Function.
+   ‒ DCU has no power-down function. HV system deactivation cannot be influenced by DCU, except for diagnostic events.
+
+1. Perform Active Discharging.
+   ‒ DCU shall power down and perform Active Discharging upon request. After discharging, the new state shall be STANDBY.
+   ‒ Transition of EDS from energized to non-energized state must follow a predefined sequence of commands, including Active Discharge.
+
+VI. Shut Down Function.
+
+1. Shut Down.
+   ‒ DCU shall shut down within 20s after deactivation.
+
+5.1.9.2.1.4 Torque Control Function.
+
+1. CAN Reception.
+   ‒ Torque control requests and further inputs for torque control (e.g., torque set value, limitations, torque slew rates) shall be received via CAN.
+
+2. Generation of Positive and Negative Torque.
+   ‒ EDS shall generate positive and negative torque in forward and backward direction on request, including zero torque control across the full speed and DC voltage ranges.
+
+3. Torque Control Accuracy.
+   ‒ The accuracy of INV torque control shall be:
+     ✓ +/- 5Nm for EDS torque range 30 to 50Nm (positive / negative).
+     ✓ +/- 10Nm for EDS torque range 50 to 100Nm (positive / negative).
+     ✓ +/- 15Nm for EDS torque above 100Nm (positive / negative).
+   ‒ Accuracy measurements are for E-Machine output shaft without considering final drive or differential gear ratios.
+
+4. Closed Loop Control.
+   ‒ DCU shall use closed-loop control for optimal torque realization at the shaft, ensuring high-quality control with minimal overshoots or deviations.
+
+5. Torque Increase Time.
+   ‒ EDS shall increase output shaft torque from 0Nm to maximum peak value within 600ms. For race starts, torque shall increase to maximum peak torque within 200ms.
+   ‒ Remarks:
+     ✓ Response delay and gradient are required in anti-jerk function deactivation.
+     ✓ Rapid torque increase is necessary for racing applications, achieved in the specified duration.
+</page>
+
+<page number="22">
+### 5.1.9.2.1 Torque Control Function
+
+#### No. 6: Torque Increase Time
+- The EDS shall be able to change the output shaft torque from 0Nm to 100Nm (motor/generator) within 300ms in the event of a full load request. The system should achieve torque increase within 100ms.
+- **Remarks**:
+  - Response delay and gradient are required if the anti-jerk function is deactivated.
+  - Torque increase to 100Nm must occur within 50ms for race start realization.
+
+#### No. 7: Provision of the Actual Torque Value
+- The EDS shall provide the actual torque value as feedback to the communication network.
+
+#### No. 8: Change the Output Shaft Torque
+- The EDS must adjust output shaft torque during ESP system intervention, ranging from max value to 0Nm within:
+  - **30-40ms at 0-4000RPM**,
+  - **140ms at 4000-16000RPM**.
+- **Remarks**: Response delay and gradient are necessary in cases where anti-jerk functionality is deactivated.
+
+#### No. 9: Zero Torque Control
+9.1. **Request of 0 Torque**  
+- When E-motor speed exceeds 6000 RPM and the VCU requests 0±2Nm torque, there must be no torque on the EDS and no current on the DC bus (freewheeling).  
+- Zero torque can only be requested in the "Drive" state.
+
+9.2. **Drag Torque**  
+- The EDS may exhibit drag torque above 6000 RPM, but no current shall flow on the DC bus.
+
+### 5.1.9.2.2 Emergency Power Down Function
+The coordination of the Emergency Power Down Function of each module will be described in the overall powertrain diagnosis and error reaction concept, aligning in detail with the supplier. The DCU shall power down with an emphasis on short execution time and fast entry into a safe state.
+
+#### No. 1: Triggering
+- Emergency power down shall be triggered by:
+  - A DCU internal error,
+  - A DCU external command,
+  - A communication failure detected in the DCU,
+  - A crash-related signal.
+
+#### No. 2: Entering Safe State
+- The standard emergency power down approach must ensure safe-state entry until 0RPM is reached.
+
+#### No. 3: Corresponding Error
+- The corresponding error must be provided to the diagnosis and error reaction function.
+</page>
+
+<page number="23">
+5.1.9.2.2 Emergency Power Down Function
+
+The coordination of the Emergency Power Down Function of each module will be described in the overall powertrain diagnosis & error reaction concept and aligned in detail with the supplier. The DCU shall power down with emphasis on short execution and time quick entry into a safe state.
+
+### Functions and Requirements
+- **Triggering**: The Emergency power down shall be triggered by a DCU internal error, by a DCU external command, by a communication failure detected in DCU, or by a crash-related signal.
+- **Entering safe state**: The standard approach of emergency power down shall comprise entering safe state (until 0 rpm is reached).
+- **Corresponding error**: The corresponding error shall be provided to the diagnosis and error reaction function.
+- **Crash**: In case of crash, the DCU shall be locked permanently (re-activated by workshop tester).
+
+---
+
+5.1.9.2.3 Derating Function
+
+### Functions and Requirements
+- **Performance reduction**: The EDS shall reduce its performance depending on threshold values relevant for component protection against overload or thermal damage.
+- **CAN indication**: Any reduced performance (power derating) shall be indicated on CAN.
+
+---
+
+5.1.9.2.4 Thermal Management Function
+
+### Functions and Requirements
+- **Thermal Management**: The DCU shall have a Thermal Management function according to OEM standards.
+- **Monitoring of temperatures**: The DCU shall monitor the temperatures inside the Power Electronics and the e-motor and shall provide temperature information on CAN.
+- **Demand of coolant flow**: The DCU shall define the required coolant flow and shall provide information on CAN.
+- **Cooling map**: The DCU supplier shall provide a map of the required coolant flow as a function of coolant inlet temperature.
+
+---
+
+5.1.9.2.5 Communication Function
+
+### Functions and Requirements
+- **Permanency**: The communication shall be possible from Wake-Up completion to Power Down is finished.
+- **Connection**: The control system DCU shall be connected to the Powertrain-CAN and shall communicate to the other control units via this CAN.
+- **D-Can**: All Data logging, Diagnostics, Calibration-related communication shall be done via Diagnose-CAN.
+
+---
+
+5.1.9.2.6 Protection Function
+
+The definition of protection functions and the interactions on powertrain level of all modules will be commonly defined and agreed within the diagnostic concept.
+
+### Functions and Requirements
+- **Self-protection**: This function shall ensure that the EDS protects itself against destruction.
+- **Last measure**: The protection function shall be the last resort measure that should never become active during regular operation.
+- **Overvoltage and overcurrent protection**: The EDS shall proof short circuit on HV DC side and shall protect itself at an overcurrent or overvoltage event on HV DC side according to HV DC safety standards.
+</page>
+
+<page number="24">
+### VinFast Management System
+
+**VFDSXVPWT0010**  
+Version: 1.0  
+Uncontrolled copy when printed  
+Page: 24/40  
+
+---
+
+### Functions and Requirements
+
+#### 5. Protection Function  
+N  
+Functions  
+Requirements  
+
+1. **Protection event flag set**  
+   - When a protection event occurs, the DCU shall set the corresponding flag and shall send the corresponding DTC.  
+
+2. **Speed limitation request**  
+   - In case of ASC, the DCU shall send a speed limitation request to the VCU to keep the DCU temperature increase by ASC losses to admissible values.  
+
+---
+
+#### 5.1.9.2.7 Diagnostics & Error Reaction Function  
+The one CAN bus controls the reception and transmission of signals through CAN with a network speed of 500Kbit/s. The communication protocol is based on ISO11898. The diagnostic system uses UDS CAN to diagnose.
+
+##### Specifications for System Diagnosis Development:  
+- VFDSAAEEP0033 _Basic_Diagnostic_Specification.  
+- VFDSAAEEP0034_Basic_DID_Definition_Specification.  
+- VFDSAAEEP0035_Flash_Specification.  
+- VFDSAAEEP0036_Coding_Specification (optional, based on actual requirement).  
+- VFDSAAEEP0037_Security_Access_Algorithm.  
+
+##### Component Diagnosis Content:  
+Defined by ECU supplier and engineers from VF, including DTC, DID, I/Ocontrol, and Routine used in manufacturing or aftersales. Templates:  
+- ECU ODX template.  
+- ECU EOL test sequence.  
+- ECU aftersales test sequence.  
+
+---
+
+#### 5.1.9.2.8 Safety Concept  
+The DCU monitors the state and functionality of the EDS, including the control unit, to ensure no unintended operation of the EDS.
+
+##### 5.1.9.2.8.1 Safe State Function  
+N  
+Functions  
+Requirements  
+
+1. **Safe state function**  
+   - The safe state function shall assure that persons are protected from EDS voltage coming from the DCU.  
+
+2. **Triggering from HVIL**  
+   - Triggered by HVIL, a persistent communication error, an internal error, an external command, or a crash-related signal.  
+   - Shall decrease DCU AC voltage to less than 60 V within a fixed time defined during the detailing phase of the project.  
+
+3. **Active discharge function**  
+   - Active discharge function shall be activated in the safe state function.  
+
+4. **Realization**  
+   - Safe state shall be realized via active short circuit (ASC), safe pulse off (SPO), or other solutions.
+</page>
+
+<page number="25">
+### VinFast Management System
+
+#### 5.1.9.2.8.2 HVIL Interaction Function
+The DCU shall monitor the HVIL status and send HVIL status signals on CAN.
+
+**Functions and Requirements:**
+1. **HVIL Constant Current Signal.**  
+   ‒ The DCU shall route a HVIL constant current signal of 10 mA through all HV accessible parts (e.g., service cover, HV DC connectors, HV AC connectors).
+
+---
+
+#### 5.1.9.2.9 Production & Maintenance
+
+**Functions and Requirements:**
+1. **Data Updated and Protocol Feasibility.**  
+   ‒ The DCU shall ensure that during development and series, the control software and calibration data can be updated using specific interfaces and protocols.
+
+2. **Calibration Data Read & Flash.**  
+   ‒ Access to calibrate, read stored data, and flash the control unit with new software versions.  
+   ‒ Details of this function shall be defined in later phases of the project.
+
+3. **Communication Workshop Tester.**  
+   ‒ UDS communication interface with diagnostic tester.  
+   ‒ Details of this function shall be defined in later phases of the project.
+
+4. **Error Memory Read & Delete.**  
+   ‒ Nonvolatile memory access to store data relevant for fault information or warranty-related data.  
+   ‒ Details of this function shall be defined in later phases of the project.
+
+5. **SenSPB/Actuator Test.**  
+   ‒ During the workshop, if parts of the EDS are replaced, necessary routines to test the proper installation and operation of new parts—specifically senSPBs and actuators—shall be possible.  
+   ‒ Details of this function shall be defined in later phases of the project.
+</page>
+
+<page number="26">
+5.1.9.2.10 Safety Monitoring Function  
+Safety monitoring functions to be defined in the later phases of the project.
+
+5.1.9.3 Extended Functions  
+5.1.9.3.1 Torque Prediction/ Power Function.  
+- The following functionalities relate to the continuous monitoring and estimation of torque and power:
+
+1. Determination.  
+   ‒ The DCU shall continuously determine:  
+   ✓ Available 10 s peak EDS output torque in motoring / generating mode.  
+   ✓ Available continuous EDS torque for 30s in motoring / generating mode.  
+   ✓ Available continuous EDS torque for 30 min in motoring / generating mode.  
+   ✓ Available 10s peak EDS mechanical power in motoring / generating mode.  
+   ✓ Available continuous EDS mechanical power in motoring / generating mode.  
+   ✓ Actual EDS losses (E Machine + Power Electronics + mech. losses).  
+   ‒ These values shall consider the EDS conditions (e.g. thermal conditions, actual speed, actual HV voltage).
+
+2. Power Estimation.  
+   ‒ The available power for the next 10 s periods, as well as continuous power, shall be estimated from the respective power values of the battery in combination with an EDS loss model.
+
+3. Active Derating.  
+   ‒ The DCU shall activate derating after the predicted time period.
+
+5.1.9.3.2 Active Short Circuit/ Voltage Limitation Function.  
+- This section addresses the autonomous functionality to ensure safe operation conditions:
+
+1. Entering.  
+   ‒ The DCU shall enter the active shortcut mode if requested from the VCU. (The request will be transmitted in VCU = “Disable Drive/Stop”).
+
+2. DC Voltage Gate.  
+   ‒ During the active short circuit function, the DCU shall ensure that no DC voltage is transferred from the DCU into the DC link circuit.
+</page>
+
+<page number="27">
+VinFast Management System VFDSXVPWT0010  
+
+Version: 1.0  
+Uncontrolled copy when printed
+</page>
+
+<page number="27">
+| 40  
+
+### N Functions and Requirements  
+
+#### Over temperature protection  
+- **Requirement:**  
+The DCU shall monitor its temperature during ASC and in case of over-temperature, switch off the function and inform the VCU.  
+- **Remark:**  
+This can be requested by the VCU or DCU when there is a severe error. In this state, the IGBT is short-circuited to generate no voltage due to the rotating E-Motor but as a result leads to some drag torque.  
+
+#### VCU Communication  
+- **Requirement:**  
+DCU shall send the status of the active short circuit to VCU as:  
+  - ASC NOT ACTIVE.  
+  - ASC ACTIVE.  
+  - ASC ACTIVATION ERRORS.  
+  - In the case of high EDS temperature, ASC cannot be done anymore.  
+
+---
+
+### 5.1.9.3.3 Anti-Jerk Function  
+
+#### Damping Effectiveness  
+- **Requirement:**  
+The Anti-Jerk function shall be able to damp powertrain oscillations to 90% of the case where no damping is applied via DCU within less than 5 (i.e., 5 half-periods) oscillations.  
+
+#### Oscillation Amplitude  
+- **Requirement:**  
+The maximum allowed amplitude of oscillation of EDS (output shaft) shall be TBD (@8Hz) & TBD (@15Hz).  
+
+#### Activation/Deactivation  
+- **Requirement:**  
+The DCU shall contain the Anti-Jerk function as a component control function, which could be activated and deactivated by the powertrain control system (via CAN), ensuring a smooth transition.  
+
+#### Frequency Counteraction  
+- **Requirement:**  
+The DCU shall try to counteract powertrain frequencies (typ. range between 8Hz & 15Hz) that are very unpleasant for occupants and which don't have an oscillation node at the location of the DCU.  
+
+#### Torque Counteraction to Vehicle Targets  
+- **Requirement:**  
+The DCU shall provide oscillatory counteracting torque below a frequency of TBD Hz, so that the vehicle targets for acceleration oscillation of less than TBD m/s² (first acceleration oscillation peak) can be met.  
+
+#### Torque Counteraction to Powertrain Targets  
+- **Requirement:**  
+The DCU shall provide oscillatory counteracting torque below a frequency of TBD Hz, so that the Power Train targets for torque oscillations of less than TBD Nm (peak-to-peak, first oscillation swing) can be met.  
+
+#### Amplitude Damping Rate  
+- **Requirement:**  
+The oscillation amplitude shall be damped by 90% in less than 5 oscillations (i.e., 5 half-periods), compared to the case where no damping is applied via DCU.  
+
+#### Enable/Disable  
+- **Requirement:**  
+The VCU shall have the option to enable and disable this function. This function shall be controllable via communication network (torque, speed gradients).  
+
+---
+
+#### General Note:  
+The Anti-Jerk function will be deactivated for specific driver-requested maneuvers (e.g., Tip-In) to improve response time and for all interventions from ESP / ABS systems.
+</page>
+
+<page number="28">
+5.1.10 Electrical & Electronic Requirements.
+
+5.1.10.1 Specific LV Requirements.
+
+- **Short circuit:** The EDS LV and signal terminals shall be protected against short circuit between each other and ground.
+- **Damaged:** The EDS shall not be damaged when the LV supply is lost.
+- **Lost LV supply:** The EDS shall not damage other components in the vehicle when the LV supply is lost.
+- **Pin assignment:** The Pin assignment shall be defined in alignment with LV wiring harness concept and E/E architecture.
+- **Lock feature:** The LV connector shall have a lock feature.
+- **LV connector endurance:** The LV connector shall endure 10 mating cycles, unless defined otherwise by OEM standards.
+- **Reverse polarity protection:** The EDS reverse polarity protection shall be -14V (1Min), according to ISO 16750-2 standard.
+- **HVIL:** The EDS shall provide interfaces to the High Voltage Interlock Loop (HVIL) according to the HVIL section.
+
+The EDS system is connected to the powertrain CAN.
+
+5.1.10.2 General E/E Requirements.
+
+5.1.10.2.1 Applied Standards for HV and LV Electrical System.
+
+- The component shall be developed according to ISO 26262.
+
+5.1.10.2.2 Electrical LV System.
+
+5.1.10.2.2.1 Voltage Supply.
+
+- **Operating voltage:** The EDS shall be developed for a nominal supply and operating voltage of 13.8V.
+- **Full operation voltage:** The EDS shall guarantee full operation at a LV range from 9V-16V without damage and derating.
+- **Voltage drops:** Sudden voltage drops within the operation voltage range shall not cause a failure in EDS or an interruption of operation.
+- **Voltage ripple:** The EDS shall guarantee full operation at a max. voltage ripple of ±5% without damage and derating.
+- **Overvoltage:** The EDS shall withstand overvoltage on supply line of up to 18V for 1 minute.
+- **Reverse polarity protection:** The EDS shall have a reverse polarity protection for all LV supply interfaces.
+</page>
+
+<page number="29">
+VinFast Management System
+
+VFDSXVPWT0010.
+
+Version: 1.0.
+
+Uncontrolled copy when printed.
+
+Page: 29 | 40.
+
+### 5.1.10.2.2.2 E/E Power Management LV
+
+#### N.
+##### Functions:
+1. **LV Power consumption standby**  
+   ‒ The LV Power consumption in state standby shall not exceed TBD W @13,8V.  
+
+2. **LV power consumption**  
+   ‒ The LV power consumption during normal operation shall not exceed TBD W @13,8V.  
+
+3. **LV inrush current**  
+   ‒ The LV inrush current shall not exceed the continuous current.  
+
+---
+
+### 5.1.10.2.2.3 Inputs and Outputs
+
+#### N.  
+##### Functions:
+1. **LV voltage supply requirements**  
+   ‒ The EDS shall fulfill the following LV voltage supply requirements (in addition to the general requirements of the standard):  
+   ✓ Short circuit protection for all outputs.  
+   ✓ Protection against reversed voltage for all inputs.  
+
+2. **Electrical short circuit protection**  
+   ‒ All outputs of the EDS shall be protected against electrical short circuit.  
+
+3. **Circuit protection**  
+   ‒ All inputs and outputs of the EDS shall be protected against electrical short circuit to:  
+   ✓ Ground.  
+   ✓ LV battery +.  
+
+4. **Reverse polarity**  
+   ‒ All inputs and outputs of the EDS shall be protected against reverse polarity.  
+
+5. **Overvoltage**  
+   ‒ All inputs and outputs of the EDS shall not be damaged if voltage up to 24V (continuous) are connected.  
+
+6. **I/Os diagnostic**  
+   ‒ For diagnostic purpose all I/Os shall have:  
+   ✓ Short circuit to ground detection.  
+   ✓ Short circuit to LV battery voltage detection.  
+   ✓ Open circuit detection.  
+
+7. **Current flow on wake up signal**  
+   ‒ If the EDS is connected to the wake-up signal the maximal allowed current flow on wake up signal shall not exceed 13mA@13,8V.  
+
+8. **Wake up signal thresholds**  
+   ‒ If the EDS is connected to the wake up signal following thresholds shall be supported:  
+   ✓ Low level wake up threshold is 2V +/- 10%.  
+   ✓ High level wake up threshold is >3,1V.  
+
+9. **Filter circuit**  
+   ‒ For all inputs, a filter circuit shall be implemented.
+</page>
+
+<page number="30">
+VinFast Management System  
+VFDSXVPWT0010  
+Version: 1.0  
+
+5.1.10 Electrical & Electronic Requirements  
+5.1.10.2.2.3 Inputs and Outputs  
+
+### Functions and Requirements  
+
+**10. Fast slew rates (Voltage):**  
+‒ Fast slew rates on output signals shall not exceed 10V/us. If this is not applicable, the supplier has to explain counter measures taken to fulfill the EMC requirements.  
+‒ The voltage slew rate is defined between 20% and 80% of the rising or falling edge of each voltage signal available at the connector pins referred to the corresponding ground signal.  
+
+---
+
+**11. Fast slew rates (Amperes):**  
+‒ Fast slew rates on output signals shall not exceed 100mA/us. If this is not applicable, the supplier has to explain counter measures taken to fulfill the EMC requirements.  
+‒ The current slew rate is defined between 20% and 80% of the rising or falling edge of the current at each connector pin.  
+
+---
+
+### 5.1.10.2.2.4 Electrical Interface (inputs, outputs) Properties  
+
+Limits and thresholds for input and output signals will be defined in the later phase of the project.  
+
+---
+
+### 5.1.10.2.2.5 Topology  
+
+Supply and grounding concept will be defined.  
+
+---
+
+**Functions and Requirements:**  
+
+1. **Ground connections:**  
+‒ The supplier shall align the ground connections of the EDS to the vehicle with the customer.
+
+---
+
+### 5.1.10.2.2.6 Additional Documents  
+
+**Functions and Requirements:**  
+
+**1. Standard ISO 16750:**  
+‒ The requirements specified in the standard ISO 16750 shall apply.  
+
+**2. Standard IEC 60664-1:**  
+‒ The requirements specified in the standard IEC 60664-1 shall apply.  
+
+**3. Standard LV124:**  
+‒ The requirements specified in the standard LV124 shall apply.
+</page>
+
+<page number="31">
+VinFast Management System
+
+VFDSXVPWT0010
+
+Version: 1.0  
+Uncontrolled copy when printed  
+
+Page: 31 | 40    
+
+5.1.10.2.3 Electrical HV System  
+
+5.1.10.2.3.1 Voltage Supply  
+
+**Functions**  
+1. Voltage range.  
+   - The EDS shall be designed for a nominal HV supply voltage range from 250 V to 480V.  
+   - Note: Derating at voltages lower than 350V is allowed but shall be aligned with the client.  
+   
+2. Damage Voltage.  
+   - The EDS shall not be damaged as long as the voltage on the HV bus is below 600V DC.  
+
+3. Voltage drops.  
+   - Sudden voltage drops within the operation voltage range shall not cause a failure in the EDS or an interruption of operation.  
+
+4. Operation at max. voltage ripple.  
+   - The EDS shall guarantee full operation at a maximum voltage ripple of +/- 8V (within the defined voltage range) without damage and derating.  
+
+5. Voltage overshoot.  
+   - For active EDS, the voltage overshoot in case of activation shall not exceed 10% of the current voltage or set voltage set point.  
+
+---
+
+5.1.10.2.3.2 E/E Power Management HV  
+
+**Functions**  
+1. HV power consumption standby.  
+   - The HV power consumption in state standby shall not exceed TBD W @ max. supply voltage.  
+
+2. HV power consumption sleep.  
+   - The HV power consumption in state sleep shall not exceed TBD W @ max. supply voltage.  
+
+---
+
+5.1.10.2.3.3 Inputs and Outputs  
+
+**Functions**  
+1. Short circuit protection.  
+   - EDS shall be short circuit protected.  
+
+2. HV inrush current.  
+   - The HV inrush current shall not exceed the maximum continuous current, or block current.  
+
+---
+
+5.1.10.2.3.4 HV Safety  
+
+**Functions**  
+1. Insulation resistance HV to housing.  
+   - The insulation resistance between HV parts of the EDS and the housing shall be higher, or equal to 2.5MΩ@1000VDC.  
+
+2. Insulation resistance HV to LV.  
+   - The insulation resistance between HV parts of the EDS and LV parts of the component shall be higher, or equal to 2.5MΩ@1000VDC.  
+
+---
+
+5.1.10.2.3.5 Additional Documents  
+
+- The requirements specified in the standard 6469-1 to 6469-4 shall apply.
+</page>
+
+<page number="32">
+5.1.10.2.4 Communication Interfaces
+
+**Functions**  
+**Requirements**  
+1. **CAN interface**  
+   ‒ If the component is connected to the powertrain CAN, the CAN interface shall be compliant to the following parameters:  
+   - The powertrain CAN is a 500kbit/s.  
+   - CAN specification 2.0A (11-bit identifier).  
+   - CAN Matrix (message and signal definitions) according to customer definitions.  
+   - CAN termination possible according to customer requirements.  
+
+2. **ISO 11898**  
+   ‒ The requirements specified in standard ISO 11898 shall apply.  
+
+3. **ISO 16845**  
+   ‒ The requirements specified in standard ISO 16845 shall apply.  
+
+4. **ISO 10681**  
+   ‒ The requirements specified in standard ISO 10681 shall apply.  
+
+5. **ISO 15765**  
+   ‒ The requirements specified in standard ISO 15765 shall apply.  
+
+---
+
+5.1.10.2.5 Software Requirement  
+
+**Functions**  
+**Requirements**  
+1. **Network management (NM)**  
+   ‒ The software needs to be compatible with AutoSAR 4.3.1.  
+
+---
+
+5.1.10.2.6 E-P Shifter Requirement  
+
+**Functions**  
+**Requirements**  
+1. **E-P Shifter**  
+   ‒ Parking slope: ≤ 30%.  
+   ‒ With trailer, it should hold ≥20% grade.  
+   ‒ Response time (Shift into P position): < 500 ms.  
+
+---
+
+5.1.10.2.7 Electromagnetic Compatibility (EMC) and Electrostatic Discharge (ESD)  
+
+**Functions**  
+**Requirements**  
+1. **CISPR 16**  
+   ‒ The requirements specified in standard CISPR 16 shall apply.  
+
+2. **CISPR 25**  
+   ‒ The requirements specified in standard CISPR 25 shall apply.  
+
+3. **ISO 7637**  
+   ‒ The requirements specified in standard ISO 7637 shall apply.  
+
+4. **ISO 10605**  
+   ‒ The requirements specified in standard ISO 10605 shall apply.  
+
+5. **ISO 11451**  
+   ‒ The requirements specified in standard ISO 11451 shall apply.  
+
+6. **ISO 11452**  
+   ‒ The requirements specified in standard ISO 11452 shall apply.  
+
+7. **IEC 61000**  
+   ‒ The requirements specified in standard IEC 61000 shall apply.  
+
+8. **SAE J551/5**  
+   ‒ The Standard J551/5 (Performance Levels and Methods of Measurement of Magnetic and Electric Field Strength from Electric Vehicles, Broadband, 9 kHz to 30 MHz) shall be applied during the development.  
+
+---
+
+5.1.10.2.8 Diagnostics Concept and Communication  
+
+‒ The module shall provide a diagnostics interface based on UDS Standard.
+</page>
+
+<page number="33">
+5.2 General CAE Requirements  
+Please refer to Appendix 2: CAE-FEM-GENERAL.  
+
+VinFast General FE Modelling and Analysis Requirements  
+Finite Element Modelling Requirements to support VinFast Statement of Requirement (SOR).  
+
+Range of validity: Project VINFAST.  
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.  
+
+5.3 Material Requirement  
+- **Prohibited or Restricted Substances, Emissions & Toxicology:**  
+  The conformance to prohibited and restricted substances and obligations in terms of notification has to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle according to VFDST00007601.  
+  IMDS material data sheets must be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601.  
+  Additional specific targets on vehicle indoor air quality must align with VFDSXVCVC3401-VIAQ_Testing_Guideline.  
+
+5.4 Appearance Approval - Applicable for All Visible Parts  
+- **AAR is a PPAP deliverable:**  
+  The AAR process is described in VFDST00038401 (quantity of parts, timing).  
+  Suppliers are responsible for submitting parts to VF Quality Design in accordance with agreed timing to achieve OK Shape, OKTG, and AAR Approval.  
+  The process begins during the early phase at PT Build and ensures AAR Approval at LS.  
+  Suppliers must include this activity in their development process and ED&D costs.  
+
+5.5 Traceability  
+For part requirements, refer to VinFast Standard VFDST00010501.  
+
+5.6 Labeling of Parts  
+Suppliers must follow VinFast Standard VFDST00000010 and include diagrams for label positioning on parts (with associated pictures).
+</page>
+
+<page number="34">
+6 Testing and validation and DVP&R  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- Number of tested components/parts.  
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).  
+
+Refer DVP: VFDSXVPWT0110 – VFe35_DVP_EDS.  
+
+7 Function Safety, Homologation and safety regulations  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+7.1 Functional Safety Requirements  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+
+7.2 Deliverables for Functional Safety  
+Indicative RASIC for expected deliverables:  
+
+- 5.5 Work Products:  
+  - 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2:  
+    - VINFAST: Responsible (R)  
+    - SUPPLIER: Informed (I)  
+  - 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3:  
+    - VINFAST: Responsible (R)  
+    - SUPPLIER: Supportive (S)  
+  - 5.5.3 Supplier's project plan resulting from requirement 5.4.3:  
+    - VINFAST: Accountable (A)  
+    - SUPPLIER: Responsible (R)  
+  - 5.5.4 Supplier's safety plan resulting from requirement 5.4.3:  
+    - VINFAST: Accountable (A)  
+    - SUPPLIER: Responsible (R)  
+  - 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5:  
+    - VINFAST: Informed (I)  
+    - SUPPLIER: Responsible (R)  
+  - 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3:  
+    - VINFAST: Responsible (R)  
+    - SUPPLIER: Supportive (S)  
+  - 6.5.3 Safety case, resulting from 6.4.6:  
+    - VINFAST: Accountable (A)  
+    - SUPPLIER: Responsible (R).
+</page>
+
+<page number="35">
+VinFast Management System
+
+VFDSXVPWT0010
+
+Version: 1.0  
+Uncontrolled copy when printed  
+35 | 40  
+
+Print date  
+Status  
+Functional Responsibility  
+
+* RASIC description in section “Deliverables.”
+
+**a) FUSA Deliverables expected before nomination**
+
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+**b) FUSA Deliverables expected after nomination**
+
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.  
+
+**7.3 Homologation and safety regulation requirements**  
+**7.3.1 North America**  
+
+**a. Homologation and safety regulation activities**  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., European, Federal motor vehicle safety standards (FMVSS) and Canadian motor vehicle safety standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+**b. Self-certification and test report(s)**  
+The supplier is responsible for “self-certifying” their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS standards. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer Appendix 8 of Manufacturer Handbook  
+
+**c. Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.
+</page>
+
+<page number="36">
+The Supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect. The Supplier must propose an appropriate risk assessment and resolution plan.
+
+7.3.2 Europe
+
+a. Homologation and safety regulation activities  
+The Supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s)  
+The Supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+VinFast requests the Supplier to conduct tests as specified in certain of the UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+VinFast also requests the Supplier to provide supporting documentation, technical information, including drawings, to be submitted to the relevant authorities in order to get certification for the EC vehicle type-approval (if any).  
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations  
+Notwithstanding its certification of a product, a Supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.
+
+8 Deliverables  
+
+8.1 Technical Deliverables  
+Work Interface Chart (RASI). The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“System Development Supplier”) is defined in System / Component Specification.  
+
+RASI is defined as follows:  
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfil the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+- **A: Approval**
+</page>
+
+<page number="37">
+8 Deliverables.
+
+8.1 Technical deliverables.
+Work Interface Chart (RASI). The main supplier obligations are described in the work interface chart (RASI). The status of the supplier ("System Development Supplier") is defined in System/Component Specification.  
+
+RASI is defined as follows:  
+- **R: Responsible.** Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+- **A: Approval.** Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+- **S: Support.** Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+- **I: Information.** Right to information. This team member is entitled to demand information from R.  
+
+8.2 Details deliverables and RASI.  
+Need to revise the date of RASI following Master Timing latest from PMO side.
+</page>
+
+<page number="38">
+VinFast Management System  
+VFDSXVPWT0010  
+Version: 1.0  
+Uncontrolled copy when printed  
+
+Print Date:  
+
+### **Status**  
+Functional Responsibility  
+
+---
+
+### **6. Testing and Validation and DVP&R**  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level aligns with Complete Vehicle Specification Book in the concept phase. Detailed test plans for hardware tests are in the file DVP&R and must work with the Testing & Validation department:  
+- Testing with declarations of standards, norms, legal requirements.  
+- How and with which devices the testing was performed (description of testing setup with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and timeline of testing (in the form of project plans).  
+- Part variant, description of parts.  
+- Number of tested components/parts.  
+
+Ensure Mileage Target Life: **160,000 km or 10 years** (whichever comes first).  
+
+Refer to **DVP:** VFDSXVPWT0110 – VFe35_DVP_EDS  
+
+---
+
+### **7. Function Safety, Homologation, and Safety Regulations**  
+**Safety** is a key issue in the development and integration of automotive functionalities.  
+
+#### 7.1. **Functional Safety Requirements**  
+- The supplier shall ensure that the developed/manufactured parts meet **IATF 16949:2016 standard**, Quality management system requirements for automotive production.  
+- The supplier shall ensure that the developed/manufactured parts meet **ISO 26262:2018 standard**, Road vehicles – Functional safety.  
+
+#### 7.2. **Deliverables for Functional Safety**  
+Indicative **RASIC** for expected deliverables:  
+
+**5.5 Work Products—VINFAST | SUPPLIER**  
+- **5.5.1** Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. (R | I)  
+- **5.5.2** Development interface agreement (DIA) resulting from requirement 5.4.3. (R | S)  
+- **5.5.3** Supplier's project plan resulting from requirement 5.4.3. (A | R)  
+- **5.5.4** Supplier's safety plan resulting from requirement 5.4.3. (A | R)  
+- **5.5.5** Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. (I | R)  
+- **5.5.6** Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3. (R | S)  
+- **6.5.3** Safety case resulting from 6.4.6. (A | R)  
+
+---
+
+#### *RASIC Description:*  
+- **R:** Responsible for proper execution of activities to fulfill the requirements. She/he is entitled to request necessary support from other project team members.  
+- **A:** Approval includes obligation to decide/responsible for release.  
+- **S:** Support involves active assistance with capacity, expenses, and/or transfer of knowledge.  
+- **I:** Information grants the team member entitlement to demand necessary information from R.  
+
+#### a) **FUSA Deliverables Expected Before Nomination**  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or justification if requirements cannot be met.  
+- Based on the Safety Goals & Functional Safety Requirements, VinFast and the supplier discuss and agree on **Development Interface Agreement (DIA)** in line with **ISO 26262-8 clause 5**.  
+
+#### b) **FUSA Deliverables Expected After Nomination**  
+- Submit a **Safety Plan** for VinFast approval, containing process outlines, resource plans, and items described in **ISO 26262-2 clause 6.4.3.5**.  
+- Submit a **Safety Case** describing results, deviations, and functional safety measures, compiled in accordance with **ISO 26262-2 clause 6.5.3**.  
+
+---
+
+### **7.3. Homologation and Safety Regulation Requirements**  
+
+#### **7.3.1. North America**  
+**a)** Homologation and safety regulation activities:  
+- Ensure compliance with **FMVSS**, **CMVSS**, and other applicable regulations.  
+- Provide necessary documentation to authorities.  
+
+**b)** Self-certification and test reports:  
+- Suppliers are responsible for self-certifying parts/products/systems per **FMVSS/CMVSS**.  
+- Tests are conducted as requested; reports must be submitted to VinFast.  
+- Suppliers must be familiar with U.S./Canadian laboratory test procedures per **Appendix 8 of Manufacturer Handbook**.  
+
+**c)** Duty to notify of non-compliance:  
+- Notify VinFast within **five working days** of detecting safety-related issues.  
+- Provide risk assessments and resolution plans.  
+
+---  
+
+#### **7.3.2 Europe**  
+**a)** Homologation and safety regulation activities:  
+- Ensure compliance with **UN-ECE regulations**.  
+
+**b)** Test reports and certificates:  
+- Conduct and submit UN-ECE tests and certificates, ensuring regulatory compliance.  
+- Provide drawings to support EC vehicle type approval.  
+
+**c)** Duty to notify of non-compliance:  
+- Notify VinFast within five working days if UN-ECE non-compliance determined.  
+- Propose risk assessments and resolution plans.  
+
+---
+
+### **8. Deliverables**  
+
+#### **8.1. Technical Deliverables**  
+The **Work Interface Chart (RASI)** defines supplier obligations.  
+- **R:** Responsible.  
+- **A:** Approval.  
+- **S:** Support.  
+- **I:** Information.  
+
+---
+
+#### **8.2. Details Deliverables and RASI**  
+Suppliers must revise **RASI** dates according to **latest PMO timing**.
+</page>
+
+<page number="39">
+9 Supplier Responsibilities.  
+Supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.
+
+**Customer Service Requirements.**  
+After-sales spare parts should be ready at startup:  
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.
+
+**Spare Parts Support Cycle.**  
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SPB.
+
+**Maintenance Information of After-Sale Spare Parts.**  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, and relevant technical parameters (installation clearance, parts performance parameters, etc.).
+
+10 Intellectual Property / Copyright.  
+Refer to VinFast General Term and Condition (GTC).
+
+11 Insurance / Warranties.  
+Refer to VinFast General Term and Condition (GTC).
+
+12 VinFast GTC & Part Packaging and Incoterms.  
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirement in the RFQ package.
+
+13 Definitions and List of Abbreviations.  
+- **DVP&R:** Design Verification Plan & Report.  
+- **ESO:** Engineering Sign Off.  
+- **GTC:** General Term and Condition.  
+- **LLS:** Long Lead Suppliers on board.  
+- **LLT:** Long Lead Tooling.  
+- **LOI:** Letter of Intent.  
+- **MFC:** Manufacturing Feasibility Confirmation.  
+- **MSC:** Manufacturing Strategy Confirmation.  
+- **MSI:** Major Suppliers Identified.  
+- **MSO:** Manufacturing Sign Off.  
+- **OTS:** Off Tools Samples.  
+- **PTP:** Prototype Parts out of Serial tooling (Hand finished).  
+- **RFQ:** Request For Quotation.  
+- **SLS:** Short Lead Suppliers on board.
+</page>
+
+<page number="40">
+VinFast Management System  
+VFDSXVPWT0010  
+Version: 1.0  
+Uncontrolled copy when printed  
+40 | 40  
+Print date  
+Status  
+Functional Responsibility  
+
+Definitions and List of Abbreviations:  
+
+SOB: Supplier on Board  
+SPB: Start of Production  
+SPB-ID: SPB-Implementation Date  
+SPB-LM: SPB Launch Model (1 specific Model – “Edition”)  
+SST: Sourcing Strategy  
+TS: Theme selection Model  
+FUSA: Function Safety  
+AC: Alternating Current  
+BEV: Battery Electrical Vehicle  
+BOM: Bill of Material  
+CAN: Controller Area Network  
+DTC: Data Trouble Code  
+DC: Direct Current  
+DCU: Drive Control Unit (of EDS – included in Inverter)  
+ECU: Electronic Control Unit  
+EDS: Electric Drive System  
+EDU: Electric Drive Unit  
+EMF: Electro Magnetic field  
+EV: Electric Vehicle  
+HV: High Voltage  
+HVIL: High Voltage Inter Lock  
+INV: Inverter  
+IP: Ingress Protection  
+LV: Low Voltage  
+MRD: Material Required Date  
+PDU: Power Distribution Unit  
+PPAP: Production Part Approval Process  
+PTW: Powertrain  
+SPB: State of Requirements  
+TBD: To be defined  
+TG: Tollgate  
+VCU: Vehicle control unit  
+w/o: Without  
+T&V: Testing & Validation
+</page>
+</pages>

@@ -1,0 +1,1093 @@
+
+<filename>CES_VINFAST_EE_VFDSXVEEP0014_CLAMP_Specification_v0.3.5</filename>
+<pages>
+
+<page number="1">
+Specification Book.  
+First Edition (01.2021).  
+
+Scope:  
+Applicable Document of Part 1.  
+Common Electrical Specification for Supplier.  
+
+CES Clamp.  
+
+Range Of Validity:  
+VinFast.
+</page>
+
+<page number="2">
+Author: Rasul Nadaf. The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model or design. Nothing in this standard supersedes applicable laws and regulations.
+
+Approval Confirmed By:  
+- Function: EE Director. Name: Shane Kimball.  
+- Function: EEA Manager. Name: Rudmark Reyes.  
+- Function: EEA System Integration Leader. Name: Tim Ericson.  
+- Function: EEA Team Leader. Name: Rodrigo Pedro Emilio Balaguer.
+</page>
+
+<page number="3">
+Index:
+
+1. General Information  5  
+   1.1 Language  5  
+   1.2 Change History  5  
+   1.3 Versioning  7  
+
+2. Introduction  9  
+   2.1 Scope of the Document  9  
+   2.2 Terms and Definitions  9  
+      2.2.1 Abbreviations  9  
+      2.2.2 Definitions  10  
+
+3. System Description – BEV (Battery Electric Vehicle)  11  
+   3.1 General Description of Clamps, Conditions and Events  11  
+   3.2 Hardwired Clamp  11  
+   3.3 Permanent Clamp  11  
+   3.4 Switched Clamps  12  
+   3.5 Logical Clamps  12  
+      3.5.1 Clamp Logic  13  
+      3.5.2 Clamp States  14  
+
+4. State Descriptions and Transitions  15  
+   4.1 OFF  16  
+      4.1.1 Transition OFF to ACC (OFF_ACC)  16  
+      4.1.2 Transition OFF to OTA (OFF_OTA)  17  
+      4.1.3 Transition OFF to ON (Driver Present) (OFF_ODP)  17  
+   4.2 ACC  17  
+      4.2.1 Transition ACC to OFF (ACC_OFF)  18  
+      4.2.2 Transition ACC to ON (Driver Present) (ACC_ODP)  18  
+   4.3 ON (Driver Present)  19  
+      4.3.1 Transition ON (Driver Present) to OFF (ODP_OFF)  20  
+      4.3.2 Transition ON (Driver Present) to OTA (ODP_OTA)  20  
+      4.3.3 Transition ON (Driver Present) to ON (eMotor Running) (ODP_EMR)  21
+</page>
+
+<page number="4">
+4.4 ON (eMotor Running).
+
+4.4.1 Transition ON (eMotor Running) to ON (Driver Present) (EMR_ODP).
+
+4.5 OTA.
+
+4.5.1 Transition OTA to OFF (OTA_OFF).
+
+5 Detailed Clamp Description.
+
+5.1 Clamp 30s.
+
+5.2 Clamp 30s_light.
+
+5.3 Clamp 30c.
+
+5.4 Clamp R.
+
+5.5 Clamp 15_1.
+
+6 Transport Mode.
+
+7 Standards.
+
+7.1 Referenced Documents.
+
+7.2 Norms and Standards.
+</page>
+
+<page number="5">
+1 General Information.
+
+1.1 Language.
+This specification is made only in English language version.
+
+1.2 Change History.
+
+Version 0.2.0, Chapter All: Draft version – PDF to word document. Date: 12.12.2019. Edited By: Rasul Nadaf.
+
+Version 0.2.1, Chapter 2.2.1, 3.1.4: Removed SVM & RVC, as these are not physical modules. The Cameras are connected to MHU over LVDS. Date: 10.02.2020. Edited By: Rasul Nadaf.
+
+Version 0.2.2, Chapter 4: Added BEV Clamp requirement as section 4. Date: 18.02.2020. Edited By: Rasul Nadaf.
+
+Version 0.2.3, Chapter 4.1.7.1: Added BEV state Diagram in section 4.1.7.1. Date: 16.03.2020. Edited By: Rasul Nadaf.
+
+Version 0.2.4, Chapters 3.1.9, 4.1.9, 3.1.7.1, 4.1.7.1: Added updated diagram for ICE & BEV. Added updated table for connected component list. Date: 13.04.2020. Edited By: Rasul Nadaf.
+
+Version 0.2.5, Chapter All:
+1. Format sentences as per Obligation of Requirement Wording.
+2. Added section 5 for common specs for ICE & BEV.
+3. Updated Diagrams for BEV Sections. 
+Date: 07.05.2020. Edited By: Rasul Nadaf.
+
+Version 0.2.6, Chapters 4.1.9, 3.1.9, 4.1.7.1:
+1. Section 4.1.9: Deleted wakeup trigger event “Charging gun connected and Vehicle is in charging state [OBC/DCDC]” as vehicle shall be unlocked first to access the charging port.
+2. Renamed CL_15_C to CL.30c and updated the all specifications for CL.30c.
+3. Updated figure 6 to make it readable.
+4. Updated Table in section 3.1.9 and 4.1.9, component clamp list.
+5. Update state machine diagram for BEV in section 4.1.7.1 with trigger event and transition condition from Driving to Driver present.
+Date: 24.07.2020. Edited By: Rasul Nadaf.
+
+Version 0.2.7, Chapters 3.3, 8.3, 3, 3.4, 3.2.16.10:
+- Added section 3.3 for BMW specific requirement of ICE vehicle.
+- Updated the reference document table in section 8.3 to remove unreferenced docs.
+- Updated all timing diagrams in section 3 to make more clear and readable.
+- Requirements from section 3.2.7 Clamp 30B_EA_1 / Clamp 30B_EA_2 moved under section 3.4 as these are BMW scope requirements.
+- Updated figure 37 to replace SESAM-related information with BCM and deleted not applicable info for VF32.
+- Updated Figure 7 and Figure 42 to correct the Clamp names in each state.
+- Updated Figure 41 to align ST_KL & STAT_Terminal. 
+Date: 08.04.2021. Edited By: Rasul Nadaf.
+</page>
+
+<page number="6">
+1 General Information 
+
+1.1 Language  
+This specification is made only in English language version.
+
+1.2 Change History  
+
+Version | Chapter | Brief Description | Date | Edited By  
+------- | ------- | ------------------ | ---- | ---------  
+0.2.0 | All | Draft version – PDF to word document | 12.12.2019 | Rasul Nadaf  
+0.2.1 | 2.2.1, 3.1.4 | Removed SVM & RVC, as these are not physical modules. The cameras are connected to MHU over LVDS. | 10.02.2020 | Rasul Nadaf  
+0.2.2 | 4 | Added BEV Clamp requirement as section 4. | 18.02.2020 | Rasul Nadaf  
+0.2.3 | 4.1.7.1 | Added BEV state diagram in section 4.1.7.1. | 16.03.2020 | Rasul Nadaf  
+0.2.4 | 3.1.9, 4.1.9, 3.1.7.1, 4.1.7.1 | Added updated diagram for ICE & BEV. Added updated table for connected component list. | 13.04.2020 | Rasul Nadaf  
+0.2.5 | All | Format sentences as per Obligation of Requirement Wording. Added section 5 for common specs for ICE & BEV. Updated diagrams for BEV sections. | 07.05.2020 | Rasul Nadaf  
+0.2.6 | 4.1.9, 3.1.9, 4.1.7.1 | Section 4.1.9: Deleted wakeup trigger event "Charging gun connected and Vehicle is in charging state [OBC/DCDC]" as vehicle shall be unlocked first to access the charging port. Renamed CL_15_C to CL.30c and updated all specifications for CL.30c. Updated figure 6 to make it readable. Updated table in section 3.1.9 and 4.1.9, component clamp list. Updated state machine diagram for BEV in section 4.1.7.1 with trigger event and transition condition from Driving to Driver present. | 24.07.2020 | Rasul Nadaf  
+0.2.7 | 3.3, 8.3, 3, 3.4 | Added section 3.3 for BMW-specific requirement of ICE vehicles. Updated the reference document table in section 8.3 to remove unreferenced docs. Updated all timing diagrams in section 3 to make them clearer and more readable. Requirements from section 3.2.7 Clamp 30B_EA_1 / Clamp 30B_EA_2 moved under section 3.4 as these are BMW scope requirements. Updated figure 37 to replace SESAM-related information with BCM and delete non-applicable info for VF32. Updated figure 7 and figure 42 to correct the clamp names in each state. Updated figure 41 to align ST_KL & STAT_Terminal. | 08.04.2021 | Rasul Nadaf  
+0.2.8 | - | Deleted clamp sections for ICE. Updated clamp diagram (figure 1). Deleted clamp states. Updated language to reflect the current design. | 11.05.2022 | S. Verma  
+0.2.9 | 3.5.1, All of 4, All of 5, All of 6 | Removed comfort timer. OTA state added with transitions. Updated clamp state machine diagram. Updated section 4 and added transition requirements. Updated section 5. Added section 6 for Transport Mode requirements. | 31.05.2022 | A. Wong  
+0.3.0 | 3.5.1 | Driver ideal timer changed from 10 minutes to 120 minutes. | 07.06.2022 | A. Wong  
+0.3.1 | 3.5.1, 4.1, 4.1.1, 4.2, 4.2.1, 4.2.2, 4.3, 4.3.1, 4.4.1 | t30s_delay and t30s_light_delay timers changed from 30 minutes to 2 minutes. Driver ideal timer changed back to 10 minutes, with an additional trigger of driver belt buckle and passengers' occupancy status. Lock and unlock with the mechanical key replaced with driver PE switch. Vehicle speed inconsistencies changed. HV heating and cooling removed from OFF state and added as a transition requirement for entering OFF. | 10.06.2022 | A. Wong
+</page>
+
+<page number="7">
+1 General Information.
+
+1.1 Language.  
+This specification is made only in English language version.  
+
+1.2 Change History.  
+
+**Table 1: Change History (summary)**  
+- Version 0.2.0 (12.12.2019, Rasul Nadaf): Draft version – PDF to Word document.  
+- Version 0.2.1 (10.02.2020, Rasul Nadaf): Removed SVM & RVC, as they are not physical modules. Cameras are connected to MHU over LVDS.  
+- Version 0.2.2 (18.02.2020, Rasul Nadaf): Added BEV Clamp requirement as section 4.  
+- Version 0.2.3 (16.03.2020, Rasul Nadaf): Added BEV state diagram in section 4.1.7.1.  
+- Version 0.2.4 (13.04.2020, Rasul Nadaf): Updated diagrams for ICE & BEV and added details for a connected component list.  
+- Version 0.2.5 (07.05.2020, Rasul Nadaf): Updated format, added section 5 for common specs for ICE & BEV, and updated BEV diagrams.  
+- Version 0.2.6 (24.07.2020, Rasul Nadaf): Renamed CL_15_C to CL.30c, readjusted wakeup trigger event, updated diagrams and component clamp lists.  
+- Version 0.2.7 (08.04.2021, Rasul Nadaf): Added section 3.3 for BMW-specific ICE vehicle requirements and updated timing diagrams for section 3.  
+
+**Additional later changes**  
+- Version 0.2.8 (11.05.2022, S. Verma): Deleted ICE clamp sections, updated clamp diagram.  
+- Version 0.2.9 (31.05.2022, A. Wong): Removed comfort timer, added OTA states and transport mode requirements.  
+- Version 0.3.0 (07.06.2022, A. Wong): Driver timeout changed to 120 minutes.  
+- Version 0.3.1 (10.06.2022, A. Wong): Driver timeout reverted to 10 minutes, trigger events adjusted for OFF to ACC transitions.  
+- Version 0.3.2 (21.07.2022, A. Wong): Removed MHU charging request from OFF transition and updated remote parking requirements.  
+- Version 0.3.3 (25.07.2022, A. Wong): ‘MHU_FOTA_STATE != FOTA FLASHING’ restriction added.  
+- Version 0.3.4 (16.08.2022, A. Wong): Updates for diagnostic signals and FOTA transitions.  
+- Version 0.3.5 (01.09.2022, A. Wong): Changes for remote parking and ADAS sensor integrations.
+
+1.3 Versioning.  
+To determine the actual status of the present specification, see the following table.
+</page>
+
+<page number="8">
+1 General Information.
+
+1.1 Language.  
+This specification is made only in English language version.  
+
+1.2 Change History.  
+
+**Version | Chapter | Brief Description | Date | Edited By**  
+0.2.0 | All | Draft version – PDF to word document | 12.12.2019 | Rasul Nadaf  
+0.2.1 | 2.2.1, 3.1.4 | Removed SVM & RVC, as these are not physical modules. The Cameras are connected to MHU over LVDS | 10.02.2020 | Rasul Nadaf  
+0.2.2 | 4 | Added BEV Clamp requirement as section 4 | 18.02.2020 | Rasul Nadaf  
+0.2.3 | 4.1.7.1 | Added BEV state Diagram in section 4.1.7.1 | 16.03.2020 | Rasul Nadaf  
+0.2.4 | 3.1.9, 4.1.9 | Added updated diagram for ICE & BEV. Added updated table for connected component list | 13.04.2020 | Rasul Nadaf  
+0.2.5 | All | Format sentences as per Obligation of Requirement Wording. Added section 5 for common specs for ICE & BEV. Updated Diagrams for BEV Sections | 07.05.2020 | Rasul Nadaf  
+0.2.6 | 4.1.9, 3.1.9, 4.1.7.1 | Section 4.1.9: Deleted wakeup trigger event “Charging gun connected and Vehicle is in charging state [OBC/DCDC]” as vehicle shall be unlocked first to access the charging port. Renamed CL_15_C to CL.30c and updated the all specifications for CL.30c. Updated figure 6 to make it readable. Updated Table in section 3.1.9 and 4.1.9, component clamp list. Update state machine diagram for BEV in section 4.1.7.1 with trigger event and transition condition from Driving to Driver present | 24.07.2020 | Rasul Nadaf  
+0.2.7 | 3.3, 8.3, 3, 3.4, 3.2.16.10 | Added section 3.3 for BMW specific requirement of ICE vehicle. Updated the reference document table in section 8.3 to remove unreferenced docs. Updated all timing diagrams in section 3 to make more clear and readable. Requirements from section 3.2.7 Clamp 30B_EA_1 / Clamp 30B_EA_2 moved under section 3.4 as these are BMW scope requirements. Update figure 37 to replace SESAM related information with BCM and delete not applicable info for VF32. Updated Figure 7 and Figure 42 to correct the Clamp names in each state. Updated Figure 41 to align ST_KL & STAT_Terminal | 08.04.2021 | Rasul Nadaf  
+**Table 1: Change History**  
+
+1.3 Versioning.  
+To determine the actual status of the present specification, see the following table:  
+
+**Table 2: Rules for Versioning**  
+
+Version | State | Gate/Milestone  
+- 0.1.0 - 0.49.9 | DRA "Draft" | FUP  
+- 0.50.0 - 0.99.9 | ICS "Inquiry Concept Specification" | ILF  
+- 1.0.0 - 1.99.9 | ISS "Inquiry Serial Specification" | AF  
+- 3.0.0 | FIN "Final" | TA  
+
+**Version Digit Description:**  
+- First Digit: Major Release (Milestone Release).  
+- Second Digit: Minor Release (Function Description change).  
+- Third Digit: No Functional content change (e.g. spelling correction).
+</page>
+
+<page number="9">
+2 Introduction.
+
+2.1 Scope of the Document.  
+The purpose of this document is to describe the functionality of clamps used in the vehicle - especially which ECU is power supplied with the different clamps and which clamp/signal will be managed by the different control units. Some ECUs are hardwired connected to specific terminal clamps, others require logical clamps/signals via CAN/LIN/Flex-Ray and the rest needs hardwired and logical clamp information. All ECUs are receiving the information about the clamp status via the CAN/LIN/Flex-Ray bus. So, the aim of the clamp concept is to define the functionality of all clamps used in the vehicle and to ensure that a failure at the bus or hardwired connection of the E/E network must not cause dangerous states.
+
+This clamp specification is specified for the VINFAST platform. The concept is designed for all different possible vehicle variants.  
+Clamps availability shall be determined by the actual vehicle state depending on whether the vehicle is asleep or awake. Some clamps have special timing parameters. The transition from one state to another depends on different input parameters.
+
+2.2 Terms and Definitions.  
+The following list of terms and definitions are used throughout this document with the given meaning.
+
+2.2.1 Abbreviations.  
+| Abbreviation | E/E Component Name          |
+|--------------|-----------------------------|
+| ACC          | Accessory                  |
+| BCM          | Body Control Module        |
+| CAN          | Controller Area Network    |
+| CL           | Clamp                      |
+| ECU          | Electronic Control Unit    |
+| Ext          | Exterior                   |
+| FOB          | Frequency Operated Button  |
+| HMI          | Human Machine Interface    |
+| HV           | High Voltage               |
+</page>
+
+<page number="10">
+2 Introduction
+
+2.1 Scope of the Document  
+The purpose of this document is to describe the functionality of clamps used in the vehicle - especially which ECU is power supplied with the different clamps and which clamp/signal will be managed by the different control units. Some ECUs are hardwired connected to specific terminal clamps, others require logical clamps/signals via CAN/LIN/Flex-Ray and the rest needs hardwired and logical clamp information. All ECUs are receiving the information about the clamp status via the CAN/LIN/Flex-Ray bus. So, the aim of the clamp concept is to define the functionality of all clamps used in the vehicle and to ensure that a failure at the bus or hardwired connection of the E/E network must not cause dangerous states.  
+This clamp specification is specified for the VINFAST platform. The concept is designed for all different possible vehicle variants.  
+Clamps availability shall be determined by the actual vehicle state depending on whether the vehicle is asleep or awake. Some clamps have special timing parameters. The transition from one state to another depends on different input parameters.  
+
+2.2 Terms and Definitions  
+The following list of terms and definitions are used throughout this document with the given meaning.  
+
+2.2.1 Abbreviations  
+**Abbreviation** | **E/E Component Name**
+---|---
+ACC | Accessory  
+BCM | Body Control Module  
+CAN | Controller Area Network  
+CL | Clamp  
+ECU | Electronic Control Unit  
+Ext | Exterior  
+FOB | Frequency Operated Button  
+HMI | Human Machine Interface  
+HV | High Voltage  
+HW | Hardware  
+Int | Interior  
+IPC | Instrument Panel Cluster  
+ISO | International Standardization Organization  
+LIN | Local Interconnect Network  
+LV | Low Voltage  
+MHU | Multimedia Head Unit  
+NM | Network Management  
+OTA | Over The Air  
+PWM | Pulse Width Modulation  
+RLS | Rain Light Sensor  
+Vbat | 12 volt battery  
+
+Table 3: List of Abbreviations  
+
+2.2.2 Definitions  
+
+2.2.2.1 Obligation of Requirement Wording  
+The following wording rules are used throughout this document:  
+- **Shall**  
+The word "shall" is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+- **Should**  
+The word "should" is used for preferences or desires in implementation that are not strictly binding.  
+- **May**  
+The word "may" is used to denote options that are left to the implementer.
+</page>
+
+<page number="11">
+3 System Description – BEV (Battery Electric Vehicle)
+
+3.1 General Description of Clamps, Conditions, and Events.
+
+A clamp is an electric terminal, which is used as a source to supply any kind of electric/electronic components of a vehicle. Depending on the state of the vehicle (e.g., idleness, moving), different loads need different clamps.
+
+The vehicle states dependent on vehicle speed are defined in the following table in order to retrieve a consistent meaning in all specifications:
+
+Table 4: Definition of vehicle states in dependence of vehicle speed:
+- Vehicle Stop:  v ≤ 3 km/h
+- Vehicle Moving: v > 3 km/h
+
+It has to be differentiated between hardware clamps and logical clamps.
+
+3.2 Hardwired Clamp.
+
+A hardwired clamp is a physical connection between Vbat and ECU and can be used as a power supply or as a signal input. 
+
+The source is either a direct connection to the battery or an indirect one via a switched relay or an electronic driver.
+
+It can be differentiated between two types of hardware clamps:
+- Permanent clamp.
+- Switched clamp.
+
+3.3 Permanent Clamp.
+
+The load is connected directly to the battery; this means the clamp is always ON, except when the battery is disconnected.
+</page>
+
+<page number="12">
+3 System Description – BEV (Battery Electric Vehicle)  
+3.1 General Description of Clamps, Conditions and Events.  
+A clamp is an electric terminal, which is used as a source to supply any kind of electric/electronic components of a vehicle. Depending on the state of the vehicle (e.g., idleness, moving), different loads need different clamps.  
+
+The vehicle states are dependent on vehicle speed and are defined in the following table to provide consistent meaning in all specifications:  
+
+| Vehicle State   | Limits | Unit   |  
+|-----------------|--------|--------|  
+| Vehicle Stop    | v ≤ 3  | km/h   |  
+| Vehicle Moving  | v > 3  | km/h   |  
+
+It is necessary to differentiate between hardware clamps and logical clamps.  
+
+3.2 Hardwired Clamp.  
+A hardwired clamp is a physical connection between Vbat and ECU and can be used as a power supply or signal input.  
+
+The source is either a direct connection to the battery or an indirect one via a switched relay or an electronic driver.  
+
+Types of hardware clamps:  
+- Permanent Clamp.  
+- Switched Clamp.  
+
+3.3 Permanent Clamp.  
+Permanent Clamp Definition: The load is connected directly to the battery, meaning the clamp is always ON, except when the battery is disconnected. Permanent clamps include:  
+- CL31 (Battery ground/negative terminal).  
+- CL30 (Vbat/positive terminal).  
+
+3.4 Switched Clamps.  
+Switched Clamp Definition: The load is connected to the source via relays, switches, or electronic drivers. Switched clamps shall be switched ON and OFF by the module holding the clamp logic.  
+
+Examples of Switched Clamps:  
+- CL30s (by BCM via relay).  
+- CL30s_light (by BCM via relay).  
+- CLR (by BCM via relay).  
+- CL15_1 (by BCM via relay).  
+- CL30_C (by BCM via relay).  
+
+3.5 Logical Clamps.  
+Logical Clamp Definition: A logical clamp is part of a CAN message, which includes information about the switched states of hardwired clamps as presented in a value table. A logical clamp uses the same name as the hardware clamp, appended with "_L."  
+
+The active clamp values are defined below as a 2-bit binary value table:  
+
+| Value | Comment       |  
+|-------|---------------|  
+| 0x00  | OFF           |  
+| 0x01  | ON            |  
+| 0x10  | Failure       |  
+| 0x11  | Signal Invalid |  
+
+Table 5: Example for logical clamps.
+
+The following messages and signals are used in the CAN Network to describe logical clamps.
+</page>
+
+<page number="13">
+**VinFast Management System Specification**  
+**VFDSXVEEP0014**  
+**Version: 0.3.5**  
+Uncontrolled copy when printed
+</page>
+
+<page number="13">
+of 27  
+Date: 01.09.2022  
+
+**3.5.1 Clamp Logic**
+
+**Timings**  
+The different timings that are used are defined in the following table:
+
+| Name             | Time       | Comment                                   |
+|------------------|------------|------------------------------------------|
+| t30s_delay       | Default 2 min | For details see BCM-specification [QD1] |
+| t30s_light_delay | Default 2 min | For details see BCM-specification [QD1] |
+
+**CAN Network: Conditions for Wake-up**  
+- The module holding the clamp logic will be permanently powered (CL30) and contains a CAN transceiver that supports wakeup from a low-power mode given an input on the CAN bus, complying with ISO 11898-2.  
+- The module holding the clamp logic will also support wakeup from a low-power mode upon detection of a local internal event or input.  
+- Upon a local internal wake-up event or input, the module holding the clamp logic shall enter the correct clamp state for that given wake-up event or input.  
+- The module holding the clamp logic shall begin CAN frame transmission, which consists of the following frames:  
+  - NM (Network Management) frames  
+  - Clamp state frames  
+  - Functional frames  
+
+**Table 6: Used Messages and Signals**  
+
+| Message             | Signal              | Transmitter |
+|---------------------|---------------------|-------------|
+| BCM_CLAMP_STAT      | STAT_CL_R_L         | BCM         |
+| BCM_CLAMP_STAT      | STAT_CL_15_1_L      | BCM         |
+| BCM_LOGICAL_CLAMP   | STAT_CL30s_L        | BCM         |
+| BCM_LOGICAL_CLAMP   | STAT_CL30s_Light_L  | BCM         |
+
+**Table 7: Used Messages for Summarized States**
+
+| Message        | Signal       | Transmitter |
+|----------------|--------------|-------------|
+| BCM_CLAMP_STAT | STAT_Terminal| BCM         |
+| BCM_Terminal   | ST_KL        | BCM         |
+
+VinFast Released.
+</page>
+
+<page number="14">
+3 System Description – BEV (Battery Electric Vehicle)
+
+3.1 General Description of Clamps, Conditions and Events
+
+A clamp is an electric terminal used as a source to supply electric/electronic components in a vehicle. Depending on the state of the vehicle (e.g., idleness or moving), different loads require different clamps.
+
+The vehicle states, dependent on vehicle speed, are defined in the following table to retrieve a consistent meaning in all specifications:
+
+| Vehicle State    | Limits    | Unit  |
+|-------------------|-----------|-------|
+| Vehicle Stop      | v ≤ 3     | km/h  |
+| Vehicle Moving    | v > 3     | km/h  |
+
+Table 4: Definition of vehicle states in dependence on vehicle speed.
+
+It is important to differentiate between hardware clamps and logical clamps.
+
+---
+
+3.2 Hardwired Clamp
+
+A hardwired clamp is a physical connection between Vbat and ECU. It can be used as a power supply or as a signal input.
+
+The source can be a direct connection to the battery or an indirect one via a switched relay or electronic driver.
+
+There are two types of hardware clamps:
+- Permanent clamp
+- Switched clamp
+
+---
+
+3.3 Permanent Clamp
+
+The load is directly connected to the battery, meaning the clamp is always ON, except when the battery is disconnected.
+
+Permanent clamps include:
+- CL31 (Battery ground/negative terminal)
+- CL30 (Vbat/positive terminal)
+
+---
+
+3.4 Switched Clamps
+
+The load is connected to the source via relays, switches, or electronic drivers. Switched clamps shall be switched ON and OFF by the module holding the clamp logic.
+
+Switched clamps consist of:
+- CL30s (by BCM via relay)
+- CL30s_light (by BCM via relay)
+- CLR (by BCM via relay)
+- CL15_1 (by BCM via relay)
+- CL30_C (by BCM via relay)
+
+---
+
+3.5 Logical Clamps
+
+A logical clamp is part of a CAN message, representing switched states of hardwired clamps as a value table. Logical clamps share names with their hardware counterparts and have "_L" appended to the end.
+
+The active clamp value is represented by a 2-bit binary value table:
+
+| Value  | Comment       |
+|--------|---------------|
+| 0x00   | OFF           |
+| 0x01   | ON            |
+| 0x10   | Failure       |
+| 0x11   | Signal Invalid|
+
+Table 5: Example for logical clamps.
+
+The following messages and signals are used within the CAN Network to describe logical clamps:
+
+| Message              | Signal              | Transmitter |
+|----------------------|---------------------|-------------|
+| BCM_CLAMP_STAT       | STAT_CL_R_L         | BCM         |
+| BCM_CLAMP_STAT       | STAT_CL_15_1_L      | BCM         |
+| BCM_LOGICAL_CLAMP    | STAT_CL30s_L        | BCM         |
+| BCM_LOGICAL_CLAMP    | STAT_CL30s_Light_L  | BCM         |
+
+Table 6: Used messages and signals.
+
+Summarized states are described in the following table:
+
+| Message        | Signal         | Transmitter |
+|----------------|----------------|-------------|
+| BCM_CLAMP_STAT | STAT_Terminal  | BCM         |
+| BCM_Terminal   | ST_KL          | BCM         |
+
+Table 7: Used messages for summarized states.
+
+---
+
+**CAN Network**  
+
+**Conditions for wake-up:**  
+- The module holding the clamp logic shall be permanently powered (CL30) and support wake-up from a low-power mode upon receiving input on the CAN bus (ISO 11898-2).  
+- It shall support wake-up from a local internal event/input.  
+- Upon wake-up, the module shall enter the correct clamp state and begin CAN frame transmissions, which include NM frames, clamp state frames, and functional frames.
+
+---
+
+3.5.1 Clamp Logic
+
+**Timings:**  
+The table below defines different timings used:
+
+| Name                | Time       | Comment                              |
+|---------------------|------------|--------------------------------------|
+| t30s_delay          | Default 2 min | For details see BCM-specification [QD1] |
+| t30s_light_delay    | Default 2 min | For details see BCM-specification [QD1] |
+
+Table 8: Time Definitions.
+
+Suppliers shall align and share local wake-up trigger events with VINFAST EE architecture team.
+
+---
+
+3.5.2 Clamp States
+
+Clamps described in section 5 of clamp logic shall activate or deactivate during defined periods, known as clamp states.
+
+It is differentiated between five states:
+- OFF
+- ACC
+- ON (Driver Present)
+- ON (eMotor Running)
+- OTA
+
+Transitions between these states shall follow defined requirements in section 4.
+
+Clamp states are summarized under the signal STAT_Terminal:
+
+| Message        | Signal         | Value | Description         |
+|----------------|----------------|-------|---------------------|
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x0   | OFF                 |
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x1   | ACC (Park)          |
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x2   | ON (Driver Present) |
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x3   | ON (eMotor Running) |
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x4   | SW Update OTA       |
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x5   | Reserved            |
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x6   | Reserved            |
+| BCM_CLAMP_STAT | STAT_Terminal  | 0x7   | Signal Invalid      |
+
+Table 9: BCM_CLAMP_STAT: STAT_Terminal.
+</page>
+
+<page number="15">
+4 State Descriptions and Transitions
+
+The clamp state transitions are diagrammatically represented in Figure 1. It illustrates the relationships and transitions between the following states:
+
+- **OFF**: Vehicle Sleep/Low Power Mode.
+- **ACC**: Accessory mode, activated through the ACC Ideal Timer.
+- **ON (Driver Present)**: Activated through the Driver Ideal Timer and associated with driver-related activity.
+- **ON (eMotor Running)**: Vehicle engine running state, coordinated through the transition logic with the clamp system.
+- **OTA**: Over-the-Air (software update) state.
+
+**State Transitions:**
+- **OFF_OTA** and **OTA_OFF**: Transition between OFF and OTA states.
+- **OFF_ACC** and **ACC_OFF**: Transition between OFF and ACC states.
+- **OFF_ODP** and **ACC_ODP**: Driver activation transitions between OFF, ACC, and ON (Driver Present).
+- **ODP_EMR** and **EMR_ODP**: Transition between ON (Driver Present) and ON (eMotor Running).
+- **ODP_OTA**: Transition between ON (Driver Present) and OTA.
+- **ODP_OFF**: Transition from ON (Driver Present) directly to OFF.
+
+**Timers Associated with Transitions:**
+- ACC Ideal Timer: Default 2 minutes.
+- Driver Ideal Timer: Default 10 minutes.
+
+**Figure 1**: The state machine illustrating clamp state and control transition relationships. It provides a visual representation of the flow between states based on specific conditions and timers.
+
+VinFast Released
+</page>
+
+<page number="16">
+### 4.1 OFF
+
+The OFF state is used when the customer is not in the vehicle. The vehicle either is secured or has not been used for a certain period of time.  
+- Customer not in the vehicle.  
+- Security functions available.  
+- Remote functions available.  
+- Exterior and interior lights available.  
+
+#### Clamps Active:
+- CL30s (for t30s_delay after BCM vehicle communications is inactive).  
+- CL30s_light (for t30s_light_delay after BCM vehicle communications is inactive).  
+
+Within the OFF state, bus communications can be either active (via internal or external communication wakeup) or inactive (via network management sleep). Refer to the CAN specification [QD2] for details.  
+
+Figure 2: Communications within the OFF State  
+- **CAN Communications Active:**  
+  - STAT_Terminal = OFF transmitted on the vehicle network.  
+- **CAN Communications Inactive:**  
+  - Vehicle sleep: ECU low power mode.  
+  - Network Management Sleep.  
+  - Internal/CAN message wakeup.  
+
+---
+
+### 4.1.1 Transition from OFF to ACC (OFF_ACC)
+
+To transition from OFF to ACC, one of the following scenarios must be met:  
+1. Vehicle alarm is disarmed ('STAT_ATWS == Unsecured') and one of the following wakeup events has occurred:
+</page>
+
+<page number="17">
+4.1 OFF.
+
+The OFF state is used when the customer is not in the vehicle. The vehicle either is secured or has not been used for a certain period of time.  
+
+- Customer not in the vehicle.  
+- Security functions available.  
+- Remote functions available.  
+- Exterior and interior lights available.  
+
+Clamps active:  
+
+- CL30s (for t30s_delay after BCM vehicle communications is inactive).  
+- CL30s_light (for t30s_light_delay after BCM vehicle communications is inactive).  
+
+Within the OFF state, bus communications can be active (via internal or external communication wakeup) or inactive (via network management sleep). Please refer to the CAN specification [QD2].  
+
+**Figure 2: Communications within OFF state**  
+This figure illustrates the interaction of CAN communications within the OFF state, emphasizing transitions including wakeup events and low-power modes.
+
+---
+
+4.1.1 Transition OFF to ACC (OFF_ACC).
+
+To transition from OFF to ACC, one of the following scenarios needs to be met:  
+
+1. Vehicle alarm is disarmed (‘STAT_ATWS == Unsecured’) and one of the following wake-up events has occurred:  
+   - Vehicle unlock request, performed with a remote key (FOB), driver PE switch, central unlock button, or via the mobile app.  
+   - Door handle PE button press on the driver door with valid FOB.  
+   - Trunk unlock request, performed with a FOB, trunk PE button press with valid FOB, or via the mobile app.  
+   - Brake pedal pressed (‘BCM_STAT_BrakeSwitch == Brake Pressed’).  
+   - Foot kick sensor request (‘FMS_OpenReq == Operation Request’).  
+
+2. LV battery charging request is active.  
+3. HV battery charging request is active (‘MHU_ChargingRequest == Start charging’ or ‘VCU_HVsystem_status == Charging’).  
+4. HV cooling or heating request is active (‘BMS_CoolPwrDemand > 0’ or ‘BMS_HeatPwrDemand > 0’).  
+
+---
+
+4.1.2 Transition OFF to OTA (OFF_OTA).
+
+To transition from OFF to OTA, the remote function signal shall equal to ‘OTA’ (‘TBOX_STAT_TerminalReq == OTA’) and TBOX authentication code must be valid.
+
+---
+
+4.1.3 Transition OFF to ON (Driver Present) (OFF_ODP).
+
+To transition from OFF to ON (Driver Present), the remote function signal shall equal to ‘ON (Driver Present)’ (‘TBOX_STAT_TerminalReq == ON (Driver Present)’) and TBOX authentication code must be valid.
+
+---
+
+4.2 ACC. 
+
+The ACC state is used when the customer has requested access to the vehicle.  
+
+- Functions that can be used when CL15 ignition is inactive and when the vehicle is stationary are available.  
+- HV charging is available.  
+
+Clamps active:  
+
+- CL30s.  
+- CL30s_light.  
+- CLR.
+</page>
+
+<page number="18">
+4.2.2 Transition ACC to ON (Driver Present) (ACC_ODP)
+
+To transition from ACC to ON (Driver Present), one of the following scenarios needs to be met:
+
+1. Customer is in the vehicle:
+   - Valid FOB detected (signal ‘FOB_detection == valid FOB’).
+   - Driver PE button press (signal ‘DriverPEPress == Button Pressed’).
+
+2. Key is turned:
+   - Driver ignition key turned from OFF to ACC.
+
+3. Brake pedal is pressed:
+   - Signal ‘BCM_STAT_BrakeSwitch == Brake Pressed’ is received.
+
+4. Door or trunk request:
+   - Driver door handle PE button pressed (signal ‘PE_press == Button Pressed’).
+   - Trunk PE button pressed (signal ‘TrunkPEPress == Button Pressed’).
+
+5. Customer mobile app request:
+   - Signal ‘TBOX_STAT_TerminalReq == ON’ is valid and authenticated.
+
+6. Gear position changed:
+   - Signal ‘VCU_ACTGear != P’.
+
+7. LV battery charging request is active:
+   - Charging initiation detected (‘LVChargingRequest == Start Charging’).
+
+8. HV battery charging, cooling, or heating:
+   - Signal ‘MHU_ChargingRequest == Start Charging’ or ‘VCU_HVsystem_status == Charging’.
+   - Heating or cooling signals detected (‘BMS_HeatPwrDemand > 0’, ‘BMS_CoolPwrDemand > 0’).
+
+4.2.3 Timer Expiry Reset or State Transition
+
+When the ACC Ideal Timer expires, one of the following actions shall occur:
+   - Timer resets if HV/LV charging, heating, or cooling are active.
+   - Transition to OFF if none of the above conditions are met.
+</page>
+
+<page number="19">
+4.1 OFF.
+
+The OFF state is used when the customer is not in the vehicle. The vehicle either is secured or has not been used for a certain period of time.
+- Customer not in the vehicle.
+- Security functions available.
+- Remote functions available.
+- Exterior and interior lights available.
+
+**Clamps active:**
+- CL30s (for t30s_delay after BCM vehicle communications is inactive).
+- CL30s_light (for t30s_light_delay after BCM vehicle communications is inactive).
+
+Within the OFF state, bus communications can be active (via internal or external communication wakeup) or inactive (via network management sleep). Please refer to the CAN specification [QD2].
+
+**Transition OFF to ACC (OFF_ACC):**
+To transition from OFF to ACC, one of the following scenarios needs to be met:
+1. Vehicle alarm is disarmed (‘STAT_ATWS == Unsecured’) and one of the following wake-up events has occurred:
+   - Vehicle unlock request. This can be done with a remote key (FOB), driver PE switch, central unlock button, or via mobile app.
+   - Door handle PE button press on the driver door with a valid FOB.
+   - Trunk unlock request. This can be done with a FOB, trunk PE button press (with valid FOB), or via mobile app.
+   - Brake pedal shall be pressed (‘BCM_STAT_BrakeSwitch == Brake Pressed’).
+   - Foot kick sensor request (‘FMS_OpenReq == Operation Request’).
+2. LV battery charging request is active.
+3. HV battery charging request is active (‘MHU_ChargingRequest == Start charging’ or ‘VCU_HVsystem_status == Charging’).
+4. HV cooling or heating request is active (‘BMS_CoolPwrDemand > 0’ and ‘BMS_HeatPwrDemand > 0’).
+
+**Transition OFF to OTA (OFF_OTA):**
+To transition from OFF to OTA, the remote function signal shall equal to ‘OTA’ (‘TBOX_STAT_TerminalReq == OTA’ and TBOX authentication code is valid).
+
+**Transition OFF to ON (Driver Present) (OFF_ODP):**
+To transition from OFF to ON (Driver Present), the remote function signal shall equal to ‘ON (Driver Present)’ (‘TBOX_STAT_TerminalReq == ON (Driver Present)’ and TBOX authentication code is valid).
+
+---
+
+4.2 ACC.
+
+The ACC state is used when the customer has requested access to the vehicle.
+- Functions that can be used when CL15 ignition is inactive and when the vehicle is stationary are available.
+- HV charging available.
+
+**Clamps active:**
+- CL30s
+- CL30s_light
+- CLR
+- CL30c (only when HV charging request is active)
+
+On entry into ACC, the ACC Ideal Timer shall initiate. On expiry of the timer, either one of the following shall happen:
+1. If HV or LV battery charging are active, the ACC Ideal Timer shall reset and start again. Vehicle shall still be in ACC.
+2. If HV cooling or heating are active, the ACC Ideal Timer shall reset and start again. Vehicle shall still be in ACC.
+3. If none of the above are active, on expiry of ACC Ideal Timer the transition ‘ACC to OFF’ shall initiate (provided the requirements are met – see section 4.2.1).
+
+**Transition ACC to OFF (ACC_OFF):**
+To transition from ACC to OFF, one of the following scenarios needs to be met:
+1. ACC Ideal Timer has expired:
+   - 2-minute ACC Ideal Timer has expired.
+   - Gear position is in ‘park’ (‘VCU_ACTGear == P’).
+   - Vehicle speed is less than or equal to 3km/h (‘VehicleSpd ≤ 3’).
+   - HV charging is not active (‘MHU_ChargingRequest != Start charging’ and ‘VCU_HVsystem_status != Charging’).
+   - LV battery charging request is not active.
+   - HV cooling or heating is not active (‘BMS_CoolPwrDemand = 0’ and ‘BMS_HeatPwrDemand = 0’).
+2. Vehicle Lock Request:
+   - Vehicle alarm is armed (‘STAT_ATWS == Secured’).
+   - Gear position is in ‘park’ (‘VCU_ACTGear == P’).
+   - Vehicle speed is less than or equal to 3km/h (‘VehicleSpd ≤ 3’).
+   - HV charging is not active (‘MHU_ChargingRequest != Start charging’ and ‘VCU_HVsystem_status != Charging’).
+   - LV battery charging request is not active.
+   - HV cooling or heating is not active (‘BMS_CoolPwrDemand = 0’ and ‘BMS_HeatPwrDemand = 0’).
+
+**Transition ACC to ON (Driver Present) (ACC_ODP):**
+To transition from ACC to ON (Driver Present), one of the following scenarios needs to be met:
+1. Customer is in the vehicle:
+   - Remote key (FOB) authentication has been validated.
+   - Brake pedal shall be pressed (‘BCM_STAT_BrakeSwitch == Brake Pressed’).
+   - Vehicle speed is less than or equal to 3km/h (‘VehicleSpd ≤ 3’).
+   - Gear position is in ‘park’ (‘VCU_ACTGear == P’).
+2. Remote function request / customer is not in the vehicle:
+   - Remote function request signal is set to ‘ON (Driver Present)’ (‘TBOX_STAT_TerminalReq == ON (Driver Present)’ and TBOX authentication code is valid).
+
+---
+
+4.3 ON (Driver Present).
+
+The ON (Driver Present) state is used when the customer is in the vehicle.
+- Functions that can be used when the vehicle is stationary are available.
+- Full driving readiness is not established.
+- HV charging is available.
+
+**Clamps active:**
+- CL30s
+- CL30s_light
+- CLR
+- CL30c
+- CL15
+
+On entry into ON (Driver Present), the Driver Ideal Timer shall initiate. On expiry of the timer, either one of the following shall happen:
+1. If ‘PET’, ‘CAMP’ or ‘REMOTE CONTROL’ mode is active, the Driver Ideal Timer shall reset and start again. Vehicle shall still be in ON (Driver Present).
+2. If the driver’s seat belt is buckled and/or passenger seats are occupied, the Driver Ideal Timer shall reset and start again. Vehicle shall still be in ON (Driver Present).
+3. If a FOTA campaign or remote diagnostics is ongoing, the Driver Ideal Timer shall reset and start again. Vehicle shall still be in ON (Driver Present).
+4. If none of the above are active, on expiry of Driver Ideal Timer the transition ‘ON (Driver Present) to OFF’ shall initiate (provided the requirements are met – see section 4.3.1).
+</page>
+
+<page number="20">
+4.3.1 Transition ON (Driver Present) to OFF (ODP_OFF).
+
+To transition from ON (Driver Present) to OFF, one of the following scenarios needs to be met:
+
+1. Driver Ideal Timer has expired:
+   - 10-minute Driver Ideal Timer has expired.
+   - Gear position is in ‘park’ (‘VCU_ACTGear == P’).
+   - Vehicle speed is less than or equal to 3km/h (‘VehicleSpd ≤ 3’).
+   - ‘PET’, ‘CAMP’, and ‘REMOTE CONTROL’ modes are disabled (‘MHU_SET_ClimateKeepOn == OFF’).
+   - Driver’s seat belt is not buckled (‘ACM_Seat_Belt_Status_Driver != Buckled’).
+   - All passenger seats shall not be occupied:
+     - (‘ACM_Seat_Occupancy_Passenger != Seat Occupied’),
+     - (‘ACM_Seat_Occupancy_2nd_Row_Dri != Seat Occupied’),
+     - (‘ACM_Seat_Occupancy_2nd_Row_Mid != Seat Occupied’),
+     - (‘ACM_Seat_Occupancy_2nd_Row_Pas != Seat Occupied’).
+   - FOTA campaign or remote diagnostics not in progress (‘MHU_FOTA_State != FOTA FLASHING’, ‘FOTA-SUSPENDED’, or ‘REMOTE DIAGNOSTICS’).
+
+2. Vehicle lock request active:
+   - This can be done with a remote key (FOB), driver PE switch, or via mobile app:
+     - Vehicle alarm is armed (‘STAT_ATWS == Secured’).
+     - Gear position is in ‘park’ (‘VCU_ACTGear == P’).
+     - Vehicle speed is less than or equal to 3km/h (‘VehicleSpd ≤ 3’).
+     - ‘PET’, ‘CAMP’, and ‘REMOTE CONTROL’ modes are disabled (‘MHU_SET_ClimateKeepOn == OFF’).
+     - Driver’s seat belt is not buckled (‘ACM_Seat_Belt_Status_Driver != Buckled’).
+     - All passenger seats shall not be occupied:
+       - (‘ACM_Seat_Occupancy_Passenger != Seat Occupied’),
+       - (‘ACM_Seat_Occupancy_2nd_Row_Dri != Seat Occupied’),
+       - (‘ACM_Seat_Occupancy_2nd_Row_Mid != Seat Occupied’),
+       - (‘ACM_Seat_Occupancy_2nd_Row_Pas != Seat Occupied’).
+     - FOTA campaign or remote diagnostics not in progress (‘MHU_FOTA_State != FOTA FLASHING’, ‘FOTA-SUSPENDED’, or ‘REMOTE DIAGNOSTICS’).
+
+4.3.2 Transition ON (Driver Present) to OTA (ODP_OTA).
+
+To transition from ON (Driver Present) to OTA, the remote function signal shall equal to ‘OTA’ (‘TBOX_STAT_TerminalReq == OTA’ and TBOX authentication code is valid).
+</page>
+
+<page number="21">
+4.3.3 Transition ON (Driver Present) to ON (eMotor Running) (ODP_EMR)
+
+To transition from ON (Driver Present) to ON (eMotor Running), one of the following scenarios needs to be met:
+
+1. Customer is in the vehicle:
+   - Remote key (FOB) authentication has been validated.
+   - Vehicle immobilizer has been released.
+   - Brake pedal shall be pressed (`BCM_STAT_BrakeSwitch == Brake Pressed`).
+   - Gear position is in ‘reverse’ or ‘drive’ (`VCU_ACTGear == R` or `D`).
+   - Charging gun is disconnected (`VCU_ChgGun_Status == Charging gun not plugged`).
+   - HV driving readiness is confirmed (`VCU_HVsystem_status == ReadyToDrive`).
+   - FOTA campaign not in progress (`MHU_FOTA_State != FOTA FLASHING` or `FOTA-SUSPENDED` or `FAIL_SAFE_ERROR`).
+
+2. Remote driving request is active:
+   - Remote function request signal is set to ‘ON (Driver Present)’ (`TBOX_STAT_TerminalReq == ON (Driver Present)` and TBOX authentication code is valid).
+   - Remote parking request is active (`ADAS_BCM_Status == Active`).
+   - Vehicle immobilizer has been released.
+   - Gear position is in ‘reverse’ or ‘drive’ (`VCU_ACTGear == R` or `D`).
+   - Charging gun is disconnected (`VCU_ChgGun_Status == Charging gun not plugged`).
+   - HV driving readiness is confirmed (`VCU_HVsystem_status == ReadyToDrive`).
+   - FOTA campaign not in progress (`MHU_FOTA_State != FOTA FLASHING` or `FOTA-SUSPENDED` or `FAIL_SAFE_ERROR`).
+
+4.4 ON (eMotor Running)
+
+The ON (eMotor Running) state is used when the vehicle is ready to drive.
+   - All vehicle functions available.
+   - Full driving readiness established.
+   - HV charging not available.
+
+Clamps active:
+   - CL30s
+   - CL30s_light
+</page>
+
+<page number="22">
+4.4.1 Transition ON (eMotor Running) to ON (Driver Present) (EMR_ODP).
+
+To transition from ON (eMotor Running) to ON (Driver Present):
+- Vehicle speed is less than or equal to 3km/h (‘VehicleSpd ≤ 3’).
+- Gear position is in ‘park’ (‘VCU_ACTGear == P’).
+- Remote driving request is inactive (‘ADAS_BCM_Status != Active’ or ‘Suspend’).
+
+4.5 OTA.
+
+The OTA state is used when there is a request for an OTA update.
+- All customer features disabled.
+- Vehicle communications active unless requested to disable via diagnostic routine.
+
+Clamps active:
+- CL30s
+- CL30s_light
+- CLR
+- CL30c
+- CL15
+
+4.5.1 Transition OTA to OFF (OTA_OFF).
+
+To transition from OTA to OFF, the OTA procedure resets all ECUs at the end of a campaign. Because of an ECU reset, the ‘STAT_Terminal’ initial value of 0x0 (OFF) shall be used.
+</page>
+
+<page number="23">
+4.3.3 Transition ON (Driver Present) to ON (eMotor Running) (ODP_EMR).
+
+To transition from ON (Driver Present) to ON (eMotor Running), one of the following scenarios needs to be met:
+1. Customer is in the vehicle:
+   - Remote key (FOB) authentication has been validated.
+   - Vehicle immobilizer has been released.
+   - Brake pedal shall be pressed (‘BCM_STAT_BrakeSwitch == Brake Pressed’).
+   - Gear position is in ‘reverse’ or ‘drive’ (‘VCU_ACTGear == R’ or ‘D’).
+   - Charging gun is disconnected (‘VCU_ChgGun_Status == Charging gun not plugged’).
+   - HV driving readiness is confirmed (‘VCU_HVsystem_status == ReadyToDrive’).
+   - FOTA campaign not in progress (‘MHU_FOTA_State != FOTA FLASHING’ or ‘FOTA-SUSPENDED’ or ‘FAIL_SAFE_ERROR’).
+
+2. Remote driving request is active:
+   - Remote function request signal is set to ‘ON (Driver Present)’ (‘TBOX_STAT_TerminalReq == ON (Driver Present)’ and TBOX authentication code is valid).
+   - Remote parking request is active (‘ADAS_BCM_Status == Active’).
+   - Vehicle immobilizer has been released.
+   - Gear position is in ‘reverse’ or ‘drive’ (‘VCU_ACTGear == R’ or ‘D’).
+   - Charging gun is disconnected (‘VCU_ChgGun_Status == Charging gun not plugged’).
+   - HV driving readiness is confirmed (‘VCU_HVsystem_status == ReadyToDrive’).
+   - FOTA campaign not in progress (‘MHU_FOTA_State != FOTA FLASHING’ or ‘FOTA-SUSPENDED’ or ‘FAIL_SAFE_ERROR’).
+
+4.4 ON (eMotor Running).
+
+The ON (eMotor Running) state is used when the vehicle is ready to drive.
+- All vehicle functions available.
+- Full driving readiness established.
+- HV charging not available.
+
+Clamps active:
+- CL30s
+- CL30s_light
+- CLR
+- CL30c
+- CL15.
+
+4.4.1 Transition ON (eMotor Running) to ON (Driver Present) (EMR_ODP).
+
+To transition from ON (eMotor Running) to ON (Driver Present):
+- Vehicle speed is less than or equal to 3km/h (‘VehicleSpd ≤ 3’).
+- Gear position is in ‘park’ (‘VCU_ACTGear == P’).
+- Remote driving request is inactive (‘ADAS_BCM_Status != Active’ or ‘Suspend’).
+
+4.5 OTA.
+
+The OTA state is used when there is a request for an OTA update.
+- All customer features disabled.
+- Vehicle communications active unless requested to disable via diagnostic routine.
+
+Clamps active:
+- CL30s
+- CL30s_light
+- CLR
+- CL30c
+- CL15.
+
+4.5.1 Transition OTA to OFF (OTA_OFF).
+
+To transition from OTA to OFF, the OTA procedure resets all ECUs at the end of a campaign. Because of an ECU reset, the ‘STAT_Terminal’ initial value of 0x0 (OFF) shall be used.
+
+Figure 3: States with transition trigger requirements.
+
+This figure depicts a state diagram showing different vehicle states and transition conditions. The states include ON (Driver Present), ON (eMotor Running), ACC, OFF, and OTA. The transitions are triggered by a combination of parameters such as driver input, authentication, gear position, speed, and remote function requests. Each path is labeled with its respective conditions for transitioning between states.
+</page>
+
+<page number="24">
+5 Detailed Clamp Description.
+
+5.1 Clamp 30s.  
+Clamp 30s (CL30s) is a switched clamp, controlled by a BCM relay.  
+- CL30s shall be activated when BCM bus communications are active.  
+- CL30s shall be deactivated when the BCM enters vehicle sleep (i.e. no bus communications) and timer t30s_delay expires (timer run by BCM application).  
+
+5.2 Clamp 30s_light.  
+Clamp 30s_light (CL30s_light) is a switched clamp, controlled by a BCM relay.  
+- CL30s_light shall be activated when BCM bus communications are active.  
+- CL30s_light shall be deactivated when the BCM enters vehicle sleep (i.e. no bus communications) and timer t30s_light_delay expires (timer run by BCM application).  
+- Signal ‘STAT_CL30s_light_L’ is its logical signal, controlled and transmitted by the BCM.  
+
+5.3 Clamp 30c.  
+Clamp 30c (CL30c) is a switched clamp, controlled by a BCM relay.  
+- CL30c shall always be activated in states ON (Driver Present), ON (eMotor Running) and OTA.  
+- CL30c can be activated in state ACC if HV charging is active. If vehicle is not charging, CL30c shall be deactivated.  
+- CL30c shall always be deactivated in state OFF.  
+- Signal ‘STAT_CL30_C_BEV’ is its logical signal, controlled and transmitted by the BCM.  
+
+5.4 Clamp R.  
+Clamp R (CLR) is a switched clamp, controlled by a BCM relay.  
+- CLR shall always be activated in states ACC, ON (Driver Present), ON (eMotor Running) and OTA.  
+- CLR shall always be deactivated in state OFF.  
+- Signal ‘STAT_CL_R_L’ is its logical signal, controlled and transmitted by the BCM.
+</page>
+
+<page number="25">
+5 Detailed Clamp Description.
+
+5.5 Clamp 15_1.
+
+Clamp 15_1 (CL15_1) is a switched clamp, controlled by a BCM relay.
+
+- CL15_1 shall always be activated in states ON (Driver Present), ON (eMotor Running), and OTA.
+- CL15_1 shall always be deactivated in states OFF and ACC.
+- Signal ‘STAT_CL_15_1_L’ is its logical signal, controlled and transmitted by the BCM.
+- CL15_1 is also used to set the value of signal ‘ST_KL’.
+</page>
+
+<page number="26">
+6 Transport Mode.
+
+Transport Mode is used to reduce the drain on the battery during vehicle transportation. If enabled, the Transport Mode requirements for clamp activation take precedence. Please refer to Transport Mode specification [QD4] for the requirements.
+
+The signal ‘BCM_Clamp_Terminal’ is used to enable and disable Transport Mode:
+
+| Value | Description               | Requirements                              |
+|-------|---------------------------|------------------------------------------|
+| 0x0   | Transport Disabled        | Follow clamp requirements in this document |
+| 0x1   | Transport E-Motor Running | Follow Transport Mode requirements [QD4] |
+| 0x2   | Transport Driver Present  | Follow Transport Mode requirements [QD4] |
+| 0x3   | Transport ACC             | Follow Transport Mode requirements [QD4] |
+| 0x4   | Transport OFF             | Follow Transport Mode requirements [QD4] |
+| 0x5   | Init                      | Follow clamp requirements in this document |
+| 0x6   | Reserved                  | Follow clamp requirements in this document |
+| 0x7   | Reserved                  | Follow clamp requirements in this document |
+
+Table 10: Requirements for each Transport Mode value.
+</page>
+
+<page number="27">
+7 Standards.
+
+7.1 Referenced Documents.
+Table 11 illustrates the referenced documents used for this standard:
+- Ref. No.: [QD1]. Name: Part 2 Body Control Module [BCM]. Version: Latest.
+- Ref. No.: [QD2]. Name: CES CAN Specification. Version: Latest.
+- Ref. No.: [QD3]. Name: System Schematics VINFAST. Version: Latest.
+- Ref. No.: [QD4]. Name: Transport Mode Function. Version: Latest.
+
+7.2 Norms and Standards.
+Table 12 lists the normative standards for this document:
+- Ref.No.: [Empty]. Name: [Empty].
+
+This standard incorporates provisions from other publications. These normative references are cited at the appropriate places in the text and the publications are listed hereafter. The respective latest edition of the publication is applicable.
+</page>
+</pages>

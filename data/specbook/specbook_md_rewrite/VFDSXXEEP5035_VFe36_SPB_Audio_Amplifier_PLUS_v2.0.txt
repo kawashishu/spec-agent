@@ -1,0 +1,2281 @@
+Page 1
+AUDIO AMPLIFIER PLUS SPEC BOOK.  
+Specification Book (SPB).  
+
+SPB-FSS.  
+Supersedes Edition (11.2022).
+Page 2
+Scope.
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop new vehicles: VF36 and VFe36, respectively. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production.
+
+Responsible Contact: Thomas Baumgartner <thomas.baumgartner@edag.com>.
+
+The reproduction, distribution and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model or design. Nothing in this standard supersedes applicable laws and regulations.
+
+**Figure Description:**
+The page includes an image of a blue and green automotive electronic component with detailed connectors visible. This component appears to serve as a part of the vehicle's audio amplifier system.
+Page 3
+Index
+
+Contents  
+SCOPE  
+
+1. GENERAL DOCUMENT GUIDELINES .............................................................. 7  
+
+   1.1 Purpose and Legal Binding. .................................................................................. 7  
+   1.2 Language .............................................................................................................. 7  
+   1.3 Obligation of Requirement Wording. .................................................................... 7  
+
+       1.3.1 Vehicle profile ............................................................................................... 7  
+       1.3.2 Sales Markets ............................................................................................. 7  
+
+2. GENERAL PROJECT GUIDELINES .................................................................. 8  
+
+   2.1 Development Scope Abstract ................................................................................ 8  
+   2.2 Initial Situation and Objective ............................................................................... 8  
+   2.3 Classification of the System / Component ............................................................ 8  
+   2.4 Execution Regulations ......................................................................................... 8  
+   2.5 Development and Supply Scope .......................................................................... 8  
+
+       2.5.1 Work Interface Chart (RASI). ...................................................................... 9  
+       2.5.2 Development Interface Agreement (DIA) .................................................. 11  
+
+   2.6 Quotation Scope .................................................................................................. 11  
+   2.7 Properties, Condition and Durability .................................................................... 11  
+   2.8 Development Process .......................................................................................... 11  
+
+       2.8.1 Gates and Milestones ............................................................................... 11  
+       2.8.2 Prototype Statuses .................................................................................... 12  
+       2.8.3 Prototype Quantities .................................................................................. 12  
+       2.8.4 Acceptance Procedure ............................................................................... 12  
+       2.8.5 Type Approval and Certification ............................................................... 12  
+
+   2.9 Quality and Reliability ......................................................................................... 13  
+
+       2.9.1 Quality Concepts ...................................................................................... 13  
+       2.9.2 Risk Management ..................................................................................... 13  
+       2.9.3 Validation of the SW Development ......................................................... 13  
+
+   2.10 Content Amendments .......................................................................................... 13  
+
+3. PROJECT MANAGEMENT AND ORGANIZATION ......................................... 13  
+
+   3.1 Responsibilities in the Project and Project Management Plan ............................ 13  
+   3.2 Documentation ..................................................................................................... 13  
+
+       3.2.1 Hardware Documentation ......................................................................... 14  
+       3.2.2 Software Documentation .......................................................................... 14  
+       3.2.3 Conformity Requirements ......................................................................... 14  
+
+   3.3 Content Amendments .......................................................................................... 14  
+
+4. SYSTEM ENVIRONMENT ................................................................................ 14  
+
+   4.1 Functional System Environment .......................................................................... 14  
+   4.2 Physical System Environment / Mechanical Interfaces ....................................... 14  
+   4.3 System Diagram ................................................................................................... 14  
+   4.4 Content Amendments .......................................................................................... 14  
+
+5. FUNCTIONAL AND TECHNICAL REQUIREMENTS ...................................... 15  
+
+   5.1 Technical Requirement ........................................................................................ 15  
+   5.2 Block and Principle Diagram ................................................................................ 15  
+
+       5.2.1 Elements of Systems ................................................................................ 15  
+       5.2.2 Functions ................................................................................................... 15
+Page 4
+## Index
+
+### Contents
+
+#### Scope
+1 GENERAL DOCUMENT GUIDELINES ............................................................................... 7
+1.1 Purpose and Legal Binding. ......................................................................................... 7  
+1.2 Language ..................................................................................................................... 7  
+1.3 Obligation of Requirement Wording ............................................................................. 7  
+     1.3.1 Vehicle profile .................................................................................................... 7  
+     1.3.2 Sales Markets ................................................................................................... 7  
+
+2 GENERAL PROJECT GUIDELINES .................................................................................. 8  
+2.1 Development Scope Abstract ........................................................................................ 8  
+2.2 Initial Situation and Objective ....................................................................................... 8  
+2.3 Classification of the System / Component .................................................................... 8  
+2.4 Execution Regulations ................................................................................................. 8  
+2.5 Development and Supply Scope .................................................................................. 8  
+     2.5.1 Work Interface Chart (RASI) ............................................................................. 9  
+     2.5.2 Development Interface Agreement (DIA) ....................................................... 11  
+2.6 Quotation Scope ......................................................................................................... 11  
+2.7 Properties, Condition and Durability ........................................................................... 11  
+2.8 Development Process ................................................................................................. 11  
+     2.8.1 Gates and Milestones ...................................................................................... 11  
+     2.8.2 Prototype Statuses ........................................................................................... 12  
+     2.8.3 Prototype Quantities ......................................................................................... 12  
+     2.8.4 Acceptance Procedure ..................................................................................... 12  
+     2.8.5 Type Approval and Certification ....................................................................... 12  
+2.9 Quality and Reliability ................................................................................................. 13  
+     2.9.1 Quality Concepts .............................................................................................. 13  
+     2.9.2 Risk Management ............................................................................................ 13  
+     2.9.3 Validation of the SW Development .................................................................. 13  
+2.10 Content Amendments ................................................................................................. 13  
+
+3 PROJECT MANAGEMENT AND ORGANIZATION ......................................................... 13  
+3.1 Responsibilities in the Project and Project Management Plan ................................... 13  
+3.2 Documentation ............................................................................................................ 13  
+     3.2.1 Hardware Documentation ............................................................................... 14  
+     3.2.2 Software Documentation .................................................................................. 14  
+     3.2.3 Conformity Requirements ................................................................................ 14  
+3.3 Content Amendments ................................................................................................. 14  
+
+4 SYSTEM ENVIRONMENT ................................................................................................. 14  
+4.1 Functional System Environment ................................................................................. 14  
+4.2 Physical System Environment / Mechanical Interfaces .............................................. 14  
+4.3 System Diagram ......................................................................................................... 14  
+4.4 Content Amendments ................................................................................................. 14  
+
+5 FUNCTIONAL AND TECHNICAL REQUIREMENTS ....................................................... 15  
+5.1 Technical Requirements ............................................................................................. 15  
+5.2 Block and Principle Diagram ...................................................................................... 15  
+     5.2.1 Elements of Systems ....................................................................................... 15  
+     5.2.2 Functions ......................................................................................................... 15  
+5.3 Overview Functions Description ................................................................................. 15  
+5.3.1 Detailed Functions Description ............................................................................ 15
+Page 5
+### **Index**
+
+#### **Contents**
+
+1. **Scope**  
+   1.1 Purpose and Legal Binding.  
+   1.2 Language.  
+   1.3 Obligation of Requirement Wording.  
+       - 1.3.1 Vehicle Profile.  
+       - 1.3.2 Sales Markets.  
+
+2. **General Project Guidelines**  
+   2.1 Development Scope Abstract.  
+   2.2 Initial Situation and Objective.  
+   2.3 Classification of the System/Component.  
+   2.4 Execution Regulations.  
+   2.5 Development and Supply Scope.  
+       - 2.5.1 Work Interface Chart (RASI).  
+       - 2.5.2 Development Interface Agreement (DIA).  
+   2.6 Quotation Scope.  
+   2.7 Properties, Condition, and Durability.  
+   2.8 Development Process.  
+       - 2.8.1 Gates and Milestones.  
+       - 2.8.2 Prototype Statuses.  
+       - 2.8.3 Prototype Quantities.  
+       - 2.8.4 Acceptance Procedure.  
+       - 2.8.5 Type Approval and Certification.  
+   2.9 Quality and Reliability.  
+       - 2.9.1 Quality Concepts.  
+       - 2.9.2 Risk Management.  
+       - 2.9.3 Validation of the SW Development.  
+   2.10 Content Amendments.  
+
+3. **Project Management and Organization**  
+   3.1 Responsibilities in the Project and Project Management Plan.  
+   3.2 Documentation.  
+       - 3.2.1 Hardware Documentation.  
+       - 3.2.2 Software Documentation.  
+       - 3.2.3 Conformity Requirements.  
+   3.3 Content Amendments.  
+
+4. **System Environment**  
+   4.1 Functional System Environment.  
+   4.2 Physical System Environment/Mechanical Interfaces.  
+   4.3 System Diagram.  
+   4.4 Content Amendments.  
+
+5. **Functional and Technical Requirements**  
+   5.1 Technical Requirement.  
+   5.2 Block and Principle Diagram.  
+       - 5.2.1 Elements of Systems.  
+   5.3 Functions.  
+       - 5.3.1 Overview Functions Description.  
+       - 5.3.2 Detailed Functions Description.  
+       - 5.3.3 Faulty Operation.  
+       - 5.3.4 Emergency Operation.  
+       - 5.3.5 Display and Operation Concept (HMI).  
+       - 5.3.6 Service and Application Functions.  
+       - 5.3.7 Diagnostics.  
+   5.4 E/E System Schematic.  
+   5.5 Control Unit Concept.  
+       - 5.5.1 Hardware.  
+       - 5.5.2 Software.  
+   5.6 Electrical Interfaces.  
+       - 5.6.1 Signal Characteristics.  
+       - 5.6.2 Diagnostics.  
+       - 5.6.3 Network Management.  
+       - 5.6.4 Flashing and Coding.  
+       - 5.6.5 Pin Assignment.  
+   5.7 Specific Characteristics.  
+   5.8 Safety Requirements.  
+       - 5.8.1 Vehicle Safety regarding Person and Passenger Protection.  
+       - 5.8.2 Vehicle Safety.  
+   5.9 Alternative and Future Variants.  
+   5.10 Mechanical Energy Management.  
+       - 5.10.1 Weight Targets.  
+       - 5.10.2 Fuel Consumption & Driving Performance.  
+   5.11 Installation.  
+       - 5.11.1 Installation Location.  
+       - 5.11.2 Assembly Concept and Requirement from Production.  
+       - 5.11.3 Geometry.  
+       - 5.11.4 Tolerances.  
+   5.12 Styling and Design.  
+   5.13 Ergonomics.  
+       - 5.13.1 Optical Characteristics and Surface Feel.  
+       - 5.13.2 Actuation Acoustics.  
+       - 5.13.3 Handling.  
+   5.14 Technical Material Requirements.  
+   5.15 Resistance to Media and Chemical Requirements.  
+       - 5.15.1 Contamination.  
+       - 5.15.2 Cleaning.  
+       - 5.15.3 Corrosion Protection.  
+       - 5.15.4 Tightness and Protection Classes.  
+   5.16 Environmental Compatibility.  
+       - 5.16.1 Material Selection.  
+       - 5.16.2 End of Life Treatment.  
+       - 5.16.3 Eco-Design.  
+       - 5.16.4 Lifecycle Analysis.  
+       - 5.16.5 Emissions & Toxicology.  
+   5.17 Mechanical Requirements.  
+       - 5.17.1 Load.  
+       - 5.17.2 Vibration Behavior.  
+       - 5.17.3 Stiffness and Cushioning Characteristics.  
+       - 5.17.4 Deformation.  
+       - 5.17.5 Pressure.  
+       - 5.17.6 NVH/Acoustic Performance.  
+   5.18 Durability and Lifetime.  
+   5.19 Electrical Requirements.  
+       - 5.19.1 Description of the Requirements.  
+       - 5.19.2 Power Consumption.  
+       - 5.19.3 Low Voltage Energy Management.  
+       - 5.19.4 High Voltage Energy Management.  
+       - 5.19.5 Electromagnetic Compatibility.  
+       - 5.19.6 Electrostatic Discharge.  
+   5.20 Climatic Requirements/Thermal Management.  
+       - 5.20.1 Thermal Management Requirements.  
+   5.21 Service Requirements.  
+   5.22 Transport Protection.  
+   5.23 Logistics Requirements.  
+   5.24 Quality Assurance Requirements.  
+   5.25 Content Amendments.  
+
+6. **Testing and Validation and DVP&R**  
+   6.1 Proof of Compliance.  
+       - 6.1.1 Testing Plan (DVP + FRS Plan).  
+       - 6.1.2 Package.  
+   6.2 Electrical Systems & Functions.  
+   6.3 Virtual Testing and Simulation.  
+   6.4 Vehicle Testing.  
+   6.5 Tests.  
+   6.6 Appearance Approval - Applicable for all Visible Parts.  
+
+7. **Functional Safety, Homologation, and Safety Regulations**  
+   7.1 Functional Safety Requirements.  
+   7.2 Deliverables for Functional Safety.  
+       - a) FUSA Deliverables Expected Before Nomination.  
+       - b) FUSA Deliverables Expected After Nomination.  
+   7.3 Homologation and Safety Regulation Requirements.  
+       - 7.3.1 North America.  
+       - 7.3.2 Europe.  
+
+8. **Definitions and List of Abbreviations**  
+   8.1 Definitions.  
+   8.2 Definitions and List of Abbreviations.  
+   8.3 List of Tables.  
+   8.4 List of Figures.  
+
+9. **Further Applicable Documents.**
+Page 6
+Release.
+
+Version: 2.0.  
+Date: November-2022.  
+
+Version:
+- 1.0: First edition. Signature: Baumgartner. Date: 08/2021.  
+- 1.1: Adaption from VF(e)35 to VF(e)36 requirements. Signature: Zeberle. Date: 11/2021.  
+- 1.2: Adjustment of technical datas. Signature: Zeberle. Date: 11/2021.  
+- 1.3: Minor updates (enable function, materials). Signature: Baumgartner. Date: 12/2021.  
+- 1.4: Function Updates regarding ADAS requirements. Signature: Baumgartner. Date: 01/2022.  
+- 1.5: CAN updates + minor updates/improvements. Signature: Baumgartner. Date: 02/2022.  
+- 2.0: CAN Updates + Additional technical or functional descriptions + Update Specbook number. Signature: Reineboth. Date: 12/2022.
+Page 7
+1 General Document Guidelines.
+
+1.1 Purpose and Legal Binding.
+This version is legally binding. This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other. All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2 → level 2 is applicable).
+
+1.2 Language.
+This document is written in English. All official project documentations have to be done in English. If documents are bilingual, the English text is binding.
+
+1.3 Obligation of Requirement Wording.
+The following wording rules are used throughout this document.
+
+- **Shall:** The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.
+- **Should:** The word “should” is used for preferences or desires in implementation that are not strictly binding.
+- **May:** The word “may” is used to denote options that are left to the implementer.
+
+1.3.1 Vehicle Profile.
+See Appendix_Feature list:  
+VFDSXXCVC***  
+BEV_Appendix_5_Features list.
+
+PALS:  
+VFDSXVCVC***  
+VF36_VFe36 PALS Product Attribute Leadership Strategy.
+
+1.3.2 Sales Markets.
+LHD countries: VN (Vietnam), NA: North America (US: United States, CA: Canada), EU (Europe).
+Page 8
+1 General Document Guidelines  
+
+1.1 Purpose and Legal Binding.  
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other. All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2 → level 2 is applicable).
+
+1.2 Language  
+This document is written in English.  
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.
+
+1.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document.  
+
+- **Shall**  
+  The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.
+
+- **Should**  
+  The word “should” is used for preferences or desires in implementation that are not strictly binding.
+
+- **May**  
+  The word “may” is used to denote options that are left to the implementer.
+
+1.3.1 Vehicle Profile.  
+See Appendix_Feature list,  
+VFDSXXCVC*** BEV_Appendix_5_Features list  
+
+**PALS**  
+VFDSXVCVC*** VF36_VFe36 PALS Product Attribute Leadership Strategy  
+
+1.3.2 Sales Markets  
+LHD countries: VN (Vietnam), NA: North America (US: United States, CA: Canada), EU (Europe).
+
+---
+
+Production Volume  
+Refer to Purchasing Request for Quotation.  
+Refer to Appendix:  
+VFDSXXCVC*** Appendix_1_Product_Volume  
+
+---
+
+2 General Project Guidelines  
+
+2.1 Development Scope Abstract  
+This technical specification is a written summary of requirements to be taken into account in the development of the external amplifier.  
+The requirements described in this technical specification relate primarily to functional characteristics.  
+The contractor ensures that the development of the components respects all applied standards, characteristics, and project requirements.  
+Any possible cost savings as a result of improvements in design, production, or validation details have to be reported immediately.  
+The contractor is a "System Development Supplier," with complete responsibility for the supplied system within the system boundaries.
+
+2.2 Initial Situation and Objective  
+The system is planned for use in various vehicle models, for various country-specific packages, and for various combinations of optional equipment. Adaptation of system functions to a given vehicle shall be accomplished by modular component population of the necessary modules and coding via the diagnostics interface.  
+The design of the amplifier shall avoid noise generation like squeak and rattle as well as noise generation due to the moving parts. Furthermore, the electronics shall be designed to work without a fan or external cooling under the required temperature conditions.
+
+2.3 Classification of the System / Component  
+- Amplifier, electronic appliance.
+
+2.4 Execution Regulations  
+- International general electronic standard.
+
+2.5 Development and Supply Scope  
+The supplier status is "System Development Supplier," which means that the supplier has complete responsibility for the supplied system within the system boundaries.
+Page 9
+This responsibility includes the following: 
+- Define, develop, 3D-design all parts within the system.  
+- Create release drawings.  
+- Ensure the function of the system.  
+- Perform any required simulations or calculations on system level.  
+- Validate the system according to the technical targets and tests stated in this specification.  
+- System timing (in terms of project management, development, and industrialization).  
+
+The agreed work-share is documented in the section “Work Interface Chart.”  
+
+### 2.5.1 Work Interface Chart (RASI).
+Work Interface Chart (RASI).  
+The main supplier obligations are described in the work interface chart (RASI).  
+The status of the supplier (“Built to Print” or “System Development Supplier”) is defined below System/Component Specification.  
+
+RASI is defined as follows:  
+**R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+**A: Approval**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+
+**S: Support**  
+Obligated to active support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+**I: Information**  
+Right to information. This team member is entitled to demand information from R.  
+
+### Details Deliverables and RASI
+
+| No | Gate | Stage             | Deliverable                                                   | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|-------------------|--------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1  | PV   | CONCEPT PHASE     | List of Concept in Commodity                                 | R              | S             | I        | I   | I             |
+| 2  | PV   |                   | SOR for Concept in Commodity                                | R              | S             | I        | I   | I             |
+| 3  | PPS  |                   | SOB through LOI - Letter of Intent for Concept in Commodity | S              | R             | S        | I   | I             |
+| 4  | PPS  |                   | EDD order release for Concept in Commodity                  | S              | R             | S        | I   | I             |
+| 5  | PPS  |                   | Deliver Bill of Materials in Team center                    | R              | I             | I        | I   | I             |
+| 6  | PPS  |                   | Supply chain strategy - Deliver Sourcing Strategy           | S              | R             | I        | S   | I             |
+| 7  | PPS  |                   | Commodity Timing plan in each business area supports Program timing for concept commodity | S | S | R | S | I |
+
+VinFast Released.
+Page 10
+8 PPS  
+Organization and resources for the concept phase, resource planning for series development.  
+Responsible: Supplier (R), Support: VF Engineering (S), SQE (S), Information: Manufacturing (I).
+
+9 PPS  
+Opportunities and risks for the program have been detailed and measures defined, including cost reductions, design optimization, and timing optimization.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: Manufacturing (I).
+
+10 PPS  
+Quality planning to meet program requirements, with APQP kickoff.  
+Responsible: VF Engineering (R), Support: SQE (S), VF Purchasing (S), Information: Manufacturing (I).
+
+11 PPS  
+Concept proposal for engineering review and finalization for concept commodity.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+12 PPS  
+Concept and proposal development to meet the target material cost.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+13 PPS  
+Parts list and Bill of Materials (BoM) available; target values for lead vehicle cost and weight verified (C Class).  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+14 PPS  
+Initial CAD data to support C Class development for concept commodity.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+15 PPS  
+System and subsystem functional targets agreed and cascaded to component level, in line with complete vehicle targets.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+16 PPS  
+DVP (virtual and physical testing) for system, subsystem, and component level in line with complete vehicle specification book in the concept phase. Includes a detailed test plan for hardware tests.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+17 TA  
+Package study to support B Class surface development.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+18 PPS  
+Manufacturing feasibility for CAS development for concept commodity.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+19 PPS  
+Design and validation & testing plan for concept commodity.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+20 TA  
+Parts list and BoM available; target values for lead vehicle cost and weight verified (B Class).  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+21 TA  
+Parts list and BoM available; target values for lead vehicle cost and weight verified (A Class).  
+Approval: VF Engineering (A), Responsible: Supplier (R), Information: VF Purchasing (I), SQE (I), Manufacturing (I).
+
+22 TA  
+Contract series development - LON for concept commodity / B2P commodity.  
+Approval: VF Engineering (A), Responsible: VF Purchasing (R), Support: Supplier (S), Information: SQE (I), Manufacturing (I).
+
+23 TA  
+Timing plan for the complete program detailing milestones and critical activities for B2P commodity.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+24 TA  
+Organization and resources for the concept phase, resource planning for series development.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+25 TA  
+RPS / location and fixation strategy developed and reviewed (before B Class freeze).  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+26 TA  
+DMU study for system level and subsystem level.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+27 TA  
+Functional CAE analysis.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+28 TA  
+EE - Component Data Sheet (CDS) inputs.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+29 TA  
+Manufacturing feasibility for built-to-print commodities.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+30 TA  
+Stamping / mold flow analysis for concept commodity.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+31 TA  
+DFMEA for concept commodity / SC/CC and key characteristics controls.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+32 TA  
+DTS - Fit and finish document confirming gap and finish strategy for system and subsystem level.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+33 TA  
+3D design for B car class surface to be completed.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+34 TA  
+3D CAD and 2D drawing submission to VinFast Engineering for P&I release.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+35 TA  
+Tool order release for long lead parts, including P release for tool design and I release for tool hardware, PR release for tool machining.  
+Responsible: VF Purchasing (R), Support: SQE (S), Supplier (S), Information: Manufacturing (I).
+
+36 TA  
+CAD release for P&I for long lead tooling kick-off.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+37 TA  
+3D design to be finalized before A Class (one week before TA).  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+38 TA  
+Feasibility confirmation to support A Class surface development.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+39 TA  
+Development strategy for each attribute confirmed and available for the serial development phase.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+40 TA  
+System, subsystem, and component-level DVP for the serial development phase has been created and agreed.  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+
+41 TA  
+Define tooling concept / injection points.  
+Responsible: Supplier (R), Support: SQE (S), VF Engineering (S), Information: VF Purchasing (I), Manufacturing (I).
+
+42 TA  
+Feasibility / manufacturing study and confirmation for parts.  
+Responsible: Supplier (R), Support: SQE (S), VF Engineering (S), Information: VF Purchasing (I), Manufacturing (I).
+
+43 TA  
+Technical and styling convergence (by PR).  
+Approval: VF Engineering (A), Responsible: Supplier (R), Support: SQE (S), Information: VF Purchasing (I), Manufacturing (I).
+Page 11
+**VinFast Management System**  
+VFDSXXEEP5035  
+Version: 1.5  
+Uncontrolled copy when printed  
+
+---
+
+**2.5.2 Development Interface Agreement (DIA)**  
+Development Interface Agreement (DIA): Not applicable.  
+
+**2.6 Quotation Scope**  
+Quotation Scope: Not applicable.  
+
+---
+
+**2.7 Properties, Condition and Durability**  
+Properties, Condition and Durability: Not applicable.  
+
+---
+
+**2.8 Development Process**  
+
+**2.8.1 Gates and Milestones**  
+
+**2.8.1.1 Gates**  
+Refer to appendix:  
+VFDSXVCVC***  
+VF36_VFe36_Material production Launch Schedule-Build plan_MRD  
+
+**2.8.1.2 Milestones**  
+Refer to appendix:  
+VFDSXVCVC***  
+VF36_VFe36_Material production Launch Schedule-Build plan_MRD  
+
+**2.8.1.3 Reviews**  
+Reviews: Not applicable.
+Page 12
+# VinFast Management System  
+Version: 1.5  
+Uncontrolled copy when printed  
+
+---
+
+## 2.8.2 Prototype Statuses  
+
+**A-Sample (Engineering Sample):**  
+The main purpose is to showcase basic communication and some base functionality that is already implemented. It could be either a development board or a design intent housing.  
+
+**B-Sample (DV-Sample):**  
+All functionality shall already be implemented. All required environmental and EMC tests shall also be completed.  
+
+**C-Sample (PV-Sample):**  
+This is a 100% production intent part with all functionality and all design validation tasks completed.  
+
+**D-Sample (PPAP-Sample):**  
+Used to deliver the parts for PPAP (Series parts).  
+
+---
+
+## 2.8.3 Prototype Quantities  
+
+Not applicable.  
+
+---
+
+## 2.8.4 Acceptance Procedure  
+
+Not applicable.  
+
+---
+
+## 2.8.5 Type Approval and Certification  
+
+General homologation requirements are defined in Part 1 of the component specification book. Below are examples of relevant legal requirements for separate technical units, parts, and systems:
+
+| **Item Description**               | **REG No.** | **REG Name**                     |
+|------------------------------------|-------------|-----------------------------------|
+| Electromagnetic compatibility      | UN-R 10_05  | Electromagnetic compatibility    |
+| Interior Fittings                  | UN-R 21_01  | Interior Fittings                |
+
+For regulations regarding Environmental Compatibility, refer to Part 1 of the specification book.
+Page 13
+2.9 Quality and Reliability.
+
+2.9.1 Quality Concepts.
+Not applicable.
+
+2.9.2 Risk Management.
+The supplier shall notify the VinFast Product Release Engineer in writing of any potential technical matters, such as problems, accidents, latest information, project changes, etc., which may lead to increased costs, delays in project nodes and plans, and delays in delivery dates. The supplier written notice should include a specific repair plan and a risk assessment and description of the overall project schedule.
+
+2.9.3 Validation of the SW Development.
+The supplier shall regularly report to VinFast the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design validation. If there are inconsistencies with the specified specification requirements, the supplier should work with VinFast to solve the problem. Suppliers also need to provide VinFast with competent on-site service personnel to support VinFast in resolving problems associated with supplier parts in vehicle assembly during vehicle start-up phase.
+
+2.10 Content Amendments.
+The supplier shall notify the VinFast Product Release Engineer in writing of any potential technical matters, such as problems, accidents, latest information, project changes, etc., which may lead to increased costs, delays in project nodes and plans, and delays in delivery dates. The supplier written notice should include a specific repair plan and a risk assessment and description of the overall project schedule.
+
+3 Project Management and Organization.
+
+3.1 Responsibilities in the Project and Project Management Plan.
+
+| Contact            | Name              | Email                     | Contact number     |
+|--------------------|-------------------|---------------------------|--------------------|
+| Commodity Buyer    | Bùi Thị Hường     | v.HuongBT25@vinfast.vn    |                    |
+| SQE Manager        | Eric Tao          | v.erict@vinfast.vn        |                    |
+| Chief Engineer     | Thanh C. Tran     | v.ThanhTC6@vinfast.vn     | +84 968 777 520    |
+| Deputy Chief Engineer | Ethan Le      | v.ethanl@vinfast.vn       | +84 812 280 424    |
+| Component Owner    | Marcus Reineboth  | Marcus.Reineboth@edag.com |                    |
+
+3.2 Documentation.
+Not applicable.
+Page 14
+### VinFast Management System
+
+#### VFDSXXEEP5035  
+
+**Version:** 1.5  
+**Uncontrolled copy when printed**  
+**Page:** 14 | 51  
+
+---
+
+### 3.2.1 Hardware Documentation
+1. 2D and 3D data drawings.  
+2. Report of banned substances.  
+3. If designed by VinFast, the supplier shall provide PFMEA for the product. If the supplier designs, both PFMEA and DFMEA shall be provided.  
+4. Bill of Materials (BOM) of parts.  
+5. Provide DV/PV type test reports in accordance with the technical requirements for product development.  
+
+---
+
+### 3.2.2 Software Documentation
+1. Software unit test reports.  
+2. Software integration test reports.  
+3. Software system test reports.  
+
+---
+
+### 3.2.3 Conformity Requirements
+Please refer to **chapter 2.10 of spec book "SPB_ VFDSP00000001_GEN_ General_Project_Requirements_for_Suppliers.docx"** for details on homologation input regarding conformity requirements.  
+
+---
+
+### 3.3 Content Amendments
+**Not applicable.**
+
+---
+
+### 4 System Environment
+
+#### 4.1 Functional System Environment.
+- Harness  
+- MHU  
+- Speaker  
+- Installation conditions  
+
+---
+
+#### 4.2 Physical System Environment / Mechanical Interfaces.
+- Automobile sheet metal  
+- Interior decoration  
+- Harness  
+
+---
+
+#### 4.3 System Diagram.
+**Not applicable.**
+
+---
+
+#### 4.4 Content Amendments
+
+| No | Part Name             | Part No       | Qty | Material    | Purchase Level | VFe36 ECO | VFe36 PLUS |
+|----|-----------------------|---------------|-----|-------------|----------------|-----------|------------|
+| 1  | AUDIO_AMPLIFIER_PLUS | EEP80005041   | 1   | NON UNIFORM | P              | X         | X          |  
+|    |                       |               |     |             |                | X         | X          |  
+|    |                       |               |     |             |                | X         | X          |
+
+---
+
+**VinFast Released**
+Page 15
+### 5 Functional and Technical Requirements  
+
+#### 5.1 Technical requirement  
+The technical information should show the following details:  
+- Block and Principle Diagram.  
+- Elements of Systems.  
+
+---
+
+#### 5.2 Block and Principle Diagram.  
+
+**5.2.1 Elements of Systems**  
+- Radiator, die casting, passivation.  
+- Mounting bracket, SECC.  
+- Bottom cover plate, die casting, passivation treatment.  
+
+---
+
+#### 5.3 Functions  
+
+##### 5.3.1 Overview Functions Description  
+The audio amplifier receives the four-way pre-output signal from the multimedia head unit and provides power output signals through the internal DSP processing AMP to the connected speakers. Various input factors, such as vehicle speed, play mode, and enable mode, are required for processing the sound signal.  
+
+---
+
+##### 5.3.2 Detailed Functions Description  
+
+**5.3.2.1 Functions description**  
+- **Audio playback:** The audio amplifier receives a 4-channel (CH) output analog signal from the multimedia head unit. The amplifier shall support 16 channels.  
+- The amplifier shall include support functions such as ON/OFF/MUTE, various sound zone tunings, volume control, and diagnostics.  
+
+**5.3.2.2 Sound Reproduction**  
+The sound system shall be designed to provide good sound performance using an external amplifier.  
+
+- **Input:**  
+  Audio inputs receive analog signals from multimedia head unit audio outputs.
+Page 16
+5 Functional and Technical Requirements
+
+5.1 Technical requirement.  
+The technical information should show the information below.  
+
+5.2 Block and Principle Diagram.  
+
+5.2.1 Elements of Systems.  
+
+Radiator, die casting, passivation.  
+Mounting bracket, SECC.  
+Bottom cover plate, die casting, passivation treatment.  
+
+5.3 Functions.  
+
+5.3.1 Overview Functions Description.  
+The audio amplifier receives the four-way pre-output signal of the multimedia head unit and provides power output signal through the internal DSP processing AMP to the connected speakers. Some input factors such as vehicle speed, play mode, or enable mode are needed when processing the sound signal.  
+
+5.3.2 Detailed Functions Description.  
+
+5.3.2.1 Functions description.  
+- Audio playback: The audio amplifier receives a 4 CH output analog signal from the multimedia head unit. The amplifier shall support 16 channels.   
+- The amplifier should have support functions including ON/OFF/MUTE, different tunings for sound zones, volume control, and diagnostics.  
+
+5.3.2.2 Sound Reproduction.  
+The sound system shall be designed to provide good sound performance by using an external amplifier.  
+
+Input:  
+- Audio inputs receive analog signals from MHU audio outputs:  
+  - Front left (+/-).  
+  - Front right (+/-).  
+  - Rear left (+/-) = ANN1  Sink for telephone, ring, navigation, further sounds (prompts).  
+  - Rear right (+/-) = ANN2  Sink for ADAS sounds (without sound tuning but with the possibility to (un-)mute specific speaker channels).  
+
+Output:  
+- Woofer RL & RR (+/-).  
+- Woofer FL & FR (+/-).  
+- Tweeter RL & RR (+/-).  
+- Tweeter FL & FR (+/-).  
+- Midrange FL & FR (+/-).  
+- Midrange SL & SR (+/-).  
+- Midrange Center (+/-).  
+- Subwoofer 1 & 2 (+/-).  
+
+Speaker Support.  
+- The amplifier shall support 2 Ohm and 4 Ohm speakers.  
+
+5.3.2.3 Enable function.  
+MHU controls the amplifier through high/low voltage.  
+
+| Voltage      | System Status   |  
+|--------------|-----------------|  
+| High: 6 - 18 V | On             |  
+| Low: 0 - 4 V   | Off/Standby    |  
+
+5.3.2.4 Mute function.  
+MHU will send the CAN signal to the amplifier to control MUTE/UNMUTE states.  
+
+| System mute/demute state | Mute/Demute on CAN from MHU | System mute/demute transfer |  
+|--------------------------|----------------------------|-----------------------------|  
+| POWER on mute           | DEMUTE                   | DEMUTE                     |  
+| Normal working on demute | MUTE                     | MUTE                       |  
+| Power off/Standby        | MUTE                     | MUTE                       |  
+
+Refer to 5.3.2.19 Can messages.  
+
+5.3.2.5 Volume control.  
+The amplifier will receive the media volume value via CAN from MHU and increase/decrease the corresponding dB value. Other sound volume settings will be controlled from MHU and output to one of the following two analog audio channels:  
+- ANN_1 (MHU_connection: RL+/-): Ringtone, in-call, navigation, voice assistant, system prompts.  
+- ANN_2 (MHU_connection: RR +/-): ADAS.
+Page 17
+5 Functional and Technical Requirements
+
+5.3.2.5 Volume Control  
+The amplifier will receive the media volume value via CAN from MHU and increase/decrease the corresponding dB value. Other sound volume settings will be controlled from MHU and output to one of the following two analog audio channels:  
+- ANN_1 (MHU_connection: RL+/-): ringtone, In-call, Navigation, Voice assistant, system prompts.  
+- ANN_2 (MHU_connection: RR +/-): ADAS.  
+
+The announcement volume control is done by MHU directly via voltage output. No CAN-Messages are needed in that case.
+
+Below is the volume media table information:  
+The table provides specific volume numbers mapped to decibel levels, which can be modified for sound tuning purposes.
+
+5.3.2.6 Loudness & Negative Loudness Functionality  
+The amplifier shall implement a loudness function and volume-based EQs. These filters can be set during sound tuning depending on the set media volume. The diagram illustrates the gain adjustments with low-shelf, high-shelf, and parametric EQ stages across various media volume levels. At least 10 independent volume stages with filters are specified.
+Page 18
+5 Functional and Technical Requirements  
+
+5.3.2.7 Adjust media volume by vehicle speed.  
+The volume shall be adjusted automatically according to the speed signal. When the speed increases, the noise in the car will get higher, but the passenger shall hear the music clearly. The amplifier will adjust the volume gain automatically. If necessary, the speed steps can be individually adjusted by tuner.  
+
+Amplifier received the vehicle speed signal via INFO_CAN.  
+
+| Speed (km/hr) | Gain comp. (dB) (*) | LPF (Freq = 120, Q = 0.7) Gain (**) |  
+|---------------|---------------------|------------------------------------|  
+| 0             | 0                   | 0                                  |  
+| 30            | 1                   | 0                                  |  
+| 50            | 2                   | 1                                  |  
+| 80            | 3                   | 1                                  |  
+| 100           | 4                   | 2                                  |  
+| 120           | 5                   | 2                                  |  
+| 140           | 6                   | 3                                  |  
+| 160           | 7                   | 3                                  |  
+| 180           | 8                   | 4                                  |  
+| 220           | 9                   | 5                                  |  
+
+(*) This gain applied for all speaker channels.  
+(**) This gain applied for SUB, FLW, FRW, RLW, RRW.  
+
+If there is no interpolation between the speed steps, at least 15 steps are needed to avoid audible volume "jumps."  
+All these values can be modified when performing sound tuning.  
+
+Refer to 5.3.2.19 Can messages.  
+
+---
+
+5.3.2.8 Sound position.  
+The user can adjust the position of the sound source individually (from left to right [balance] and from front to rear [fader]). Only certain speakers are addressed at a certain volume level.  
+The amplifier receives the sound position via CAN from MHU.  
+
+Refer to 5.3.2.19 Can messages.  
+
+---
+
+**Sound Position Diagram**:  
+- Shows the adjustable positions where the sound can move (left to right and front to rear).  
+- Includes labels for balance and fade controls with numerical adjustments (-10 to +10).
+Page 19
+## Tone Control
+
+The amplifier receives the tone control value via CAN from MHU. Each tone has the following specifications:
+
+| Tone     | Filter Type   | Frequency (Hz) | Q-value | Gain Scale (dB) |
+|----------|---------------|----------------|---------|-----------------|
+| Bass     | Low-Shelf     | 100            | 0.7     | -6 to +6        |
+| Midpitch | Peaking EQ    | 1000           | 1.0     | -6 to +6        |
+| Treble   | High-Shelf    | 5000           | 0.7     | -6 to +6        |
+
+- There are 13 steps from -6 to 6, where each step increases or decreases by 1 dB.
+- Gain values are controlled via CAN signals from MHU.
+- Default gain value is 0.
+- All tone bands are independent of one another.
+
+All these values can be adjusted during sound tuning.
+
+Refer to section 5.3.2.19 for CAN messages.
+
+---
+
+## Equalizer
+
+The Equalizer has predefined modes: Flat/Normal, Pop, Rock, Jazz, Classic, Vocal, and Custom. Each mode includes the following band specifications:
+
+| Band    | Frequency (Hz) | Q-value | Gain Scale (dB) |
+|---------|----------------|---------|-----------------|
+| EQ_60Hz | 60             | 0.75    | -6 to +6        |
+| EQ_250Hz| 250            | 0.75    | -6 to +6        |
+| EQ_1kHz | 1000           | 0.75    | -6 to +6        |
+| EQ_4kHz | 4000           | 0.75    | -6 to +6        |
+| EQ_16kHz| 16000          | 0.75    | -6 to +6        |
+
+- There are 13 steps from -6 to 6, where each step increases or decreases by 1 dB.
+- Gain values are controlled via CAN signals from MHU.
+- Default gain value is 0.
+- All bands are independent of each other.
+
+All these values can be adjusted during sound tuning.
+
+Refer to section 5.3.2.19 for CAN messages.
+Page 20
+5.3.2.11 Sound zone.  
+The user can choose between three settings in the sound menu of the HMI: All, Front, and Rear. These settings enable the user to adjust the sound output of the sound system.  
+The amplifier receives the sound zone value via CAN from MHU.  
+
+Refer to 5.3.2.19. Can messages.
+
+5.3.2.12 Thermal protection.  
+The amplifier shall include a thermal protection function. Overheating of the amplifier causes it to shut down automatically. After cooling, the amplifier will resume normal functionality. A defined characteristic curve for this function shall be agreed upon between the customer and supplier.  
+- If the temperature exceeds 130°C, the power IC will reduce the output. If the temperature remains over 130°C, the power IC will shut down automatically.  
+
+Please refer to CES_VINFAST_EE_VFDSP50000008_Thermal_Management_V10.0 and CTS_VINFAST_EE_VFDSP50000009_Thermal_Management_V1.0.0 documents.  
+1. Upon a short circuit in one or more loads, the external power amplifier will automatically protect itself. After resolving the short circuit, the amplifier will restore normal operation.  
+2. If one or more loads are partially short-circuited, the external power amplifier will protect itself and immediately restore normal operation upon resolving the short-circuited state.  
+3. If one or more loads are open, the external power amplifier can withstand the situation without damage.  
+4. When overheating occurs, the power amplifier will automatically enter protection mode.  
+
+5.3.2.13 Voltage over / lower protection.  
+The lower voltage threshold of the power supply voltage is 6V. If the voltage drops below 6V, the amplifier shall enter standby mode.  
+The over-voltage threshold is 16V. If the power supply voltage exceeds 16V, the amplifier shall mute itself. If the voltage exceeds 20.5V, the amplifier shall enter standby mode.  
+
+| Voltage | System state |  
+|---------|--------------|  
+| 0-4V    | Standby      |  
+| 6-16V   | Normal       |  
+| 16-20V  | Mute         |  
+| >20.5V  | Standby      |  
+
+5.3.2.14 Technical parameter.  
+| Parameters                  | Value                  |  
+|-----------------------------|------------------------|  
+| Dimension                  | ~ 260mm x 110mm x 60mm |  
+| Nominal supply voltage     | 14.4V                 |  
+| Operating voltage range    | 6V - 16V              |  
+| Power supply voltage filters | L-C Filter            |  
+| Normal operating current   | <17A                  |  
+| Max Peak Current           | 34A                   |
+Page 21
+### 5.3.2.15 Environmental Classification
+
+**Parameters and Conditions:**
+- **Operating Voltage:** 6-16V (supports Start/Stop function)
+- **Working Temperature:** -40℃~85℃
+- **Dust-proof:** IP 5K2 (protection against interior injurious dust deposits)
+- **Storage temperature:** -40℃~90℃
+- **Operating humidity:** 0-98% RH
+
+### 5.3.2.16 Sound Tuning Solution
+
+#### 5.3.2.16.1 Sound Tuning Type
+There are four analog output channels from MHU with the following structure:
+- **FL, FR channel:** Outputs the audio media sound.
+- **RL +/- channel:** Outputs the announcement sounds (Pin 8, 16 in CDS Amplifier).
+- **RR +/- channel:** Outputs the ADAS sound (Pin 4, 12 in CDS Amplifier).
+
+The external amplifier supports two types of sound tuning:
+1. **Entertainment tuning for audio sound:**
+   - Optimized to enhance media and music playback quality.
+
+2. **ADAS tuning for safety sounds:**
+   - Tailored to process active sounds for Advanced Driver Assistance Systems (ADAS).
+Page 22
+5.3.2.16 Sound tuning solution.
+
+5.3.2.16.1 Sound tuning type.
+
+- The amplifier needs to be able to store 3 different sound tunings for Entertainment corresponding with CAN signal value of Sound zone function received from MHU.
+
+- Announcement tuning for Navigation and Telephone sound:
+  - Navigation and Telephone should be tuned separately.
+  - The amplifier needs to be able to store 2 different announcement tunings. These sound tunings will be independent of each other.
+
+5.3.2.16.2 Speaker management.
+
+- Entertainment sound will go through all speaker channels.
+- Announcement sound will go through all speaker channels except Subwoofer and Surround channels.
+
+5.3.2.16.3 Sound tuning tool.
+
+Providing the PC sound tuning tool that can be connected to the amplifier to help the Tuner perform sound tuning.
+
+The sound tuning tool will follow the below requirements:
+- Language of the Tuning Tool: English.
+- Possible Filters: PEQ, HPF, LPF, AP360, HighShelf, LowShelf.
+- Fully configurable Filters: Type, Frequency, Q-Factor, and Gain can be set for each filter.
+- Different sets can be loaded and saved via Tuning Tool (A/B listening): Front, All, Rear, ANN_1, ANN_2.
+- Loudness.
+- Vehicle Noise Compensation.
+- Limiter.
+- Diagnostics via CAN.
+- Sound Settings, Tone Control, Balance/Fader, MUTE, Vehicle_speed, Equalizer, and Sound zone via CAN.
+
+In addition, a clear GUI should be created for user-friendliness.
+Page 23
+5.3.2.16.1 Sound tuning type.  
+The amplifier needs to be able to store three different sound tunings for entertainment corresponding with the CAN signal value of the sound zone function received from MHU.  
+
+Announcement tuning for navigation and telephone sound:  
+- Navigation and telephone should be tuned separately.  
+- The amplifier needs to be able to store two different announcement tunings. These sound tunings will be independent of each other.  
+
+5.3.2.16.2 Speaker management.  
+Entertainment sound will go through all speaker channels.  
+Announcement sound will go through all speaker channels except subwoofer and surround channels.  
+
+5.3.2.16.3 Sound tuning tool.  
+Providing the PC sound tuning tool which can be connected to the amplifier to help the tuner perform sound tuning.  
+
+The sound tuning tool will follow the below requirements:  
+- Language of the tuning tool: English.  
+- Possible filters: PEQ, HPF, LPF, AP360, HighShelf, LowShelf.  
+- Fully configurable filters: Type, frequency, Q-factor, and gain can be set for each filter.  
+- Different sets can be loaded and saved via tuning tool (A/B listening): Front, All, Rear, ANN_1, ANN_2.  
+- Loudness.  
+- Vehicle noise compensation.  
+- Limiter.  
+- Diagnostics via CAN.  
+- Sound settings, tone control, balance/fader, mute, vehicle_speed, equalizer, and sound zone via CAN.  
+
+In addition, a clear GUI should be created for user-friendliness.  
+
+5.3.2.17 Power Mode Management.  
+Working current: 100mA.  
+Current off-status: ＜0.5mA.  
+Current on-status: ≥ 1000mA.  
+
+Grounding requirement:  
+a) Amplifier housing grounding.  
+b) Connector PIN 14, PIN 15 are power supply.  
+c) Connector PIN 17, PIN 18 are power ground.
+Page 24
+d) Connector PIN 6, PIN 11, PIN 14 are audio signal shield ground.
+
+### 5.3.2.18 Controlled Clamps
+Power supplied for Amplifier by Cl.30s.
+
+### 5.3.2.19 Relevant CAN messages (DBC v9.2)
+
+| Signal Name          | Description                                | Message Name | Comment(s)                                                 |
+|----------------------|--------------------------------------------|--------------|-----------------------------------------------------------|
+| MHU_SET_MediaMute    | 0 - Invalid                               | MHU_AmpSET   | (un-)muting the amplifier                                  |
+|                      | 1 - Mute                                  |              |                                                           |
+|                      | 2 - Unmute                                |              |                                                           |
+|                      | 3 - Reserved                              |              |                                                           |
+| MHU_SET_Mediavolume  | 0                                         | MHU_AmpSET   | Volume Steps 0-40. Loudness will work based on this       |
+|                      | 1                                         |              |                                                           |
+|                      | …                                         |              |                                                           |
+|                      | 40                                        |              |                                                           |
+|                      | FF - Invalid                              |              |                                                           |
+| MHU_SET_Soundzone    | 0 - Invalid                               | MHU_AmpSET   | Listening Zone for Entertainment                          |
+|                      | 1 - Front                                 |              |                                                           |
+|                      | 2 - Rear                                  |              |                                                           |
+|                      | 3 - ALL                                   |              |                                                           |
+| MHU_SET_Balance      | Accuracy   -     1                        | MHU_AmpSET   | The customer can set the focus from left to right         |
+|                      | Range High -   20                         |              |                                                           |
+|                      | Range Low  -    0                         |              |                                                           |
+|                      | Conversion  -  (D)-10                     |              |                                                           |
+|                      | Unit            -  /                      |              |                                                           |
+|                      | Signal Age   -  /                         |              |                                                           |
+|                      | Invalid        - 1F                       |              |                                                           |
+| MHU_SET_Fader        | Accuracy   -     1                        | MHU_AmpSET   | The customer can set the focus from front to rear         |
+|                      | Range High -   20                         |              |                                                           |
+|                      | Range Low  -    0                         |              |                                                           |
+|                      | Conversion  -  (D)-10                     |              |                                                           |
+|                      | Unit            -  /                      |              |                                                           |
+|                      | Signal Age   -  /                         |              |                                                           |
+|                      | Invalid        - 1F                       |              |                                                           |
+| MHU_SET_Bass         | Accuracy     -  1                         | MHU_AmpSET   | The customer can adjust the bass volume                  |
+|                      | Range High  - 12                          |              |                                                           |
+|                      | Range Low   - 0                           |              |                                                           |
+|                      | Conversion  - (D)-6                       |              |                                                           |
+|                      | Unit            - /                       |              |                                                           |
+|                      | Signal Age   - /                          |              |                                                           |
+|                      | Invalid        - 1F                       |              |                                                           |
+| MHU_SET_MidPitch     | Accuracy     -  1                         | MHU_AmpSET   | The customer can adjust the mid volume                   |
+|                      | Range High  - 12                          |              |                                                           |
+|                      | Range Low   - 0                           |              |                                                           |
+|                      | Conversion  - (D)-6                       |              |                                                           |
+|                      | Unit            - /                       |              |                                                           |
+|                      | Signal Age   - /                          |              |                                                           |
+|                      | Invalid        - 1F                       |              |                                                           |
+Page 25
+### 5.3.2.19 Relevant CAN messages
+#### MHU_SET_Treble
+- **Accuracy**: 1  
+- **Range High**: 12  
+- **Range Low**: 0  
+- **Conversion**: (D)-6  
+- **Unit**: /  
+- **Signal Age**: /  
+- **Invalid**: 1F  
+- **Message Name**: MHU_AmpSET  
+- **Comment**: The customer can adjust the treble volume.
+
+#### MHU_SET_EQType
+- **Values**:  
+  - Flat: 0  
+  - Pop: 1  
+  - Rock: 2  
+  - Jazz: 3  
+  - Classic: 4  
+  - Vocal: 5  
+  - Custom: 6  
+  - Invalid: F  
+- **Message Name**: MHU_AmpEQType  
+- **Comment**: The customer can choose a specific EQ-Setting or set custom filters.
+
+#### MHU_SET_EQ_60HZ
+- **Accuracy**: 1  
+- **Range High**: 12  
+- **Range Low**: 0  
+- **Conversion**: (D)-6  
+- **Unit**: /  
+- **Signal Age**: /  
+- **Invalid**: 1F  
+- **Message Name**: MHU_AmpEQType  
+- **Comment**: Gain value of the set 60 Hz Filter from -6 dB up to +6 dB.
+
+#### MHU_SET_EQ_250HZ
+- **Accuracy**: 1  
+- **Range High**: 12  
+- **Range Low**: 0  
+- **Conversion**: (D)-6  
+- **Unit**: /  
+- **Signal Age**: /  
+- **Invalid**: 1F  
+- **Message Name**: MHU_AmpEQType  
+- **Comment**: Gain value of the set 250 Hz Filter from -6 dB up to +6 dB.
+
+#### MHU_SET_EQ_1000HZ
+- **Accuracy**: 1  
+- **Range High**: 12  
+- **Range Low**: 0  
+- **Conversion**: (D)-6  
+- **Unit**: /  
+- **Signal Age**: /  
+- **Invalid**: 1F  
+- **Message Name**: MHU_AmpEQType  
+- **Comment**: Gain value of the set 1000 Hz Filter from -6 dB up to +6 dB.
+
+#### MHU_SET_EQ_4000HZ
+- **Accuracy**: 1  
+- **Range High**: 12  
+- **Range Low**: 0  
+- **Conversion**: (D)-6  
+- **Unit**: /  
+- **Signal Age**: /  
+- **Invalid**: 1F  
+- **Message Name**: MHU_AmpEQType  
+- **Comment**: Gain value of the set 4000 Hz Filter from -6 dB up to +6 dB.
+
+#### MHU_SET_EQ_16000HZ
+- **Accuracy**: 1  
+- **Range High**: 12  
+- **Range Low**: 0  
+- **Conversion**: (D)-6  
+- **Unit**: /  
+- **Signal Age**: /  
+- **Invalid**: 1F  
+- **Message Name**: MHU_AmpEQType  
+- **Comment**: Gain value of the set 16000 Hz Filter from -6 dB up to +6 dB.
+
+#### MHU_SET_ANN1_MODE
+- **Values**:  
+  - 0: Invalid  
+  - 1: Navigation  
+  - 2: Telephone  
+  - 3: Prompts  
+- **Message Name**: MHU_AMP_Ann1_ModeSET  
+- **Comment**: Loading the correct Announcement Tuning.
+Page 26
+5.3.2.19 Relevant CAN messages.
+
+MHU_SET_ANN1_PROMPTS_SPEAKER:
+- Options:
+  - 0 - Invalid
+  - 1 - Select FL_FR
+  - 2 - Select CEN
+  - 3 - Select FL_FR_CEN
+  - 4 - Select RL_RR
+  - 5 - Select All
+  - 6 - Reserved  
+- Message Name: MHU_AMP_Ann1_PromptsSET  
+- Comment: If MHU selects "3 - Prompts," no Announcement Tuning is loaded. MHU can select specific channels. FL in this case means: FLW+FLM+FLT.
+
+MHU_SET_ANN2_FL_Mute:
+- Options:
+  - 0 - Invalid  
+  - 1 - Mute ANN2 Front Left  
+  - 2 - Unmute ANN2 Front Left  
+- Message Name: MHU_AMP_Ann2_SpeakerSET  
+- Comment: MHU selects FL channel for ADAS Sound.  
+
+MHU_SET_ANN2_FR_Mute:
+- Options:
+  - 0 - Invalid  
+  - 1 - Mute ANN2 Front Right  
+  - 2 - Unmute ANN2 Front Right  
+- Message Name: MHU_AMP_Ann2_SpeakerSET  
+- Comment: MHU selects FR channel for ADAS Sound.  
+
+MHU_SET_ANN2_RL_Mute:
+- Options:
+  - 0 - Invalid  
+  - 1 - Mute ANN2 Rear Left  
+  - 2 - Unmute ANN2 Rear Left  
+- Message Name: MHU_AMP_Ann2_SpeakerSET  
+- Comment: MHU selects RL channel for ADAS Sound.  
+
+MHU_SET_ANN2_RR_Mute:
+- Options:
+  - 0 - Invalid  
+  - 1 - Mute ANN2 Rear Right  
+  - 2 - Unmute ANN2 Rear Right  
+- Message Name: MHU_AMP_Ann2_SpeakerSET  
+- Comment: MHU selects RR channel for ADAS Sound.  
+
+MHU_SET_ANN2_CEN_Mute:
+- Options:
+  - 0 - Invalid  
+  - 1 - Mute ANN2 Center  
+  - 2 - Unmute ANN2 Center  
+- Message Name: MHU_AMP_Ann2_SpeakerSET  
+- Comment: MHU selects CEN channel for ADAS Sound.  
+
+All these messages sent from MHU to the AMP shall also be sent the other way around for easier debugging.  
+The vehicle speed value is globally available for all ECUs.  
+The whole signal set and further details, like message IDs (hex-values), cycle times, etc., can be found in the DBC file.
+
+5.3.3 Faulty Operation.
+Not applicable.
+
+5.3.4 Emergency Operation.
+Not applicable.
+
+5.3.5 Display and Operation concept (HMI).
+Not applicable.
+
+5.3.6 Service and Application Functions.
+Not applicable.
+
+5.3.7 Diagnostics.
+Diagnostics are managed by UDS.
+Page 27
+5.3.7.1 Fault code sending mechanism.  
+The fault is detected every 100ms. If the fault is detected for two consecutive times, the fault is considered valid. Open load detection only wakes up once after the amplifier wake-up.
+
+### Failure maturity condition:
+No. | Faulty Type               | Failure maturity condition
+--- | ------------------------- | -------------------------------------------------
+1   | Open circuit              | Amplifier output load impedance >75Ω 
+2   | Short circuit             | Amplifier output load impedance <0.5Ω 
+3   | Short circuit to ground   | Amplifier output DC voltage <1.2V 
+4   | Short circuit to power    | Amplifier output DC voltage >Vs-1.2V 
+5   | Offset voltage unnormal   | Amplifier output DC voltage >±2V 
+6   | AMP1 Thermal protection   | Amplifier IC temperature >130℃  
+
+5.3.7.2 Fault recovery mechanism.  
+
+### Failure relief condition:
+No. | Faulty Type               | Failure maturity condition
+--- | ------------------------- | -------------------------------------------------
+1   | Open circuit              | Amplifier output load impedance <75Ω 
+2   | Short circuit             | Amplifier output load impedance >0.5Ω 
+3   | Short circuit to ground   | Amplifier output DC voltage >1.2V 
+4   | Short circuit to power    | Amplifier output DC voltage <Vs-1.2V 
+5   | Offset voltage unnormal   | Amplifier output DC voltage <±2V 
+6   | AMP1 Thermal protection   | Amplifier IC temperature <105℃  
+
+5.4 E/E System Schematic.  
+The external amplifier is used in the PLUS variant with 14 speakers.
+Page 28
+5.3.7.1 Fault code sending mechanism.  
+The fault is detected every 100ms. If the fault is detected for two consecutive times, the fault is considered valid. Open load detection is performed only once after the amplifier wake up.
+
+### Failure maturity condition:
+1. **Open circuit:** 75Ω Amplifier output load impedance >75Ω.  
+2. **Short circuit:** 0.5Ω Amplifier output load impedance <0.5Ω.  
+3. **Short circuit to ground:** 1.2V Amplifier output DC voltage <1.2V.  
+4. **Short circuit to power supply:** Vs-1.2V Amplifier output DC voltage >Vs-1.2V.  
+5. **Offset voltage unnormal:** ±2V Amplifier output DC voltage >±2V.  
+6. **AMP1 Thermal Protection:** Amplifier IC temperature >130°C.  
+
+5.3.7.2 Fault recovery mechanism.  
+### Failure relief condition:
+1. **Open circuit:** 75Ω Amplifier output load impedance <75Ω.  
+2. **Short circuit:** 0.5Ω Amplifier output load impedance >0.5Ω.  
+3. **Short circuit to ground:** 1.2V Amplifier output DC voltage >1.2V.  
+4. **Short circuit to power supply:** Vs-1.2V Amplifier output DC voltage <Vs-1.2V.  
+5. **Offset voltage unnormal:** ±2V Amplifier output DC voltage <±2V.  
+6. **AMP1 Thermal Protection:** Amplifier IC temperature <105°C.  
+
+5.4 E/E System Schematic.  
+External amplifier used in PLUS variant with 14 speakers.
+
+---
+
+5.5 Control Unit Concept.
+(This section is empty.)
+Page 29
+### 5.5.1 Hardware
+
+#### 5.5.1.1 Speaker Output Channel Information
+There are 15 speaker output channels listed below:
+
+**Output Channels**
+- **CH1:** 25W @ 4Ω, Woofer FL  
+- **CH2:** 25W @ 4Ω, Woofer FR  
+- **CH3:** 25W @ 4Ω, Woofer RL  
+- **CH4:** 25W @ 4Ω, Woofer RR  
+- **CH5:** 20W @ 4Ω, Midrange FL  
+- **CH6:** 20W @ 4Ω, Midrange FR  
+- **CH7:** 20W @ 4Ω, Midrange Center  
+- **CH8:** 20W @ 4Ω, Midrange SL  
+- **CH9:** 20W @ 4Ω, Midrange SR  
+- **CH10:** 20W @ 4Ω, Tweeter FL  
+- **CH11:** 20W @ 4Ω, Tweeter FR  
+- **CH12:** 20W @ 4Ω, Tweeter RL  
+- **CH13:** 20W @ 4Ω, Tweeter RR  
+- **CH14:** 50W @ 4Ω, Subwoofer 1  
+- **CH15:** 50W @ 4Ω, Subwoofer 2  
+- **CH16:** Not connected  
+
+**Inputs**
+- CL 30  
+- CL 31  
+- ENT_L  
+- ENT_R  
+- ANN_1  
+- ANN_2  
+- AMP_enable  
+- CAN_H & CAN_L
+Page 30
+### 5.5.1.2 Main components
+
+**Device** | **Type** | **Supplier** | **Automotive** | **Remarks**  
+---|---|---|---|---  
+**MCU** | CY7B275CA DQ0AZSGS | Infineon | Yes | Dual Core, 32-bit Arm Cortex-M4F CPU and 32-bit Arm Cortex-M0+ CPU. CPU Frequency: 160MHz, 1088+96K FLASH,128K RAM.  
+**DSP** | ADAU1452 | ADI | Yes | Sigma DSP, 32bit pointed DSP, 300MIPS, LFCSP-72 capsulation, operating temperature -40°C~105°C.  
+**Codec** | AD1938 | ADI | Yes | 4 ADC/8 DAC with PLL,192 kHz, 24-Bit Codec.  
+**Amplifier** | TDF8541 | NXP | Yes | Class AB: 1) Diagnostics, including start-up diagnostics. 2) Operates at a battery voltage as low as 6V for start/stop-car. 3) Output: 4 x 45 W.  
+**Amplifier** | TAS6424-Q1 | TI | Yes | Class D: 4-Channel Automotive Class-D Audio Amplifier With Load-Dump Protection and I2C Diagnostics.  
+**CAN Transceiver** | TJA1043T | NXP | Yes | Support CAN FD to 5M bps.  
+
+---
+
+### 5.5.2 Software
+
+**Principal audioflow.**  
+This has to be updated/optimized during the development phase.  
+
+**Diagram Description:**  
+The diagram represents advanced signal processing for the VF e36 PLUS sound system. Audio inputs, including front and rear signals (ENT, ANN1, ANN2), are processed through TDM channels for amplifier testing and debugging. The audioflow integrates multiple filters and diagnostics, ensuring quality sound output across all channels.
+
+VinFast Released
+Page 31
+VinFast Management System.
+
+Version: 1.5.
+
+5.5.1 Hardware.
+5.5.1.1 Speaker output channel information.
+There are 15 speaker output channels as below:
+- CH1: 25W @ 4Ω, Woofer FL.
+- CH2: 25W @ 4Ω, Woofer FR.
+- CH3: 25W @ 4Ω, Woofer RL.
+- CH4: 25W @ 4Ω, Woofer RR.
+- CH5: 20W @ 4Ω, Midrange FL.
+- CH6: 20W @ 4Ω, Midrange FR.
+- CH7: 20W @ 4Ω, Midrange Center.
+- CH8: 20W @ 4Ω, Midrange SL.
+- CH9: 20W @ 4Ω, Midrange SR.
+- CH10: 20W @ 4Ω, Tweeter FL.
+- CH11: 20W @ 4Ω, Tweeter FR.
+- CH12: 20W @ 4Ω, Tweeter RL.
+- CH13: 20W @ 4Ω, Tweeter RR.
+- CH14: 50W @ 4Ω, Subwoofer 1.
+- CH15: 50W @ 4Ω, Subwoofer 2.
+Inputs include: CL 30, CL 31, ENT_L, ENT_R, ANN_1, ANN_2, AMP_enable, CAN_H & CAN_L.
+
+5.5.1.2 Main components.
+A list of essential hardware components is provided:
+- MCU: Infineon CY7B275CA DQ0AZSGS, dual-core, 32-bit Arm Cortex-M4F CPU and 32-bit Arm Cortex-M0+ CPU.
+- DSP: ADI ADAU1452, Sigma DSP, 32-bit pointed DSP, operating temperature -40 to +105°C.
+- Codec: ADI AD1938, 4 ADC/8 DAC with PLL, 192 kHz, 24-bit Codec.
+- Amplifier: NXP TDF8541.
+  - Diagnostics include start-up diagnostics.
+  - Operates at battery voltage as low as 6V for stop/start car.
+  - Output 4 x 45W.
+- Amplifier: TI TAS6424-Q1.
+  - Class D Automotive Audio Amplifier with Load-Dump Protection and I2C Diagnostics.
+- CAN Transceiver: NXP TJA1043T.
+  - Supports CAN FD to 5M bps.
+
+5.5.2 Software.
+Principal audioflow. The advanced signal processing architecture depicted highlights various roles defined within the VF36 PLUS Soundsystem. This setup must undergo updates and optimizations during development phases.
+
+5.6 Electrical Interfaces.
+5.6.1 Signal Characteristics.
+Not applicable.
+
+5.6.2 Diagnostics.
+5.6.2.1 Diagnostic Requirements.
+For diagnosis functionality, refer to:
+- CES_VINFAST_EE_VFDSP50000033_Basic_Diagnostics_Specification.
+- CES_VINFAST_EE_VFDSP50000034_Basic_DID_PID_Specification (latest version).
+
+5.6.3 Network Management.
+5.6.3.1 Network Management Requirements.
+Utilizes Info_CAN for communication with MHU and BCM to obtain vehicle speed. Adheres to CES_VINFAST_EE_VFDSXVEEP0047_CAN_Specification (latest version).
+
+5.6.4 Flashing and Coding.
+5.6.4.1 Flashing and Coding Requirements (DTC).
+Refer to VFDSVAEEP0003_Flash_Specification_V2.0 for detailed specifications related to flashing and coding.
+Page 32
+5.6.5 Pin Assignment  
+Using TE connector as below:
+
+**Project:** VF(e)36  
+**Part Name/Part Number:** EEP80005041 - AUDIO AMPLIFIER PLUS  
+**Component Responsible Engineer:** Thomas Baumgartner  
+**Supplier:** TYCO  
+**Building Phase:** PP  
+**Date:** 12.10.2021  
+**Version:** 1.3  
+**Tel.:** CRE  
+
+### Connector Information (EE part side):  
+- **Supplier:** TYCO  
+- **Part Number:** 175444-1/1318382-2  
+- **Connector Coding:** See AMP socket diagrams.  
+
+#### Pin Definition (Connector Picture/Drawing):  
+1. **Diagram 1:** Pin configuration for 1318382-2 AMP socket.  
+2. **Diagram 2:** Pin configuration for 175444-1 AMP socket, showing the specific pin numbers.  
+3. **Diagram 3:** Wiring harness configuration for 917709-1.  
+4. **Diagram 4:** Pin layout for 917978-1 and 917989-1 with AMP connections and harness details.  
+
+**Special Requirement:**  
+Special cable/harness configuration adheres to supplier TYCO specifications and requirements.  
+
+### Connector Information (Wiring Harness side):  
+- **Supplier:** TYCO  
+- **Part Number:** 917978-1/917989-1/9177109-1  
+- **Connector Coding:** Wiring harness connectors must match AMP socket diagrams.  
+- **Special Requirement:** Specific harness arrangement according to diagram specifications.  
+
+**Special Cable/Harness Requirement:**  
+Detailed cable/harness requirements to ensure seamless integration with AMP socket configurations.
+Page 33
+### 5.6.5 Pin Assignment
+Using TE connector as below:
+
+#### Socket Number: 175444-1
+1. **Pin Number:** 1  
+   **I/O Type:** SP_OUT  
+   **Clamp Definition:** Woofer RL+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 3.2  
+   **Peak Current [A]:** 3.5  
+
+2. **Pin Number:** 2  
+   **I/O Type:** SP_OUT  
+   **Clamp Definition:** Woofer FL+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 3.2  
+   **Peak Current [A]:** 3.5  
+
+3. **Pin Number:** 3  
+   **I/O Type:** SP_OUT  
+   **Clamp Definition:** Tweeter RL+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 2.2  
+   **Peak Current [A]:** 2.5  
+
+4. **Pin Number:** 4  
+   **I/O Type:** SP_OUT  
+   **Clamp Definition:** Tweeter FL+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 2.2  
+   **Peak Current [A]:** 2.5  
+
+5. **Pin Number:** 5  
+   **I/O Type:** SP_OUT  
+   **Clamp Definition:** Midrange FL+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 2.2  
+   **Peak Current [A]:** 2.5  
+
+6. **Pin Number:** 6  
+   **I/O Type:** SP_OUT  
+   **Clamp Definition:** Midrange SL+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 2.2  
+   **Peak Current [A]:** 2.5  
+
+(Continuing in the same format for pins 7–34...)
+
+#### Socket Number: 1318382-2
+1. **Pin Number:** 1  
+   **I/O Type:** BUS  
+   **Clamp Definition:** CAN_L  
+   **Signal Definition:** CAN  
+   **Typical/Nominal Current [A]:** 0.05  
+   **Peak Current [A]:** 0.2  
+
+2. **Pin Number:** 2  
+   **I/O Type:** BUS  
+   **Clamp Definition:** CAN_H  
+   **Signal Definition:** CAN  
+   **Typical/Nominal Current [A]:** 0.05  
+   **Peak Current [A]:** 0.2  
+
+3. **Pin Number:** 3  
+   **I/O Type:** GND  
+   **Clamp Definition:** Ground  
+   **Signal Definition:** GND  
+
+4. **Pin Number:** 4  
+   **I/O Type:** I  
+   **Clamp Definition:** ANN_2+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 0.3  
+   **Peak Current [A]:** 1  
+
+5. **Pin Number:** 5  
+   **I/O Type:** I  
+   **Clamp Definition:** ENT_R+  
+   **Signal Definition:** Audio  
+   **Typical/Nominal Current [A]:** 0.3  
+   **Peak Current [A]:** 1  
+
+6. **Pin Number:** 6  
+   **I/O Type:** GND  
+   **Clamp Definition:** Ground  
+   **Signal Definition:** GND  
+
+(Continuing in the same format for pins 7–16...)
+Page 34
+5.7 Specific Characteristics.  
+Not applicable.  
+
+5.8 Safety Requirements.  
+
+5.8.1 Vehicle Safety regarding Person and Passenger Protection.  
+
+5.8.1.1 Safety Goals.  
+General Requirements.  
+The supplier is responsible to actively support the integration of vehicle safety functions.  
+Lifetime relevant laws and ratings of selling markets as well as OEM requirements must be taken into account.  
+
+5.8.2 Vehicle Safety.  
+Not applicable.  
+
+5.9 Alternative and Future Variants.  
+Not applicable.  
+
+5.10 Mechanical Energy Management.  
+
+5.10.1 Weight Targets.  
+Because the vehicle weight is a big influence on the energy consumption of the vehicle, the major goal of the weight management is to minimize the complete vehicle weight.  
+Throughout the whole development, attention must be paid to a weight-optimized design of all components. All weight reduction potentials have to be shown by the supplier, also with their impact on cost, timing, quality, etc.  
+
+5.10.2 Fuel Consumption & Driving Performance.  
+Not applicable.  
+
+5.11 Installation.  
+
+5.11.1 Installation Location.  
+
+Vehicle Architecture.  
+The complete vehicle must pass the requirements from the vehicle layout plans. All changes on parts and modules, which are affecting the vehicle layout dimensions or geometric coherence of the vehicle, have to be communicated to VinFast immediately by the supplier for separate evaluation.  
+The definition and technical geometric specification regarding complete vehicle dimensions in interior and exterior are based on GCIE 2016 measurement definitions.
+Page 35
+### 5.11.2 Assembly Concept and Requirement from Production
+The amplifier shall be mounted with 3x M6x8 Hex Nuts.  
+The torque shall be: T N C 4.5 5.0 5.5 (defined in VFDST00003601).  
+
+### 5.11.3 Geometry
+Refer to 2D drawings.  
+
+### 5.11.4 Tolerances
+Refer to 2D drawings.  
+
+### 5.12 Styling and Design  
+#### Styling Technique Convergence  
+All changes on parts and modules, which are affecting the Exterior and/or Interior styling surfaces of the vehicle, have to be communicated to VinFast immediately by the supplier for separate evaluation.  
+Part or system-related technical input requirements for styling evolution loops have to be provided from the supplier (e.g., tooling demands, assembly sequence), based on defined requirements from VinFast module leads.  
+Technical input can be provided e.g., as office documents, 3D CAD data, or sections.  
+
+### 5.13 Ergonomics  
+#### 5.13.1 Optical Characteristics and Surface Feel  
+Not applicable.  
+
+#### 5.13.2 Actuation Acoustics  
+Actuation Noises.
+Page 36
+5.13.3 Handling.
+
+**Actuation Acoustics:**
+The sound of actuation noises must not be audible, representing a high-quality impression integrated into the complete vehicle. Noises perceived by customers as unpleasant must be eliminated through appropriate selection of materials, surfaces, and foaming. The requirements must be performed in all specified environmental and thermic conditions, ranging from -40°C to +85°C and relative humidity from 10% to 95%. During serial manufacturing, a capable quality assurance process must be established to ensure the quality level. The supplier must provide components for testing and NVH tuning and ensure the participation of specialists during local testing and troubleshooting processes.
+
+**Ergonomics:**
+The complete vehicle must pass ergonomic tests based on VinFast internal procedures. All dimensional and material changes affecting ergonomics on parts and modules must be communicated to VinFast immediately by the supplier for separate evaluation. Main ergonomic targets, such as ingress/egress, seating layout, armrest positions, steering wheel position, and roominess definition, are derived through benchmark analysis. The final sign-off of all ergonomic targets will be carried out in close cooperation with VinFast, which is responsible for interior and exterior styling. Targets are approved post-evaluation using the styling bucks.
+
+5.14 Technical Material Requirements.
+
+**Prohibited or Restricted Substances, Emissions & Toxicology:**
+The supplier must ensure conformance to prohibited and restricted substances and obligations for notification across new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts through the complete product lifecycle, as per VFDST00007601. IMDS material data sheets must be submitted into VinFast IMDS ID following the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601. Vehicle indoor air quality specific targets must conform to VFDSXVCVC3401-VIAQ_Testing_Guideline.
+
+**Environmental Compatibility:**
+Minimizing environmental impacts throughout the product lifecycle is vital for innovative product development. Actions to achieve this include:
+- Use of recyclable materials.
+- Use of recycled materials and renewable resources.
+- Prevention of hazardous substances.
+- Minimization of compartment emissions, including odor.
+- Minimization of resource consumption.
+- Strategy for waste prevention.
+- Marking of parts for identification at end-of-life.
+- Depollution and drainage at end-of-life.
+
+**Relevant Standards:**
+The requirements adhering to environmental compatibility standards must be met.
+Page 37
+5.15 Resistance to Media and Chemical Requirements.
+
+5.15.1 Contamination.  
+The External amplifier follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+
+5.15.2 Cleaning.  
+The External amplifier follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+
+5.15.3 Corrosion Protection.  
+The External amplifier follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+
+5.15.4 Tightness and Protection Classes.  
+The External amplifier follows VF’s Corrosion & Tightness requirements & passes VF’s Corrosion & Tightness tests.  
+
+5.16 Environmental Compatibility.
+
+5.16.1 Material Selection.  
+
+| Part Number    | Part Name              | MATERIAL NAME (Material Mark) | Density | Yield Strength |
+|----------------|------------------------|--------------------------------|---------|---------------|
+| EEP80005041    | Lower and upper heat sink | ADC-12                        | 2.74    | 150MPa        |
+| Bracket        | Bracket                | SECC                          | 7.85    | 300MPa        |
+| PCBA           | PCBA                   | FR-4                          | 1.8     | NA            |
+
+Material information:  
+The supplier has to provide detailed information about the specific trade names and quality of the planned materials (e.g. ABS+PC; trade name: Bayblend T65, supplier: Bayer) before the milestone procurement release.
+Page 38
+5.16.1 Material Safety Data Sheets (SDS).  
+Material safety data sheets (SDS) according to Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017) have to be provided for milestone concept confirmation. Consider local rules for SDS creation and UN guidelines acc. GHS Globally Harmonized System of Classification, Labelling, and Packaging of Chemicals.  
+
+Material safety data sheets have to be provided by the supplier to VinFast.  
+Further information:  
+http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html  
+
+5.16.1 Material Compliance.  
+The conformance to prohibited and restricted substances and obligations in terms of notification must be ensured for new parts, modified parts, carry-over parts, off-the-shelve parts, and spare parts by the supplier.    
+- The conformance to prohibited substances must be ensured by the supplier through the complete product life cycle.  
+- For PPAP material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002 - 022 are required. Updates are required for changes.  
+
+Material data sheets must be provided by the supplier to VinFast.  
+All materials and components must meet the latest legal requirements of the UN regulations for restricted and prohibited materials and substances for automotive applications. At a minimum, all materials and substances used for automotive products must meet the Global Automotive Declarable Substances List (GADSL).   
+Further information:  
+https://www.gadsl.org/  
+
+5.16.1 Recycled Materials.  
+When selecting materials, attention must focus on reducing the variety of materials and on compatibility with available recycling procedures (so-called ‘proven recycling technologies’).  
+
+Secondary raw materials (e.g., post-consumer recyclates and post-production recyclates such as recycled polymeric PET fiber, recycled textiles, recycled foams, recycled thermoplastics, etc.) have to be preferred with respect to market availability. Recycled materials must be marked according to parts marking standards defined in this specification book and must be reported to the environmental compliance experts team at VinFast.  
+
+5.16.2 End of Life Treatment.  
+Dismantling Scheme.  
+The dismantling scheme describes the requirements to the contractor in terms of a simple, unmixed dismantling of the component and its accessibility when assembled.  
+
+The dismantling scheme must be provided to the environmental experts team at VinFast before the milestone PTO Production Try-Out.
+Page 39
+### Recycling Scheme
+
+The recycling scheme establishes general project-wide requirements on the recycling and repair process for component development. Design for recycling of parts and components is required to enable cost-effective recycling at the end of life. The contractor must provide a recycling scheme, which includes a simplified layout of the potential recycling process, information about preferred recycling partners, and cost estimation. This scheme must be submitted to VinFast's environmental experts before the PTO Production Try-Out milestone.
+
+### Pyrotechnic Initiator Neutralization
+
+To ensure cost-effective recycling of end-of-life vehicles, a recycling function for pyrotechnical components must include sequential deployment of all components, avoiding noise and pressure peaks. 
+
+Requirements include:
+- Avoiding solid combustion residues classified as hazardous substances following waste legislation at the time.
+- Ensuring visible confirmation of successful deployment (acoustically or visually).
+- Marking the positions of pyrotechnical components, including hidden ones such as battery safety terminal clamps or active safety headrests.
+- In cases of non-deployment, ensuring pyrotechnical components can be removed without pre-dismantling and are accessible.
+
+### Eco-Design and Parts Marking
+
+Eco-design requires parts to be marked using minimal but necessary characters following defined ISO, EN, or DIN standards (ISO standards take priority). Marking codes should be enclosed in arrowed brackets (e.g., "<material code>"). 
+
+### Lifecycle Analysis
+
+Lifecycle analysis is marked as not applicable.
+
+### Emissions and Toxicology
+
+#### Harmful Substances in Components and Materials
+The emission behavior of electronic/electric products directly in contact with the interior compartment must be tested as early as possible. Emissions of volatile organic compounds in the passenger compartment need to be minimized. Confirmation of emission characteristics involves measurement by the supplier in coordination with VinFast's specialist department.
+Page 40
+Material safety data sheets (SDS) according to Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017) have to be provided for milestone concept confirmation. Consider local rules for SDS creation and UN-guidelines acc. GHS Globally Harmonized System of Classification, Labelling and Packaging of Chemicals. Material safety data sheets have to be provided by supplier to VinFast. 
+
+Further information:  
+http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html 
+
+**Material Compliance**  
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts and spare parts by the supplier.
+
+- The conformance to prohibited substances has to be ensured by supplier through the complete product life cycle.  
+- For PPAP material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002 - 022 are required. Updates are required for changes.
+
+Material data sheets have to be provided by supplier to VinFast. All materials and components have to meet latest legal requirements of the UN regulations according to restricted and prohibited materials and substances for automotive applications. At least all materials and substances used for automotive products have to meet the Global Automotive Declarable Substances List (GADSL).
+
+Further information:  
+https://www.gadsl.org/
+
+**Recycled Materials**  
+When selecting materials, attention has to be focused on reducing the variety of materials and on compatibility with available recycling procedures (so-called "proven recycling technologies"). Secondary raw materials (post-consumer recyclates and post-production recyclates, e.g. recycled polymeric PET fiber, recycled textiles, recycled foams, recycled thermoplastics) have to be preferred in respect to the availability on the market. Recycled materials have to be marked according to parts marking standards defined in this specification book and must be reported to the environmental compliance experts team at VinFast.
+
+### End of life treatment
+
+**Dismantling Scheme**  
+The dismantling scheme describes the requirements to the contractor in terms of a simple, unmixed dismantling of the component as well as its accessibility when assembled. The dismantling scheme has to be provided to the environmental experts team at VinFast before milestone PTO Production Try-Out.
+
+**Recycling Scheme**  
+This chapter establishes the general project-wide requirements on the recycling and repair scheme in the development of a component. Design for recycling of parts and components is required to enable cost-effective recycling at end-of-life. The recycling scheme provided by the contractor has to show a simple layout for the possible recycling process of the component, including information about preferred recycling partners and cost estimation. Recycling scheme has to be provided to the environmental experts team at VinFast before milestone PTO Production Try-Out.
+
+**Pyrotechnic Initiator Neutralization**  
+To ensure a cost-effective recycling of end-of-life vehicles, a recycling function (central ability for inflation) shall be provided via the diagnosis interface/central data interface for pyrotechnical components, complying with the following requirements:
+- Enable sequential deployment of all components (avoidance of noise and pressure peaks/check of deployment per component).  
+- After deployment of the pyrotechnical components, no solid combustion residues shall remain that are classified according to the status of the respectively valid waste legislation as toxic waste or hazardous substances (otherwise the components shall be dismantled and disposed of separately as hazardous substances).  
+- A successful deployment of pyrotechnical components shall be immediately and clearly visible (acoustically and/or directly at the vehicle or via the feedback at the deployment tool).  
+- Marking positions of pyrotechnical components (especially “hidden” components, e.g., battery safety terminal clamp, active safety headrest).  
+- In case of non-deployment, the removal of pyrotechnical components is required. In this case, pre-dismantling, if technically possible, shall be avoided (accessibility of fasteners).
+
+### Eco-Design  
+
+**Parts Marking**  
+Parts marking should be carried out using the rule “as few characters as possible but as many as necessary.” The marking consists of brief type designations defined by DIN, EN, or ISO standards (ISO takes priority). The codes are put into arrowed brackets, which consist of the mathematical signs for "more than" (>) and "less than" (<).
+
+**Lifecycle Analysis**  
+Not applicable.
+
+**Emissions and Toxicology**  
+**Harmful substances in components and materials**  
+The emission behavior of the E/E product with direct contact to the interior compartment has to be checked on representative components as soon as possible. Emissions of volatile organic compounds in the passenger compartment have to be minimized accordingly. Required measurements for confirmation of the emission characteristics have to be done by the supplier in agreement with VinFast's specialist department. Testing institutes approved by VinFast are required, and the supplier must obtain an overview of all approved testing institutes. Additional requirements can be found in project-specific documents (e.g., Emission Guideline).  
+
+**Volatile Organic Compounds**  
+Components have to be checked according to ISO12219. The conformance to prohibited substances has to be ensured through the complete product life cycle. The test result is evaluated by VinFast's specialist department. In any case, the harmlessness of the volatile compounds for human health has to be attested in written form on demand.  
+
+The supplier must provide measurement results regarding VOC and Fogging for materials before the milestone purchase release.
+
+### Mechanical Requirements
+
+**Load**  
+
+**Operating Loads:**  
+Operating loads are the loads that occur during the intended use of the vehicle. These loads are derived from measurements with the selected benchmark vehicles on tracks defined by VinFast. Customer usage is based on VinFast's long-distance durability standards run for mileage targets specified in chapter 5.18.
+
+**Special Events:**  
+Special events are events of small frequency (approximately <100) that belong to the intended use of the vehicle, e.g., ABS braking. The vehicle must prevent these events from affecting functional integrity while ensuring no safety-relevant damages occur.
+
+**Misuse Events:**  
+Misuse events are occurrences outside the intended vehicle usage, e.g., curbstone impact. The vehicle must be dimensioned to ensure:
+- Damages post-misuse are recognizable by the driver (e.g., tilt conditions in steering wheel or wheel).  
+- A defined damage chain is upheld, favoring replaceable parts over crucial body structures.  
+- Damages occur alongside recognizable plastic deformation within the same or neighboring components. ("Deformation before break.")
+
+**Vibration Behavior**  
+
+**NVH/Acoustics - Vibration Behavior:**  
+The maximum vibration level is to be determined by the supplier. Brackets must avoid resonance below defined frequencies. Components’ eigenfrequencies while mounted must exceed 35Hz, with proper alignment of fixation concepts with VinFast. Additional requirements may be defined in chapter 5.17.6.
+Page 41
+### 5.17.3 Stiffness and Cushioning Characteristics
+No additional requirements from Operational Strength, Stiffness, or Fatigue.
+
+### 5.17.4 Deformation
+No additional requirements from Operational Strength, Stiffness, or Fatigue.
+
+### 5.17.5 Pressure
+No additional requirements from Operational Strength, Stiffness, or Fatigue.
+
+### 5.17.6 NVH / Acoustic Performance
+
+#### Fan
+If the electrical control unit contains cooling fans, no tonal frequency bands are acceptable (adjacent bars must not exceed 3dB).
+
+#### Audio Acoustics
+Leakage and rattle-free mounting of the speakers must be possible. This is enabled by a wide basket mounting interface, a foam ring attached to the basket, and rigid basket material. The basket’s front side must allow sealed connection to the speaker grille (e.g., through a flat surface or a foam ring attached).
+
+The component must remain stable over time. No deformation, shrinkage due to temperature, moisture, dirt, or UV radiation is allowed. Adhesives must retain the specified adhesion, particularly for the membrane, suspension, voice coil, dust cap, and membrane glue.
+
+#### S&R General
+Noises perceived by customers as disturbing must be eliminated through the selection of suitable materials, surfaces, gaps, and forming. The supplier must guarantee that components are free from disturbing noises in their vehicle environment and geometrical integration. This includes excitation under all environmental conditions and during the component's service life.
+
+Even during excitation of the body (wind load, torsional flexing, etc.), components must not exhibit squeak or rattle noises due to relative movements on the surface. This guarantee extends across operational and environmental conditions (temperature and humidity). The supplier must coordinate requirements with the responsible testing team to evidence noise freedom.
+
+The supplier is responsible for supporting the development of vibration and acoustic behavior within the complete vehicle environment, ensuring consistent acoustic quality. Necessary parts for comparison, tuning, and evaluation must be actively provided free of charge.
+
+### 5.18 Durability / Life Time
+The specified durability is 10 years or 160,000 km (whichever comes first).
+Page 42
+5.19 Electrical Requirements
+
+5.19.1 Description of the Requirements.
+The following subchapters refer to the corresponding standards. These standards apply in their last version, and deviations from this must be agreed upon with the project.
+
+5.19.2 Power Consumption.
+5.19.2.1 Power Consumption Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000005_Energy_Management and CES_VINFAST_EE_VFDSP50000004_General_Electric in the latest version.
+
+5.19.3 Low Voltage Energy Management.
+5.19.3.1 Energy Management Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000005_Energy_Management in the latest version.
+
+5.19.4 High Voltage Energy Management.
+5.19.4.1 Energy Management Requirements.
+Not applicable.
+
+5.19.5 Electromagnetic Compatibility.
+5.19.5.1 EMC Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component in the latest version.
+
+5.19.6 Electrostatic Discharge.
+5.19.6.1 ESD Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component in the latest version.
+Page 43
+5.20 Climatic Requirements / Thermal Management
+
+**Environmental operating conditions**  
+The environmental operation conditions for the complete vehicle are defined as -30°C to +50°C ambient temperature, 0 - 100% relative humidity, and -100m to 3500m above mean sea level.  
+
+**Heat protection**  
+The development and validation of heat protection in the complete vehicle ensures that all relevant component temperatures remain below the maximum allowed limits, which are derived from vehicle operation within the environmental operating temperatures.  
+
+The heat protection validation tests for the components are performed in the climatic wind tunnel (CWT) and on-road.  
+All relevant component temperatures and measurement points have to be defined in accordance with the responsible modules and will be specified in respective component specifications. Vehicle tests have to be completed and follow the VF Thermal Testing Standard in the MULE, Super-MULE, and PTO Vehicle Generation.  
+
+**5.20.1 Thermal Management Requirements**  
+Please refer to CES_VINFAST_EE_VFDSP50000008_Thermal_Management_ in the latest version.
+
+---
+
+5.21 Service Requirements  
+Not applicable.  
+
+---
+
+5.22 Transport Protection  
+Not applicable.  
+
+---
+
+5.23 Logistics Requirements  
+Supplier shall proceed according to the VinFast Logistic standard.  
+
+---
+
+5.24 Quality Assurance Requirements  
+Not applicable.  
+
+---
+
+5.25 Content Amendments  
+Not applicable.
+Page 44
+6. Testing and validation and DVP&R.
+
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system, & Component Level should be aligned with the Complete Vehicle Specification book during the concept phase. A detailed test plan for hardware tests is outlined in the file DVP&R, requiring collaboration with the Testing & Validation department. The test plan includes:
+- Declaration of standards, norms, and legal requirements.
+- Description of testing setup, including devices and pictures.
+- Specification of testing location (internal or external).
+- Timeline and duration of testing (provided in project plan format).
+- Part variant and part description.
+- Number of tested components/parts.
+
+Mileage Target Life: 160,000 km or 10 years (whichever comes first).
+
+6.1 Proof of Compliance.
+
+6.1.1 Testing Plan (DVP + FRS Plan).
+Further tests are required by the supplier to ensure optimal quality performance and meet the product definition. Refer to the data from the T&V team:
+- VFDSXVCVC1401: VFe35_Appendix_4_DVP_Design Verification Plan.
+- VFDSXVCVC2401: VF35_Appendix_4_DVP_Design Verification Plan.
+- VFDSXVEEP5181: VFDSXVEEP5181-CSUV_DVP_MDU.
+
+6.1.2 Package.
+Not applicable.
+
+6.2 Electrical Systems & Functions.
+
+Architecture and electrical systems are to be developed based on the mentioned standards and must fulfill their requirements. Compliance to the latest versions and the full scope of these standards is mandatory. Assemblies and parts must undergo testing per the listed specifications, with proof provided for compliance. Components with coding functions must meet CES_Coding requirements. Any deviations must be aligned with the project team.
+Page 45
+6 Testing and validation and DVP&R  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- No. of tested components/parts.  
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).  
+
+6.1 Proof of Compliance  
+6.1.1 Testing Plan (DVP + FRS Plan)  
+Further Tests shall be done by the supplier to ensure best quality performance and to fulfill the product definition.  
+Refer data from T&V team:  
+- VFDSXVCVC1401: VFe35_Appendix_4_DVP_Design Verification Plan.  
+- VFDSXVCVC2401: VF35_Appendix_4_DVP_Design Verification Plan.  
+- VFDSXVEEP5181: VFDSXVEEP5181-CSUV_DVP_MDU.  
+
+6.1.2 Package  
+
+6.2 Electrical Systems & Functions  
+Architecture and Electrical system will be developed according below mentioned standards and shall be fulfilled.  
+In principle, all work standards and specifications apply in their most recent version and in their entire scope. Compliance with these standards and specifications is obligatory. The assemblies and their parts must be tested according to the following specifications and proof must be furnished that the requirements have been met (i.e. components with coding function have to fulfill the CES_Coding).  
+Any deviation of the requirement shall be aligned in the project.  
+Several validation cycles for electrical systems and functions are planned to guarantee correct implementation and will be carried out according to mentioned standards. The generic Function Release Step (FRS) is outlined in the picture. The detailed timing and description of each FRS is defined in the FRS Plan (see “VINFAST_FRS_plan.pdf”). The FRS plan has to be fulfilled by every electric component.  
+
+Physical testing  
+For early physical and software testing, Lab Cars, Network Test Bench, and several Subsystem Test Benches will be set up. Parts such as ECUs, sensors, actuators, connectors, etc., shall be delivered free of charge for physical testing (e.g., 12 units for FRS LC2).  
+
+Key electrical tests will be defined to support the road release of test vehicles.  
+Generally, all main simulation and testing activities on vehicle level are outlined in DVP. Tests in supplier responsibility are outlined in respective component/system specifications.  
+
+Engine start needs to be possible after 5 weeks of the vehicle’s non-operative state (idle time).  
+
+**Specification Name**
+| Specification Name                    | Specification Name                       |
+|---------------------------------------|------------------------------------------|
+| CES_General_Electric                  | CES_Coding                               |
+| CES_Energy_Management                 | CES_ECU_Identifier                       |
+| CTS_Energy_Management                 | CES_Basic_DID_definition                 |
+| CTS_Load_Analysis                     | CES_Clamp_Concept                        |
+| CES_Thermal_Management                | CES_Basic_software_on_CAN_ECUs           |
+| CTS_Thermal_Management                | CES_Logistic_data                        |
+| CES_High_Current_Consumers            | SUP_Software_Logistics                   |
+| CES_Basic_Diagnostic                  | CES_Security_Access_Algorithm            |
+| CES_EMC_Standard_Component            | CES_Learning_sequence                    |
+| CES_EMC_Standard_Vehicle              | VINFAST_FRS_plan                         |
+| CES_CAN                               | CES_Look&Feel                            |
+| CES_Residual_Bus_Simulation_on_CAN_ECUs | CES_Warning_Message_Catalog             |
+| CES_LIN                               | CES_Flashing                             |
+
+Several validation cycles for electrical systems and functions are planned to guarantee correct implementation and will be carried out according to mentioned standards.  
+The generic Function Release Step (FRS) is outlined in the diagram.  
+The detailed timing and description of each FRS is defined in the FRS Plan (see “VINFAST_FRS_plan.pdf”).  
+The FRS plan has to be fulfilled by every electric component.
+Page 46
+6 Testing and validation and DVP&R.
+
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and needs to work with the Testing & Validation department:
+- Testing with declaration of standard, norm, legal requirement.
+- How and with which devices the testing was performed (description of testing set-up with pictures).
+- Where the testing was performed (internal/external).
+- Duration and time flow of the testing (in form of project plan).
+- Part variant, description of part.
+- No. of tested components/parts.
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).
+
+6.1 Proof of Compliance.
+
+6.1.1 Testing Plan (DVP + FRS Plan).  
+Further tests shall be done by the supplier to ensure best quality performance and to fulfill the product definition.  
+Refer data from T&V team:  
+- VFDSXVCVC1401: VFe35_Appendix_4_DVP_Design Verification Plan.  
+- VFDSXVCVC2401: VF35_Appendix_4_DVP_Design Verification Plan.  
+- VFDSXVEEP5181: VFDSXVEEP5181-CSUV_DVP_MDU.
+
+6.1.2 Package.
+
+6.2 Electrical Systems & Functions.
+
+Architecture and Electrical system will be developed according to the mentioned standards and shall be fulfilled.  
+In principle, all work standards and specifications apply in their most recent version and in their entire scope. Compliance with these standards and specifications is obligatory. The assemblies and their parts must be tested according to the following specifications, and proof must be furnished that the requirements have been met (i.e. components with coding function have to fulfill the CES_Coding). Any deviation of the requirement shall be aligned in the project.
+
+---
+
+Several validation cycles for electrical systems and functions are planned to guarantee correct implementation and will be carried out according to mentioned standards. The generic Function Release Step (FRS) is outlined in the picture. The detailed timing and description of each FRS is defined in the FRS Plan (see “VINFAST_FRS_plan.pdf”). The FRS plan has to be fulfilled by every electric component.
+
+Physical testing.  
+For early physical and software testing, Lab Cars, Network Test Bench, and several Subsystem Test Benches will be set up. Parts such as ECUs, sensors, actuators, connectors, etc., shall be delivered free of charge for physical testing (e.g., 12 units for FRS LC2).  
+
+Key electrical tests will be defined to support the road release of test vehicles.  
+
+Generally, all main simulation and testing activities at the vehicle level are outlined in DVP. Tests in supplier responsibility are outlined in respective component/system specifications.  
+
+Engine start needs to be possible after 5 weeks of the vehicle’s non-operative state (idle time).
+
+Specification Name:
+- CES_General_Electric.
+- CES_Coding.
+- CES_Energy_Management.
+- CES_ECU_Identifier.
+- CTS_Energy_Management.
+- CES_Basic_DID_definition.
+- CTS_Load_Analysis.
+- CES_Clamp_Concept.
+- CES_Thermal_Management.
+- CES_Basic_software_on_CAN_ECUs.
+- CTS_Thermal_Management.
+- CES_Logistic_data.
+- CES_High_Current_Consumers.
+- SUP_Software_Logistics.
+- CES_Basic_Diagnostic.
+- CES_Security_Access_Algorithm.
+- CES_EMC_Standard_Component.
+- CES_Learning_sequence.
+- CES_EMC_Standard_Vehicle.
+- VINFAST_FRS_plan.
+- CES_CAN.
+- CES_Look&Feel.
+- CES_Residual_Bus_Simulation_on_CAN_ECUs.
+- CES_Warning_Message_Catalog.
+- CES_LIN.
+- CES_Flashing.
+Page 47
+7.2 Deliverables for Functional Safety.
+
+Indicative RASIC* for expected deliverables:
+
+5.5 Work products:
+- 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2.  
+  VINFAST: R  
+  SUPPLIER: I  
+
+- 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.  
+  VINFAST: R  
+  SUPPLIER: S  
+
+- 5.5.3 Supplier's project plan resulting from requirement 5.4.3.  
+  VINFAST: A  
+  SUPPLIER: R  
+
+- 5.5.4 Supplier's safety plan resulting from requirement 5.4.3.  
+  VINFAST: A  
+  SUPPLIER: R  
+
+- 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5.  
+  VINFAST: I  
+  SUPPLIER: R  
+
+- 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.  
+  VINFAST: R  
+  SUPPLIER: S  
+
+- 6.5.3 Safety case, resulting from 6.4.6.  
+  VINFAST: A  
+  SUPPLIER: R  
+
+*RASIC description in section “Deliverables.”
+
+a) FUSA Deliverables expected before nomination:
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+b) FUSA Deliverables expected after nomination:
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+Page 48
+7.3 Homologation and safety regulation requirements.
+
+7.3.1 North America.
+
+External amplifier part shall be getting FCC certification.
+
+a. Homologation and safety regulation activities.
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. European, Federal Motor Vehicle Safety Standards (FMVSS) and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. Self-certification and test report(s).
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of Manufacturer Handbook.
+
+c. Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations.
+Notwithstanding its certification of a product, a supplier may subsequently determine that non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+7.3.2 Europe.
+
+External amplifier part shall be getting CE certification.
+
+a. Homologation and safety regulation activities.
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s).
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain UN-ECE at authorized technical services. The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.
+Page 49
+VinFast also requests that the Supplier must provide supporting documentation and technical information, including drawings, for submission to the relevant authorities in order to acquire certification for the EC vehicle type-approval, if applicable. The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced. The Supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of a non-compliance or a safety-related defect. The Supplier must propose an appropriate risk assessment and resolution plan.
+
+---
+
+### 8 Definitions and List of Abbreviations  
+
+#### 8.1 Definitions  
+
+#### 8.2 Definitions and List of Abbreviations  
+| Abbreviation | Explanation                              |
+|--------------|------------------------------------------|
+| AA           | Attack Angle                             |
+| ABG          | Airbag control module                   |
+| ABS          | Anti-lock braking system                |
+| AC           | Alternating Current                     |
+| ACM          | Airbag control module                   |
+| ADAS         | Advanced Driver Assistance Systems      |
+| ADC          | Analog to Digital Converter             |
+| AI           | Articulation Index                      |
+| AIA          | Activity Interface Agreement = Work Interface Chart (RASI) |
+| APQP         | Advanced Product Quality Planning       |
+| ASIL         | Automotive Safety Integrity Level       |
+| ASM          | Asynchronous Machine                    |
+| AWD          | All wheel drive                         |
+| BCM          | Body control module                     |
+| BDU          | Battery disconnect unit                 |
+| BEV          | Battery Electric Vehicle                |
+| BFR          | Basic Function Requirement              |
+| BIW          | Body in White                           |
+| BMU          | Battery management unit                 |
+| BOM          | Bill Of Material                        |
+| BSM          | Blind Spot Monitoring                   |
+| CAD          | Computer Aided Design                   |
+| CAE          | Computer-Aided Engineering              |
+Page 50
+**VinFast Management System**
+
+**VFDSXXEEP5035**
+
+**Version: 1.5**  
+*Uncontrolled copy when printed*  
+**50 | 51**  
+Print date  
+
+**8.3 List of Tables**  
+Not Applicable  
+
+**8.4 List of Figures**  
+Not Applicable  
+
+**Definitions and List of Abbreviations**
+
+- **CAM**: Computer-Aided Manufacturing  
+- **CAN**: Controller Area Network  
+- **MSC**: Manufacturing Strategy Confirmation  
+- **TS**: Theme selection Model  
+- **MFC**: Manufacturing Feasibility Confirmation  
+- **MSI**: Major Suppliers Identified  
+- **SST**: Sourcing Strategy  
+- **LLS**: Long Lead Suppliers on board  
+- **SLS**: Short Lead Suppliers on board  
+- **LLT**: Long Lead Tooling  
+- **PTP**: Prototype Parts out of Serial tooling (Hand finished)  
+- **OTS**: Off Tools Samples  
+- **ESO**: Engineering Sign Off  
+- **MSO**: Manufacturing Sign Off  
+- **SOP-LM**: SOP Launch Model (1 specific Model - “Edition”)  
+- **SOP**: Start of Production  
+- **SOP-ID**: SOP Implementation Date  
+- **SOB**: Supplier on Board  
+- **LOI**: Letter of Intend  
+- **LON**: Letter of Nominated  
+- **DVP&R**: Design Verification Plan & Report  
+- **GTC**: General Term and Condition  
+- **RFQ**: Request For Quotation  
+- **FUSA**: Function Safety  
+- **T&V**: Testing & Validation  
+- **SC**: Significant Characteristic  
+- **CC**: Critical Characteristic
+Page 51
+9 Further Applicable Documents.
+
+**Document Type** | **Title** | **Part Number** | **Version**  
+**CES** | General Electrical | VFDSP50000004 | latest version  
+**CES** | FRS Plan | - | latest version  
+**CES** | Energy Management | VFDSP50000005 | latest version  
+**CTS** | Energy Management | VFDSP50000006 | latest version  
+**CTS** | Load analysis | VFDSP50000007 | latest version  
+**CES** | Thermal Management | VFDSP50000008 | latest version  
+**CTS** | Thermal Management | VFDSP50000009 | latest version  
+**CES** | High Current Consumers | VFDSP5xxxxxxx | latest version  
+**CES** | Basic Diagnostic | VFDSP5xxxxxxx | latest version  
+**CES** | EMC Standard Component | VFDSP50000002 | latest version  
+**CES** | EMC Standard Vehicle | VFDSP50000001 | latest version  
+**CES** | CAN | VFDSP50000010 | latest version  
+**CES** | Residual Bus Simulation on CAN ECUs | VFDSP50000011 | latest version  
+**CES** | LIN | VFDSP50000012 | latest version  
+**CES** | Coding | VFDSP5xxxxxxx | latest version  
+**CES** | Flexray | - | latest version  
+**CES** | ECU Identifier | VFDSP50000013 | latest version  
+**CES** | Basic DID definition | VFDSP5xxxxxxx | latest version  
+**CES** | Clamp concept | VFDSP50000014 | latest version  
+**CES** | Basic Software on CAN ECUs | VFDSP50000015 | latest version  
+**SUP** | Software logistics | - | latest version  
+**CES** | Security Access Algorithm | VFDSP5xxxxxxx | latest version  
+**System schematics** | - | - | latest version  
+**HMI book** | - | - | latest version  
+**CES** | Warning Message Catalog | VFDSP50000003 | latest version.

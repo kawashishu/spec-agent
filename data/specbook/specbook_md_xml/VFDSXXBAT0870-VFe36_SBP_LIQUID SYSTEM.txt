@@ -1,0 +1,863 @@
+
+<filename>VFDSXXBAT0870-VFe36_SBP_LIQUID SYSTEM</filename>
+<pages>
+
+<page number="1">
+SPECIFICATIONS BOOK.
+
+First edition (08.2021).
+
+B2P.
+
+LIQUID SYSTEM.
+
+Applicable for Build to Print Supplier.
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast LLC (VinFast Trading and Production Limited Liability Company) has started to design and develop vehicle projects: VFe36 in BEV. Environmental impact and sustainability of the program are taken into account as essential target features. The document shall provide details for all components for mass production.
+
+Number of SPB follows VFDST00010202.
+
+Responsible Contact: v.truonglx4@vinsmart.net.
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Index.
+
+Contents:
+SCOPE AND PURPOSE  2  
+Index  3  
+
+1. SCOPE OF PRODUCT/COMMODITY  5  
+   1.1 Sales Markets  5  
+   1.2 Production volume  5  
+   1.3 Build Plan  5  
+
+2. DEFINITIONS AND APPLICABLE DOCUMENTS  5  
+   2.1 CAD Data/Transfer data-CAD Requirements  5  
+   2.2 Change Documentation and Part History Documentation  5  
+
+3. REQUIREMENTS  6  
+   3.1 Contact  6  
+   3.2 Technical requirement  6  
+   3.3 General CAE Requirements  13  
+   3.4 Material requirement  13  
+   3.5 Traceability  13  
+   3.6 Labeling of Parts  13  
+   3.7 Testing and validation and DVP&R  13  
+   3.8 Appearance Approval - Applicable for all Visible Parts  13  
+
+4. FUNCTIONAL SAFETY, HOMOLOGATION AND SAFETY REGULATIONS  14  
+   4.1 Functional Safety Requirements  14  
+   4.2 Deliverables for Functional Safety  14  
+      a) FUSA Deliverables expected before nomination  14  
+      b) FUSA Deliverables expected after nomination  15  
+   4.3 Homologation and safety regulation requirements  15  
+      4.3.1 North America  15  
+      4.3.2 Europe  15  
+
+5. DELIVERABLES  16  
+   5.1 Technical deliverables  16  
+   5.2 Details deliverables and RASI  17  
+
+6. SUPPLIER RESPONSIBILITIES  17  
+
+7. INTELLECTUAL PROPERTY/COPYRIGHT  18  
+
+8. INSURANCE/WARRANTIES  18  
+
+9. VINFAST GTC & PART PACKAGING AND INCOTERMS  18  
+
+10. DEFINITIONS AND LIST OF ABBREVIATIONS  18
+</page>
+
+<page number="4">
+Release.
+
+Version: 1.0.  
+Date: Aug-2021.  
+
+Updated by:  
+Function: Engineer.  
+Name: Lê Xuân Trường (VF-VPP-PTKCK).  
+
+Revisions since previous version:  
+Main Version: 1.  
+Sub-Version: 1.0.  
+Change Description: First edition.  
+Date: 08/2021.
+</page>
+
+<page number="5">
+1 Scope of product/ commodity.
+
+1.1 Sales Markets.
+LHD countries: VN (Vietnam), NA: North America (US: United States, CA: Canada), EU (Europe).
+
+1.2 Production volume.
+Refer to Purchasing Request for Quotation.
+
+1.3 Build Plan.
+Refer to appendix:
+VFDSXXCVC1101 Appendix_1_Buid Plan_MRD.
+
+2 Definitions and applicable documents.
+
+2.1 CAD Data/ Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 follow VF standard VFDST00000014. CAD data transfer from VinFast to supplier will be done through Supplier collaborative module. For more details, refer the Supplier collaborative module in the RFQ package.
+
+2.2 Change Documentation and Part History Documentation.
+During the development & production process, all the history of changes within the framework of the contractor have to be documented and provided to VinFast. The form of the data can be defined by the contractor. 
+
+Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements have to be remarked on the drawings. 
+
+The reasons and the characteristics which have to be documented are listed by authorities. These demands will be requested during the development of the part and latest in PTO phase.
+</page>
+
+<page number="6">
+3 Requirements
+
+3.1 Contact
+
+| Contact                    | Name                             | Email ID                  | Contact Number  |
+|----------------------------|----------------------------------|---------------------------|-----------------|
+| Commodity Buyer            | Tran Thi Minh Hương             | v.huongttm5@vinfast.vn    | +84 963882622   |
+| Commodity Buyer Manager    | Nethaji Subbarayalu             | v.nethajis@vinfast.vn     | +84 (0) 888.733.322 |
+| Commodity Engineering      | Le Xuan Truong                  | v.truonglx4@vinfast.vn    | +84988317365    |
+| Commodity Engineering      | Hoang Tuan Nhat                 | v.nhatht@vinfast.vn       | +84978380681    |
+| SQE Manager                | Stuart MC Laughlin Kinkade      | v.kinkades@vinfast.vn     | +84888183396    |
+| SCM Analyst                | Dilshod Tokhtasinov             | v.dilshod@vinfast.vn      | +84888352662    |
+| Packaging Analyst          | Trần Xuân Phong                 | v.phongtx1@vinfast.vn     | +84913011585    |
+| SCM Manager                | Benjamin Peter Stewart          | v.bens@vinfast.vn         | +84888798855    |
+
+3.2 Technical requirement
+
+**OVERVIEW**
+
+Batteries work based on the principle of a voltage differential, and at high temperatures, the electrons inside become excited which decreases the difference in voltage between the two sides of the battery. Because batteries are only manufactured to work between certain temperature extremes, they will stop working if there is no cooling system to keep it in a working range.
+
+Cooling systems need to be able to keep the battery pack in the temperature range of about 20-40 degrees Celsius, as well as keep the temperature difference within the battery pack to a minimum (no more than 5 degrees Celsius).
+
+The battery cooling system consists of a patented serpentine cooling pipe that winds through the battery pack and carries a flow of water-glycol coolant. Thermal contact with the cells is through their sides to transfer heat away by the Liquid system.
+</page>
+
+<page number="7">
+There are 4 sub-assemblies in the Liquid System:
+
+1. Cooling Inlet Line 1: This is responsible for delivering coolant into the system through designated pathways.
+2. Cooling Inlet Line 2: Acts as an additional inlet line, ensuring consistent delivery of coolant flow.
+3. Cooling Outlet Line: Transfers heated coolant from the system to its next designated area.
+4. Cooling Outlet Line 2: Complements the outlet line by enhancing the efficiency of coolant transfer.
+
+**Bill of Material:**
+The Liquid System is composed of a patented serpentine cooling pipe that winds through the battery pack, integrating all sub-assemblies listed above to maintain temperature and heat transfer within defined parameters.
+</page>
+
+<page number="8">
+### 3 Requirements
+
+#### 3.1 Contact
+**Contact Information**  
+- **Commodity Buyer**: Tran Thi Minh Hương  
+  - Email ID: v.huongttm5@vinfast.vn  
+  - Contact Number: +84 963882622  
+- **Commodity Buyer Manager**: Nethaji Subbarayalu  
+  - Email ID: v.nethajis@vinfast.vn  
+  - Contact Number: +84 (0) 888.733.322  
+- **Commodity Engineering**: Le Xuan Truong  
+  - Email ID: v.truonglx4@vinfast.vn  
+  - Contact Number: +84988317365  
+- **Commodity Engineering Manager**: Hoang Tuan Nhat  
+  - Email ID: v.nhatht@vinfast.vn  
+  - Contact Number: +84978380681  
+- **SQE Manager**: Stuart MC Laughlin Kinkade  
+  - Email ID: v.kinkades@vinfast.vn  
+  - Contact Number: +84888183396  
+- **SCM Analyst**: Dilshod Tokhtasinov  
+  - Email ID: v.dilshod@vinfast.vn  
+  - Contact Number: +84888352662  
+- **Packaging Analyst**: Trần Xuân Phong  
+  - Email ID: v.phongtx1@vinfast.vn  
+  - Contact Number: +84913011585  
+- **SCM Manager**: Benjamin Peter Stewart  
+  - Email ID: v.bens@vinfast.vn  
+  - Contact Number: +84888798855  
+
+#### 3.2 Technical Requirement  
+**Overview**  
+- Batteries operate using the principle of voltage differential. At high temperatures, the electrons inside the battery become excited, reducing voltage differences between its two sides.
+- Batteries are designed to function within specified temperature ranges, requiring effective cooling systems to maintain operational levels.
+- Required temperature range: about 20-40 degrees Celsius. Temperature differences within the battery pack must not exceed 5 degrees Celsius.
+- The battery cooling system uses a patented serpentine cooling pipe carrying water-glycol coolant. Heat transfer occurs through side contact with the cells.
+
+### Sub-Assembly: Liquid System  
+The Liquid System includes four sub-assemblies:  
+1. **Cooling Inlet Line 1** (marked as ①).  
+2. **Cooling Inlet Line 2** (marked as ②).  
+3. **Cooling Outlet Line** (marked as ③).  
+4. **Cooling Outlet Line** (marked as ④).  
+
+### Bill of Material for Cooling Inlet Line 1
+#### Components in the Cooling Inlet Line 1:  
+1. **Cooling Inlet Line 1** (Part No: COL11003003):  
+   - Specification: Temperature: -40°C to +80°C  
+   - Pressure Max: 2 bar.  
+2. **Sensor Fitting** (Part No: COL11002204):  
+   - Material: A6082-T6  
+   - Adapter: 2xNW16 NW8.  
+3. **TEE Fitting 1** (Part No: COL11002004):  
+   - Material: A6082-T6  
+   - Adapter: 2xNW14 514.  
+4. **TEE Fitting 2** (Part No: COL11002033):  
+   - Material: PA6-6-GF30  
+   - Adapter: 2xNW16 NW8.  
+5. **TEE Fitting 3** (Part No: COL11003004):  
+   - Material: PA6-6-GF30  
+   - Adapter: 2xNW16 2xNW8.  
+6. **90° Elbow Fitting** (Part No: COL11002007):  
+   - Material: PA6-6-GF30  
+   - Adapter: SV2D DL WKU 56 NW8.  
+7. **Fluid Temperature Sensor** (Part No: ELE11002029):  
+   - Material: PA6.6 GF31  
+   - Accuracy: ±2°C at 100°C  
+   - Sensor type: NTC.  
+8. **Straight Fitting** (Part No: COL11002008):  
+   - Material: PA6-6-GF30  
+   - Adapter: SV2D DL GST 56 NW8.  
+9. **Straight Fitting 2** (Part No: COL11002023):  
+   - Material: PA6-6-GF30  
+   - Adapter: SV2D DL GST 514 NW14.  
+10. **Coolant Pipe 14x17 Type 1** (Part No: COL11003008):  
+    - Material: PA12  
+    - ID14-t1.5.  
+11. **Coolant Pipe 14x17 Type 2** (Part No: COL11003009):  
+    - Material: PA12  
+    - ID14-t1.5.  
+12. **Coolant Pipe 14x17 Type 3** (Part No: COL11003010):  
+    - Material: PA12  
+    - ID14-t1.5.  
+13. **Coolant Pipe 14x17 Type 4** (Part No: COL11003011):  
+    - Material: PA12  
+    - NW14 CORRUGATED W9 L101.  
+14. **Coolant Pipe 14x17 Type 5** (Part No: COL11003012):  
+    - Material: PA12  
+    - ID14-t1.5.  
+15. **Coolant Pipe 8x10 Type 1** (Part No: COL11003018):  
+    - Material: PA12  
+    - ID8-t1.  
+16. **Coolant Pipe 8x10 Type 2** (Part No: COL11003019):  
+    - Material: PA12  
+    - ID8-t1.  
+17. **Coolant Pipe 8x10 Type 3** (Part No: COL11003020):  
+    - Material: PA12  
+    - ID8-t1.  
+18. **Coolant Pipe 8x10 Type 4** (Part No: COL11003021):  
+    - Material: PA12  
+    - ID8-t1.  
+19. **Coolant Pipe 8x10 Type 5** (Part No: COL11003022):  
+    - Material: PA12  
+    - ID8-t1.  
+20. **Coolant Pipe 8x10 Type 6** (Part No: COL11003023):  
+    - Material: PA12  
+    - ID8-t1.  
+21. **Coolant Pipe 8x10 Type 8** (Part No: COL11003025):  
+    - Material: PA12  
+    - ID8-t1.  
+22. **Coolant Pipe 8x10 Type 9** (Part No: COL11003026):  
+    - Material: PA12  
+    - ID8-t1.  
+23. **Coolant Pipe 8x10 Type 10** (Part No: COL11003027):  
+    - Material: PA12  
+    - ID8-t1.
+</page>
+
+<page number="9">
+### 3 Requirements
+
+#### 3.2 Technical Requirement – Liquid System Assemblies
+The cooling system consists of four sub-assemblies within the liquid system:
+- **Cooling Inlet Line 1 (COL11003003):** Includes components such as sensor fittings, tee fittings, elbow fittings, and various coolant pipes designed to transfer water-glycol coolant through the battery pack. Key attributes are the material specifications (e.g., PA6, PA12) and defined temperature and pressure tolerances.
+- **Cooling Inlet Line 2 (COL11003052):** Features similar fittings and coolant pipes with technical specifications, including temperature range (-40°C to 80°C) and pressure levels (max: 2 bar).
+
+---
+
+#### Bill of Materials – Cooling Inlet Line 1 (COL11003003)
+
+1. **Sensor Fitting (COL11002024):** One unit, made of A6082-T6 material, includes an adapter for 2xNW16 NW8 with temperature and pressure specifications. 
+2. **Tee Fitting (COL11002004):** One unit, fabricated from A6082-T6 material, equipped with an adapter 2xNW14 5/4.
+3. **Tee Fitting 2 (COL11002033):** One unit, PA6-6GF30 material, featuring a VOSS adapter for 2xNW16 NW8.
+4. **Tee Fitting 3 (COL11003004):** Eight units, manufactured from PA6-6GF30 material, includes a VOSS adapter 2xNW16.
+5. **Tee Fitting 5 (COL11003035):** One unit made of PA6-6GF30 material, with a VOSS adapter for two NW16x2 points.
+6. **90° Elbow Fitting (COL11002007):** Four units in PA6-6GF30 material, includes VOSS features and specification for SVZD DL WUK S6 NW8.
+7. **Fluid Temperature Sensor (ELE11000129):** One unit, with NTC sensor type, measuring temperature within ±0.5°C accuracy at 25°C, tolerance ratings, and resistance attributes.
+8. **Straight Fitting (COL11002008):** Sixteen units in PA6-6GF30 material, designed with VOSS for SVZD DL GST S6 NW8.
+9. **Straight Fitting 2 (COL11002023):** One unit in PA6-6GF30 material, enabling SVZD DL GST S4 NW14.
+10–22. **Various coolant pipes** featuring ID8-t1, ID14-t1.5 specifications in PA12 material, ensuring proper liquid system functionality.
+
+---
+
+#### Bill of Materials – Cooling Inlet Line 2 (COL11003052)
+
+1. **Coolant Pipe 8x10 Type 15 (COL11003005):** One unit made of PA12 material, ID8-t1 specification.
+2. **Coolant Pipe 14x17 Type 17 (COL11003062):** One unit made of PA12 material, ID14-t1.5 specification.
+3. **Coolant Pipe 14x17 Type 18 (COL11003063):** Three units made of PA12 material, ID14-t1.5 specification.
+4. **Screw Hex Socket M3xL6 (MEC11002141):** Two steel units, conforming to ISO 898-1 standards, featuring hexagon sockets with M3 specifications.
+5. **Protective Sleeve 1 (COL11003064):** One unit composed of PET material designed with ID17-OD17.8 specifications.
+
+---
+
+### Figures and Illustration Notes
+- The visual representation of assemblies includes the serpentine cooling pipe and labeled inlet and outlet lines. This layout clearly demonstrates the flow and connectivity between sub-assemblies within the liquid system, supporting optimized thermal regulation.
+</page>
+
+<page number="10">
+VinFast  
+Management System  
+
+VFDSXXBAT0870  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+10 | 19  
+Print date  
+Status  
+Functional Responsibility  
+
+### Bill of Material for Cooling Outlet Line 1 (COL11003032)
+
+1. **COOLING OUTLET LINE 1**  
+   - **Part No.:** COL11003032  
+   - **Material:** P  
+   - **Technical Specification:** Temperature range -40°C to 80°C; Pressure max 2 bar  
+
+2. **Sensor Fitting 1**  
+   - **Part No.:** COL11003033  
+   - **Material:** A6082-T6  
+   - **Specification:** Adapter 2xNW16 NW14  
+
+3. **TEE Fitting**  
+   - **Part No.:** COL11002004  
+   - **Material:** A6082-T6  
+   - **Specification:** Adapter 2xNW14 S14  
+
+4. **TEE Fitting 4**  
+   - **Part No.:** COL11003035  
+   - **Material:** PA6.6-GF30  
+   - **Specification:** VOSS Adapter 2xNW16 NW14  
+
+5. **Fluid Temperature Sensor**  
+   - **Part No.:** ELE11002920  
+   - **Material:** D  
+   - **Specification:** Accuracy at 25°C: ±0.5°C; Accuracy at 100°C: ±2°C; Nominal resistance: 10kohm ±1% (at 25°C); Sensor type: NTC  
+
+6. **Straight Fitting 2**  
+   - **Part No.:** COL11002023  
+   - **Material:** PA6.6-GF30  
+   - **Specification:** VOSS SV270 DL GST S14 NW14  
+
+7. **Straight Fitting 3**  
+   - **Part No.:** COL11003038  
+   - **Material:** PA6.6-GF30  
+   - **Specification:** VOSS SV270 DL GST S14 NW14  
+
+8. **Coolant Pipe 14x17 Type 4**  
+   - **Part No.:** COL11003010  
+   - **Material:** PA12  
+   - **Specification:** ID14-t1.5  
+
+9. **Coolant Pipe 14x17 Type 5**  
+   - **Part No.:** COL11003011  
+   - **Material:** PA12 NW14 CORRUGATED W9 L101  
+
+10. **Coolant Pipe 14x17 Type 11**  
+    - **Part No.:** COL11003017  
+    - **Material:** PA12  
+    - **Specification:** ID14-t1.5  
+
+11. **Coolant Pipe 14x17 Type 12**  
+    - **Part No.:** COL11003039  
+    - **Material:** PA12  
+    - **Specification:** ID14-t1.5  
+
+12. **Coolant Pipe 14x17 Type 13**  
+    - **Part No.:** COL11003040  
+    - **Material:** PA12  
+    - **Specification:** ID14-t1.5  
+
+13. **Coolant Pipe 10x13 Type 1**  
+    - **Part No.:** COL11003048  
+    - **Material:** PA12  
+    - **Specification:** ID10-t1.5  
+
+14. **Coolant Pipe 10x13 Type 2**  
+    - **Part No.:** COL11003049  
+    - **Material:** PA12  
+    - **Specification:** ID10-t1.5  
+
+15. **Coolant Pipe 10x13 Type 3**  
+    - **Part No.:** COL11003050  
+    - **Material:** PA12  
+    - **Specification:** ID10-t1.5  
+
+16. **Coolant Pipe 10x13 Type 4**  
+    - **Part No.:** COL11003051  
+    - **Material:** PA12  
+    - **Specification:** ID10-t1.5  
+
+17. **Coolant Pipe 10x13 Type 5**  
+    - **Part No.:** COL11003036  
+    - **Material:** PA12  
+    - **Specification:** ID10-t1.5  
+
+18. **Coolant Pipe 10x13 Type 8**  
+    - **Part No.:** COL11003037  
+    - **Material:** PA12  
+    - **Specification:** ID10-t1.5  
+
+19. **Screw Hex Socket M3XL6**  
+    - **Part No.:** MEC11002141  
+    - **Material:** Steel  
+    - **Specification:** Machine crew Hexagon Socket Head M3xL6 - CH 10.9 (ISO 898-1)  
+
+20. **Coolant Pipe 14x17 Type 19**  
+    - **Part No.:** COL11003035  
+    - **Material:** PA12  
+    - **Specification:** ID14-t1.5  
+
+21. **Protective Sleeve 2**  
+    - **Part No.:** COL11003066  
+    - **Material:** PET  
+    - **Specification:** ID 17-OD 17.8  
+
+22. **TEE Fitting 7**  
+    - **Part No.:** COL11003068  
+    - **Material:** PA12  
+    - **Specification:** VOSS Adapter NW16 2xNW14  
+
+23. **90° Elbow Fitting 3**  
+    - **Part No.:** COL11003067  
+    - **Material:** PA12  
+    - **Specification:** VOSS Adapter NW16 2xNW14
+</page>
+
+<page number="11">
+### ④ COL11003054_COOLING OUTLET LINE 2
+
+**Technical Specifications:**
+- **Operating Pressure:** Max 2.0 Bar.
+- **Operating Temperature:** -40°C ~ 80°C.
+- **Cooling Liquid:** Water with 50% antifreezer based on glycole.
+
+**Technical Requirements:**
+1. **Side Load Capacity:**
+   - **Test Method:** Install the sample in the tensile machine and seal the other end. Apply a load at a rate of 12.7 ±5mm/min until the side load reaches 152N. Perform the leak test with 4 bar pressure for 1 min. Continue side load to fracture, measuring the load until failure.
+   - **Standard:** SAE J2044-2009.6.4.
+   - **Evaluation:** Side Load Leak Test: Side Load 152N, Max Leak Rate 8CC/min. Side Load Fracture: Side Load >200N.
+   - **Sample Quantity:** 3.
+
+2. **Temperature Cycle Leak Test:**
+   - **Test Method:** Immerse the samples into test liquid at room temperature (RT, +23°C ±5°C), +90°C, RT, -40°C, and RT. Then pressurize with air up to 4 bar for 10 minutes at each temperature.
+   - **Standard:** SAE J2044-2009.6.1.
+   - **Evaluation:** Leakage <2.5 ml/min.
+   - **Sample Quantity:** 3.
+
+3. **Burst Test at Room Temperature (RT):**
+   - **Test Method:** Install the assembly to a burst testing equipment at RT. Pressurize at a rate of 7000 kPa/min until failure occurs.
+   - **Standard:** SAE J2045-2012.4.8.
+   - **Evaluation:** >6 Bar.
+   - **Sample Quantity:** 3.
+
+4. **Burst Test at 115°C:**
+   - **Test Method:** Install the assembly to burst testing equipment at 115°C. Pressurize at a rate of 7000 kPa/min until failure occurs.
+   - **Standard:** SAE J2045-2012.4.8.
+   - **Evaluation:** >6 Bar.
+   - **Sample Quantity:** 3.
+
+5. **Air Leak Test for EOL:**
+   - **Test Method:** Apply pressure of 3 bar and maintain balance for 20 seconds. Leak flow shall measure less than 2.5 ml/min.
+
+6. **Cleanliness:** Evaluate as per VDA19.1.
+
+7. **Flammability:** Test for fire resistance in accordance with UL94-HB.
+
+8. **GD&T:** Dimensions and tolerances adhere to 2D DWG.
+
+---
+**Bill of Material for COL11003054_COOLING OUTLET LINE 2:**
+
+1. **Cooling Outlet Line 2:** (Part No: COL11003054)
+   - **Qty:** 1.
+   - **Material:** PA12.
+   - **Specification:** Operating Temperature: -40°C ~ 80°C, Pressure Max: 2 bar.
+
+2. **90° Elbow Fitting 2:** (Part No: COL11002025)
+   - **Qty:** 1.
+   - **Material:** PA6.6 GF30.
+   - **Specification:** VOSS SV270 DL WST S14.
+
+3. **Straight Fitting 3:** (Part No: COL11003038)
+   - **Qty:** 1.
+   - **Material:** PA6.6 GF30.
+   - **Specification:** VOSS SV270 DL GST S8 NW14.
+
+4. **Coolant Pipe 14x17 Type 16:** (Part No: COL11003060)
+   - **Qty:** 1. 
+   - **Material:** PA12.
+   - **Specification:** ID14-t1.5.
+
+5. **Coolant Pipe 10x13 Type 5:** (Part No: COL11003057)
+   - **Qty:** 1. 
+   - **Material:** PA12.
+   - **Specification:** ID10-t1.5.
+
+6. **Coolant Pipe 10x13 Type 6:** (Part No: COL11003058)
+   - **Qty:** 1. 
+   - **Material:** PA12.
+   - **Specification:** ID10-t1.5.
+
+7. **90° Elbow Fitting 3:** (Part No: COL11003067)
+   - **Qty:** 1.
+   - **Material:** PA12.
+   - **Specification:** VOSS SV270 DL GST S16 NW8.
+
+8. **Tee Fitting 7:** (Part No: COL11003068)
+   - **Qty:** 1.
+   - **Material:** PA12.
+   - **Specification:** VOSS Adapter NW16 2xNW8.
+</page>
+
+<page number="12">
+VinFast Management System  
+VFDSXXBAT0870  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+
+**Technical Information**  
+The technical information provided outlines details of parts and components required for the cooling system assembly. The information includes part design, functional requirements, and VinFast standards.  
+
+### Table 1: Technical Information Table
+| No | Part Name            | Part No.      | Qtty | Material | Purchase Level | VFe36 SMART | VFe36 PLUS |
+|----|----------------------|---------------|------|----------|----------------|-------------|------------|
+| 1  | COOLING INLET LINE 1 | COL11003003   | 1    | P        | X              | X           |
+| 2  | COOLING INLET LINE 2 | COL11003052   | 1    | P        | X              | X           |
+| 3  | COOLING OUTLET LINE 1| COL11003032   | 1    | P        | X              | X           |
+| 4  | COOLING OUTLET LINE 2| COL11003054   | 1    | P        | X              | X           |
+
+**VN (Vietnam)**  
+All markets: refer to item 1.1.
+</page>
+
+<page number="13">
+3 General CAE Requirements  
+Refer to SOR: VFSRXXCVC0201 VFCAE-001-FEM-GENERAL_Analysis requirement.  
+
+3.4 Material requirement  
+- Prohibited or Restricted Substances, Emissions & Toxicology:  
+The conformance to prohibited and restricted substances and obligations in terms of notification must be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier throughout the complete product life cycle according to VFDST00007601.  
+
+IMDS material data sheets must be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601.  
+
+Specific targets on vehicle indoor air quality must follow  
+VFDSXVCVC3401-VIAQ_Testing_Guideline.  
+
+- Materials must define detailed information including weight, grade, and density.  
+
+Refer to 3.2 Technical Requirement.  
+
+3.5 Traceability  
+For part requirements, follow specifications outlined in VinFast standard VFDST00010501.  
+
+3.6 Labeling of Parts  
+Suppliers must comply with VinFast standard VFDST00000010. Suppliers need to provide a figure indicating label positions on parts, including label setup with pictures.  
+
+3.7 Testing and Validation and DVP&R  
+DVP and PC test responsibilities follow RASIC. Testing must be done virtually and physically for system, sub-system, and component levels inline with the Complete Vehicle Specification book during the concept phase.  
+Detailed test plans for hardware tests are documented in DVP&R. Collaboration with the Testing & Validation department is required.  
+
+- Testing requirements include:  
+  - Declaration of standard, norm, and legal requirements.  
+  - Detailed description of testing setup with pictures.  
+  - Identification of testing locations (internal/external).  
+  - Duration and timeline of testing (as part of the project plan).  
+  - Part variants and descriptions.  
+  - Quantity of tested components/parts.  
+
+Ensure a Mileage Target Life: 160,000 km or 10 years (whichever comes first).  
+
+3.8 Appearance Approval - Applicable for all Visible Parts  
+AAR is a PPAP deliverable.
+</page>
+
+<page number="14">
+The AAR process is described in the VFDST00038401 (quantity of parts, timing). 
+
+For each step of the process, Supplier has the responsibility to submit parts to VF Quality Design following agreed timing with VF to get OK Shape, OKTG and AAR Approval. The process will start in early phase at PT build to secure AAR Approval at LS. Supplier has to include this activity in their development process and ED&D Cost.
+
+---
+
+## 4. Function Safety, Homologation, and Safety Regulations
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### 4.1. Functional Safety Requirements
+
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.
+
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles - Functional safety. 
+
+< MGL and FUSA to add here reference to system-specific Functional Safety Requirements document >.
+
+---
+
+### 4.2. Deliverables for Functional Safety
+
+The indicative RASIC for expected deliverables is outlined below:
+
+#### 5.5 Work Products:
+
+1. **Supplier selection report** resulting from requirements 5.4.2.1 and 5.4.2.2.
+   - **VinFast**: Responsibility (R)
+   - **Supplier**: Informed (I)
+
+2. **Development interface agreement (DIA)** resulting from requirement 5.4.3.
+   - **VinFast**: Responsibility (R)
+   - **Supplier**: Support (S)
+
+3. **Supplier's project plan** resulting from requirement 5.4.3.
+   - **VinFast**: Approval (A)
+   - **Supplier**: Responsibility (R)
+
+4. **Supplier's safety plan** resulting from requirement 5.4.3.
+   - **VinFast**: Approval (A)
+   - **Supplier**: Responsibility (R)
+
+5. **Functional safety assessment report** resulting from requirements 5.4.5.1 to 5.4.5.5.
+   - **VinFast**: Informed (I)
+   - **Supplier**: Responsibility (R)
+
+6. **Supply agreement** resulting from requirements 5.4.6.2 to 5.4.6.3.
+   - **VinFast**: Responsibility (R)
+   - **Supplier**: Support (S)
+
+7. **Safety case**, resulting from 6.4.6.
+   - **VinFast**: Approval (A)
+   - **Supplier**: Responsibility (R)
+
+---
+
+#### a) FUSA Deliverables Expected Before Nomination
+
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.
+</page>
+
+<page number="15">
+Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree to a Development Interface Agreement (DIA) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+b) FUSA Deliverables expected after nomination:
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations, and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+
+4.3 Homologation and Safety Regulation Requirements  
+4.3.1 North America  
+a. Homologation and Safety Regulation Activities  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b. Self-Certification and Test Report(s):  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The Supplier should also be familiar with the laboratory test procedures (*) used by USA/Canada Governments to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of Manufacturer Handbook.  
+
+c. Duty to Notify VinFast of a Non-Compliance with an FMVSS/CMVSS or European Regulations:  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.  
+
+4.3.2 Europe  
+a. Homologation and Safety Regulation Activities
+</page>
+
+<page number="16">
+The Supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+### Test report(s) and Certificate(s)
+The supplier is responsible for ensuring their part(s), product(s), or system(s) meet applicable UN-ECE regulations before those products can be offered for sale. VinFast requests the Supplier to conduct tests as specified in certain UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance. 
+
+VinFast also requests the Supplier provide supporting documentation, technical information, and drawings to be submitted to the relevant authorities to obtain certification for EC vehicle type-approval (if applicable). Additionally, the Supplier should be familiar with laboratory test procedures that European authorities use to evaluate compliance with each UN-ECE regulation.
+
+### Duty to Notify VinFast
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced. The Supplier has a duty to notify VinFast within five working days of determining the non-compliance or safety-related defect. The Supplier must propose a risk assessment and resolution plan.
+
+---
+
+## 5 Deliverables
+### 5.1 Technical Deliverables
+
+Work Interface Chart (RASI): The main supplier obligations are described in the Work Interface Chart (RASI). The status of the supplier (“Built to Print”) is defined below System / Component Specification.
+
+**RASI Definitions:**
+- **R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+
+- **A: Approval**  
+Obligation to decide or responsibility for release. If no decider is defined, the person who is responsible for execution (“R”) is the decider.
+
+- **S: Support**  
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (“R”) in achieving the targets.
+
+- **I: Information**  
+Right to information. This team member is entitled to demand information from “R.”
+</page>
+
+<page number="17">
+### 5.2 Details Deliverables and RASI  
+Need revise date of RASI follow Timing Gate.
+
+#### Deliverables Table:
+| No | Gate | Stage                | Deliverable                                                                 | VF Engineering | VF Purchasing | Supplier | SQE  | Manufacturing |
+|----|------|----------------------|-----------------------------------------------------------------------------|----------------|---------------|----------|------|---------------|
+| 1  | PV   | CONCEPT PHASE        | List of Concept in Commodity                                                | R              | S             | I        | I    | I             |
+| 2  | PV   | CONCEPT PHASE        | SOR for Concept in Commodity                                                | R              | S             | I        | I    | I             |
+| 3  | PPS  | CONCEPT PHASE        | Deliver Bill of Materials in Team center                                    | R              | I             | I        | I    | I             |
+| 4  | PPS  | CONCEPT PHASE        | Supply chain strategy - Deliver Sourcing Strategy                           | S              | R             | I        | S    | I             |
+| 5  | PPS  | CONCEPT PHASE        | Quality planning to meet program requirements - APQP Kickoff                | R              | S             | S        | S    | I             |
+| 6  | PPS  | CONCEPT PHASE        | System & Sub-system Functional targets agreed and cascaded to Component level, Inline with Complete Vehicle Targets. | R | S | I | I | I |
+| 7  | PPS  | CONCEPT PHASE        | DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests. | R | S | S | I | I |
+| 8  | TA   | Contract Series development - LON for Concept Commodity / LON for B2P Commodity | A | R | S | I | I |
+| 9  | TA   | Timing plan for the complete Program detailing milestones and critical activities for B2P Commodity | R | S | S | I | I |
+| 10 | TA   | Organization and resources for the concept phase, resource planning for series development | R | S | S | I | I |
+| 11 | TA   | DMU study for system level and sub-system level                    | R | S             | S        | I    | I             |
+| 12 | TA   | Manufacturing feasibility for Built to Print Commodities          | A | S             | R        | I    | I             |
+| 13 | TA   | Tool order release for long lead parts, P Release for Tool Design and I Release for Tool Hardware, PR Release for tool machining | S | R | S | I | I |
+| 14 | TA   | CAD release for P & I for Long lead tooling kick-off               | R | S             | S        | I    | I             |
+| 15 | TA   | Define tooling concept / injection points / …                      | S | I             | R        | S    | I             |
+| 16 | TA   | Feasibility / manufacturing study and confirmation for parts       | S | I             | R        | S    | I             |
+| 17 | PR   | SERIES DEVELOPMENT    | VinFast review and release the PR cad and 2D Drawing                        | R | S             | S        | I    | A             |
+| 18 | CC   | SERIES DEVELOPMENT    | PFMEA                                                                        | S | I             | R        | A    | I             |
+| 19 | CC   | SERIES DEVELOPMENT    | Commercial finalization for PR level design                                 | S | R             | S        | I    | I             |
+| 20 | CC   | SERIES DEVELOPMENT    | System, Sub-System & Component Level DV Complete.                           | R | S             | S        | I    | I             |
+| 21 | CC   | SERIES DEVELOPMENT    | Tooling order releases for all parts                                         | I | R             | S        | I    | I             |
+| 22 | CC   | SERIES DEVELOPMENT    | Engineering change management release kick-off                               | R | S             | S        | S    | S             |
+| 23 | PTO  | SERIES DEVELOPMENT    | Parts fit to nominal                                                         | S | I             | R        | A    | I             |
+| 24 | PTO  | SERIES DEVELOPMENT    | System, Sub-System & Component Level PV Complete.                           | S | I             | R        | A    | I             |
+| 25 | PTO  | SERIES DEVELOPMENT    | System, Sub-System & Component Level target achievement confirmed            | A | S             | R        | S    | I             |
+| 26 | LS   | SERIES DEVELOPMENT    | Part level - Appearance approval, Color harmony, Grain approval              | S | I             | R        | A    | I             |
+| 27 | LS   | SERIES DEVELOPMENT    | Engineering sign-off                                                        | A | S             | S        | S    | S             |
+
+---
+
+### 6 Supplier Responsibilities  
+The supplier is responsible to provide/ensure while completing the work. Supplier responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.
+</page>
+
+<page number="18">
+After-sales spare parts should be ready at startup.
+
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production. 
+
+### Spare Parts Support Cycle
+The support period of after-sales spare parts shall need to ensure life cycles of the project and requirements in GTC after VINFAST end of production of the whole vehicle, except as specified in this SOR. 
+
+### Maintenance Information of After-Sale Spare Parts
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as:
+- BOM table
+- Parts structure and function description
+- Fault diagnosis
+- Special tools for maintenance
+- Relevant technical parameters (installation clearance, parts performance parameters, etc.)
+
+---
+
+### Intellectual Property / Copyright
+Refer to VinFast General Term and Condition (GTC).
+
+---
+
+### Insurance / Warranties
+Refer to VinFast General Term and Condition (GTC).
+
+---
+
+### VinFast GTC & Part Packaging and Incoterms
+Refer to VinFast General Term and Condition, part packaging requirements, and Incoterms requirements in the RFQ package.
+
+---
+
+### Definitions and List of Abbreviations
+
+- **DVP&R**: Design Verification Plan & Report  
+- **ESO**: Engineering Sign Off  
+- **GTC**: General Term and Condition  
+- **LLS**: Long Lead Suppliers on board  
+- **LLT**: Long Lead Tooling  
+- **LOI**: Letter of Intend  
+- **MFC**: Manufacturing Feasibility Confirmation  
+- **MSC**: Manufacturing Strategy Confirmation  
+- **MSI**: Major Suppliers Identified  
+- **MSO**: Manufacturing Sign Off  
+- **OTS**: Off The Shelf  
+- **PTP**: Prototype Parts out of Serial tooling (Hand finished)  
+- **RFQ**: Request For Quotation  
+- **SLS**: Short Lead Suppliers on board
+</page>
+
+<page number="19">
+After-sales spare parts should be ready at startup.
+
+The spare parts provided by the supplier should be ready at the start of the whole vehicle production.
+
+Spare Parts Support Cycle. 
+The support period of after-sales spare parts shall need to ensure the life cycles of the project and requirements in the General Term and Condition (GTC) after VINFAST ends production of the whole vehicle, except as specified in this SOR.
+
+Maintenance Information of After-Sale Spare Parts. 
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before Off The Shelf (OTS), such as:
+- BOM table, 
+- Parts structure and function description, 
+- Fault diagnosis, 
+- Special tools for maintenance, 
+- Relevant technical parameters (e.g., installation clearance, parts performance parameters, etc.).
+
+7. Intellectual Property / Copyright.
+Refer to VinFast General Term and Condition (GTC).
+
+8. Insurance / Warranties.
+Refer to VinFast General Term and Condition (GTC).
+
+9. VinFast GTC & Part Packaging and Incoterms.
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirements in the RFQ package.
+
+10. Definitions and List of Abbreviations.
+- **DVP&R**: Design Verification Plan & Report.
+- **ESO**: Engineering Sign Off.
+- **GTC**: General Term and Condition.
+- **LLS**: Long Lead Suppliers on board.
+- **LLT**: Long Lead Tooling.
+- **LOI**: Letter of Intent.
+- **MFC**: Manufacturing Feasibility Confirmation.
+- **MSC**: Manufacturing Strategy Confirmation.
+- **MSI**: Major Suppliers Identified.
+- **MSO**: Manufacturing Sign Off.
+- **OTS**: Off The Shelf.
+- **PTP**: Prototype Parts out of Serial tooling (Hand finished).
+- **RFQ**: Request For Quotation.
+- **SLS**: Short Lead Suppliers on board.
+- **SOB**: Supplier on Board.
+- **SOP**: Start of Production.
+- **SOP-ID**: SOP-Implementation Date.
+- **SOP-LM**: SOP Launch Model (1 specific Model – “Edition”).
+- **SST**: Sourcing Strategy.
+- **TS**: Theme selection Model.
+- **FUSA**: Function Safety.
+- **T&V**: Testing & Validation.
+- **IMDS**: International Material Information System.
+- **SC**: Significant Characteristic.
+- **CC**: Critical Characteristic.
+</page>
+</pages>

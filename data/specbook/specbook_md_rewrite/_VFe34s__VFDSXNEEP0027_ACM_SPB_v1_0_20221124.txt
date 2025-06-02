@@ -1,0 +1,2785 @@
+Page 1
+AIRBAG CONTROL MODULE Specification Book (SPB).
+
+First Edition (11.2022).
+Page 2
+Scope.
+
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop a new VFe34s vehicle in both ECO and PLUS. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production. 
+
+ACM_Airbag Control Module: An image displaying the Airbag Control Module (ACM), which is part of the system detailed in this specification book.
+
+Responsible Contact: Project Engineer.
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, are prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Index.
+
+Contents.
+SCOPE ........................................................................................................................... 2 
+Index ............................................................................................................................. 3 
+
+1. GENERAL DOCUMENT GUIDELINES ....................................................................... 7 
+1.1 Purpose and Legal Binding ....................................................................................... 7 
+1.2 Language .................................................................................................................. 7 
+1.3 Obligation of Requirement Wording .......................................................................... 7 
+    1.3.1 Vehicle profile ..................................................................................................... 8 
+    1.3.2 Sales Markets .................................................................................................... 8 
+
+2. GENERAL PROJECT GUIDELINES .......................................................................... 9 
+2.1 Development Scope Abstract .................................................................................... 9 
+2.2 Initial Situation and Objective .................................................................................... 9 
+2.3 Classification of the System / Component ................................................................. 9 
+2.4 Execution Regulations ............................................................................................. 10 
+2.5 Development and Supply Scope .............................................................................. 11 
+    2.5.1 Work Interface Chart (RASI) ............................................................................ 11 
+    2.5.2 Development Interface Agreement (DIA) ......................................................... 13 
+2.6 Quotation Scope ...................................................................................................... 13 
+2.7 Properties, Condition and Durability ....................................................................... 13 
+2.8 Development Process .............................................................................................. 14 
+    2.8.1 Gates and Milestones ...................................................................................... 14 
+    2.8.2 Prototype Statuses .......................................................................................... 14 
+    2.8.3 Prototype Quantities ....................................................................................... 14 
+    2.8.4 Acceptance Procedure .................................................................................... 15 
+    2.8.5 Type Approval and Certification ....................................................................... 15 
+2.9 Quality and Reliability .............................................................................................. 15 
+    2.9.1 Quality Concepts ............................................................................................ 15 
+    2.9.2 Risk Management ........................................................................................... 15 
+    2.9.3 Validation of the SW Development ................................................................. 15 
+
+3. PROJECT MANAGEMENT AND ORGANIZATION ................................................ 16 
+3.1 Responsibilities in the Project and Project Management Plan ................................ 17 
+3.2 Documentation ......................................................................................................... 17 
+    3.2.1 Hardware Documentation ............................................................................... 17 
+    3.2.2 Software Documentation ................................................................................ 17 
+    3.2.3 Conformity Requirements ................................................................................ 17 
+
+4. SYSTEM ENVIRONMENT ...................................................................................... 19 
+4.1 Functional System Environment .............................................................................. 19 
+4.2 Physical System Environment / Mechanical Interfaces ........................................... 19 
+4.3 System Architecture Diagram .................................................................................. 19 
+    4.3.1 VFe34s ECO ...................................................................................................... 19 
+    4.3.2 VFe34s PLUS .................................................................................................... 20 
+4.4 Content Amendments ............................................................................................... 20 
+
+5. FUNCTIONAL AND TECHNICAL REQUIREMENTS ............................................. 21 
+Part No. And name in BOM ........................................................................................... 21 
+Block and Principle Diagram .......................................................................................... 21
+Page 4
+# Index
+
+**Contents**
+
+1. **Scope** - (Page: 2)
+
+2. **Index** - (Page: 3)
+
+3. **GENERAL DOCUMENT GUIDELINES** - (Page: 7)  
+   1.1 Purpose and Legal Binding  
+   1.2 Language  
+   1.3 Obligation of Requirement Wording  
+   - 1.3.1 Vehicle profile  
+   - 1.3.2 Sales Markets  
+
+4. **GENERAL PROJECT GUIDELINES** - (Page: 9)  
+   2.1 Development Scope Abstract  
+   2.2 Initial Situation and Objective  
+   2.3 Classification of the System / Component  
+   2.4 Execution Regulations  
+   2.5 Development and Supply Scope  
+      - 2.5.1 Work Interface Chart (RASI)  
+      - 2.5.2 Development Interface Agreement (DIA)  
+   2.6 Quotation Scope  
+   2.7 Properties, Condition and Durability  
+   2.8 Development Process  
+      - 2.8.1 Gates and Milestones  
+      - 2.8.2 Prototype Statuses  
+      - 2.8.3 Prototype Quantities  
+      - 2.8.4 Acceptance Procedure  
+      - 2.8.5 Type Approval and Certification  
+   2.9 Quality and Reliability  
+      - 2.9.1 Quality Concepts  
+      - 2.9.2 Risk Management  
+      - 2.9.3 Validation of the SW Development  
+
+5. **PROJECT MANAGEMENT AND ORGANIZATION** - (Page: 16)  
+   3.1 Responsibilities in the Project and Project Management Plan  
+   3.2 Documentation  
+      - 3.2.1 Hardware Documentation  
+      - 3.2.2 Software Documentation  
+      - 3.2.3 Conformity Requirements  
+
+6. **SYSTEM ENVIRONMENT** - (Page: 19)  
+   4.1 Functional System Environment  
+   4.2 Physical System Environment / Mechanical Interfaces  
+   4.3 System Architecture Diagram  
+      - 4.3.1 VFe34s ECO  
+      - 4.3.2 VFe34s PLUS  
+   4.4 Content Amendments  
+
+7. **FUNCTIONAL AND TECHNICAL REQUIREMENTS** - (Page: 21)  
+   5.1 Main Elements of the System  
+   5.2 System Block Diagram  
+   5.3 Functions  
+      - 5.3.1 Overview Functions Description  
+      - 5.3.2 Detailed Functions Description  
+      - 5.3.3 Display and Operation Concept (HMI)  
+      - 5.3.4 Diagnostics  
+   5.4 Control Unit Concept  
+      - 5.4.1 Hardware  
+      - 5.4.2 Software  
+   5.5 Electrical Interfaces  
+      - 5.5.1 Signal Characteristics  
+      - 5.5.2 Diagnostics  
+      - 5.5.3 Network Management  
+      - 5.5.4 Flashing and Coding  
+      - 5.5.5 Component Connected to Terminal 30  
+   5.6 Specific Characteristics  
+   5.7 Alternative and Future Variants  
+   5.8 Mechanical Energy Management  
+   5.9 Installation  
+      - 5.9.1 Installation Location  
+      - 5.9.2 Assembly Concept and Requirements  
+      - 5.9.3 Geometry  
+      - 5.9.4 Tolerances  
+   5.10 Styling and Design  
+      - 5.10.1 Optical Characteristics and Surface Feel  
+      - 5.10.2 Actuation Acoustics  
+      - 5.10.3 Handling  
+   5.11 Technical Material Requirements  
+   5.12 Resistance to Media and Chemical Requirements  
+      - 5.12.1 Contamination  
+      - 5.12.2 Cleaning  
+      - 5.12.3 Corrosion Protection  
+      - 5.12.4 Tightness and Protection Classes  
+   5.13 Environmental Compatibility  
+   5.14 Mechanical Requirements  
+   5.15 Durability / Life Time  
+   5.16 Electrical Requirements  
+      - 5.16.1 Description of the Requirements  
+      - 5.16.2 Power Consumption  
+      - 5.16.3 Low Voltage Energy Management  
+      - 5.16.4 High Voltage Energy Management  
+      - 5.16.5 Electromagnetic Compatibility  
+      - 5.16.6 Electrostatic Discharge  
+   5.17 Climatic Requirements / Thermal Management  
+      - 5.17.1 Thermal Management Requirements  
+   5.18 Cybersecurity Requirements  
+      - 5.18.1 Cybersecurity Requirements  
+   5.19 Service Requirements  
+   5.20 Transport Protection  
+   5.21 Logistics Requirements  
+   5.22 Quality Assurance Requirements  
+   5.23 Content Amendments
+Page 5
+Scope.
+
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop a new VFe34s vehicle in both ECO and PLUS. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production.
+
+Responsible Contact: Project Engineer. 
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+
+ACM_Airbag Control Module.
+
+A visual depiction of the ACM_Airbag Control Module is shown, highlighting its structural design and key features essential for integration into vehicles.
+Page 6
+Release.
+
+Version: 1.0.  
+Date: Approval TBC.  
+
+Approval confirmed by:  
+- **Function**: Passive Safety.  
+  **Name**: Chavare Ajay.  
+  **Contact**: AJAY.CHAVARE@tatatechnologies.com.  
+- **Function**: EE MGL.  
+  **Name**: Jesus Marc.  
+  **Contact**: Marc.Jesus@tatatechnologies.com.  
+- **Function**: Interior.  
+  **Name**: Ivan Blinov.  
+  **Contact**: v.ivanb@vinfast.vn.  
+- **Function**: FUSA.  
+  **Name**: Namdeo Gaikwad (VF-KPTSP-V8).  
+  **Contact**: v.namdeog@vinfast.vn.  
+- **Function**: T&V.  
+  **Name**: Joao Filho.  
+  **Contact**: v.joaof@vinfast.vn.  
+
+Revisions since previous version:  
+- **Version**: 1.0.  
+  **Change Description**:  
+  - Edition v1.0.  
+  - First Release.  
+  **Signature**: Hassan Raza.  
+  **Date**: Nov – 2022.
+Page 7
+1 General Document Guidelines
+
+1.1 Purpose and Legal Binding.  
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other. All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2  level 2 is applicable).
+
+1.2 Language.  
+This document is written in English.  
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.  
+
+1.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document:  
+
+- **Shall:** The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+- **Should:** The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+- **May:** The word “may” is used to denote options that are left to the implementer.  
+
+### Requirements Traceability:
+| Requirement ID | Requirement Text          | CONFIG |
+|----------------|---------------------------|--------|
+| REQ-IDNBR-VER | Requirement Text need     | Criteria |
+
+**Remark:** Text for example guidance, not binding.  
+
+#### Criteria:
+- **REQ:**  
+  - GEN – Generic application, non-specific.  
+  - PROJ – Project specific, example VF35, VF36, VFe35.  
+
+- **IDNBR:** Unique Identification number, marked with ID letters (e.g., EL from exterior lighting) and numbers from 0001 to 9999.  
+- **VER:** Version of the requirement, marked with .01 to .99.  
+- **CONFIG:** Configuration criteria.  
+
+#### Configuration Table:
+
+| Config | Scope         |
+|--------|---------------|
+| A      | VFe33 & VFe34s |
+| B      | VFe33         |
+| C      | VFe34s        |
+| D      | ICE & BEV     |
+| E      | ICE           |
+| F      | BEV           |
+Page 8
+**1 General Document Guidelines**
+
+**1.1 Purpose and Legal Binding**  
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other. All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g., level 3 vs level 2 → level 2 is applicable).  
+
+**1.2 Language**  
+This document is written in English.  
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.  
+
+**1.3 Obligation of Requirement Wording**  
+The following wording rules are used throughout this document:  
+
+- **Shall:**  
+The word "shall" is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+
+- **Should:**  
+The word "should" is used for preferences or desires in implementation that are not strictly binding.  
+
+- **May:**  
+The word "may" is used to denote options that are left to the implementer.  
+
+**Requirements Traceability:**  
+| Requirement ID | Requirement Text | CONFIG |
+|-----------------|-------------------|--------|
+| REQ-IDNBR-VER  | Requirement Text need | Criteria |
+
+Remark: Text for example guidance, not binding  
+
+**Criteria:**  
+- REQ:  
+  - GEN – Generic application, non-specific  
+  - PROJ – Project specific, example VF35, VF36, VFe35  
+- IDNBR: Unique Identification number, marked with ID [letters, e.g., EL for Exterior Lighting] and number from 0001 to 9999.  
+- VER: Version of the requirement, marked with .01 to .99  
+- CONFIG: Configuration criteria  
+
+**Config:**  
+| Config | Scope          |
+|--------|----------------|
+| A      | VFe33 & VFe34s |
+| B      | VFe33          |
+| C      | VFe34s         |
+| D      | ICE & BEV      |
+| E      | ICE            |
+| F      | BEV            |
+
+---
+
+**1.3.1 Vehicle Profile**  
+See Appendix_Feature list:  
+- **VFDSXVCVC0501:** _Appendix_5_Features List_  
+
+PALS:  
+- **VFDSXVCVC3201:** _VF32 PALS Product Attribute Leadership Strategy_  
+
+**1.3.2 Sales Markets**  
+LHD countries: Vietnam & ASEAN, US, CA, EU.  
+Volume refer to appendix:  
+- **VFDSXVCVC2101:** _Appendix_1_Product_Volume_
+Page 9
+2 General Project Guidelines.
+
+2.1 Development Scope Abstract.
+VinFast Trading and Production Limited Liability Company have started to design and develop a new D-Segment vehicle in both ECO and PLUS, identified by VFe34s (ECO vehicle) and VFe34s (PLUS vehicle). This technical specification is a written summary of requirements to be taken into account in the development of the Airbag Control Module. The requirements described in this technical specification relate primarily to functional characteristics. The contractor ensures that the development of the components complies with all applied standards, characteristics, and project requirements. Any possible cost savings as a result of improvements in design, production, or validation details must be reported immediately. The contractor is a 'System Development Supplier,' with complete responsibility for the supplied system within the system boundaries.
+
+2.2 Initial Situation and Objective.
+The objective is to provide all the necessary technical information requirements to develop an Airbag Control Module (ACM) for VFe34s ECO and PLUS.
+
+2.3 Classification of the System / Component.
+**VFe34s (ECO & PLUS) / Market: VN.**
+1. **EEP71070020** - ACM_AIRBAG_CONTROL_MODULE - Quantity: 1. Description: 12 firing loops / 7 airbags.
+2. **EEP30010027** - SATELLITE_ACCELERATION_SENSOR - Quantity: 4. Description: 2 units for front crash / 2 units for side crash.
+3. **EEP30010031** - SIDE_IMPACT_DOOR_PRESSURE_SENSOR - Quantity: 2. Description: 2 units for side crash.
+
+**VFe34s (ECO & PLUS) / Market: EU/US/CA.**
+1. **EEP71070020** - ACM_AIRBAG_CONTROL_MODULE - Quantity: 1. Description: 15 firing loops / 8 airbags.
+2. **EEP30010027** - SATELLITE_ACCELERATION_SENSOR - Quantity: 4. Description: 2 units for front crash / 2 units for side crash.
+3. **EEP30010031** - SIDE_IMPACT_DOOR_PRESSURE_SENSOR - Quantity: 2. Description: 2 units for side crash.
+
+*Total number of planned hardware and software part numbers are defined below under section 2.8.4.*
+Page 10
+2 General Project Guidelines.
+
+2.4 Execution Regulations.
+The supplier must ensure that the developed parts meet the requirements of the laws and of the specified requirements of VinFast, obtain the type certification of the parts, and submit all necessary documents to support the type certification of the whole vehicle. When synchronous development is completed, suppliers need to provide the necessary documentation to prove that their products have met the required regulatory requirements.
+
+**Standard Number | Name | Remarks:**
+- ISO 16750.1-2006: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 1: General.
+- ISO 16750.2-2012: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 2: Electrical loads.
+- ISO 16750.3-2012: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 3: Mechanical loads.
+- ISO 16750.4-2010: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 4: Climatic loads.
+- ISO 16750.5-2010: Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 5: Chemical load.
+- IEC 60529-2013: Degrees of protection provided by enclosures(IP Code).
+- CISPR25: Vehicles, boats and internal combustion engines – Radio disturbance characteristics - Limits and methods of measurement for the protection of on-board receivers.
+- CISPR22: Information technology equipment - Radio disturbance characteristics - Limits and methods of measurement.
+- ISO 7637.1: Road vehicles - Electrical disturbances from conduction and coupling - Part 1: Definitions and general considerations.
+- ISO 7637.2: Road vehicles — Electrical disturbance by conduction and coupling.
+- ISO 7637.3: Road vehicles — Electrical disturbances from conduction and coupling — Part 3: Electrical transient transmission by capacitive and inductive coupling via lines other than supply lines.
+- VFDSP50000002: EMC Standard Component.
+- VFDSP50000004: General Electrical.
+- VFDSP50000005: Energy Management.
+- VFDSP50000008: Thermal Management.
+- VFDSXVEEP0014: Clamp Specification.
+- VFDSAAEEP0047: CAN Specification.
+- VFDSVAEEP0001: Generic Diagnostic Specification.
+- VFDSVAEEP0002: Basic DID PID Specification.
+- VFDSVAEEP0003: Flash Specification.
+- VFDSP50000017: Coding Specification.
+- VFDSP50000020: Security Access Algorithm.
+- VFCSMCSS00110: VinFast Cybersecurity Requirements.
+- VFDST00028121: Electrical requirements and testing.
+Page 11
+# VinFast Management System (VFDSXNEEP0027) Version: 1.0
+**Uncontrolled copy when printed**
+
+## 2 General Project Guidelines  
+
+### 2.5 Development and Supply Scope  
+#### 2.5.1 Work Interface Chart (RASI)  
+Work Interface Chart (RASI):  
+The main supplier obligations are described in the work interface chart (RASI). The status of the supplier ("Built to Print" or "System Development Supplier") is defined below under System / Component Specification.  
+
+**RASI Definitions:**  
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+- **A: Approval**  
+  Obligation to decide / responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+- **S: Support**  
+  Obligated to actively support (even if this requires capacity, expenses and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+- **I: Information**  
+  Right to information. The team member is entitled to demand information from R.  
+
+### Details Deliverables and RASI  
+| **No** | **Gate** | **Stage**              | **Deliverable**                                                                                 | **VF Engineering** | **VF Purchasing** | **Supplier** | **SQE** | **Manufacturing** |  
+|--------|----------|-------------------------|-------------------------------------------------------------------------------------------------|--------------------|-------------------|-------------|-------|------------------|  
+| 1      | PV       | CONCEPT PHASE          | List of Concept in Commodity                                                                    | R                  | S                 | I           | I     | I                |  
+| 2      | PV       | CONCEPT PHASE          | SOR (Statement of Requirements) for Concept in Commodity                                        | R                  | S                 | I           | I     | I                |  
+| 3      | PPS      | CONCEPT PHASE          | SOB through LOI (Letter of Intent) for Concept in Commodity                                     | S                  | R                 | S           | I     | I                |  
+| 4      | PPS      | CONCEPT PHASE          | EDD order release for Concept in Commodity                                                     | S                  | R                 | S           | I     | I                |  
+| 5      | PPS      | CONCEPT PHASE          | Deliver Bill of Materials in Team center                                                       | R                  | I                 | I           | I     | I                |  
+| 6      | PPS      | SUPPLY CHAIN STRATEGY | Supply chain strategy - Deliver Sourcing Strategy                                              | S                  | R                 | I           | S     | I                |  
+| 7      | PPS      | TIMING                 | Commodity Timing plan in each business area supports Program timing for concept commodity       | S                  | S                 | R           | S     | I                |  
+| 8      | PPS      | RESOURCE PLANNING     | Organization and resources for the concept phase, resource planning for series development      | S                  | S                 | R           | S     | I                |  
+| 9      | PPS      | PROGRAM MANAGEMENT    | Opportunities and risks for the program have been detailed and measures defined - Cost reductions, Design Optimization, Timing Optimization | A                  | S                 | R           | S     | I                |
+Page 12
+2 General Project Guidelines.
+
+2.5 Development and Supply Scope.
+2.5.2 Work Interface Chart (RASI).
+
+Work Interface Chart (RASI):  
+The main supplier obligations are outlined in the work interface chart (RASI). The supplier's status ("Built to Print" or "System Development Supplier") is specified under System/Component Specification.  
+
+RASI Definitions:  
+- **R (Responsible):** Responsible for proper execution of activities, ensuring requirements fulfillment. Entitled to request necessary support from other project team members.  
+- **A (Approval):** Obligated to decide or release. If no specific decider is defined, the person responsible for "R" assumes the decider role.  
+- **S (Support):** Provides active assistance, including capacity, expenses, or know-how transfer. Must proactively assist the person responsible for "R" in achieving targets.  
+- **I (Information):** Entitled to receive information from "R".  
+
+Detailed Deliverables and RASI Chart:
+
+| No. | Gate | Stage                          | Deliverable                                                          | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|-----|------|--------------------------------|----------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1   | PV   | CONCEPT PHASE                 | List of Concept in Commodity                                         | R              | S             | I        | I   | I             |
+| 2   | PV   | CONCEPT PHASE                 | SOR for Concept in Commodity                                         | R              | S             | I        | I   | I             |
+| 3   | PPS  | CONCEPT PHASE                 | SOB through LOI - Letter of Intent for Concept in Commodity          | S              | R             | S        | I   | I             |
+| 4   | PPS  | CONCEPT PHASE                 | EDD order release for Concept in Commodity                           | S              | R             | S        | I   | I             |
+| 5   | PPS  | CONCEPT PHASE                 | Deliver Bill of Materials in Team center                             | R              | I             | I        | I   | I             |
+| 6   | PPS  | CONCEPT PHASE                 | Supply chain strategy - Deliver Sourcing Strategy                    | S              | R             | I        | S   | I             |
+| 7   | PPS  | CONCEPT PHASE                 | Commodity Timing plan in each business area supports Program timing  | S              | S             | R        | S   | I             |
+| 8   | PPS  | CONCEPT PHASE                 | Organization and resources for the concept phase, resource planning  | S              | S             | R        | S   | I             |
+| 9   | PPS  | CONCEPT PHASE                 | Opportunities and risks for the program detailed, measures defined   | A              | S             | R        | S   | I             |
+Page 13
+2.5.2 Development Interface Agreement (DIA)  
+N/A  
+
+2.6 Quotation Scope  
+This is covered under the commercial agreement between VinFast and the nominated supplier for the development and delivery of ACM.  
+
+2.7 Properties, Condition and Durability  
+
+| Category             | C-BEV Variant                          |
+|----------------------|-----------------------------------------|
+| **Operation system** | Passenger car EV                       |
+| **Microcontroller**  | -                                      |
+| **Communication interface** | CAN                          |
+| **Inputs**           | Crash pulse, pressure and deceleration, CAN messages |
+| **Outputs**          | Actuate airbag deployment, seat belt pretensioning, CAN messages |
+| **Functional**       | Message Routing, Signal Routing, Diagnostics, Flashing via CAN, FOTA, Cybersecurity |
+| **SW Architecture**  | Standard AUTOSAR                      |
+| **Lifetime**         | 10 years – 160.000 km                 |
+| **Functional Safety**| ASIL D                                |
+| **Operation temp**   | -40°C to +85°C                        |
+| **Mechanical**       | IP rating IP54, Multi-Material         |
+| **Location**         | Beneath the first row seats            |
+
+See chapter 5.18 for further durability requirements.
+Page 14
+2.8 Development Process.
+
+2.8.1 Gates and Milestones.
+
+2.8.1.1 Gates  
+Refer to appendix:  
+VFDSXVCVC1101 - VF32_Appendix_1_Project timing.
+
+2.8.1.2 Milestones  
+Refer to appendix:  
+VFDSXVCVC1101 - VF32_Appendix_1_Project timing.
+
+Timing Plan:  
+A detailed timeline outlines key milestones throughout the project, starting from early 2022 and continuing into 2023. It includes gateways such as PTO, PPS, LS, and SOP, as well as timing for standards, labor plan, tooling, and procurement planning activities.
+
+2.8.2 Reviews  
+Weekly reviews will be conducted between VinFast, contractor, and supplier to ensure smooth delivery of programmes.
+
+2.8.3 Prototype Statuses  
+This part is a carry-over from other vehicle programmes and is also provided off the shelf from the supplier. The prototypes must be 100% production representative and off tool.
+
+2.8.4 Prototype Quantities  
+Prototype quantities will be determined based on the build requirements.
+Page 15
+2.8.4 Acceptance Procedure  
+Hardware, software, and calibration deliverables for each programme gate/milestone are to be agreed with the supplier. Apart from the software and hardware delivery part numbers, test reports are also required at regular intervals for acceptance. This shall be governed by component-level DVPR. If a carry-over hardware is being used, the earlier component-level DVPR reports shall suffice.
+
+2.8.5 Type Approval and Certification  
+N/A
+
+2.9 Quality and Reliability  
+
+2.9.1 Quality Concepts  
+N/A
+
+2.9.2 Risk Management  
+Governed by Functional Safety Requirements.
+
+2.9.3 Validation of the SW Development  
+The supplier shall regularly report to VinFast the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design validation. If there are inconsistencies with the specified specification requirements, the supplier should work with VinFast to solve the problem. Suppliers also need to provide VinFast with competent onsite service personnel to support VinFast in resolving problems associated with supplier parts in vehicle assembly during the vehicle start-up phase.
+Page 16
+3 Project Management and Organization.
+
+**Contact Information:**
+
+**VINFAST**
+- **Commodity Buyer:** Phạm Thị Thanh Hà | Email: v.haptt18@vinfast.vn | Contact Number: +84(0) 904851890
+- **Commodity Buyer Manager:** Yvan Francois Elias Poilbout | Email: v.yvanp@vinfast.vn | Contact Number: -
+- **Safety Electronics Engineer:** Mohamad Syahril Shapei | Email: pn.mohamadss@vinfast.vn | Contact Number: +84(0) 816358057
+- **Safety Electronics Specialist:** Daniel Anghel | Email: Daniel.anghel@tatatechnologies.com | Contact Number: -
+- **SQE (Site Engineer):** Victor Vasconcelos Da Silva | Email: v.victorvds@vinfast.vn | Contact Number: +0818303663
+- **SQE Manager:** Gregory Alan Reed | Email: v.gregoryar@vinfast.vn | Contact Number: +84(0) 826792232
+- **SCM Analyst:** Dilshod Tokhtasinov | Email: v.dilshod@vinfast.vn | Contact Number: +84(0) 888352662
+- **Packaging Analyst:** Greg Cogzell | Email: Greg.cogzell@tatatechnologies.com | Contact Number: -
+- **SCM Manager:** Benjamin Peter Stewart | Email: v.bens@vinfast.vn | Contact Number: +84(0) 888798855
+- **Passive Safety - CAE:** Gopal Musale | Email: Gopal.Musale@tatatechnologies.com | Contact Number: -
+- **Crash Test:** Alain Jules Koehler | Email: v.koehlera@vinfast.vn | Contact Number: -
+- **Interior - Airbags:** Jeffrey Mark Huxter | Email: v.huxterj@vinfast.vn | Contact Number: -
+- **Functional Safety:** Riad Bouzaher | Email: v.bouzaherr@vinfast.vn | Contact Number: -
+
+**CONTINENTAL**
+- **ACU Project Manager:** Berz, Frederik | Email: frederik.berz@conti-engineering.com | Contact Number: -
+- **Sales Director:** Mehr, Reza | Email: reza.mehr@continental-corporation.com | Contact Number: -
+- **Algorithm:** Heiser, Markus | Email: markus.heiser@continental-corporation.com | Contact Number: -
+- **Crash Test:** Haywood, David | Email: david.haywood@continental-corporation.com | Contact Number: -
+Page 17
+### 3.1 Responsibilities in the Project and Project Management Plan
+- Development plan approved by VinFast (including quality plan):
+  1. Mold Development Plan.
+  2. DVP Test Plan for Parts and Components.
+  3. Other (including quality plan).
+- Product data (3D, 2D).
+- List of materials.
+- DVP test report.
+- Test Report of Prohibited and Restricted Substances Approved by VinFast.
+- Other data (3D, 2D data, process plan, CAE analysis report, APQP report, PPQP report, DFMEA report, PFMEA report).
+
+---
+
+### 3.2 Documentation.
+
+#### 3.2.1 Hardware Documentation
+Vendors should be required to document the following pieces of hardware at various stages:
+1. 2D, 3D Data drawings.
+2. Report of banned substances.
+3. If designed by VinFast, supplier shall provide PFMEA of the product. If supplier designs, both PFMEA and DFMEA shall be provided.
+4. BOM of parts.
+5. Provide DV/type test report according to the technical requirements of product development.
+
+#### 3.2.2 Software Documentation
+Vendors should be required to document the following pieces of software at various stages:
+1. Software unit test report.
+2. Software integration test report.
+3. Software system test report.
+
+#### 3.2.3 Conformity Requirements
+All homologation of the vehicle relevant legal requirements have to be fulfilled for the planned sales markets: Vietnam/US/EU/CA. All corresponding drafts, proposals, and all series of amendments/supplements have to be considered during the development.
+
+In order to obtain the whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems together with all applicable legal markings in accordance with the regulations of the planned sales markets.
+
+If separate technical units, parts, and systems for the planned sales markets require certification or testing by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed upon with the homologation department of VinFast.
+Page 18
+3.1 Responsibilities in the Project and Project Management Plan.  
+- Development plan approved by VinFast (including quality plan).  
+  1) Mold Development Plan.  
+  2) DVP Test Plan for Parts and Components.  
+  3) Other (including quality plan).  
+- Product data (3D, 2D).  
+- List of materials.  
+- DVP test report.  
+- Test Report of Prohibited and Restricted Substances Approved by VinFast.  
+- Other data (3D, 2D data, process plan, CAE analysis report, APQP report, PPQP report, DFEMA report, PFEMA report).  
+
+3.2 Documentation.  
+
+3.2.1 Hardware Documentation.  
+Vendors should be required to document the following pieces of hardware at various stages:  
+1) 2D, 3D Data drawings.  
+2) Report of banned substances.  
+3) If designed by VinFast, supplier shall provide PFMEA of the product. If supplier designs, both PFMEA and DFMEA shall be provided.  
+4) BOM of parts.  
+5) Provide DV/type test report according to the technical requirements of product development.  
+
+3.2.2 Software Documentation.  
+Vendors should be required to document the following pieces of software at various stages:  
+1) Software unit test report.  
+2) Software integration test report.  
+3) Software system test report.  
+
+3.2.3 Conformity Requirements.  
+All homologation of the vehicle relevant legal requirements have to be fulfilled for the planned sales markets: Vietnam/US/EU/CA. All corresponding drafts, proposals and all series of amendments/supplements have to be considered during the development.  
+
+In order to obtain the whole vehicle type approval, the supplier must provide all required documents, certificates and test reports for separate technical units, parts and systems together with all applicable legal markings in accordance with the regulations of the planned sales markets.  
+
+If separate technical units, parts and systems for the planned sales markets required to be certified or tested by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed with the homologation department of VinFast.  
+
+If requirements of a planned sales market are subject to conformity of production for separate technical units, parts and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.
+Page 19
+4 System Environment
+
+4.1 Functional System Environment.
+IP Rating: IP54.  
+Working temperature: -40°C ~ +85°C.  
+Storage temperature: -40°C ~ +90°C.
+
+4.2 Physical System Environment / Mechanical Interfaces.
+The ACM shall be mounted on a strong flat surface aligned and parallel to the arrow shown on the module for the driving direction. Further detailed installation and integration guidelines for the sensors and ACM are to be provided by the supplier since this is a complete finished product offered by the supplier.
+
+4.3 System Architecture Diagram.
+4.3.1 VFe34s ECO.
+The system architecture diagram illustrates the interconnections between various components, including ADAS, AVAS, RCU, MFS, HUD, BCM, ACM, and other significant system modules. Connections indicate data or power pathways, such as Ethernet lines, HV-CAN communication links, and direct CAN connections. The structure demonstrates how subsystems collaborate to achieve operational functionality.
+
+VinFast Released
+Page 20
+# 4 System Environment
+
+## 4.1 Functional System Environment
+- **IP Rating:** IP54  
+- **Working temperature:** -40°C ~ +85°C  
+- **Storage temperature:** -40°C ~ +90°C  
+
+## 4.2 Physical System Environment / Mechanical Interfaces
+The ACM shall be mounted on a strong flat surface aligned and parallel to the arrow shown on the module for the driving direction. Further detailed installation and integration guidelines for the sensors and ACM must be provided by the supplier since this is a complete finished product offered by the supplier.  
+
+## 4.3 System Architecture Diagram
+
+### 4.3.1 VFe34s ECO
+A detailed system architecture diagram depicting the integration of various subsystems and their connectivity within the VFe34s ECO system, including major modules such as ADAS, RCU, BCM, and ACM, and their interfaces.
+
+## 4.3.2 VFe34s PLUS
+A system architecture diagram for the VFe34s PLUS system, presenting an advanced integration layout similar to the VFe34s ECO, ensuring compatibility across connected components such as XGW, HUD, MHU, and ADAS modules.
+
+---
+
+## 4.4 Content Amendments
+Any architectural changes that affect the ACM system shall be reported to the supplier with a revised system architecture diagram.
+Page 21
+# 5 Functional and Technical Requirements  
+
+## 5.1 Part No. And Name in BOM  
+
+### Table of Part Information  
+
+| No | Part Name                        | Part No.     | Qty | Material | Purchase Level | BEV | VN | US/EU/CA | Eco | Plus | Eco | Plus |
+|----|----------------------------------|--------------|-----|----------|----------------|-----|----|----------|-----|------|-----|------|
+| 1  | ACM_AIRBAG_CONTROLL_MODULE      | EEP71070020  | 1   | -        | P              | X   | X  | X        | X   | X    | X   | X    |
+| 2  | IMPACT_GRAVITY_SENSOR           | EEP30010027  | 4   | -        | P              | X   | X  | X        | X   | X    | X   | X    |
+| 3  | DOOR_PRESSURE_SENSOR            | EEP30010031  | 2   | -        | P              | X   | X  | X        | X   | X    | X   | X    |
+
+---
+
+## 5.2 Block and Principle Diagram  
+
+### 5.2.1 Main Elements of System  
+
+| ECU/Sensor             | Description                                 | Action                                                                 |
+|-------------------------|---------------------------------------------|-----------------------------------------------------------------------|
+| **ACM**                | Airbag Control Module                      | Responsible for deploying airbags upon reception of crash signals from the various sensors. |
+| **BCM**                | Body Control Module                        | Responsible for providing seat belt status to ACM for third row.      |
+| **MHU**                | Multimedia Head Unit                       | Responsible for interface with driver and also to send seat belt reminder message to the driver. |
+| **XGW**                | Gateway Module                             | Responsible for transferring signals between different networks and buses. |
+| **Crash Sensors**      | -                                           | Responsible for providing crash signals to ACM in front and side crash scenarios. |
+| **Pressure Sensors**   | -                                           | Responsible for providing crash signals to ACM specifically for doors. |
+| **Airbags**            | -                                           | Responsible for saving occupant lives. Multiple types of airbags installed in the vehicle. |
+| **Retractor Pretensioners** | -                                       | Responsible for providing pretension and tightening of the restraints (seat belts) just in time to secure the occupants in their position during crash. |
+
+Detailed system block diagram is available in the next section.
+Page 22
+## System Block Diagram
+
+### 5.2.2 System Block Diagram
+The diagram illustrates the detailed connectivity and functional relationships between various components of the ACM system. Key modules, sensors, and their interactions are depicted. Primary components include:
+
+- **ACM (Airbag Control Module):** The central system managing crash signal input and airbag deployment.
+- **MHU (Multimedia Head Unit):** Interfaces with the driver to display seat belt reminders.
+- **BCM (Body Control Module):** Provides seat belt status for the third row.
+- **XGW (Gateway Module):** Facilitates signal transfers between networks.
+- **Crash Sensors:** Detect and relay crash signals for front and side impacts.
+- **Pressure Sensors:** Focus on crash signal detection specific to doors.
+- **Airbags and Retractor Pretensioners:** Ensure occupant safety through deployment and seat belt tightening mechanisms.
+
+Connections between sensors, modules, and deployment systems are demonstrated, highlighting integration for safe vehicle operation during crash scenarios.
+Page 23
+### 5 Functional and Technical Requirements  
+
+#### 5.3 Functions  
+
+##### 5.3.1 Overview Functions Description  
+
+###### 5.3.1.1 Purpose  
+
+- The purpose of the airbag control unit (ACU) and peripheral sensors (satellites) is to detect a vehicle impact and release the restraint system, i.e., airbags, belt pretensioner, etc., in case of frontal, side, and rear collisions and vehicle rollover. For certain markets, airbag suppression due to the presence of children or absence of passengers is enabled by ACU. Post-crash functions, including door unlock, battery cutoff, warning light, etc., are initiated. Additionally, ACU monitors the status of the belt buckles for the seatbelt reminder function.  
+- ACU is equipped with an internal acceleration sensor and provides the interface to satellite sensors. Its functionality includes self-monitoring and diagnostic functions. ACU is configurable for safety and country-specific requirements, as well as option code-relevant functions.  
+- The satellite sensors connected to ACU provide signals for crash recognition, based on physical principles such as acceleration and pressure.  
+
+###### 5.3.1.2 System Overview  
+
+The airbag system includes ACU, ignition circuits, satellite sensors, belt buckle switches, and the SBR mat. The number of squibs depends on the vehicle variant.  
+
+##### 5.3.1.3 Configuration  
+
+###### 5.3.1.3.1 Airbag ECU Squibs  
+
+| Item                               | Variant | VFe34s | Remarks                 |
+|------------------------------------|---------|--------|-------------------------|
+|                                    | ECO     | PLUS   |                         |
+|                                    | VN/EU   | US/CA  | VN/EU   | US/CA  |         |
+| **Driver airbag – dual stages**    | -       | YES    | -       | YES    | Dual stages = 2 loops |
+| **Front passenger airbag – dual stages** | - | YES | - | YES | Dual stages = 2 loops |
+| **Driver airbag – single stage**   | YES     | -      | YES     | -      | -                     |
+| **Front passenger airbag – single stage** | YES | - | YES | - | -                     |
+| **Front center airbag – single stage** | YES | YES | YES | YES | -                     |
+| **Side airbag driver – single stage** | YES | YES | YES | YES | -                     |
+| **Side airbag front passenger – single stage** | YES | YES | YES | YES | -                     |
+| **Curtain airbag driver side – single stage** | YES | YES | YES | YES | -                     |
+| **Curtain airbag passenger side – single stage** | YES | YES | YES | YES | -                     |  
+
+VinFast Released
+Page 24
+### 5 Functional and Technical Requirements
+
+#### 5.1 Part No. and Name in BOM
+| No | Part Name                        | Part No.    | Qty | Material | Purchase Level | BEV | VN | US/EU | CA | Eco | Plus | Eco | Plus |
+|----|----------------------------------|-------------|-----|----------|----------------|-----|----|-------|----|-----|------|-----|------|
+| 1  | ACM_AIRBAG_CONTROL_MODULE       | EEP71070020 | 1   | -        | P              | X   | X  | X     | X  | X   | X    | X   | X    |
+| 2  | IMPACT_GRAVITY_SENSOR           | EEP30010027 | 4   | -        | P              | X   | X  | X     | X  | X   | X    | X   | X    |
+| 3  | DOOR_PRESSURE_SENSOR            | EEP30010031 | 2   | -        | P              | X   | X  | X     | X  | X   | X    | X   | X    |
+
+---
+
+#### 5.2 Block and Principle Diagram
+
+##### 5.2.1 Main Elements of System
+
+**ECU/Sensor**  
+Description and associated actions:  
+- **ACM**: Airbag Control Module responsible for deploying airbags upon receiving crash signals from sensors.  
+- **BCM**: Body Control Module responsible for providing seatbelt status to ACM for the third row.  
+- **MHU**: Multimedia Head Unit responsible for driver interface and sending seatbelt reminder messages.  
+- **XGW**: Gateway Module responsible for transferring signals across networks and buses.  
+- **Crash Sensors**: Provide crash signals to ACM during front and side crashes.  
+- **Pressure Sensors**: Specifically provide crash signals for doors.  
+- **Airbags**: Multiple types installed to protect occupants during crashes.  
+- **Retractor Pretensioners**: Tighten seat belts to secure occupants during crashes.
+
+Detailed system block diagrams are available in subsequent sections.
+
+---
+
+#### 5.3 Functions
+
+##### 5.3.1 Overview Functions Description  
+
+**Purpose**:  
+
+- The ACU and peripheral sensors detect vehicle impacts to activate restraints like airbags and belt pretensioners during frontal, side, rear collisions, and rollovers. Certain ACUs suppress airbags based on passenger conditions (e.g., presence of children). Post-crash functions such as door unlocking, battery cutoff, and monitoring belt buckle status are also performed.  
+- ACU contains internal acceleration sensors, connects to satellite sensors, and includes self-monitoring, diagnostics, and configurability for safety and region-specific requirements.  
+- Satellite sensors send crash signals based on physical principles like acceleration and pressure.
+
+---
+
+##### 5.3.1.2 System Overview
+
+The airbag system includes an ACU, ignition circuits, sensing satellites, belt buckle switches, and the SBR mat. The number of squibs depends on vehicle variants.
+
+---
+
+##### 5.3.1.3 Configuration  
+
+###### 5.3.1.3.1 Airbag ECU Squibs  
+
+| Item                           | Variant     | ECO (VN/US/EU/CA) | PLUS (VN/US/EU/CA) | Remarks           |
+|--------------------------------|-------------|-------------------|---------------------|-------------------|
+| Driver airbag – dual stages    | -           | YES               | -                   | Dual stages = 2 loops |
+| Front passenger airbag – dual stages | -     | YES               | -                   | Dual stages = 2 loops |
+| Driver airbag – single stage   | YES         | -                 | YES                 | -                 |
+| Front passenger airbag – single stage | YES | -                 | YES                 | -                 |
+| Front center airbag – single stage | YES     | YES               | YES                 | YES               |
+| Side airbag driver – single stage | YES       | YES               | YES                 | YES               |
+| Side airbag front passenger – single stage | YES | YES           | YES                 | YES               |
+| Curtain airbag driver side – single stage | YES | YES           | YES                 | YES               |
+| Curtain airbag passenger side – single stage | YES | YES         | YES                 | YES               |
+| High voltage battery disconnect (Pyro-fuse) | YES               | YES                 | YES               | YES               |
+
+- Number of airbags: 7 (ECO), 8 (PLUS).  
+- Number of firing loops: 12 (ECO), 15 (PLUS).  
+
+###### 5.3.1.3.2 Airbag Occupant Sensing  
+
+| Item                  | Variant (VFe34s)   | ECO (VN/US/EU/CA) | PLUS (VN/US/EU/CA) | Remarks           |
+|-----------------------|---------------------|-------------------|---------------------|-------------------|
+| Buckle sensor driver  | YES                 | YES               | Connected to ACM   |
+| Buckle sensor front passenger | YES         | YES               | Connected to ACM   |
+| Buckle switch driver  | -                   | -                 | -                 |
+| Buckle switch front passenger | -           | -                 | -                 |
+| Buckle switch 2nd row driver side | YES      | YES               | Connected to ACM   |
+Page 25
+### 5 Functional and Technical Requirements
+
+#### 5.3 Functions
+
+##### 5.3.1 Overview Functions Description
+
+###### 5.3.1.1 Purpose
+- The purpose of the airbag control unit (ACU) and peripheral sensors (satellites) is to detect a vehicle impact and release the restraint system (e.g., airbags, belt pretensioner) in case of frontal, side, and rear collisions as well as vehicle rollover. For certain markets, airbag suppression due to the presence of a child or absence of passengers is enabled by the ACU. It also initiates post-crash functions (door unlock, battery cutoff, warning light, etc.) and communicates and monitors the status of the belt buckles for the seatbelt reminder function.
+- The ACU is equipped with an internal acceleration sensor and provides the interface to the satellite sensors. The functionality includes self-monitoring and diagnostic functions. It is configurable for safety, country-specific requirements, and option code-relevant functions.
+- The satellite sensors connected to the ACU provide signals for crash recognition based on physical principles (acceleration and pressure).
+
+###### 5.3.1.2 System Overview
+The airbag system includes the ACU, ignition circuits, satellite sensors, belt buckle switches, and the SBR mat. The number of squibs depends on the vehicle variant.
+
+##### 5.3.1.3 Configuration
+
+###### 5.3.1.3.1 Airbag ECU Squibs
+| Variant                     | ECO VFe34s                          | Plus VFe34s                         | Remarks                 |
+|-----------------------------|-------------------------------------|-------------------------------------|-------------------------|
+| Driver airbag – dual stages | NO                                  | YES                                 | Dual stages = 2 loops   |
+| Front passenger airbag – dual stages | NO                              | YES                                 | Dual stages = 2 loops   |
+| Driver airbag – single stage | YES                                 | NO                                  | -                       |
+| Front passenger airbag – single stage | YES                          | NO                                  | -                       |
+| Front center airbag – single stage | YES                          | YES                                 | -                       |
+| Side airbag driver – single stage | YES                            | YES                                 | -                       |
+| Side airbag front passenger – single stage | YES                   | YES                                 | -                       |
+| Curtain airbag driver side – single stage | YES                   | YES                                 | -                       |
+| Curtain airbag passenger side – single stage | YES               | YES                                 | -                       |
+
+**Other Features:**
+- High voltage battery disconnect (Pyro-fuse): YES (All variants).
+- Belt pretensioner in retractor driver side: YES (All variants).
+- Belt pretensioner in retractor front passenger side: YES (All variants).
+- Belt retractor 2nd row driver side: YES (All variants).
+- Knee airbag driver – single stage: YES (Available in Plus variant only).
+
+###### 5.3.1.3.2 Airbag Occupant Sensing
+| Variant              | ECO VFe34s                          | Plus VFe34s                         | Remarks                  |
+|----------------------|-------------------------------------|-------------------------------------|--------------------------|
+| Buckle sensor driver | YES                                 | YES                                 | Connected to ACM         |
+| Buckle sensor front passenger | YES                       | YES                                 | Connected to ACM         |
+| Occupant classification sensor front passenger seat | YES | YES                                 | Connection TBD           |
+| Seat position track sensor driver | YES                   | YES                                 | Connection TBD           |
+
+###### 5.3.1.3.3 Airbag ECU Impact Sensors
+| Variant                         | ECO VFe34s                   | Plus VFe34s                  | Remarks                  |
+|---------------------------------|-----------------------------|-----------------------------|--------------------------|
+| Upfront impact sensor G, X-direction driver side | YES         | YES                         | Connected to ACM         |
+| Upfront impact sensor G, X-direction passenger side | YES      | YES                         | Connected to ACM         |
+
+VinFast Released
+Page 26
+### 5 Functional and Technical Requirements
+
+#### 5.3.1.3 Airbag ECU impact sensors
+1. **Rear impact sensor G, X-direction passenger side:** Not applicable for ECO or PLUS variants.
+2. **Side impact sensor B-pillar G, XY-direction driver side:** Available for both ECO and PLUS variants, connected to ACM.
+3. **Side impact sensor B-pillar G, XY-direction passenger side:** Available for both ECO and PLUS variants, connected to ACM.
+4. **Side impact sensor, pressure sensor, front door driver side:** Available for both ECO and PLUS variants, connected to ACM.
+5. **Side impact sensor, pressure sensor, front door passenger side:** Available for both ECO and PLUS variants, connected to ACM.
+6. **Internal ACU rollover sensor, low G, Y&Z - direction:** Available for both ECO and PLUS variants but not connected to ACM.
+7. **Internal high G sensor, low G, Y&Z - direction:** Available for both ECO and PLUS variants but not connected to ACM.
+
+#### 5.3.1.3.4 Others
+1. **Hardwire Crash Output signal PWM type 2:** Available for both ECO and PLUS variants, connected to ACM.
+2. **PAB deactivation switch:** Not applicable for either ECO or PLUS variants.
+3. **PAB automatic deactivation function:** Available for both ECO and PLUS variants.
+4. **PAB off lamp to HMI:** Not applicable for either ECO or PLUS variants.
+5. **Event data recorder (EDR):** Available for both ECO and PLUS variants.
+
+---
+
+### 5.3.2 Detailed Functions Description
+The requirements in this section focus on component development.
+
+#### 5.3.2.1 General Requirements
+
+##### 5.3.2.1.1 Safety Concept
+
+###### 5.3.2.1.1.1 Crash Algorithm
+1. The algorithm is based on physical principles and must be scalable.
+2. Inputs from acceleration sensors must be converted into crash severity levels corresponding to real impact scenarios.
+3. The algorithm must account for tolerances across the system through simulations to show variation in trigger times.
+4. It must handle failure scenarios through a sensor plausibility concept to avoid unintended trigger events.
+5. For US variants, the algorithm must incorporate occupant classification system inputs and seat track position data to decide dual-stage deployment and low-risk deployment of airbags.
+
+###### 5.3.2.1.1.2 Behavior in case of error
+1. If errors are detected within the system, the Airbag ECU must proceed according to a predefined condition.
+2. Unintended deployment of ignition circuits must be prevented.
+Page 27
+5.3.2.1.1.3 ECU locking.
+1. Variant coding is possible via diagnostic service.
+2. Secure variant coding service by Diagnostic Security Access session.
+3. The deployment will be blocked if one of the following conditions is true:
+   - Deleting the coding.
+   - Coding value mismatched with connected interfaces.
+   - Coding invalid value.
+4. A respective DTC will be triggered to indicate these faults of variant coding.
+5. Coding is only possible if no fault is detected.
+
+5.3.2.1.1.4 Parameterization.
+To adapt the airbag ECU to a specific vehicle, the algorithm shall be parameterizable. It shall be possible to adjust the threshold and time-to-fire values according to the input parameters.
+
+5.3.2.1.2 FMEA.
+A FMEA for design, system, and process shall be conducted, and the results shall be transferred to VinFast.
+
+5.3.2.2 Initialization Requirements.
+
+5.3.2.2.1 Activation state.
+The ACM will be activated whenever clamp 15 is on for the BEV.
+
+5.3.2.2.2 Self-test.
+After clamp 15 is ON, ACM shall perform the self-test for:
+   - Internal sensors and satellites.
+   - Capacity of the energy reserves for autarky mode.
+   - Safing function.
+   - CAN communication.
+   - Firing loops.
+   - Under voltage and over voltage.
+   - Buckle switch.
+
+The maximum time of initialization is 5.5 seconds; if during the self-test phase any under- or overvoltage conditions are present and the internal tests cannot be finished within 5.5 seconds, then the self-test phase will be prolonged to a maximum of 10 seconds. If under- or overvoltage is still present after the 10-second self-test phase, the DTC for under- or overvoltage only shall be stored until the next clamp change.
+
+5.3.2.3 Voltage Mode Management.
+A Voltage Mode Management is required in order to guarantee a safe, stable, and defined behavior in all voltage stages.
+Page 28
+## 5.3.2.3 Voltage Modes
+
+### Supported Voltage Modes
+1. The ECU shall monitor its own supply voltage using an analog input. Based on this information, the correct voltage mode will be chosen among five available modes:
+   - **Low Voltage Mode (< 6V):** ACM will change to autarky mode for at least 150ms when voltage is less than 6V.
+   - **Under Voltage Mode (6V to 9V):**
+   - **Normal Operation Voltage (13.8V):**
+   - **Over Voltage Mode (> 16.5V):**
+
+2. Hysteresis must be implemented to prevent toggling.
+3. Functions not required should be deactivated or brought to a safe state to avoid unintended operations.
+4. Memory corruption must not occur in any mode.
+5. No unintended firing of loops shall take place in any operation mode.
+
+---
+
+### Function Availability vs. Voltage Mode
+The following table describes which functions are available in each voltage mode:
+
+| Function                       | Autarky | SVM | LVM | NVM | HVM | OVM |
+|--------------------------------|---------|-----|-----|-----|-----|-----|
+| Crash Detection                |         | x   | x   | x   |     |     |
+| Activation of Restraint Systems|         | x   | x   | x   |     |     |
+| Seat Belt Reminder             |         | x   | x   | x   |     |     |
+| Crash Data Recording           |    x    | x   | x   | x   | x   | x   |
+| Crash Output                   |         | x   | x   | x   |     |     |
+| CAN Communication              |         | x   | x   | x   |     |     |
+| OnBoard Diagnostics            |         |     |     | x   |     |     |
+| OffBoard Diagnostics           |         | x   | x   | x   |     |     |
+| CAN Communication Failure Detection |  |     | x   | x   |     |     |
+| Firing Loop Measurement        |         | x   | x   | x   |     |     |
+| Switch Measurement             |         | x   | x   | x   | x   |     |
+| Satellites Sensors Measurement |         | x   | x   | x   | x   |     |
+
+---
+
+## 5.3.2.4 Crash Detection
+
+### Crash Detection Strategy
+1. The ECU shall sense and discriminate impacts to the front, rear, and sides of the vehicle to enable deployment of vehicle configuration-specified countermeasures.
+Page 29
+### 5.3.2.4 Crash Detection
+
+#### 5.3.2.4.1 Crash Detection Strategy
+1. The ECU shall sense and discriminate impacts to the front, rear, and side of the vehicle to allow for deployment of configuration-specified countermeasures.
+2. The ECU shall use an accelerometer and pressure (optional) based sensing system and control algorithm that can be tuned to a particular configuration to meet safety performance requirements.
+3. ECU shall sense and discriminate collision events from low energy events such as rough road and abuse events from a single location in the passenger compartment.
+4. The collision sensing algorithm shall be based on the principles of physics or physical reasoning.
+5. The ECU shall detect the following crash event severities using discriminating algorithms for frontal collision and side collision:
+   - Frontal
+   - Left Side
+   - Right Side
+   - Rear
+   - Rollover
+
+#### 5.3.2.4.2 Functional Block Diagram
+The functional block diagram for crash detection functionality includes multiple stages:
+- **Data Preparation Module:** Prepares input data for base criteria calculation.
+- **Base Criteria Calculation:** Processes raw data to formulate initial criteria.
+- **Derived Criteria Calculation:** Refines and evaluates conditions based on processed criteria.
+- **Plausibility Check:** Ensures input validity to avoid unintended operations.
+- **Deploy Logic and Crash Severity Mapping:** Maps criteria and assigns crash severity levels leading to deployment decision.
+
+#### 5.3.2.4.3 Signal Plausibility and Safing
+Crash detection requires verification of sensor measurements through a second measurement source.
+
+**Safing Requirements:**
+1. All crash sensing shall use an independent safing function to confirm that deployment is warranted.
+2. Safing within the ECU shall utilize separate components, including decision logic, independent of the crash discrimination components.
+3. Single-point failures of the safing device shall not result in an unintended safing signal.
+4. The configuration of the safing device with other design elements shall ensure that failure of a common component does not produce inadvertent deployment scenarios.
+Page 30
+5.3.2.5 Activation of Restraint Systems.
+
+5.3.2.5.1 Deployment of firing loops.
+1. A deployment shall be executed by the ECU according to the defined algorithm if a crash event is detected.
+2. The ECU shall be able to manage deployment of different restraints for different types of crash event.
+3. The ECU shall not execute any deployment if one of the following conditions is not fulfilled:
+   - The ECU is in power mode (clamp 15: RUN/IGN in ICE variant or clamp 30C: RUN/IGN/CHARGING in BEV), or the event started when the ECU was in power mode.
+   - The ECU has detected a potential crash condition using discriminating algorithms for frontal collision, side collision, and rear collision that warrants deployment.
+   - The ECU has confirmed that a deployment is warranted using an independent safing function.
+4. The ECU shall prevent any deployment by internal faults which can lead to inadvertent deployments.
+5. In case of external errors and a confirmed crash event the ECU shall proceed according to the implemented restraint systems strategy.
+6. For US variant, the ECU shall be capable to consider occupant classification signal as well as seat position signal to decide not deploy/low risk deployment based on Airbag firing strategy.
+
+5.3.2.5.2 Firing loops mapping.
+Each firing loop shall be capable of being configured independently to deploy or not deploy for any detected crash severities.
+
+5.3.2.5.3 Airbags firing strategy.
+Firing strategy to be implemented and calibration set delivered according to aligned solution between Vinfast passive safety team and Continental passive safety team.
+Page 31
+### 5.3.2.6 Seat Belt Reminder  
+#### 5.3.2.6.1 Seat Belt Reminder Front & Rear  
+##### 5.3.2.6.1.1 Interface Diagram  
+
+The interface diagram illustrates the communication architecture for the Seat Belt Reminder system, detailing integration between components such as MHU (Main Head-Up unit), XGW (Gateway), ACM (Airbag Control Module), BCM (Body Control Module), and OCS (Occupant Classification System).  
+
+**Component Connections:**  
+- **Info CAN connection:**  
+  - MDU (Main Display Unit) and MHU communicate with the XGW Gateway for seatbelt status information.  
+
+- **Body CAN connection:**  
+  - BCM receives inputs from:  
+    - Seat Belt Buckle Sensor for the 3rd row (rear right and rear left positions).  
+
+  - ACM is connected to:  
+    - Seat Belt Buckle Sensor - Driver.  
+    - Seat Belt Buckle Sensor - Front Passenger Seat.  
+    - Seat Belt Buckle Sensor - 2nd row rear mid.  
+    - Seat Belt Buckle Sensor - 2nd row rear passenger.  
+    - Seat Belt Buckle Sensor - 2nd row rear driver.  
+
+  - OCS is associated with Occupant Detection Sensors (ODS) for:  
+    - 2nd row rear mid position.  
+    - 2nd row rear passenger position.  
+    - 2nd row rear driver position.  
+
+The diagram highlights the structural communication pathways ensuring proper operation and feedback for the seatbelt reminder system.
+Page 32
+### 5.3.2.6 Seat Belt Reminder
+
+#### 5.3.2.6.1 Seat Belt Reminder Front & Rear
+
+##### 5.3.2.6.1.1 Interface Diagram
+The interface diagram represents the connectivity and function of seat belt buckle sensors, occupant detection sensors, and related components through Body CAN and Info CAN. The system components include ACM, MHU, MDU, OCS, ODS, seat belt buckle sensors, and XGW modules to process seat belt data and activate warnings.
+
+#### List of Components
+
+| ECU             | Description                                                | Action                                                               |
+|------------------|------------------------------------------------------------|----------------------------------------------------------------------|
+| **ACM**          | Airbag Control Module                                      | Master of the front seat belt warning feature. It instructs the MHU to activate the front seat belt warnings after processing inputs and sends occupant and buckle status to MHU. |
+| **MHU**          | Multimedia Head Unit                                       | Hosts the audible and visual warnings. Activates them according to signals from ACM for the front seats. Functions as the master of the rear seat belt warning feature. |
+| **MDU**          | Multimedia Display Unit                                    | Displays the warning symbol, occupancy status, and buckle status for each seat as per the request from MHU. |
+| **OCS**          | Occupant Classification Sensor                             | Sends the front outboard passenger seat occupant status to ACM.      |
+| **ODS**          | Occupant Detection Sensor                                  | Monitors passenger seat occupant status.                            |
+| **Seat Belt Buckle** | Seat Belt Buckle Sensor                                  | Monitors seat belt buckle status.                                    |
+| **XGW**          | Gateway Module                                            | Transfers messages from ACM (Body CAN) to MHU (Info CAN) and vice versa. |
+
+#### 5.3.2.6.1.2 Functional Description
+The Seat Belt Warning feature alerts the driver when any vehicle occupants, including the driver, fail to buckle their seat belt. It detects unbuckled seat belts in occupied seats and provides two levels of driver alerts:
+
+1. **First Level Warning:** Activated visually when the power mode is ON (Driver Present state) and any occupant’s seat belt is not fastened.
+2. **Second Level Warning:** A visual and audible warning activated when the vehicle speed exceeds 25 km/h and the safety belt is unbuckled, based on the relevant seating position requirement.
+
+The seat belt warning uses a seat belt warning symbol (SWS) displayed on the MDU and an audible chime played through the IPC speaker. The MHU operates the SWS and chime based on ACM requests. The blinking frequency is set to 1Hz, and the chime is synchronized with the blinking.
+
+##### Figure 1: Seat Belt Warning Symbol (SWS)
+![Seat Belt Warning Symbol](Image Example of the Blinking Seat Belt Symbol)
+Page 33
+### Seat Belt Warning Requirements
+
+**Requirement ID:** SBW-Warn-0001  
+**Requirement Text:**  
+- **Precondition:**  
+  - IGN State ≥ ON (Driver Present)  
+  - ACM pre-drive check is complete  
+  - Gear is in Drive Mode  
+  - Driver seat is buckled  
+  - Vehicle Speed ≤ 25km/h  
+
+- **Event:** The passenger seat, if occupied, is buckled.  
+
+- **Physical Output:** No warning shall be activated.  
+
+- **Output on CAN:**  
+  - ACM_Seatbelt_Reminder_Request = Not Activated  
+  - ACM_SBR_Chime_Req = No Active Chime  
+  - ACM_SBR_Blinking_Req = No Blinking  
+
+**Relevance:** ACM, XGW, MHU  
+
+---
+
+**Requirement ID:** SBW-Warn-0002  
+**Requirement Text:**  
+- **Precondition:**  
+  - IGN State ≥ ON (Driver Present)  
+  - ACM pre-drive check is complete  
+  - Gear is in Drive Mode  
+  - Vehicle market is NAS  
+  - Vehicle Speed ≤ 25km/h  
+
+- **Event:** At least one of the occupied front row seats is not buckled.  
+
+- **Physical Output:**  
+  - SWS shall be blinking for 6 seconds.  
+  - Chime shall be activated for 6 seconds.  
+
+- **Output on CAN:**  
+  - ACM_Seatbelt_Reminder_Request = Activated  
+  - ACM_SBR_Chime_Req = Active Chime  
+  - ACM_SBR_Blinking_Req = Blinking 1Hz  
+
+**Relevance:** ACM, XGW, MHU
+Page 34
+### Requirement ID: SBW-Warn-0003
+#### Precondition:
+- IGN State ≥ ON (Driver Present)
+- ACM pre-drive check is complete
+- Gear is in Drive Mode
+- Vehicle market is NAS
+- Vehicle Speed ≤ 25km/h
+
+#### Event:
+At least one of the occupied front row seats is not buckled.  
+Time since the warning activated > 6s.
+
+#### Physical Output:
+- Blinking and chime shall be stopped.
+- SWS shall be lit solidly.
+
+#### Output on CAN:
+ACM sends these signals to MHU:
+- ACM_Seatbelt_Reminder_Request = Activated
+- ACM_SBR_Chime_Req = No Active Chime
+- ACM_SBR_Blinking_Req = No Blinking  
+
+Relevant Modules: ACM, XGW, MHU  
+
+---  
+
+### Requirement ID: SBW-Warn-0004
+#### Precondition:
+- IGN State ≥ ON (Driver Present)
+- ACM pre-drive check is complete
+- Gear is in Drive Mode
+- Vehicle market is NAS
+- Vehicle Speed ≤ 25km/h
+
+#### Event:
+Both the occupied front row seats change from unbuckled to buckled.
+
+#### Physical Output:
+Warnings shall be stopped.
+
+#### Output on CAN:
+ACM sends these signals to MHU:
+- ACM_Seatbelt_Reminder_Request = Not Activated
+- ACM_SBR_Chime_Req = No Active Chime  
+
+Relevant Modules: ACM, XGW, MHU
+Page 35
+### SBW-Warn-0003
+**Precondition:**  
+- IGN State ≥ ON (Driver Present)  
+- ACM pre-drive check is complete  
+- Gear is in Drive Mode  
+- Vehicle market is NAS  
+- Vehicle Speed ≤ 25km/h  
+
+**Event:**  
+- At least one of the occupied front row seats is not buckled  
+- Time since warning activated > 6s  
+
+**Physical Output:**  
+- Blinking and chime shall be stopped  
+- SWS shall be lit solidly  
+
+**Output on CAN:**  
+- ACM sends these signals to MHU:  
+  - ACM_Seatbelt_Reminder_Request = Activated  
+  - ACM_SBR_Chime_Req = No Active Chime  
+  - ACM_SBR_Blinking_Req = No Blinking  
+
+**Relevance:**  
+ACM, XGW, MHU  
+
+---
+
+### SBW-Warn-0004  
+**Precondition:**  
+- IGN State ≥ ON (Driver Present)  
+- ACM pre-drive check is complete  
+- Gear is in Drive Mode  
+- Vehicle market is NAS  
+- Vehicle Speed ≤ 25km/h  
+
+**Event:**  
+- Both the occupied front row seats change from unbuckled to buckled  
+
+**Physical Output:**  
+- Warnings shall be stopped  
+
+**Output on CAN:**  
+- ACM sends these signals to MHU:  
+  - ACM_Seatbelt_Reminder_Request = Not Activated  
+  - ACM_SBR_Chime_Req = No Active Chime  
+
+**Relevance:**  
+ACM, XGW, MHU  
+
+---
+
+### SBW-Warn-0005  
+**Precondition:**  
+- IGN State ≥ ON (Driver Present)  
+- ACM pre-drive check is complete  
+- Gear is in Drive Mode  
+- Vehicle market is EU or VN  
+- Vehicle Speed ≤ 25km/h  
+
+**Event:**  
+- At least one of the occupied front row seats is not buckled  
+
+**Physical Output:**  
+- SWS shall be solidly lit  
+- Chime shall not be activated  
+
+**Output on CAN:**  
+- ACM sends these signals to MHU:  
+  - ACM_Seatbelt_Reminder_Request = Activated  
+  - ACM_SBR_Chime_Req = No Active Chime  
+  - ACM_SBR_Blinking_Req = No Blinking  
+
+**Relevance:**  
+ACM, XGW, MHU  
+
+---
+
+### SBW-Warn-0006  
+**Precondition:**  
+- IGN State ≥ ON (Driver Present)  
+- ACM pre-drive check is complete  
+- Gear is in Drive Mode  
+- Vehicle market is EU or VN  
+- Vehicle Speed ≤ 25km/h  
+
+**Event:**  
+- Occupied front row seats change from unbuckled to buckled  
+
+**Physical Output:**  
+- Warning shall be stopped  
+
+**Output on CAN:**  
+- ACM sends these signals to MHU:  
+  - ACM_Seatbelt_Reminder_Request = Not Activated  
+
+**Relevance:**  
+ACM, XGW, MHU
+Page 36
+5.3.2.6.1.3 Seat Belt Warning Event Management
+
+SBW-Warn-0007.
+
+**Precondition:**  
+- IGN State ≥ ON(Driver Present).  
+- ACM pre-drive check is complete.  
+- Gear is in Drive Mode.  
+- Vehicle Speed > 25km/h.  
+
+**Event:**  
+At least one of the occupied front row seats is unbuckled.  
+
+**Physical Output:**  
+- SWS shall be blinking for 30s.  
+- Chime shall be activated for 30s.  
+
+**Output on CAN:**  
+- ACM sends these signals to MHU:  
+  - ACM_Seatbelt_Reminder_Request = Activated.  
+  - ACM_SBR_Chime_Req = Active Chime.  
+  - ACM_SBR_Blinking_Req = Blinking 1Hz.  
+
+**Relevance:**  
+ACM, XGW, MHU.  
+
+SBW-Warn-0008.
+
+**Precondition:**  
+- IGN state = ON(eMotor Running).  
+- ACM pre-drive check is complete.  
+- Gear is in Drive Mode.  
+- A seat belt warning was going on.  
+
+**Event:**  
+The front row seat which triggered the warning changes from unbuckled to buckled.  
+
+**Physical Output:**  
+- All warnings shall be stopped.  
+
+**Output on CAN:**  
+- ACM sends these signals to MHU:  
+  - ACM_Seatbelt_Reminder_Request = Not Activated.  
+  - ACM_SBR_Chime_Req = No Active Chime.  
+  - ACM_SBR_Blinking_Req = No Blinking.  
+
+**Relevance:**  
+ACM, XGW, MHU.
+Page 37
+# SBW-Warn-0009
+
+**Precondition:**
+- IGN state = ON(eMotor Running).
+- ACM pre-drive check is complete.
+- Gear is in Drive Mode.
+- Time since 30s warning activated > 30s.
+
+**Event:**
+- The front row seat which triggered the warning remains unbuckled.
+
+**Physical Output:**
+- Blinking and chime shall be stopped.
+- SWS shall be lit solidly.
+
+**Output on CAN:**
+- ACM sends these signals to MHU:
+  - ACM_Seatbelt_Reminder_Request = Activated.
+  - ACM_SBR_Chime_Req = No Active Chime.
+  - ACM_SBR_Blinking_Req = No Blinking.
+
+**Relevance:** ACM, XGW, MHU.
+
+---
+
+# SBW-Warn-0010
+
+**Precondition:**
+- IGN state = ON(eMotor Running).
+- A seat belt warning was going on.
+- Gear is in Drive Mode.
+
+**Event:**
+- Vehicle speed falls below 10km/h.
+
+**Physical Output:**
+- All warnings shall be stopped.
+
+**Output on CAN:**
+- ACM sends these signals to MHU:
+  - ACM_Seatbelt_Reminder_Request = Not Activated.
+  - ACM_SBR_Chime_Req = No Active Chime.
+  - ACM_SBR_Blinking_Req = No Blinking.
+
+**Relevance:** ACM, XGW, MHU.
+Page 38
+**SBW-Warn-0011**  
+**Precondition:**  
+IGN State ≥ ON(Driver Present).  
+
+**Event:**  
+Reverse gear selected.  
+
+**Physical Output:**  
+Seat belt reminder shall be deactivated. Any front seat belt warning, if active, shall be stopped.  
+
+**Output on CAN:**  
+ACM sends these signals to MHU -  
+- ACM_Seatbelt_Reminder_Request = Not Activated.  
+- ACM_SBR_Chime_Req = No Active Chime.  
+- ACM_SBR_Blinking_Req = No Blinking.  
+
+Relevance: ACM, XGW, MHU.  
+
+---
+
+**SBW-Warn-0012**  
+**Precondition:**  
+IGN State ≥ ON(Driver Present).  
+
+**Event:**  
+IGN falls below ON(Driver Present).  
+
+**Physical Output:**  
+Front seat belt warning symbol and chime shall be deactivated.  
+
+Relevance: MHU.  
+
+---
+
+**SBW-Warn-0013**  
+**Precondition:**  
+Front seat belt warning was triggered by one of the front seats.  
+
+**Event:**  
+The other occupied front seat becomes unbuckled during the warning.  
+
+**Physical Output:**  
+The warning for the second seat shall be started after completing the warning for the first seat.  
+
+Relevance: ACM, XGW, MHU.  
+
+---
+
+**Additional Information:**  
+The seat belt warning feature shall also warn the driver if any of the rear seat belts are not in use. It uses a seat belt warning symbol (SWS) as shown in Figure 1 in the MDU and an audible chime through the IPC speaker. MHU operates the SWS and the chime based on requests from ACM.
+Page 39
+5.3.2.6 Seat Belt Warning Feature Specifications.
+
+5.3.2.6.1.3 Display Seat Belt Buckle Status & Occupancy Status.  
+The Seat Belt Warning feature shall display the occupancy status and belt buckle status of each seat based on the respective signals from ACM in the MDU as shown in figure 2. 
+
+5.3.2.7 Event Data Recorder (EDR).
+
+5.3.2.7.1 Overview of EDR Feature.  
+Event Data Recording is required to record vehicle dynamic data, system information, restraint-system triggering information, and occupant-relevant data for a defined time interval. This interval may occur prior to, during, and/or after the crash event.  
+The data is stored in Non-Volatile Memory, and data elements adhere to NHTSA EDR (49 CFR Part 563).
+
+5.3.2.7.2 EDR Data Elements.  
+
+**TABLE I – DATA ELEMENTS REQUIRED FOR ALL VEHICLES EQUIPPED WITH AN EDR:**  
+- **Delta-V, longitudinal:** Recorded from 0 to 250 ms, with a data sample rate of 100 samples per second.  
+- **Maximum delta-V, longitudinal:** Recorded from 0 to 300 ms, with a non-applicable sample rate.  
+- **Time, maximum delta-V:** Recorded from 0 to 300 ms, with a non-applicable sample rate.  
+- **Speed, vehicle indicated:** Recorded from -5.0 to 0 seconds, with a data sample rate of 2 samples per second.  
+- **Engine throttle, % full (or accelerator pedal, % full):** Recorded from -5.0 to 0 seconds, with a data sample rate of 2 samples per second.  
+- **Service brake, on/off:** Recorded from -5.0 to 0 seconds, with a data sample rate of 2 samples per second.  
+- **Ignition cycle, crash:** Recorded at -1.0 seconds, with a non-applicable sample rate.  
+- **Ignition cycle, download:** Recorded at download time, with a non-applicable sample rate.  
+- **Safety belt status, driver:** Recorded at -1.0 seconds, with a non-applicable sample rate.  
+- **Frontal air bag warning lamp, on/off:** Recorded at -1.0 seconds, with a non-applicable sample rate.  
+- **Frontal air bag deployment, time to deploy (single-stage air bag) or time to first stage deployment (multi-stage air bag):** Recorded at the event, for both the driver and the right front passenger, with a non-applicable sample rate.  
+- **Multi-event, number of events (1,2):** Recorded at the event, with a non-applicable sample rate.  
+- **Time from event 1 to 2:** Recorded as needed, with a non-applicable sample rate.  
+- **Complete file recorded (yes/no):** Recorded following other data, with a non-applicable sample rate.  
+
+**Note:** Pre-crash data and crash data are asynchronous. The sample time accuracy requirement for pre-crash time is -0.1 to 1.0 seconds (e.g., T=-1 would need to occur between -1.1 and 0 seconds).
+Page 40
+The chime frequency shall be 3Hz in default and shall be synchronized, with three flashes for every chime.
+
+### 5.3.2.6.1.3 Display Seat Belt Buckle Status & Occupancy Status
+The Seat belt warning feature shall display the occupancy status and belt buckle status of each seat based on the respective signals from ACM in the MDU, as illustrated in figure 2.
+
+---
+
+### 5.3.2.7 Event Data Recorder (EDR)
+
+#### 5.3.2.7.1 Overview of EDR Feature
+Event Data Recording is intended to record vehicle dynamic data, system information, restraint-system triggering details, and occupant-relevant data before, during, and after a crash for a defined time interval. This data is stored in non-volatile memory and adheres to the NHTSA EDR (49 CFR Part 563) guidelines.
+
+---
+
+#### 5.3.2.7.2 EDR Data Elements
+
+**Table I – Data Elements Required for All Vehicles Equipped with an EDR**  
+- **Delta-V, longitudinal:** Recorded from 0 to 250 ms at a sample rate of 100 samples per second.
+- **Maximum delta-V, longitudinal:** Recorded from 0 to 300 ms, sample rate not applicable.
+- **Time, maximum delta-V:** Recorded from 0 to 300 ms, sample rate not applicable.
+- **Speed, vehicle indicated:** Recorded from -5.0 to 0 sec at 2 samples per second.
+- **Engine throttle, % full (or accelerator pedal, % full):** Recorded from -5.0 to 0 sec at 2 samples per second.
+- **Service brake, on/off:** Recorded from -5.0 to 0 sec at 2 samples per second.
+- **Ignition cycle, crash:** Recorded at -1.0 sec, sample rate not applicable.
+- **Ignition cycle, download:** Recorded at the time of download, sample rate not applicable.
+- **Safety belt status, driver:** Recorded at -1.0 sec, sample rate not applicable.
+- **Frontal air bag warning lamp, on/off:** Recorded at -1.0 sec, sample rate not applicable.
+- **Frontal air bag deployment time for both single and multi-stage air bags (driver):** Recorded during the event, sample rate not applicable.
+- **Frontal air bag deployment time for both single and multi-stage air bags (right front passenger):** Recorded during the event, sample rate not applicable.
+- **Multi-event number (1, 2):** Recorded during the event, sample rate not applicable.
+- **Time from event 1 to 2:** Recorded as needed, sample rate not applicable.
+- **Complete file recorded (yes, no):** Recorded following other data, sample rate not applicable.
+
+Note: Pre-crash data and crash data are asynchronous, and sample time accuracy for pre-crash timestamps (-0.1 to 1.0 sec) must adhere to defined boundaries.
+
+---
+
+**Table II – Data Elements Required for Vehicles Under Specified Conditions**  
+- **Lateral acceleration:** Recorded over 0-250 ms at 500 samples per second if applicable.
+- **Longitudinal acceleration:** Recorded over 0-250 ms at 500 samples per second if applicable.
+- **Normal acceleration:** Recorded over 0-250 ms at 500 samples per second if applicable.
+- **Delta-V, lateral:** Recorded over 0-250 ms at 100 samples per second if applicable.
+- **Maximum delta-V, lateral:** Recorded over 0-300 ms, sample rate not applicable if applicable.
+- **Time maximum delta-V, lateral:** Recorded over 0-300 ms, sample rate not applicable if applicable.
+- **Time for maximum delta-V, resultant:** Recorded over 0-300 ms, sample rate not applicable if applicable.
+- **Engine rpm:** Recorded from -5.0 to 0 sec at 2 samples per second if applicable.
+- **Vehicle roll angle:** Recorded from -1.0 up to 5.0 sec at 10 samples per second if applicable.
+- **ABS activity (engaged/non-engaged):** Recorded from -5.0 to 0 sec at 2 samples per second if applicable.
+- **Stability control (on/off/engaged):** Recorded from -5.0 to 0 sec at 2 samples per second if applicable.
+- **Steering input:** Recorded from -5.0 to 0 sec at 2 samples per second if applicable.
+- **Safety belt status, right front passenger:** Recorded at -1.0 sec, sample rate not applicable if applicable.
+- **Frontal air bag suppression switch status (right front passenger):** Recorded at -1.0 sec, sample rate not applicable if applicable.
+- **Frontal air bag deployment time for nth stage airbags (driver and passenger):** Recorded during the event if equipped with multi-stage inflators, sample rate not applicable.
+- **Airbag deployment nth stage disposal (driver and passenger):** Whether the nth stage deployment was for occupant restraint or propellant disposal purposes, recorded during the event if applicable.
+- **Side airbag deployment time (driver):** Recorded during the event, sample rate not applicable if applicable.
+Page 41
+5.3.2.7.3 Data format  
+5.3.2.7.3.1 FMVSS format.  
+
+TABLE III – RECORDED DATA ELEMENT FORMAT  
+
+| **Data Element**                  | **Range**                | **Accuracy** | **Resolution** | **Filter Class**          |
+|-----------------------------------|--------------------------|--------------|----------------|--------------------------|
+| Lateral acceleration              | -50 g to +50 g           | +/- 5 %      | 0.01 g         | SAE J211-11, Class 60    |
+| Longitudinal acceleration         | -50 g to +50 g           | +/- 5 %      | 0.01 g         | SAE J211-11, Class 60    |
+| Normal Acceleration               | -50 g to +50 g           | +/- 5 %      | 0.01 g         | SAE J211-11, Class 60    |
+| Longitudinal delta-V              | -100 km/h to 100 km/h    | +/- 5 %      | 1 km/h         | n.a                     |
+
+Note:  
+1. Pre-crash data and crash data are asynchronous. The sample time accuracy requirement for pre-crash time is –0.1 to 1.0 sec (e.g., T = -1 would need to occur between –1.1 and 0 seconds.)  
+2. “If recorded” means if the data is stored in non-volatile memory for subsequent downloading.  
+3. “Vehicle roll angle” may be recorded in any time duration, -1.0 sec to 5.0 sec is suggested.  
+4. List these elements n-1 times, once for each stage of a multi-stage airbag system.
+Page 42
+Side air bag deployment, time to deploy, right front passenger. If recorded, occurs during the event with no accuracy requirement (n.a.).
+
+Side curtain/tube air bag deployment, time to deploy, driver side. If recorded, occurs during the event with no accuracy requirement (n.a.).
+
+Side curtain/tube air bag deployment, time to deploy, right side. If recorded, occurs during the event with no accuracy requirement (n.a.).
+
+Pretensioner deployment, time to fire, driver. If recorded, occurs during the event with no accuracy requirement (n.a.).
+
+Pretensioner deployment, time to fire, right front passenger. If recorded, occurs during the event with no accuracy requirement (n.a.).
+
+Seat track position switch, foremost, status, driver. If recorded, occurs at -1.0 sec with no accuracy requirement (n.a.).
+
+Seat track position switch, foremost, status, right front passenger. If recorded, occurs at -1.0 sec with no accuracy requirement (n.a.).
+
+Occupant size classification, driver. If recorded, occurs at -1.0 sec with no accuracy requirement (n.a.).
+
+Occupant size classification, right front passenger. If recorded, occurs at -1.0 sec with no accuracy requirement (n.a.).
+
+Occupant position classification, driver. If recorded, occurs at -1.0 sec with no accuracy requirement (n.a.).
+
+Occupant position classification, right front passenger. If recorded, occurs at -1.0 sec with no accuracy requirement (n.a.).
+
+1. Pre-crash data and crash data are asynchronous. The sample time accuracy requirement for pre-crash time is –0.1 to 1.0 sec (e.g., time at T = -1 would need to occur between –1.1 and 0 seconds).
+   
+2. “If recorded” means the data is stored in non-volatile memory for the purpose of subsequent downloading.
+
+3. Vehicle roll angle may be recorded during any time duration, but -1.0 sec to 5.0 sec is suggested.
+
+4. Frontal air bag deployment data is listed n-1 times, once per stage for multi-stage air bag systems.
+
+### Data format
+#### FMVSS format
+**TABLE III - RECORDED DATA ELEMENT FORMAT**
+
+Lateral acceleration:
+- Range: -50 g to +50 g
+- Accuracy: +/- 5 %
+- Resolution: 0.01 g
+- Filter Class: SAE J211-11, Class 60
+
+Longitudinal acceleration:
+- Range: -50 g to +50 g
+- Accuracy: +/- 5 %
+- Resolution: 0.01 g
+- Filter Class: SAE J211-11, Class 60
+
+Normal acceleration:
+- Range: -50 g to +50 g
+- Accuracy: +/- 5 %
+- Resolution: 0.01 g
+- Filter Class: SAE J211-11, Class 60
+
+Longitudinal delta-V:
+- Range: -100 km/h to 100 km/h
+- Accuracy: +/- 5 %
+- Resolution: 1 km/h
+
+Lateral delta-V:
+- Range: -100 km/h to 100 km/h
+- Accuracy: +/- 5 %
+- Resolution: 1 km/h
+
+Maximum delta-V, longitudinal:
+- Range: -100 km/h to 100 km/h
+- Accuracy: +/- 5 %
+- Resolution: 1 km/h
+
+Maximum delta-V, lateral:
+- Range: -100 km/h to 100 km/h
+- Accuracy: +/- 5 %
+- Resolution: 1 km/h
+
+Time, maximum delta-V, longitudinal:
+- Range: 0 to 300 ms
+- Accuracy: +/- 3 ms
+- Resolution: 2.5 ms
+
+Time, maximum delta-V, lateral:
+- Range: 0 to 300 ms
+- Accuracy: +/- 3 ms
+- Resolution: 2.5 ms
+
+Time, maximum delta-V, resultant:
+- Range: 0 to 300 ms
+- Accuracy: +/- 3 ms
+- Resolution: 2.5 ms
+
+Vehicle Roll Angle:
+- Range: -1080 deg to +1080 deg
+- Accuracy: +/- 10 deg
+- Resolution: 10 deg
+
+Speed, vehicle indicated:
+- Range: 0 km/h to 200 km/h
+- Accuracy: +/- 1 km/h
+- Resolution: 1 km/h
+
+Engine throttle, percent full (or accelerator pedal percent full):
+- Range: 0 to 100%
+- Accuracy: +/- 5%
+- Resolution: 1 %
+
+Engine rpm:
+- Range: 0 to 10,000 rpm
+- Accuracy: +/- 100 rpm
+- Resolution: 100 rpm
+
+Service brake, on/off:
+- States: On, Off
+- Accuracy: n.a.
+- Resolution: On, Off
+
+ABS activity:
+- States: On, Off
+- Accuracy: n.a.
+- Resolution: On, Off
+
+Stability control (on, off, engaged):
+- States: On, Off, Engaged
+- Accuracy: n.a.
+- Resolution: On, Off, Engaged
+
+Steering wheel angle:
+- Range: -250 deg CW to + 250 deg CCW
+- Accuracy: +/- 5 deg
+- Resolution: 5 deg
+
+Ignition cycle, crash:
+- Range: 0 to 60,000
+- Accuracy: +/- 1 cycle
+- Resolution: 1 cycle
+
+Ignition cycle, download:
+- Range: 0 to 60,000
+- Accuracy: +/- 1 cycle
+- Resolution: 1 cycle
+
+Safety belt status, driver:
+- States: On, Off
+- Accuracy: n.a.
+- Resolution: On, Off
+
+Safety belt status, right front passenger:
+- States: On, Off
+- Accuracy: n.a.
+- Resolution: On, Off
+
+Frontal air bag warning lamp (on/off):
+- States: On, Off
+- Accuracy: n.a.
+- Resolution: On, Off
+
+Frontal air bag suppression switch status (on/off):
+- States: On, Off
+- Accuracy: n.a.
+- Resolution: On, Off
+
+Frontal air bag deployment, time to deploy/first stage, driver:
+- Range: 0 to 250 ms
+- Accuracy: +/- 2 ms
+- Resolution: 1 ms
+
+Frontal air bag deployment, time to deploy/first stage, right front passenger:
+- Range: 0 to 250 ms
+- Accuracy: +/- 2 ms
+- Resolution: 1 ms
+
+Frontal air bag deployment, time to nth stage, driver:
+- Range: 0 to 250 ms
+- Accuracy: +/- 2 ms
+- Resolution: 1 ms
+
+Frontal air bag deployment, time to nth stage, right front passenger:
+- Range: 0 to 250 ms
+- Accuracy: +/- 2 ms
+- Resolution: 1 ms
+Page 43
+Frontal air bag deployment, nth stage disposal, driver, y/n: The deployment status is recorded as "Yes/No," with no additional metrics available.
+
+Frontal air bag deployment, nth stage disposal, right front passenger, y/n: The deployment status is recorded as "Yes/No," with no additional metrics available.
+
+Side air bag deployment, time to deploy, driver: Time recorded as 0 to 250 ms, with an accuracy of +/- 2 ms and a resolution of 1 ms.
+
+Side air bag deployment, time to deploy, right front passenger: Time recorded as 0 to 250 ms, with an accuracy of +/- 2 ms and a resolution of 1 ms.
+
+Side curtain/tube air bag deployment, time to deploy, driver side: Time recorded as 0 to 250 ms, with an accuracy of +/- 2 ms and a resolution of 1 ms.
+
+Side curtain/tube air bag deployment, time to deploy, right side: Time recorded as 0 to 250 ms, with an accuracy of +/- 2 ms and a resolution of 1 ms.
+
+Pretensioner deployment, time to fire, driver: Time recorded as 0 to 250 ms, with an accuracy of +/- 2 ms and a resolution of 1 ms.
+
+Pretensioner deployment, time to fire, right front passenger: Time recorded as 0 to 250 ms, with an accuracy of +/- 2 ms and a resolution of 1 ms.
+
+Seat track position switch, foremost, status, driver: Status recorded as "Yes/No," with no further details given.
+
+Seat track position switch, foremost, status, right front passenger: Status recorded as "Yes/No," with no further details given.
+
+Occupant size classification, driver occupant 5th female size, y/n: Size recorded as "Yes/No," with no additional metrics available.
+
+Occupant size classification, right front passenger child, y/n: Size recorded as "Yes/No," with no additional metrics available.
+
+Multi-event, number of events (1,2): Number of events recorded as "1 or 2" with no additional details provided.
+
+Time from event 1 to event 2: Time recorded between 0 to 5.0 seconds, with an accuracy of 0.1 seconds and a resolution of 0.1 seconds.
+
+Complete file recorded (yes/no): Final file status recorded as "Yes/No," with no additional details given.
+
+### Display and Operation Concept (HMI)
+The supplier shall support in the HMI design of this system. However, the infotainment team shall lead the delivery and integration of ACM HMI according to their scope, particularly for the Seat Belt Reminder (SBR) system.
+Page 44
+5.3.4 Diagnostics  
+Requirement ID | Requirement Text  
+---|---  
+GEN-DS0001.01 | To be able to fault trace and verify function and system. The goal is to provide a fast and accurate way of finding the root cause of the fault symptom. It is also important to be able to verify functions with help of diagnostics. Diagnostic fault detection is also used for quality follow-up/improvement purposes.  
+CONFIG: A+F  
+
+GEN-DS0002.01 | Conditions when to set a DTC shall be clear and documented. Values specified in technical regulations shall be “real values” that is read out or measured from the vehicle with Aftermarket tools. For fault tracing purposes, it shall be possible to activate all ECU outputs and read inputs via the off-board service tool independent of system mode (e.g. failure mode).  
+CONFIG: A+F  
+
+GEN-DS0003.01 | There shall be a diagnostic function for electrical I/O’s of the component. The diagnostics function shall be able to detect the following faults and preferably be able to discriminate between them:  
+1) Short circuit to ground, short circuit to battery and open circuit;  
+2) Hardware malfunctions on connected components;  
+3) Supply voltage too high & too low;  
+4) ECU Internal faults. The supplier shall give suggestions of which function blocks that could have fault codes;  
+5) Functional related faults.  
+Diagnostic codes shall be written, and a report shall be provided.  
+CONFIG: A+F  
+
+GEN-DS0004.01 | The diagnosis shall work both in on-state and off-state. Each load must be investigated in order to decide the kind of diagnosis which is possible. The supplier shall measure and test all.  
+CONFIG: A+F  
+
+5.4 Control Unit Concept  
+5.4.1 Hardware  
+5.4.1.1 Hardware Comprising  
+The supplier shall share details of the microcontroller chip and CAN transceivers and any other configurable devices (flash memory etc.) on the PCB with VinFast and/or the contractor. The supplier shall also share details of the ECU plastic body, the aluminum heat sink, and other main items on the BOM with VinFast and/or the contractor. This is to be included on the 2D drawing for releases.
+Page 45
+### Connector Details
+
+**PCB Header (Male) Aptiv (35508810):**
+
+- Visual representation of the PCB header pin configuration is provided for Aptiv model 35508810.
+
+**Harness Side (Female) Aptive:**
+
+- Visual representation of the cable routing and pin location for the harness side is illustrated.
+  
+Further details shall be provided by the supplier in the format of a CDS document.
+
+---
+
+### Software
+
+**Requirement ID:** GEN-SW0001.01  
+**Requirement Text:**  
+The main content of the underlying driver module needs to include the following parts:  
+
+1. **Microprocessor Driver:**  
+   - MCU driver  
+   - Watchdog driver  
+
+2. **Storage Driver:**  
+   - RAM test  
+   - FLASH module driver  
+   - E2PROM driver  
+
+3. **Communication Driver:**  
+   - SPI driver  
+   - FLEX driver  
+   - CAN driver  
+   - LIN driver  
+
+4. **I/O Driver:**  
+   - ADC conversion module  
+   - ADC comparison module  
+   - PWM driver  
+   - Port module driver  
+
+**CONFIG:** A+F
+Page 46
+5.5 Electrical Interfaces
+
+5.5.1 Signal Characteristics  
+**Requirement ID:** GEN-SC0001.01  
+**Requirement Text:** All network signals refer to CAN/LIN signal matrix.  
+**CONFIG:** A+F  
+
+All network signals refer to CAN/LIN signal matrix. This shall be shared as a master DBC file as part of the development process. Signals and their descriptions shall also be documented in the SRS.
+
+5.5.2 Diagnostics
+
+5.5.2.1 Diagnostic Requirements  
+Please refer to **VFDSVAEEP0001_Basic_Diagnostics_Specification** and **VFDSVAEEP0002_Basic_DID_Definition_Specification** in the latest version in case of diagnosis functionality.
+
+5.5.3 Network Management
+
+5.5.3.1 Network Management Requirements  
+Please refer to **VFDSAAEEP0047_CAN_Specification** or **VFDSP50000012_LIN_Specification** in the latest version in case of network management functionality.
+
+5.5.4 Flashing and Coding
+
+5.5.4.1 Flashing and Coding Requirements  
+Please refer to **VFDSVAEEP0003 – Flash Specification** and **VFDSP50000017 – Coding Specification** as well as **VFDSP50000020 – Security Access Algorithm** in the latest version in case of flashing and coding functionality.
+
+5.5.5 Component Connected to Terminal 30  
+ACM is connected to terminal 30.
+
+5.6 Specific Characteristics  
+N/A.
+
+5.7 Alternative and Future Variants  
+Governed by market requirements. Common Hardware and Software but different calibration requirements for VN, EU and US markets (mentioned in detailed function requirements section).
+Page 47
+5.8 Mechanical Energy Management.  
+N/A.  
+
+5.9 Installation.  
+
+The supplier shall support in generating a feasible concept and solution for the installation of the ECU and associated sensors to the vehicle. The supplier shall provide detailed guidelines to the CAD packaging team since this component has specific packaging and handling requirements. This section shall be updated after a fixing solution is confirmed and 3D CAD data is frozen.  
+
+5.9.1 Installation Location.  
+
+The AMC ECU should be ideally installed on the floor of the vehicle on the tunnel, in a central location near the front of the vehicle. However, this position can be changed due to packaging constraints but a central location should still be maintained. In VFe33 and VFe34 vehicles, this happens to be under the front row seats. The mounting location of the ECU is shown in the figure below:  
+
+*Figure: The mounting location under the front row seats is highlighted to indicate the installation position of the ECU on the vehicle floor.*  
+
+5.9.2 Assembly Concept and Requirements.  
+
+The part has an arrow showing the driving direction and as such should be installed parallel to the arrow shown. It is to be secured using 3 nut bolts such that the part should not be movable after tightening the bolts with the correct torque requirements provided on the drawings and in the detailed guidelines by the supplier. The assembly method is shown in the figures on the next page.
+Page 48
+5.9.2 Assembly Concept and Requirements.
+
+Great care should be taken while handling the ACM ECU and during its assembly. If the ECU is accidentally dropped, then it cannot be fitted to the vehicle as it would have damaged the sensors inside. Always secure the ECU first in its location and then tighten the bolts. Then connect it with the harness before supplying power. Once power is supplied, make sure that the ECU is protected from accidental impacts since this may cause the airbags to be deployed causing excessive injury and damage to operators/technicians working on the vehicle. For details please refer to the document (40227087_SPE_000_AG_Install_Guide_ACU.pdf) provided by the supplier.
+
+5.9.3 Geometry.
+
+The figure illustrates the detailed dimensions and geometry of the ACM ECU, including its driving direction and mounting specifications.
+Page 49
+5.9.4 Tolerances  
+Standard GB/T1804-x.  
+
+5.10 Styling and Design.  
+N/A.  
+
+5.11 Ergonomics.  
+
+5.11.1 Optical Characteristics and Surface Feel  
+N/A.  
+
+5.11.2 Actuation Acoustics  
+N/A.  
+
+5.11.3 Handling  
+The ACM should be handled with great care, especially after it has been connected and powered. It must be ensured that there is no sudden impact on the ECU to avoid damaging the sensors inside or to avoid unwarranted deployment of airbags which can cause excessive injury or damage.  
+
+5.12 Technical Material Requirements  
+To be managed via IMDS submission. Also, please refer to the list of attached standards and qualifications:  
+
+1. Environment - Requirements Process v2.0.  
+2. RQ-2344_RQ-2353-TC FDJ - Recyclability and recoverability components assessment.  
+3. RQ-2346_RQ-2362-TC FDJ Parts Marking Components.  
+4. RQ2347_RQ-2366 Pretreatment and Depollution Components.  
+5. RQ2347_RQ-2367 Pretreatment and Depollution Restraints.  
+6. RQ-2348_RQ-2371-TC FDJ Materials Compliance Components.  
+
+5.13 Resistance to Media and Chemical Requirements  
+
+5.13.1 Contamination  
+The supplier shall ensure that throughout the lifecycle of the vehicle, elements on the PCB, especially the microcontroller, radar, and its antennae, shall not degrade in performance due to dust and/or other contamination factors. Also, please refer to VFDST00028131 – Environmental Requirements and Testings.
+Page 50
+### 5.13 Cleaning  
+Please refer to VFDST00028131 – Environmental Requirements and testings specification.
+
+### 5.13.3 Corrosion Protection  
+Please refer to VFDST00028131 – Environmental Requirements and testings specification.
+
+### 5.13.4 Tightness and Protection Classes  
+Please refer to VFDST00028131 – Environmental Requirements and testings specification.
+
+### 5.14 Environmental Compatibility  
+To be managed via IMDS submission. Also please refer to the standards and qualifications list attached. List:  
+  1. Environment - Requirements Process v2.0  
+  2. RQ-2344_RQ-2353-TC FDJ - Recyclability and recoverability components assessment  
+  3. RQ-2346_RQ-2362-TC FDJ Parts Marking components  
+  4. RQ2347_RQ-2366 Pretreatment and Depollution Components  
+  5. RQ2347_RQ-2367 Pretreatment and Depollution Restraints  
+  6. RQ-2348_RQ-2371 - TC FDJ Materials compliance components  
+
+### 5.15 Mechanical Requirements  
+Please refer to VFDST00028131 – Environmental Requirements and Testings specification.
+
+### 5.16 Durability / Life Time  
+The lifetime mileage of the complete vehicle shall be at least 160,000 km, the vehicle lifetime shall be at least 10 years.  
+The environmental operating conditions are:  
+  - -30°C to +50°C ambient  
+  - 0 - 100% relative humidity  
+  - -100 m to 3500 m above mean sea level  
+
+### 5.17 Electrical Requirements  
+
+#### 5.17.1 Description of the Requirements  
+Please refer to the standards and qualifications list attached.
+
+#### 5.17.2 Power Consumption  
+
+##### 5.17.2.1 Power Consumption Requirements  
+Please refer to VFDSP50000005 – Energy Management specification.
+Page 51
+## Low Voltage Energy Management  
+
+### Energy Management Requirements.  
+Please refer to VFDSP50000005 – Energy Management specification.  
+
+---
+
+## High Voltage Energy Management  
+
+### Energy Management Requirements  
+Please refer to VFDSP50000005 – Energy Management specification.  
+
+---
+
+## Electromagnetic Compatibility  
+
+### EMC Requirements.  
+Please refer to VFDSP50000002 – EMC Standard Component specification, CISPR25 & CISPR22.  
+
+#### EMC Test Table:  
+1. **Radiated Emission (RE)**  
+   - Test Standard: CISPR 25:2005  
+   - Class/Level: Limit Class 4  
+
+2. **Conducted Emission (CE) on Power Lines**  
+   - Test Standard: CISPR 25:2008  
+   - Class/Level: Limit Class 4  
+
+3. **Radiated Susceptibility ALSE Method**  
+   - Test Standard: ISO 11452-2:2004  
+   - Class/Level: Level 1 + Category 3  
+
+4. **Bulk Current Injection**  
+   - Test Standard: ISO 11452-4:2003  
+   - Class/Level: Level 1 + Category 3  
+
+5. **Pulse 1; 2a, 2b, 3a & 3b**  
+   - Test Standard: ISO 7637-2:2011  
+   - Class/Level: Test Level of 12V System  
+
+---
+
+## Electrostatic Discharge  
+
+### ESD Requirements  
+Please refer to VFDSP50000002 – EMC Standard Component specification, CISPR25 & CISPR22.  
+
+#### ESD Test Table:  
+1. **Electrostatic Discharge Test ESDH**  
+   - Test Standard: VFDST00026302  
+   - Class/Level: Connector Pin - Contact Discharge: +/- 6 kV; Housing - Air Discharge: +/- 8 kV; +/- 15 kV  
+
+2. **Electrostatic Discharge Test ESDD**  
+   - Test Standard: VFDST00026302  
+   - Class/Level: Level 1 + Category 3  
+
+3. **Electrostatic Discharge Test ESDI**  
+   - Test Standard: VFDST00026302  
+   - Class/Level: Level 1 + Category 3
+Page 52
+5.18 Climatic Requirements / Thermal Management  
+5.18.1 Thermal Management Requirements  
+The supplier shall ensure the CPD ECU can operate between -40°C to 90°C without degrading the performance. Also, please refer to VFDST00028131 - Environmental Requirements and Testings and VFDSP50000008 – Thermal Management specifications.  
+
+5.19 Cybersecurity Requirements  
+5.19.1 Cybersecurity Requirements  
+Please refer to VFCSMCSS00110 – VinFast Cybersecurity Requirements.  
+
+5.20 Service Requirements  
+The supplier shall ensure that replacement parts are delivered to dealers or service centres in case of part failures and upon requests from dealers or service centres.  
+
+5.21 Transport Protection  
+The supplier shall ensure that parts are protected and ensured from accidental damage during shipment to plants / service centres.  
+
+5.22 Logistics Requirements  
+Logistics shall be agreed upon between VinFast and the supplier.  
+
+5.23 Quality Assurance Requirements  
+N/A  
+
+5.24 Content Amendments  
+This specbook is a working document. Whenever the content is required to be modified, updated, added or removed, the specbook shall be updated and shared with the supplier.
+Page 53
+6 Testing and Validation and DVP&R.
+
+DVP and PC test responsibility follows RASIC. DVP (virtual and physical testing) is required for System, Sub-system, and Component Level in line with the Complete Vehicle Specification Book during the concept phase. A detailed test plan for hardware tests is documented in the file DVP&R and requires collaboration with the Testing & Validation department on the following aspects:  
+- Testing with declaration of standard, norm, legal requirements.  
+- How and with which devices the testing was performed (description of testing setup with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and timeline of the testing (in the form of a project plan).  
+- Part variant—description of the part.  
+- Number of tested components/parts.  
+
+The Mileage Target Life must be ensured to be 160,000 km or 10 years, whichever comes first.
+
+6.1 Proof of Compliance.
+
+6.1.1 Testing Plan (DVP + FRS Plan).  
+Refer to data from the T&V team:  
+- VFDSXVCVC1401.  
+- VF32_BEV_Appendix_4_DVP_Design Verification Plan.  
+
+Carry over component DVPR from VFe35 vehicle programme.
+
+6.2 Package.  
+N/A.
+
+6.3 Electrical Systems & Functions.
+
+6.4 Virtual Testing and Simulation.
+
+6.5 Vehicle Testing.
+
+6.5.1 DVPR Standards.  
+VF Basic Standards:  
+- Environmental Electronics Testing – VFDST00028131.  
+- Electrical Requirements – VFDST00028121.  
+- EMC EE Component up to 60V – VFDST00026302.  
+- EMC EE Component above 60V – VFDST00026303.
+Page 54
+7 Function Safety, Homologation and Safety Regulations.  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### 7.1 Functional Safety Requirements  
+The supplier shall ensure that the developed/manufactured part(s) meet the IATF 16949:2016 standard, which specifies quality management system requirements for automotive production.
+
+The supplier shall ensure that the developed/manufactured part(s) meet the ISO 26262:2018 standard, which defines functional safety standards for road vehicles.
+
+#### FSR Requirements to be met for ACM:  
+| Requirement ID | Functional Safety Requirement                                                                 | ASIL Level |
+|----------------|-----------------------------------------------------------------------------------------------|------------|
+| FSR001         | The restraints system shall continuously monitor vehicle crash state (detail refer to Reference No.4). | ASIL A     |
+| FSR002         | Upon detection of a crash event, the restraint system shall inform other vehicle modules within 20ms. | ASIL A     |
+| FSR003         | The restraints system shall continuously monitor vehicle crash state and send crash output signal to RESS (pyrofuse). (detail refer to Reference No.4). | ASIL D     |
+| FSR004         | The restraints system shall qualify its safety-critical signals (i.e. CAN, hardwired etc.) sent to other vehicle modules (i.e. warning to driver in HMI, warning chime signal,…). | ASIL A, ASIL D |
+| FSR005         | The vehicle modules shall qualify their safety-critical signals (i.e. CAN, hardwired etc.) sent to the restraints system (i.e. seat track position from PSM, OCS etc.). | ASIL D     |
+| FSR096         | The Power Seat Module shall qualify its safety-critical signals (i.e. seat track position) for validity, integrity, and correctness. | ASIL A, ASIL D |
+| FSR097         | The vehicle modules shall qualify their safety-critical signals (i.e. CAN etc.) sent to the restraints system (i.e. OCS etc.). | ASIL D     |
+| FSR105         | The OCS (Seat Pressure Mat Sensor) shall qualify its safety-critical signals (i.e. Occupant classification) for validity, integrity, and correctness. | ASIL A, ASIL C |
+Page 55
+7 Function Safety, Homologation and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+7.1 Functional Safety Requirements.
+
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.
+
+Below are the Functional Safety Requirements (FSR) for ACM:
+
+Requirement ID: FSR001  
+The restraints system shall continuously monitor the vehicle crash state (Detail refer to Reference No.4).  
+ASIL Level: ASIL A  
+
+Requirement ID: FSR002  
+Upon detection of a crash event, the restraint system shall inform the other vehicle modules within 20ms.  
+ASIL Level: ASIL A  
+
+Requirement ID: FSR003  
+The restraints system shall continuously monitor the vehicle crash state and fire/send crash output signal to RESS (pyrofuse) (Detail refer to Reference No.4).  
+ASIL Level: ASIL D  
+
+Requirement ID: FSR004  
+The restraints system shall qualify its safety-critical signals (i.e., CAN, hardwired, etc.) sent to other vehicle modules (e.g., warning to driver in HMI, warning chime signal).  
+ASIL Level: ASIL A and ASIL D  
+
+Requirement ID: FSR005  
+The vehicle modules shall qualify their safety-critical signals (i.e., CAN, hardwired, etc.) sent to the restraints system (e.g., seat track position from PSM, OCS, etc.).  
+ASIL Level: ASIL D  
+
+Requirement ID: FSR096  
+The Power Seat Module shall qualify its safety-critical signals (e.g., seat track position), for validity, integrity, and correctness.  
+ASIL Level: ASIL A and ASIL D  
+
+Requirement ID: FSR097  
+The vehicle modules shall qualify their safety-critical signals (e.g., CAN, etc.) sent to the restraints system (e.g., OCS, etc.).  
+ASIL Level: ASIL D  
+
+Requirement ID: FSR105  
+The OCS (Seat Pressure Mat Sensor) shall qualify its safety-critical signals (e.g., Occupant classification), for validity, integrity, and correctness.  
+ASIL Level: ASIL A and ASIL C (only for passenger seat).  
+
+Requirement ID: FSR106  
+The Buckle Sensor (front row) shall qualify its safety-critical signals (e.g., seatbelt status), for validity, integrity, and correctness.  
+ASIL Level: ASIL A and ASIL D  
+
+Requirement ID: FSR107  
+The Buckle Switch (rear row) shall qualify its safety-critical signals (e.g., seatbelt status), for validity, integrity, and correctness.  
+ASIL Level: QM  
+
+Requirement ID: FSR108  
+The ODS (Occupant Detection Sensor) shall qualify its safety-critical signals (e.g., occupant weight), for validity, integrity, and correctness.  
+ASIL Level: QM  
+
+Requirement ID: FSR006  
+In case of malfunction of the CAN bus or vehicle module(s), the restraints system shall raise DTC and transition into Safe State [SS7] within the established fault tolerant time [FTTI7].  
+ASIL Level: QM (DTC), ASIL A/ASIL D (Safe state).  
+
+Requirement ID: FSR098  
+In case of malfunction of the CAN bus or vehicle module(s), the restraints system shall raise DTC.  
+ASIL Level: QM  
+
+Requirement ID: FSR099  
+In case of malfunction of the CAN bus or vehicle module(s), the restraints system shall assert the safe state [SS8] within the established FRTI.  
+ASIL Level: ASIL A  
+
+Requirement ID: FSR007  
+The restraints system shall monitor onboard sensors (e.g., internal rollover sensor) faults under all operating vehicle conditions.  
+ASIL Level: ASIL D  
+
+Requirement ID: FSR008  
+In case of fault(s) in onboard sensors (e.g., internal rollover sensor) potentially violating unintended deployment of roll over/curtain airbags, the restraints system shall transition into Safe State [SS1] within the established fault tolerant time [FTTI1].  
+ASIL Level: ASIL B  
+
+Requirement ID: FSR009  
+In case of fault(s) in onboard sensors (e.g., internal rollover sensor) potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7].  
+ASIL Level: ASIL B  
+
+Requirement ID: FSR010  
+The restraints system shall monitor onboard sensors (e.g., internal high G sensor for longitudinal direction) faults under all operating vehicle conditions.  
+ASIL Level: ASIL D  
+
+Requirement ID: FSR011  
+In case of fault(s) in onboard sensors (e.g., internal high G sensor for longitudinal direction) potentially violating unintended deployment of the front driver airbag, the restraints system shall transition into Safe State [SS1] within the established fault tolerant time [FTTI1].  
+ASIL Level: ASIL D  
+
+Requirement ID: FSR012  
+In case of fault(s) in onboard sensors (e.g., internal high G sensor for longitudinal direction) potentially violating unintended deployment of the front passenger airbag, the restraints system shall transition into Safe State [SS1] within the established fault tolerant time [FTTI1].  
+ASIL Level: ASIL D
+Page 56
+### 7 Function Safety, Homologation and Safety Regulations
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is primarily concerned with E/E systems.
+
+#### 7.1 Functional Safety Requirements
+The supplier shall ensure that the developed/manufactured part(s) meet the following standards:
+- **IATF 16949:2016** - Quality management system requirements for automotive production.
+- **ISO 26262:2018** - Road vehicles – Functional safety.
+
+Below are the Functional Safety Requirements (FSR) to be met for ACM:
+
+| Requirement ID | Functional Safety Requirement                                                                                   | ASIL Level    |
+|----------------|------------------------------------------------------------------------------------------------------------------|---------------|
+| **FSR013**     | The restraints system shall transition into Safe State [SS5] within the established fault tolerant time [FTTI5] for knee airbags. | ASIL B        |
+| **FSR014**     | The restraints system shall transition into Safe State [SS6] within the established fault tolerant time [FTTI6] for front/rear pretensioners. | ASIL B        |
+| **FSR015**     | The restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7] for no deployment. | QM            |
+| **FSR016**     | The restraints system shall detect errors in the validity of the received signals from sensor satellites, ensuring correct and valid ranges of values or states. | ASIL D        |
+| **FSR017**     | The restraints system shall monitor sensor satellites (e.g., upfront sensors) faults under all operating vehicle conditions. | ASIL D        |
+| **FSR018**     | The restraints system shall transition into Safe State [SS1] within the fault tolerant time [FTTI1] for unintended front driver airbag deployment. | ASIL D        |
+| **FSR019**     | The restraints system shall transition into Safe State [SS2] within the fault tolerant time [FTTI2] for unintended front passenger airbag deployment. | ASIL D        |
+| **FSR020**     | The restraints system shall transition into Safe State [SS5] within the fault tolerant time [FTTI5] for unintended deployment of knee airbags. | ASIL D        |
+| **FSR021**     | The restraints system shall transition into Safe State [SS6] within the fault tolerant time [FTTI6] for front/rear pretensioners. | ASIL B        |
+| **FSR022**     | The restraints system shall transition into Safe State [SS7] within the fault tolerant time [FTTI7] for no deployment. | ASIL D        |
+| **FSR023**     | The restraints system shall detect errors in the validity of signals from rear sensors, ensuring correct and valid ranges of values or states. | ASIL D        |
+| **FSR024**     | The restraints system shall monitor rear sensor faults under all operating vehicle conditions. | ASIL D        |
+
+VinFast Released
+Page 57
+### 7 Function Safety, Homologation and Safety Regulations
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+#### 7.1 Functional Safety Requirements
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.
+
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.
+
+#### FSR Requirements to be Met for ACM:
+
+**Requirement ID: FSR025**  
+The restraints system shall transition into Safe State [SS1] within the established fault tolerant time [FTTI1] in case of fault(s) in sensor satellites (e.g. rear sensors etc.) potentially violating unintended deployment of front driver airbag.  
+ASIL Level: ASIL D.  
+
+**Requirement ID: FSR026**  
+The restraints system shall transition into Safe State [SS2] within the established fault tolerant time [FTTI2] in case of fault(s) in sensor satellites (e.g. rear sensors etc.) potentially violating unintended deployment of front passenger airbag.  
+ASIL Level: ASIL D.  
+
+**Requirement ID: FSR027**  
+The restraints system shall transition into Safe State [SS5] within the established fault tolerant time [FTTI5] in case of fault(s) in sensor satellites (e.g. rear sensors etc.) potentially violating unintended deployment of knee airbags.  
+ASIL Level: ASIL B.  
+
+**Requirement ID: FSR028**  
+The restraints system shall transition into Safe State [SS6] within the established fault tolerant time [FTTI6] in case of fault(s) in sensor satellites (e.g. rear sensors etc.) potentially violating unintended deployment of front/rear pretensioners.  
+ASIL Level: ASIL B.  
+
+**Requirement ID: FSR029**  
+The restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7] in case of fault(s) in sensor satellites (e.g. rear sensors etc.) potentially violating no deployment.  
+ASIL Level: ASIL A.  
+
+**Requirement ID: FSR030**  
+The restraints system shall monitor onboard sensors (internal high G sensor for lateral direction) faults under all operating vehicle conditions.  
+ASIL Level: ASIL D.  
+
+**Requirement ID: FSR031**  
+The restraints system shall transition into Safe State [SS3] within the established fault tolerant time [FTTI3] in case of fault(s) in onboard sensors (internal high G sensor for lateral direction) potentially violating unintended deployment of side airbags.  
+ASIL Level: ASIL C.  
+
+**Requirement ID: FSR032**  
+The restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7] in case of fault(s) in onboard sensors (internal high G sensor for lateral direction) potentially violating no deployment.  
+ASIL Level: ASIL A.  
+
+**Requirement ID: FSR033**  
+The restraints system shall detect errors in the validity of the received signal from the sensors satellites (e.g. side sensors), i.e. correct and valid range of values or states.  
+ASIL Level: ASIL D.  
+
+**Requirement ID: FSR034**  
+The restraints system shall monitor sensor satellites (e.g. side sensors etc.) faults under all operating vehicle conditions.  
+ASIL Level: ASIL D.  
+
+**Requirement ID: FSR035**  
+The restraints system shall transition into Safe State [SS3] within the established fault tolerant time [FTTI3] in case of fault(s) in sensor satellites (e.g. side sensors etc.) potentially violating unintended deployment of side airbags.  
+ASIL Level: ASIL C.  
+
+**Requirement ID: FSR036**  
+The restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7] in case of fault(s) in sensor satellites (e.g. side sensors etc.) potentially violating deployment.  
+ASIL Level: ASIL A.
+Page 58
+VinFast  
+Management System  
+  
+VFDSXNEEP0027  
+  
+Version: 1.0  
+Uncontrolled copy when printed  
+58 | 71  
+Print date  
+
+### 7 Function Safety, Homologation and Safety Regulations  
+
+#### 7.1 Functional Safety Requirements  
+
+FSR037: The restraints system shall detect errors in the validity of the received signal from the sensor satellites (e.g. front door side sensors), i.e. correct and valid range of values or states.  
+**ASIL D**
+
+FSR038: The restraints system shall monitor sensor satellites (e.g. front door side sensors etc.) faults under all operating vehicle conditions.  
+**ASIL D**
+
+FSR039: In case of fault(s) in sensor satellites (e.g. front door side sensors etc.) potentially violating unintended deployment of side airbags, the restraints system shall transition into Safe State [SS3] within the established fault tolerant time [FTTI3].  
+**ASIL C**
+
+FSR040: In case of fault(s) in sensor satellites (e.g. front door side sensors etc.) potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7].  
+**ASIL A**
+
+FSR041: The restraints system shall detect errors in the validity of the received signal from the sensor satellites (e.g. buckle sensors and switches for front and rear row respectively), i.e. correct and valid range of values or states.  
+**ASIL D**
+
+FSR042: The restraints system shall monitor the sensor satellites (e.g. buckle sensors and switches for front and rear row respectively) faults under all operating vehicle conditions.  
+**ASIL A**, **ASIL D**
+
+FSR043: In case of fault(s) in sensor satellites (e.g. buckle switches front or/and rear) potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7].  
+**ASIL A**
+
+FSR100: In case of fault(s) in onboard sensors (e.g. internal rollover and high G sensor etc.) or/and sensor satellites (e.g. upfront, rear, side, front door side sensors, buckle sensors, buckle switches etc.), the restraints system shall disregard any erroneous input information that would trigger an undemanded deployment of the airbags within FRTI.  
+**ASIL D**
+
+FSR044: The restraints system shall detect errors in the validity of the received signal of the OCS/ODS, i.e. correct and valid range of values or states within the establish FTTI.  
+**ASIL A**, **ASIL B**
+
+FSR045: The restraints system shall monitor OCS/ODS faults under all operating vehicle conditions.  
+**ASIL A**, **ASIL B**
+
+FSR046: In case of OCS faults potentially violating unintended deployment, the restraints system shall transition into Safe State [SS2] within the established FRTI.  
+**ASIL A**, **ASIL B**
+
+FSR047: In case of OCS faults potentially violating no deployment, the restraints system shall assert the safe state [SS7] within the established FRTI.  
+**ASIL A**, **ASIL B**
+
+FSR048: In case of OCS status communication is lost, the restraints system shall transition into Degradation Strategy (as Sheet Req 2805771) within the established FRTI.  
+**ASIL A**, **ASIL B**
+Page 59
+7 Function Safety, Homologation and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+7.1 Functional Safety Requirements.
+The supplier shall ensure that the developed/manufactured parts meet IATF 16949:2016 standard, Quality Management System requirements for automotive production. The supplier shall ensure that the developed/manufactured parts meet ISO 26262:2018 standard, Road Vehicles – Functional Safety.
+
+Functional Safety Requirements for ACM:
+
+**FSR101:** In case of ODS (used for SBR) faults, the restraints system shall transition into Safe State [SS7] within the established FRTI.  
+QM, ASIL B.
+
+**FSR049:** The restraints system shall continuously monitor its internal faults under all operating vehicle conditions within the established FDTI.  
+ASIL D.
+
+**FSR102:** In case of restraints system internal faults potentially violating unintended deployment, the restraints system shall transition into Degradation Strategy (as Sheet Req 2805771) within the established FRTI.  
+ASIL D.
+
+**FSR103:** In case of restraints system internal faults potentially violating no deployment, the restraints system shall transition into Degradation Strategy (as Sheet Req 2805771) within the established FRTI.  
+ASIL A.
+
+**FSR050:** In case of restraints system internal faults potentially violating unintended deployment of front driver airbag, the restraints system shall transition into Safe State [SS1] within the established Fault Tolerant Time [FTTI1].  
+ASIL D.
+
+**FSR051:** In case of restraints system internal faults potentially violating unintended deployment of front passenger airbag, the restraints system shall transition into Safe State [SS2] within the established Fault Tolerant Time [FTTI2].  
+ASIL D.
+
+**FSR052:** In case of restraints system internal faults potentially violating unintended deployment of side airbags, the restraints system shall transition into Safe State [SS3] within the established Fault Tolerant Time [FTTI3].  
+ASIL C.
+
+**FSR053:** In case of restraints system internal faults potentially violating unintended deployment of roll-over/curtain airbags, the restraints system shall transition into Safe State [SS4] within the established Fault Tolerant Time [FTTI4].  
+ASIL B.
+
+**FSR054:** In case of restraints system internal faults potentially violating unintended deployment of knee airbags, the restraints system shall transition into Safe State [SS5] within the established Fault Tolerant Time [FTTI5].  
+ASIL B.
+
+**FSR055:** In case of restraints system internal faults potentially violating unintended deployment of front/rear pretensioners, the restraints system shall transition into Safe State [SS6] within the established Fault Tolerant Time [FTTI6].  
+ASIL B.
+
+**FSR056:** In case of restraints system internal faults potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established Fault Tolerant Time [FTTI7].  
+ASIL A.
+
+**FSR057:** The restraints system shall detect errors in the validity of the deployment commands of different restraints for different types of crash events within the established FDTI.  
+ASIL D.
+
+**FSR058:** The restraints system shall detect errors in the validity of the first/second stage deployment command of the frontal driver airbag within FDTI.  
+ASIL D.
+Page 60
+7 Function Safety, Homologation and Safety Regulations.
+
+FSR037: The restraints system shall detect errors in the validity of the received signal from the sensor satellites (e.g. front door side sensors), i.e. correct and valid range of values or states. ASIL D.
+
+FSR038: The restraints system shall monitor sensor satellites (e.g. front door side sensors etc.) faults under all operating vehicle conditions. ASIL D.
+
+FSR039: In case of fault(s) in sensor satellites (e.g. front door side sensors etc.) potentially violating unintended deployment of side airbags, the restraints system shall transition into Safe State [SS3] within the established fault tolerant time [FTTI3]. ASIL C.
+
+FSR040: In case of fault(s) in sensor satellites (e.g. front door side sensors etc.) potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7]. ASIL A.
+
+FSR041: The restraints system shall detect errors in the validity of the received signal from the sensor satellites (e.g. buckle sensors and switches for front and rear row respectively), i.e. correct and valid range of values or states. ASIL D.
+
+FSR042: The restraints system shall monitor the sensor satellites (e.g. buckle sensors and switches for front and rear row respectively) faults under all operating vehicle conditions. ASIL A, ASIL D.
+
+FSR043: In case of fault(s) in sensor satellites (e.g. buckle switches front or/and rear) potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7]. ASIL A.
+
+FSR100: In case of fault(s) in onboard sensors (e.g. internal rollover and high G sensor etc.) or/and sensor satellites (e.g. upfront, rear, side, front door side sensors, buckle sensors, buckle switches etc.), the restraints system shall disregard any erroneous input information that would trigger an undemanded deployment of the airbags within FRTI. ASIL D.
+
+FSR044: The restraints system shall detect errors in the validity of the received signal of the OCS/ODS, i.e. correct and valid range of values or states within the established FTTI. ASIL A, ASIL B.
+
+FSR045: The restraints system shall monitor OCS/ODS faults under all operating vehicle conditions. ASIL A, ASIL B.
+
+FSR046: In case of OCS faults potentially violating unintended deployment, the restraints system shall transition into Safe State [SS2] within the established FRTI. ASIL A, ASIL B.
+
+FSR047: In case of OCS faults potentially violating no deployment, the restraints system shall assert the safe state [SS7] within the established FRTI. ASIL A, ASIL B.
+
+FSR048: In case of OCS status communication is lost, the restraints system shall transition into Degradation Strategy (as Sheet Req 2805771) within the established FRTI. ASIL A, ASIL B.
+
+FSR101: In case of ODS (used for SBR) faults, the restraints system shall transition into Safe State [SS7] within the established FRTI. QM, ASIL B.
+
+FSR049: The restraints system shall continuously monitor its internal faults under all operating vehicle conditions within the established FDTI. ASIL D.
+
+FSR102: In case of restraints system internal faults potentially violating unintended deployment, the restraints system shall transition into Degradation Strategy (as Sheet Req 2805771) within the established FRTI. ASIL D.
+
+FSR103: In case of restraints system internal faults potentially violating no deployment, the restraints system shall transition into Degradation Strategy (as Sheet Req 2805771) within the established FRTI. ASIL A.
+
+FSR050: In case of restraints system internal faults potentially violating unintended deployment of front driver airbag, the restraints system shall transition into Safe State [SS1] within the established fault tolerant time [FTTI1]. ASIL D.
+
+FSR051: In case of restraints system internal faults potentially violating unintended deployment of front passenger airbag, the restraints system shall transition into Safe State [SS2] within the established fault tolerant time [FTTI2]. ASIL D.
+
+FSR052: In case of restraints system internal faults potentially violating unintended deployment of side airbags, the restraints system shall transition into Safe State [SS3] within the established fault tolerant time [FTTI3]. ASIL C.
+
+FSR053: In case of restraints system internal faults potentially violating unintended deployment of roll over/curtain airbags, the restraints system shall transition into Safe State [SS4] within the established fault tolerant time [FTTI4]. ASIL B.
+
+FSR054: In case of restraints system internal faults potentially violating unintended deployment of knee airbags, the restraints system shall transition into Safe State [SS5] within the established fault tolerant time [FTTI5]. ASIL B.
+
+FSR055: In case of restraints system internal faults potentially violating unintended deployment of front/rear pretensioners, the restraints system shall transition into Safe State [SS6] within the established fault tolerant time [FTTI6]. ASIL B.
+
+FSR056: In case of restraints system internal faults potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7]. ASIL A.
+
+FSR057: The restraints system shall detect errors in the validity of the deployment commands of different restraints for different types of crash event within the established FDTI. ASIL D.
+
+FSR058: The restraints system shall detect errors in the validity of the first/second stage deployment command of the frontal driver airbag within FDTI. ASIL D.
+
+FSR059: The restraints system shall detect errors in the validity of the frontal driver airbag deployment command within established FDTI. ASIL D.
+
+FSR060: The restraints system shall monitor the frontal driver airbag faults under all operating vehicle conditions. ASIL D.
+
+FSR061: In case of the frontal driver airbag faults potentially violating unintended deployment, the restraints system shall transition into Safe State [SS1] within the established fault tolerant time [FTTI1]. ASIL D.
+
+FSR062: In case of the frontal driver airbag faults potentially violating to a no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7]. ASIL A.
+
+FSR063: The restraints system shall detect errors in the validity of the first/second stage deployment command of the frontal passenger airbag within the established FDTI. ASIL D.
+
+FSR064: The restraints system shall detect errors in the validity of the frontal passenger airbag deployment command within the established FDTI. ASIL C, ASIL D.
+
+FSR065: The restraints system shall monitor the frontal passenger airbag faults under all operating vehicle conditions. ASIL C, ASIL D.
+
+FSR066: In case of the frontal passenger airbag faults potentially violating unintended deployment, the restraints system shall transition into Safe State [SS2] within the established fault tolerant time [FTTI2]. ASIL D.
+
+FSR067: In case of the frontal passenger airbag faults potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7]. ASIL A.
+
+FSR068: The restraints system shall detect errors in the validity of the first/second stage deployment command of the side airbags within the established FDTI. ASIL C.
+
+FSR069: The restraints system shall detect errors in the validity of the side airbags deployment command within the established FDTI. ASIL C.
+
+FSR070: The restraints system shall monitor the side airbags faults under all operating vehicle conditions. ASIL C.
+
+FSR071: In case of the side airbags faults potentially violating unintended deployment, the restraints system shall transition into Safe State [SS3] within the established fault tolerant time [FTTI3]. ASIL C.
+
+FSR072: In case of the side airbags faults potentially violating no deployment, the restraints system shall transition into Safe State [SS7] within the established fault tolerant time [FTTI7]. ASIL A.
+
+FSR073: The restraints system shall detect errors in the validity of the roll over/curtain airbags deployment command within FDTI. ASIL B.
+Page 61
+7 Function Safety, Homologation and Safety Regulations.
+
+7.1 Functional Safety Requirements.
+The supplier shall ensure that developed/manufactured parts meet IATF 16949:2016 and ISO 26262:2018 standards. Functional Safety Requirements (FSR) for Automotive Crash Management (ACM) include:
+
+FSR074. The restraints system shall monitor roll over/curtain airbags faults under all operating vehicle conditions. ASIL B.
+FSR075. In case of roll over/curtain airbags faults violating deployment, the restraints system shall transition into Safe State [SS4] within the fault tolerant time [FTTI4]. ASIL B.
+FSR076. In case of roll over/curtain airbags faults violating no deployment, the restraints system shall transition into Safe State [SS7] within the fault tolerant time [FTTI7]. ASIL A.
+FSR077. The restraints system shall detect errors in knee airbag deployment commands within the established FDTI. ASIL B.
+FSR078. The restraints system shall monitor knee airbag faults under all operating vehicle conditions. ASIL B.
+FSR079. In case of knee airbag faults violating deployment, the restraints system shall transition into Safe State [SS1] within the fault tolerant time [FTTI1]. ASIL B.
+FSR080. In case of knee airbag faults violating no deployment, the restraints system shall transition into Safe State [SS7] within the fault tolerant time [FTTI7]. ASIL A.
+FSR081. The restraints system shall detect errors in pretensions deployment commands within the established FDTI. ASIL B.
+FSR082. The restraints system shall monitor the pretensions faults under all operating vehicle conditions. ASIL B.
+FSR083. In case of pretensions faults violating deployment, the restraints system shall transition into Safe State [SS6] within the fault tolerant time [FTTI6]. ASIL B.
+FSR084. In case of pretensions faults violating no deployment, the restraints system shall transition into Safe State [SS7] within the fault tolerant time [FTTI7]. ASIL A.
+FSR104. In case of faults detected in the firing loops (e.g., frontal driver/passenger, side, roll over/curtain, knee, front center airbags), violating no deployment, the restraints system shall attempt airbag deployment with valid crash detection. ASIL A/ASIL D.
+FSR085. The restraints system shall detect external faults (e.g., power supply loss) within the established FDTI. ASIL A.
+FSR086. In case of external faults detected impacting deployment function ability, the restraints system shall transition into Degradation Strategy (as per Sheet Req 2805771) within the fault tolerant time [FRTI]. ASIL A.
+FSR087. The restraints system shall raise DTCs for power supply failure detection. QM.
+Page 62
+### Functional Responsibility
+
+#### FSR088
+Incase the Restraint systems are not available, HMI system shall provide warning to the driver.  
+ASIL A
+
+#### FSR089
+The restraints system hardware architectural metrics and random hardware failures metrics shall meet below targets for ASIL D Safety Goals:  
+- PMHF ≤ 10 FIT  
+- SPFM ≥ 99%  
+- LFM ≥ 90%.  
+No ASIL
+
+#### FSR090
+The restraints system hardware architectural metrics and random hardware failures metrics shall meet below targets for ASIL C Safety Goals:  
+- PMHF ≤ 100 FIT  
+- SPFM ≥ 97%  
+- LFM ≥ 80%.  
+No ASIL
+
+#### FSR091
+The restraints system hardware architectural metrics and random hardware failures metrics shall meet below targets for ASIL B Safety Goals:  
+- PMHF ≤ 100 FIT  
+- SPFM ≥ 90%  
+- LFM ≥ 60%.  
+No ASIL
+Page 63
+FSR092. The restraints system shall activate SCRAP (end of life) only if a valid protocol and conditions are presented through the diagnosis interface / central data interface. ASIL D.
+
+FSR093. The restraints system shall fulfill all relevant local and international standards for ASEAN (Vietnam, Thailand, Singapore, the Philippines, Malaysia, Indonesia, Cambodia, Laos, Myanmar, and Brunei). Refer to the following list, including but not limited to:
+- ISO 12097
+- ISO 14451
+- IATF 16949
+- ISO 26262:2018
+- ISO/DIS 26021
+- ISO 6487
+- FMVSS number 208. PART: 49 CFR Part 563
+- etc. No ASIL.
+
+FSR094. The restraints system shall fulfill all relevant local and international standards for North America (USA, Canada). Refer to the following list, including but not limited to:
+- ISO 12097
+- ISO 14451
+- IATF 16949
+- ISO 26262:2018
+- ISO/DIS 26021
+- ISO 6487
+- FMVSS number 208. PART: 49 CFR Part 563
+- etc. No ASIL.
+
+FSR095. The restraints system shall fulfill all relevant local and international standards for Europe (27 countries and United Kingdom). Refer to the following list, including but not limited to:
+- ISO 12097
+- ISO 14451
+- IATF 16949
+- ISO 26262:2018
+- ISO/DIS 26021
+- ISO 6487
+- FMVSS number 208. PART: 49 CFR Part 563
+- etc. No ASIL.
+Page 64
+FSR129. MHU shall display an airbag telltale, warning message, and indicate malfunction of the Restraint System.  
+ASIL A  
+
+FSR130. MHU shall display “PASSENGER AIR BAG OFF” to indicate Front Passenger Airbag is OFF state.  
+ASIL D  
+
+FSR131. MHU shall display Seatbelt reminder triggered by ACM following FMVSS 208 and NCAP regarding Reminder condition, Visual symbol, and Chime duration.  
+ASIL A  
+
+FSR132. BCM shall turn ON the hazard lights after receiving the Crash signal from ACM (via CAN or Hardwire).  
+ASIL A  
+
+FSR133. BCM shall turn ON the Interior lights after receiving the Crash signal from ACM (via CAN or Hardwire).  
+ASIL A  
+
+FSR134. BCM shall unlock the doors after receiving the Crash signal from ACM (via CAN or Hardwire).  
+ASIL A  
+
+FSR135. BMS shall cut off the HV from the HV battery (via melting pyro fuse or by opening the main contactor inside HV battery) after receiving the Crash signal from ACM (via CAN or Hardwire).  
+ASIL A  
+
+FSR136. BMS shall provide the Isolation status to VCU.  
+ASIL A  
+
+FSR137. VCU shall perform vehicle emergency shutdown after receiving the Crash signal from ACM (via CAN or Hardwire).  
+Note: VCU shall trigger EDS active discharge (until voltage drops below 60V) after battery disconnection.  
+ASIL A  
+
+FSR109. The Restraint systems shall meet safety performance criteria for dummies representing 12-month-old infants, 3-year-old toddlers, 6-year-old children, and small stature women.  
+ASIL A  
+
+FSR110. The occupant sensing devices in the airbag system shall be tested with child-sized dummies, representing infants in a child safety seat and small children in and out of child safety seats.  
+ASIL A  
+
+FSR111. The Restraint systems shall ensure that the Airbag will turn itself off after detection of infants, toddlers, and children.  
+ASIL A  
+
+FSR112. The restraints system shall disregard any erroneous input information that would trigger an undemanded deployment of the airbags within X ms.  
+ASIL D  
+
+FSR113. The restraint system shall have a redundant power supply.  
+Note: The power supply is to provide the restraint system with the required power for operation, basically to maximize the availability of restraint systems.  
+ASIL A  
+
+FSR114. The supply voltage and current are to meet the quality parameters (levels: min, max, ripple, transient, and overshoot) as set by the restraint system components.  
+ASIL A  
+
+FSR115. In case of malfunction in the Restraint system, the power supply is to sustain power for a duration greater than the longest FTTI.  
+ASIL A
+Page 65
+FSR116. All single point failure modes that cause the loss of voltage power to the Restraint system are to be prevented or mitigated. ASIL A.
+
+FSR117. Critical communications and data transfer between the restraint system and other vehicle systems or components are to be qualified for validity and correctness (plausibility and rationality). This includes the sensor inputs and all other inputs that are used by the restraint system. ASIL D.
+
+FSR118. All critical communication signals are to be qualified for validity and correctness (plausibility and rationality). The ASIL classification for the signal is to correspond to the safety goal it is associated with. If a signal is associated with more than one safety goal, then it is to adhere to the higher ASIL classification. ASIL D.
+
+FSR119. The communication bus is to prevent the corruption of the critical communication bus signals during transmission between the restraint system and the interfacing vehicle systems. ASIL D.
+
+FSR120. The Restraint system shall detect the failure of all critical communication signals within the established FDTI. ASIL D.
+
+FSR121. In case of malfunction of the communication bus or communication bus module, the communication bus system is to inform the restraint system. ASIL B.
+
+FSR122. All interfacing systems are to inform the restraint system in case of any failure that may cause the system to transition into a degraded mode of operation. ASIL B.
+
+FSR123. In case of a fault in the transmitted information to the Restraint system from the interfacing system, the correct failure mode effect mitigation strategy is to be applied. ASIL D.
+Page 66
+FSR124. The Restraint system is to perform Power On tests, periodic tests, or continuous monitoring tests to ensure the correctness of safety-critical parameters, the integrity of critical system elements, and the integrity of the safety-critical signals.
+
+- The proper operation of the following critical system elements is to be checked before the deployment of airbag: 
+  - The Buckle sensors
+  - The Buckle Switches
+  - The Occupant detection sensors 
+  - The Occupant Classification signal (via CAN) 
+  - The Seat position track sensors
+
+- The communications channels between:
+  - The critical sensors listed above and associated Restraint system controller
+  - The restraint system controller and Gateway
+  - The restraint system controller and the Body Control Module (BCM) 
+  - The restraint system controller and the Vehicle Control Unit (VCU) 
+  - The restraint system controller and the Battery Management System
+
+- A confirmation of the health and sanity of the Restraint system control module. State of Health (SOH) checks may include:
+  - Random Access Memory (RAM) / Read-Only Memory (ROM) / Electronically Erasable Programmable Read-Only Memory (EEPROM) Tests
+  - Analog to Digital (A/D) Converter Test
+  - Shut Down Test
+
+Sanity checks may include:
+  - Quizzer or Seed & Key strategies
+
+ASIL D.
+
+FSR125. The frequency of the periodic tests is to be selected based on the FTTI, the fault detection time interval, and the fault reaction time interval. QM.
+
+FSR126. In case of failure in the periodic self-tests, the restraint system is to transition to the appropriate safe state within FRTI TBD ms. ASIL D.
+
+FSR127. To recover from a safe state, the restraint system is to reset and pass the power-on self-test. ASIL D.
+
+FSR128. Diagnostics covering the safety-related functionality of the restraint system controller are to be instituted with a level of coverage corresponding to the ASIL of the safety goal that is affected. ISO 26262 diagnostics coverage guidelines for Low, Medium, and High are to be adhered to in order to comply with the hardware architectural metrics targets. NO ASIL.
+Page 67
+FSR129. DTCs are to be set every time a safety goal is violated. Note: DTC shall be saved according to the DTC matrix.  
+QM  
+
+FSR130. All safety-relevant calibration data shall be correctly transferred to the ECU during the End of Line programming procedure. Note: After writing the calibration to the ECU and before the ECU leaves the manufacturing facility or repair shop, the OEM shall read out the calibration and shall confirm that it is identical to the requested calibration data.  
+ASIL A  
+
+### 7.2 Deliverables for Functional Safety  
+#### Indicative RASIC* for expected deliverables:  
+**5.5 Work products:**  
+- **5.5.1 Supplier selection report** resulting from requirements 5.4.2.1 and 5.4.2.2.  
+  - **VINFAST:** R  
+  - **SUPPLIER:** I  
+
+- **5.5.2 Development interface agreement (DIA)** resulting from requirement 5.4.3.  
+  - **VINFAST:** R  
+  - **SUPPLIER:** S  
+
+- **5.5.3 Supplier's project plan** resulting from requirement 5.4.3.  
+  - **VINFAST:** A  
+  - **SUPPLIER:** R  
+
+- **5.5.4 Supplier's safety plan** resulting from requirement 5.4.3.  
+  - **VINFAST:** A  
+  - **SUPPLIER:** R  
+
+- **5.5.5 Functional safety assessment report** resulting from requirements 5.4.5.1 to 5.4.5.5.  
+  - **VINFAST:** I  
+  - **SUPPLIER:** R  
+
+- **5.5.6 Supply agreement** resulting from requirements 5.4.6.2 to 5.4.6.3.  
+  - **VINFAST:** R  
+  - **SUPPLIER:** S  
+
+- **6.5.3 Safety case**, resulting from 6.4.6.  
+  - **VINFAST:** A  
+  - **SUPPLIER:** R  
+
+#### *RASIC description in section “Deliverables”.  
+
+##### a) FUSA Deliverables expected before nomination:  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a **DIA (Development Interface Agreement)** as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+##### b) FUSA Deliverables expected after nomination:  
+- The supplier shall submit for VinFast approval a **Safety Plan**, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+Page 68
+The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations, and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+
+### 7.3 Homologation and Safety Regulation Requirements
+
+#### 7.3.1 North America
+
+**a. Homologation and Safety Regulation Activities**  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS) and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+**b. Self-Certification and Test Report(s)**  
+The supplier is responsible for “self-certifying” their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain of the FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of Manufacturer_Handbook.
+
+**c. Duty to Notify VinFast of a Non-Compliance with an FMVSS/CMVSS or European Regulations**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+#### 7.3.2 Europe
+
+**a. Homologation and Safety Regulation Activities**  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+**b. Test Report(s) and Certificate(s)**  
+The supplier is responsible for getting their part(s), product(s) or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.
+Page 69
+VinFast 
+Management System 
+
+VFDSXNEEP0027 
+
+Version: 1.0 
+Uncontrolled copy when printed 
+69 | 71 
+Print date 
+Status 
+Functional Responsibility 
+
+VinFast requests the Supplier to conduct tests as specified in certain of the UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.
+
+VinFast also requests the Supplier to provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities in order to get certification for the EC vehicle type-approval (if any).
+
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations  
+Notwithstanding its certification of a product, a Supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+
+The Supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+
+The Supplier must propose an appropriate risk assessment and resolution plan.  
+
+VinFast Released
+Page 70
+8 Definitions and List of Abbreviations
+
+8.1 Definitions
+
+8.2 Definitions and List of Abbreviations
+
+| Abbreviation | Explanation                                        |
+|--------------|----------------------------------------------------|
+| AA           | Attack Angle                                       |
+| ABG          | Airbag control module                              |
+| ABS          | Anti-lock braking system                           |
+| AC           | Alternating Current                                |
+| ACM          | Airbag control module                              |
+| ADAS         | Advanced Driver Assistance Systems                 |
+| ADC          | Analog to Digital Converter                        |
+| AI           | Articulation Index                                 |
+| AIA          | Activity Interface Agreement = Work Interface Chart (RASI) |
+| APQP         | Advanced Product Quality Planning                  |
+| ASIL         | Automotive Safety Integrity Level                  |
+| ASM          | Asynchronous Machine                               |
+| AWD          | All wheel drive                                    |
+| BCM          | Body control module                                |
+| BDU          | Battery disconnect unit                            |
+| BEV          | Battery Electric Vehicle                           |
+| BFR          | Basic Function Requirement                         |
+| BIW          | Body in White                                      |
+| BMU          | Battery management unit                            |
+| BOM          | Bill Of Material                                   |
+| BSM          | Blind Spot Monitoring                              |
+| CAD          | Computer Aided Design                              |
+| CAE          | Computer-Aided Engineering                         |
+| CAM          | Computer-Aided Manufacturing                       |
+| CAN          | Controller Area Network                            |
+| MSC          | Manufacturing Strategy Confirmation                |
+| TS           | Theme selection Model                              |
+| MFC          | Manufacturing Feasibility Confirmation             |
+| MSI          | Major Suppliers Identified                         |
+| SST          | Sourcing Strategy                                  |
+| LLS          | Long Lead Suppliers on board                       |
+| SLS          | Short Lead Suppliers on board                      |
+| LLT          | Long Lead Tooling                                  |
+| PTP          | Prototype Parts out of Serial tooling (Hand finished)|
+| OTS          | Off Tools Samples                                  |
+| ESO          | Engineering Sign Off                               |
+| MSO          | Manufacturing Sign Off                             |
+| SOP-LM       | SOP Launch Model (1 specific Model - "Edition")    |
+| SOP          | Start of Production                                |
+Page 71
+VinFast  
+Management System  
+
+VFDSXNEEP0027  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+71 | 71  
+Print date  
+Status  
+Functional Responsibility  
+
+SOP-ID: SOP implementation date.  
+SOB: Supplier on Board.  
+LOI: Letter of Intent.  
+LON: Letter of Nominated.  
+DVP&R: Design Verification Plan & Report.  
+GTC: General Terms and Conditions.  
+RFQ: Request For Quotation.  
+FUSA: Functional Safety.  
+T&V: Testing & Validation.  
+
+**8.3 List of Tables**
+
+**8.4 List of Figures**
+
+**9 Further Applicable Documents**  
+
+| Code or Std No. | Name detail |
+|-----------------|-------------|
+VinFast Released

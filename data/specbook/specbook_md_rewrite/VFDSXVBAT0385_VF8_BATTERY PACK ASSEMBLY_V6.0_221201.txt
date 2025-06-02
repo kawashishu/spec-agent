@@ -1,0 +1,2819 @@
+Page 1
+VinES.  
+
+VFDSXVBAT0385.  
+
+SPEC BOOK.  
+
+VF8_BATTERY PACK. Apply for Full Service Supplier.  
+
+BPD – 12.2022.
+Page 2
+### Scope and purpose.
+
+VinFast Trading & Production JSC have started to design and develop: VF8 vehicle in BEV. Environmental impact and sustainability of the program are taken into account as essential target features. The document shall provide details for all components for mass production.
+
+Number of SPB follow VFDST00010202.
+
+---
+
+**Responsible Contact:** BPD – Team
+
+**Copyright:** "The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations."
+Page 3
+Index  
+Contents  
+
+Scope and purpose ....................................................................................................................................... 2  
+Index ............................................................................................................................................................. 3  
+
+1. SCOPE OF PRODUCT/ COMMODITY ....................................................................................................... 9  
+1.1 Sales Markets .............................................................................................................................................. 9  
+1.2 Vehicle profile VF8 - HVBP Necessary Information .................................................................................... 9  
+1.3 Production Volume ...................................................................................................................................... 10  
+1.4 Program Timing and Build Plan .................................................................................................................. 10  
+
+2. DEFINITIONS AND APPLICABLE DOCUMENTS .................................................................................. 10  
+2.1 CAD Data/ Transfer data-CAD Requirements ............................................................................................ 10  
+2.2 Change Documentation and Part History Documentation .......................................................................... 10  
+
+3. REQUIREMENTS .................................................................................................................................... 11  
+3.1 Contact ........................................................................................................................................................ 11  
+3.2 Technical requirement ................................................................................................................................. 11  
+   3.2.1 HV Battery main customer requirements ............................................................................................. 12  
+3.3 Common requirements ............................................................................................................................... 13  
+3.4 Material requirement ................................................................................................................................... 13  
+3.5 Traceability .................................................................................................................................................. 13  
+3.6 Labeling of Parts ......................................................................................................................................... 13  
+3.7 Testing and validation and DVP&R ........................................................................................................... 14  
+3.8 Appearance Approval - Applicable for all Visible Parts .............................................................................. 14  
+3.9 Electrical Requirements ............................................................................................................................. 14  
+3.10 Non Functional Requirement ..................................................................................................................... 14  
+   3.10.1 Isolation Co-ordination (Clearance & Creepage) ................................................................................. 14  
+   3.10.2 Creepage Distance ............................................................................................................................... 16  
+   3.10.3 Basic Insulation .................................................................................................................................... 17  
+   3.10.4 Functional Insulation ............................................................................................................................ 17  
+
+4. GENERAL PROJECT GUIDELINES ....................................................................................................... 18  
+4.1 Development Scope Abstract ..................................................................................................................... 18  
+4.2 Initial assumption and Objective ................................................................................................................ 18  
+4.3 Classification of the System / Component ................................................................................................. 18  
+4.4 Execution Regulations ............................................................................................................................... 18  
+4.5 Development and Supply Scope ................................................................................................................ 20  
+   4.5.1 Work Interface Chart (RASI) ................................................................................................................. 20  
+   4.5.2 Development Interface Agreement (DIA) ............................................................................................. 21  
+4.6 Quotation Scope ......................................................................................................................................... 21  
+4.7 HVBP Details .............................................................................................................................................. 21  
+4.8 Development Process ................................................................................................................................. 23  
+   4.8.1 Schedule and Milestones ...................................................................................................................... 23  
+   4.8.2 Acceptance Procedure ......................................................................................................................... 24  
+   4.8.3 Type Approval and Certification .......................................................................................................... 24  
+4.9 Quality and Reliability .................................................................................................................................. 24  
+   4.9.1 Quality Concepts .................................................................................................................................... 24  
+   4.9.2 Risk Management .................................................................................................................................. 25  
+   4.9.3 HVBP Development .............................................................................................................................. 25  
+   4.9.4 MCU Board Development ..................................................................................................................... 25  
+   4.9.5 BCU Board Development ..................................................................................................................... 25
+Page 4
+Index  
+Contents  
+Scope and purpose ................................................................................................................................. 2  
+Index ...................................................................................................................................................... 3  
+
+**1. Scope of Product/Commodity**  
+1.1 Sales Markets ................................................................................................................................ 9  
+1.2 Vehicle Profile VF8 - HVBP Necessary Information ...................................................................... 9  
+1.3 Production Volume ...................................................................................................................... 10  
+1.4 Program Timing and Build Plan .................................................................................................. 10  
+
+**2. Definitions and Applicable Documents**  
+2.1 CAD Data/Transfer Data - CAD Requirements ............................................................................ 10  
+2.2 Change Documentation and Part History Documentation .......................................................... 10  
+
+**3. Requirements**  
+3.1 Contact ........................................................................................................................................ 11  
+3.2 Technical Requirement ............................................................................................................... 11  
+3.2.1 HV Battery Main Customer Requirements ........................................................................ 12  
+3.3 Common Requirements .............................................................................................................. 13  
+3.4 Material Requirement .................................................................................................................. 13  
+3.5 Traceability .................................................................................................................................. 13  
+3.6 Labeling of Parts ........................................................................................................................ 13  
+3.7 Testing and Validation and DVP&R ............................................................................................. 14  
+3.8 Appearance Approval - Applicable for All Visible Parts ............................................................... 14  
+3.9 Electrical Requirements .............................................................................................................. 14  
+3.10 Non-Functional Requirements ................................................................................................... 14  
+3.10.1 Isolation Coordination (Clearance and Creepage) ............................................................. 14  
+3.10.2 Creepage Distance ............................................................................................................ 16  
+3.10.3 Basic Insulation ................................................................................................................. 17  
+3.10.4 Functional Insulation ......................................................................................................... 17  
+
+**4. General Project Guidelines**  
+4.1 Development Scope Abstract ...................................................................................................... 18  
+4.2 Initial Assumption and Objective ................................................................................................. 18  
+4.3 Classification of the System/Component ..................................................................................... 18  
+4.4 Execution Regulations ................................................................................................................ 18  
+4.5 Development and Supply Scope ................................................................................................. 20  
+4.5.1 Work Interface Chart (RASI) ............................................................................................. 20  
+4.5.2 Development Interface Agreement (DIA) ......................................................................... 21  
+4.6 Quotation Scope ......................................................................................................................... 21  
+4.7 HVBP Details .............................................................................................................................. 21  
+4.8 Development Process .................................................................................................................. 23  
+4.8.1 Schedule and Milestones .................................................................................................... 23  
+4.8.2 Acceptance Procedure ........................................................................................................ 24  
+4.8.3 Type Approval and Certification ......................................................................................... 24  
+4.9 Quality and Reliability .................................................................................................................. 24  
+4.9.1 Quality Concepts ................................................................................................................. 24  
+4.9.2 Risk Management ............................................................................................................... 25  
+4.9.3 HVBP Development ........................................................................................................... 25  
+4.9.4 MCU Board Development ................................................................................................... 25  
+4.9.5 BCU Board Development ................................................................................................... 25  
+4.9.6 BDU Box Development ....................................................................................................... 25  
+4.9.7 Validation of the SW Development .................................................................................... 25  
+4.10 Content Amendments .................................................................................................................. 25  
+
+**5. Project Management and Organization**  
+5.1 Responsibilities in the Project and Project Management Plan ................................................... 25  
+5.2 Development Plan Approved by VinFast (Including Quality Plan) .............................................. 26  
+5.3 Diagram and Documentation ...................................................................................................... 26  
+5.3.1 HVBP ................................................................................................................................. 26  
+5.3.2 Battery Pack with Vehicle Body .......................................................................................... 30  
+5.3.3 ME Components ................................................................................................................. 31  
+5.3.4 EE Components .................................................................................................................. 32  
+5.3.5 MSD - Manual Service Disconnect in VF8 ......................................................................... 33  
+5.3.6 BDU - EE Component Interface to Outside World ............................................................ 33  
+5.4 HVBP - Meet IPXXB (B/A) ......................................................................................................... 36  
+5.4.1 Electromagnetic Compatibility ............................................................................................ 36  
+5.4.2 Electrostatic Discharge ....................................................................................................... 37  
+5.4.3 EE BDU Components VF8 3D Data ................................................................................... 38  
+5.4.4 HVBP - System Overview .................................................................................................. 40  
+5.4.5 HVBP - System Architecture .............................................................................................. 40  
+5.4.6 System Documentation ...................................................................................................... 41  
+5.4.7 Hardware Documentation ................................................................................................. 41  
+5.4.8 Software Documentation ................................................................................................... 41  
+5.4.9 Conformity Requirements .................................................................................................. 42  
+
+**6. System Environment**  
+6.1 System Environment Temperatures ........................................................................................... 42  
+6.2 Temperature Region Profile ........................................................................................................ 42  
+6.3 Vietnam Region Profile ............................................................................................................... 42  
+6.4 Ambient Boundary Conditions .................................................................................................... 43  
+6.5 SFC Super Fast Charge Key Factor .......................................................................................... 43  
+6.6 Drive Cycle Profile ...................................................................................................................... 44  
+6.7 Physical System Environment/Mechanical Interfaces ................................................................ 47  
+6.8 System Diagram .......................................................................................................................... 48  
+6.9 Content Amendments .................................................................................................................. 48  
+
+**7. Functional and Technical Requirements**  
+7.1 Naming and Part ID No ............................................................................................................... 49  
+7.2 Block and Principle Diagram ....................................................................................................... 49  
+7.3 Thermal System Overview ......................................................................................................... 49  
+7.4 Battery Pack Thermal Management ........................................................................................... 50  
+7.4.1 NTC Temperature Sensors Placement in a Module ......................................................... 51  
+7.4.2 Thermal Requirement for Cooling and Heating .................................................................. 52  
+7.4.3 Heat Generation (Cooling Power) ...................................................................................... 53  
+7.5 Safety Requirements .................................................................................................................. 54  
+7.5.1 Vehicle Safety Regarding Person and Passenger Protection ......................................... 54  
+7.6 Alternative and Future Variants .................................................................................................. 54  
+7.7 Mechanical Requirements ......................................................................................................... 54  
+7.7.1 Vibration Behavior ............................................................................................................. 54  
+7.7.2 Stiffness and Cushioning Characteristics ........................................................................ 54  
+7.7.3 Deformation ....................................................................................................................... 54  
+7.7.4 Pressure ............................................................................................................................. 54  
+7.7.5 NVH/Acoustic Performance .............................................................................................. 54  
+7.7.6 Dimension Requirements .................................................................................................. 55  
+7.7.7 Material Requirements ...................................................................................................... 55  
+7.7.8 Appearance and Label ...................................................................................................... 55
+Page 5
+VinES VFDSXVBAT0385
+
+Version: 6.0 Uncontrolled copy when printed
+
+Abuse condition requirements. External fire. Durability / Life Time. Electrical Component Requirements: Description of the functionality, Low Voltage Signal Distribution, and High Voltage Distribution. Climatic Requirements / Thermal Management: Environmental operating conditions and Heat protection. Service & Assembling Requirements. Transport Protection. Logistics Requirements: Danger warnings and precautions. Storage. Quality Assurance Requirements and Recommended usages. Content Amendments. 
+
+Testing and Validation: Proof of Compliance, Testing Plan (DVP Plan), Electrical Systems & Functions, Virtual Testing and Simulation, Vehicle Testing, and Content Amendments to Part 2.
+
+Definitions and List of Abbreviations: List of abbreviations, Further Applicable Documents, Environmental Compatibility, Material Requirements & Corrosion.
+Page 6
+Version: 6.0  
+Date: Dec-2022  
+
+**Updated by:**  
+
+| Function                        | Name                     |
+|---------------------------------|--------------------------|
+| Director of Battery pack center | Stanislav Steve Nikulin  |
+| Project Manager                 | Trịnh Duy Hiệp          |
+| Technical Chief Engineer        | Mustafa Şimşek          |
+| Compliance Chief Engineer       | Mustafa Şimşek          |
+| EE Director                     | Rajendra Rajavelu        |
+| ME Director                     | Hoàng Anh Tài            |
+| Functional Safety Manager       | Rajendra Rajavelu        |
+| High Voltage Attributes Manager | Vũ Đức Phúc             |
+| Testing and Validation          | Nguyễn Văn Đại           |
+| Software Manager                | Nguyễn Văn Tiệp          |
+| QA Leader                       | Tạ Phi Hùng              |
+
+**Revisions since previous version:**  
+
+| Version | Change Description                                                                                                    | Signature | Date       |
+|---------|----------------------------------------------------------------------------------------------------------------------|-----------|------------|
+| 1       | First edition                                                                                                        |           | 30/12/2020 |
+| 1.1     | Update vehicle module name, BC chief engineer, add environmental compatibility and material requirement & corrosion  |           | 17/03/2021 |
+| 1.2     | Updated EE details                                                                                                   |           | 12/04/2021 |
+| 1.3     | Updated EE details                                                                                                   |           | 31/07/2021 |
+| 1.4     | Update contact person, Update master timing, Update ME design                                                       |           | 06/11/2021 |
+| 1.5     | - Updated by information                                                                                            |
+|         | - Updated Vehicle profile                                                                                           |
+|         | - Production volume added                                                                                           |
+|         | - Updated project plan                                                                                              |
+|         | - Update BDU component list, Part number for BAT, BAT configuration to 110s47P                                      |           | 02/12/2021 |
+| 1.6     | - New top cover and module config. images                                                                           |
+|         | - Target weight to 715                                                                                              |
+|         | - Potting glue to ABN                                                                                               |
+|         | - Update testing standards following DV test plan                                                                   |           | 13/12/2021 |
+Page 7
+VinES
+
+VFDSXVBAT0385
+
+Version: 6.0  
+Uncontrolled copy when printed  
+7 | 72  
+Print date  
+Status  
+Functional Responsibility  
+
+- Add IP6K9K for ingress protection  
+- Correct material for Gasket  
+- Update BAT system diagram  
+
+### 2. Second edition  
+
+**2.1**  
+- Update contact person with new role of CE  
+- Update parameters of module follow design and cell configure  
+- Update abuse of performance requirements and fire resistance requirement  
+- Update testing items  
+
+**Date:** 10/01/2022  
+
+### 3. Third edition  
+
+**3.1**  
+- Update contact person with new role 3.1  
+- Updated vehicle profile with necessary Info. 1.2.  
+- Updated the HVBP specification: 5.3.2; 5.4.3.2.  
+- Updated HVBP details: 4.7  
+
+**Date:** 07/04/2022  
+
+**3.2**  
+- Updates from QA team: 1.4  
+- Updated vent valve spec and thermal requirements (from KT): 5.3.3; 7.4.2  
+- HV Battery specification: 3.2.1  
+- Update DVPR No.: 3.7  
+- Work Interface Chart (RASI): 4.5.1  
+- Figure 12: 6.5  
+- Parts Code: 7.1  
+- Change prefix DVPR: 7.7.1; 8.2  
+- Add SOR no.: 9.2  
+- NTC update: 7.4.1  
+
+**Date:** 22/04/2022  
+
+### 4. Fourth Edition  
+
+**4.0**  
+- Update template VinES logo and ID no. at header  
+- Correct v4.0 at footer; check spelling, grammar, and typo; format with font and size for each Heading text  
+- Update weight target to: **622 ±1% kg**  
+- Update abbreviation list: 9.1  
+
+**Date:** 18/05/2022  
+
+**4.1**  
+- Update weight target to **625 ±1% kg**: 4.7, 3.2.1  
+- Update temperature for battery storage to **10~23°C**: 7.17.1  
+- Update PN: 4.3, 7.1; 4.8.1.1, and 7.8  
+- Update abbreviation list: 9.1  
+
+**Date:** 30/05/2022  
+
+**4.2**  
+- Update charger current profile: 6.5  
+
+**Date:** 03/06/2022  
+
+**4.3**  
+- Update Boundary Diagram: Adding more 2 liquid sensors and 1 TR sensor: 7.11.4  
+
+**Date:** 29/07/2022
+Page 8
+VinES 
+
+VFDSXVBAT0385 
+
+Version: 6.0 
+Uncontrolled copy when printed 
+8 | 72 
+Print date 
+Status 
+Functional Responsibility 
+
+Correct connect the HV connector with PPE (7.13).  
+Update the packing picture (7.14).  
+Update section 8.2, delete table due to being noted in the DVPR document.  
+
+4.5 Addition for BCU of VF8_ROW model (5.4.3.2).  
+Update condition for pack usage (7.17).  
+Change weight of module as per ECR60004403 (5.3.1.1).  
+
+30/09/2022  
+
+5.0  
+- Change PN of HV_BATTERY_PACK_ROW_88.8 from BAT11002056 to BAT11002075.  
+- Change PN of HV_BATTERY_VN_88.8_KWH from BAT11002002 to BAT11002076.  
+
+24/10/2022  
+
+6.0  
+- Change PN of HV_BATTERY_PACK_ROW_88.8 from BAT11002075 to BAT11002079.  
+- Change PN of HV_BATTERY_VN_88.8_KWH from BAT11002076 to BAT11002078.  
+- Update the position of the warning label (7.7.8).  
+
+01/12/2022  
+
+**Table 1: Document History**
+Page 9
+1. Scope of product/ commodity.
+The scope of this SPB is for the supply of a HVBP assembly including the following major components as part of the sub-assembly:
+- Cells arranged in suitable battery module configuration to meet the vehicle power requirements.
+- Power connecting busbars complete with pyro fusing isolation, thermal management, and high voltage contactor isolation.
+- Battery Management System to interface to the battery monitoring and provide thermal, voltage, and current sensor outputs, and provide information to the vehicle.
+- Control the high voltage contactors and report status of the contactor.
+- Provide integrated cooling to the battery cells.
+
+1.1 Sales Markets.
+LHD countries.  
+VF8: Vietnam, EU, US & CA.
+
+1.2 Vehicle profile VF8 - HVBP Necessary Information:
+| **STT** | **Markets**        | **VN, EU, US, CA**         |
+|---------|--------------------|-----------------------------|
+| **Features** | **Variant**        | **ECO**                   | **PLUS**                  |
+|                 | **EURO NCAP 5* (2022)** | **EURO NCAP 5* (2022)** |
+| **POWERTRAIN SYSTEM**                        |                           |                          |
+| **Motor**                                     |                           |                          |
+| 1           | Engine/e-Motor       | Motor x 2 (Power 150kW)  | Motor x 2 (Power 150kW)  |
+| 2           | Max. power (kW)      | 260 (Dual 130kW)         | 300KW                    |
+| 3           | Max. torque (Nm)     | 500                     | 620                      |
+| 4           | Max. Speed (Km/h) 1min | >200                    | >200                     |
+| 5           | Acceleration 0-100Km/h (s) | <5.9s                   | <5.5s                    |
+
+| **Battery**                                             |                          |                          |
+| 1       | Battery Type                 | Li-Ion                   | Li-Ion                   |
+| 2       | Battery Capacity (Kwh) - Usable | 82                     | 82                      |
+| 3       | Range per full charge (Km) (WLTP) | 445                   | 420                     |
+| 4       | Charging standard - Public station | Plug & Charge, Auto Charge | Plug & Charge, Auto Charge |
+| 5       | Portable charger (kW)       | Aftersales (VN)          | Aftersales (VN)         |
+|         |                              | YES (CA/US/EU)          | YES (CA/US/EU)          |
+| 6       | On-board charger (kW)       | SOP: 6.6 kW             | SOP: 6.6 kW             |
+|         |                              | Post SOP: 11 kW         | Post SOP: 11 kW         |
+| 7       | Charging Mode - Fast Charge | YES                     | YES                     |
+| 8       | Regeneration mode (low/high) | YES (low, high)          | YES (low, high)         |
+| 9       | Charging time (h) - Normal Charging | SOP: <15h (6.6KW OBC) | SOP: <15h (6.6KW OBC) |
+|         |                              | Post SOP: < 8 (11KW OBC) | Post SOP: < 8 (11KW OBC) |
+| 10      | Charging time (m) - Fast Charging | 24 mins (10-70%)       | 24 mins (10-70%)       |
+Page 10
+1. Scope of product/commodity.
+
+The scope of this SPB is for the supply of an HVBP assembly including the following major components as part of the sub-assembly:
+- Cells arranged in suitable battery module configuration to meet the vehicle power requirements.
+- Power connecting busbars complete with pyro fusing isolation, thermal management, and high voltage contactor isolation.
+- Battery Management System to interface with the battery monitoring and provide thermal, voltage, and current sensor outputs, and provide information to the vehicle.
+- Control the high voltage contactors and report the status of the contactor.
+- Provide integrated cooling to the battery cells.
+
+1.1. Sales Markets.
+LHD countries:
+VF8: Vietnam, EU, US & CA.
+
+1.2. Vehicle profile VF8 - HVBP Necessary Information:
+
+**Table 2: Vehicle Profile HVBP Necessary Requirements.**
+
+| Markets | Features  | Variant          | POWERTRAIN SYSTEM | Battery Specifications |
+|---------|-----------|------------------|-------------------|-----------------------|
+| VN, EU, US, CA | VF8 | ECO | Motor x 2 (Power 150kW). Max power: 260 kW (Dual 130kW). Max torque: 500 Nm. Speed: >200 Km/h. Acceleration: <5.9s | Battery type: Li-Ion. Capacity: 82 KWh. Range: 445 Km. Charging standards: Plug & Charge. Charger: 6.6 kW SOP, 11 kW Post SOP. Fast charging time: 24 mins (10–70%). |
+| VN, EU, US, CA | VF8 | PLUS | Motor x 2 (Power 150kW). Max power: 300 kW. Max torque: 620 Nm. Speed: >200 Km/h. Acceleration: <5.5s | Battery type: Li-Ion. Capacity: 82 KWh. Range: 420 Km. Charging standards: Plug & Charge. Charger: 6.6 kW SOP, 11 kW Post SOP. Fast charging time: 24 mins (10–70%). |
+
+1.3. Production Volume.
+
+**Figure: Production Volume Summary.**
+
+| Markets       | 2021E     | 2022E  | 2023E  | 2024E  | 2025E  | 2026E  | Total   | Non-EV Volumes | EV Volumes |
+|---------------|-----------|--------|--------|--------|--------|--------|---------|----------------|------------|
+| VN (VF35)     | 5,000     | 6,000  | 13,000 | 18,900 | 22,000 | 64,900 |         | 64,900         | 40% (Smart), 60% (Plus). |
+| USA (VF35)    | -         | 11,000 | 15,000 | 30,000 | 22,500 | 58,500 |         | 58,500         | 30% (Smart), 50% (Plus). |
+| Canada (VF35) | -         | -      | -      | 78,000 | 38,000 | 116,000|         | 116,000        | 50% (Smart), 30% (Plus). |
+| EU (VF35)     | 1,800     | -      | 13,500 | 19,000 | 32,800 | 125,300|         | 125,300        | 70% (Smart), 30% (Plus). |
+
+Total volume: **23,600** in 2021E, increasing to **611,300** by 2026. Mix strategy includes Smart (40%–70%) and Plus (30%–60%) models.
+
+1.4. Program Timing and Build Plan.
+
+**Figure 1: Project Plan V8 – Master Plan for BP – V6.5.**
+
+The timeline includes milestones for vehicle development stages such as tooling, MRDs, DV testing, BMS completion, and certifications as per itemized yearly schedules.
+
+2. Definitions and applicable documents.
+
+2.1. CAD Data/Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. CAD data transfers from VinFast to suppliers will be conducted through the Supplier Collaborative Module, as detailed in the RFQ package.
+
+2.2. Change Documentation and Part History Documentation.
+All changes within the development and production stages, along with their historical records, must adhere to structured documentation processes.
+Page 11
+1 Scope of product/ commodity.
+
+The scope of this SPB is for the supply of a HVBP assembly including the following major components as part of the sub-assembly:
+- Cells arranged in suitable battery module configuration to meet the vehicle power requirements.
+- Power connecting busbars complete with pyro fusing isolation, thermal management, and high voltage contactor isolation.
+- Battery Management System to interface to the battery monitoring and provide thermal, voltage and current sensor outputs, and provide information to the vehicle.
+- Control the high voltage contactors and report the status of the contactor.
+- Provide integrated cooling to the battery cells.
+
+1.1 Sales Markets.
+LHD countries.
+VF8: Vietnam, EU, US & CA.
+
+1.2 Vehicle profile VF8 - HVBP Necessary Information:
+**STT Markets:** VN, EU, US, CA.
+**Variant:** ECO PLUS.
+**EURO NCAP:** 5* (2022).
+
+**Powertrain System.**
+- Engine/e-Motor:
+  - ECO: Motor x 2 (Power 150kW).
+  - PLUS: Motor x 2 (Power 150kW).
+- Max. Power (kW):
+  - ECO: 260 (Dual 130kW).
+  - PLUS: 300KW.
+- Max. Torque (Nm):
+  - ECO: 500.
+  - PLUS: 620.
+- Max. Speed (Km/h) 1min:
+  - ECO & PLUS: >200.
+- Acceleration 0-100Km/h (s):
+  - ECO: <5.9s.
+  - PLUS: <5.5s.
+
+**Battery Information.**
+- Battery Type:
+  - ECO & PLUS: Li-Ion.
+- Battery Capacity (Kwh) - Usable:
+  - ECO & PLUS: 82.
+- Range per full charge (Km) (WLTP):
+  - ECO: 445.
+  - PLUS: 420.
+- Charging standard - Public station:
+  - ECO & PLUS: Plug & Charge, Auto Charge.
+- Portable charger (kW):
+  - ECO & PLUS: Aftersales (VN); YES (CA/US/EU).
+- On-board charger (kW):
+  - ECO & PLUS:
+    - SOP: 6.6 kW.
+    - Post SOP: 11 kW.
+- Charging Mode - Fast Charge:
+  - ECO & PLUS: YES.
+- Regeneration mode (low/ high):
+  - ECO & PLUS: YES (low, high).
+- Charging time (h) - Normal Charging:
+  - ECO & PLUS:
+    - SOP: <15h (6.6KW OBC).
+    - Post SOP: < 8h (11KW OBC).
+- Charging time (m) - Fast Charging:
+  - ECO & PLUS: 24 mins (10%-70%).
+
+**Other powertrain specifications.**
+- Driveline:
+  - ECO & PLUS: AWD.
+- Selectable driving mode:
+  - ECO & PLUS: Eco/Normal/Sport.
+- Stopping Mode:
+  - ECO & PLUS: YES.
+- Active shutter:
+  - ECO & PLUS: YES.
+- High Voltage battery heater:
+  - ECO & PLUS: YES.
+
+1.3 Production Volume.
+
+1.4 Program Timing and Build Plan.
+
+**Figure 1: Project Plan.**
+
+2 Definitions and applicable documents.
+
+2.1 CAD Data/ Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. CAD data transfer from VinFast to the supplier will be done through the Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.
+
+2.2 Change Documentation and Part History Documentation.
+During the development & production process, all the history of changes within the framework of the contractor has to be documented and provided to VinFast. The contractor can define the form of the data.
+
+Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements, have to be remarked on the drawings.
+
+Authorities list the reasons and the characteristics, which have to be documented.
+
+These demands will be requested during the development of the part and latest in the PTO phase.
+
+3 Requirements.
+
+3.1 Contact.
+
+| Contact                      | Name                     | Email ID                      |
+|-----------------------------|--------------------------|-------------------------------|
+| Commodity Buyer Manager     | Nguyen Anh Tu            | v.tuna8@vines.net.vn          |
+| Program Purchasing Manager  | Meenakshi Sundaram       | v.meenakshis@vinfast.vn       |
+| Commodity Engineer Manager  | Hoang Anh Tai            | v.taiha@vines.net.vn          |
+| Commodity Engineer Manager  | Hoang Ngoc Duong         | v.duonghn1@vines.net.vn       |
+| Commodity Engineer Manager  | Nguyen Van Tuan          | v.tuannv51@vines.net.vn       |
+| Commodity Engineer Manager  | Rajendra Rajavelu        | v.rajendrar@vinfast.vn        |
+| Compliance Chief Engineer   | Mustafa Şimşek           | v.simsekm@vines.net.vn        |
+| SQE Manager                 | Samir Maheshbhai Patel   | v.samirp@vines.net.vn         |
+| SCM Analyst                 | Dilshod Tokhtasinov      | v.dilshod@vinfast.vn          |
+| Packaging Analyst           | Vu Hung Cuong            | v.cuongvh8@vinfast.vn         |
+| SCM Manager                 | Benjamin Peter Stewart   | v.bens@vinfast.vn             |
+
+**Table 3: Contacts.**
+
+3.2 Technical requirement.
+This document details the technical requirements of HVBP that will be used in VF8 for VinFast and their other brands.
+Page 12
+3 Requirements.
+
+3.1 Contact.
+
+Table 3: Contacts.
+
+| Contact                     | Name                   | Email ID                      |
+|-----------------------------|------------------------|-------------------------------|
+| Commodity Buyer Manager    | Nguyen Anh Tu          | v.tuna8@vines.net.vn          |
+| Program Purchasing Manager | Meenakshi Sundaram     | v.meenakshis@vinfast.vn       |
+| Commodity Engineer Manager | Hoang Anh Tai          | v.taiha@vines.net.vn          |
+| Commodity Engineer Manager | Hoang Ngoc Duong       | v.duonghn1@vines.net.vn       |
+| Commodity Engineer Manager | Nguyen Van Tuan        | v.tuannv51@vines.net.vn       |
+| Commodity Engineer Manager | Rajendra Rajavelu      | v.rajendrar@vinfast.vn        |
+| Compliace Chief Engineer   | Mustafa Şimşek         | v.simsekm@vines.net.vn        |
+| SQE Manager                | Samir Maheshbhai Patel | v.samirp@vines.net.vn         |
+| SCM Analyst                | Dilshod Tokhtasinov    | v.dilshod@vinfast.vn          |
+| Packaging Analyst          | Vu Hung Cuong          | v.cuongvh8@vinfast.vn         |
+| SCM Manager                | Benjamin Peter Stewart | v.bens@vinfast.vn             |
+
+---
+
+3.2 Technical requirement.
+
+This document details the technical requirements of HVBP to be used in VF8 for VinFast and their other brands.
+
+---
+
+3.2.1 HV Battery main customer requirements.
+
+Table 4: HV Battery specification.
+
+| No | Parameter                                  | Requirements VF8 ECO/Plus   |
+|----|--------------------------------------------|------------------------------|
+| I  | General                                    |                              |
+| 1  | Energy Usable (kWh)                        | 82                           |
+| 2  | Nominal Voltage (V)                        | ~400                         |
+| 3  | Voltage range (capacity V)                 | 275–462                     |
+| 4  | Typical Capacity (kWh)                     | 88.8                         |
+| 5  | Energy density (Wh/Kg)                     | 142.8                        |
+| II | Charging                                   |                              |
+| 1  | Standard charging current                  | 0.3C                         |
+| 2  | DC Fast charge requirement @ 25°C (m)      | Display SOC (10–70%) ≤ 31.3 (25°C) |
+|    |                                            | Display SOC (10–70%) ≤ 24(45°C) |
+| 3  | Emergency fast charge                      | NA                           |
+| III| Discharging                                |                              |
+| 1  | Minimum Discharging End Voltage (capacity V)| 275V                         |
+| 2  | Peak discharging power [KW] – 10s          | 213 @ 50%SOC                 |
+| 3  | Continuous discharging power [KW]          | 119 @ 50%SOC                 |
+| 4  | Standard discharging current [C-rate]      | 0.5C                         |
+| IV | Other Requirements                         |                              |
+| 1  | Pack Dimension (W x L x H mm)              | 1371 x 2305 x 124 (310)      |
+| 2  | Functional Safety                          | ISO 26262 ASIL-C             |
+| 3  | Cooling type                               | Liquid Cooling               |
+| 4  | Ambient Temperature                        | -35°C–55°C                   |
+| 5  | Ambient Humidity                           | ≤ 95%                        |
+| 6  | Weight as shipped                          | 625kg ±1%                    |
+| 7  | Degree of Protection                       | IP67/IP6K9K                  |
+| 8  | Warranty Period                            | 8 years or 160,000km in normal condition with ≥ 70% SOH |
+| 9  | Standard cycle life test                   | Testing and Validation       |
+| 10 | Warranty                                   | <10 PPM returned             |
+| 11 | Manufacturing                              | >1.33Cpk                     |
+| 12 | AC charging time [h]                       | <8                           |
+| 13 | AC Charging Power [KW]                     | 11                           |
+| 14 | Dielectric Voltage Withstand, Insulation resistance, Ground Bond | UL2580                        |
+
+*Note: All the above information is provided without considering the tolerance values of the pack. For the detailed pack specification, please refer to the HVBP Details section 4.7.
+Page 13
+3.3 Common requirements  
+Refer to requirement documents in SOR.  
+
+| Name                                | Document Number       | Version |
+|-------------------------------------|-----------------------|---------|
+| CES_General_Electric                | VFDSP50000004         | 3.0.0   |
+| CES_Energy_Management               | VFDSP50000005         | 3.0.0   |
+| CTS_Energy_Management               | VFDSP50000006         | 3.0.0   |
+| CTS_Load_Analysis                   | VFDSP50000007         | 3.0.0   |
+| CES_Thermal_Management              | VFDSP50000008         | 3.0.0   |
+| CTS_Thermal_Management              | VFDSP50000009         | 3.0.0   |
+| CES_High_Current_Consumers          | VFDSP50000048         | 3.0.0   |
+| CES_EMC_Standard_Component          | VFDSP50000002         | 3.0.0   |
+| CES_EMC_Standard_Vehicle            | VFDSP50000001         | 3.0.0   |
+| CAN_Specification                   | VFDSXVEEP0047         | 1.1.0   |
+| CUV_ECU_Residual_Bus_Simulation     | VFDSXVEEP0011         | V1.0.0  |
+| CES_Clamp_Concept                   | VFDSP50000014         | 3.8.0   |
+| CAE-FEM-GENERAL (SOR)               | VFSRXXCVC0201         | v1.0    |
+| CORROSION REQUIREMENTS              | VFDSXXCVC4401         | V1.0    |
+| Environment and Tightness: in SPB Complete Vehicle | VFDSXXCVC0001 | V1.0 |
+| Appendix_4_VIAQ_Testing_Guideline   | VFDSXVCVC3401         | v2.0    |
+| Electrical requirements and testing | VFDST00028121         | V1.0    |
+| VF8_Appendix_3_BEV_VTS_Vehicle Technical Specifications | VFDSXXCVC1301 | V1.0 |
+
+Table 5: VF Standard Requirement  
+
+3.4 Material requirement  
+
+- **Prohibited or Restricted Substances, Emissions & Toxicology**  
+  The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle according to **VFDST00007601**.  
+
+  IMDS material data sheets must be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and **VFDST00007601**.  
+
+  Specific targets on vehicle indoor air quality must be ensured according to:  
+  **VFDSXVCVC3401-VIAQ_Testing_Guideline**.  
+
+3.5 Traceability  
+For part requirements and specifications, please refer to VinFast standard **VFDST00010501**.  
+
+3.6 Labeling of Parts  
+Suppliers must follow VinFast standard **VFDST00000010**. Labels should have a figure for specifying positions, with setup and positioning illustrated through pictures.
+Page 14
+3.7 Testing and Validation and DVP&R.
+
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system, and Component Level aligns with Complete Vehicle Specification Book in the concept phase. Detailed test plans for hardware tests are outlined in the file DVP&R and require direct collaboration with the Testing & Validation department:
+- Testing with declaration of standard, norm, and legal requirement.
+- Specification of devices used for testing, including a description of the testing setup and relevant pictures.
+- Identification of where the testing was performed (internal/external).
+- Duration and timeline of the testing presented in the form of a project plan.
+- Part variant and description of the part.
+- Details of the number of tested components/parts.
+
+**Mileage Reliability Target:** Ensure 160,000 km or 8 years (whichever comes first).
+
+**DVP No.:** DVPRXVBAT0411 – DVP_BATTERY_PACK ASSEMBLY_VF8.
+
+---
+
+3.8 Appearance Approval - Applicable for all Visible Parts.
+
+AAR is a PPAP deliverable. The AAR process is specified in **VFDST00038401** (quantity of parts, timing). 
+- Suppliers are responsible for submitting parts to VF Quality Design following agreed-upon timing to secure AAR Approval with criteria such as OK Shape, OKTG, and AAR Approval.
+- The AAR process begins during the early phase at PT build to secure Approval at LS. Suppliers must include this activity in their development processes and ED&D Costs.
+
+---
+
+3.9 Electrical Requirements.
+
+Follow the electrical specification requirements provided in VinFast documents:
+- **CES_VINFAST_EE_VFDSP50000004_General_Electric_V3.0.1.pdf**  
+- **CES_VINFAST_EE_VFDSP50000005_Energy_Management_v3.0.1.doc**
+
+---
+
+3.10 Non-Functional Requirements.
+
+**3.10.1 Isolation Co-ordination (Clearance & Creepage).**
+- Follow IEC60664-1 Clearance to withstand Impulse Voltage.
+Page 15
+### Table F.2: Clearances to withstand transient overvoltages
+
+This table outlines the minimum clearances in air up to 2,000 meters above sea level for transient overvoltages based on specific conditions. The clearances are categorized under Case A (inhomogeneous field) and Case B (homogeneous field) with different pollution degrees (2 and 3) defined. 
+
+#### Key Observations:
+- For impulse voltage of 2.5 kV under Case A with pollution degree 2, the required clearance is 1.5 mm.
+- For impulse voltage of 2.5 kV under Case A with pollution degree 3, the required clearance is also 1.5 mm.
+- For impulse voltage of 2.5 kV under Case B with pollution degree 2 or 3, the required clearance remains 1.5 mm.
+
+#### Notes:
+1. This voltage is specific to functional insulation and includes the highest impulse voltage expected within the system circuit. 
+2. Pollution degree references (and interpolated values) help determine reduced withstand characteristics under certain conditions (IEC 60664-5). 
+3. The minimum clearance values under pollution degrees 2 and 3 consider humidity-exposed environments.
+4. For parts subject to impulse voltages, interpolation of values is acceptable with guidelines specified further in section 4.2.3.
+5. Pollution degree 4 clearance dimensions are designated to be greater than 1.6 mm.
+
+This table serves as a standardized reference for interpreting the appropriate impulse voltage and clearance specifications required for compliance.
+Page 16
+## 3.10.2 Creepage Distance
+
+### Table F.4 – Creepage distances to avoid failure due to tracking
+
+This table outlines the minimum required creepage distances based on voltage (r.m.s.), pollution degree, and material group. For pollution degree 2 with material groups I, II, and III, the key measurements are highlighted for operating voltages of significance:
+
+- **Voltage 500V:**  
+  - Material group I: 1.3mm  
+  - Material group II: 2.5mm  
+  - Material group III: 3.6mm  
+
+- **Voltage 630V:**  
+  - Material group I: 1.8mm  
+  - Material group II: 3.2mm  
+  - Material group III: 4.5mm  
+
+- **Voltage 800V:**  
+  - Material group I: 2.4mm  
+  - Material group II: 4.0mm  
+  - Material group III: 5.6mm  
+
+- **Voltage 1000V:**  
+  - Material group I: 3.2mm  
+  - Material group II: 5.0mm  
+  - Material group III: 7.1mm  
+
+### Notes:
+1. The distances provided are for different pollution degrees and material groups. Material group II typically has intermediate requirements, while material group III represents the highest needed creepage distances.
+2. Values specified follow IEC standards for operating and environmental conditions to ensure reliable design and testing.
+
+#### Additional Information:
+This guideline ensures design compliance for components subjected to environmental conditions to avoid failure due to tracking across insulating materials.
+Page 17
+3.10 Insulation Requirements.
+
+3.10.3 Basic Insulation:
+- Clearance: 2 mm.
+- Creepage: 0.4 mm.
+- Solid Insulations: 
+  - PCB, MG1: 2.5 mm. 
+  - MG2: 3.6 mm.
+
+3.10.4 Functional Insulation:
+
+3.10.4.1 HV to HV:
+- Location: 
+  - Power HV connector: Clearance 10 mm, Creepage >10 mm.
+  - HV connector at BDU: Pin Pitch 5.08 mm for Clearance and Creepage.
+  - BUSBAR to BUSBAR: Clearance 6.6 mm, Creepage >10 mm.
+  - HV Wire to HV wire: Clearance same as HV connector, Creepage 2 x 0.33 mm.
+  - BUSBAR to HV wire: Clearance >10 mm, Creepage >10 mm.
+
+3.10.4.2 HV to LV and HV to Chassis:
+- Location:
+  - HV connector to chassis: Clearance 14.7 mm, Creepage >14.7 mm.
+  - BUSBAR to chassis: Clearance >20 mm, Creepage >20 mm.
+  - Insulating sheath of busbar: Clearance 1.5 ± 0.5 mm.
+  - Insulating sheath of HV wire: Clearance 0.33 mm + Textile tape.
+  - Busbar to LV wire: Clearance >10 mm, Creepage >10 mm.
+  - HV wire to LV wire: Clearance >10 mm, Creepage >10 mm.
+Page 18
+4 General Project Guidelines.
+
+4.1 Development Scope Abstract.
+This document details the technical requirements of HVBP to be used in VF8 (E-SUV) for VinFast and their other brands. HVBP has to be developed with Mechanical, Electrical, Electro-Mechanical, Electro-Chemical, and Control systems to ensure the battery pack operates in State of Safety (SOS).
+
+4.2 Initial Assumption and Objective.
+The objective is to provide all the necessary technical information requirements to develop an HVBP with a control system that safely discharges and charges the battery pack for VF8 (E-SUV).  
+- The Battery Control Unit (BCU) is the link between the High Voltage battery and other ECUs.  
+- The main power for the BCU is supplied by the secondary BATTERY (12V).  
+- The BCU prevents excessive charging and discharging of the HVBP and maintains the battery pack in the Safest Operating Area (SOA).  
+- Any fault detected by the BCU shall enable the system to operate in a safe state.  
+- The BCU is responsible for controlling the contactors in the Battery Distribution Unit (BDU) and monitoring the cell parameters.
+
+4.3 Classification of the System / Component.  
+Check BOM list: BAT11002078, BAT11002079.
+
+4.4 Execution Regulations.
+The HVBP must ensure that:
+- The developed parts meet the specified requirements of VinFast.  
+- Type certification of the parts is obtained.  
+- All necessary documents are submitted to support the type certification of the whole vehicle.
+
+Upon completion of synchronous development, suppliers need to provide documentation demonstrating that their products have met regulatory requirements.
+
+Standards referenced include:
+- IEC 60529-2013: Degrees of protection provided by enclosures (IP Code).  
+- ISO 16750.1-2006: Environmental conditions and testing for electrical and electronic equipment – Part 1: General.  
+- ISO 16750.2-2012: Environmental conditions and testing for electrical and electronic equipment – Part 2: Electrical Loads.  
+- ISO 16750.3-2012: Environmental conditions and testing for electrical and electronic equipment – Part 3: Mechanical Loads.  
+- ISO 16750.4-2010: Environmental conditions and testing for electrical and electronic equipment – Part 4: Climatic Loads.  
+- ISO 16750.5-2010: Environmental conditions and testing for electrical and electronic equipment – Part 5: Chemical Loads.  
+- CISPR25: Vehicles, boats, and internal combustion engines – Radio disturbance characteristics – Limits and methods of measurement for on-board receivers.  
+- CISPR22: Information technology equipment – Radio disturbance characteristics – Limits and methods of measurement.  
+- ISO 7637-1: Electrical disturbances from conduction and coupling – Part 1: Definitions and considerations.  
+- ISO 7637-2: Electrical disturbance by conduction and coupling.
+Page 19
+4 General Project Guidelines.
+
+4.1 Development Scope Abstract.
+This document details the technical requirements of the HVBP to be used in VF8 (E-SUV) for VinFast and their other brands. HVBP has to be developed using mechanical, electrical, electro-mechanical, electro-chemical, and control systems to ensure that the battery pack operates in SOS (State of Safety).
+
+4.2 Initial Assumption and Objective.
+The objective is to provide all necessary technical information and requirements to develop an HVBP with a control system to safely discharge and charge the battery pack for VF8 (E-SUV). The Battery Control Unit (BCU) serves as the link between the High Voltage Battery and other ECUs, powered by the secondary battery (12V). The BCU prevents excessive charging and discharging of the HVBP, keeps the battery pack within SOA (Safest Operating Area), and transitions the system to an operational safe state upon detecting faults. The BCU is responsible for controlling the contactors in the Battery Distribution Unit (BDU) and monitoring cell parameters.
+
+4.3 Classification of the System / Component.
+Reference BOM List:
+- BAT11002078
+- BAT11002079
+
+4.4 Execution Regulations.
+To ensure compliance with specified requirements, the developed HVBP parts must achieve type certifications and provide necessary documentation for vehicle certification. Suppliers, upon synchronous development completion, need to prove products meet regulatory requirements.
+
+Standards required for compliance:
+- **IEC 60529-2013:** Degrees of Protection by Enclosures (IP Code)
+- **ISO 16750.1-2006:** Road Vehicles—Environmental Conditions and Testing for Electrical and Electronic Equipment—Part 1: General
+- **ISO 16750.2-2012:** Road Vehicles—Environmental Conditions and Testing for Electrical and Electronic Equipment—Part 2: Electrical Loads
+- **ISO 16750.3-2012:** Road Vehicles—Environmental Conditions and Testing for Electrical and Electronic Equipment—Part 3: Mechanical Loads
+- **ISO 16750.4-2010:** Road Vehicles—Environmental Conditions and Testing for Electrical and Electronic Equipment—Part 4: Climatic Loads
+- **ISO 16750.5-2010:** Road Vehicles—Environmental Conditions and Testing for Electrical and Electronic Equipment—Part 5: Chemical Loads
+- **CISPR25:** Radio Disturbance Characteristics—Limits and Methods for Measurement to Protect On-Board Receivers
+- **CISPR22:** Radio Disturbance Characteristics—Information Technology Equipment
+- **ISO 7637-1:** Road Vehicles—Electrical Disturbances from Conduction and Coupling—Part 1: Definitions
+- **ISO 7637-2:** Road Vehicles—Electrical Disturbances by Conduction and Coupling.
+
+Additional standards for vehicle electronics and testing:
+- **ISO 7637-3:** Electrical Transient Transmission by Capacitive and Inductive Coupling
+- **UL 2580:** Battery Safety Standard for Electric Vehicle Use
+- **ECE R100:** Uniform Provisions for Electric Powertrain Vehicles
+- **EN60068-2:** Handling Damp Heat Testing
+- **ISO 16750-4:** Temperature Shock with Immersion
+- **ISO 12405:** SOC Loss Analysis During Storage
+- **ISO 26262:** Functional Safety Standards for Road Vehicles.
+
+Other specific testing requirements include:
+- **ISO 11452** family standards: Components Testing Methods for Electrical Disturbances.
+- **IEC 61000** standards: Immunity Testing and Surge Measurements.
+- **ECE R10:** Electromagnetic Compatibility.
+- **FCC – Part 15:** Radio Frequency Device Regulations.
+
+Additional Remarks:
+The battery management system (BMS) must comply with state-of-the-art functional safety standards and adhere to ISO2626 ASIL C requirements.
+Page 20
+4 General Project Guidelines  
+
+4.1 Development Scope Abstract.  
+This document details the technical requirements of HVBP to be used in VF8 (E-SUV) for VinFast and their other brands. HVBP has to be developed with mechanical, electrical, electro-mechanical, electro-chemical, and control systems to ensure that the battery pack operates in SOS (State of Safety).  
+
+4.2 Initial Assumption and Objective.  
+The objective is to provide all necessary technical information requirements to develop an HVBP with a control system to safely discharge and charge the battery pack for VF8 (E-SUV).  
+The Battery Control Unit (BCU) is the link between the High Voltage battery and other ECUs. The main power for the BCU is supplied by the secondary BATTERY(12V). The BCU is used to prevent excessive charging and discharging of the HVBP and keep the battery pack in SOA (Safest Operating Area).  
+Any fault detected by the BCU shall cause the system to operate in a safe state. The BCU is responsible for controlling the contactors in the Battery Distribution Unit (BDU) and monitoring cell parameters.  
+
+4.3 Classification of the System/Component.  
+Check BOM list: BAT11002078; BAT11002079.  
+
+4.4 Execution Regulations.  
+The HVBP must ensure that the developed parts meet the specified requirements of VinFast, obtain the type certification of the parts, and submit all necessary documents to support the type certification of the whole vehicle.  
+When synchronous development is completed, suppliers must provide documentation to prove their products meet the required regulatory requirements.  
+
+### Standards:  
+- **IEC 60529-2013:** Degrees of protection provided by enclosures (IP Code).  
+- **ISO 16750.1-2006:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 1: General.  
+- **ISO 16750.2-2012:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 2: Electrical loads.  
+- **ISO 16750.3-2012:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 3: Mechanical loads.  
+- **ISO 16750.4-2010:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 4: Climatic loads.  
+- **ISO 16750.5-2010:** Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 5: Chemical loads.  
+- **CISPR25:** Vehicles, boats, and internal combustion engines – Radio disturbance characteristics - Limits and methods of measurement for protection of on-board receivers.  
+- **CISPR22:** Information technology equipment - Radio disturbance characteristics - Limits and methods of measurement.  
+- **ISO 7637-1:** Road vehicles-electrical disturbances from conduction and coupling-Part 1: Definitions and general considerations.  
+- **ISO 7637-2:** Road vehicles—Electrical disturbance by conduction and coupling.  
+- **ISO 7637-3:** Road vehicles — Electrical disturbances from conduction and coupling — Part 3: Electrical transient transmission by capacitive and inductive coupling via lines other than supply lines.  
+- **UL 2580:** Standard for safety – Battery for use in electric vehicles.  
+- **ECE R100:** Uniform provisions concerning approval of vehicles concerning specific requirements for the electric power train.  
+- **EN 60068-2:** Damp heat.  
+- **ISO 16750-4:** Temperature shock with immersion.  
+- **ISO 12405:** SOC loss at storage.  
+- **ISO 26262:** Road vehicles – Functional safety.  
+- **ISO 11452:** Road vehicles — Component test methods for electrical disturbances from narrowband radiated electromagnetic energy.  
+- **IEC 61000-4-4:2012:** Part 4-4: Immunity of electrical and electronic equipment to repetitive electrical fast transients.  
+- **IEC 60664:** Isolation coordination (creep age distance).  
+
+4.5 Development and Supply Scope.  
+The main supplier obligations are described in the work interface chart (RASI).  
+
+### RASI Definitions:  
+- **Responsible:** Executes activities and ensures the targets are achieved.  
+- **Approval:** Decides or authorizes releases.  
+- **Support:** Provides active assistance for execution, if required.  
+- **Information:** Right to request information from "Responsible".  
+
+4.5.1 Work Interface Chart (RASI).  
+
+| No | Gate | Stage                | Deliverables                                                       | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|----------------------|--------------------------------------------------------------------|----------------|----------------|----------|-----|---------------|
+| 1  | PV   | Concept Phase        | List of Concept in Commodity                                       | R              | S              | I        | I   | I             |
+| 2  | PV   | Concept Phase        | SOR for Concept in Commodity                                       | R              | S              | I        | I   | I             |
+| 3  | PPS  | Concept Phase        | SOB through LOI - Letter of Intent for Concept in Commodity        | S              | R              | S        | I   | I             |
+| 4  | PPS  | Concept Phase        | EDD order release for Concept in Commodity                         | S              | R              | S        | I   | I             |
+| 5  | PPS  | Concept Phase        | Deliver Bill of Materials in Team center                           | R              | I              | I        | I   | I             |
+| 6  | PPS  | Concept Phase        | Supply chain strategy - Deliver Sourcing Strategy                  | S              | R              | I        | S   | I             |
+| 7  | PPS  | Concept Phase        | Commodity Timing Plan (concept commodity) supports Program Timing | S              | S              | R        | S   | I             |
+| 8  | PPS  | Concept Phase        | Organization/resources planning for series development             | S              | S              | R        | S   | I             |
+| 9  | PPS  | Concept Phase        | Opportunities, risks for program detailed - Cost reductions        | A              | S              | R        | S   | I             |
+| 10 | PPS  | Concept Phase        | Quality planning to meet Program Requirements - APQP Kickoff       | R              | S              | S        | S   | I             |
+Page 21
+4 General Project Guidelines.
+
+4.1 Development Scope Abstract.  
+This document details the technical requirements of HVBP to be used in VF8 (E-SUV) for VinFast and their other brands. HVBP has to be developed with Mechanical, Electrical, Electro-Mechanical, Electro-chemical, and control systems to ensure that the battery pack operates in SOS (State of Safety).
+
+4.2 Initial Assumption and Objective.  
+The objective is to provide all necessary technical information requirements to develop HVBP with a control system to safely discharge and charge the battery pack for VF8 (E-SUV).  
+The Battery Control Unit (BCU) is the link between the High Voltage battery and other ECUs.  
+The main power for the BCU is supplied by the secondary BATTERY (12V).  
+The BCU is used to prevent excessive charging and discharging of the HVBP and keeps the battery pack in SOA (Safest Operating Area).  
+Any fault detected by the BCU shall make the system operate in a safe state. The BCU is responsible for controlling the contactors in the Battery Distribution Unit (BDU) and monitoring the cell parameters.
+
+4.3 Classification of the System / Component.  
+Check BOM list: BAT11002078; BAT11002079.
+
+4.4 Execution Regulations.  
+The HVBP must ensure that the developed parts meet the specified requirements of VinFast, obtain the type certification of the parts, and submit all necessary documents to support the type certification of the whole vehicle.  
+When synchronous development is completed, suppliers need to provide the necessary documentation to prove that their products have met the required regulatory requirements.  
+
+| Standard                     | Name                                                                       | Remarks                                                   |
+|------------------------------|----------------------------------------------------------------------------|-----------------------------------------------------------|
+| IEC 60529-2013               | Degrees of protection provided by enclosures (IP Code)                     |                                                           |
+| ISO 16750.1-2006             | Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 1: General |                     |
+| ISO 16750.2-2012             | Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 2: Electrical loads | |
+| ISO 16750.3-2012             | Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 3: Mechanical loads | |
+| ISO 16750.4-2010             | Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 4: Climatic loads | |
+| ISO 16750.5-2010             | Road vehicles — Environmental conditions and testing for electrical and electronic equipment — Part 5: Chemical loads | |
+| CISPR25                      | Vehicles, boats, and internal combustion engines – Radio disturbance characteristics - Limits and methods of measurement for the protection of on-board receivers | |
+| CISPR22                      | Information technology equipment - Radio disturbance characteristics - Limits and methods of measurement | |
+| ISO 7637-1                   | Road vehicles-electrical disturbances from conduction and coupling-Part 1: Definitions and general considerations | |
+| ISO 7637-2                   | Road vehicles—Electrical disturbance by conduction and coupling | |
+
+4.5 Development and Supply Scope.  
+The main supplier obligations are described in the work interface chart (RASI).  
+The status of the supplier “Built to Print” or “System Development Supplier” is defined in the System Technical Specification respectively in the Component Technical Specification.  
+
+RASI is defined as follows:  
+- **R: Responsible.** Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+- **A: Approval.** Obligation to decide/responsible for release. If no decider is defined, the person responsible for execution R is the decider.  
+- **S: Support.** Obligated to actively support (even if this requires capacity, expenses, and/or the transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+- **I: Information.** Right to information. This team member is entitled to demand information from R.  
+
+4.5.1 Work Interface Chart (RASI).  
+Refer to Table 7: Deliverables - RASI for detailed stages and deliverables in developing HVBP.
+
+4.5.2 Development Interface Agreement (DIA).  
+According to functional safety, ISO26262 requirements are followed in BMS.  
+Check ARE9452_DIA_Released.pdf document, which shall be shared upon approval from the management.
+
+4.6 Quotation Scope.  
+As per SOR from the Vehicle team and RFQ.
+
+4.7 HVBP Details.  
+- **Cell info:** 21700 - SDI 48X  
+- **Cell capacity:** 4800mAh ~ 4650mAh @0.2C discharge  
+- **Module Configuration:**  
+    - 10s47p x 8Modules  
+    - 8s47p x 2Modules  
+    - 7s47p x 2Modules  
+
+- **Number of cells per module:**  
+    - 470 cells x 8Modules  
+    - 376 cells x 2Modules  
+    - 329 cells x 2Modules  
+
+- **Power output of each module (KW):** 8.07
+Page 22
+Pack Configuration: 110s47p.  
+Nominal Voltage: 400V.  
+Voltage range (Usable): 330 – 456.5V.  
+Typical Capacity: 222 ± 1.6% Ah.  
+Useable Capacity: 204 ± 1.6% Ah.  
+Typical Energy: 88.8 ± 1.6% kWh.  
+Useable Energy: 81.8 ± 1.6% kWh.  
+
+Max discharge current at pack level (Peak):  
+- 293KW max power ~ 705A at 100 – 70% SOC.  
+- 213KW max power ~ 532A at ≥ 50% SOC.  
+
+Continuous discharging power:  
+- 100KW max power ~ 250A at ≥ 20% SOC.  
+
+DC Fast charge requirement at 25℃: Display SOC (10-70%) ≤ 31.3 min.  
+Assumption: 100% charger efficiency.  
+Fast DC Charging Type: CCS TYPE 2.  
+
+Ambient temperature range: -35℃ to 55℃.  
+BMS: ASIL C.  
+Connector: UL Mark.  
+BDU (HV Components): UL Mark or satisfied UL regulation.  
+Low-voltage power supply range: 9 – 16V.  
+Load Capacitance: 1124uF.  
+
+Cooling & Coolant: 50% Water and 50% glycol.  
+Weight Targets: 625kg ±1%.  
+IP Protection: IP67/IP6K9K[Mated].  
+
+Standard charging current: 0.3C.  
+Charging Temperature range: 0℃ to 50℃.  
+Minimum Discharging End Voltage: 308V.  
+Standard discharging current: 0.5C.  
+Discharging Temperature range: -30℃ to 55℃.  
+
+Ambient Humidity: ≤ 95%.  
+Battery lifetime: ≥ 70% SOH.  
+Standard cycle life test: Testing and Validation.  
+
+Warranty: 160,000Km or 8 Years, by whichever comes first.  
+
+Manufacturing: The Energy Solution Joint Stock Company (VinES).  
+
+*Note: As per requirement from Vehicle side, tolerance of total pack weight is +/- 1%. VinES intends to design pack with 625Kg complying weight requirement.*
+Page 23
+VinES
+
+VFDSXVBAT0385
+
+Version: 6.0  
+Uncontrolled copy when printed  
+23 | 72  
+Print date  
+
+**Table 8: VF8 Design - Pack Parameters**
+
+### 4.8 Development Process  
+
+#### 4.8.1 Schedule and Milestones  
+
+##### 4.8.1.1 Schedule  
+
+**Table 9: Schedule**
+
+| Step | Milestones             | Date      |
+|------|-------------------------|-----------|
+| 1    | Prototype              | Sep-2020  |
+| 2    | DVP 1                  | Sep-2020  |
+| 3    | P release              | Sep-2020  |
+| 5    | PR release             | Feb-2021  |
+| 6    | A sample               | Jul-2021  |
+| 7    | DVP 2                  | Jul-2021  |
+| 8    | B sample               | Oct-2021  |
+| 9    | DVP3                   | Feb-2022  |
+| 10   | C1 sample              | Jan-2022  |
+| 11   | C2 sample              | Mar-2022  |
+| 12   | PVP1                   | May-2022  |
+| 13   | SOP1                   | May-2022  |
+| 14   | PVP2                   | Aug-2022  |
+| 15   | SOP2                   | Sept-2022 |
+
+#### Prototype Statuses and Quantities  
+
+| Gates        | PT Prototype              | PTO Production Try Out                                  | PP Pilot Production                                         |
+|--------------|---------------------------|-------------------------------------------------------|-----------------------------------------------------------|
+| Sample Level | B level                  | C level                                               | D level                                                   |
+| Surface Color | No grained surface      | No grained surface                                    | Volume - production surface except for grained parts      |
+|              | Color acc specification  | Color acc specification                               | Color for master - color matching                         |
+| Rework       | Rework permitted         | Rework permitted                                      | Rework not permitted at the vehicle level                |
+| Documentation Requirements | Testing plan for EMC qualification is harmonized | Completely measure at least 3 parts of PTO-lot | Proof of processability for each shipped lot           |
+|              | Suitability for EMC evaluation is given within agreed scope | Remaining parts of the PTO-lot: SPC-points and function-relevant characteristics | Label each component for assignment to measurement results. |
+|              |                          | Label each component for assignment to measurement results. | Pilot production control plan                             |
+
+#### Gates  
+
+| Gates | Description           |
+|-------|-----------------------|
+| LS    | **Launch Sign-off**  |
+| SOP   | **Start of production** |
+| STC   | **Ship to commerce** |
+Page 24
+4.8.2 Acceptance Procedure  
+Supplier shall provide VinFast with a qualified test report (original), and the samples provided by the supplier shall meet all drawings, materials, and technical requirements for product development provided or agreed by VinFast. VinFast shall carry out factory acceptance of the samples provided by the supplier. Qualified samples are collected and put into prototype/vehicle tests.
+
+4.8.3 Type Approval and Certification  
+The certification requirement verifies the reliability of the product; the successful completion of certification depends on the supplier's customer durability simulation tests for parts or subsystems according to the requirements of VinFast. The parts provided by the supplier must meet the requirements of VinFast and produce corresponding test reports.  
+VinFast is responsible for the integration and certification of the vehicle-grade system. Vehicle-level certification projects include urban simulation road tests and enhanced road tests. Suppliers of spare parts/subsystems are responsible for timely responses to failure reports found in the process of integration and certification at the vehicle-level system. All changes caused by failure reports must be executed by the supplier and approved by PPAP.  
+The integration and certification of components/subsystems is the responsibility of the supplier of components/subsystems. The supplier must complete all parts/subsystems tests.  
+Certification for parts/subsystems can be implemented by the supplier of parts/subsystems or by the supplier appointing a lower supplier or a third party after VinFast approval.  
+The supplier of parts/subsystems must provide the VinFast Product Release Engineer with a complete test certification plan for parts/subsystems and obtain Engineer approval. The plan includes at least the number of specimens, test sequence, place, and time of each test.  
+
+4.9 Quality and Reliability  
+
+4.9.1 Quality Concepts  
+The supplier must satisfy the quality commitment made to VinFast, guaranteeing 10 waste products per 1,000,000 pieces of spare parts sent to VinFast. PPM ≤10(TBD), CPK ≥ 1.33.
+Page 25
+4.9.2 Risk Management.  
+The supplier shall notify VinFast Product Release Engineer in writing of any potential technical matters, such as problems, accidents, latest information, project changes, etc., which may lead to increased costs, delays in project nodes and plans, and delays in delivery dates. The supplier’s written notice should include a specific repair plan and a risk assessment and description of the overall project schedule.
+
+4.9.3 HVBP Development.  
+The supplier shall regularly report to VinFast BPD the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design validation.
+
+4.9.4 MCU Board Development.  
+The supplier shall regularly report to VinFast BP the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design, development, and validation. The Module Control Unit (MCU) shall consist of the ASIL – C Level Analog Front End Monitoring, and the details of the MCU are explained in BMS_SPB.
+
+4.9.5 BCU Board Development.  
+The supplier shall regularly report to VinFast BP the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design, development, and validation.
+
+4.9.6 BDU Box Development.  
+The supplier shall regularly report to VinFast BP the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design, development, and validation.
+
+4.9.7 Validation of the SW Development.  
+The supplier shall regularly report to VinFast the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design validation. If there are inconsistencies with the specified specification requirements, the supplier should work with VinFast to solve the problem. Suppliers also need to provide VinFast with competent on-site service personnel to support VinFast in resolving problems associated with supplier parts in vehicle assembly during the vehicle start-up phase.
+
+4.10 Content Amendments.  
+N/A.
+
+5 Project Management and Organization.
+
+5.1 Responsibilities in the Project and Project Management Plan.  
+| No |        Item                                           | RASI | VES | VF |
+|----|-------------------------------------------------------|------|-----|----|
+| 1  | Battery to vehicle planning and managing             | S    | R   |    |
+| 2  | Battery level planning and project managing          | R    | S   |    |
+| 3  | Release Battery Pack SOR                             | I    | R/A |    |
+| 4  | Battery pack design and development: Include mechanical/electrical design, battery level simulation, component SOR release, pack data release | R | S/A | |
+| 5  | Component sourcing, supplier nomination, purchasing-related work | S | R | |
+| 6  | Component supplier quality, tooling kick off, PPAP   | S    | R   |    |
+Page 26
+7. Battery level testing and validation responsibilities are defined as RASI with VES as Responsible and VF as Support/Approval.
+8. Battery to vehicle testing and validation responsibilities are defined as RASI with VES as Support and VF as Responsible.
+9. IT infrastructure support for project development responsibilities are defined as RASI with VES as Informational and VF as Responsible.
+10. Battery pack manufacturing responsibilities are defined as RASI with VES as Responsible and VF as Informational.
+11. Shipping and transportation procedures (battery shipment to test labs or VF) responsibilities are defined as RASI with VES as Support and VF as Responsible.
+
+---
+
+### 5.2 Development Plan Approved by VinFast (Including Quality Plan)
+The development plan encompasses the following:
+1. Mold Development Plan.
+2. DVP Test Plan for Parts and Components.
+3. Other considerations including quality plan.
+
+The development process includes:
+- Product data (3D, 2D).
+- List of materials.
+- DVP test report.
+- Test report for prohibited and restricted substances approved by VinFast.
+- Other related data:
+  - 3D and 2D data.
+  - Process plan.
+  - CAE analysis report.
+  - APQP report.
+  - PPQP report.
+  - DFMEA report.
+  - PFMEA report.
+
+---
+
+### 5.3 Diagram & Documentation
+**5.3.1 HVBP**
+**5.3.1.1 Overall Layout**  
+The HVBP overall layout includes the following components labeled:
+- **Top cover**
+- **Module 7S**
+- **Module 8S**
+- **Module 10S**
+- **Damper**
+- **Housing comp.**
+- **BCU**
+- **Bdu positive**
+- **Bdu negative**
+Page 27
+**Figure 2: VF8 PACK TOP & BOTTOM VIEW**
+
+**Figure 3: First Angle Projection**
+
+### Module-A (10s) Information
+
+**Figure 4: Module 10s Dis-Assembled View**
+
+- **Dimensions:** 644(L) × 427(W) × 107(H)  
+- **Series and Parallel Configuration:** 10s47p (36.4V / 221.8Ah)  
+- **Module Energy:** 8073.5 Wh  
+- **Module Weight:** 44.678 ± 0.196 Kg  
+- **Module Energy Density:** ~189 Wh/kg
+Page 28
+VinES
+
+VFDSXVBAT0385
+
+Version: 6.0  
+Uncontrolled copy when printed  
+28 | 72  
+
+**Figure 5: Module 10s Top/Bottom/Side View**  
+
+### Module-B(8s) Information (8 series)
+
+**Figure 6: Module 8s Dis-Assembled View**  
+
+- **Dimension:** 476(L) * 460(W) * 107(H)  
+- **Series and Parallel:** 8s47p (29.1V / 221.8Ah)  
+- **Module Energy:** 6455.5 Wh  
+- **Module Weight:** 35.3 ± 0.105 Kg  
+- **Module Energy Density:** ~189 Wh/kg
+Page 29
+VinES 
+
+VFDSXVBAT0385 
+
+Version: 6.0  
+Uncontrolled copy when printed  
+29 | 72  
+
+### Module-C (7s) Information
+- **Dimension:** 439(L)*461(W)*107(H) mm  
+- **Series and Parallel:** 7s47p (25.4V/221.8Ah)  
+- **Module Energy:** 5634.7 Wh  
+- **Module Weight:** 2.1 ± 0.105Kg  
+- **Module Energy Density:** ~195Wh/kg  
+
+#### Figure Descriptions:
+**Figure 7:** Displays the Module 8s Top, Bottom, and Side Views. This diagram details dimensions and structure, including key features such as the hexagonal lattice design and module form factors.
+
+**Figure 8:** Illustrates a disassembled view of Module 7s, including labeled components:
+- Top Cap
+- FPC Conversation Harness
+- Slave BMS
+- Metal Plate
+- FPC
+- Top Cell Holder
+- Aluminum Cooling Pipe
+- 21700-Cell
+- Bottom Cell Holder
+- Insulation Cover
+- Bottom Cap
+Page 30
+5.3.2 Battery Pack with Vehicle Body
+
+Figure 10 illustrates how the HV pack is fixed in the vehicle. It shows the precise positioning of components and fasteners used in assembly.
+
+### Torque Information for Fasteners:
+1. **Part No. STD90002125**  
+   - Fastener Name: HEX_FLANGE_SCREW_M8X1.25X140_TC_10.9_ZNS3 x 1  
+   - Torque Range (T S A): 24.2, 26, 28  
+   
+2. **Part No. STD90002124**  
+   - Fastener Name: HEX_BOLT_M12X1.25X70_10.9_ZNS3 x 1  
+   - Torque Range (T S A): 108, 116, 124  
+   
+3. **Part No. STD90002091**  
+   - Fastener Name: HEX_BOLT_M12X1.25X58_10.9_ZNS3 x 1  
+   - Torque Range (T S A): 101.8, 109.5, 117.2  
+   
+4. **Part No. MEC11002207**  
+   - Fastener Name: HEXAGON_FLANGE_BOLT_M10x1.25x255 x 1  
+   - Torque Range (T S A): 58.5, 60, 61.5
+
+### Key Positions:
+- **M10**  
+- **M8**  
+- **M12**
+
+The figure provides a top-down view of the vehicle assembly with annotated fastener positions, representing alignment and load distribution across the HV pack and the vehicle body. This diagram aids in ensuring proper installation and secure adherence.
+
+Figure 9 showcases Module Top/Bottom/Side views and provides dimensional specifications to reference parts compatibility within the assembly.
+Page 31
+5.3.3 ME Components.
+
+1. **Housing Comp:**  
+   - Material: Aluminum alloy  
+   - Size: 2370x1511x274.3 (mm)  
+   - Quantity: 1  
+
+2. **Top Cover:**  
+   - Material: Aluminum alloy  
+   - Size: 2269x1369x206.2 (mm)  
+   - Quantity: 1  
+
+3. **Support Beam Comp:**  
+   - Material: Aluminum alloy  
+   - Size: 459x476.2x79.6 (mm)  
+   - Quantity: 2  
+
+4. **Module (Configuration: 10S47P):**  
+   - Size: 424x642x107.1 (mm)  
+   - Quantity: 8  
+
+5. **Module (Configuration: 8S47P):**  
+   - Size: 460x476.3x107.1 (mm)  
+   - Quantity: 2  
+
+6. **Module (Configuration: 7S47P):**  
+   - Size: 461x439.3x107.1 (mm)  
+   - Quantity: 2  
+
+7. **Vent Valve:**  
+   - Waterproof level: IP68/IP69K  
+   - Casing material: PBT+PET+GF30FR+e-PTFE  
+   - Temperature resistance: -40°C ~ 125°C  
+   - Size of minimum passing matter: ≤ 0.45 μm  
+   - Airflow: ≧2 L/min @ 1.5kPa  
+   - Burst pressure: 15±5kPa  
+   - Moisture permeability: 30 g/m².hr  
+   - Leaving area after burst: 320mm²  
+   - Thread Size: M42x1.5  
+   - Quantity: 2  
+
+8. **Cooling Inlet Line 1:**  
+   - Operating pressure: max 2.0 bar  
+   - Operating temperature: -40°C ~ 80°C  
+   - Quantity: 1  
+
+9. **Cooling Inlet Line 2:**  
+   - Operating pressure: max 2.0 bar  
+   - Operating temperature: -40°C ~ 80°C  
+   - Quantity: 1  
+
+10. **Cooling Outline Line 1:**  
+    - Operating pressure: max 2.0 bar  
+    - Operating temperature: -40°C ~ 80°C  
+
+11. **Cooling Outline Line 2:**  
+    - Operating pressure: max 2.0 bar  
+    - Operating temperature: -40°C ~ 80°C  
+
+12. **Quick Connector Assy:**  
+    - Operating pressure: max 2.0 bar  
+    - Operating temperature: -40°C ~ 80°C  
+    - Thread Size: M27x2.0  
+    - Quantity: 2
+Page 32
+### 5.3.3 ME Components
+
+#### Major ME Components:
+1. **Housing Comp**:
+   - Material: Aluminum alloy.
+   - Size: 2370 x 1511 x 274.3 mm.
+   - Quantity: 1.
+
+2. **Top Cover**:
+   - Material: Aluminum alloy.
+   - Size: 2269 x 1369 x 206.2 mm.
+   - Quantity: 1.
+
+3. **Support Beam Comp**:
+   - Material: Aluminum alloy.
+   - Size: 459 x 476.2 x 79.6 mm.
+   - Quantity: 2.
+
+4. **Module 10S47P**:
+   - Configuration: 10S47P.
+   - Size: 424 x 642 x 107.1 mm.
+   - Quantity: 8.
+
+5. **Module 8S47P**:
+   - Configuration: 8S47P.
+   - Size: 460 x 476.3 x 107.1 mm.
+   - Quantity: 2.
+
+6. **Module 7S47P**:
+   - Configuration: 7S47P.
+   - Size: 461 x 439.3 x 107.1 mm.
+   - Quantity: 2.
+
+7. **Vent Valve**:
+   - Waterproof Level: IP68/IP69K.
+   - Casing Material: PBT + PET + GF30FR + e-PTFE.
+   - Temperature Resistance: -40°C to 125°C.
+   - Size of Minimum Passing Matter: ≤0.45 µm.
+   - Airflow: ≥2 L/min @ 1.5kPa.
+   - Burst Pressure: 15 ± 5 kPa.
+   - Moisture Permeability: 30 g/m²/hr.
+   - Leaving Area After Burst: 320 mm².
+   - Thread Size: M42x1.5.
+   - Quantity: 2.
+
+8. **Cooling Inlet Line 1**:
+   - Operating Pressure: Max 2.0 bar.
+   - Operating Temperature: -40°C to 80°C.
+   - Quantity: 1.
+
+9. **Cooling Inlet Line 2**:
+   - Operating Pressure: Max 2.0 bar.
+   - Operating Temperature: -40°C to 80°C.
+   - Quantity: 1.
+
+10. **Cooling Outline Line 1**:
+   - Operating Pressure: Max 2.0 bar.
+   - Operating Temperature: -40°C to 80°C.
+   
+11. **Cooling Outline Line 2**:
+   - Operating Pressure: Max 2.0 bar.
+   - Operating Temperature: -40°C to 80°C.
+
+12. **Quick Connector Assy**:
+   - Operating Pressure: Max 2.0 bar.
+   - Operating Temperature: -40°C to 80°C.
+   - Thread Size: M27x2.0.
+   - Quantity: 2.
+
+13. **BCU Bracket Comp**:
+   - Material: SPHC.
+   - Size: 266 x 174.5 x 50 mm.
+   - Color: Black Painting.
+   - Quantity: 1.
+
+14. **BMS Cover Comp**:
+   - Material: PA66-GF30.
+   - Size: 269.5 x 199.3 x 66.8 mm.
+   - Quantity: 1.
+
+15. **Fixing Cooling Line Upr**:
+   - Material: PA66-GF30.
+   - Size: 77 x 19.2 x 25 mm.
+   - Quantity: 6.
+
+16. **Brkt Keeping Pipe Cooling**:
+   - Material: PA66-GF30.
+   - Size: 197.2 x 80.5 x 99 mm.
+   - Quantity: 1.
+
+17. **Central Fixing Holder**:
+   - Material: A6061-T6.
+   - Size: 94.3 x 62 x 38 mm.
+   - Quantity: 8.
+
+18. **Support Mounting Cover 2**:
+   - Material: A6061-T6.
+   - Size: Ø15 x 127.7 mm.
+   - Quantity: 2.
+
+19. **Anti-Vibration 1**:
+   - Material: INOAC E4488.
+   - Size: 611.5 x 356 x 4 mm.
+   - Quantity: 8.
+
+20. **Anti-Vibration 2**:
+   - Material: INOAC E4488.
+   - Size: 440 x 392 x 4 mm.
+   - Quantity: 2.
+
+21. **Anti-Vibration 2**:
+   - Material: INOAC E4488.
+   - Size: 500 x 20 x 4 mm.
+   - Quantity: 6.
+
+22. **Sealing 1**:
+   - Material: EPDM SP510-AF.
+   - Size: 2271 x 1371 x 4 mm.
+   - Quantity: 1.
+
+23. **Sealing 2**:
+   - Material: EPDM SP510-AF.
+   - Size: 94.3 x 1371 x 4 mm.
+   - Quantity: 8.
+
+24. **Gasket**:
+   - Material: AI 6010c.
+   - Size: Ø35 x 2 mm.
+   - Quantity: 8.
+
+25. **Gasket Sealing 02**:
+   - Size: Ø16 x 4 mm.
+   - Quantity: 10.
+
+26. **Collar**:
+   - Material: A6061-T6.
+   - Size: Ø23 x 4.7 mm.
+   - Quantity: 8.
+
+---
+
+### Table 10: Major ME Components
+Aside from the list of mechanical parts, fastener design is a critical aspect for engineers. Detailed information about types, dimensions, thread size, and tightening profiles is to be defined in the drawings of PACK and MODULE levels.
+
+---
+
+### 5.3.4 EE Components
+
+#### EE Parameters Considered for VF8:
+1. Rated Voltage of System: 400 V.
+2. Voltage Range DOD - 100%: 275 ~ 462 V.
+3. Max Discharge Current at Pack Level (Continuous) @ 50% SOC, @ 25°C: 300 A.
+4. Max Discharge Current at Pack Level (Peak) @ 10s @ 50% SOC, @ BOL, @ 25°C: 600 A.
+Page 33
+5.3.5 MSD – Manual Service Disconnect in VF8.
+
+The concept of MSD is implemented at the vehicle level to ensure that the MSD opens the LV power of the Battery Pack. Once the 12V power supply is removed, no HV control operation remains active, and all HV control transitions into the OFF state. Fault information is logged during this scenario.
+
+5.3.6 BDU – EE Component Interface to the Outside World.
+
+The system includes HV connectors, LV connectors, MCU x12, HV busbar line, LV line, Daisy chain, Positive BDU, Negative BDU, Coolant input, and Coolant output. This configuration ensures efficient interaction between the BDU and external components, facilitating cooling, voltage management, and proper interfacing.
+
+5.3.6.1 HV Connector.
+
+HV Connector Properties:
+- Max Operating Voltage: 1000 V.
+Page 34
+5.3.6 BDU - EE component Interface to Outside World.
+
+### 5.3.6.1 HV Connector
+The HV connector specifications include:
+- **Maximum continuous rated current:** 500 A.
+- **HVIL functionality:** Enabled.
+- **IP ratings:**
+  - **IP67** when mated.
+  - **IP6K9K** when mated.
+  - **IPXXB** when unmated.
+- **Tightening torque:**
+  - **M5 (connector side):** 5.5 NM.
+  - **M6 (BDU side):** 9 NM.
+- **Cable type:** Shielded.
+- **Operating temperature:** -40°C to 125°C.
+- **Continuous operating current of the pack:** ~300 A.
+- **Peak current of the pack at 30 seconds:** 1000 A.
+
+---
+
+### 5.3.6.2 HV Connector Pin Description
+The HV connector pin details are as follows:
+
+| **Pin #** | **Battery Pack Connector** | **Description**            | **Type**            | **Wire Size** |
+|-----------|----------------------------|----------------------------|---------------------|---------------|
+| 1         | A                          | HV PLUS (+) (High Voltage ~400V ‘+’) | Bus Bar          | -             |
+| 2         | A’                         | HV PLUS (-) (High Voltage ~400V ‘-’) | Bus Bar          | -             |
+| 3         | C                          | HVIL IN                     | PWM Signal         | 0.5 mm        |
+| 4         | D                          | HVIL OUT                    | PWM Signal         | 0.5 mm        |
+
+---
+
+### 5.3.6.3 HV Connector Dimensions
+The HV connector is shown in the technical diagram, detailing its physical structure and requirements. The technical specifications include:
+- **Signal wire size:** 0.5-0.75 mm².
+- **Torque requirement:** 6-8 Nm.
+- **Current carrying capability of single core wire:**
+   - 250 A (manual disconnection).
+   - 350 A (automated disconnection).
+- **HVIL provision:** Enabled for ensuring high-voltage interlocking.
+
+The connector supports high-voltage (~400V), durable operating temperatures (-40°C to 125°C), and is designed for a sealed environment, meeting IP67 and IP6K9K standards when mated.
+Page 35
+HV Connector selected: HVSL1200022A1H10 (Socket).
+
+5.3.6.4 LV Connector:
+- Max. operating voltage: 300 V.
+- Max. continuous rated current: 13 A.
+- Insulation resistance: > 5000 MΩ.
+- IP rating: 67 (IP6K9K - Mated).
+- Mating Cycle: ≥ 500.
+- Tightening Torque: 1 ~ 1.5 NM.
+- Cable: Shielded.
+- Operating Temperature: -40 ~ 125 °C.
+- Operating Voltage: 9 ~ 16 V.
+- Operating current peak: 8 A.
+- Operating current continuous: 1 A.
+
+5.3.6.5 LV Connector Dimension:
+This section provides illustrated technical specifications and dimensions for the LV connector, detailing its physical measurements necessary for installation.
+Page 36
+VinES 
+
+VFDSXVBAT0385 
+
+Version: 6.0. Uncontrolled copy when printed. Page 36 | 72 
+
+Print date 
+Status 
+Functional Responsibility 
+
+LV Connector selected: RT002028PN03 (socket). 
+
+5.3.6.6 LV Connector Pin Description.
+
+**Pin Descriptions:**
+1. Pin A: KL30 / POWER - Power (12V). Wire size: 1.
+2. Pin B*: KL30 / POWER #2 - Power (12V). Wire size: 1.
+3. Pin C: KL31 / POWER GND - Ground (12V). Wire size: 1.
+4. Pin D: KL15 / Key ON - Signal. Wire size: 0.5.
+5. Pin E: PT - CAN Hi - Signal. Wire size: 0.5.
+6. Pin F: PT - CAN Lo - Signal. Wire size: 0.5.
+7. Pin G: ACM turn off Pyro (+) - Signal. Wire size: 0.5.
+8. Pin H: ACM turn off Pyro (-) - Signal. Wire size: 0.5.
+9. Pin J: Debug - CAN Hi - Signal. Wire size: 0.5.
+10. Pin K: Debug - CAN Lo - Signal. Wire size: 0.5.
+11. Pin L: Crash signal - Signal (5V). Wire size: 0.35.
+12. Pin M: HVIL In - Signal (5V). Wire size: 0.5.
+13. Pin N: HVIL out - Signal (5V). Wire size: 0.5.
+14. Pin P: Not applicable.
+15. Pin R: Not applicable.
+16. Pin S: Not applicable.
+
+5.4 High Voltage Battery Pack (HVBP) – Meeting IPXXB (B/A).
+
+High Voltage Protection (IPXXB) is implemented across all high voltage connections. It ensures safety and compliance with IPXXB standards wherever possible.
+
+5.4.1 Electromagnetic Compatibility.
+
+5.4.1.1 EMC Requirements.
+
+HVBP aligns with ECE R10 and VF standards for electromagnetic compatibility.
+
+| Sl. No. | Test Sequence                                            | Standard         |
+|---------|----------------------------------------------------------|------------------|
+| 1       | 4.2 RF-emissions Measurements at the artificial network (AN) | VFDST00026302   |
+Page 37
+**VinES**
+
+**VFDSXVBAT0385**
+
+**Version: 6.0**
+
+**Uncontrolled copy when printed**
+
+---
+
+### 5.4 HVBP – Meet IPXXB (B/A)
+
+**IPXXB** – High Voltage Protection is implemented in all high voltage connections. IPXXB is adhered to in as many scenarios as possible.
+
+---
+
+### 5.4.1 Electromagnetic Compatibility
+
+#### 5.4.1.1 EMC Requirements for HVBP
+
+HVBP adheres to ECE R10 and VF Standard alignment.
+
+#### Test Sequence (with corresponding standards):
+1. **4.2 RF-emissions Measurements at the artificial network (AN):** Standard VFDST00026302  
+2. **4.3 RF-emissions - Measurement with antennas (RE):** Standard VFDST00026302  
+3. **4.5 RF-Emissions Measurement with the current probe (CP):** Standard VFDST00026302  
+4. **7.1.1 HV/CE_01: Conducted emission on shielded HV lines from components/modules - Voltage method:** Standard VFDST00026303  
+5. **7.2.1 HV/CE_02: Conducted emission from components/modules - current probe measurement:** Standard VFDST00026303  
+6. **7.5.1 HV/TE_01: Measurement of transients along HVDC lines:** Standard VFDST00026303  
+7. **5.2 RF-immunity to interference - Bulk current injection (BCI):** Standard VFDST00026302  
+8. **5.3 RF-immunity to interference - Using antennas (ALSE):** Standard VFDST00026302  
+9. **5.7 Immunity to Transients on supply lines (TSUP):** Standard VFDST00026302  
+10. **5.8 Immunity to Transients on lines except for supply lines (TOL):** Standard VFDST00026302  
+11. **7.5.2 HV/TI_01: Immunity to pulse HV1 along HVDC lines:** Standard VFDST00026303  
+12. **7.1.2 HV/CA_01: Measurement of HV-LV coupling attenuation - measurement using an artificial network:** Standard VFDST00026303  
+13. **7.1.3 HV/CA_02: Measurement of HV-LV coupling attenuation - Measurement using a U-shaped profile:** Standard VFDST00026303  
+14. **5.9 Electrostatic discharge - Handling Test (ESDH):** Standard VFDST00026302  
+
+---
+
+### 5.4.2 Electrostatic Discharge
+
+#### 5.4.2.1 ESD Requirements
+
+Electrostatic Discharge requirements follow **ANSI/ESD S541-2008**.
+Page 38
+5.4.3 EE BDU Components VF8 3D Data:
+
+Positive BDU:  
+A depiction of the Positive BDU, highlighting its structural design and internal placement of components.
+
+Negative BDU:  
+A depiction of the Negative BDU, showcasing its intricate arrangement and assembly within the system.
+
+Figure 11: BDU Component placement view.
+
+5.4.3.1 BDU Components Selection:  
+The selection criteria are followed according to the requirements. More information regarding the selection of components is available on demand.
+Page 39
+5.4.3.2 BDU Components List.
+
+The table below lists the BDU components along with their serial numbers, parts codes, product names, quantities, and whether they are sourced internally or externally (make/buy):
+
+1. **ELE11002175** – BCU (Quantity: 1, Make: VINFAST).  
+2. **ELE11002109** – SLAVE BMS 10S (Quantity: 8, Make: VINFAST).  
+3. **ELE11002105** – SLAVE BMS 8S (Quantity: 2, Make: VINFAST).  
+4. **ELE11002107** – SLAVE BMS 7S (Quantity: 2, Make: VINFAST).  
+5. **ELE11002157** – MODULE_FPC_ACQUISITION_CONVERSION_HARNESS_10S (Quantity: 8, Make: Tricheer).  
+6. **ELE11002158** – MODULE_FPC_ACQUISITION_CONVERSION_HARNESS_8S (Quantity: 2, Make: Tricheer).  
+7. **ELE11002159** – MODULE_FPC_ACQUISITION_CONVERSION_HARNESS_7S (Quantity: 2, Make: Tricheer).  
+8. **ELE11002133** – MODULE_FPC_10S (Quantity: 8, Make: Tricheer).  
+9. **ELE11002134** – MODULE_FPC_8S (Quantity: 2, Make: Tricheer).  
+10. **ELE11002135** – MODULE_FPC_7S (Quantity: 2, Make: Tricheer).  
+11. **ELE11002176** – LOW VOLTAGE COMMUNICATION HARNESS OF BMS (Quantity: 1, Make: Amphenol).  
+12. **ELE11002178** – LOW VOLTAGE SIGNAL HARNESS OF BMS (Quantity: 1, Make: Amphenol).  
+13. **ELE11002139** – SLAVE COMMUNICATION HARNESS 1 (Quantity: 1, Make: Amphenol).  
+14. **ELE11002140** – SLAVE COMMUNICATION HARNESS 2 (Quantity: 1, Make: Amphenol).  
+15. **ELE11002113** – HVIL HARNESS (Quantity: 1, Make: Amphenol).  
+16. **ELE11002075** – BMS GROUND HARNESS (Quantity: 1, Make: Amphenol).  
+17. **ELE11002160** – BDU01 (Quantity: 1, Make: ANNREN).  
+18. **ELE11002161** – BDU02 (Quantity: 1, Make: ANNREN).  
+19. **ELE11002181** – BCU_ROW (Quantity: 1, Make: VINFAST).  
+
+Table 12: BDU Component List.
+
+Functionality of these components can be found in the BMS Spec Book **VFDSXVBAT1061-VF8_SPB_BMS**. Component selection details can be accessed in the design guidelines upon management approval.
+Page 40
+5.4.4 HVBP - System Overview:
+
+HVBPPS - HVBP Power System overview diagram is illustrated above. The interfaces for the HVBP Power System include:
+- Sensor
+- Actuator
+- Power Supply
+- Communication
+- Technology
+
+5.4.5 HVBP - System Architecture:
+
+HVBP consists of:
+- Modules and its inside components.
+Page 41
+5.4 HVBP – System Overview:
+HVBPPS - HVBPPower System overview diagram is shown. 
+
+**Interfaces:**  
+- Sensor  
+- Actuator  
+- Power Supply  
+- Communication  
+- Technology  
+
+5.4.5 HVBP – System Architecture:  
+HVBP consists of:  
+- Modules and its inside components  
+- BMS including MCU and BCU  
+- BDU and its internal components  
+- LV wiring harness and connectors  
+- Busbar  
+- HV connector  
+- Cooling pipe and connector, cooling temp. probe  
+- Casing (housing and top cover)  
+- Sealing gasket  
+- Explosion proof valve  
+
+There are numerous interactions between components, pack, and the environment, involving physical, energy, information, and material exchanges. Functional connections must be secured, while hazardous non-functional connections are avoided through reasonable design methods. Detailed information is defined in the DFMEA of the pack.  
+
+5.4.6 System Documentation:  
+Vendors must document the following system information at various stages:  
+1. System Requirements  
+2. System Architecture  
+3. Safety System Architecture  
+4. System Verification & Validation  
+
+5.4.7 Hardware Documentation:  
+- BMS Hardware housing details  
+- BMS Hardware fabrication data:  
+  - BOM  
+  - Gerber  
+  - Nc Drill  
+  - ODB  
+  - PCB Drawing  
+  - Pick and Place  
+  - Placement  
+- BMS Schematics  
+- BMS HW design document  
+- BMS HW FIT rate  
+- DV/PV Test for HW  
+
+Refer to the BMS spec book for hardware functionality: VFDSXVBAT1061-VF8_SPB_BMS  
+
+5.4.8 Software Documentation:  
+1. Software Architecture following AUTOSAR  
+2. BSW Development – Configuration file  
+3. ASW Development  
+4. Software Unit Design  
+5. Software Unit Test Report  
+6. Software Integration Test Report  
+7. Software System Test Report  
+8. MIL Testing  
+9. SIL Testing  
+10. Static & Dynamic Code Analysis  
+11. UDS Service Test Cases  
+12. Flash Boot Loader  
+13. Calibration Procedure & Commands
+Page 42
+5.4.9 Conformity Requirements.  
+All homologation of the vehicle relevant legal requirements must be fulfilled for the planned sales markets: Vietnam, US, EU, CANADA. All corresponding drafts, proposals, and all series of amendments/supplements must be considered during the development.  
+
+To obtain whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems together with all applicable legal markings in accordance with regulations of the planned sales markets.  
+
+If separate technical units, parts, and systems for the planned sales markets require certification or testing by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of certificates and/or test reports. The selection of the Technical Service must be agreed upon with the homologation department of VinFast.  
+
+If the requirements of a planned sales market are subject to conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.  
+
+---
+
+6. System Environment.  
+
+6.1 System Environment Temperatures.  
+- Ambient temperature: -35℃ ～ 55℃.  
+- Storage temperature: -40℃ ～ 60℃.  
+- HVBP Operating temperature range for Charging: 0℃～55℃.  
+- HVBP Operating temperature range for Discharging: -30℃～55℃.  
+- Target Market: EU, US, CA, Vietnam.  
+
+---
+
+6.2 Temperature region profile.  
+
+**Monthly Average Temperature (°C):**  
+| Location | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
+|----------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| CA - Victoria Max | 7 | 9 | 11 | 13 | 16 | 18 | 20 | 20 | 19 | 14 | 10 | 8 |
+| Min | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 12 | 11 | 9 | 5 | 4 |
+| CA - Winnipeg Max | -11 | -8 | 11 | 19 | 22 | 25 | 25 | 24 | 20 | 10 | 0 | -9 |
+| Min | -21 | -18 | -10 | -2 | 5 | 10 | 12 | 11 | 6 | 0 | -9 | -18 |
+| EU - Athens Max | 10 | 11 | 13 | 15 | 24 | 33 | 35 | 40 | 43 | 34 | 27 | 24 |
+| Min | 2 | 3 | 5 | 6 | 8 | 13 | 15 | 15 | 11 | 6 | 2 | 4 | 
+| EU - Sweden Max | 4 | 0 | 10 | 15 | 24 | 29 | 30 | 32 | 26 | 21 | 17 | 12 |
+| Min | -15 | -15 | -6 | -4 | -1 | 7 | 12 | 8 | 0 | -2 | -5 | -16 |
+| Avg | -6 | -8 | -2 | 5 | 11 | 18 | 21 | 16 | 11 | 8 | 4 | -5 |
+
+---
+
+6.3 Vietnam region profile.  
+
+**Temperature (°C):**  
+| Temperature (°C) | Vietnam Region % | US California Region % | US Minnesota Region % |
+|-------------------|------------------|-------------------------|------------------------|
+| -30 to -20 | N/A | 0 | 2 |  
+| -20 to -10 | 0 | 15 |
+Page 43
+5.4.9 Conformity Requirements.  
+All homologation of the vehicle relevant legal requirements must be fulfilled for the planned sales markets in Vietnam, US, EU, and CANADA. All corresponding drafts, proposals, and all series of amendments/supplements must be considered during development.  
+
+To obtain the whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems along with all applicable legal markings in accordance with the regulations of the planned sales markets.  
+
+If separate technical units, parts, and systems for the planned sales markets require certification or testing by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of certificates and/or test reports. The selection of the Technical Service must be agreed upon with the homologation department of VinFast.  
+
+If requirements of a planned sales market require conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.  
+
+---
+
+6. System Environment.  
+6.1 System Environment Temperatures.  
+- Ambient temperature: -35℃ ～ 55℃  
+- Storage temperature: -40℃ ～ 60℃  
+- HVBP Operating temperature range for Charging: 0℃ ～ 55℃.  
+- HVBP Operating temperature range for Discharging: -30℃ ～ 55℃  
+- Target Market: EU, US, CA, Vietnam  
+
+---
+
+6.2 Temperature Region Profile.  
+
+| Location       | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
+|----------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| CA - Victoria  | Max | 7   | 9   | 11  | 13  | 16  | 18  | 20  | 20  | 19  | 14  | 10  | 8   |
+|                | Min | 3   | 4   | 5   | 6   | 8   | 10  | 12  | 12  | 11  | 9   | 5   | 4   |
+| CA - Winnipeg  | Max | -11 | -8  | -1  | 9   | 19  | 22  | 25  | 25  | 24  | 20  | 10  | 0   |
+|                | Min | -21 | -18 | -10 | -2  | 5   | 10  | 12  | 11  | 6   | 0   | -9  | -18 |
+| EU - Athens    | Max | 9   | 11  | 15  | 24  | 33  | 35  | 40  | 43  | 34  | 27  | 24  | 20  |
+|                | Min | 2   | 4   | 8   | 11  | 15  | 24  | 25  | 32  | 26  | 21  | 18  | 11  |
+| EU - Sweden    | Max | 4   | 0   | 11  | 18  | 23  | 29  | 30  | 24  | 22  | 17  | 12  | 7   |
+|                | Min | -15 | -6  | -4  | -1  | 7   | 12  | 8   | 0   | -2  | -5  | -16 | N/A |
+
+---
+
+6.3 Vietnam Region Profile.  
+
+| Temperature (°C) | Vietnam | US California | US Minnesota |
+|------------------|---------|---------------|--------------|
+| -30 to -20       | N/A     | 0             | 2            |
+| -20 to -10       | 0       | 15            | N/A          |
+| -10 to 0         | 1       | 1             | 22           |
+| 0 to 10          | 2       | 5             | 18           |
+| 10 to 15         | 3       | 12            | 6            |
+| 15 to 20         | 19      | 12            | 12           |
+| 20 to 25         | 15      | 8             | 16           |
+| 25 to 30         | 40      | 22            | 8            |
+| 30 to 35         | 18      | 25            | 1            |
+| 35 to 40         | 3       | 10            | N/A          |
+| 40 to 45         | N/A     | 5             | N/A          |
+
+---
+
+The altitude to be taken into consideration:  
+- Vietnam Market: up to 2500 m  
+- US Market: up to 4000 m  
+
+6.4 Ambient Boundary Conditions.  
+Ambient boundary conditions are defined in paragraph 5 of Annex III A as moderate and extreme conditions.  
+
+- Moderate: 5°C < Tamb < 45°C and maximum 1500 m altitude, derogation for the lower limit for the first 5 years: 3°C.  
+- Extended: -5°C < Tamb < 45°C and maximum 3000 m altitude; derogation for the lower limit for the first 5 years: -2°C. For extended boundary conditions, the measured emissions are divided by a factor of 1.6.  
+
+Refer to the document: BMS_Mission_Profile.pdf  
+
+---
+
+6.5 SFC Super Fast Charge Key Factors.  
+- SFC is performed from 10% to 70% SOC.  
+- Target time required is approximately 24 minutes.  
+- The most suitable temperature range of Cell for SFC is 25°C to 45°C.  
+- Assume Cell temp = Ambient temp.  
+- Delta Temperature between cells during charging shall not exceed 10°C.  
+
+Charge Current Profile:  
+BCF_IChLimForDcCh_M: Charge current limit for DC-Charge: (Profile 2.1C).
+Page 44
+6.6 Drive Cycle Profile.
+
+Follow WLTC drive cycle for energy management simulation.
+
+Please follow Vinfast drive cycle as below:
+
+**Drive Scenario 1:**
+
+Driving Scenario 1B: On Road Durability Vehicle.
+
+| Time (hr) | Mon.  | Tue.  | Wed.  | Thu.  | Fri.  | Sat.  | Sun.  |
+|-----------|-------|-------|-------|-------|-------|-------|-------|
+| 0.0000    | Rest  | Rest  | Rest  | Rest  | Rest  | Rest  | Rest  |
+| 1.0000    | Rest  | Rest  | Rest  | Rest  | Rest  | Rest  | Rest  |
+Page 45
+5.4.9 Conformity Requirements.  
+All homologation of the vehicle relevant legal requirements must be fulfilled for the planned sales markets Vietnam, US, EU, CANADA. All corresponding drafts, proposals, and all series of amendments/supplements must be considered during the development.  
+
+To obtain whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems together with all applicable legal markings in accordance with the regulations of the planned sales markets.  
+
+If separate technical units, parts, and systems for the planned sales markets require certification or testing by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed upon with the homologation department of VinFast.  
+
+If requirements of a planned sales market are subject to conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.  
+
+---
+
+6 System Environment.  
+
+6.1 System Environment Temperatures.  
+- Ambient temperature: -35°C ～ 55°C.  
+- Storage temperature: -40°C ～ 60°C.  
+- HVBP Operating temperature range for Charging: 0°C～55°C.  
+- HVBP Operating temperature range for Discharging: -30°C～55°C.  
+- Target Market: EU, US, CA, Vietnam.  
+
+6.2 Temperature region profile:  
+
+| Location         | Jan. | Feb. | Mar. | Apr. | May | Jun. | Jul. | Aug. | Sep. | Oct. | Nov. | Dec. |
+|------------------|------|------|------|------|-----|------|------|------|------|------|------|------|
+| CA - Victoria    | Max  | 7    | 9    | 11   | 13   | 16   | 18   | 20   | 20   | 19   | 14   | 10   | 8  |
+|                  | Min  | 3    | 4    | 5    | 6    | 8    | 10   | 12   | 11   | 12   | 9    | 5    | 4  |
+| CA - Winnipeg    | Max  | -11  | -8   | 11   | 19   | 22   | 25   | 24   | 20   | 10   | 0    | -9   | -9 |
+|                  | Min  | -21  | -18  | -10  | -2   | 5    | 10   | 12   | 11   | 6    | 0    | -9   | -18|
+| EU - Athens      | Max  | 10   | 12   | 14   | 22   | 33   | 35   | 40   | 43   | 34   | 27   | 24   | 20 |
+|                  | Min  | 2    | 6    | 8    | 11   | 14   | 15   | 24   | 25   | 18   | 14   | 11   | 4  |
+| EU - Sweden      | Max  | 4    | 0    | 11   | 18   | 23   | 29   | 30   | 24   | 22   | 17   | 12   | 7  |
+|                  | Min  | -15  | -15  | -6   | -4   | -1   | 7    | 12   | 8    | 0    | -2   | -5   | -16|
+
+6.3 Vietnam region profile.  
+
+| Temperature (°C) | Vietnam | US California | US Minnesota |
+|------------------|---------|---------------|--------------|
+| -30 to -20       | N/A     | 0             | 2            |
+| -20 to -10       | 0       | 15            | N/A          |
+| -10 to 0         | 1       | 22            | N/A          |
+| 0 to 10          | 2       | 5             | 18           |
+| 10 to 15         | 3       | 12            | 6            |
+| 15 to 20         | 19      | 12            | 12           |
+| 20 to 25         | 15      | 8             | 16           |
+| 25 to 30         | 40      | 22            | 8            |
+| 30 to 35         | 18      | 25            | 1            |
+| 35 to 40         | 3       | 10            | N/A          |
+| 40 to 45         | N/A     | 5             | N/A          |
+
+The altitude that shall be taken into consideration:  
+- Vietnam Market: up to 2500 m.  
+- US Market: up to 4000 m.  
+
+6.4 Ambient boundary conditions.  
+Ambient boundary conditions are defined in paragraph 5 of Annex III A as moderate and extreme conditions. Ambient temperature conditions were defined based on Asian weather statistics.  
+
+Moderate: 5°C < Tamb < 45°C and maximum 1500 m altitude, derogation for the lower limit for the first 5 years: 3°C.  
+Extended: -5°C < Tamb < 45°C and maximum 3000 m altitude; derogation for the lower limit for the first 5 years: -2°C.  
+For extended boundary conditions, the measured emissions are divided by the factor 1.6.  
+Refer to BMS_Mission_Profile.pdf.
+
+---
+
+6.5 SFC Super Fast Charge key factor.  
+- SFC is performed from 10% to 70% SOC.  
+- Target time required is around 24 minutes.  
+- Most suitable temperature of Cell for SFC is 25°C to 45°C.  
+- Assume Cell temp = Ambient temp.  
+- Delta Temperature between cells during charging shall not exceed 10°C.
+
+Charge Current Profiles:  
+**BCF_IChLimForDcCh_M - Charge current limit for DC-Charge (Profile 2.1C).**  
+**BCF_IChLimForAcCh_M - Charge current limit for AC-Charge (Profile 0.3C).**
+
+For more information refer to **SFC Profile.xlsx** document.
+
+---
+
+6.6 Drive Cycle Profile.  
+
+**Follow WLTC drive cycle for energy management simulation.**  
+Please follow the **VinFast drive cycle** as detailed below:
+
+**Driving Scenario 1 - On Road Durability Vehicle.**  
+
+| Time (hr) | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
+|-----------|--------|---------|-----------|----------|--------|----------|--------|
+| 0.0000    | Rest   | Rest    | Rest      | Rest     | Rest   | Rest     | Rest   |
+| 8.0003    | Case#1 | Case#1  | Case#1    | Case#1   | Case#1 | Case#1   | Rest   |
+| 14.4256   | AC Charge#1 | AC Charge#1 | AC Charge#1 | AC Charge#1 | AC Charge#1 | Rest | 
+| 15.1867   | AC Charge#2 | Rest | Rest | Rest | Rest | Rest | Rest | | 
+
+**Driving Scenario 2 - On Road Durability Vehicle.**  
+
+| Time (hr) | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
+|-----------|--------|---------|-----------|----------|--------|----------|--------|
+| 0.0000    | Rest   | Rest    | Rest      | Rest     | Rest   | Rest     | Rest   |
+| 8.0003    | Case#1 | Case#1  | Case#1    | Case#1   | Case#1 | Case#1   | Rest   |
+| 10.0000   | Rest   | Rest    | Rest      | Rest     | Rest   | Rest     | Rest   |
+| 14.4256   | AC Charge#1 | AC Charge#1 | AC Charge#1 | AC Charge#1 | AC Charge#1 | Rest |
+Page 46
+VinES
+
+VFDSXVBAT0385
+
+Version: 6.0
+
+Uncontrolled copy when printed  
+46 | 72  
+
+Functional Responsibility  
+
+**Drive Scenario 3: Driving Scenario 5B: On Road Durability Vehicle**  
+
+| Time (hr) | Mon.    | Tue.    | Wed.    | Thu.    | Fri.    | Sat.    | Sun.    |
+|-----------|---------|---------|---------|---------|---------|---------|---------|
+| 0.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 1.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 2.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 3.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 4.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 5.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 6.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 7.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 8.0000    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 8.0003    | Case#1  | Case#3  | Case#5  | Case#7  | Case#9  | Case#1  | Rest    |
+| 8.7619    | Rest    | Rest    | Rest    | Rest    | Rest    | Case#2  | Rest    |
+| 9.1869    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 10.0000   | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+| 11.0000   | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    | Rest    |
+Page 47
+6.7 Physical System Environment / Mechanical Interfaces.
+
+The Mechanical design elements affecting safety and reliability of EV battery packaging. Forces like mechanical vibration, impact energy, and ambient temperature variations interact with the battery pack through different interfaces. These interactions need to be controlled for safe and reliable operation of the battery pack. Restricting battery cell movement is found to be one of the successful strategies to achieve a higher degree of protection against all of them, and mechanisms that can be used for this purpose are presented.
+
+The battery pack is finally assembled into the Body in White of the vehicle by bolts M12; M8 (see 5.3.2). The assembly includes the electrical accessories: HV connector, LV connector, Ground harness cable.
+Page 48
+6.7 Physical System Environment / Mechanical Interfaces.
+
+The mechanical design elements affecting the safety and reliability of EV battery packaging are critical. Forces such as mechanical vibration, impact energy, and ambient temperature variations interact with the battery pack through various interfaces. These interactions need to be controlled for safe and reliable operation of the battery pack. Restricting battery cell movement has proven to be an effective strategy to achieve higher protection against these factors. Mechanisms for this purpose are discussed.
+
+The battery pack is finally assembled into the Body in White of the vehicle using bolts of specifications M12, M8 (as referenced in section 5.3.2). The assembly includes the necessary electrical accessories such as HV connector, LV connector, and Ground harness cable.
+
+6.8 System Diagram.
+
+Refer to the BMS specification book VFDSXVBAT1061-VF8_SPB_BMS.docx for detailed information.
+
+6.9 Content Amendments.
+
+Not Applicable.
+
+Figure 12: Physical fixing of Pack in Vehicle.
+
+The image illustrates the physical attachment of the EV battery pack within the vehicle’s structure using bolt sizes M12, M10, and M8. This configuration ensures the secure placement of the pack while accommodating electrical components and maintaining structural integrity.
+Page 49
+7 Functional and Technical Requirements.
+
+7.1 Naming and Part ID No.
+Serial number:
+1. **Parts Code:** BAT11002078. **Product Name:** HV_BATTERY_VN_88.8_KWH_VEHICLE. **Number:** 1. **Make/Buy:** Make.
+2. **Parts Code:** BAT11002079. **Product Name:** HV_BATTERY_PACK_ROW_88.8KWH_VEHICLE. **Number:** 1. **Make/Buy:** Make.
+
+7.2 Block and Principle Diagram.
+Refer to BMS spec book: VFDSXVBAT1061-VF8_SPB_BMS.
+
+7.3 Thermal System Overview.
+The HVBP thermal system overview is shown below.
+
+Figure 13: Thermal system strategy.
+
+The battery management system (BMS) represents the main control unit on which all system information is gathered and the operating strategy is defined. It provides the communication between the internal components of the high voltage battery pack (HV Pack) as well as an external communication interface via CAN (PT – CAN). The BMS shall be able to sense thermal parameters related to the thermal coolant inlet and outlet temperature and pack mean temperature, identify the thermal power demand, coolant flow rate required to operate the battery pack at the target temperature, and send this information to the external thermal control unit (VCU).
+
+The HV Battery thermal system shall support in:
+- Keeping the battery cells in 20°C–35°C cell temperature range (ideal without running into thermal derating) while charging from grid and driving.
+- Bringing cell temperatures into 20°C–35°C cell temperature range in 30 minutes time after temperature soaking to low/high temperature.
+Page 50
+7.4 Battery Pack Thermal Management.  
+The key components of the battery thermal management system include cooling pipes with connectors, battery cells, thermal pads, and serpentine tubes. The pack consists of a cooling layout for configurations: 8* 10S47P, 2* 8S47P, and 2* 7S47P.  
+
+The visual layout includes a serpentine cooling pipe with 16 channels, demonstrating the structure and flow design for thermal management within the battery pack.
+
+Figure: Serpentine Cooling Pipe with 16 Channels.
+Page 51
+### 7.4.1 NTC Temperature Sensors Placement in a Module:
+The placement of NTC temperature sensors across the module is strategically designed to achieve precise thermal monitoring. The sensors are distributed uniformly across the module as follows:
+
+- **Sensors 1 through 12:** These sensors are positioned within different sections of the module to monitor various zones for temperature consistency and control.
+- **Detailed Placement:** NTC1, NTC2/3, and NTC4 are located on the 10S section of the module. These sensor placements are essential for ensuring effective temperature regulation and for capturing temperature gradients across different areas.
+
+This configuration ensures optimal thermal management of the battery module and assists in maintaining temperature uniformity across cells.
+Page 52
+7.4.2 Thermal requirement for cooling and heating:
+Coolant temperature for heating requirement: 25~35°C (Cell to raise from –20°C to 10°C).
+Heating flow rate: 8 LPM @ -20°C.
+Cooling flow rate: 20~24 LPM for SFC.
+Coolant temperature for cooling: 25~35°C.
+Pack Delta cell T recommendation <= 10°C (Charging/Discharging) as per SDI.
+Pump Pressure drop spec for cooling: <= 125 kPa @ 25°C, 24 LPM (two pumps).
+Battery pack pressure drop for cooling from simulations = 133 kPa @ 24 LPM, 35°C.
+Total coolant volume including pipes & serpentine: 5.86 L.
+
+Total heat exchange surface area between coolant and cooled parts: 3.55 m².
+Heat transfer coefficient from pack serpentine to coolant: 499.5 W/m²/K.
+Page 53
+VinES
+
+VFDSXVBAT0385
+
+Version: 6.0  
+Uncontrolled copy when printed  
+53 | 72
+
+**7.4.3 Heat Generation (cooling power):**
+
+**VF8 Cooling power demand:**
+- **Condition:**
+  - **SFC:** Heat Rejection = 7 kW.
+  - **Max Speed discharge:** Heat Rejection = 8 kW.
+
+**BMS Thermal Logic Diagram:**  
+The BMS thermal logic diagram outlines the interactions between the battery management system (BMS), the HV Pack, Pump Chiller, and Vehicle Control Unit (VCU). Thermal inputs include Coolant Inlet Temperature, Pack Mean Temperature, Cell Maximum Temperature, and Cell Minimum Temperature. Outputs demand Cooling Power, specify the Flow Rate Required, and determine Chiller valve on/off states.  
+
+![Figure 14: Thermal logic diagram](Image provided above)
+
+**Thermal Properties Table:**  
+Below is the summary of thermal properties relating to the key components:
+
+| No. | Part Name              | Material Grade     | Density (kg/m³) | Specific Heat Capacity (J/kg*k) | Thermal Conductivity (W/m*k) |
+|-----|------------------------|--------------------|-----------------|----------------------------------|-----------------------------|
+| 1   | Top cover             | A5083-O           | 2660            | 900                              | 117                         |
+| 2   | Housing               | A6061-T6          | 2700            | 896                              | 167                         |
+| 3   | Battery Cell          | 48X21700          | 2870            | 888                              | 12.4/12.4/1                |
+| 4   | Module Plastic        | PC+ABS            | 1200            | 1500                             | 0.22                        |
+| 5   | Aluminum Cooling Pipe | A3003             | 2700            | 1300                             | 170                         |
+| 6   | Coolant               | 50% Ethylene glycol | 1073           | 3281                             | 0.384                       |
+| 7   | Thermal pad           | Silicone          | 1950            | 3500                             | 1.5                         |
+Page 54
+VinES  
+VFDSXVBAT0385  
+Version: 6.0  
+Uncontrolled copy when printed  
+54 | 72  
+Print date  
+Status  
+Functional Responsibility  
+
+8 pipeline: PA66  
+Density: 1100 kg/m³  
+Specific heat capacity: 1600 J/kg*k  
+Thermal Conductivity: 0.23 W/m*k  
+
+9 Potting Glue: ABN  
+Density: 1380 kg/m³  
+Specific heat capacity: 1200 J/kg*k  
+Thermal Conductivity: 0.4 W/m*k  
+
+10 Metal Plate: Nickel + Copper  
+Density: 8908 kg/m³ and 8940 kg/m³  
+Specific heat capacity: 444 J/kg*k and 385 J/kg*k  
+Thermal Conductivity: 90.9 W/m*k and 401 W/m*k  
+
+Table 13: Thermal design properties  
+Dynamic viscosity of the coolant @ 20°C: 3.94 mPa-s  
+
+Thermal Control Logics:  
+Refer to BMS Spec book: VFDSXVBAT1061-VF8_SPB_BMS  
+
+7.5 Safety Requirements  
+
+7.5.1 Vehicle Safety regarding Person and Passenger Protection  
+General Requirements:  
+The supplier is responsible to actively support the integration of vehicle safety functions. Lifetime relevant laws and ratings of selling markets as well as OEM requirements must be considered.  
+
+Vehicle system reliable operation is achieved by all sub-component integration. Vinfast, in partnership with suppliers, guarantees the vehicle’s intended operating function is free of electronic malfunction by following the process outlined in ISO26262.  
+
+This module has been reviewed as being associated with ASIL-C classified risks as per ISO26262. The supplier is to conduct assessments as needed including but not limited to FTA, DFMEA, PFMEA, STPA, HAZOP, etc. It is expected that functional safety risks should be reviewed with actions identified or confirmed in design (including inspection of hardware and software design principles) and manufacturing (manufacturing processes, validation of design processes, and verification of conformance of production processes).  
+
+7.6 Alternative and Future Variants  
+N/A  
+
+7.7 Mechanical Requirements  
+
+7.7.1 Vibration Behavior  
+DVPRXVBAT0411-VF8_DVP test BATTERY PACK  
+
+7.7.2 Stiffness and Cushioning Characteristics  
+No additional requirements from Operational Strength, Stiffness, Fatigue.  
+
+7.7.3 Deformation  
+No additional requirements from Operational Strength, Stiffness, Fatigue.  
+
+7.7.4 Pressure  
+No additional requirements from Operational Strength, Stiffness, Fatigue.  
+
+7.7.5 NVH / Acoustic Performance  
+Noises which are perceived by the customers as disturbing must be ruled out through the selection of suitable materials, surfaces, gaps, and forming. The supplier must guarantee that his components are free of disturbing noise in their vehicle environment and their geometrical integration.
+Page 55
+**7.7.6 Dimension Requirements:**
+- See 3D data and 2D drawings of the product for details.
+- The mounting dimensions shall pass the fixture inspection.
+- Location of the battery pack is under the BIW and should have a PVC layer to prevent stone impacts and scratches.
+- Installation points shall be considered at the bottom housing of the battery pack for adding metal protective armor.
+
+**7.7.7 Material Requirements:**
+- Materials shall conform to the requirements of product performance and reliability.
+- The material testing will be conducted by Party B, who must then send the qualified test results to Party A in the form of a test report. The test report must be issued by a nationally qualified third-party testing institute or Party B’s lab approved by Party A.
+- Party A is entitled to participate in the testing process to trace and confirm.
+- Parts must satisfy UL2580 requirements.
+
+**7.7.8 Appearance and Label Requirements:**
+1. The battery system shall be clearly marked with a high-voltage hazard label. Labeling requirements for HV systems must conform to FMVSS 305 S5.4.
+   - The symbol shown in Figure 15 must be present on or near electric energy storage devices. 
+   - This symbol must also be visible on electrical protection barriers that, when removed, expose live parts of high-voltage sources.
+   - The symbol must be yellow, and the bordering and arrow must be black.
+
+   - **Figure 15:** Depicts the danger symbol in the HV pack and BDU.
+   - **Figure 16:** Depicts the warning symbol in the HV pack and BDU.
+Page 56
+7.7.6 Dimension requirements.  
+See 3D data and 2D drawings of the product for details.  
+The mounting dimensions shall pass the fixture inspection.  
+The location of the battery pack is under the BIW and should have a PVC layer to prevent stone strikes and limit scratches.  
+Installation points shall be considered at the bottom housing of the battery pack for adding metal protective armor at the bottom of the vehicle.  
+
+7.7.7 Material requirements.  
+Materials shall conform to the requirements of product performance and reliability.  
+The material test will be arranged by Party B, who needs to send the qualified test result to Party A in form of a test report (the test report shall be issued by the third-party testing institute with national qualification or Party B’s lab approved by Party A), and Party A is entitled to participate in the testing process to trace and confirm.  
+Parts should satisfy the UL2580 requirements.  
+
+7.7.8 Appearance and label.  
+1. The battery system shall be clearly marked with a high voltage hazard label. Regarding the marking requirements for HV systems in FMVSS 305. S5.4:  
+   - The symbol shown in Figure 15 shall be present on or near electric energy storage devices.  
+   - The symbol shown in Figure 16 shall be visible on electrical protection barriers which, when removed, expose live parts of high voltage sources.  
+   - The symbol shall be yellow, and the bordering and arrow shall be black.  
+
+2. Nameplate requirement.  
+Specify the chemical type of the power cell and the basic parameters of the battery system for identification. The basic parameters include:  
+   - Chemical type of the battery system.  
+   - Rated voltage.  
+   - Maximum discharge current of the battery system.  
+   - Maximum charging current of the battery system.  
+   - Overall quality of the battery system.  
+
+3. Additional markings.  
+   - The grounding point should be marked "G" or "GR" as per IEC 60417, NO5019.  
+   - HV connector and water inlet/outlet should have clear marking and error-proofing.  
+   - Housing surface of the battery pack must be resistant to salt spray, supporting a neutral salt spray test lasting more than 480 hours. After the test, no bubbles or corrosion are allowed on the surface of the parts.  
+   - Use ground nut M8 with resistance ≤ 50 mΩ.
+
+**Figure 15: Danger Symbol in HV pack and BDU.**  
+**Figure 16: Warning symbol in HV pack and BDU.**  
+**Figure 17: Position of the warning label.**  
+
+7.8 Abuse condition requirements.  
+- Thermal propagation requirements: No thermal propagation should occur, or in the event of thermal propagation, the system shall warn the occupants 5 minutes before danger reaches the passenger compartment.  
+- Flame retardant requirement: Non-metallic materials in the battery system must meet UL 94 flammability grade V0 standards.  
+- The battery pack shall include a venting valve capable of releasing internal pressure promptly in case of thermal runaway.  
+- Crash requirements:  
+  - No intrusion to the battery cell is allowed (0 mm).  
+  - Maximum displacement of the battery cell after a crash due to external pack or module damage is limited to 5 mm.  
+
+7.9 External fire.  
+The battery pack must withstand external fire exposure for a duration of 1 hour without exploding.
+Page 57
+Meet ECE R100.02 standard: The battery pack shall exhibit no evidence of explosion.
+
+7.10 Durability / Life Time  
+- Tested to 160,000km or 8 years.
+
+7.11 Electrical Component Requirements  
+7.11.1 Description of the functionality  
+- **BDU**: Refer to BMS SPEC BOOK.  
+- **HV Connector**: Refer to BMS SPEC BOOK.  
+- **LV Connector**: Refer to BMS SPEC BOOK.  
+- **Bus Bar**: To connect high voltage components inside the pack and BDU.  
+- **Wiring Harness**: To connect low voltage components inside the pack, HVIL, and perform signal communication.  
+- **IP XXB – High Voltage Protection**: Note: BMS SPEC BOOK VFDSXVBAT1061-VF8_SPB_BMS.
+
+7.11.2 Low Voltage Signal Distribution  
+- KL30 Power, which is 12V, comes via LV Connector.  
+- 12V Power goes from KL30 to IVT shunt.  
+- HALL Sensor will get power from BCU (5V).  
+- Contactor power & Pre-charge relay power comes from BCU (12V).  
+- HVIL OUT line will send a 5V PWM signal with 50Hz and 50% duty cycle.  
+- The MCU (SLAVE BMS) is powered by the module.
+
+7.11.3 High Voltage Distribution  
+- Pyrofuse is used to turn off the High Voltage during a crash.  
+- Fuse is used to turn off the High Voltage during short circuit detection.  
+- Bus Bars are used to connect between the Modules and also the HV connector and contactor. No cables are used for the High Voltage distribution.  
+- IP XXB – High Voltage Protection is made in all the High Voltage connections excluding the following:  
+  - HV connector lower side: Can only meet IPXXA. Human fingers can access connector terminals from below (no visual of exposed conductor).
+Page 58
+VinES 
+VFDSXVBAT0385 
+Version: 6.0 
+
+7.7.6 Dimension requirements.  
+See 3D data and 2D drawings of product for details.  
+The mounting dimensions shall pass the fixture inspection.  
+Location of the battery pack is under the BIW, and should have a PVC layer to prevent stone strikes and limit scratches.  
+Installation points shall be considered at the bottom housing of the battery pack for adding metal protective armor at the bottom of the vehicle.  
+
+7.7.7 Material requirements.  
+Materials shall conform to the requirements of product performance and reliability.  
+The material test will be arranged by Party B, who needs to send the qualified test results to Party A in the form of a test report. The test report shall be issued by a third-party testing institute with national qualification or Party B’s lab approved by Party A. Party A is entitled to participate in the testing process to trace and confirm.  
+Parts should satisfy the UL2580 requirements.  
+
+7.7.8 Appearance and label.  
+1. The battery system shall be clearly marked with a high-voltage hazard label. According to marking requirements for HV systems stated in FMVSS 305, S5.4, the symbol shown in Figure 15 shall be present on or near electric energy storage devices. The symbol in Figure shall also be visible on electrical protection barriers which, when removed, expose live parts of high-voltage sources. The symbol shall be yellow, and the bordering and arrow shall be black.  
+
+**Figure 15: Danger Symbol in HV Pack and BDU.**  
+**Figure 16: Warning Symbol in HV Pack and BDU.**  
+
+7.7.8.1 Nameplate requirement.  
+Specify the chemical type of the power cell and the basic parameters of the battery system for identification.  
+Basic parameters include chemical type of the battery system, rated voltage, maximum discharge current of the battery system, maximum charging current of the battery system, overall quality of the battery system, etc.  
+
+7.8 Abuse condition requirements.  
+The thermal propagation requirement is that no thermal propagation occurs, or if thermal propagation occurs, the system shall provide a warning to the occupant five minutes before danger is caused to the passenger compartment.  
+Non-metallic materials in the battery system must be flame-retardant and conform to UL 94 flammability grade V0.  
+The battery pack shall be equipped with a venting valve that releases internal pressure timely in the case of thermal runaway.  
+In the case of any crash event, no intrusion to the cell is allowed (0 mm). A maximum 5mm cell displacement is allowed after the crash due to external pack/module damage.  
+
+7.9 External fire.  
+External fire requirement: The battery pack must withstand external fire for a duration of 1 hour, and the battery system cannot explode.  
+Meet ECE R100.02 standards: The battery pack shall exhibit no evidence of explosion.  
+
+7.10 Durability / Life Time.  
+Tested to 160,000 km or 8 years.  
+
+7.11 Electrical Component Requirements.  
+7.11.1 Description of functionality:  
+BDU: Refer to BMS Spec Book.  
+HV Connector: Refer to BMS Spec Book.  
+LV Connector: Refer to BMS Spec Book.  
+Bus Bar: To connect high-voltage components inside the pack and BDU.  
+Wiring Harness: To connect low-voltage components inside the pack, HVIL, and perform signal communication.  
+IP XXB – High Voltage Protection.  
+
+**Note:** BMS SPEC BOOK: VFDSXVBAT1061-VF8_SPB_BMS.
+
+7.11.2 Low Voltage Signal Distribution.  
+- KL30 power (12V) comes via LV Connector.  
+- 12V power goes from KL30 to IVT shunt.  
+- Hall Sensor power comes from BCU (5V).  
+- Contactor power and pre-charge relay power come from BCU (12V).  
+- HVIL OUT line sends a 5V PWM signal with 50Hz and 50% duty cycle.  
+- The MCU (SLAVE BMS) is powered by the module.  
+
+7.11.3 High Voltage Distribution.  
+- Pyrofuse is used to turn off the high voltage during a crash.  
+- Fuse is used to turn off the high voltage during short-circuit detection.  
+- Bus Bars are used to connect modules, the HV connector, and the contactor.  
+
+**IP XXB – High Voltage Protection** is installed for all high-voltage connections except:
+1. HV connector lower side: Can only meet IPXXA. Human fingers can access the connector terminal from below. No visual of exposed conductor.  
+2. Gaps between insulation cover and top cell holders in first and last 10S modules: Can only meet IPXXA. Human fingers can access the cell connecting busbar inside the module.  
+3. Gaps between insulation cover and top cell holders in 8S modules: Can only meet IPXXA. Human fingers can access the cell connecting busbar inside the module.  
+4. Gaps below the 7S module insulation cover: Can only meet IPXXA. Human fingers can access HV busbars. No visual of exposed conductor.
+
+**Figures:**  
+Visual representations accompany each exception demonstrating insulation gaps and busbar accessibility.
+Page 59
+7.11.4 Liquid sensor, TR sensor
+
+7.11.4.1 Liquid sensor.  
+- This part shall be free from harmful burr, sharp edge, crack.  
+- Unless otherwise specified, shape of each part shall conform to 3D data.  
+- Flammability standard: UL94-V0.  
+- Initial resistance is 510 KOhm.  
+- Traceability follows VFDST00010501.  
+- The surface of the product is roughened with VDI 25-27.  
+- Product must be accepted before production.  
+
+7.11.4.2 TR sensor.  
+[No added textual information; visual structure observed in image.]
+Page 60
+7.11.4 Liquid sensor, TR sensor:
+
+7.11.4.1 Liquid sensor:
+- This part shall be free from harmful burr, sharp edge, crack.
+- Unless otherwise specified, the shape of each part shall conform to 3D data.
+- Flammability standard: UL94-V0.
+- Initial resistance is 510 KOhm.
+- Traceability follows VFDST00010501.
+- The surface of the product is roughened with VDI 25-27.
+- Product must be accepted before production.
+
+Mating connector: MOLEX NANO FIT 1053071205.  
+Sensor weight: 19 grams.
+
+7.12 Climatic Requirements / Thermal Management:
+
+7.12.1 Environmental operating conditions:
+The ambient temperature, relative humidity, and altitude shall meet the vehicle performance operating environment.
+
+7.12.2 Heat protection:
+The development and validation of heat protection in the complete vehicle ensure that all relevant component temperatures remain below the maximum allowed limits. These limits are derived from vehicle operation within environmental operating temperatures.
+
+7.13 Service & Assembling Requirements:
+1. Use balanced lifting tools to lift the pack onto the VF elevator-platform.
+   - Ground pin.
+   - Power pin.
+   - CAN low pin.
+   - CAN high pin.
+   - NC pin.
+Page 61
+7.13 Service & Assembling Requirements
+
+1. Pictures of Balanced lifting tool to AGV: Display images of a pallet and AGV used as part of the lifting mechanism.
+
+2. Raise the elevator-platform to keep the battery pack close to the vehicle site. Align the bolt holes of the battery pack with the holes of the vehicle.
+
+Car with Hanger system: Visual diagrams showcasing the hanger system integrated for lifting and aligning the car.
+Page 62
+7.11.4 Liquid sensor, TR sensor.
+
+### 7.11.4.1 Liquid sensor
+The liquid sensor shall meet the following requirements:
+- This part shall be free from harmful burrs, sharp edges, or cracks.
+- Unless otherwise specified, the shape of each part shall conform to 3D data specifications.
+- The flammability standard for the part is UL94-V0.
+- Initial resistance is specified as 510 KOhm.
+- Traceability must follow VFDST00010501.
+- The surface of the product is roughened with VDI 25-27.
+- The product must be accepted prior to production.
+
+Mating connector: MOLEX NANO FIT 1053071205.  
+Sensor weight: 19 grams.
+
+### 7.11.4.2 TR sensor
+The TR sensor detail is illustrated in the image as part of the assembly process.
+
+---
+
+### 7.12 Climatic Requirements / Thermal Management
+
+#### 7.12.1 Environmental Operating Conditions
+The ambient temperature, relative humidity, and altitude shall meet the vehicle performance operating environment.
+
+#### 7.12.2 Heat Protection
+The development and validation of heat protection in the complete vehicle ensure that all relevant component temperatures remain below the maximum allowed limits derived from the vehicle's operating conditions within the environmental temperature range.
+
+---
+
+### 7.13 Service & Assembling Requirements
+
+#### Procedure for Assembling the Pack
+1. Use balanced lifting tools to lift the pack onto the VF elevator-platform.  
+   - Illustrated elements include:
+     - Ground pin.
+     - Power pin.
+     - CAN low pin.
+     - CAN high pin.
+     - NC pin.
+
+#### 2. Raise the elevator-platform.
+- Keep the battery pack close to the vehicle's site.
+- Align the bolt holes of the battery pack with the holes of the vehicle.
+
+#### 3. Tighten all bolts M12, M8, M10.
+#### 4. Tighten the screws with about half the torque.
+- Starting from the corner, lock the screws diagonally.
+
+#### 5. Tighten the screws with full torque.
+- Starting from the corner, lock the screws diagonally.
+
+#### 6. Lock the ground wire.
+- Location features for tightening bolts include:
+  - M8-8 positions.
+  - M10-1 position.
+  - M12-3 positions.
+  - M12-7 positions (multiple).
+  - M12-2 positions.
+
+Illustrations show the assembly process with AGV (Automated Guided Vehicle) moving the battery to the assembly position. Detailed diagrams and labeled features indicate bolt positions and fixture alignment.
+Page 63
+7. Connect the ground wire to the battery.  
+  
+8. Plug in the inlet and outlet pipes.  
+
+Connect the inlet/outlet from the car to the battery.  
+
+9. Connect the HV connector with PPE and high-voltage protective gloves.  
+
+Connect the LV connector.
+Page 64
+Connect Communication connector from Car to Battery.
+
+10. Other information: Check the Battery Pack Service Manual.
+
+### 7.14 Transport Protection
+Each battery system should be packed in a wooden box, stacked in two layers for fixing. During transportation, severe vibration, impact, or extrusion must be avoided, along with direct sunlight and rain exposure. Perishable items are transported in the same vehicle and can be transported via vehicles, trains, ships, airplanes, and other transportation methods. Introduce moisture absorbers to reduce moisture formation in the pack.
+
+### 7.15 Logistics Requirements
+SDS is required for road transportation and UN38.3 compliance for air transportation.
+
+#### 7.15.1 Danger Warnings and Precautions
+1. **Prohibition of disassembling or installing batteries:** The battery has a protective circuit inside. Improper disassembly will damage the protective function and cause the battery to generate heat, smoke, deform, or burn.  
+2. **Prohibit short circuit of battery system:** Do not connect the positive and negative electrodes of the battery system with metal, and do not store or move the battery and metal together. If a short circuit occurs, a large current will flow, damaging the battery system and causing heat, smoke, deformation, or combustion.  
+3. **Never heat or incinerate the battery system:** Heating and incinerating the battery system can lead to loss of safety functions or burning of the electrolyte, alongside overheating that can result in heat, smoke, deformation, or combustion.  
+4. **Do not use the battery system near heat sources:** Do not operate the battery system near a fire source, oven, or in an environment exceeding 80°C. Overheating can result in a short circuit, damage, and subsequent catastrophic failure.
+Page 65
+7.16 Storage.
+
+7.16.1 Store the battery system at:
+- Temperature: 17 ~ 27℃ (22 +/-5℃).
+- Humidity: 20 ~ 80%.
+- Wrist Strap: 0.9mΩ ~ 1.1MΩ (Unit).
+- Electrostatic Shoes: 1X10^4 ~ 9.9X10^8Ω ↓.
+- ESC: ±100V ↓.
+
+Storage condition includes a dust-free and non-corrosive gas atmosphere. Avoid contact with corrosive substances and keep the battery away from fire and heat sources. The battery must be charged every three months during storage.
+
+7.17 Quality Assurance Requirements and Recommended Usages.
+1. Please use the battery in a suitable environment, ambient temperature -35 ℃ ～ +55 ℃, with ambient humidity ≤ 95%.
+2. During use, keep the battery away from heat sources, high voltage, and children. Do not drop the battery.
+3. When not in use for a long time, store the battery properly, maintaining 30% SOC.
+4. Wrap the battery with insulating material to prevent direct metal contact, which could damage the battery.
+5. Store the battery in a cool and dry place.
+
+7.17.1 Short-term Storage:
+Store the battery at 10 ~ 23℃, low humidity (below 60%), and a dust-free and non-corrosive gas atmosphere. Failure to do so may lead to performance loss, leakage, or rust.
+
+7.17.2 Long-term Storage:
+The battery pack should be used shortly after charging to avoid capacity loss through self-discharge. If storage for a longer duration is required (but not exceeding the warranty period outlined in Section 10 (Warranty)), the battery should be stored at shipping voltage, as higher voltage storage can result in greater performance loss.
+Page 66
+7.18 Content Amendments.  
+N/A.  
+
+8 Testing and Validation.  
+8.1 Proof of Compliance.  
+Conformity of certified products refers to the degree to which the products using the certification mark are consistent with type test samples in terms of design, structure, and key components and materials used. Specifically, the following three are consistent:  
+- The mark of the certified product should be consistent with that indicated on the type test report.  
+- The structure of the certified product shall be the same as the sample in the type test.  
+- The parts and materials used in the certification products shall be consistent with those declared in the type test and confirmed by the certification body.  
+
+8.2 Testing Plan (DVP Plan).  
+Testing schedule and items shall be defined by TnV team with a clear procedure and test legs at each sample.  
+Further information can be found in the DVP document: DVPRXVBAT0411-VF8_DVPR_BATTERY PACK ASSEMBLY.  
+
+8.3 Electrical Systems & Functions.  
+Several validation cycles for electrical systems and functions are planned to guarantee correct implementation and will be carried out according to mentioned standards.  
+
+8.4 Virtual Testing and Simulation.  
+For every delivery, the supplier shall provide changing files of function and test reports.  
+Marked: Suppliers could use their own test reports for review.  
+
+8.5 Vehicle Testing.  
+The component must withstand the tests on a complete vehicle.  
+
+8.6 Content Amendments to Part 2.  
+N/A.  
+
+9 Definitions and List of Abbreviations.  
+9.1 List of abbreviations.  
+AGV - Automated Guided Vehicle.  
+BP - Battery Pack.  
+BCU - Battery Control Unit.  
+BDU - Battery Distribution Unit.  
+BEV - Battery Electric Vehicle.  
+BPD - Battery Pack Division.  
+BOL - Beginning of Life.  
+CAN - Controller Area Network.  
+DVP - Design Validation Plan.  
+ESO - Engineering Sign-Off.  
+EOL - End of Life.
+Page 67
+VinES
+
+Version: 6.0  
+Uncontrolled copy when printed  
+67 | 72  
+
+### 9. Definitions and List of Abbreviations  
+
+**List of abbreviations:**  
+- HVBP: High Voltage Battery Pack  
+- HVIL: High Voltage Interlock Loop  
+- ISO: Isolation  
+- LHD: Left Hand Drive  
+- LLS: Long Lead Suppliers on board  
+- LLT: Long Lead Tooling  
+- MCU: Module Control Unit  
+- MFC: Manufacturing Feasibility Confirmation  
+- MRD: Material Readiness Date  
+- MSC: Manufacturing Strategy Confirmation  
+- MSDS: Material Safety Datasheet  
+- MSI: Major Suppliers Identified  
+- MSO: Manufacturing Sign Off  
+- MSW: Main Switch Contactor  
+- OBD: OnBoard Diagnostics  
+- OTS: Off The Shelf  
+- PTC: Positive Temperature Co-Officient Heater  
+- PTO: Production Try-Out  
+- PTP: Prototype Parts out of Serial Tooling (Hand Finished)  
+- SDS: Safety Datasheet  
+- SLS: Short Lead Suppliers on board  
+- SOB: Supplier on Board  
+- SOC: State of Charge  
+- SOP: Start of Production  
+- SOR: Scope of Requirement  
+- SPB: Spec Book  
+- SST: Sourcing Strategy  
+- TS: Theme Selection Model  
+- PPE: Personal Protective Equipment  
+
+### 9.2 Further Applicable Documents  
+
+Reference SOR from VF Vehicle for BAT:  
+- VFSRXVBAT1510-SOR_HV_Battery_VFe35  
+
+### 9.3 Environmental Compatibility  
+
+Minimizing the environmental impacts of a product through its complete life cycle is a key factor for future development of innovative products.  
+
+Requirements:  
+- Use of recyclable materials.  
+- Use of recycled materials and renewable resources.  
+- Prevention of hazardous substances.  
+- Minimization of compartment emissions including odor.  
+- Minimization of consumption of resources.  
+- Strategy for waste prevention.  
+- Parts marking for identification at end of life.  
+- Depollution and drainage at end of life.
+Page 68
+The requirements of the following standards have to be met:  
+- Reuse, Recycling & Recoverability obligations for vehicles, components, and parts acc. UN Regulation No. 133.  
+- Parts marking for identification of materials at end of life of vehicles, components, and parts acc. ISO standards (i.e. ISO 1043).  
+- Prohibition & Restriction of substances acc. Global Automotive Declarable Substances List GADSL.  
+- Prohibition & Restriction of substances acc. Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017).  
+- Battery Directive 2006/66/EC.  
+- Prohibition & Restriction and Declaration of substances acc. ELV Directive 2000/53/EC and REACH (EC) No 1907/2006.  
+- Prohibition & Restriction and Declaration of substances acc. California Proposition 65.  
+- Prohibition & Restriction of substances acc. Regulation (EC) No 850/2004 on persistent organic pollutants.  
+- Conflict Mineral Reporting from supplier that uses tin, tungsten, tantalum, or gold in their products or production of their product acc. US Dodd-Frank Act Sec.1502 (only applicable for companies listed on the US stock exchanges) and EU Conflict Minerals.  
+- Reduction of environmental impacts regarding the categories Global Warming Potential (Carbon footprint) and Consumption of Resources have to be considered for Life Cycle Analysis acc. ISO 14040.  
+
+Material information, parts marking & substance information for VinFast:  
+- The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier.  
+- The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured by the supplier through the complete product life cycle.  
+- For PPAP material data sheets (MDS) in IMDS according to IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002 - 022 are required. Updates are required for changes.  
+- Recommendation 019 is not applicable and MDS using REC019 will be rejected.  
+
+Material data sheets have to be provided by the supplier to the correct VinFast IMDS-ID (see Table 1) according to VFDST00007601 before project milestone PTO of the corresponding vehicle development stage (See VFDST00045200 for VinFast project milestone definition). If the IMDS-ID is not clear, the Material Compliance Team of VinFast has to be contacted.  
+
+### VinFast Accounts in IMDS (Organizational Unit):  
+| ID#               | Organizational Unit                |
+|--------------------|------------------------------------|
+| 192996            | VINFAST Trading and Production JSC |
+| 214435            | VINFAST VF8/33                     |
+| 213361            | VINFAST VF31                      |
+
+Parts marking should be carried out using the rule “as few characters as possible but as many as necessary.” The marking consists of brief type designations which have been defined by DIN, EN, or ISO standards (ISO takes priority). The codes are put into arrowed brackets, which consist of the mathematical signs for “more than” (>) and “less than” (<).
+Page 69
+Material safety data sheets (SDS) according to Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017) have to be provided to VinFast for milestone concept confirmation. Consider local rules for SDS creation and UN-guidelines acc. GHS Globally Harmonized System of Classification, Labelling and Packaging of Chemicals. 
+
+Further information:  
+- http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html  
+- https://www.gadsl.org/  
+- https://www.sec.gov  
+
+**Recycling**  
+**Dismantling scheme:**  
+The dismantling scheme which must be provided by the supplier has to show a simple, unmixed dismantling of the component as well as its accessibility when assembled. Additionally, information regarding joining techniques, dismantling tools, etc. must be stated in the dismantling scheme/dismantling concept.  
+
+Dismantling schemes must be provided on demand to the environmental specialists at VinFast before milestone PTO Production Try-Out.  
+
+**Recycled materials:**  
+When selecting materials, attention is to be focused on reducing the variety of materials and on compatibility with available recycling procedures (so-called ‘proven recycling technologies’).  
+
+Secondary raw materials (post-consumer recyclates and post-production recyclates, e.g. recycled polymeric PET fiber, recycled textiles, recycled foams, recycled thermoplastics, etc.) must be preferred with respect to availability on the market. Recycled materials must be marked according to parts marking standards defined in this specification book and must be reported to the environmental compliance expert’s team at VinFast.  
+
+**Recycling scheme:**  
+This chapter establishes the general project-wide requirements on the recycling and repair scheme in the development of a component.  
+
+Design for recycling of parts and components is required to enable cost-effective recycling at end-of-life.  
+The recycling scheme provided by the contractor has to show a simple layout for the possible recycling process of the component, including information about preferred recycling partners and cost estimation.  
+
+The recycling scheme must be provided to the environmental expert team at VinFast before milestone PTO Production Try-Out.  
+
+**9.4 Material Requirements & Corrosion**  
+Please refer to the VinFast Request for Quotation and to Part 1: General Project Requirements for Suppliers of VinFast Trading and Production JSC (“VinFast”).  
+
+For determination of corrosion requirements, the corrosivity position needs to be classified for each component in the system:  
+
+1. **Corrosivity Low:**  
+   Used when the position is not affected by macro environmental factors.
+Page 70
+The requirements of corrosion classification and tests are listed below:
+
+**Corrosivity classifications:**
+1. **Corrosivity Low:** Used for positions unaffected by macro wetness, mud/dirt, or road deicing salts.
+2. **Corrosivity Medium:** Applied when the position is moderately affected by macro wetness, mud/dirt, or road deicing salts.
+3. **High Corrosivity:** Default for exterior positions directly exposed to road spray.
+4. **Very High Corrosivity:** Default for positions directly exposed to road spray, stone chipping, and dirt accumulation.
+
+The vehicle exterior is generally considered a high corrosivity area.
+
+**Material and design considerations:**
+- Material combinations must prevent galvanic corrosion. Protective coatings (paint, plastic coating, insulating spacers) should be added for critical material combinations.
+- Avoid water/dirt accumulation by providing drainage at lowest points and preventing dirt traps that erode painted surfaces through micro movements.
+- Contact surfaces must be dry, non-abrasive, and minimize micro-movement.
+- Burr-free edges and good paint coverage must be ensured.
+
+---
+
+**Corrosion tests:**
+System/component tests and complete vehicle corrosion tests are mandatory.
+
+**Component tests for metallic surfaces:**
+- **Salt Spray Test:** ISO9227, acceptance criteria specified below.
+
+**Tests for organic coatings:**
+- **Cyclic Corrosion Test (CCT):** ISO11997 Cycle B, acceptance criteria specified below.
+
+Alternative tests may be proposed by the supplier but must be approved by a corrosion engineer.
+
+---
+
+**Test criteria chart:**
+
+| **Area**                        | **Corrosivity**     | **Metallic Coatings**      | **Organic Coatings**    | **Pass Criteria**    |
+|---------------------------------|---------------------|----------------------------|--------------------------|-----------------------|
+| Interior, mounted parts, dry area | Low                 | 240 h NSS → ISO 9227       | 96 h → ISO6270 CH        | No red rust           |
+| Exterior, engine compartment, underbody, wet area | Medium              | 480 h NSS → ISO 9227      | 5 cycl. CCT → ISO11997 Cycle B | NSS: No red rust |
+| High, not visible for customer  | High                | 480 h NSS → ISO 9227       | 10 cycl. CCT → ISO11997 Cycle B | NSS: No red rust |
+| High, visible                  | High                | 720 h NSS → ISO 9227       | 10 cycl. CCT → ISO11997 Cycle B | See below           |
+Page 71
+VinES
+
+VFDSXVBAT0385
+
+Version: 6.0  
+Uncontrolled copy when printed  
+
+71 | 72  
+
+Pass criteria for organic coatings after CCT:  
+- Rust creep according ISO4628-8: galvanized steel: d ≤ 4 mm; Steel (non galvanized) and aluminum sheet: d ≤ 1 - 2 mm.  
+- Blistering: Blister size max. S2 (according to DIN EN ISO 4628-2).  
+- Edge corrosion: ≤ 10%.  
+- Weld seam corrosion: ≤ 5%.  
+- Degree of rusting: ≤ Ri 1 (according ISO4628-3).  
+
+##### Stainless Steel:  
+Avoid direct contact with other metals (galvanic corrosion); in most cases, an insulating coating is needed.  
+- Test criteria for high visible parts: 720 h NSS ISO 9227 without change of surface. Check especially areas with crevices.  
+- Execute component test with assembled sub-system, where possible, and in a position as installed on the vehicle.  
+
+##### Aluminium Parts:  
+- Aluminium parts in high visible areas have to be painted or anodized.  
+- Test criteria Painted Aluminium: Refer to criteria for organic coatings.  
+- Test criteria Anodized Aluminium: 480h NSS ISO 9227 without change of surface.  
+- Execute component test with assembled sub-system, where possible, and in a position as installed on the vehicle.  
+
+##### Chromed Metal Parts:  
+- 240h NSS ISO9227 without base material corrosion.  
+
+##### Chromed Plastic Parts:  
+- CASS-Test According DIN EN ISO 9227; duration:  
+  - 48h for Exterior.  
+  - 24h for Interior.  
+- Acceptance criteria: no surface defects.  
+- Also: 240h NSS ISO9227 without surface defects.  
+
+##### Electric Parts:  
+Requirements and tests for electrical parts must be applied consistently with corrosion standards, ensuring functionality and durability in all conditions outlined above.
+Page 72
+Electrically functional units in casings and boxes with enclosed air volumes, such as different types of control units, shall be ventilated via a moisture/wetness-resistant membrane (type Gortex) when in wet locations. 
+
+Material combinations shall be chosen to prevent galvanic corrosion. This requirement includes fasteners and attached brackets. Avoid direct contact with more noble metals such as steel, stainless steel, copper, brass, nickel, and conductive or anti-static rubber in environments affected by wetness. Utilize surface treatments on steel fasteners that are long-term corrosion-resistant and fully compatible with other materials.  
+
+Electrical components must be installed such that vibrations do not generate fretting corrosion.  
+
+**Terminals, Connectors:** Do not place terminals on the lowest points. Tightness of terminals is required to prevent corrosion. Electrical connections must be protected from humidity.
+
+**Groundings:** Connecting surfaces of grounding must be water-tight if placed in a corrosive environment.
+
+**Aluminium/Sealing Surfaces:** Aluminium alloys containing copper and iron content > 1% should be avoided for components with sealing surfaces due to their sensitivity to corrosion. Corrosion may penetrate the seal quickly, allowing moisture to enter.  
+
+---
+
+### Prevention of Stone Chipping Issues
+The risk of damage to the bodywork and related parts by stone chipping must be minimized by design measures:
+
+- **Shielding:** Wherever possible, provide shielding parts for easily damageable areas.
+
+- **Design Features:** Enlarging radii of parts in high-risk areas can prevent severe issues.
+
+- **Materials and Coating:** In areas of high stone impact risk, choose materials and paints with matching colours to prevent visible abrasion marks.
+
+- **Edge Design:** Avoid parts with edges pointing in the vehicle's driving direction.
+
+- **Lower Styling Elements:** For chromed styling elements located on the lower areas of the vehicle, design them to be recessed or deepened to avoid stone impacts.

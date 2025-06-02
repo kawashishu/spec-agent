@@ -1,0 +1,740 @@
+
+<filename>VFDSXVPWT0019_VF32_SPEC_BOOK_COOLANT HOSES_ICE_V1.0</filename>
+<pages>
+
+<page number="1">
+Spec Book.
+
+Supersedes edition (06.2020).
+
+Spec book for Coolant hoses of ICE.
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new VF32 & VF33 vehicle in ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This spec book shall provide details for all components for mass production the PREM Program.
+
+Responsible Contact: Tam Minh Nguyen.
+
+The reproduction, distribution and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Index
+
+Contents
+
+SCOPE AND PURPOSE  2
+
+Index  3
+
+1.0 Scope of product/commodity  6  
+1.1 Vehicle profile  6  
+1.2 Sales Markets  6  
+1.3 Production volume  6  
+     1.3.1 For Vietnam market  6  
+     1.3.2 For US market  6  
+  
+2 PROGRAM TIMING AND BUILD PLAN  6  
+2.1 Timing plan  6  
+2.2 Build plan  6  
+  
+3 ORGANIZATION AND CONTACT  7  
+  
+4 DEFINITIONS AND APPLICABLE DOCUMENTS  7  
+4.0 CAD Data/Transfer data-CAD Requirements  7  
+4.1 Change Documentation and Part History Documentation  7  
+  
+5 DESCRIPTION AND SCOPE OF WORK  7  
+5.0 Technical requirement  7  
+     5.0.1 System Overview  8  
+     5.0.2 System requirements  9  
+            Handling and packaging requirements:  9  
+            Surface requirements:  10  
+     5.0.3 Function  10  
+     5.0.4 Interfaces  10  
+     5.0.5 Package layout overview  11  
+     5.0.6 Temperatures and pressures  11  
+     5.0.7 Connections and fixations  11  
+5.1 General CAE Requirements  15  
+5.2 Material requirement  16  
+5.3 Appearance Approval – Applicable for all Visible parts  16  
+5.4 Traceability  16  
+5.5 Labeling of Parts  16  
+  
+6 TESTING AND VALIDATION AND DVP&R  16  
+  
+7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS . 17  
+7.0 Functional Safety Requirements  17  
+7.1 Deliverables for Functional Safety  17  
+    a) FUSA Deliverables expected before nomination  17  
+    b) FUSA Deliverables expected after nomination  17  
+7.2 Homologation and safety regulation requirements  18  
+     7.2.1 North America  18  
+     7.2.2 Europe  18  
+  
+8 DELIVERABLES  19  
+8.0 Technical deliverables  19
+</page>
+
+<page number="4">
+Index 
+
+Contents.
+
+8.1 Details deliverables and RASI  20 
+
+9 Supplier Responsibilities  21 
+
+10 Intellectual Property / Copyright  21 
+
+11 Insurance / Warranties  21 
+
+12 VinFast GTC & Part Packaging and Incoterms  21 
+
+13 Definitions and List of Abbreviations  21
+</page>
+
+<page number="5">
+Release.
+
+Version: 1.0.  
+Date: Jun-2020.  
+Updated by:  
+Function: Powertrain.  
+Name: Tam Minh Nguyen.  
+
+Revisions since previous version.
+
+Version: 1.  
+Change Description: First Release.  
+Date: 10.02.2020.
+</page>
+
+<page number="6">
+1.0 Scope of product/commodity.
+
+1.1 Vehicle profile.  
+Refer to appendix: VFDSXVCVC0501 VF32_ICE_BEV_Appendix_5_Features list.
+
+1.2 Sales Markets.  
+LHD countries: Vietnam (VN) & Asean, US.
+
+1.3 Production volume.  
+1.3.1 For Vietnam market.  
+Refer to appendix: VFDSXVCVC2101 VF32+VF33_Appendix_1_Product_Volume.  
+
+1.3.2 For US market.  
+Refer to appendix: VFDSXVCVC2101 VF32+VF33_Appendix_1_Product_Volume.  
+
+2 Program Timing and Build Plan.
+
+2.1 Timing plan.  
+VFDSXVCVC1101_VF32_Appendix_1_Project timing.  
+VFDSXXCVC1101_VF33_CVC_Appendix_1_Build Plan.  
+
+2.2 Build plan.  
+VFDSXVCVC1101_VF32_Appendix_1_Project timing.  
+VFDSXXCVC1101_VF33_Material production launch plan.
+</page>
+
+<page number="7">
+**VinFast Management System**
+
+**VFDSXVPWT0019**
+
+**Version: 1.0**  
+Uncontrolled copy when printed
+</page>
+
+<page number="7">
+of 22  
+
+---
+
+### 3 Organization and Contact  
+
+**Contact Table:**  
+
+| **Contact**                | **Name**                     | **Email ID**                 | **Contact Number**         |
+|----------------------------|-----------------------------|-----------------------------|----------------------------|
+| Commodity Buyer            | Đoàn Ngọc Hưng              | v.hungdn5@vinfast.vn        | 02973998999                |
+| Commodity Buyer Manager    | Tran Thi Minh Huong         | v.huongttm5@vinfast.vn      | 0963882622                |
+| Commodity Engineering      | Shitalkumar Fiske           | Vf.pn.fiskes@vinfast.vn     | +84 383146324             |
+| Commodity Engineering Manager | Tam Minh Nguyen       | v.tamnm16@vinfast.vn        | +61400912913              |
+| SQE (Site Engineer)        | Praveen Durairajan Prakash  | v.praveendp@vinfast.vn      | Not listed                |
+| SQE Manager                | Mark Shannon                | v.shannonm@vinfast.vn       | +86185 1614 7440          |
+| SCM Analyst                | Dilshod Tokhtasinov         | v.dilshod@vinfast.vn        | +84(0) 888352662          |
+| Packaging Analyst          | Attsawarungsun Nimnaul      | v.nimnaula@vinfast.vn       | +84(0) 888329955          |
+| SCM Manager                | Benjamin Peter Stewart      | v.bens@vinfast.vn           | +84(0) 888798855          |
+
+---
+
+### 4 Definitions and Applicable Documents  
+
+#### 4.0 CAD Data/Transfer Data - CAD Requirements  
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014.  
+CAD data transfer from VinFast to the supplier will be done through the Supplier Collaborative Module. For more details, refer to the Supplier Collaborative Module in the RFQ package.  
+
+#### 4.1 Change Documentation and Part History Documentation  
+During the development and production process, all the history of changes within the framework of the contractor must be documented and provided to VinFast and the OEM/Supplier by the contractor (e.g., entries in a project manual). The form of the data can be defined by the contractor.  
+
+Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements, must be remarked on the drawings.  
+
+The reasons and characteristics that need to be documented are listed by authorities. These demands will be requested during the development of the part and latest in the PTO phase.  
+
+---
+
+### 5 Description and Scope of Work  
+
+#### 5.0 Technical Requirement  
+This specification establishes the technical cooling module requirements for the ICE cooling hoses and pipes.  
+
+It must be ensured at all times that VinFast can audit the observance of all requirements contained in the technical specification.
+</page>
+
+<page number="8">
+VinFast Management System  
+VFDSXVPWT0019  
+Version: 1.0  
+Uncontrolled copy when printed
+</page>
+
+<page number="8">
+Table 1: Technical Information Table  
+
+1. DEGAS_OUTLET_HOSE_B48M1: Part No. PWT30204161, Quantity 1, Material EPDM, Purchase Level P, ICE models VF32 and VF33 SMART and PLUS in VN+ASEAN.  
+2. RAD_DEGAS_VENT_HOSE_B48M1: Part No. PWT30204154, Quantity 1, Material EPDM/PA, Purchase Level P, ICE models VF32 and VF33 SMART and PLUS in VN+ASEAN.  
+3. HVAC_INLET_HOSE_B48M1: Part No. PWT30204155, Quantity 1, Material EPDM, Purchase Level P, ICE models VF32 and VF33 SMART and PLUS in VN+ASEAN.  
+4. DEGAS_ENG_INLET_HOSE_B48M1: Part No. PWT30204153, Quantity 1, Material EPDM, Purchase Level P, ICE models VF32 and VF33 SMART and PLUS in VN+ASEAN.  
+5. HVAC_OUTLET_HOSE_B48M1: Part No. PWT30204156, Quantity 1, Material EPDM, Purchase Level P, ICE models VF32 and VF33 SMART and PLUS in VN+ASEAN.  
+6. AUX_RAD_OUTLET_HOSE_B48M1: Part No. PWT30204157, Quantity 1, Material EPDM/PA, Purchase Level P, available for VF32 and VF33 SMART in VN+ASEAN.  
+7. AUX_RAD_INLET_HOSE_B48M1: Part No. PWT30204158, Quantity 1, Material EPDM, Purchase Level P, available for VF32 and VF33 SMART in VN+ASEAN.  
+8. AUX_RAD_INLET_HOSE_B48M1: Part No. PWT80204004, Quantity 1, Material EPDM, Purchase Level P, available for VF33 SMART and PLUS in VN+ASEAN.  
+9. AUX_RAD_OUTLET_HOSE_B48M1: Part No. PWT80204003, Quantity 1, Material EPDM/PA, Purchase Level P, available for VF33 SMART and PLUS in VN+ASEAN.  
+10. TRANSMISSION_INLET_HOSE_VF33: Part No. PWT80204005, Quantity 1, Material EPDM, Purchase Level P, available for VF33 SMART and PLUS in VN+ASEAN.  
+
+### 5.0.1 System Overview  
+The system developer commits to develop all technical solutions and requirements based on the available vehicle and design data within the design process to achieve the project's purpose.  
+The technical and commercial release will be carried out by customers following change management procedures.  
+
+VinFast’s platform is designed to support ICE applications.  
+
+For ICE vehicles, cooling hoses and pipes facilitate coolant flow (50% Glycol) for engine and transmission cooling systems as well as HVAC heating.  
+
+Coolant hoses and pipes play a critical role by providing flexible connections between moving components like the engine and e-motor, and fixed components like radiators and expansion tanks within the vehicle. These lines must allow coolant flow at high temperatures, absorb movements without ruptures, and prevent load transmission or significant flow restrictions. They are designed in various shapes and sizes per system requirements.
+</page>
+
+<page number="9">
+VinFast Management System  
+VFDSXVPWT0019  
+Version: 1.0  
+
+5.0.2 System requirements.  
+System supplier has to define characteristic curve/values matching thermal and mechanical requirements of hoses.  
+The following requirements have to be fulfilled:  
+
+- Geometry.  
+- Acoustics, vibrations, resonances.  
+- Life due to the operational profile.  
+- Service and ease to repair.  
+
+Supplier is responsible for the development and must cover all development phases to ensure system performance requirements are met. Following development activities should be led by the supplier:  
+
+- Concept Creation System.  
+- Package refinement.  
+- Sizing of hoses.  
+- Identification of leakage paths.  
+- Evaluation of coolant flow uniformity.  
+- Provide flow rate data, which will serve as a boundary condition for cooling system simulation.  
+
+**Characteristic Curves:**  
+The supplier must provide characteristic charts. Pipes should be tested to plot the characteristic curves, including pressure against temperature and pressure loss at different points.  
+
+**Handling and Packaging Requirements:**  
+No sharp edges that may cut or injure a person or damage other parts are permitted. These considerations must be discussed with VCC purchase and manufacturing engineering departments.  
+
+**Figure Description:**  
+The figure is a schematic diagram of the ICE cooling system, showing the flow of coolant between key components, such as the radiator, engine, thermostat, heater core, and pumps. Red lines represent outgoing flows, while blue lines indicate incoming flows. The main components integrate with sub-systems like the E-pump, turbocharger, and expansion tank to form the complete cooling mechanism.
+</page>
+
+<page number="10">
+5.0.2 System Requirements.  
+
+System suppliers are required to define characteristic curves and values that match the thermal and mechanical requirements of hoses.  
+
+The requirements that must be fulfilled include:  
+- Geometry.  
+- Acoustics, vibrations, resonances.  
+- Life due to operational profiles.  
+- Service and ease to repair.  
+
+The supplier is responsible for development and must cover all development phases to ensure system performance requirements are met. Development activities led by the supplier include:  
+- Concept creation system.  
+- Package refinement.  
+- Sizing of hoses.  
+- Identification of leakage paths.  
+- Evaluation of coolant flow uniformity.  
+- Providing flow rate data used as a boundary condition for cooling system simulations.  
+
+**Characteristic curves:**  
+Suppliers are to provide characteristic charts. Pipes must be tested to plot characteristic curves, including pressure against temperature and pressure loss at different points.  
+
+**Handling and packaging requirements:**  
+Hose components must avoid sharp edges that could cut or injure a person or damage other parts. Packaging discussions should include VinFast's VCC purchase and manufacturing engineering departments.  
+
+The components must be packaged to prevent transportation damage. Hoses should ideally be packed in plastic boxes. If wooden boxes are used, they should have big plastic bags lining the box interior during transport.  
+
+**Surface requirements:**  
+The pipe surface should be free of folds, cracks, pores, and blisters while maintaining smooth internal surfaces. All pipes must be black in appearance except for markings.  
+
+---
+
+**5.0.3 Function.**  
+
+Cooling lines are responsible for distributing coolant between various components of a vehicle’s cooling and heating systems. This involves circulating coolant under continuous pressure and temperature fluctuations.  
+
+The functional requirements for cooling hoses are as follows:  
+- The hoses must be secured to the connections using POPP-clamps (Pre Open Pre Position clamps) or quick connectors.  
+- Cooling lines must maintain efficiency in hot and stressful environments involving heat, pressure/vacuums, engine oil, and blow-by gases. These conditions induce rapid heat aging in many plastic and rubber materials.  
+- Flexible connections are required to isolate engine and e-motor vibrations and noise from ducting systems. Connections should be configured for maximum allowable offsets to prevent early failure and reduce excess force on turbochargers and air inlet components.  
+- Certain hoses must absorb movement between the engine/e-motor and other cooling system components, remaining functional under engine rolling conditions.  
+- Cooling lines must be cleaned of all debris. Prolonged operation should not result in debris entering the system, and exterior hose material must resist exposure to engine oil, fuel, brake fluid, washer fluid, and ATF oil. It should be compatible with standard engine washing agents available on the market.  
+- Hoses should feature Fluorosilicone coatings on interior surfaces to resist oil and coolant, providing an added layer of protection against deterioration.  
+- Quick connectors should be readily serviceable in car service stations as complete hose assemblies or fixable replacements, ensuring high accuracy and care.  
+
+---
+
+**5.0.4 Interfaces.**  
+
+All components must be designed to ensure functionality in combination with adjoining systems and interfaces.  
+
+Major interface points include:  
+- AC pipes.  
+- Radiator(s) and fan shroud.  
+- Degas bottle.  
+- Hose mounting brackets.  
+- BIW (clearances, packaging, resonances, stiffness).  
+- Engine mountings and hoses.  
+- Transmission.  
+- Chassis (clearances to chassis components, such as engine mounts and electric wiring).
+</page>
+
+<page number="11">
+**VinFast Management System**
+
+**VFDSXVPWT0019**
+
+**Version: 1.0**  
+Uncontrolled copy when printed  
+
+**
+</page>
+
+<page number="11">
+of 22**  
+
+---
+
+**5.0.7 Connections and fixations**
+
+Hose sealings shall unite various components in the cooling and heating systems of the cooling systems. The hose sealings will secure that no leakage will occur in any joints of the cooling system. The coolant in the system shall consist of a water and glycol mixture in a 50/50 ratio.
+
+- **Sealings before marriage point**: All rubber hose sealings before the marriage point should have POPP clamps with spigots according to DIN3021-3.  
+- **Sealings after marriage point**: All hose sealings after the marriage point should have quick connectors. Other sealings may also have quick connectors depending on packaging and assembly situations.
+
+**Prohibited clamps:**  
+No loose clamps, such as screw worm clamps, should be used.
+
+**POPP-clamp (Pre Open Pre Position):**  
+Hoses should include standard constant tension clamps or POPP clamps, along with alignment marks, unless quick connectors are required.  
+
+- **Compatibility requirements:**  
+  When using POPP-clamps, hose ends must comply with inner diameter requirements compared to spigot outer diameter. This compatibility must be verified accurately.  
+
+- **Wall thickness for rubber hose ends (DIN 3021-3):**  
+  - Inner diameter: 6.5mm - 25mm; Wall thickness: 3.5 ± 0.4mm  
+  - Inner diameter: 26mm - 36mm; Wall thickness: 4.0 ± 0.4mm  
+
+**Interference tolerance between hose and spigot:**  
+- 1.0mm (inner diameter hose end ≤ 26mm)  
+- 1.5mm (inner diameter hose end > 26mm)  
+
+**Tolerances for hose end inner diameter:**  
++0 / -0.8mm
+
+**Position of POPP-clamp on rubber hose:**  
+Clamps should be positioned 5mm from the hose end, with tolerances of ±1mm.  
+
+- **Effect of high engine temperatures:**  
+  After the first heat-up of the engine (90°C), glue on the clamps will lose its stickiness.  
+
+- **Marking requirements:**  
+  Color markings should indicate both clamp position and angle on hoses.
+
+---
+</page>
+
+<page number="12">
+### Spigot Design for POPP Clamp
+
+The spigot for POPP-clamp sealing must conform to DIN 3121-3 standards. The minimum length (Lmin) should be selected according to a 15 mm width clamp (c=15). For diameters Øds ranging from 6.5 mm to 32 mm, Lmin should be 23 mm. 
+
+Correct verification of hose connections with POPP-clamps is mandatory.
+
+### Position of POPP-Clamp on Rubber Hose
+
+The clamp must be positioned at 5 mm from the hose end with a tolerance of ±1 mm. After the initial engine heat-up at 90°C, the effect of glue should dissipate. 
+
+2D coordinates for Color Marking (CM X) must be displayed clearly for indicating clamp position and angular orientation.
+
+### Tolerances for Clamp Angle
+
+- **±5° for ID > 27 mm**
+- **±10° for ID ≤ 27 mm**
+
+### Tolerance for Rubber Hose
+
+The tolerance specifications for hose diameters and angles are crucial to ensure accurate and effective connections.
+</page>
+
+<page number="13">
+Tolerance for position of "Sleeve start point" is ±7.5 along the centerline.
+
+References for hose end:  
+Pictures show references for the rubber hose, including detailed diagrams. These diagrams illustrate critical dimensions and positioning requirements for sealing length and other specifications.
+
+Color markings for rubber hose end position:  
+The picture displays measurements for color markings on hose ends, highlighted in yellow.  
+- Length of marking: 20 ± 1 mm  
+- Width of marking: 2 ± 0.5 mm  
+
+These specifications ensure the precise alignment and positioning of rubber hoses and their markings.
+</page>
+
+<page number="14">
+## Quick connector
+
+SAE J2044 connectors shall be used in plastic pipe as the first choice. SAE connectors could be used for rubber hose. Used quick connectors should comply with the following standards:
+- SAE J2044.
+- VDA.
+
+### References for VDA QC
+Picture shows an example for references regarding the VDA connector.
+
+### References for SAE QC
+Picture illustrates examples for SAE connector references.
+
+---
+
+## Hose joint to plastic parts
+
+Crimp rings are the preferred choice for sealing between plastic parts and hoses in complete hose units. It is the supplier's responsibility to ensure the crimp ring sealing is adequate.
+</page>
+
+<page number="15">
+## Support clips
+
+For hoses with long length, clips should be used to support hoses. This ensures the hose remains in the correct position. C-clips should only be used for hoses with an outer diameter of less than 25 mm. Clips that keep hoses in position with low movement and forces could be attached to a bracket using a round fire tree feature. The fire tree feature fits into different brackets because it is flexible regarding thickness. The hole size for the fire tree is 6.5 mm H13.  
+
+### Use of C-clip
+
+C-clips should only be used for hoses with an outer diameter less than 25 mm.  
+During the system filling process, the vacuum step may cause hoses to collapse. This could result in routing changes where the hose escapes from the clip, causing the clip to no longer hold the hose. For hoses with an outer diameter less than 25 mm, the hose will not collapse.  
+
+### Attachment of clip
+
+Clips that keep hoses in position with low movement and forces could be attached to brackets using a round fire tree feature. The fire tree feature fits into different brackets and accommodates flexible thickness. The hole size for the fire tree is 6.5 mm H13.  
+
+## 5.1 General CAE Requirements
+
+Please refer to Appendix 2: CAE-FEM-GENERAL.
+</page>
+
+<page number="16">
+### 5.2 Material requirement
+**Prohibited or restricted substances, emissions, and Toxicology:**  
+The conformance to prohibited and restricted substances and obligations in terms of notification must be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier throughout the complete product life cycle according to **VFDST00007601**.  
+
+IMDS material data sheets must be submitted into VinFast IMDS ID according to the official **VinFast IMDS Guideline (Testing and Validation)** and **VFDST00007601**.  
+
+- EPDM Sulphur Cured Hose must contain **Thiuram 0%** and **Thiocarbamates less than 0.04%** (weight percentage).  
+- Specific targets on vehicle indoor air quality must align with: **VFDSXVCVC3401-VOAQ_Testing_Guideline**.  
+
+---
+
+### 5.3 Appearance Approval – Applicable for all Visible Parts.
+**AAR is a PPAP deliverable.**  
+The **AAR process** is explained in **VFDST00038401** (Quality of parts, timing).  
+
+For each step of the process, suppliers must submit parts to VF quality design following agreed timing with VF to achieve:
+- **OK shape, OKTG,** and **AAR approval.**
+
+The process starts at the **PT Build phase** to ensure **AAR approval** at **LS phase**.  
+Suppliers must include this activity in their development process and ED&D cost.
+
+---
+
+### 5.4 Traceability
+**For part requirements, refer to** VinFast standard **VFDST00010501**.
+
+---
+
+### 5.5 Labeling of Parts
+Suppliers must follow **VinFast standard VFDST00000010.**  
+Suppliers must prepare figures that depict the position of labels on parts (picture-based setup for label positioning).
+
+---
+
+### 6 Testing and Validation and DVP&R
+**Testing and PC test responsibility must follow RASIC:**  
+- DVP (virtual and physical testing) for System, Sub-system, & Component Level must align with Complete Vehicle Specification Book in the concept phase.  
+- Suppliers must collaborate with the Testing & Validation department on a **detailed hardware test plan** within **DVP&R** files.
+
+**Test plan breakdown:**  
+- **Declaration of standards, norms, and legal requirements**  
+- **Testing setup:** Description of testing devices and setup supported by pictures  
+- **Location:** Indicate whether testing is internal or external  
+- **Duration:** Define testing timelines in project plan form  
+- **Part Variant:** Detailed description  
+- **Component Quantity:** Total number of tested parts  
+
+**Key requirement:** Ensure Mileage Target Life of **160,000 km or 10 years (whichever comes first).**  
+
+Refer: **VFSRVXPWT0119 – DVP for Coolant hoses (ICE and BEV).**
+</page>
+
+<page number="17">
+7 Function Safety, Homologation and Safety Regulations.
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+7.0 Functional Safety Requirements.
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, which outlines quality management system requirements for automotive production. The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, covering road vehicles – functional safety.
+
+7.1 Deliverables for Functional Safety.
+Indicative RASIC for expected deliverables:
+
+| 5.5 Work products:                                      | VINFAST | SUPPLIER |
+|---------------------------------------------------------|---------|----------|
+| 5.5.1 Supplier selection report resulting from          | R       | I        |
+| requirements 5.4.2.1 and 5.4.2.2.                      |         |          |
+| 5.5.2 Development interface agreement (DIA) resulting  | R       | S        |
+| from requirement 5.4.3.                                 |         |          |
+| 5.5.3 Supplier's project plan resulting from           | A       | R        |
+| requirement 5.4.3.                                      |         |          |
+| 5.5.4 Supplier's safety plan resulting from requirement| A       | R        |
+| 5.4.3.                                                  |         |          |
+| 5.5.5 Functional safety assessment report resulting    | I       | R        |
+| from requirements 5.4.5.1 to 5.4.5.5.                  |         |          |
+| 5.5.6 Supply agreement resulting from requirements     | R       | S        |
+| 5.4.6.2 to 5.4.6.3.                                     |         |          |
+| 6.5.3 Safety case, resulting from 6.4.6.               | A       | R        |
+
+**RASIC description in section “Deliverables”.**
+
+a) FUSA Deliverables Expected Before Nomination:
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information outlined in ISO 26262-8 clause 5.4.3.1.
+
+b) FUSA Deliverables Expected After Nomination:
+- The supplier shall submit for VinFast approval a Safety Plan that describes the process, procedures, activities, resource plan, and documentation to be conducted and/or completed.
+</page>
+
+<page number="18">
+7 Function Safety, Homologation and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+7.0 Functional Safety Requirements.
+
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.
+
+< MGL and FuSa to add here reference to system-specific Functional Safety Requirements document. >
+
+7.1 Deliverables for Functional Safety.
+
+Indicative RASIC* for expected deliverables:
+
+**5.5 Work Products:**  
+| **VINFAST** | **SUPPLIER** |  
+|---|---|  
+| **5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2.** | R | I |  
+| **5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.** | R | S |  
+| **5.5.3 Supplier's project plan resulting from requirement 5.4.3.** | A | R |  
+| **5.5.4 Supplier's safety plan resulting from requirement 5.4.3.** | A | R |  
+| **5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5.** | I | R |  
+| **5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.** | R | S |  
+| **6.5.3 Safety case, resulting from 6.4.6.** | A | R |  
+
+*RASIC description in section “Deliverables."  
+
+a) **FUSA Deliverables Expected Before Nomination.**  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or justification if they cannot or do not meet the safety requirements.  
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree on a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+b) **FUSA Deliverables Expected After Nomination.**  
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations, and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.  
+
+7.2 Homologation and Safety Regulation Requirements.
+
+**7.2.1 North America.**  
+
+a) **Homologation and Safety Regulation Activities.**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b) **Self-Certification and Test Report(s).**  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain of the FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer Appendix 8 of Manufacturer_Handbook.  
+
+c) **Duty to Notify VinFast of a Non-Compliance with an FMVSS/CMVSS or European Regulations.**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.  
+
+**7.2.2 Europe.**  
+
+a) **Homologation and Safety Regulation Activities.**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+</page>
+
+<page number="19">
+```markdown
+Section 7: Function Safety, Homologation, and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### 7.0 Functional Safety Requirements.
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, which outlines quality management system requirements for automotive production. Additionally, the supplier shall ensure compliance with ISO 26262:2018 standard for road vehicles concerning functional safety.
+
+### 7.2 Homologation and Safety Regulation Requirements.
+
+#### 7.2.1 North America.
+**Homologation and safety regulation activities.**  
+The supplier must ensure compliance with applicable regulations, including FMVSS (Federal Motor Vehicle Safety Standards) and CMVSS (Canadian Motor Vehicle Safety Standards). Suppliers are expected to provide and support the required documentation for submission to relevant authorities.
+
+**Self-certification and test reports.**  
+The supplier is responsible for verifying its parts/products/system to meet FMVSS/CMVSS standards before they can be released. VinFast requests test performance accordingly while suppliers are held responsible.
+
+#### 7.2.2 European compliance and obligations.  
+The supplier's final vehicle regulation directive aligns mostly with correlating UN regions **Test and validated certificates Provision Choice Type methods**
+</page>
+
+<page number="20">
+8.1 Detailed Deliverables and RASI.
+
+The deliverables and RASI chart follow the latest Master Timing from the PMO side.
+
+| No. | Gate | Stage | Deliverable                                                                                              | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|-----|------|-------|--------------------------------------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1   | PV   | List of Concept in Commodity                                                                                   | R              | S             | I        | I   | I             |
+| 2   | PV   | SOR for Concept in Commodity                                                                                   | R              | S             | I        | I   | I             |
+| 3   | PPS  | SOB through LOI - Letter of Intent for Concept in Commodity                                                    | S              | R             | S        | I   | I             |
+| 4   | PPS  | EDD order release for Concept in Commodity                                                                     | S              | R             | S        | I   | I             |
+| 5   | PPS  | Deliver Bill of Materials in Team Center                                                                       | R              | I             | I        | I   | I             |
+| 6   | PPS  | Supply chain strategy - Deliver Sourcing Strategy                                                              | S              | R             | I        | S   | I             |
+| 7   | PPS  | Commodity Timing plan in each business area supporting Program timing for concept commodity                    | S              | S             | R        | S   | I             |
+| 8   | PPS  | Organization and resources for concept phase; resource planning for series development                         | S              | S             | R        | S   | I             |
+| 9   | PPS  | Opportunities and risks for the program have been detailed and measures defined (Cost reductions, Design optimization, Timing optimization) | A | S | R | S | I |
+| 10  | PPS  | Quality planning to meet program requirements - APQP Kickoff                                                   | R              | S             | S        | S   | I             |
+| 11  | PPS  | Concept proposal for engineering review and finalization - For Concept Commodity                               | A              | I             | R        | I   | I             |
+| 12  | PPS  | Concept & Proposal development to meet the target material cost                                                | A              | I             | R        | I   | I             |
+| 13  | PPS  | Parts list and BoM available; target values for lead vehicle cost and weight verified - C Class                | A              | I             | R        | I   | I             |
+| 14  | PPS  | Initial CAD data to support C class development for Concept commodity                                          | A              | I             | R        | I   | I             |
+| 15  | PPS  | System & Sub-system Functional targets agreed and cascaded to Component level, Inline with Complete Vehicle Targets. | A | S | R | I | I |
+| 16  | PPS  | DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests. | A | S | R | I | I |
+| 17  | TA   | Package study to support B class surface development                                                           | A              | I             | R        | I   | I             |
+| 18  | PPS  | Manufacturing feasibility for CAS development for concept commodity                                            | A              | I             | R        | I   | I             |
+| 19  | PPS  | Design and Validation & Testing plan for concept Commodity                                                     | A              | I             | R        | I   | I             |
+| 20  | TA   | Parts list and BoM available; target values for lead vehicle cost and weight verified - B Class                | A              | I             | R        | I   | I             |
+| 21  | TA   | Parts list and BoM available; target values for lead vehicle cost and weight verified - A Class                | A              | I             | R        | I   | I             |
+| 22  | TA   | Contract Series development - LON for Concept Commodity/LON for B2P Commodity                                  | A              | R             | S        | I   | I             |
+| 23  | TA   | Timing plan for the complete Program detailing milestones and critical activities for B2P Commodity            | A              | S             | R        | I   | I             |
+| 24  | TA   | Organization and resources for the concept phase; resource planning for series development                     | A              | S             | R        | I   | I             |
+| 25  | TA   | RPS / Location and fixation strategy developed and reviewed (Before B Class freeze)                            | A              | S             | R        | I   | I             |
+| 26  | TA   | DMU study for system level and sub-system level                                                                | A              | S             | R        | I   | I             |
+| 27  | TA   | Functional CAE analysis                                                                                       | A              | S             | R        | I   | I             |
+| 28  | TA   | EE - Component Data Sheet (CDS) inputs                                                                        | A              | S             | R        | I   | I             |
+| 29  | TA   | Manufacturing feasibility for Built to Print Commodities                                                      | A              | S             | R        | I   | I             |
+| 30  | TA   | Stamping / Mold flow analysis for Concept commodity                                                           | A              | S             | R        | I   | I             |
+| 31  | TA   | DFMEA for Concept Commodity/SC/CC & Key characteristics Controls                                              | A              | S             | R        | I   | I             |
+| 32  | TA   | DTS - Fit and Finish document confirm gap and finish strategy for system & sub-system level                   | A              | S             | R        | I   | I             |
+| 33  | TA   | 3D design for B car class surface to be completed                                                             | A              | S             | R        | I   | I             |
+| And so on... (continues through TA, PR, CC)
+</page>
+
+<page number="21">
+## 9 Supplier Responsibilities
+
+**Supplier is responsible to provide/ensure while completing the work. Supplier Responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.**
+
+### Customer Service Requirements
+
+- **After-sales spare parts should be ready at startup:**  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.
+
+- **Spare Parts Support Cycle:**  
+  The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this Spec book.
+
+- **Maintenance Information of After-Sale Spare Parts:**  
+  The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use and maintenance of the assembly before OTS, such as:  
+  - BOM table,  
+  - Parts structure and function description,  
+  - Fault diagnosis,  
+  - Special tools for maintenance,  
+  - Relevant technical parameters (e.g. installation clearance, parts performance parameters).
+
+---
+
+## 10 Intellectual Property / Copyright
+
+Refer to VinFast General Term and Condition (GTC).
+
+---
+
+## 11 Insurance / Warranties
+
+Refer to VinFast General Term and Condition (GTC).
+
+---
+
+## 12 VinFast GTC & Part Packaging and Incoterms
+
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirement in the RFQ package.
+
+---
+
+## 13 Definitions and List of Abbreviations
+
+- **DVP&R:** Design Verification Plan & Report  
+- **ESO:** Engineering Sign Off  
+- **GTC:** General Term and Condition  
+- **LLS:** Long Lead Suppliers on board  
+- **LLT:** Long Lead Tooling  
+- **LOI:** Letter of Intent  
+- **MFC:** Manufacturing Feasibility Confirmation  
+- **MSC:** Manufacturing Strategy Confirmation  
+- **MSI:** Major Suppliers Identified  
+- **MSO:** Manufacturing Sign Off  
+- **OTS:** Off Tools Samples
+</page>
+
+<page number="22">
+PTP: Prototype Parts out of Serial tooling (Hand finished).  
+RFQ: Request For Quotation.  
+SLS: Short Lead Suppliers on board.  
+SOB: Supplier on Board.  
+SOP: Start of Production.  
+SOP-ID: SOP-Implementation Date.  
+SOP-LM: SOP Launch Model (1 specific Model – “Edition”).  
+SST: Sourcing Strategy.  
+TS: Theme selection Model.  
+FUSA: Function Safety.  
+T&V: Testing & Validation.
+</page>
+</pages>

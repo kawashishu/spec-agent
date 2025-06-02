@@ -1,0 +1,1939 @@
+
+<filename>VFDSXVBAT1065_02-VF8 CATL HV Battery Pack SpecBook</filename>
+<pages>
+
+<page number="1">
+VF8 CATL BATTERY PACK.
+
+Pack SpecBook.
+</page>
+
+<page number="2">
+Release.
+
+Version: 4.0.  
+Date: 11.2023.  
+
+Name: Raffaele Pierobon.  
+Function: Battery Module Leader.  
+Signature: [Blank].  
+Date: [Blank].  
+
+Name: Vinicius da Silva Jesus.  
+Function: Chief Engineer VF8.  
+Signature: [Blank].  
+Date: [Blank].  
+
+Revisions since previous version.  
+
+Version 1.0: Initial Version.  
+Change Description: Initial Version.  
+Signature: Chuanhua Qin.  
+Date: 2022/05/20.  
+
+Version 2.0: Version 2.0.  
+Change Description: Version 2.0.  
+Signature: Aditya Tiwari.  
+Date: 2022/09/14.  
+
+Version 3.0: Content updated for C samples.  
+Change Description: Content updated for C samples.  
+Signature: Raffaele/Manikandan A.  
+Date: 2023/01/14.  
+
+Version 4.0: Added sections 7, 8, 9, 10.  
+Change Description: All other sections re-written and updated with latest information.  
+Signature: Raffaele Pierobon.  
+Date: 2023/11/30.
+</page>
+
+<page number="3">
+CONTENT  3
+
+INTRODUCTION  5  
+1.1 Confidentiality  5  
+1.2 Scope  5  
+1.3 Terms & Abbreviations  5  
+1.3.1 Terms  5  
+1.3.2 Abbreviations  7  
+1.4 Legal Statement  7  
+1.5 Reference  7  
+
+SCOPE OF PRODUCT/COMMODITY  8  
+2.1 Sales Markets  8  
+2.2 Production volume  8  
+2.3 Build Plan, Timing  8  
+2.4 Usage Restriction  8  
+
+REQUIREMENTS  9  
+3.1 CAD Data  9  
+3.2 CAE Model  9  
+3.3 Change Documentation and Part History Documentation  9  
+3.4 Technical documentation  10  
+3.5 Material requirement  10  
+3.6 Traceability  10  
+3.7 Labeling of Parts  10  
+3.8 General Tolerances and Drawings  10  
+
+PRODUCT OVERVIEW  11  
+4.1 Basic information of product  11  
+4.2 Technical Parameters of Product  11  
+4.3 Discharge Current and Power Limit tables  13  
+4.4 Charge Current and Power Limit tables  14  
+4.5 Charge Request Current table  16  
+4.6 Cell Specifications  17  
+
+PRODUCT STRUCTURE  18  
+5.1 Schematic Illustration of RESS  18  
+5.2 Battery exploded view  18  
+5.3 Interfaces of product  20  
+5.3.1 HV connector  20  
+5.3.2 LV connector  21  
+5.3.3 Thermal system interface  24  
+5.3.4 Venting interface  25  
+5.3.5 Mounting interface  26  
+5.3.6 Center of Gravity position  27  
+5.3.7 Grounding point  27  
+
+BATTERY MANAGEMENT SYSTEM (BMS)  28  
+6.1 BMS hw overview  28  
+6.2 BMS sw overview  29
+</page>
+
+<page number="4">
+THERMAL SYSTEM AND LOGIC.
+
+7.1 Thermal System.  
+7.2 Thermal Logic.  
+
+THERMAL PROPAGATION AND RUNWAY DETECTION.
+
+8.1 Thermal Propagation design.  
+8.2 Thermal Runaway detection.  
+
+COMPONENT LEVEL VALIDATION.
+
+FUNCTIONAL SAFETY AND CYBERSECURITY.
+
+10.1 Functional Safety.  
+10.2 Cybersecurity.  
+
+CHARGING.
+
+11.1 DC Fast Charge time.  
+11.2 AC Charge time.  
+
+LABELS, PACKAGING, TRANSPORTATION AND STORAGE.
+
+12.1 Labels on battery pack.  
+12.2 Packaging.  
+12.3 Transportation.  
+12.4 Storage.  
+12.5 Vehicle storage.  
+
+RISK WARNING.
+
+BATTERY PACK RECYCLING.
+
+SUSTAINABILITY & SCALABILITY.
+</page>
+
+<page number="5">
+**1 Introduction**
+
+**1.1 Confidentiality**  
+This product specification is intended to be seen only by persons directly involved in this project. Transfer to other parties, especially to partners without the approval of CATL and VF, has to be coordinated by the person in charge of this project in CATL and VF. It is governed by declarations relating confidentiality in the development contract.
+
+**1.2 Scope**  
+This document is based on the customer product specification dedicated to 1P108S 93.3kWh battery from CATL. The document has been re-written by the VF Battery team to be comprehensive and include all the details not present in the basic CATL specs. The document has been updated to include the latest design changes and test results.
+
+This document specifies all the product-related functionality, performance parameters, interface definition, labeling, packaging, transportation & storage requirements, etc.  
+The respective release status is noted in the cover sheet of this product specification. Parameters/Specifications around the product are subject to change along with the development.
+
+**1.3 Terms & Abbreviations**  
+
+**1.3.1 Terms**  
+- **Battery Cell:**  
+  The basic functional electrochemical unit (sometimes referred to as a battery) containing an electrode assembly, electrolyte, separators, container, and terminals. It is a source of electrical energy by direct conversion of chemical energy.
+
+- **Battery Module:**  
+  A subassembly consisting of a group of cells connected together either in a series and/or parallel configuration (sometimes referred to as a block) with or without protective devices and monitoring circuitry. A module is a component of an electric energy storage assembly.
+
+- **Battery Pack:**  
+  Energy storage device that includes cells or cell assemblies normally connected with cell electronics, voltage circuit, and overcurrent shut-off device, including electrical interconnections and interfaces for external systems.
+
+- **Nominal Voltage:**  
+  A specified operating potential of a battery at its fully charged state.  
+  Nominal voltage is the voltage given by the supplier as the recommended operating voltage of their battery system. Voltage depends on chemistry, cell numbers, and arrangement of cells.
+
+- **Capacity:**  
+  Total number of ampere-hours that can be withdrawn from a fully charged battery under specified conditions.
+</page>
+
+<page number="6">
+1 Introduction.
+
+1.1 Confidentiality.  
+This product specification is intended to be seen only by persons directly involved in this project. Transfer to other parties, especially to partners without the approval of CATL and VF, has to be coordinated by the person in charge of this project in CATL and VF. It is governed by declarations relating to confidentiality in the development contract.  
+
+1.2 Scope.  
+This document is based on the customer product specification dedicated to 1P108S 93.3kWh battery from CATL. The document has been re-written by the VF Battery team to be comprehensive and include all the details not present in the basic CATL specs. The document has been updated to include the latest design changes and test results.  
+This document specifies all the product-related functionality, performance parameters, interface definition, labeling, packaging, transportation & storage requirements, etc.  
+The respective release status is noted on the cover sheet of this product specification. Parameters/Specifications around the product are subject to change along with the development.  
+
+1.3 Terms & Abbreviations.
+
+1.3.1 Terms.  
+
+**Battery Cell.**  
+The basic functional electrochemical unit (sometimes referred to as a battery) containing an electrode assembly, electrolyte, separators, container, and terminals. It is a source of electrical energy by direct conversion of chemical energy.  
+
+**Battery Module.**  
+A subassembly consisting of a group of cells connected together either in a series and/or parallel configuration (sometimes referred to as a block) with or without protective devices and monitoring circuitry. A module is a component of an electric energy storage assembly.  
+
+**Battery Pack.**  
+Energy storage device that includes cells or cell assemblies normally connected with cell electronics, voltage circuit, and overcurrent shut-off device, including electrical interconnections and interfaces for external systems.  
+
+**Nominal Voltage.**  
+A specified operating potential of a battery at its fully charged state. Nominal voltage is the voltage given by the supplier as the recommended operating voltage of their battery system. Voltage depends on chemistry, cell numbers, and arrangement of cells.  
+
+**Capacity.**  
+Total number of ampere-hours that can be withdrawn from a fully charged battery under specified conditions.  
+
+1.3.2 Abbreviations.  
+
+**Energy Capacity.**  
+Total number of energy (Wh/kWh) that can be withdrawn from a fully charged battery under specified conditions.  
+
+**Nominal Capacity.**  
+At the beginning of life, in the specified conditions, the least capacity that a fully charged battery can provide with the specific C-rate.  
+
+**OCV.**  
+The voltage difference between the positive electrode and negative electrode of the battery in the condition of no load for more than 1h.  
+
+**BOL.**  
+The time point of the first charge/discharge of the battery which meets the required nominal capacity and has not been used previously.  
+
+**EOL.**  
+The time point that the usable capacity of a fully charged battery decays to 75% of nominal capacity after lots of cycles in the condition specified by the customer.  
+
+**DOD.**  
+The ratio of discharged capacity to nominal capacity in use.  
+
+**SOC.**  
+The ratio of residual capacity to nominal capacity after a period of usage or storage. Normally its value is from 0%~100%. 0% indicates full discharge of the battery; however, 100% indicates full charge of the battery.  
+
+**BMS.**  
+The overall system responsible for the management of the battery with electronic and electrical components, which normally includes BMU, CMC, S-Box, and cables. BMS structures the management mechanism of the energy storage system to ensure normal operation and fault treatment.  
+
+**GB – GB/T.**  
+Set of National Standards used for Electric vehicles in China.  
+
+**Unit.**  
+- **“V” (Volt)**  
+- **“A” (Ampere)**  
+- **“Ah” (Ampere-Hour)**  
+- **“Wh” (Watt-Hour)**  
+- **“Ω” (Ohm)**  
+- **“°C” (degree Celsius)**  
+- **“mm” (millimeter)**  
+- **“m” (meter)**  
+- **“km” (kilometer)**  
+- **“kg” (kilogram)**  
+
+*Note:* All temperature conditions are room temperature except where specified in this document. Room temperature (RT) is defined as 25±2°C.
+</page>
+
+<page number="7">
+1 Introduction.
+
+1.1 Confidentiality.  
+This product specification is intended to be seen only by persons directly involved in this project. Transfer to other parties, especially to partners without the approval of CATL and VF, has to be coordinated by the person in charge of this project in CATL and VF. It is governed by declarations relating confidentiality in the development contract.
+
+1.2 Scope.  
+This document is based on the customer product specification dedicated to 1P108S 93.3kWh battery from CATL. The document has been re-written by the VF Battery team to be comprehensive and include all the details not present in the basic CATL specs. The document has been updated to include the latest design changes and test results.  
+This document specifies all the product-related functionality, performance parameters, interface definition, labeling, packaging, transportation & storage requirements, etc.  
+The respective release status is noted in the cover sheet of this product specification. Parameters/specifications around the product are subject to change along with the development.
+
+1.3 Terms & Abbreviations.
+
+1.3.1 Terms.  
+- **Battery Cell.**  
+  The basic functional electrochemical unit (sometimes referred to as a battery) containing an electrode assembly, electrolyte, separators, container, and terminals. It is a source of electrical energy by direct conversion of chemical energy.  
+
+- **Battery Module.**  
+  A subassembly consisting of a group of cells connected together either in a series and/or parallel configuration (sometimes referred to as a block) with or without protective devices and monitoring circuitry. A module is a component of an electric energy storage assembly.  
+
+- **Battery Pack.**  
+  Energy storage device that includes cells or cell assemblies normally connected with cell electronics, voltage circuit, and overcurrent shut-off device, including electrical interconnections and interfaces for external systems.  
+
+- **Nominal Voltage.**  
+  A specified operating potential of a battery at its fully charged state. Nominal voltage is the voltage given by the supplier as the recommended operating voltage of their battery system. Voltage depends on chemistry, cell numbers, and arrangement of cells.  
+
+- **Capacity.**  
+  Total number of ampere-hours that can be withdrawn from a fully charged battery under specified conditions.  
+
+- **Energy Capacity.**  
+  Total amount of energy (Wh/kWh) that can be withdrawn from a fully charged battery under specified conditions.  
+
+- **Nominal Capacity.**  
+  At the beginning of life, in the specified conditions, the least capacity that a fully charged battery can provide with the specific C-rate.  
+
+- **OCV.**  
+  The voltage difference between the positive electrode and negative electrode of the battery in the condition of no load for more than 1h.  
+
+- **BOL.**  
+  The time point of the first charge/discharge of a battery that meets the required nominal capacity and has not been used previously.  
+
+- **EOL.**  
+  The time point when the usable capacity of a fully charged battery decays to 75% of nominal capacity after lots of cycles under conditions specified by the customer.  
+
+- **DOD.**  
+  The ratio of discharged capacity to nominal capacity in use.  
+
+- **SOC.**  
+  The ratio of residual capacity to nominal capacity after a period of usage or storage. Normally its value is from 0%~100%. 0% indicates full discharge of the battery; however, 100% indicates full charge of the battery.  
+
+- **BMS.**  
+  The overall system responsible for the management of a battery with electronic and electrical components, which normally includes BMU, CMC, S-Box, and cables. BMS structures the management mechanism of the energy storage system to ensure the normal operation and fault treatment.  
+
+- **GB – GB/T.**  
+  Set of national standards used for electric vehicles in China.  
+
+- **Unit.**  
+  “V” (Volt).  
+  “A” (Ampere).  
+  “Ah” (Ampere-Hour).  
+  “Wh” (Watt-Hour).  
+  “Ω” (Ohm).  
+  “°C” (Degree Celsius)*  
+  “mm” (Millimeter).  
+  “m” (Meter).  
+  “km” (Kilometer).  
+  “kg” (Kilogram).  
+  *Note: All temperature conditions are room temperature except temperatures specifically mentioned in this document. Room temperature (RT) is defined as 25±2°C.
+
+1.3.2 Abbreviations.  
+- **CATL:** Contemporary Amperex Technology Co. Limited.  
+- **RESS:** Rechargeable Energy Storage System.  
+- **BMS:** Battery Management System.  
+- **BMU:** Battery Management Unit.  
+- **BDU:** Battery Distribution Unit.  
+- **S-Box:** Switch Box.  
+- **CAN:** Controller Area Network.  
+- **A-CAN:** CAN to vehicle.  
+- **C-CAN:** CAN from BMU to CMC.  
+- **CMC:** Cell Manager Circuit.  
+- **EOL:** End of Life.  
+- **BOL:** Begin of Life.  
+- **HV:** High Voltage.  
+- **LV:** Low Voltage.  
+- **HVIL:** HV Interlock Loop.  
+- **OCV:** Open Circuit Voltage.  
+- **SOC:** State of Charge.  
+- **SOH:** State of Health.  
+- **DCIR:** DC Internal Resistance.
+
+1.4 Legal Statement.  
+This product is developed by CATL according to the People’s Republic of China legal requirement and standard. Product sample status described in this specification is aligned with the documentation description. Possible infringements should be reported to CATL if possible.
+
+1.5 Reference.  
+| No. | Rev No. | Title                                                              |
+|----|---------|------------------------------------------------------------------|
+| 1  | 1.0     | VF8 Pack Specification to VinFast 20220520                     |
+| 2  | 1.0     | CATL Transport and Storage Requirements of Battery Packs       |
+| 3  | 1.0     | Car7_0_BMS Production Specification_V1_4_English&Chinese_1206 |
+| 4  | 1.0     | VinFast_E35_电气原理图_V1.1_ToCustomer                          |
+</page>
+
+<page number="8">
+2 Scope of Product/ Commodity
+
+2.1 Sales Markets  
+LHD countries: VN, North America (US+CA) and EUR. Additional countries may be added with agreement between CATL and VF.
+
+2.2 Production Volume  
+Information follows requests from the Purchasing department and Material Control team.
+
+2.3 Build Plan, Timing  
+Information follows requests from the Purchasing department and Material Control team.
+
+2.4 Usage Restriction  
+Prior to the utilization of the product, the customer acknowledges that all information in this specification has been read and fully accepted. If customers have any questions or objections to the product, they should contact CATL immediately. The following general restrictions, not limited to the content listed below, should be considered at the same time:  
+
+- Customer shall establish a tracing system for sample usage recording and traceability. Information shall be shared with CATL regularly.  
+- Battery packs are high-energy storage devices; they have the potential hazards of electric shock, fire, venting, and explosion due to improper operation.  
+- Battery packs shall only be operated by professional and qualified personnel. Operators or engineers must certify they have read this specification. Unqualified persons are not allowed to touch battery packs.  
+- Operators shall equip necessary personal protective equipment for operation.  
+- Be cautious of sharp edges on the pack which may injure operators.  
+- Tools and equipment for installation and assembly must be properly insulated according to the voltage level.  
+- Disassembly of the battery pack is strictly forbidden. The customer must provide a clean operational environment to ensure no particles or water invade the pack. Particles or water invasion may lead to insulation failure resulting in short circuits, fire, venting, or explosions.  
+- Damages due to inappropriate use shall necessitate scrapping the pack.  
+- Samples are configured to be less than 40% SOC. The customer must adopt proper maintenance to prevent over self-discharging. The customer shall ensure that the SOC level of the battery pack remains above 3% during its lifetime.  
+- Short circuits are strictly forbidden as they can cause arcing, burning, or eye injuries.  
+- The pack’s top cover must not be pressed by any external force. Breaches or mismatches of low/high voltage connectors can pose risks of short circuits leading to fire, venting, or explosions.  
+- For personal and equipment safety, a proper battery pack storage environment must be provided. The workspace should be open and equipped with appropriate fire extinguishing systems.  
+- The customer must establish a proper and effective ESD protection environment according to their process requirements.
+</page>
+
+<page number="9">
+### Scope of Product/ Commodity
+
+#### Sales Markets
+LHD countries: VN, North America (US+CA), and EUR. Additional countries may be added with agreement between CATL and VF.
+
+#### Production Volume
+Information follows request from Purchasing department and Material control team.
+
+#### Build Plan, Timing
+Information follows request from Purchasing department and Material control team.
+
+#### Usage Restriction
+Prior to the utilization of the product, customers acknowledge that all information in this specification has been read and fully accepted. Customers with questions or objections regarding the product should contact CATL immediately. The following restrictions must be observed:
+
+- Customer shall establish a tracing system for sample usage recording and traceability, and information shall be shared with CATL regularly.
+- Battery pack is a high-energy storage device; improper operation may lead to risks such as electric shock, fire, venting, and explosion.
+- Battery pack operations must be conducted by professional and qualified personnel. Operators must first read this specification, and unqualified personnel are prohibited from touching battery packs.
+- Operators must equip necessary personal protective equipment during operation.
+- Operators must exercise caution regarding sharp edges of the pack to prevent injuries.
+- Properly insulated tools and equipment must be used during installation and assembly.
+- Disassembly of the battery pack is strictly forbidden. Customers must provide a clean operation environment, free of particles or water, to prevent hazards such as short circuits, fire, venting, or explosions.
+- Damages caused by inappropriate use must be discarded.
+- Samples are configured at less than 40% SOC. Customers must ensure SOC remains above 3% throughout the product's lifespan to avoid issues resulting from over self-discharging.
+- Short circuits are strictly forbidden as they may cause arcing, burning, or eye injuries.
+- The pack's top cover should not be pressed by external forces, and connectors must match to prevent short circuits leading to fire, venting, or explosions.
+- Proper storage spaces for battery packs must include fire extinguishers and maintain suitable working environments.
+- Customers must establish effective ESD protection environments following process requirements.
+- High static electricity or high EMI environments are prohibited to avoid damage to electronic devices and ensure safety.
+- Storage in high temperatures, outside of the usable range, is strictly prohibited as it may cause venting, fire, or explosion.
+- Any abnormal phenomena such as smoke, discoloration, or deformation during storage or transportation must be addressed immediately, with contact made to CATL for further analysis.
+- Heavy loads on the pack or stacking packs directly on top of one another is forbidden.
+- Scrapping of battery packs must be conducted by licensed professional organizations in compliance with legal codes. Casual disposal into fire or furnaces is strictly prohibited to prevent accidents and environmental pollution.
+
+---
+
+### Requirements
+
+#### CAD Data
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. 
+- CAD data transfers from VinFast to suppliers are facilitated via the Supplier collaborative module.
+- In cases where this is not possible, CATL will provide stp files to the VF Battery team for upload and release in TeamCenter. 
+- Suppliers must supply updated stp files and drawings for each design change.
+
+#### CAE Model
+Suppliers are required to provide mesh models to VF and partners for vehicle simulation purposes. 
+- Updated mesh models must be provided following design changes.
+- Suppliers must follow VFSRXXCVC0201/01-VFCAE-001-FEM-GENERAL standards.
+
+#### Change Documentation and Part History Documentation
+Throughout development and production, all change histories within the contractor's framework must be documented and shared with VinFast. 
+- Documentation forms are agreed upon between suppliers and the VF team.
+- Systems and components requiring safety regulation compliance or adherence to legal requirements must be highlighted in the drawings.
+- Documentation of reasons and specific characteristics is mandated according to authority regulations.
+</page>
+
+<page number="10">
+# HV Battery Pack Specification Document
+
+## Version: 4.0  
+**Uncontrolled copy when printed**  
+**Page: 10 | 52**  
+
+### 3 Requirements
+
+#### 3.4 Technical Documentation
+The supplier shall provide technical specifications for the battery pack and for the Battery Management System (BMS), including hardware and software.  
+The supplier shall also provide a Design Failure Mode and Effect Analysis (DFMEA) for the battery pack and support FMEA activities for system integration at VinFast.
+
+#### 3.5 Material Requirement
+**Prohibited or Restricted Substances, Emissions & Toxicology:**  
+- The supplier must ensure conformance to prohibited and restricted substances and obligations in terms of notification. This applies to new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts throughout the complete product lifecycle.  
+- The supplier shall provide Material Safety Data Sheets (MSDS) for the product.  
+- The supplier shall perform International Material Data System (IMDS) submissions.
+
+#### 3.6 Traceability
+For part requirements, refer to the VinFast standard VFDST00010501 – Component identification marking.  
+
+#### 3.7 Labeling of Parts
+- Suppliers must follow VinFast standard VFDST00000010 for part marking.  
+- Suppliers must adhere to VinFast standard VFDST00034400 for self-adhesive labels.  
+- Part numbers must comply with VinFast standard VFDST00010201.  
+- Label designs and positions, including labels on external packaging, must be reviewed and approved by VinFast.
+
+#### 3.8 General Tolerances and Drawings
+Suppliers must comply with the following standards:  
+1. VinFast standard VFDST00017602 for technical drawings.  
+2. VinFast standard VFDST00000013 for general tolerances.
+
+**VinFast Released**
+</page>
+
+<page number="11">
+## Product Overview  
+
+### 4.1 Basic Information of Product  
+- **Product Name:** 1P108S 93.3kWh Rechargeable Energy Storage System  
+- **Product Spec.:** 403V/231.7Ah (@1C/25 °C) *  
+- **Product Type:** PACK_VFT_93kWh_231.7Ah_1P108S  
+- **CATL PN:** 770252-00796  
+- **VinFast PN:** BAT30002100, BAT30002300, BAT30002301  
+*Note: All specifications without specified herein after are described as BOL (Beginning of Life) state.  
+
+### 4.2 Technical Parameters of Product  
+**Key Parameters** | **Value**  
+--- | ---  
+Series/parallel | 108S1P  
+Total No of Modules | 08 (16S1P – 6 Nos. 6S1P-2 Nos.)  
+Total Number of Cells | 108  
+Nominal Capacity | 231.7 Ah  
+Total Capacity | 93.3 kWh  
+Usable Energy at BOL | 87.7 kWh  
+Nominal Operation Voltage | 402.8 V  
+Maximum Operation Voltage (OCV or load) | 469.8 V  
+Minimum Operation Voltage (OCV or load) | 270.0 V  
+Max. Permissible Charge Cell Voltage | 4.35V  
+Min. Permissible Discharge Cell Voltage | 2.80V  
+Useable SOC Window | 3% ~ 97%  
+SOC at Delivery | 40%  
+SOC Estimation Accuracy | 5%  
+Operation Temperature Range | -30°C ~ 55°C  
+Storage Temperature Range | -40°C ~ 60°C  
+Temperature for Cooling Control System | ≥32°C on; ≤28°C off (running mode) (See thermal chapter for details)  
+Temperature for Heating Control System | See thermal chapter for details  
+Cooling Methods | Bottom cooling plate with active methods  
+Coolant | Glycol-Water (50/50 by volume)  
+Coolant Volume | Approx 3.2L
+</page>
+
+<page number="12">
+### HV Battery Pack Specification Document
+
+#### Product Overview
+
+##### **Basic Information of Product**  
+- **Product Name:** 1P108S 93.3kWh Rechargeable Energy Storage System  
+- **Product Spec.:** 403V/231.7Ah (@1C/25 °C)*  
+- **Product Type:** PACK_VFT_93kWh_231.7Ah_1P108S  
+- **CATL PN:** 770252-00796  
+- **VinFast PN:** BAT30002100, BAT30002300, BAT30002301  
+
+**Note:** All specifications without specified herein after are described as BOL (Beginning of Life) state.
+
+##### **Technical Parameters of Product**  
+**Key Parameters:**  
+- **Series/Parallel:** 108S1P  
+- **Total No of Modules:** 08 (16S1P – 6 Nos. 6S1P-2 Nos.)  
+- **Total Number of Cells:** 108  
+- **Nominal Capacity:** 231.7Ah  
+- **Total Capacity:** 93.3kWh  
+- **Usable Energy at BOL:** 87.7kWh  
+- **Nominal Operation Voltage:** 402.8V  
+- **Maximum Operation Voltage (OCV or load):** 469.8V  
+- **Minimum Operation Voltage (OCV or load):** 270.0V  
+- **Max. Permissible Charge Cell Voltage:** 4.35V  
+- **Min. Permissible Discharge Cell Voltage:** 2.80V  
+- **Usable SOC Window:** 3% ~ 97%  
+- **SOC at Delivery:** 40%  
+- **SOC Estimation Accuracy:** 5%  
+- **Operation Temperature Range:** -30°C ~ 55°C  
+- **Storage Temperature Range:** -40°C ~ 60°C  
+- **Temperature for Cooling Control System:** ≥32°C on; ≤28°C off (running mode)  
+  *See thermal chapter for details*  
+- **Temperature for Heating Control System:** See thermal chapter for details  
+- **Cooling Methods:** Bottom cooling plate with active methods  
+- **Coolant:** Glycol-Water (50/50 by volume)  
+- **Coolant Volume:** Approx. 3.2L  
+
+##### **Voltage, Current, and Temperature Measurements**
+- **RESS Voltage Measurement Accuracy:**  
+  - ±2V (0V～200V)  
+  - ±1% (200V～1000V)  
+- **Cell Voltage Measurement Accuracy:**  
+  - ±2mV (2V~4.5V, 25°C)  
+  - ±3mV (2V~4.5V, -40°C ~ 105°C)  
+  - ±5mV (0V~5V, -40°C ~ 125°C)  
+- **RESS Current Measurement Accuracy:**  
+  - ≤50mA (at current ≤ 30A)  
+  - ≤1% (at current > 30A)  
+  - ≤2% (at current > 400A)  
+- **Temperature Measurement Accuracy:**  
+  - ±1°C (0°C ～ 45°C)  
+  - ±2°C (-40°C ～ 85°C)  
+  - ±3°C (85°C ～ 125°C)  
+
+##### **Additional Parameters**
+- **Cell Balancing Method:** Dissipative  
+- **Operation Voltage Range for Electronics of RESS:** +6VDC ~ +16VDC (Nominal 12VDC)  
+- **Self-Discharge of RESS:** <4% within 4 weeks at 25°C (40%SOC)  
+- **Ingress Protection:** IP67 / IP69k (Tested and passed IP68 also)  
+- **Direct Contact Protection:**  
+  - IPXXD (with HV plug of vehicle side into RESS)  
+  - IPXXB (without HV plug of vehicle side into RESS)  
+- **Equalization Potential:** <0.1Ω  
+- **Insulation Resistance:** >5.0*10⁶ Ω  
+- **Dielectric Strength:** 1500V  
+- **Weight of RESS:** 540 / 536.6 ±3% kg (<550 kg)  
+- **Dimension (L×W×H):**  
+  - **Pack:** 2395mm × 1511mm × 282.16mm
+</page>
+
+<page number="13">
+**HV Battery Pack Specification Document**  
+**Version:** 4.0  
+**Uncontrolled copy when printed**  
+Page: 13 | 52  
+
+---
+
+### **4.3 Discharge Current and Power Limit Tables**  
+
+The BMS software continuously sends via CAN the maximum discharge current and power that the battery can support. The value sent over CAN is determined by the Current and Power limit tables, which outline limits based on temperature and SOC.  
+
+The Current and Power limit tables serve as the basis for the BMS calculation of current and power limits transmitted via CAN. The BMS accounts for instantaneous cell voltages, temperatures, and SOH to calculate the actual current limits. As a result, the values transmitted via CAN will be lower than those listed in these tables.  
+
+Additionally, further reductions are applied based on the previously used power by the vehicle and the BDU temperature.
+
+---
+
+#### **Figure 4.1 Pack Discharge Current Limit Table (A)**  
+
+The figure displays the discharge current limit values based on varying conditions of temperature, pulse duration, and SOC levels. 
+
+- **Conditions include:**  
+  - Temperature ranges from -30°C to 50°C.  
+  - Discharge durations of 10 seconds, 30 seconds, and continuous.  
+  - SOC ranges from 5% to 97%.  
+
+The discharge current limit table features specific current values for various pulse durations at different temperatures and SOC levels for optimized operation.  
+
+For exact numerical values, please refer to Figure 4.1 in the table above.
+</page>
+
+<page number="14">
+4.2 Pack Discharge Power Limit Table (KW)
+The table visualized in Figure 4.2 presents the discharge power limits of the battery pack in kilowatts based on temperature and State of Charge (SOC). The limits are categorized into pulse durations (10 seconds, 30 seconds, and continuous discharge). The table highlights how power capability decreases gradually with dropping temperature and SOC levels, ensuring safe and efficient pack operation.
+
+4.4 Charge Current and Power Limit Tables
+The Battery Management System (BMS) software continuously sends on CAN the maximum charge current and power that the battery can support. This data is primarily used for the regeneration function of the electric vehicle (EV), while the specific charge request for DC fast charging is described in the next chapter.
+
+Please note the following methodology:
+1. The provided current and power limit tables establish baseline values for BMS calculations.
+2. The BMS adjusts the reported limits by considering instantaneous cell voltages, temperatures, and State of Health (SOH).
+3. Consequently, the actual limits sent on CAN will consistently be lower than those specified by these tables.
+
+Additional considerations include:
+- Derating based on past power use by the vehicle.
+- Incorporating the BDU temperature impacts.
+
+VinFast Released.
+</page>
+
+<page number="15">
+# HV Battery Pack Specification Document
+
+## 4. Product Overview
+
+### 4.3 Discharge Current and Power Limit Tables
+The BMS software continuously communicates via CAN the maximum discharge current and power that the battery can support. The value sent through CAN is based on the Current and Power limit tables, which provide limits based on temperature and SOC. 
+
+Key notes:
+- The Current and Power limit tables provide baseline values for the BMS calculation. However, the BMS adjusts these values based on instantaneous cell voltages, temperatures, and SOH (State of Health). Therefore, the actual values sent on CAN are often lower than those provided in the limit tables.
+- Additional de-rating is applied, factoring in past vehicle power usage and the BDU temperature.
+
+#### Figure 4.1: Pack Discharge Current Limit Table (A)
+*A chart displays the maximum discharge current values segmented by temperature, pulse duration, and State of Charge (SOC).*
+
+#### Figure 4.2: Pack Discharge Power Limit Table (KW)
+*A chart illustrates the maximum discharge power limit values segmented by temperature, pulse duration, and SOC.*
+
+### 4.4 Charge Current and Power Limit Tables
+The BMS software also continuously communicates through CAN the maximum charge current and power that the battery can support. This data is specifically used for the EV's regeneration function, while details for DC fast charging are covered in subsequent chapters.
+
+Key notes:
+- As with discharge metrics, the Current and Power limit tables provide initial values that the BMS calculation adjusts based on cell voltages, temperatures, and SOH.
+- CAN values observed may be lower than the table limits due to these adjustments.
+- Additional de-rating is based on historical vehicle power use and the BDU temperature.
+
+#### Figure 4.3: Pack Charge Current Limit Table (A)
+*A chart displays maximum charge current values segmented by temperature, pulse duration, and SOC.*
+
+#### Figure 4.4: Pack Charge Power Limit Table (KW)
+*A chart shows maximum charge power limit values segmented by temperature, pulse duration, and SOC.*
+</page>
+
+<page number="16">
+## 4.5 Charge Request Current Table
+
+When charging, the BMS sends to the vehicle system the maximum charging current that the RESS can support. The values are sent on CAN based on the Current Charge Map.
+
+Please note that the Current Charge Map provides the starting value for the BMS calculation of the current and power limits sent on CAN. The BMS will then take into account the instantaneous cell voltages, temperatures, and SOH to calculate the actual current limits. Therefore, the values sent on CAN are expected to be lower than the values observed in these limits.
+
+There are also additional de-rates applied based on the BDU temperature.
+
+### Figure 4.5 VF8 Current Charge Map (A)
+The table displays the maximum charging current values sent by the BMS based on SOC (State of Charge) levels and temperature conditions. The data represents a matrix of varying current values (in Amperes) for temperature conditions from -20°C to 55°C across SOC levels ranging from 3% to 97%.
+</page>
+
+<page number="17">
+### 4.6 Cell Specifications
+
+#### Key Parameter for NCM 231.7Ah Cell:
+- **Dimension (mm):** 66.5 x 220 x 102.5 (without terminal).  
+- **Capacity (Ah) (1/3C, 25°C):** 231.7.  
+- **Voltage range (V):** 2.5 - 4.35.  
+- **Nominal voltage (V):** 3.73.  
+- **SOC range (%):** 3 - 97.  
+- **Weight (kg):** 3.45.  
+- **Energy density (Wh/kg):** 250.  
+- **Charge temperature (°C):** -20 - 55.  
+- **Discharge temperature (°C):** -30 - 55.  
+- **Fast charge 10 - 80% SOC (min):** 40.  
+- **Development status:** SOP.  
+
+#### Additional Test Results:
+| Item (GB)           | Result     |
+|----------------------|------------|
+| Hot box             | Pass       |
+| Overcharge          | Pass       |
+| Over discharge      | Pass       |
+| Short-circuit       | Pass       |
+| Crush               | Pass       |
+
+The cell includes an internal fuse for protection in short circuit scenarios.  
+
+#### Supplier Responsibilities:
+- Provide the Current and Power limits tables in the required VF format.  
+- Provide the DCIR (Direct Current Internal Resistance) tables in the required VF format.  
+- Supply any additional cell information relevant to life estimation, safety, performance evaluation, and thermal aspects as requested by VF during the project.
+</page>
+
+<page number="18">
+## HV Battery Pack Specification Document 
+
+### 5 Product Structure
+
+#### 5.1 Schematic Illustration of RESS  
+The external interfaces define the system boundaries of the product. The schematic illustration of RESS is shown below.
+
+**Figure 4.6:** Schematic illustration of RESS.  
+The illustration depicts the system boundaries, external interfaces, and key components such as the cooling system, BDU, CMC, cell block, and related interconnections. It specifies the interaction between the electrical, mechanical, and thermal subsystems.
+
+---
+
+#### 5.2 Battery Exploded View  
+The Battery Pack consists of five subsystems:
+
+- **Housing:**  
+  The housing serves as the mechanical body of the battery pack where all components are mounted. It protects the cell blocks and electrical components inside the pack, offering IP protection and resistance against mechanical factors.
+
+- **Cell Blocks:**  
+  The cell blocks provide, absorb, and store the electrical energy required by the vehicle.
+
+- **Battery Management System (BMS) + Battery Distribution Unit (BDU):**  
+  - The BMS manages functions such as relay control, thermal logic control, electrical protection, battery protection, SOx algorithms, CAN communications, and diagnostics.
+  - The BDU contains electrical components for power distribution, including relays, fuses, and current/voltage sensors.
+
+- **Thermal Management System:**  
+  Ensures heat transfer and maintains a reasonable temperature range for the RESS during its service life.
+
+- **Cabling & Interfaces:**  
+  Guarantees the electrical connection, energy transfer, air equalization, and physical mounting of the battery pack.
+
+VinFast Released
+</page>
+
+<page number="19">
+### 5 Product Structure
+
+#### 5.1 Schematic Illustration of RESS
+The external interfaces define the system boundaries of the product. The schematic illustration of the Rechargeable Energy Storage System (RESS) is shown below.
+
+#### 5.2 Battery Exploded View
+The Battery Pack consists of five subsystems: housing, cell blocks, battery management system (BMS) + Battery Distribution Unit (BDU), cooling system, and cabling & interfaces.  
+- **Housing**: The housing is the mechanical body of the battery pack to which all components are mounted. It protects the cell blocks and electrical and electronic (EE) components inside the pack, providing IP protection and protection against mechanical factors.  
+- **Cell Blocks**: The cell blocks provide, absorb, and store the electrical energy for the vehicle.  
+- **Battery Management System (BMS)**: The BMS is the management system of the battery pack, providing relay control, thermal logic control, EE protection, battery protection, state-of-charge (SOC) algorithms, CAN communications, and diagnostics. The Battery Distribution Unit (BDU) contains the electrical components for power distribution, including relays, fuses, current, and voltage sensors.  
+- **Thermal Management System**: The thermal management system ensures heat transfer and a reasonable temperature range for the RESS during its entire service life.  
+- **Cabling & Interfaces**: Cabling and interfaces guarantee the electrical connection, electrical energy transfer, air equalization, and physical mounting.  
+
+---
+
+### Exploded View of RESS
+
+The product structure is displayed in **Figure 5.1 Exploded View of RESS**.
+
+#### Details of Cell Blocks in RESS
+- There are 8 cell blocks in the RESS, which are connected in series.  
+- **6 cell blocks** include 16 cells each, which are connected in series (1P16S type).  
+- **2 cell blocks** at the back include 6 cells each, which are connected in series (1P6S type).  
+
+The entire pack contains **108 cells in total**.
+
+#### Nominal Weight of RESS
+The nominal weight of the RESS is **540 kg** or **536.6 kg** after weight-saving changes.
+
+#### Material Breakdown of Battery Pack
+The material breakdown of the RESS is as follows:  
+- **Cells:** 69%  
+- **Aluminum:** 14.0%  
+- **Steel:** 9.9%  
+- **Plastic:** 2.1%  
+- **Electronics:** 0.7%  
+- **Adhesive:** 1.0%  
+- **Others (mica, PVC coating, mica plate, isolation cover, thermal insulation pad, tie, foam):** 3.3%  
+
+**Total weight:** **540 kg** / **536.6 kg**
+</page>
+
+<page number="20">
+## Interfaces of Product
+
+The main interfaces of RESS include HV connector, LV connector, thermal system interface, venting interface, mounting interface, and grounding connection.
+
+### 5.3.1 HV Connector
+
+**Technical Specifications:**
+- **Make:** Amphenol Pcd Shenzhen  
+- **Model:** HVSL200022XXH10  
+
+**Technical Data:**
+- Current rate (95 mm² wire): 350A  
+- Current rate (70 mm² wire): 250A  
+- Voltage rate: 1000V DC  
+- Operating temperature: -40°C to 125°C  
+- Dielectric withstanding voltage: 3000V AC  
+- Insulation resistance: 2000MΩ  
+- Durability: 50 cycles  
+- Shielding: Yes  
+- Waterproof: IP67 / IP69k  
+- Corrosion-proof grade (Salt fog test): 96 hours  
+- Ambient temperature: -40°C to 70°C  
+- Cable size (95 mm² jacket diameter): Ø21.3 ± 0.6 mm  
+- Cable size (70 mm² jacket diameter): Ø18.7 ± 0.5 mm  
+- M10 thread torque (max): 10 N·m  
+
+There is one HV connector on RESS. Figure 5.2 shows the location of the HV connector on RESS.
+
+**Figure 5.2 Location of the HV Connector**  
+The diagram illustrates the position of the HV connector on the RESS, along with its surrounding systems.
+</page>
+
+<page number="21">
+### HV Battery Pack Specification Document
+
+#### 5.3 Interfaces of Product
+
+The main interfaces of RESS include HV connector, LV connector, thermal system interface, venting interface, mounting interface, and grounding connection.
+
+---
+
+#### 5.3.1 HV Connector
+
+**Technical Specifications**  
+- **Make**: Amphenol Pcd Shenzhen  
+- **Model**: HVSL200022XXH10  
+
+**Table 1: HV Pin Assignments**
+
+| Designation       | Pin | Comment             |
+|-------------------|-----|---------------------|
+| HV+               | 1   | Output of HV plus   |
+| HV-               | 2   | Output of HV minus  |
+| M_HV_SHIELD       | -   | HV connector shield |
+
+There is 1 HV connector on RESS. Figure 5.2 shows the location of the HV connector. The HV connector includes the HV plus and HV minus connection of shielded wires, and HVIL. In the plug connector, the shield is connected directly to the housing of RESS.  
+The HV connector is secured by a lock. When the connector is plugged correctly and the lock is closed, the two locking pins of HVIL are connected, thus closing the HVIL loop.
+
+**Precautions for Connecting HV Harness with Vehicle**  
+1. The nominal voltage between the two pins of HV connector is 403V. Only HV-trained technicians with appropriate protection equipment shall consider connecting, disconnecting, or interacting with the HV connector.  
+2. Keep the HV connector clean. Do not splash any liquid into the HV connector.
+
+---
+
+#### Figure 5.2: Location of the HV Connector  
+Visual representation of the HV connector's placement within the RESS.
+
+---
+
+#### Figure 5.3: Illustration of HV Connector  
+Detailed image showing the design and structure of the HV connector, including both internal and external views.
+
+---
+
+#### 5.3.2 LV Connector
+
+**Technical Specifications**  
+- **Make**: Amphenol Pcd Shenzhen  
+- **Model**: C-RT002028Pxx_REV_B1
+</page>
+
+<page number="22">
+## 5.3 Interfaces of Product
+
+### 5.3.1 HV Connector
+The main interfaces of RESS include HV connector, LV connector, thermal system interface, venting interface, mounting interface, and grounding connection.
+
+#### Technical Specifications:
+- **Make:** Amphenol Pcd Shenzhen  
+- **Model:** HVSL200022XXH10  
+
+#### Technical Data:
+- **Current Rate (95mm² Wire):** 350A  
+- **Current Rate (70mm² Wire):** 250A  
+- **Voltage Rate:** 1000V DC  
+- **Operating Temperature:** -40°C to 125°C  
+- **Dielectric Withstanding Voltage:** 3000V AC  
+- **Insulation Resistance:** 2000MΩ  
+- **Durability:** 50 Cycles  
+- **Shielding:** Yes  
+- **Waterproof:** IP67, IP69K  
+- **Corrosion-Proof Grade (Salt Fog Test):** 96 Hours  
+- **Ambient Temperature:** -40°C to 70°C  
+- **Cable Size (Jacket Diameter - 95mm²):** Ø21.3 ± 0.6  
+- **Cable Size (Jacket Diameter - 70mm²):** Ø18.7 ± 0.5  
+- **M10 Thread Torque (Max):** 10N.M  
+
+There is 1 HV connector on RESS. Figure 5.2 shows the location of the HV connector on RESS.
+
+#### Illustration of HV Connector
+Figure 5.3 illustrates the HV connectors.
+
+The HV connector includes the HV plus and HV minus connection of shielded wires, and HVIL. In the plug connector, the shield is connected directly to the housing of RESS. The HV connector is secured by a lock. When the connector is correctly plugged and the lock is closed, the two locking pins of HVIL are connected, thus closing the HVIL loop.
+
+#### Table 1: HV Pin Assignments
+| Designation       | Pin  | Comment            |
+|-------------------|------|--------------------|
+| HV+               | 1    | Output of HV plus  |
+| HV-               | 2    | Output of HV minus |
+| M_HV_SHIELD       | HV connector shield     |
+
+#### Precautions When Connecting HV Harness with Vehicle:
+1. The nominal voltage between the two pins of HV connector is 403V. Only HV-trained technicians with appropriate protection equipment shall consider connecting, disconnecting, or interacting with the HV connector.  
+2. Keep the HV connector clean. Do not splash any liquid into the HV connector.
+
+---
+
+### 5.3.2 LV Connector
+#### Technical Specifications:
+- **Make:** Amphenol Pcd Shenzhen  
+- **Model:** C-RT002028Pxx_REV_B1  
+
+Figure 5.4 shows the location of the LV connector on the RESS.  
+
+#### Illustration of LV Connector
+Figure 5.5 shows the detailed design of the LV connector.
+
+#### Notes (Unless Otherwise Specified):
+1. **Material:**  
+   - Shell: Zinc alloy, nickel-plated  
+   - Insert: Thermoplastic, UL94 V-0  
+   - Seal gasket: NBR/Silicone rubber  
+2. **Specifications:**  
+   - **Rated Current:** 13A (Max)  
+   - **Rated Voltage:** 300V (AC/DC)  
+   - **Dielectric Withstanding Voltage:** Less than 2 milliamps current leakage @ 2000 volts AC  
+   - **Insulation Resistance:** 5000MΩ (Min)  
+   - **IP-Class:** IP67  
+   - **Mating Cycles Durability:** 500 cycles (Min)  
+   - **ROHS Compliant:** Yes  
+   - **Suitable Contacts:** 16# Contacts  
+3. All dimensions are for reference use only.
+</page>
+
+<page number="23">
+The LV connector includes the following:
+
+**Table 2: LV Pin Assignments**
+
+| LV_port1Pin | Definition          | Type          | Remark         |
+|-------------|---------------------|---------------|----------------|
+| A           | KL30 / POWER        | Power (12V)   |                |
+| B           | KL30 / POWER#2      | Power (12V)   |                |
+| C           | KL31 / POWER GND    | Ground (12V)  |                |
+| D           | KL15 / Key ON       | Signal        |                |
+| E           | BA - CAN Hi         | Signal        |                |
+| F           | BA - CAN Lo         | Signal        |                |
+| G           | ACM turn off Pyro (+)| Signal       |                |
+| H           | ACM turn off Pyro (-)| Signal       |                |
+| J           | Debug - CAN Hi      | Signal        |                |
+| K           | Debug - CAN Lo      | Signal        |                |
+| L           | Crash signal        | Signal (5V)   |                |
+| M           | HVIL In             | Signal (5V)   |                |
+| N           | HVIL out            | Signal (5V)   |                |
+| P           | GND(Analog)         | GND           |                |
+| R           | GND(Digital)        | GND           |                |
+| -           | NA                  |               |                |
+| -           | NA                  |               |                |
+| -           | NA                  |               |                |
+</page>
+
+<page number="24">
+### 5.3.3 Thermal system interface
+
+The thermal system interface provides the connection between the coolant connector on the housing tray and cooling pipes from the cooling system on the vehicle side. Each cooling connector includes a protection cap to prevent particles from entering the cooling channel. The detailed interface is illustrated in **Figure 5.6 Cooling pipes interface**.
+
+#### Vehicle side connectors:
+
+- **SR NO. 1**: BATT_TO_PDU_HOSE_SFC_1  
+  **Part Number**: NA  
+  **VinFast Part Number**: NA  
+
+- **SR NO. 2**: BATT_TO_PDU_HOSE_SFC_2  
+  **Part Number**: NA  
+  **VinFast Part Number**: NA  
+
+- **SR NO. 3**: QUICK CONNECTOR (NW 16-90 TYPE 2)  
+  **Part Number**: QC/16-90-T2/VF/09  
+  **VinFast Part Number**: PWT30204249  
+
+- **SR NO. 4**: 2 WAY CONNECTOR (21x21)  
+  **Part Number**: C/21X21/VF/01  
+  **VinFast Part Number**: NA  
+
+- **SR NO. 5**: SPACE SAVER CLAMP POPP (DN 27x12)  
+  **Part Number**: 27012008035  
+  **VinFast Part Number**: NA  
+
+The isometric view of the quick connector is also provided in the schematic for reference.
+</page>
+
+<page number="25">
+### 5.3.4 Venting Interface
+
+There is a venting interface on the RESS. This device is called the air pressure equalization device (APED), and it includes an external vent pipe for this project. When the APED is not functioning, water may enter the RESS. If errors occur, such as leakage of cells or refrigerant leakage within the RESS, the APED serves as the degassing opening (EPED). As a result:
+- The opening must remain unobstructed.
+- Sufficient distance from adjacent areas must be maintained.
+- It is important to note that the gases that escape may be very hot and flammable.
+
+The venting interface specifications include the following:
+- **Main Structure:** Al6063 + VQM + SUS304
+- **Gas-permeable Membrane:** e-PTFE
+- **Ventilation Capacity:** > 300ml/min @ 2.5 kPa
+- **Burst Pressure:** 4 ± 1 kPa
+- **Operating Temperature:** -40°C to 85°C
+- **Thread Dimensions:** M5*18, 6 N.m
+- **Flame Retardant Rating:** UL94-V0
+- **Level of Protection:** IP68, IPX9K
+
+The venting interface design ensures:
+- Balancing internal and external pressure for the battery pack.
+- Rapid gas exhaust in case of abnormal cell damage.
+
+The venting interface is illustrated in Figure 5.7, which shows the location and design of the venting device on the RESS.
+
+**Figure 5.7 Venting Interface**
+The venting device is designed with considerations for safety and heat resistance, ensuring proper ventilation and gas release in the event of system failures.
+</page>
+
+<page number="26">
+5.3.5 Mounting interface.
+
+The mounting interface of the CATL battery pack is designed to be compatible with the existing VF8 vehicle design, which has mounting points designed for the VinES/SDI battery pack.  
+
+The mounting points in the side flanges and front corners are the same as the VinES/SDI battery pack.  
+
+There are 8 mounting points in the middle of the battery pack:  
+- 2 points in the middle area are the same as the VinES/SDI battery.  
+- 6 points in the middle area are different. It was not possible to use the existing vehicle mounting points; therefore, a new bracket was designed to ensure compatibility.  
+
+The detailed interface is shown in figure 5.8.  
+
+Figure 5.8: Mounting interface.  
+
+The battery pack also provides interfaces to mount the trust plate at the front, the gap hiders on the side, and the aero shield at the back of the battery pack.  
+
+For detailed design, including fixings, please refer to VFDSXVBAT1278 - VF8 BAT CATL HV Battery to BIW mounting reference document.
+</page>
+
+<page number="27">
+5.3.6 Center of Gravity Position.  
+The center of gravity (COG) position of the RESS is detailed in figure 5.9, showing the specific location of the COG relative to the structure of the battery pack.
+
+5.3.7 Grounding Point.  
+To assemble the RESS to the vehicle, there is one grounding point used for positioning the RESS. Figure 5.10 illustrates the location and details of the grounding pin on the RESS.
+</page>
+
+<page number="28">
+# HV Battery Pack Specification Document
+
+## 6. Battery Management System (BMS)
+
+### 6.1 BMS Hardware Overview
+
+The BMS block diagram is shown below, including the BDU in green as the "Junction BOX."
+
+Figure: BMS Block Diagram
+
+For detailed BMS specifications, please refer to document VFDSXVBAT1069: VF-8 HV Battery_CATL_BMS Specification Book.
+</page>
+
+<page number="29">
+### 6.2 BMS sw overview
+
+The CATL battery BMS software has been designed to be compatible with the existing VF8 vehicle system designed for the VinES / SDI battery pack. This means the same signals in the dbc file are used to interface with the vehicle system. The diagnostics are similar to the VinES battery pack but adapted to the CATL battery pack. Therefore, there are specific DTCs added, thresholds have been adapted, and not relevant DTCs have been removed.
+
+Due to different battery packs’ characteristics (different energy, power, and thermal characteristics), a different VCU calibration is expected to be required.
+
+#### The BMS software shall follow the following VinFast requirements:
+- VFDSAAEEP0035_Flash_Specification
+- VFDSAAEEP0036_Coding_Specification
+- VFDSAAEEP0047_CAN_Specification
+- CES_VINFAST_EE_VFDSP50000037_Security_Access_Algorithm
+- VFDSVAEEP0002_Basic_DID_PID_Specification
+- Generic Diagnostic Specification-VFDSVAEEP0001
+- VFDSXVEEP0013: CUV_ECU_Identifier_Specification_V1.0.21
+
+#### As part of each software release, the following information shall be provided in the SW release folder:
+- Hex sw files
+- Hex flash driver
+- XML file for FOTA
+- ODX file with implemented diagnostics
+- dbc file with implemented signals
+- SW release notes, including all changes vs previous FRS, Known issue (if any), and Part Numbers implemented
+- SW test report
+</page>
+
+<page number="30">
+### 7. Thermal System and Logic
+
+#### 7.1 Thermal System
+The battery pack is cooled and heated using a Water/Glycol coolant mix through the cooling plate. The cooling plate is located at the bottom of the battery pack, with the cells glued on top of it. 
+
+**Material:** Al 3003MOD  
+**Manufacturing process:** Stamping + Brazing  
+**Coolant volume:** Approx. 3.2L  
+
+The bottom plate system is illustrated in Figure 7.1, showing coolant flow pressure contours at 25°C with a flow rate of 25L/min, and a corresponding pressure drop of ~125.3kPa at 3.2L coolant volume.
+
+#### 7.2 Thermal Logic
+The BMS thermal logic follows the requirements from the VF Battery team. The BMS sends a signal to the VCU to turn on/off the Chiller (Cooling) or PTC (Heating) based on the cell temperature min/max.  
+
+Threshold values associated with these temperature boundaries are calibratable and subject to change.
+</page>
+
+<page number="31">
+### HV Battery Pack Specification Document
+
+#### Version: 4.0  
+Uncontrolled copy when printed  
+31 | 52  
+
+---
+
+### Thermal System and Logic
+
+#### 7.2. Thermal Logic  
+The Battery Management System (BMS) sends a signal to the Vehicle Control Unit (VCU) with the required power request based on the difference between the Target Temperature (defined as 24 degrees, calibratable) and the Inlet Temperature.  
+
+**Values below are calibratable and subject to change:**
+
+- **Target - Inlet (°C)**
+  - If the difference (Diff) ≤ -7, the power request for active cooling/heating is -7.5 kW and passive cooling/heating is 0 kW.
+  - If Diff ≤ -6.0, the power request is -7.0 kW (active).
+  - Diff ≤ -4.0: The power request is -4.0 kW (active).
+  - Diff ≤ -2.0: The power request is -2.0 kW (active).
+  - Diff ≤ 0: The power request is -0.2 kW (active). 
+  - Diff ≥ 0.2: The request for passive cooling/heating begins from 0.2 kW.  
+  - For heating, specific thresholds (e.g., 2 kW, 4 kW, and 7 kW) differ based on intensity required.
+
+---
+
+The BMS also sends a **flow rate request** to the VCU based on the difference between the pack temperature and inlet temperature.  
+
+**Values are calibratable and subject to change.**
+
+- Active modes and offline control thresholds are configured across charging systems, with yellow-highlighted values set as calibratable during specific conditions (e.g., periodic wake-ups and state-of-charge (SOC) checks).
+
+---
+
+#### System Modes for Chiller and PTC Operations
+**Chiller ON/OFF conditions:**
+- Active mode: During online operation, the chiller engages at cell temperatures above 32°C and disengages below 28°C. 
+- For AC charge, operational thresholds may alter to initiate above 41°C.
+- Offline mode triggers high-temp chiller operations beyond 40°C.
+
+**PTC ON/OFF conditions:**
+- Active mode: PTC is enabled for cell temperatures below specific thresholds during DC and AC charge periods.
+- Preconditioning triggers PTC below -22°C, with calibrated thresholds for offline periods below -20°C.
+
+---
+
+#### Release Notes
+The latest calibrations and configurations align with VF Battery requirements. Adjustable parameters maintain responsiveness for cooling or heating based on environmental conditions and operational needs.
+</page>
+
+<page number="32">
+### HV Battery Pack Specification Document  
+
+#### Version: 4.0  
+
+---
+
+### 7.3 Flowrate Request from BMS to VCU  
+
+The flowrate request from the Battery Management System (BMS) to the Vehicle Control Unit (VCU) is based on the difference between the pack temperature and the inlet temperature. The values listed below are calibratable and subject to change.  
+
+#### Flowrate Request Values:  
+
+- **Passive Cooling/Heating:**  
+  - For temperature differences of -150, -100, -70, and -15, the requested flowrate is 24.  
+  - At -10, the flowrate requested is reduced to 20.  
+  - At -5, the flowrate reduces further to 15.  
+  - At -3, the flowrate requested is now 11.  
+  - At -2, the flowrate reduces to 8.  
+  - At -1 and 0, the flowrate requested is 5.  
+  - At 1, 2, and 3, the flowrate remains at 5 and 8 respectively.  
+  - For differences of 4 and 5, the request increases to 12 and 15.  
+  - For differences outside this range (10, 15, 70, 100, 150), the flowrate returns to 24.  
+
+- **Active Cooling/Heating:**  
+  - For temperature differences ranging from -150 to -100, the requested flowrate is 24.  
+  - At -70 through -15, the flowrate requested remains at 24.  
+  - For -10, the flowrate reduces slightly to 20.  
+  - At -5, the flowrate reduces to 15.  
+  - At -3, the reduced flowrate is 12.  
+  - At -2, the flowrate requested is 10.  
+  - For -1 and 0, the value remains at 10.  
+  - For differences increasing from 1, 2, 3, and 4, the flowrate steps up between 10 and 12 respectively.  
+  - For 10 through 150, the requested flowrate returns to 24.  
+
+---
+VinFast Released
+</page>
+
+<page number="33">
+### 8 Thermal Propagation and Runway Detection
+
+#### 8.1 Thermal Propagation Design
+The CATL battery pack has been designed to minimize the possibility of thermal propagation between cells. There is a gap between cells, and a thermal insulation pad is fitted. There is space for venting on top of the cell and a Mica protective layer.
+
+**Figure 8.1** illustrates battery pack cell placement design with considerations for thermal events. Measurements in the drawing are indicative only and subject to change.
+
+---
+
+#### 8.2 Thermal Runaway Detection
+In the CATL B sample packs, thermal runaway was detected by monitoring cell voltages, temperatures, and communication faults of the CSC. The list of conditions can be found below, with thresholds being calibratable.
+</page>
+
+<page number="34">
+### 8 Thermal Propagation and Runaway Detection
+
+#### 8.1 Thermal Propagation Design
+The CATL battery pack has been designed to minimize the possibility of thermal propagation between cells. There is a gap between the cells, and a thermal insulation pad is fitted. Additionally, there is space allocated for venting on top of the cell and a Mica protective layer.
+
+*Figure 8.1* illustrates the battery pack cells placement design, considering potential thermal events. The measurements shown in the drawing are indicative only and subject to change.
+
+---
+
+#### 8.2 Thermal Runaway Detection
+In the CATL B sample packs, the thermal runaway was detected by monitoring:
+- Cell voltages.
+- Temperatures.
+- Communication faults of the CSC.
+
+The thresholds used for detection are calibratable and depend on various conditions.
+
+For the C sample design, VinFast requested the addition of a pressure sensor for thermal runaway detection. CATL incorporated a similar design in use with another OEM.
+
+**Conditions to trigger the thermal runaway alarm** include combinations of:
+- Voltage drops.
+- Temperature rises.
+- Time thresholds.
+- CSC communication conditions.
+
+The specific conditions to trigger thermal runaway detection are documented in the table above, with calibratable "xx" values for each setting.
+
+**TR Pressure Sensor Design and Logic:**
+- The TR sensor is integrated with the BMS hardware and powered by the vehicle’s 12V power supply.
+- When the BMS is active, signals from the BPS are transmitted via SPI to detect any thermal issues.
+- In sleep mode:
+  - The BPS chip will retain the alarm until the BMS wakes up.
+  - After waking up, the BMS evaluates the alarm to determine if a thermal runaway has occurred.
+  - If confirmed, the BMS activates the VCU to alert the vehicle.
+
+The working current specifications for the TR sensor are:
+- **Case 1:** 200µA in sleep mode.
+- **Case 2:** 250mA in active mode.
+
+Thermal runaway testing was performed on both the B sample and C sample hardware levels.
+</page>
+
+<page number="35">
+### 9 Component Level Validation
+
+The battery packs have undergone DV, PV, and Delta PV testing at the component level. The test plan, setup, and execution were reviewed and agreed upon between CATL and the VF Battery team, meeting all relevant national and international specifications.
+
+The DV, PV, and Delta PV for BDU, as well as Delta PV for Weight Saving, including all test reports, are released in Teamcenter:
+
+- **DVPRXVBAT1066**: DVRP_HV_BATTERY_PACK_VF8_CATL_B-SAMPLE (VF8 B sample DV)
+- **DVPRXVBAT1067**: VF8_CATL_C-SAMPLE_DVPR (VF8 C sample PV)
+- **DVPRXVBAT1277**: VF8_BATTERY_PACK_CATL_C-SAMPLE_DELTA_PV_DVPR (VF8 New BDU Delta PV)
+- **VFDSXVBAT1279**: VF8_CATL_BATTERY_PACK_SOP_WEIGHT_SAVE_DVPR (VF8 Weight Save Delta PV)
+
+ECE R100, UN38.3, and shipping certificates are also released in TeamCenter under **DVPRXVBAT1067**.
+
+### High-Level Test Cases for VF8 B Sample DV
+
+#### Validation Tests
+
+#### EE Performance
+
+| **User Case**                            | **Technical Specification**          |
+| ---------------------------------------- | ------------------------------------- |
+| User case P1 - Continuous Discharge      | VF Internal Standard EE Performance  |
+| User case P2 - Peak / Pulse Discharge    | VF Internal Standard EE Performance  |
+| User case P4 - Dynamic Discharge         | VF Internal Standard EE Performance  |
+| No load SOC loss at Room Temperature     | ISO 12405-4:2018                     |
+| SOC loss at storage                      | ISO 12405-4:2018                     |
+| Energy and capacity at RT                | ISO 12405-4:2018                     |
+| Energy and capacity at different temperatures and discharge rates | ISO 12405-4:2018                     |
+</page>
+
+<page number="36">
+# HV Battery Pack Specification Document  
+
+## Power and Internal Resistance  
+**Cycle Life**: ISO 12405-4:2018  
+
+**Fast Charge**: VF Internal standard EE Performance  
+
+---
+
+## Thermal Performance  
+
+### Pack Pressure Drop at Different Flow Rates and Coolant Temperature  
+**Standard**: VF Internal standard 211207_TnV_VFe35_Thermal Performance - V02  
+
+### Thermal Resistance Test  
+
+### Temperature Shock  
+**Standard**: ISO 6469-1:2019  
+
+### Battery Thermal Performance Tests (Including SFC)  
+1. **Super fast charge test**: Conducted at 35°C and 10% SOC.  
+2. **Max speed discharge test**: Conducted at 95% SOC and 38°C.  
+3. **Coolant heating profile**: Conducted at -20°C.  
+**Standard**: VF Internal standard 211207_TnV_VFe35_Thermal Performance - V02  
+
+---
+
+## Mechanical Durability & Reliability  
+
+### Vibration Endurance (Mechanical Load)  
+**Test Duration**: Each axis test for 40 hours.  
+**Standard**: ISO 19453-6  
+
+### Mechanical Shock Test  
+**Standard**: ISO 19453-6  
+
+### Air Tightness Check  
+**Standard**: ISO 19453-6  
+
+### Leak Check/Thermal  
+**Standard**: ISO 19453-6  
+
+### Contactor ON/OFF Durability Test  
+**Standard**: VF Internal standard Contactor ON-OFF durability test
+</page>
+
+<page number="37">
+### 9. Component Level Validation
+
+The battery packs have undergone DV, PV, and Delta PV testing at the component level. The test plan, setup, and execution were reviewed and agreed upon between CATL and VF Battery team, meeting all relevant national and international specifications.
+
+#### Released Test Reports
+1. **DVPRXVBAT1066**: DVRP_HV_BATTERY_PACK_VF8_CATL_B-SAMPLE (VF8 B sample DV).
+2. **DVPRXVBAT1067**: VF8_CATL_C-SAMPLE_DVPR (VF8 C sample PV).
+3. **DVPRXVBAT1277**: VF8_BATTERY_PACK_CATL_C-SAMPLE_DELTA_PV_DVPR (VF8 New BDU Delta PV).
+4. **VFDSXVBAT1279**: VF8_CATL_BATTERY_PACK_SOP_WEIGHT_SAVE_DVPR (VF8 Weight Save Delta PV).
+
+Both **ECE R100**, **UN38.3**, and shipping certificates are released in TeamCenter under **DVPRXVBAT1067**.
+
+#### High-Level Test Cases for VF8 B Sample DV
+- **Validation Tests**:
+  - Continuous Discharge: VF Internal Standard EE Performance.
+  - Peak/Pulse Discharge: VF Internal Standard EE Performance.
+  - Dynamic Discharge: VF Internal Standard EE Performance.
+  - No Load SOC Loss at Room Temperature: ISO 12405-4:2018.
+  - SOC Loss at Storage: ISO 12405-4:2018.
+  - Energy and Capacity at Room Temperature: ISO 12405-4:2018.
+  - Energy and Capacity at Different Temperatures and Discharge Rates: ISO 12405-4:2018.
+
+---
+
+### 10. Thermal Performance
+
+#### Tests Conducted
+1. Pack Pressure Drop at Different Flow Rates and Coolant Temperature:
+   - VF Internal Standard 211207_TnV_VFe35_Thermal Performance - V02.
+2. Thermal Resistance Test:
+   - Conducted per VF Internal Standard 211207_TnV_VFe35_Thermal Performance - V02.
+3. Temperature Shock:
+   - ISO 6469-1:2019.
+4. Battery Thermal Performance Tests (Including SFC):
+   - Super Fast Charge Test @ 35°C, 10% SOC.
+   - Max Speed Discharge @ 95% SOC, 38°C.
+   - Coolant Heating Profile @ -20°C.
+
+---
+
+### 11. Mechanical Durability & Reliability
+
+#### Tests Conducted
+1. Vibration Endurance (Mechanical Load) Test:
+   - Each axis tested for 40h according to ISO 19453-6.
+2. Mechanical Shock Test:
+   - ISO 19453-6.
+3. Air Tightness Check:
+   - ISO 19453-6.
+4. Leak and Thermal Check:
+   - ISO 19453-6.
+5. Contactor ON/OFF Durability Test:
+   - Conducted per VF Internal Standard (Contactor ON-OFF Durability Test).
+
+---
+
+### 12. Environmental Tests
+
+#### Tests Conducted
+1. Thermal Cycling for DUT with Internal Temperature Control System:
+   - ISO 19453-6.
+2. External Salt Spray Test:
+   - ISO 19453-6:2020.
+3. Mixed Gas Corrosion:
+   - ISO 19453-6:2020.
+4. Chemical Resistance:
+   - ISO 16750-5:2010.
+5. Ice Water Shock Test (Submersion Test):
+   - ISO 16750-4.
+6. Low Temperature Soaking Test:
+   - VF Internal Low Temperature Soaking Test.
+7. Humid Heat Condensation Test:
+   - ISO 19453-6.
+8. Water Immersion Test (IPX8):
+   - 1m, 48h according to ISO 19453-6:2020.
+9. High Pressure/Steam Jet Cleaning Test (IPX9K):
+   - ISO 19453-6:2020.
+10. Dust Protection Test (IP6KX):
+    - ISO 19453-6:2020.
+11. High Altitude Test:
+    - GB 38031.
+</page>
+
+<page number="38">
+### Damp Heat Constant
+- Specification: ISO 19453-6:2020
+
+### Safety - Battery Abuse
+
+#### Bollard Test
+- Specification: VF Internal Standard Bollard Test Procedure_V1.0
+
+#### Drop Test
+- Parameters: RT, SOC 100%, 1.0m  
+- Specification: UL 2580:2020
+
+#### Rotation Test
+- Parameters: SOC 100%  
+- Specification: UL 2580:2020
+
+#### Single Cell Failure Design Tolerance (Thermal Runaway)
+- Specification: VF Internal Standard
+
+#### Bottom Ball Impact
+- Specification: VF Internal Standard
+
+#### External Fire Exposure Test
+- Specification: ECE R100
+
+#### Coolant Leakage Test
+- Specification: CATL Test Procedure
+
+#### Crush Test
+- Axis: X and Y  
+- Specification: ECE R100
+
+#### Impact Test
+- Axis: X and Y  
+- Specification: GB38031
+
+#### Side Pole Crash Test - Static
+- Method: CAE simulation  
+
+#### Side Pole Crash Test - Dynamic
+- Method: CAE simulation  
+
+#### Jack Test
+- Specification: VF Internal Standard
+</page>
+
+<page number="39">
+### Safety - Electric Safety
+
+Contactor diagnostics (stuck close and stuck open conditions check) are tested based on VF Internal standard Contactor Diagnostics_Test Procedure_V1.0.  
+Dielectric Voltage Withstand Test conducted as per ISO 6469-3:2018.  
+Continuity Test conducted according to ISO 6469-3:2018 requirements.  
+Isolation Resistance measurement complies with ISO 6469-3:2018.  
+
+### System Function Test
+
+Residual voltage tests adhere to CATL Internal standard protocols.  
+Pre-charge tests performed using CATL Internal standard methodology.  
+HVIL Interlock verified as per VF standards for Electrical Safety.  
+Crash signal detection conducted based on VF standards for Electrical Safety.
+</page>
+
+<page number="40">
+### Safety - Electric Safety
+
+- **Contactor diagnostics (stuck close and stuck open conditions check):** VF Internal standard, Contactor Diagnostics_Test Procedure_V1.0.
+- **Dielectric Voltage Withstand Test:** ISO 6469-3:2018.
+- **Continuity Test:** ISO 6469-3:2018.
+- **Isolation Resistance:** ISO 6469-3:2018.
+
+### System Function Test
+
+- **Residual voltage:** CATL Internal standard.
+- **Pre-charge test:** CATL Internal standard.
+- **HVIL Interlock:** VF standard – Electrical Safety.
+- **Crash signal detection:** VF standard – Electrical Safety.
+
+### Isolation Fault and Accuracy Tests
+
+- **Isolation fault:** CATL Internal standard.
+- **SOP accuracy test:** CATL Internal standard.
+- **SOC accuracy test:** CATL Internal standard.
+
+### EMC (Electromagnetic Compatibility)
+
+- **4.2 RF-emissions - Measurements at the artificial network (AN):** VFDST00026302, VFDST00026303.
+- **7.2.2 HV/RE_01 - Measurement radiated emissions:** VFDST00026303.
+- **4.3 RF-emissions - Measurement with antennas (RE):** VFDST00026302.
+- **4.5 RF-Emissions - Measurement with the current probe (CP):** VFDST00026302.
+- **4.7 Transient emission on supply lines:** VFDST00026302.
+- **5.2 RF-immunity to interference - Bulk current injection (BCI):** VFDST00026302.
+- **5.3 RF-immunity to interference - Using antennas (ALSE):** VFDST00026302.
+- **5.6 Immunity to magnetic fields:** VFDST00026302.
+- **5.7 Immunity to Transients on supply lines (TSUP):** VFDST00026302.
+- **5.8 Immunity to Transients on lines except for supply lines (TOL):** VFDST00026302.
+</page>
+
+<page number="41">
+### Safety - Electric Safety
+- Contactor diagnostics (stuck close and stuck open conditions check): VF Internal Standard, Contactor Diagnostics Test Procedure V1.0.  
+- Dielectric Voltage Withstand Test: ISO 6469-3:2018.  
+- Continuity Test: ISO 6469-3:2018.  
+- Isolation Resistance: ISO 6469-3:2018.  
+
+### System Function Test
+- Residual Voltage: CATL Internal Standard.  
+- Pre-charge Test: CATL Internal Standard.  
+- HVIL Interlock: VF Standard – Electrical Safety.  
+- Crash Signal Detection: VF Standard – Electrical Safety.  
+
+### EMC
+- 5.9 Electrostatic Discharge - Handling Test (ESDH): VFDST00026302.  
+- 5.10 ESD Powered: VFDST00026302.  
+- 5.11 Indirect ESD: VFDST00026302.  
+- 6.1 EQ/RE Measurement of Low-Frequency Magnetic Fields: VFDST00026303.  
+- 7.1.1 HV/CE_01 Conducted Emission on Shielded HV Lines from Components/Modules (Voltage Method): VFDST00026303.  
+- 7.1.2 HV/CA_01 Measurement of HV-LV Coupling Attenuation Using Artificial Network: VFDST00026303.  
+- 7.1.3 HV/CA_02 Measurement of HV-LV Coupling Attenuation Using U-shaped Profile: VFDST00026303.  
+- 7.2.1 HV/CE_02 Conducted Emission from Components/Modules (Current Probe Measurement): VFDST00026303.  
+- 7.5.1 HV/TE_01 Measurement of Transients Along HVDC Lines: VFDST00026302.  
+- 7.5.2 HV/TI_01 Immunity to Pulse HV1 Along HVDC Lines: VFDST00026303.  
+
+### Low Voltage General Electric
+- E-01 Long-term Overvoltage: VFDST00028121.  
+- E-02 Transient Overvoltage: VFDST00028121.  
+- E-03 Transient Undervoltage: VFDST00028121.  
+- E-04 Jump Start: VFDST00028121.  
+- E-05 Load Dump: VFDST00028121.
+</page>
+
+<page number="42">
+## High Voltage Battery Pack Specification Document
+
+### Section: E-Series Electrical Tests
+- **E-06 Superimposed alternating voltage.** Test reference: VFDST00028121.
+- **E-07 Slow decrease and increase of the supply voltage.** Test reference: VFDST00028121.
+- **E-08 Slow decrease, quick increase of the supply voltage.** Test reference: VFDST00028121.
+- **E-09 Reset behavior.** Test reference: VFDST00028121.
+- **E-10 Short interruptions.** Test reference: VFDST00028121.
+- **E-12 Voltage curve with intelligent generator control.** Test reference: VFDST00028121.
+- **E-13 Pin interruption.** Test reference: VFDST00028121.
+- **E-14 Connector interruption.** Test reference: VFDST00028121.
+- **E-15 Reverse polarity.** Test reference: VFDST00028121.
+- **E-16 Voltage offset.** Test reference: VFDST00028121.
+- **E-17 Short circuit in signal circuit and load circuits.** Test reference: VFDST00028121.
+- **E-18 Insulation resistance.** Test reference: VFDST00028121.
+- **E-19 Closed-circuit current.** Test reference: VFDST00028121.
+- **E-21 Back feeds.** Test reference: VFDST00028121.
+
+### Section: High Voltage Testing
+- **Immunity to voltage ripple.** Standard reference: ISO 21498-2_2021.
+- **Immunity to voltage slope.** Standard reference: ISO 21498-2_2021.
+
+VinFast Released
+</page>
+
+<page number="43">
+Overvoltage testing uses ISO 21498-2_2021 specifications.  
+Under voltage testing complies with ISO 21498-2_2021.  
+Voltage offset testing is performed under ISO 21498-2_2021 guidelines.  
+Generated load dump voltage is tested in accordance with ISO 21498-2_2021.  
+Immunity to load dump voltage is verified using ISO 21498-2_2021 standards.  
+
+### Protection Test
+- Over-charge protection test follows GB 38031 standards.  
+- Over-discharge protection test is conducted as per GB 38031 specifications.  
+- Over-temperature protection test adheres to GB 38031 requirements.  
+- Over-current protection test conforms to GB 38031.  
+- Short Circuit Test is executed under GB 38031 protocols.  
+- External Fire Exposure Test is carried out using GB 38031 standards.  
+
+### Certification & Others
+- R100 Annex 8A - Vibration testing conforms to ECE R100.02.  
+- R100 Annex 8B - Thermal shock testing complies with ECE R100.02.  
+- R100 Annex 8C - Mechanical shock is tested in accordance with ECE R100.02.  
+- R100 Annex 8D - Mechanical integrity follows ECE R100.02.  
+- R100 Annex 8E - Fire resistance is assessed as per ECE R100.02.  
+- R100 Annex 8F - External short circuit complies with ECE R100.02.  
+- R100 Annex 8G - Over-charge protection adheres to ECE R100.02 standards.  
+- R100 Annex 8H - Over-discharge protection conforms to ECE R100.02.
+</page>
+
+<page number="44">
+R100 Annex 8I - Over-temperature protection. Specification reference: ECE R100.02.
+
+Regulatory - UN38.3.
+
+External short circuit (Cell and Pack) T.5. Specification reference: UN38.3.
+
+Over charge (Pack) T.7. Specification reference: UN38.3.
+
+Forced discharge (Cell & Pack) T.8. Specification reference: UN38.3.
+</page>
+
+<page number="45">
+## HV Battery Pack Specification Document  
+
+### Version: 4.0  
+
+### Functional Safety and Cybersecurity  
+
+#### 10.1 Functional Safety  
+Functional Safety Concept and Requirements specification in the scope of ISO 26262:2018.  
+The Functional Safety Concept and Requirements specification are prerequisite to the Functional Safety activities under supplier responsibility (e.g., at product (part 4), hardware (part 5), software (part 6), production (part 7) level).  
+For more specific information, the Functional Safety Concept for Rechargeable Energy Storage System (RESS)_VF-8 can be referred.  
+Horiba Mira has been appointed by VF to conduct a third-party assessment for FUSA.  
+
+For the latest version of the FUSA documentation and further details, please contact the VF FUSA team.  
+
+#### 10.2 Cybersecurity  
+The BMS supplier shall meet the following VF specifications for Cybersecurity:  
+- VFCSMCSS00110: VinFast Cybersecurity Requirements.  
+
+A Cybersecurity Interface Agreement (CIA) is in place between VinFast and CATL.  
+Both VF/VinCSS and CATL have taken measures to ensure the cybersecurity of the BMS.  
+There have been reviews between cybersecurity experts from VinCSS, FEV, and CATL to ensure compliance.  
+Karamba Security has performed a Threat Analysis, Risk Assessment & Mitigation Plan for the CATL BMS.  
+Karamba Security has also performed testing for Penetration Testing, Fuzzing, and Vulnerability Research. Reports have been shared and reviewed by VinCSS and FEV security experts.  
+
+For the latest version of the CyberSecurity documentation and further details, please contact the VF CSS team.
+</page>
+
+<page number="46">
+## HV Battery Pack Specification Document
+
+### 11 Charging
+
+#### 11.1 DC Fast Charge time
+
+**DC Charge time from Component Level Testing**  
+- **Case Ambient:**  
+  - 25°C  
+    - Project: VF8  
+    - Duration (10-70% SOC best): 29 minutes  
+    - Duration (10-80% SOC best): 37 minutes  
+    - Thermal strategy: Turn on when Tmax ≥ 32°C, turn off when Tmax < 28°C.  
+    - Coolant condition: 24°C, 20L/min.  
+  - 35°C  
+    - Project: VF8  
+    - Duration (10-70% SOC best): 36.5 minutes  
+    - Duration (10-80% SOC best): 45.5 minutes  
+    - Coolant condition: 35°C, 20L/min.  
+
+#### 11.2 AC Charge Time  
+
+**AC Charge Duration Calculation Estimates**  
+- **Vehicle:** VF-8  
+- **Specifications:**  
+  - Total Pack Energy: 93.3 kWh  
+  - Usable Energy: 87.7 kWh  
+  - Charge Power:  
+    - 3 KW: time for 10%-100% SOC = 40.3 hours  
+    - 7.4 KW: time for 10%-100% SOC = 13.2 hours  
+    - 11 KW: time for 10%-100% SOC = 8.5 hours  
+  - Charger Efficiency: 92%  
+  - Loads for LV: 0.8 KW  
+  - Charge Power to Battery:  
+    - 1.96 KW (for 3 KW charge power)  
+    - 6 KW (for 7.4 KW charge power)  
+    - 9.3 KW (for 11 KW charge power)  
+  - Energy Consumption (10%-100% SOC): 78.9 kWh  
+
+**Note:**  
+Depending on LV loads and active thermal system behavior, the actual charge time on the vehicle can be considerably longer. These values are provided for guidance only.  
+
+VinFast Released
+</page>
+
+<page number="47">
+## HV Battery Pack Specification Document
+
+### 12 Labels, Packaging, Transportation, and Storage
+
+#### 12.1 Labels on battery pack
+Labels are applied on the surface of the Rechargeable Energy Storage System (RESS). These include the HV Warning label, Logo label, and VF label. The detailed label locations are illustrated in section 6.1.
+
+Figures relevant to the labels:
+- **Figure 12.1**: Labels location.
+- **Figure 12.2**: HV Warning label.
+- **Figure 12.3**: Logo label.
+  
+The contents of the different labels are depicted in figures 6.2, 6.3, and 6.4.
+
+VinFast Released
+</page>
+
+<page number="48">
+### HV Battery Pack Specification Document  
+
+#### Version: 4.0  
+Uncontrolled copy when printed  
+Page: 48 | 52  
+Print date  
+Status  
+Functional Responsibility  
+
+---
+
+### VinFast Management System  
+
+#### VFDS XV BAT1065  
+
+**Figure 12.4 VF label (after changes agreed in May 2023)**  
+Note: The PNs are subject to change as the project progresses.  
+
+---
+
+### 12.2 Packaging  
+
+The packaging is made up of a wooden box, and the battery is placed inside a plastic bag. All exposed terminals are protected by a cover. The following documents need to be attached to the packing box:  
+- Pass certificate  
+- Outgoing report as CATL template  
+- Copy of UN38.3 certificate report (For non-Chinese market)  
+- MSDS  
+
+**Figure 12.5 RESS packing diagram**  
+
+---
+
+VinFast Released
+</page>
+
+<page number="49">
+### HV Battery Pack Specification Document
+
+#### Version: 4.0  
+Uncontrolled copy when printed
+
+---
+
+### 12 Labels, Packaging, Transportation and Storage
+
+#### 12.3 Transportation
+
+The Battery Pack should be transported not fully charged, meeting the applicable legislation for mode of transport and location. During transportation, the battery pack should be prevented from violent vibration, shock, exposure to sunlight, rain, or any liquid during transportation, and it should not be inverted to avoid short circuits. 
+
+In the process of loading and unloading, it should be handled gently, without dropping, throwing, rolling, heavy loads, or inversion. 
+
+The recommended transportation temperature is between 0 to 40 degrees.  
+- **If shipped by plane:** The RESS should be transported with SOC lower than 30%.  
+- **For road or ship:** The RESS will be delivered with 40% SOC by CATL.
+
+---
+
+#### 12.4 Storage
+
+The Pack shall be stored at **20%-70% SOC**.  
+The requirements of product storage environment are as follows:
+- **Limits for Storage temperature:** -40 °C ~ 60 °C  
+- **Recommended storage temperature:** 0 °C ~ 40 °C  
+- **Recommended storage humidity:** 10% ~ 85% RH  
+- **Storage environment:**  
+  - The battery should be stored in a clean, ventilated, and cool environment.  
+  - Avoid exposure to sunlight, high temperature, corrosive gas, violent vibration, mechanical shock, and heavy load.  
+  - Keep away from heat sources.
+
+The duration for storage in dry and ventilated environments depends on storage SOC and self-discharge specifications.  
+
+The battery packs in storage need to be checked and maintained every 6 months. The maintenance test methods during storage are as follows:
+
+---
+
+#### Label for Wooden Packaging
+
+The wooden package shall have a label with the following content:
+
+- **Requested by:**  
+  MC/Logistic team  
+
+- **Requirement:**  
+  To have a new label on wooden packaging to save scanning time, unpacking time, and labor when CATL arrives at the warehouse.
+
+---
+
+#### Note
+
+The label image with VF confirmation is detailed and includes QR code identification for efficient tracking.
+
+---
+
+**VinFast Released**
+</page>
+
+<page number="50">
+### HV Battery Pack Specification Document
+
+#### Version: 4.0  
+Uncontrolled copy when printed  
+50 | 52  
+
+---
+
+### 12.5 Vehicle Storage  
+At normal temperature, if the battery Pack SOC is lower than the requirement (minimum 20%), it should be charged with 1/3 C, and adjusted SOC to 30% ~ 70%.
+
+After the battery pack is fitted onto a vehicle, the vehicle shall be checked and charged periodically to prevent the battery pack overdischarge.
+
+If a vehicle is not used for a long period of time, the 12V battery shall be disconnected in order to avoid excessive discharge of the HV battery pack. The status of the HV battery pack shall be checked periodically at least once a month and kept with SOC > 30%.
+
+---
+
+### 13 Risk Warning  
+**WARNING**  
+
+**Battery Pack is potentially dangerous, proper precautions must be taken in operation and maintenance!**
+
+**Improper operation may result in severe personal body injury or property damages!**
+
+**Proper tools and safeguard equipment must be used!**
+
+**Maintenance must be carried out by personnel with knowledge of battery and with safety training!**
+
+**Violation of the warning above will lead to various disasters!**
+</page>
+
+<page number="51">
+### 14 Battery Pack Recycling
+
+CATL has suggested 3P recycler for different market.
+
+#### Battery Recycling Process:
+1. **Battery Design**: Features a long life and can be easily disassembled and tested.  
+2. **Use in Vehicles**: Data monitoring, after-sales service, accident recovery, and faulty battery recovery.  
+3. **Scrapping of Vehicles**: Recycle waste batteries and identify battery health condition through Bump.  
+4. **Vehicle-Battery Separation**: Dynamic monitoring of battery performance indicators.  
+5. **Cascade Utilization**: Use in energy storage, logistics vehicles, and other scenarios if batteries are in good condition.  
+6. **Raw Material Recovery**: Process into cathode materials for battery production.  
+7. **Recycling**: Refinement from waste batteries in poor condition.  
+
+#### Recommended Recycler:
+- **AM (Americas)**:
+   - Li-cycle  
+   - SNT  
+
+- **EMEA (Europe, Middle East, Africa)**:
+   - Nickelhütte Aue GmbH  
+   - Li-cycle  
+   - Westward  
+
+- **AP (Asia Pacific)**:
+   - Li-cycle (ready by end of 2022)
+</page>
+
+<page number="52">
+### 14 Battery pack recycling.
+
+CATL has suggested 3P recyclers for different markets. A detailed process for the lifecycle of the battery includes various stages:
+
+- **Battery Design**: Designed for easy disassembly and testing. 
+- **Use in Vehicles**: Includes data monitoring, post-sales battery recovery, and accident impact evaluation.
+- **Scrapping of Vehicles**: Waste batteries are recycled, and battery health conditions are identified.
+- **Vehicle-Battery Separation**: Dynamic monitoring of battery performance indicators takes place.
+- **Cascade Utilization**: Batteries in good condition are used for energy storage, logistics, and other purposes.
+- **Raw Material**: Batteries are processed into cathode materials for new battery production.
+- **Recycling**: Waste batteries in poor condition have materials refined for reuse.
+
+#### Recommended Recycler for Different Regions:
+- **AM (Americas)**: 
+  - 1. Li-cycle
+  - 2. SNT
+- **EMEA (Europe, Middle East, Africa)**:
+  - 1. Nickelhütte Aue GmbH
+  - 2. Li-cycle
+  - 3. Westward
+- **AP (Asia Pacific)**:
+  - 1. Li-cycle (ready by end of 2022)
+
+### Recycler Info Table:
+- **Li-cycle**:
+  - **Service footprint**: U.S., Europe, Asia.
+  - **Service availability**: Transportation, Recycling/Destruction, Packaging, Storage.
+  - **Contact**:
+    - U.S.: Scott Pencer - scott.pencer@li-cycle.com
+    - Europe: Manfred Schmidt - manfred.schmidt@li-cycle.com
+    - Asia: George Wu - George.Wu@li-cycle.com
+- **SNT**:
+  - **Service footprint**: U.S.
+  - **Service availability**: Transportation, Recycling.
+  - **Contact**: Wei-Hsun Liao - LiaoWH@catl.com
+- **Nickelhütte Aue GmbH**:
+  - **Service footprint**: Europe.
+  - **Service availability**: Transportation, Recycling, Packaging.
+  - **Contact**: Patrick Renner - p.renner@nickelhuette-aue.de
+- **Westward**:
+  - **Service footprint**: Europe.
+  - **Service availability**: Transportation, Recycling.
+  - **Contact**: Bono Ge - bono.ge@westwardgroup.com.hk
+
+For the latest agreements between CATL and VF for recycling and disposal of battery packs, please contact the VF Aftersales team and VinES commercial team.
+
+---
+
+### 15 Sustainability & Scalability.
+
+The document emphasizes VinFast’s commitment to the United Nations' 17 Sustainable Development Goals (SDGs), which include:
+1. No Poverty.
+2. Zero Hunger.
+3. Good Health and Well-being.
+4. Quality Education.
+5. Gender Equality.
+6. Clean Water and Sanitation.
+7. Affordable and Clean Energy.
+8. Decent Work and Economic Growth.
+9. Industry, Innovation and Infrastructure.
+10. Reduced Inequalities.
+11. Sustainable Cities and Communities.
+12. Responsible Consumption and Production.
+13. Climate Action.
+14. Life Below Water.
+15. Life on Land.
+16. Peace, Justice and Strong Institutions.
+17. Partnerships for the Goals.
+
+Each of these goals is integrated into VinFast’s sustainability and scalability initiatives.
+</page>
+</pages>

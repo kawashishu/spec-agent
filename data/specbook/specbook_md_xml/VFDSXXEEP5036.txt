@@ -1,0 +1,1493 @@
+
+<filename>VFDSXXEEP5036</filename>
+<pages>
+
+<page number="1">
+USB SOCKET Specification Book (SPB).
+
+Supercedes Edition (9.2023).
+
+SPB-FSS.
+</page>
+
+<page number="2">
+### Scope
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop vehicle projects VF36/VFe36, respectively. Environmental impact and sustainability of the program are taken into account as essential target features. This Specification Book (SPB) shall provide details for all components for mass production.
+
+#### Responsible Contact:
+Responsible Contact: vf.pn.ruans@vinfast.vn  
+
+The reproduction, distribution and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.  
+
+#### Figure Description:
+The image shows a USB socket component intended for vehicle integration, showcasing its design structure and mass-production compatibility.
+</page>
+
+<page number="3">
+Contents.
+
+1. GENERAL DOCUMENT GUIDELINES.  6  
+    1.1 Purpose and Legal Binding.  6  
+    1.2 Language  6  
+    1.3 Obligation of Requirement Wording.  6  
+        1.3.1 Vehicle profile  7  
+        1.3.2 Sales Markets  7  
+
+2. GENERAL PROJECT GUIDELINES.  8  
+    2.1 Development Scope Abstract.  8  
+    2.2 Initial Situation and Objective.  8  
+    2.3 Classification of the System / Component.  8  
+    2.4 Execution Regulations.  8  
+    2.5 Development and Supply Scope.  8  
+        2.5.1 Work Interface Chart (RASI).  9  
+        2.5.2 Development Interface Agreement (DIA).  11  
+    2.6 Quotation Scope  11  
+    2.7 Properties, Condition and Durability.  11  
+    2.8 Development Process.  11  
+        2.8.1 Gates and Milestones.  11  
+        2.8.2 Prototype Statuses and Quantities.  11  
+        2.8.3 Type Approval and Certification.  12  
+    2.9 Quality and Reliability  12  
+        2.9.1 Quality Concepts  12  
+        2.9.2 Risk Management  12  
+        2.9.3 Validation of the SW Development  12  
+    2.10 Content Amendments  12  
+
+3. PROJECT MANAGEMENT AND ORGANIZATION  13  
+    3.1 Responsibilities in the Project and Project Management Plan 13  
+    3.2 Documentation  13  
+        3.2.1 Hardware Documentation  13  
+        3.2.2 Software Documentation  13  
+        3.2.3 Conformity Requirements  13  
+
+4. SYSTEM ENVIRONMENT.  15  
+    4.1 Functional System Environment  15  
+    4.2 Physical System Environment / Mechanical Interfaces.  15  
+    4.3 System Diagram  16  
+
+5. FUNCTIONAL AND TECHNICAL REQUIREMENTS.  17  
+    5.1 Technical Requirement  17  
+    5.2 Block and Principle Diagram  17  
+        5.2.1 Elements of Systems  17  
+    5.3 Functions  17  
+        5.3.1 Overview Functions Description  17  
+        5.3.2 Detailed Functions Description  18  
+        5.3.3 Faulty Operation  19  
+        5.3.4 Emergency Operation  19  
+        5.3.5 Display and Operation Concept (HMI)  19  
+        5.3.6 Service and Application Functions  19  
+    5.4 Diagnostics  19  
+    5.5 E/E System Schematic  20
+</page>
+
+<page number="4">
+Contents.
+
+1. GENERAL DOCUMENT GUIDELINES (
+</page>
+
+<page number="6">
+).
+   - Purpose and Legal Binding (6).
+   - Language (6).
+   - Obligation of Requirement Wording (6). 
+   - Vehicle profile (7). 
+   - Sales Markets (7).
+
+2. GENERAL PROJECT GUIDELINES (
+</page>
+
+<page number="8">
+).
+   - Development Scope Abstract (8).
+   - Initial Situation and Objective (8).
+   - Classification of the System / Component (8).
+   - Execution Regulations (8).
+   - Development and Supply Scope (8).
+      - Work Interface Chart (RASI - 9).
+      - Development Interface Agreement (DIA - 11).
+   - Quotation Scope (11).
+   - Properties, Condition and Durability (11).
+   - Development Process (11).
+      - Gates and Milestones (11).
+      - Prototype Statuses and Quantities (11).
+      - Type Approval and Certification (12).
+   - Quality and Reliability (12).
+      - Quality Concepts (12).
+      - Risk Management (12).
+      - Validation of the SW Development (12).
+   - Content Amendments (12).
+
+3. PROJECT MANAGEMENT AND ORGANIZATION (
+</page>
+
+<page number="13">
+).
+   - Responsibilities in the Project and Project Management Plan (13).
+   - Documentation (13).
+      - Hardware Documentation (13).
+      - Software Documentation (13).
+      - Conformity Requirements (13).
+
+4. SYSTEM ENVIRONMENT (
+</page>
+
+<page number="15">
+).
+   - Functional System Environment (15).
+   - Physical System Environment / Mechanical Interfaces (15). 
+   - System Diagram (16).
+
+5. FUNCTIONAL AND TECHNICAL REQUIREMENTS (
+</page>
+
+<page number="17">
+).
+   - Technical Requirement (17).
+   - Block and Principle Diagram (17).
+      - Elements of Systems (17).
+   - Functions (17).
+      - Overview Functions Description (17).
+      - Detailed Functions Description (18).
+      - Faulty Operation (19).
+      - Emergency Operation (19).
+      - Display and Operation Concept (HMI - 19).
+      - Service and Application Functions (19).
+      - Diagnostics (19).
+   - E/E System Schematic (20).
+   - Control Unit Concept (21).
+      - Hardware (21).
+      - Software (21). 
+   - Electrical Interfaces (21).
+      - Signal Characteristics (21).
+      - Diagnostics (22).
+      - Network Management (22).
+      - Flashing and Coding (22). 
+      - Pin Assignment (22).
+      - Component Connected to Terminal 30 (24).
+   - Specific Characteristics (24).
+   - Safety Requirements (24).
+      - Vehicle Safety Regarding Person and Passenger Protection (24).
+      - Vehicle Safety (25).
+   - Alternative and Future Variants (25).
+   - Mechanical Energy Management (25).
+      - Weight Targets (25).
+      - Fuel Consumption & Driving Performance (25).
+   - Installation (25).
+      - Installation Location (25).
+      - Assembly Concept and Requirement from Production (26).
+      - Geometry (27).
+      - Tolerances (27).
+   - Styling and Design (27).
+   - Ergonomics (28).
+      - Optical Characteristics and Surface Feel (28).
+      - Actuation Acoustics (28).
+      - Handling (28).
+   - Technical Material Requirements (28).
+   - Resistance to Media and Chemical Requirements (28).
+      - Contamination (28).
+      - Cleaning (28).
+      - Corrosion Protection (28).
+      - Tightness and Protection Classes (28).
+   - Environmental Compatibility (28).
+      - Material Selection (28).
+      - End of Life Treatment (29).
+      - Eco-Design (29).
+      - Lifecycle Analysis (29).
+      - Emissions & Toxicology (29).
+   - Mechanical Requirements (29).
+      - Load (29).
+      - Vibration Behavior (29).
+      - Stiffness and Cushioning Characteristics (29).
+      - Deformation (29).
+      - Pressure (29).
+      - NVH / Acoustic Performance (29).
+      - Durability / Life Time (29).
+   - Electrical Requirements (29).
+      - Description of the Requirements (29).
+      - Power Consumption (30).
+      - Low Voltage Energy Management (30).
+      - High Voltage Energy Management (30).
+      - Electromagnetic Compatibility (30).
+      - Electrostatic Discharge (30).
+</page>
+
+<page number="5">
+Contents  
+5.20 Climatic Requirements / Thermal Management.  
+5.20.1 Thermal Management Requirements.  
+
+5.21 Service Requirements.  
+5.22 Transport Protection.  
+5.23 Logistics Requirements.  
+5.24 Quality Assurance Requirements.  
+
+6 TESTING AND VALIDATION AND DVP&R.  
+6.1 Proof of Compliance.  
+6.1.1 Testing Plan (DVP + FRS Plan).  
+6.1.2 Package.  
+6.2 Electrical Systems & Functions.  
+6.3 Virtual Testing and Simulation.  
+6.4 Vehicle Testing.  
+6.5 Tests.  
+6.6 Appearance Approval - Applicable for all Visible Parts.
+
+7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS.  
+7.1 Functional Safety Requirements.  
+7.2 Deliverables for Functional Safety.  
+a) FUSA Deliverables expected before nomination.  
+b) FUSA Deliverables expected after nomination.  
+7.3 Homologation and safety regulation requirements.  
+7.3.1 North America.  
+7.3.2 Europe.  
+
+8 DEFINITIONS AND LIST OF ABBREVIATIONS.  
+8.1 Definitions.  
+8.2 Definitions and List of Abbreviations.  
+8.3 List of Tables.  
+8.4 List of Figures.  
+
+9 FURTHER APPLICABLE DOCUMENTS.
+</page>
+
+<page number="6">
+Release.
+
+Version: 2.0.  
+Date: Sep-2023.  
+
+Updated by:  
+| Function                | Name            |  
+|-------------------------|-----------------|  
+| Initial version & main responsibility | Tobias Knauer |  
+
+Revisions since previous version:  
+| Version | Change Description        | Signature | Date    |  
+|---------|---------------------------|-----------|---------|  
+| 1.0     | First edition             |           | 12/2021 |  
+| 1.1     | USB_ARMREST canceled      |           | 01/2022 |  
+| 2.0     | Change SPB number         |           | 9/2023  |  
+
+1 General Document Guidelines.
+
+1.1 Purpose and Legal Binding.  
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard.  
+
+Requirement documents are divided into three levels, which are complementary to each other.  
+All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g., level 3 vs level 2 → level 2 is applicable).  
+
+1.2 Language.  
+This document is written in English.  
+All official project documentation has to be done in English. If documents are bilingual, the English text is binding.  
+
+1.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document.  
+
+Shall.  
+The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.
+</page>
+
+<page number="7">
+Should. The word “should” is used for preferences or desires in implementation that are not strictly binding.
+
+May. The word “may” is used to denote options that are left to the implementer.
+
+1.3.1 Vehicle profile. See Appendix_Feature list, VFDSXXCVC2101 Appendix_5_Features List.
+
+PALS. VFDSXVCVC3201 VF36_VFe36 PALS Product Attribute Leadership Strategy.
+
+1.3.2 Sales Markets. LHD countries: VN (Vietnam), NA: North America (US: United States, CA: Canada), EU (Europe).
+
+Production Volume. Refer to Purchasing Request for Quotation.
+</page>
+
+<page number="8">
+2 General Project Guidelines.
+
+2.1 Development Scope Abstract.  
+This technical specification is a written summary of requirements to be taken into account in the development of the USB Sockets. The requirements described in this technical specification relate primarily to functional characteristics. The contractor ensures that the development of the components respects all applied standards, characteristics, and project requirements. Any possible cost savings as a result of improvements in design, production, or validation details must be reported immediately. The contractor is a ‘Full Service Supplier’, with complete responsibility for the supplied system within the system boundaries.
+
+2.2 Initial Situation and Objective.  
+The USB Socket is a new development component that controls the charging process of attached USB peripherals. Through testing and vehicle performance verification, this product is intended to meet the performance design requirements of the socket.
+
+2.3 Classification of the System / Component.  
+| No | Part Name                        | Part No.      | Qtty | Purchase Level | VFe36 ECO | VFe36 PLUS |
+|----|----------------------------------|---------------|------|----------------|-----------|------------|
+| 1  | USB_FRONT_SOCKET_DUAL           | EEP80011009   | 1    | P              | x         | x          |
+| 2  | USB_REAR_SOCKET_TRIPPLE         | EEP30011002   | 1    | P              | x         | x          |
+| 3  | USB_REAR_SOCKET_DUAL (Captain Chair) | EEP80011004 | 1    | P              |           | x          |
+| 4  | USB_SMALL_VERSION               | EEP80011002   | 2    | P              | x         | x          |
+
+2.4 Execution Regulations.  
+The supplier must ensure that the developed parts meet the specified requirements of VinFast, obtain type certifications for the parts, and submit all necessary documents to support type certification of the whole vehicle. Upon completing synchronous development, suppliers must provide necessary documentation to prove their compliance with required regulatory requirements, including but not limited to ISO26262.
+
+2.5 Development and Supply Scope.  
+The supplier status is "Full Service Supplier," meaning the supplier has complete responsibility for the supplied system within the system boundaries. This responsibility includes:  
+- Defining, developing, and 3D-designing all parts within the system.  
+- Creating release drawings.  
+- Ensuring system functionality.  
+- Performing required simulations or calculations at the system level.  
+- Validating the system according to the technical targets and tests specified.  
+- Ensuring proper system timing concerning project management, development, and industrialization.  
+
+The agreed work-share is documented in section 2.5.1. The main supplier obligations are described in the Work Interface Chart (RASI).
+</page>
+
+<page number="9">
+### 2 General Project Guidelines
+
+#### 2.5.1 Work Interface Chart (RASI)
+The supplier's status, whether "Built to Print" or "Full Service Supplier," is defined according to the System Technical Specification or Component Technical Specification.
+
+**Work Interface Chart (RASI):**  
+The main supplier obligations are detailed in the work interface chart (RASI). The supplier's status defined as "Built to Print" or "System Development Supplier" is provided below the System/Component Specification.
+
+**RASI Definitions:**  
+- **R: Responsible**  
+  - Responsible for the proper execution of activities to fulfill requirements. The person holding this designation may request necessary support from other project team members.  
+- **A: Approval**  
+  - Responsibility for deciding or releasing. If no dedicated decision-maker is specified, the person responsible for execution (R) assumes the role of the decider.  
+- **S: Support**  
+  - Obligated to actively assist, even if this requires capacity, expenses, or transfer of know-how. This individual must proactively support the person responsible for execution (R) in achieving project targets.  
+- **I: Information**  
+  - Holds the right to demand information from the person responsible for execution (R).
+
+---
+
+#### Details of Deliverables and RASI:
+
+| **No** | **Gate** | **Stage**           | **Deliverable**                                         | **VF Engineering** | **VF Purchasing** | **Supplier** | **SQE** | **Manufacturing** |
+|--------|----------|--------------------|-------------------------------------------------------|---------------------|-------------------|-------------|--------|------------------|
+| 1      | PV       | Concept Phase     | List of Concept in Commodity                         | R                   | S                 | I           | I      | I                |
+| 2      | PV       | Concept Phase     | SOR for Concept in Commodity                         | R                   | S                 | I           | I      | I                |
+| 3      | PPS      | Concept Phase     | SOB through LOI - Letter of Intent for Concept in Commodity | S                   | R                 | S           | I      | I                |
+| 4      | PPS      | Concept Phase     | EDD order release for Concept in Commodity           | S                   | R                 | S           | I      | I                |
+| 5      | PPS      | Concept Phase     | Deliver Bill of Materials in Team Center             | R                   | I                 | I           | I      | I                |
+| 6      | PPS      | Concept Phase     | Supply Chain Strategy - Deliver Sourcing Strategy    | S                   | R                 | I           | S      | I                |
+| 7      | PPS      | Concept Phase     | Commodity Timing Plan in Each Business Area Supports Program Timing for Concept Commodity | S                   | S                 | R           | S      | I                |
+| 8      | PPS      | Concept Phase     | Organization and Resources for the Concept Phase, Resource Planning for Series Development | S                   | S                 | R           | S      | I                |
+| 9      | PPS      | Concept Phase     | Opportunities and Risks for the Program Have Been Detailed and Measures Defined (Cost Reductions, Design Optimization, Timing Optimization) | A                   | S                 | R           | S      | I                |
+| 10     | PPS      | Concept Phase     | Quality Planning to Meet Program Requirements - APQP Kickoff | R                   | S                 | S           | S      | I                |
+| 11     | PPS      | Concept Phase     | Concept Proposal for Engineering Review and Finalization - For Concept Commodity | A                   | I                 | R           | I      | I                |
+| 12     | PPS      | Concept Phase     | Concept and Proposal Development to Meet the Target Material Cost | A                   | I                 | R           | I      | I                |
+</page>
+
+<page number="10">
+2 General Project Guidelines.
+
+2.5.1 Work Interface Chart (RASI).
+The "Work Interface Chart (RASI)" defines the supplier's obligations and status, either as "Built to Print" or as "System Development Supplier." The status is determined by the System/Component Specification. 
+
+### RASI Definitions:
+- **R: Responsible** - Accountable for the execution and requirements fulfillment. Can request support.
+- **A: Approval** - Decides on releases. If undefined, "R" acts as the decider.
+- **S: Support** - Actively supports "R," transferring knowledge or resources as needed.
+- **I: Information** - Entitled to demand and receive updates from "R."
+
+### Detailed Deliverables and RASI Chart:
+The chart outlines deliverables at various project milestones and stages.
+
+| No  | Gate    | Stage            | Deliverable                                         | VF Engineering  | VF Purchasing  | Supplier  | SQE  | Manufacturing |
+|-----|---------|------------------|----------------------------------------------------|-----------------|----------------|----------|------|--------------|
+| 13  | PPS     | Parts list and BoM available; target values for lead vehicle cost and weight verified - C Class | A | I | R | I | I |
+| 14  | PPS     | Initial CAD data to support C class development for Concept Commodity  | A | I | R | I | I |
+| 15  | PPS     | System & Sub-system Functional targets agreed and cascaded to Component level, in-line with Complete Vehicle Targets. | A | S | R | I | I |
+| 16  | PPS     | DVP (virtual and physical testing) for System, Sub-system & Component Level in-line with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests. | A | S | R | I | I |
+| 17  | TA      | Package study to support B class surface development | A | I | R | I | I |
+| 18  | PPS     | Manufacturing feasibility for CAS development for concept commodity | A | I | R | I | I |
+| 19  | PPS     | Design and Validation & Testing plan for concept Commodity | A | I | R | I | I |
+| 20  | TA      | Parts list and BoM available; target values for lead vehicle cost and weight verified - B Class | A | I | R | I | I |
+| 21  | TA      | Parts list and BoM available; target values for lead vehicle cost and weight verified - A Class | A | I | R | I | I |
+| 22  | TA      | Contract Series development - LON for Concept Commodity / LON for B2P Commodity | A | R | S | I | I |
+| 23  | TA      | Timing plan for the complete Program detailing milestones and critical activities for B2P Commodity | A | S | R | I | I |
+| ... | ...     | Organization and resources for the concept phase, resource planning for series development  | A | S | R | I | I |
+
+These assignments establish responsibilities, support, information-sharing, and approvals to ensure effective project execution, detailed validation plans, and alignment with VF engineering goals. For the complete list of deliverables, refer to sections 2.5.1 (continued). Work interface collaboration ensures that all contributors fulfill their roles while meeting compliance targets and deadlines at each development milestone.
+</page>
+
+<page number="11">
+2 General Project Guidelines  
+
+2.5.2 Development Interface Agreement (DIA)  
+According to functional safety requirements.  
+
+2.6 Quotation Scope  
+Refer to SOR and RFQ.  
+
+2.7 Properties, Condition and Durability  
+
+Property | Parameter  
+--- | ---  
+Automotive Standard | AEC-Q100 Grade 3 and TS16949  
+Ambient Operating Temperature | -40 ~ +85 ℃  
+Storage Temperature | -40 ~ +95 ℃  
+Ingress Protection | IP5K2  
+USB lifetime | USB plug and unplug times ≥ 10000  
+Input Voltage Range | DC 8V ~ 28V  
+Input Current Range | DC 20A max  
+Rated Voltage | DC 8V ~ 16V (typical 12V)  
+Output Power Range | USB-A BC1.2 CDP/DCP : 5V / 2.4A minimum  
+Output Power Range | USB-C PD 90W : 5V/3A, 9V/3A, 15V/3A, 20V/4.5A  
+Data transfer speed (if applicable) | USB 480Mbps/12Mbps/1.5Mbps Data switches  
+CAN Interface | Not available  
+Clamp | Cl.30s_Light  
+
+2.8 Development Process.  
+
+2.8.1 Gates and Milestones.  
+
+2.8.1.1 Gates  
+Refer to appendix:  
+VFDSXVCVC1101  
+VF36_VFe36_Material production Launch Schedule-Build plan_MRD  
+
+2.8.1.2 Milestones  
+Refer to appendix:  
+VFDSXVCVC1101  
+VF36_VFe36_Material production Launch Schedule-Build plan_MRD  
+
+2.8.2 Prototype Statuses and Quantities  
+Following VinFast’s LabCar build and Vehicle Build plan.
+</page>
+
+<page number="12">
+2.8.3 Type Approval and Certification.  
+VinFast is responsible for the integration and certification of the vehicle-grade system. Vehicle-level certification projects include urban simulation road tests and enhanced road tests. Suppliers of spare parts/subsystems will be responsible for timely response to failure reports found in the process of integration and certification of the vehicle-level system. All countermeasures to resolve issues addressed in the failure report must be executed by the supplier and approved by PPAP.  
+
+The integration and certification of components/subsystems is the responsibility of the supplier of components/subsystems. The supplier must complete all parts/subsystems tests.  
+
+The certification of parts/subsystems can be implemented by the supplier of parts/subsystems or by the supplier appointing a lower supplier or a third party after VinFast approval. However, in any case, the supplier is obliged to complete all specified test requirements.  
+
+The supplier of parts/subsystems must provide the VinFast Product Release Engineer with a complete test certification plan for parts/subsystems and obtain the approval of the Engineer. The plan should include at least the number of specimens, test sequence, place, and time of each test.  
+
+2.9 Quality and Reliability.  
+2.9.1 Quality Concepts.  
+The supplier must satisfy the quality commitment made to VinFast, which is to guarantee 100 waste products per 1,000,000 pieces of spare parts sent to VinFast. PPM ≤100, CPK ≥ 1.33.  
+
+2.9.2 Risk Management.  
+The supplier shall notify the VinFast Product Release Engineer in writing of any potential technical matters, such as problems, accidents, latest information, project changes, etc., which may lead to increased costs, delays in project nodes and plans, and delays in delivery dates. The supplier written notice should include a specific repair plan and a risk assessment and description of the overall project schedule.  
+
+2.9.3 Validation of the SW Development.  
+The supplier shall regularly report to VinFast the relevant design input factors and provide engineering support. At the same time, suppliers should attend supplier development meetings and complete necessary design validation.  
+
+If there are inconsistencies with the specified specification requirements, the supplier should work with VinFast to solve the problem. Suppliers also need to provide VinFast with competent on-site service personnel to support VinFast in resolving problems associated with supplier parts in vehicle assembly during the vehicle start-up phase.  
+
+2.10 Content Amendments.  
+The supplier shall notify the VinFast Product Release Engineer in writing of any potential technical matters, such as problems, accidents, latest information, project changes, etc., which may lead to increased costs, delays in project nodes and plans, and delays in delivery dates. The supplier written notice should include a specific repair plan and a risk assessment and description of the overall project schedule.
+</page>
+
+<page number="13">
+### 3 Project Management and Organization
+
+#### 3.1 Responsibilities in the Project and Project Management Plan
+
+**Roles:**
+- **Commodity Buyer:** Bui Thi Huong  
+  Email: v.HuongBT25@vinfast.vn  
+  Contact Number: +84(0) 868198585  
+
+- **Commodity Buyer Manager:** Axel Ulrich Kessel  
+  Email: v.axeluk@vinfast.vn  
+  Contact Number: +84(0) 399848015  
+
+- **Commodity Engineering:** Knauer, Tobias  
+  Email: tobias.knauer@edag.com  
+
+- **Commodity Engineering Manager:** Kim Seong Youl  
+  Email: v.seongyoulkim@vinfast.vn  
+  Contact Number: +84(0) 818 363 377  
+
+- **SQE (Site Engineer):** Bùi Văn Uân  
+  Email: v.uanbv@vinfast.vn  
+  Contact Number: +84(0) 975 942 029  
+
+- **SQE Manager:** Paul Hennessey  
+  Email: v.hennesseyp@vinfast.vn  
+  Contact Number: +44 7753337740  
+
+- **SCM Analyst:** Dilshod Tokhtasinov  
+  Email: v.dilshod@vinfast.vn  
+  Contact Number: +84(0) 888352662  
+
+- **Packaging Analyst:** Attsawarungsun Nimnaul  
+  Email: v.nimnaula@vinfast.vn  
+  Contact Number: +84(0) 888329955  
+
+- **SCM Manager:** Benjamin Peter Stewart  
+  Email: v.bens@vinfast.vn  
+  Contact Number: +84(0) 888798855  
+
+---
+
+#### 3.2 Documentation
+
+##### 3.2.1 Hardware Documentation:
+The supplier should provide the following hardware documentation at various stages:
+1. 2D, 3D Data drawings.  
+2. Report of banned substances.  
+3. If designed by VinFast, supplier shall provide PFMEA (Process Failure Mode and Effects Analysis) of the product. If supplier designs, both PFMEA and DFMEA (Design Failure Mode and Effects Analysis) shall be provided.  
+4. BOM (Bill of Materials) of parts.  
+5. Provide DV/PV (Design Validation/Production Validation) type test report according to the technical requirements of product development.  
+
+---
+
+##### 3.2.2 Software Documentation:
+The supplier should provide the following software documentation at various stages:
+1. Software unit test report.  
+2. Software integration test report.  
+3. Software system test report.  
+
+---
+
+##### 3.2.3 Conformity Requirements:
+- All homologation of vehicle-relevant legal requirements shall be fulfilled for the planned sales markets. All corresponding drafts, proposals, and all series of amendments/supplements have to be considered during the development.
+- To obtain the whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems, along with all applicable legal markings in accordance with the regulations of the planned sales markets.
+- If separate technical units, parts, and systems for the planned sales markets require certification or testing by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed upon with VinFast’s homologation department.
+- If requirements of a planned sales market are subject to conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance.
+</page>
+
+<page number="14">
+3.2.3 Conformity Requirements.
+
+All homologation of the vehicle relevant legal requirements shall be fulfilled for the planned sales markets. All corresponding drafts, proposals, and all series of amendments/supplements have to be considered during the development.
+
+In order to obtain the whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems together with all applicable legal markings in accordance with the regulations of the planned sales markets.
+
+If separate technical units, parts, and systems for the planned sales markets are required to be certified or be tested by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed with the homologation department of VinFast.
+
+If requirements of a planned sales market are subject to conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.
+</page>
+
+<page number="15">
+4 System Environment.
+
+4.1 Functional System Environment.
+
+| Temperature Environment Term | Temperature (°C) | Note                                                                                   |
+|-------------------------------|------------------|---------------------------------------------------------------------------------------|
+| Working temperature           | - 40 to 85      | Ambient temperature of external space where the Socket works normally                 |
+| Storage temperature           | - 40 to 95      | Ambient temperature of external space when the Socket is statically stored in the state of unpowered |
+
+4.2 Physical System Environment / Mechanical Interfaces.
+
+Refer to 5.6.5.
+</page>
+
+<page number="16">
+# VinFast Management System
+
+## 4 System Environment
+
+### 4.1 Functional System Environment
+#### Temperature Environment
+| Temperature Environment Term | Temperature (°C) | Note                                                                 |
+|------------------------------|-------------------|----------------------------------------------------------------------|
+| Working temperature          | -40 to 85         | Ambient temperature of external space where the Socket works normally |
+| Storage temperature          | -40 to 95         | Ambient temperature of external space when the Socket is statically stored in the state of unpowered |
+
+### 4.2 Physical System Environment / Mechanical Interfaces
+Refer to section 5.6.5.
+
+---
+
+## 4.3 System Diagramm
+The last released System Schematic is valid. Refer to:
+**VFDSXVEEP0049**  
+**SYSTEM SCHEMATICS VFe36**
+
+Description:  
+The diagram illustrates the system schematics for the VFe36's USB sockets setup across various functional locations. It includes detailed connections for the following configurations:
+- USB Socket Dual Front for charging and data communication.
+- USB Socket Triple Mid.
+- USB sockets integrated into the second-row seats, indicating provision for captain seating arrangement.
+- USB single rear left functionality mapped to luggage area provision.
+- Integration of the 12V Power Outlet Rear located in the trunk compartment.
+
+Each module connects to the main processing unit (MHU), ensuring coordinated control functionality.
+</page>
+
+<page number="17">
+# 5. Functional and Technical Requirements
+
+## 5.1 Technical Requirement
+### General Information for Procurement Team
+- **VinFast designated part number**:
+  - **EEP80011009**: USB_FRONT_SOCKET_DUAL: 1st row USB Socket (front CC)  
+    - 2x USB-A ports;  
+      - Port1 (Left): Power Charging  
+      - Port2 (Right): Data Communication  
+  - **EEP30011002**: USB_REAR_SOCKET_TRIPPLE: 2nd row USB Socket (front CC)  
+    - 2x USB-A ports + 1x USB-C port  
+  - **EEP80011004**: USB_REAR_SOCKET_DUAL: 2nd row USB Socket (Captain Chair)  
+    - 2x USB-A ports;  
+      - Port1 (Left): Power Charging  
+      - Port2 (Right): Power Charging  
+  - **EEP80011002**: USB_SOCKET_SMALL: 3rd row USB Socket  
+    - 1x USB-A port located at the 3rd Door Trim (left)  
+    - 1x USB-A port located at the 3rd Door Trim (right)  
+
+- **Usage per car**: Below description
+- **Procurement code**: P
+- **Part applicability**: Refer to section 2.3
+
+---
+
+## 5.2 Block and Principle Diagram
+### 5.2.1 Elements of Systems  
+Refer to section 4.3.
+
+---
+
+## 5.3 Functions
+### 5.3.1 Overview Functions Description  
+A graphical representation showcases system placements:  
+- *EEP80011009*: Front Mounted  
+- *EEP30011002*: Rear Mounted  
+- Armrest USB ports canceled.  
+- *EEP80011004*: Captain Chair Mounted  
+- *EEP80011002*: Left and Right Door Trim Mounted  
+
+Connections correspond to charging, power, or data transfer functionality as described in section 5.1.
+</page>
+
+<page number="18">
+### VinFast Management System  
+**Document ID:** VFDSXXEEP5028  
+**Version:** 3.0  
+
+---
+
+### 5 Functional and Technical Requirements  
+
+#### 5.1 Technical Requirement  
+
+**General information for Procurement Team:**  
+- **VinFast designated part numbers:**  
+  - **EEP80011009:** USB_FRONT_SOCKET_DUAL: 1st row USB Socket (front CC)  
+    - Ports: 2x USB-A ports.  
+      - Port1(L): Power Charging  
+      - Port2(R): Data Communication  
+  - **EEP30011002:** USB_REAR_SOCKET_TRIPPLE: 2nd row USB Socket (front CC)  
+    - Ports: 2x USB-A ports + 1x USB-C port.  
+  - **EEP80011004:** USB_REAR_SOCKET_DUAL: 2nd row USB Socket (Captain Chair)  
+    - Ports: 2x USB-A ports.  
+      - Port1(L): Power Charging  
+      - Port2(R): Power Charging  
+  - **EEP80011002:** USB_SOCKET_SMALL: 3rd row USB Socket  
+    - Ports:  
+      - 1x USB-A port on left 3rd Door Trim  
+      - 1x USB-A port on right 3rd Door Trim  
+
+**Additional Details:**  
+- **Usage per car:** As described.  
+- **Procurement code:** P.  
+- **Part applicability:** Refer to Section 2.3.  
+
+---
+
+#### 5.2 Block and Principle Diagram  
+
+##### 5.2.1 Elements of Systems  
+Refer to Section 4.3.  
+
+---
+
+#### 5.3 Functions  
+
+##### 5.3.1 Overview Functions Description  
+- Refer to visual schematic provided in Section 4.3.  
+
+---
+
+#### 5.3.2 Detailed Functions Description  
+
+##### 5.3.2.1 System Parameters  
+Refer to Error! Reference source not found.  
+
+##### 5.3.2.2 Device Support  
+Support is required for at least the following devices:  
+
+**1. Laptops (for 90W PD charging):**  
+   - New MacBook Pro 12-inch, 13.3-inch, 15-inch with Type-C Port (2016 or later), MacBook Air (2018 or later), iPad Pro (2018 or later).  
+   - 2018 DELL XPS 12, Dell XPS 13 9350 / Dell XPS 15 9550, Razer Blade Stealth.  
+   - Lenovo ThinkPad X1 Carbon (2017), ThinkPad X270, Google Pixelbook / Chromebook Pixel.  
+   - Samsung Galaxy TabPro S, Galaxy Tab S3, ASUS ZenPad 3S 10, New Nokia N1 Tablet, Nintendo Switch.  
+
+**2. Smartphones (for fast charging and data transfer for Apple CarPlay/Android Auto if applicable):**  
+   - Apple iPhones.  
+   - Samsung S9, S8, S8 Plus, Note 9, OnePlus 2, 3, 4, LG G5, G6, V20.  
+   - Google Pixel, Pixel 3, Pixel 2, Pixel XL, Nexus 5X/6P, Sony XZ, Xiaomi Note 2, Mix, 5C.  
+   - Huawei P9/Honor 8/Honor V9/Mate 9/Mate 10, Lenovo Zuk Z1, Nubia Z9, and others.  
+
+**3. USB sticks for data transfer functionality.**  
+
+---
+
+##### 5.3.2.3 USB Port Functional  
+
+**Functional Distribution:**  
+USB ports must satisfy the following technical requirements and distribution across vehicle variants:  
+
+**EEP80011009:**  
+- **USB-A ports:**  
+  - **Port 1:** Data + Fast Charging (BC1.2 CDP 5V/1.5A).  
+  - **Port 2:** Fast Charging (BC1.2 DCP 5V/2.4A). Includes Apple 2.4A Charging and QuickCharge 3.0.  
+
+**EEP30011002:**  
+- **USB-A ports:**  
+  - **Port 1:** Fast Charging (BC1.2 DCP 5V/2.4A). Includes Apple 2.4A Charging and QuickCharge 3.0.  
+  - **Port 2:** Similar specifications as Port 1.  
+- **USB-C port:**  
+  - **90W PD Standard for Charging Only:** 5V/3A, 9V/3A, 15V/3A, 20V/4.5A  
+
+**Front USB Socket (EEP30011004):**  
+- Includes data transfer ports to fulfill Apple or Google requirements for Apple CarPlay or Android Auto functionalities.  
+- **Minimum throughput requirement:** At least 50 Mbits/s as specified in R03-050 (#R03-050).
+</page>
+
+<page number="19">
+5.3.2 Detailed Functions Description
+
+5.3.2.1 System parameters  
+Refer to Error! Reference source not found.
+
+5.3.2.2 Device support  
+Support at least the following devices:  
+1. Laptops (for 90W PD charging):  
+   - New MacBook Pro 12-inch, 13.3-inch, 15-inch with Type-C Port 2016 or later, MacBook Air 2018 or later, iPad Pro 2018 or later.  
+   - 2018 DELL XPS 12, Dell XPS 13 9350 / Dell XPS 15 9550, Razer Blade Stealth.  
+   - Lenovo ThinkPad X1 Carbon 2017, ThinkPad X270, Google Pixelbook/Chromebook Pixel.  
+   - Samsung Galaxy TabPro S, Galaxy Tab S3, ASUS ZenPad 3S 10, New Nokia N1 Tablet, Nintendo Switch.  
+
+2. Smartphones (for fast charging and data transfer (Apple CarPlay/Android Auto) if applicable):  
+   - Apple iPhones.  
+   - Samsung S9 S8 S8 Plus Note 9, OnePlus 2,3,4, LG G5, G6, V20.  
+   - Google Pixel / Pixel 3 / 2 / Pixel XL, Nexus 5X / 6P, Sony XZ, Xiaomi Note 2 / Mix / 5C.  
+   - Huawei P9 / Honor 8 / Honor V9 / Mate 9 / Mate 10, Lenovo Zuk Z1, Nubia Z9, and more.  
+
+3. USB sticks for data transfer.
+
+5.3.2.3 USB Port functional  
+- **Functional Distribution:** USB ports shall satisfy the following technical requirements and their distribution across vehicle variants:  
+  - **EEP80011009:**  
+    - One USB-A port:  
+      - Data + Fast Charging BC1.2 CDP 5V/1.5A.  
+    - One USB-A port:  
+      - Fast Charging BC1.2 DCP 5V/2.4A.  
+      - Apple 2.4A Charging.  
+      - QuickCharge 3.0.  
+  - **EEP30011002:**  
+    - Two USB-A ports:  
+      - Fast Charging BC1.2 DCP 5V/2.4A.  
+      - Apple 2.4A Charging.  
+      - QuickCharge 3.0.  
+    - One USB-C port:  
+      - 90W PD Standard for Charging Only (5V/3A, 9V/3A, 15V/3A, 20V/4.5A).  
+  - For Front USB Socket (EEP30011004) with data transfer ports, it fulfills Apple or Google requirements for Apple CarPlay or Android Auto connections with the front Head Unit:  
+    - Support at least 50 Mbits/s throughput (R03-050 (#R03-050)).  
+
+  - Support USB 2.0 CDP specification ([https://www.usb.org/sites/default/files/BCv1.2_070312.zip](https://www.usb.org/sites/default/files/BCv1.2_070312.zip)) (R03-060 (#R03-060)).  
+  - Supply voltage between 4.75V and 5.25V (R03-080 (#R03-080)).  
+  - Tested to USB2 compliance requirements at the user-facing interface, including the full vehicle harness in circuit (R03-090 (#R03-090)).  
+  - Shall have USB-IF, UL/CE/FCC/RoHS certification for Front USB sockets (EEP30011004) providing Android Auto and Apple CarPlay connections (shall be binded with the front Head Unit).  
+  - All ports shall have illumination to mark their visibility under dark conditions:  
+    - LED color: White.  
+    - Brightness: 3.5 +/- 1.5 cd/m2.  
+    - No Dimming Control.  
+
+  - **Utilize the following protections:**  
+    - Over Current.  
+    - Under Voltage.  
+    - Over Voltage.  
+    - Short Circuit.  
+    - Reverse Polarity.  
+    - Reverse Charging.  
+    - ESD (Surge capability up to 25kV and low clamping).  
+    - Over Temperature.  
+
+  - **EEP80011004:**  
+    - Both charger ports can support 5V/2.1A charging, charger profile likes BC1.2 DCP mode, Apple divider mode, 1.2V/1.2V Samsung mode.  
+
+  - **EEP80011002:**  
+    - One charger port can support 5V/2.1A charging, charger profile likes BC1.2 DCP mode, Apple divider mode, 1.2V/1.2V Samsung mode.  
+
+5.3.3 Faulty Operation  
+Not applicable.  
+
+5.3.4 Emergency Operation  
+Not applicable.  
+
+5.3.5 Display and Operation Concept (HMI)  
+Not applicable.  
+
+5.3.6 Service and Application Functions  
+Not applicable.  
+
+5.3.7 Diagnostics  
+Not applicable.
+</page>
+
+<page number="20">
+# 5 Functional and Technical Requirements
+
+## 5.4 E/E System Schematic
+
+### EEP80011009 - USB_FRONT_SOCKET_DUAL
+The schematic for the USB_FRONT_SOCKET_DUAL system includes the following components and functionality:
+- 12V power input is filtered through a line filter and routed to a DC/DC and Smart Charger module.
+- VBUS1 provides power to Port Type-A1, which supports max 5V/2.4A charge-only functionality.
+- VBUS2 and DP/DM connections enable USB2.0 data transfer through Port Type-A2 with a maximum of 5V/2A.
+
+### EEP30011002 - USB_REAR_SOCKET_TRIPPLE
+The schematic for the USB_REAR_SOCKET_TRIPPLE system includes the following components and functionality:
+- 12V power input passes through a line filter and reverse battery protection mechanism.
+- The DC-DC buck converter and Smart Charger module supply:
+  - Max 9V/2.0A power to USB Type-A ports for charging.
+  - Max 20V/4.5A power to USB Type-C ports for high-powered device charging with DP/DM connections for data lines.
+- EMI shielding is included for enhanced protection.
+
+### EEP80011004 - USB_REAR_SOCKET_DUAL
+The schematic for the USB_REAR_SOCKET_DUAL system configuration focuses on the following:
+- Both 12V power inputs pass through DC-DC buck converters and Smart Charger modules.
+- USB Type-A ports provide max 9V/2.0A charging capability with proper DP/DM connectivity for data transfer and ESD protection.
+
+#### Additional Details:
+All connections are equipped with necessary safety measures, including ESD protection and reverse battery safeguards for reliability and ensuring system safety.
+
+For diagrams, refer to the graphical representation of each system schematic.
+</page>
+
+<page number="21">
+5.4 E/E System Schematic.
+
+The system schematics outline the electrical and charging functionality across various USB socket types.
+
+**EEP80011009: USB_FRONT_SOCKET_DUAL**  
+- Two USB-A ports are provided:
+  - Port Type-A1: Dedicated charging port supporting max 5V/2.4A.
+  - Port Type-A2: USB data transfer with max 5V/2A while supporting USB2.0 compliance.
+
+**EEP30011002: USB_REAR_SOCKET_TRIPPLE**  
+- Features two USB-A ports and one USB-C port:
+  - USB Type-A ports:
+    - Max 9V/2.0A charging capability.
+    - Compliance with QC3.0 smart charging.
+  - USB Type-C port:
+    - Max 20V/4.5A charging capacity.
+    - Standard high-power PD (Power Delivery) compliance.
+  - Integrated DC-DC Buck BOOST converter ensures consistent performance across varying loads.
+
+**EEP80011004: USB_REAR_SOCKET_DUAL (Captain Chair)**  
+- Two USB Type-A ports both configured with a maximum charging limit of 9V/2.0A.
+
+**EEP80011002: USB_SOCKET_SMALL (3rd row USB Socket)**  
+- Two USB-A ports:
+  - Port Type-A1: A data transfer-enabled USB port supporting USB2.0 standards.
+  - Port Type-A2: Dedicated charge-only port with a maximum 9V/2A capability.
+
+---
+
+5.5 Control Unit Concept.
+
+**5.5.1 Hardware.**  
+The system utilizes various chipsets to manage USB port functions:  
+- **MPQ4228-Q chipset:** Manages USB-A QC3.0 charging port.  
+- **MPQ4228-C chipset:** Controls USB-A BC1.2 CDP charging and data transfer port.  
+- **MPQ5031 chipset:** Implements USB-C PD3.0 charging control.  
+- **MPQ4262 chipset:** Facilitates DC/DC conversion within the USB-C port.
+
+**5.5.2 Software.**  
+Custom embedded firmware controls charging protocols for QC3.0 and USB-C PD3.0 systems.
+
+---
+
+5.6 Electrical Interfaces.
+
+**5.6.1 Signal Characteristics.**  
+The system adheres to communication and charging standards including:  
+- USB2.0 communication protocol.  
+- QC3.0 fast charging protocol.  
+- USB-C PD3.0 high-power charging protocol.
+</page>
+
+<page number="22">
+5.6 Pin Assignment.
+
+EEP80011009 USB_FRONT_SOCKET_DUAL.
+
+Connector 1 Information (EE part side):
+- Supplier: JST
+- Part Number: S02BA-AIT2-1AK
+
+Connector 1 Information (Wiring Harness side):
+- Supplier: JST
+- Part Number: AIT2PB-02A-1AK
+- Dimensions:
+  - Width: 14.8 mm
+  - Height: 14.3 mm
+  - Depth: 22.6 mm
+  - Pin Spacing: 2.54 mm
+
+Connector 2 Information (EE part side):
+- Supplier: AMPHENOL
+- Part Number: HSDNRPPCB12A
+- Connector Coding: Code E
+
+Connector 2 Information (Wiring Harness side):
+- Supplier: AMPHENOL
+- Part Number: HSDFSEN001
+- Connector Coding: Code E
+
+Socket Number Pin Assignment Table:
+- AIT2PB-02A-1AK:
+  - Pin 1: POWER_VCC, Clamp Definition: CI.30S, Signal Definition: VBAT
+  - Pin 2: POWER_GND, Clamp Definition: CI.30S, Signal Definition: GND
+
+- HSDFSEN001:
+  - Pin 1: POWER_VCC, Signal Definition: VBUS
+  - Pin 2: I/O_IN, Signal Definition: D+
+  - Pin 3: POWER_GND, Signal Definition: GND
+  - Pin 4: I/O_IN, Signal Definition: D-
+</page>
+
+<page number="23">
+# 5.4 E/E System Schematic
+
+### EEP80011009: USB_FRONT_SOCKET_DUAL
+The schematic depicts the USB Front Socket Dual interface integrated with smart charging mechanisms. Key components include:
+- **Power Connector:** Provides 12V input, filtered by a line filter to ensure stable power flow.
+- **DC/DC and Smart Charger:** Manages VBUS output for two distinct ports:
+  - **Port Type-A1:** Delivers only charging functionality with a maximum of 5V/2.4A.
+  - **Port Type-A2:** Provides 5V/2A pass-through for charging and data communication via USB2.0.
+- **ESD + EMC Protection:** Facilitates electrostatic discharge and electromagnetic compatibility for system safety.
+
+### EEP30011002: USB_REAR_SOCKET_TRIPPLE
+The schematic details the 2nd row USB Socket (Rear Triple) configuration for advanced charging capabilities:
+- **Input Header:** Accepts 12V input, safeguarded by line filter and reverse battery protection to maintain circuit integrity.
+- **DC/DC Buck Boost Converter:** Supports two USB Type-A ports (max 9V/2A) and one USB Type-C port (max 20V/4.5A).
+- **Smart Charger Integration:** Ensures reliable and efficient charging performance.
+- **ESD Protection:** Provides electrostatic discharge protection for all ports.
+
+### EEP80011004: USB_REAR_SOCKET_DUAL: 2nd Row USB Socket (Captain Chair)
+The schematic demonstrates the dual charging interface for the 2nd row USB sockets:
+- **Power Connector:** Receives 12V power input.
+- **DC/DC and Smart Charger:** Outputs VBUS and handles charging for two Type-A ports.
+- **Port Configurations:** Both ports are optimized for power output up to 9V/2A.
+
+---
+
+# 5.5 Control Unit Concept
+
+## 5.5.1 Hardware
+- **MPQ4228-Q:** Controls USB-A QC3.0 for fast charging functionality.
+- **MPQ4228-C:** Manages USB-A BC1.2 CDP charging and data port.
+- **MPQ5031:** Operates USB-C PD3.0 charging controller.
+- **MPQ4262:** Handles DC/DC conversion for USB-C port.
+
+## 5.5.2 Software
+Embedded firmware is implemented for managing charging protocols:
+- QC3.0 and USB-C PD3.0 for reliable performance across multiple devices.
+
+---
+
+# 5.6 Electrical Interfaces
+
+## 5.6.1 Signal Characteristics
+The unit follows:
+- **Standard USB2.0 Communication Protocol:** Ensures seamless data transfer.
+- **QC3.0 Charging Protocol:** For fast charging compatibility.
+- **USB-C PD3.0 Charging Protocol:** Addresses power delivery for higher wattage devices.
+
+---
+</page>
+
+<page number="24">
+### 5.6 Component Connected to Terminal 30
+**EEP80011002: USB_SOCKET_SMALL: 3rd row USB Socket**  
+- Use Clamp Cl.30s_Light  
+
+### 5.7 Specific Characteristics
+**Specific Characteristics**  
+- Not applicable  
+
+### 5.8 Safety Requirements  
+**Vehicle Safety regarding Person and Passenger Protection**  
+
+#### 5.8.1 Safety Goals  
+The supplier is responsible for actively supporting the integration of vehicle safety functions.  
+
+Lifetime relevant laws and ratings of selling markets, as well as OEM requirements, must be considered.  
+
+Vehicle system reliable operation is achieved through the integration of all sub-components. VinFast, in partnership with suppliers, guarantees the vehicle’s intended operating function is free of electronic malfunction by following the process outlined in ISO26262.  
+
+The supplier is expected to conduct assessments as required, which may include but are not limited to:  
+- FTA  
+- DFMEA  
+- PFMEA  
+- STPA  
+- HAZOP  
+
+Functional safety risks must be reviewed with actions identified or confirmed in the design, including:  
+- Inspection of hardware and software design principles  
+- Manufacturing processes  
+- Validation of design processes  
+- Verification of production process conformance.
+</page>
+
+<page number="25">
+### 5.8.2 Vehicle Safety  
+Not applicable.  
+
+### 5.9 Alternative and Future Variants  
+Not applicable.  
+
+### 5.10 Mechanical Energy Management  
+
+#### 5.10.1 Weight Targets.  
+- **EEP80011009:** 39g +/- 5g  
+- **EEP30011002:** 150g +/- 15g  
+- **EEP80011004:** 23g +/- 2g  
+- **EEP80011002:** 17g +/- 2g  
+
+#### 5.10.2 Fuel Consumption & Driving Performance  
+Not applicable.  
+
+### 5.11 Installation  
+
+#### 5.11.1 Installation Location  
+**1st Seat Row:** Floor console  
+➨ Valid for all VF36 variants  
+
+##### Notes:  
+Tolerances are only a suggestion.  
+2D drawings are still pending.
+</page>
+
+<page number="26">
+5.11 Installation.
+
+5.11.1 Installation Location:
+1st Seat Row: Floor console.  
+Valid for all VF36 variants.
+
+2nd Seat Row Rear Console / Armrest:  
+Captain Chair Variant.
+
+3rd Seat Row: Trim (left & right Side).  
+Valid for all VF36 variants.
+
+5.11.2 Assembly Concept and Requirement from Production:
+Installation of the unit in any of its normal vehicle mounting applications (within design tolerances) shall not distort them or cause a change in any operating characteristics such that they would not meet the requirements of this standard.  
+
+Ensure ergonomic access to all commands. Ensure visibility cone of all keys, dashboard and display ideograms according to the eye-points and the vehicle illumination requirements.  
+
+The specific pin-out of the connection between the unit and the vehicle system identified in this standard shall be collectively developed by VinFast and the supplier of the unit. The connection will be designed in such a way as to optimize the layout of the overall system.  
+
+Outline dimension of the unit housing and cover shall conform to the applicable VinFast and Supplier assembly drawings.
+</page>
+
+<page number="27">
+### 5.11.3 Geometry  
+Rear Mounted Concept with fastening screw M5.  
+Refer to 2D drawings in ERN000001985.  
+
+### 5.11.4 Tolerances  
+GD&T ASME Y14.5.  
+Details refer to ERN000001985.  
+
+### 5.12 Styling and Design  
+- **EEP80011009**  
+  VN24 Black (BKA) transitioned to Granite Black (BKB).  
+
+- **EEP30011002**  
+  Non-visible USB Surface.  
+
+- **EEP80011004**  
+  - Material/Process: Plastic injected MIC.  
+  - Gloss: 1.8G +/- 0.2.  
+  - Grain: Sand Grain (GS-001).  
+  - Color: Granite Black (BKB).  
+  - Icon: Pad printing.  
+  - Color: White (RAL 9003).  
+
+- **EEP80011002**  
+  - Material/Process: Plastic injected MIC.  
+  - Gloss: 1.8G +/- 0.2.  
+  - Grain: Sand Grain (GS-001).  
+  - Color: Granite Black (BKB).  
+  - Icon: Pad printing.  
+  - Color: White (RAL 9003).
+</page>
+
+<page number="28">
+### 5.13 Ergonomics
+#### 5.13.1 Optical Characteristics and Surface Feel
+Not applicable.
+
+#### 5.13.2 Actuation Acoustics
+Not applicable.
+
+#### 5.13.3 Handling
+Not applicable.
+
+---
+
+### 5.14 Technical Material Requirements
+- **Prohibited or Restricted Substances, Emissions & Toxicology:**  
+  The conformance to prohibited and restricted substances and notification obligations must be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle as per VFDST00007601.  
+
+  IMDS material data sheets must be submitted into VinFast IMDS ID per the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601.  
+
+  Specific targets on vehicle indoor air quality must adhere to:
+  - VFDSXVCVC3401-VIAQ_Testing_Guideline.  
+
+  Follow IMDS system.
+
+---
+
+### 5.15 Resistance to Media and Chemical Requirements
+#### 5.15.1 Contamination  
+Follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+Refer to 6.1.1.
+
+#### 5.15.2 Cleaning  
+Follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+Refer to 6.1.1.
+
+#### 5.15.3 Corrosion Protection  
+Follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+Refer to 6.1.1.
+
+#### 5.15.4 Tightness and Protection Classes  
+Follow IP5K2 standard.  
+Tighting torque: 1N.m.
+
+---
+
+### 5.16 Environmental Compatibility  
+#### 5.16.1 Material Selection  
+- **Front Housing:** PA6 GF15, Color Black, Grain VDI 33.  
+- **Rear Cover:** PA5 GF15, Color Black, Grain VDI 33.
+</page>
+
+<page number="29">
+5.16 Environmental Compatibility  
+5.16.2 End of life treatment. Follow IMDS system.  
+5.16.3 Eco-Design. Follow IMDS system.  
+5.16.4 Lifecycle Analysis. Follow IMDS system.  
+5.16.5 Emissions & Toxicology. Follow IMDS system.  
+
+5.17 Mechanical Requirements  
+5.17.1 Load. Refer to 6.1.1.  
+5.17.2 Vibration Behavior. Refer to 6.1.1.  
+5.17.3 Stiffness and Cushioning Characteristics. Refer to 6.1.1.  
+5.17.4 Deformation. Refer to 6.1.1.  
+5.17.5 Pressure. Refer to 6.1.1.  
+5.17.6 NVH / Acoustic Performance. Refer to 6.1.1.  
+Noises which are perceived by the customers as disturbing have to be ruled out through the selection of suitable materials, surfaces, gaps, and forming. The supplier has to guarantee that his components are free of disturbing noise in their vehicle environment and their geometrical integration.  
+
+5.18 Durability / Life Time  
+10 years or 160000 km (whichever comes first).  
+
+5.19 Electrical Requirements  
+5.19.1 Description of the Requirements  
+Shall meet the requirements of the Technical Specification for the specific vehicle(s) that may include the following:  
+1. Component Electrical Technical Specification  
+2. Component Functional Description  
+3. Network Transmission Matrix  
+4. CAN bus communications requirements  
+5. Diagnostic requirements  
+6. Other requirements documents
+</page>
+
+<page number="30">
+5.19 Power Consumption
+
+5.19.2 Power Consumption Requirements.  
+- Input Voltage range: DC 8V – 28V  
+- Input Current range: DC 20A max  
+- Rated Voltage DC 8V – 16V (typical 12V)  
+
+5.19.3 Low Voltage Energy Management.  
+5.19.3.1 Energy Management Requirements.  
+- Follow Protection of Chipset defined in 5.5.1  
+
+5.19.4 High Voltage Energy Management.  
+5.19.4.1 Energy Management Requirements.  
+- Follow Protection of Chipset defined in 5.5.1  
+
+5.19.5 Electromagnetic Compatibility.  
+5.19.5.1 EMC Requirements.  
+- Follow standard VFDST00026302  
+
+5.19.6 Electrostatic Discharge.  
+5.19.6.1 ESD Requirements.  
+- Follow standard VFDST00026302  
+
+5.20 Climatic Requirements / Thermal Management.  
+The ambient temperature, relative humidity, and altitude shall meet the vehicle performance operating environment.  
+The development and validation of the heat protection in the complete vehicle ensures that all relevant component temperatures remain below the maximum allowed limits which are derived from vehicle operation within the environmental operating temperatures.  
+
+Please refer to CTS_VINFAST_EE_VFDSP50000009_Thermal_Management in the latest version.  
+
+5.20.1 Thermal Management Requirements.  
+- 90W (20V/4.5A)+ 18W+18W can work normally at max 45℃  
+- 45W (15V/3A)+ 12W+12W can work normally at 85℃  
+Refer to Testing plan: VFDSXVEEP6106  
+
+5.21 Service Requirements.  
+
+5.22 Transport Protection.  
+
+5.23 Logistics Requirements.  
+
+5.24 Quality Assurance Requirements.
+</page>
+
+<page number="31">
+6 Testing and Validation and DVP&R.
+
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system and Component Level is in line with the Complete Vehicle Specification book in the concept phase. A detailed test plan for hardware tests is maintained in the file DVP&R and requires coordination with the Testing & Validation department:
+- Testing with declaration of standard, norm, and legal requirement.
+- Description of testing set-up with pictures, detailing how and with which devices the testing was performed.
+- Specification of the testing location (internal/external).
+- Duration and timeline of testing, provided in the form of a project plan.
+- Description of part variant.
+- Number of tested components/parts.
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).
+
+6.1 Proof of Compliance.
+
+6.1.1 Testing Plan (DVP + FRS Plan).
+Refer to data from the T&V team:
+- VFDSXVCVC1401: VFe35_Appendix_4_DVP_Design Verification Plan.
+- VFDSXVCVC2401: VF35_Appendix_4_DVP_Design Verification Plan.
+
+Mention DVP components:
+- VFDSXVEEP6106: VFDSXVEEP6106_CSUV_DVP_USB.
+
+6.1.2 Package.
+
+6.2 Electrical Systems and Functions.
+
+6.3 Virtual Testing and Simulation.
+
+6.4 Vehicle Testing.
+
+6.5 Tests.
+Refer to "Error! Reference source not found."
+
+6.6 Appearance Approval - Applicable for All Visible Parts.
+
+AAR is a PPAP deliverable.
+
+The AAR process is described in the VFDST00038401, which includes details such as the quantity of parts and timing. For each step of the process, the supplier is responsible for submitting parts to VF Quality Design according to an agreed timeline with VF in order to achieve OK Shape, OKTG, and AAR approval. 
+
+This process begins during the early phase at PT build to secure AAR approval at LS. Suppliers must include this activity as part of their development process and ED&D cost.
+</page>
+
+<page number="32">
+7 Function Safety, Homologation and safety regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+### 7.1 Functional Safety Requirements
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.
+
+< MGL and FuSa to add here reference to system-specific Functional Safety Requirements document. >
+
+### 7.2 Deliverables for Functional Safety
+Indicative RASIC* for expected deliverables:
+
+#### **5.5 Work products**  
+
+| Work Product                                                              | VINFAST | SUPPLIER |
+|---------------------------------------------------------------------------|---------|----------|
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R       | I        |
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.     | R       | S        |
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3.                      | A       | R        |
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3.                      | A       | R        |
+| 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I       | R        |
+| 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.            | R       | S        |
+| 6.5.3 Safety case, resulting from 6.4.6.                                          | A       | R        |
+
+*RASIC description in section “Deliverables”.
+
+### FUSA Deliverables expected before nomination
+- **The supplier shall propose**, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.
+- **Based on the list of Safety Goals & Functional Safety Requirements** and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+### FUSA Deliverables expected after nomination
+- **The supplier shall submit for VinFast approval** a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+</page>
+
+<page number="33">
+The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+
+7.3 Homologation and safety regulation requirements
+
+7.3.1 North America
+
+a. Homologation and safety regulation activities  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS) and Canadian Motor Vehicle Safety Standards (CMVSS).  
+
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.  
+
+b. Self-certification and test report(s)  
+The supplier is responsible for "self-certifying" their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+
+VinFast requests suppliers to conduct tests as specified in certain of the FMVSS/CMVSS standards. The test report(s) must be provided to VinFast as evidence of compliance.  
+
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+
+(*) Refer to Appendix 8 of Manufacturer_Handbook  
+
+c. Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+
+The supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+7.3.2 Europe
+
+a. Homologation and safety regulation activities  
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) regulations.  
+
+b. Test report(s) and Certificate(s)  
+The supplier is responsible for getting their part(s), product(s) or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+
+VinFast requests suppliers to conduct tests as specified in certain of the UN-ECE standards at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+
+VinFast also requests suppliers to provide supporting documentation, technical information, including drawings, to be submitted to the relevant authorities to obtain certification for the EC vehicle type-approval (if any).
+</page>
+
+<page number="34">
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+7.3.2 c. Duty to notify VinFast of a non-compliance with an UN-ECE regulations.
+
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an UN-ECE regulation or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+
+The Supplier has a duty to notify VinFast on such issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+
+The Supplier must propose an appropriate risk assessment and resolution plan.
+</page>
+
+<page number="35">
+8 Definitions and List of Abbreviations
+
+8.1 Definitions
+
+8.2 Definitions and List of Abbreviations
+
+| Abbreviation | Explanation                                           |
+|--------------|-------------------------------------------------------|
+| AA           | Attack Angle                                          |
+| ABG          | Airbag control module                                 |
+| ABS          | Anti-lock braking system                              |
+| AC           | Alternating Current                                   |
+| ACM          | Airbag control module                                 |
+| ADAS         | Advanced Driver Assistance Systems                   |
+| ADC          | Analog to Digital Converter                           |
+| AI           | Articulation Index                                    |
+| AIA          | Activity Interface Agreement = Work Interface Chart (RASI) |
+| APQP         | Advanced Product Quality Planning                     |
+| ASIL         | Automotive Safety Integrity Level                     |
+| ASM          | Asynchronous Machine                                  |
+| AWD          | All wheel drive                                       |
+| BCM          | Body control module                                   |
+| BDU          | Battery disconnect unit                               |
+| BEV          | Battery Electric Vehicle                              |
+| BFR          | Basic Function Requirement                            |
+| BIW          | Body in White                                         |
+| BMU          | Battery management unit                               |
+| BOM          | Bill Of Material                                      |
+| BSM          | Blind Spot Monitoring                                 |
+| CAD          | Computer Aided Design                                 |
+| CAE          | Computer-Aided Engineering                            |
+| CAM          | Computer-Aided Manufacturing                          |
+| CAN          | Controller Area Network                               |
+| CC           | Center Console                                        |
+| MSC          | Manufacturing Strategy Confirmation                   |
+| TS           | Theme selection Model                                 |
+| MFC          | Manufacturing Feasibility Confirmation                |
+| MSI          | Major Suppliers Identified                            |
+| SST          | Sourcing Strategy                                     |
+| LLS          | Long Lead Suppliers on board                          |
+| SLS          | Short Lead Suppliers on board                         |
+| LLT          | Long Lead Tooling                                     |
+| PTP          | Prototype Parts out of Serial tooling (Hand finished) |
+| OTS          | Off Tools Samples                                     |
+| ESO          | Engineering Sign Off                                  |
+| MSO          | Manufacturing Sign Off                                |
+| SOP-LM       | SOP Launch Model (1 specific Model -"Edition")        |
+| SOP          | Start of Production                                   |
+</page>
+
+<page number="36">
+VinFast  
+Management System  
+
+Version: 3.0  
+Uncontrolled copy when printed  
+
+---
+
+**SOP-ID**  
+SOP-ID: SOP implementation date  
+
+**SOB**  
+Supplier on Board  
+
+**LOI**  
+Letter of Intend  
+
+**LON**  
+Letter of Nominated  
+
+**DVP&R**  
+Design Verification Plan & Report  
+
+**GTC**  
+General Term and Condition  
+
+**RFQ**  
+Request For Quotation  
+
+**FUSA**  
+Function Safety  
+
+**T&V**  
+Testing & Validation  
+
+**SC**  
+Significant Characteristic  
+
+**CC**  
+Critical Characteristic  
+
+---
+
+### 8 Definitions and List of Abbreviations  
+
+---
+
+#### **8.3 List of Tables**  
+No tables listed.  
+
+#### **8.4 List of Figures**  
+No figures listed.
+</page>
+
+<page number="37">
+9 Further Applicable Documents
+
+Code or Std No. | Name detail  
+--- | ---
+(empty rows)
+</page>
+</pages>

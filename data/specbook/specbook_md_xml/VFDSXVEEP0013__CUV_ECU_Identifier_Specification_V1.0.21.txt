@@ -1,0 +1,1077 @@
+
+<filename>VFDSXVEEP0013__CUV_ECU_Identifier_Specification_V1.0.21</filename>
+<pages>
+
+<page number="1">
+CAN Specification.
+
+Complete Vehicle Specification.  
+Specification Book.  
+
+**Scope**  
+Applicable Document of Part 1.  
+
+**Common Electrical Specification for Supplier.**  
+CES ECU Identifier Specification.  
+
+**Range of validity**  
+Vinfast.  
+
+Document Administrator: Sankara Tentu.
+</page>
+
+<page number="2">
+ECU Identifier Specification. VFDSXVEEP0013.
+
+Approval confirmed by:
+
+- **Chief Engineer:** Kevin Michael Nicholas Fisher.  
+- **Director of EE:** [Signature Field].  
+- **System Integration Leader:** Peter Muhelyi.  
+- **System Network Design Engineer:** Nguyen Dinh Dung.  
+- **System Networks Lead:** Sankara Tentu.  
+
+Change Order: Not applicable.  
+Status: In work.  
+
+Change History:
+
+- **Version 1.0.0:** First version of ECU Identifier spec.  
+  **Date:** 26.06.2019.  
+  **Responsible person:** Nguyen Dinh Dung.  
+
+- **Version 1.0.1:** Update the Node Identification table for CAN and LIN.  
+  **Date:** 12.10.2019.  
+  **Responsible person:** Nguyen Dinh Dung.  
+
+- **Version 1.0.2:** Update the Node Identification table for CAN and LIN.  
+  **Date:** 30.12.2019.  
+  **Responsible person:** Nguyen Dinh Dung.  
+
+- **Version 1.0.3:** Update the Node Identification table for CAN and LIN.  
+  **Date:** 13.01.2020.  
+  **Responsible person:** Nguyen Dinh Dung.
+</page>
+
+<page number="3">
+ECU Identifier Specification.  
+VFDSXVEEP0013.
+
+Approval confirmed by:
+- **Function**: Chief Engineer.  
+  **Name**: Kevin Michael Nicholas Fisher.  
+  **Signature**: *(blank)*  
+  **Date**: *(blank)*  
+
+- **Function**: Director of EE.  
+  **Name**: *(blank)*  
+  **Signature**: *(blank)*  
+  **Date**: *(blank)*  
+
+- **Function**: System Integration Leader.  
+  **Name**: Peter Muhelyi.  
+  **Signature**: *(blank)*  
+  **Date**: *(blank)*  
+
+- **Function**: System Network Design Engineer.  
+  **Name**: Nguyen Dinh Dung.  
+  **Signature**: *(blank)*  
+  **Date**: *(blank)*  
+
+- **Function**: System Networks Lead.  
+  **Name**: Sankara Tentu.  
+  **Signature**: *(blank)*  
+  **Date**: *(blank)*  
+
+Change Order: not applicable.  
+Status: In work.  
+
+Change History:  
+- **Version**: 1.0.0.  
+  **Brief Description**: First version of ECU Identifier spec.  
+  **Date**: 26.06.2019.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.1.  
+  **Brief Description**: Update the Node Identification table for CAN and LIN.  
+  **Date**: 12.10.2019.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.2.  
+  **Brief Description**: Update the Node Identification table for CAN and LIN.  
+  **Date**: 30.12.2019.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.3.  
+  **Brief Description**: Update the Node Identification table for CAN and LIN.  
+  **Date**: 13.01.2020.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.4.  
+  **Brief Description**: Update the Node Identification table for CAN and LIN.  
+  **Date**: 27.04.2020.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.5.  
+  **Brief Description**: Update the Node Identification table for CAN.  
+  **Date**: 02.06.2020.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.6.  
+  **Brief Description**: Update the Node Identification table for CAN.  
+  **Date**: 25.07.2020.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.7.  
+  **Brief Description**: Update the Node Identification table for CAN.  
+  **Date**: 27.10.2020.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.8.  
+  **Brief Description**: Update the Node Identification table for CAN.  
+  **Date**: 05.12.2020.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.9.  
+  **Brief Description**: Update ECU ID and Network Management, Diagnostic for GS and XGW in FA-CAN.  
+  **Date**: 12.01.2021.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.11.  
+  **Brief Description**: Update new Node Identifier for new ECU as EEA has changed.  
+  **Date**: 24.05.2021.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.12.  
+  **Brief Description**: Update new Node Identifier for new ECU as EEA has changed.  
+  **Date**: 01.06.2021.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.13.  
+  **Brief Description**: Update template as Vinfast standard, no content change.  
+  **Date**: 06.07.2021.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.14.  
+  **Brief Description**: Update the ECU ID for LDM.  
+  **Date**: 26.07.2021.  
+  **Responsible person**: Nguyen Dinh Dung.  
+
+- **Version**: 1.0.15.  
+  **Brief Description**: Added identifiers for the following AMP, SRR-xx, SCAM, MRGEN, ALM6-10, IRVM, LSSM-xx.  
+  **Date**: 06.09.2021.  
+  **Responsible person**: Shashank Verma.  
+
+- **Version**: 1.0.16.  
+  **Brief Description**: EPS1, EPS2, YSS & AVAS NM deleted, ASU & ASU_XGW Dia Req/Resp Added, CS TX/RX Added.  
+  **Date**: 05.05.2022.  
+  **Responsible person**: Sankara Tentu.  
+
+- **Version**: 1.0.17.  
+  **Brief Description**: CPD_2 ECU added, ASU_XGW ECU address changed from 0x1C to 0X11, ASU ECU address changed to 15 and Diag Req/Resp added to the Spec.  
+  **Date**: 06.06.2022.  
+  **Responsible person**: Sankara Tentu.  
+
+- **Version**: 1.0.18.  
+  **Brief Description**: Added POD_GW, Clear the LIN diagnostics address table to reflect the CAN database.  
+  **Date**: 10.06.2022.  
+  **Responsible person**: Shashank Verma.  
+
+- **Version**: 1.0.19.  
+  **Brief Description**: AMP Diag Req/Resp, NM frames added.  
+  **Date**: 20.06.2022.  
+  **Responsible person**: Sankara Tentu.  
+
+- **Version**: 1.0.20.  
+  **Brief Description**: BCM_BPM Diag Req/Resp & ECU address added, ESC removed and considered only IDB.  
+  **Date**: 12.09.2022.  
+  **Responsible person**: Sankara Tentu.  
+
+- **Version**: 1.0.21.  
+  **Brief Description**: EMS, TCU and ESC removed from the Spec Sheet.  
+  **Date**: 12.09.2022.  
+  **Responsible person**: Sankara Tentu.
+</page>
+
+<page number="4">
+Table of Contents  
+
+Scope  1  
+Range of validity  1   
+Approval confirmed by  2  
+Change History  2   
+1. General Information  5  
+   1.1. Language  5  
+   1.2. Versioning  5  
+2. Introduction  5  
+   2.1. Purpose of the Document  5  
+   2.2. Terms and definitions  5  
+      2.2.1. Abbreviations  5  
+      2.2.2. Definitions  6  
+3. System Description  7  
+   3.1. Address Scheme  7  
+      3.1.1. CAN ECU / node identification / addressing  7  
+      3.1.2. LIN ECU / node identification / addressing  9  
+      3.1.3. Diagnostic addresses for Test equipment  10  
+      3.1.4. Diagnostic-Broadcast/functional addresses CAN  10  
+      3.1.5. Diagnostic-Broadcast/functional addresses LIN  10  
+      3.1.6. Identifiers for Network Management  11  
+      3.1.7. Development (e.g. CCP/XCP Master/Slave) – Identifiers  11  
+   3.2. Appendix  13  
+      3.2.1. Diagnostic messages on CAN  13  
+      3.2.2. Using “normal addressing”  13  
+      3.2.3. Legislated OBD CAN identifiers  14  
+      3.2.4. Diagnostic messages on LIN  14  
+      3.2.5. Supplier Identifier on LIN  14  
+4. Standard  15  
+   4.1. Standards and Documents  15  
+   4.2. Additional Documents  16  
+   4.3. Referenced Documents  16
+</page>
+
+<page number="5">
+Version: V1.0.21  
+Uncontrolled copy when printed  
+5 | 18  
+Print date  
+Status: Functional  
+Responsibility  
+
+# VinFast  
+## ECU Identifier Specification  
+### VFDSXVEEP0013  
+
+## 1. General Information  
+### 1.1. Language  
+This Specification is made only in English language version.  
+
+### 1.2. Versioning  
+To determine the actual status of the present specification, see the following table:  
+
+| Version     | State                           | Gate/Milestone       |
+|-------------|---------------------------------|----------------------|
+| 0.1.0 - 0.49.9 | DRA „Draft“                  | FUP                  |
+| 0.50.0 - 0.99.9 | ICS „Inquiry Concept Specification“ | ILF                  |
+| 1.0.0 - 1.99.9 | ISS „Inquiry Serial Specification“   | AF                   |
+| 3.0.0         | FIN „Final“                   | TA                   |
+
+**Table 1: Rules for Versioning**
+
+Version Digit description:  
+- **First Digit:** Major Release (Milestone Release)  
+- **Second Digit:** Minor Release (Function description change)  
+- **Third Digit:** No functional content change (e.g. spelling correction)  
+
+## 2. Introduction  
+### 2.1. Purpose of the Document  
+The purpose of this document is to specify the addresses of the different ECU’s. ECU addresses are necessary for network management, diagnostic applications, and CAN ID definition for warning/multiplex messages.  
+
+### 2.2. Terms and definitions  
+#### 2.2.1. Abbreviations  
+
+| Abbreviation | Description                  |
+|--------------|------------------------------|
+| ABS          | Antilock-Braking-System      |
+| ACM          | Airbag Control Module        |
+| ALT          | Alternator                   |
+| BAS          | Battery Sensor               |
+| BCM          | Body Control Module          |
+| CAN          | Controller Area Network      |
+| CCP          | CAN Calibration Protocol     |
+</page>
+
+<page number="6">
+Version: V1.0.21  
+Uncontrolled copy when printed  
+6 | 18  
+
+VinFast  
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+2.2.1. Abbreviations:
+
+- CCU: Climate Control Unit  
+- DCM: Door Control Module  
+- DoIP: Diagnostic over IP  
+- ECU: Electric Control Unit  
+- EHPS: Electro Hydraulic Power Steering  
+- IDB: Electronic Stability Control  
+- ESCL: Electric Steering Column Lock  
+- GS: Gear Shifter  
+- ID: Identifier  
+- IPC: Instrument Panel Cluster  
+- ISO: International Organization for Standardization  
+- LIN: Local Interconnect Network  
+- MFS: Multi-Function Switches  
+- MHU: Multimedia Head Unit  
+- NAD: Node Address  
+- OBD: On Board Diagnostic  
+- OEM: Original Equipment Manufacturer  
+- RADAR: Front Radar  
+- PT: Powertrain  
+- REQ: Request  
+- RLS: Rain Light Sensor  
+- RSP: Response  
+- RVC: Rear View Camera  
+- SAS: Steering Angle Sensor  
+- SCM: Steering Column Module  
+- TBOX: Telematics Box  
+- TC: Torque Control  
+- TPMS: Tire Pressure Monitoring System  
+- WLC: Wireless Charger Phone  
+- WP: Water Pump  
+- WSM: Wiper Smart Module  
+- XCP: Extended CAN Calibration Protocol  
+- XGW: Gateway  
+
+Table 2: List of abbreviations
+</page>
+
+<page number="7">
+Version: V1.0.21  
+Uncontrolled copy when printed  
+Page: 7 | 18  
+Print date  
+Status: Functional  
+
+VinFast  
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+### 2.2.2 Definitions  
+#### 2.2.2.1 Obligation of Requirement Wording  
+The following wording rules are used throughout this document:  
+
+- **Shall:** The word "shall" is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+- **Should:** The word "should" is used for preferences or desires in implementation that are not strictly binding.  
+- **May:** The word "may" is used to denote options that are left to the implementer.  
+
+---
+
+### 3. System description  
+#### 3.1 Address Scheme  
+The local node identifications of ECU, and consequently the global node identifications, must be allocated uniquely within the entire vehicle network. In accordance with the determinations, numeric values in the range from 0 to (2b - 1) are used for this purpose, where b is the number of bits used for node identification/addressing. Currently, it is assumed that a maximum of 256 ECUs (real or virtual) will be addressed in one and the same OEM-vehicle. Therefore, only one byte (b = 8 bits) shall be used to address an ECU.  
+
+Group addresses are provided for special applications by the system responsible. It depends on the selected transformation for node identification into the message header, whether the local and global node identifications are equal.  
+
+---
+
+#### Node Identification / Address Range Interpretation  
+- **0 = 0x00:** Reserved; don’t use to identify an ECU.  
+- **1 … 127 = 0x01 … 0x7F except 51 = 0x33:**  
+  It is assumed that there will be no more than 127 real ECUs in an OEM-vehicle and, therefore, numbers 1 up to 127 shall be used to identify/address real ECUs in the OEM-vehicle.  
+  The identification/address number 51 = 0x33 may be used to address/identify the group of all OBD-relevant ECUs in the OEM-vehicle. Therefore, this identification/address number 51 = 0x33 shall not be used to identify/address another ECU.  
+- **128 … 254 = 0x80 … 0xFE:**  
+  In any case, some real ECUs embed virtual ECUs, off-board test equipment (e.g., diagnostic tester), or functional groups of network nodes (ECUs), which can be addressed/identified using numbers 128 up to 254.  
+- **255 = 0xFF:**  
+  Shall be used to address the group of all identifiable/addressable nodes in the OEM-vehicle.  
+
+---
+
+Table 3: ECU/Nodes Identification/Address Ranges in the OEM-Vehicle.
+</page>
+
+<page number="8">
+3.1.1. CAN ECU / Node Identification / Addressing  
+
+Each ECU in the OEM-vehicle shall be assigned with a unique identifier as listed in the following table. Even if an ECU is connected to different buses (e.g., Gateway-ECU), it shall be assigned only one address to identify each node connected to a bus system.
+
+Table 3: ECU Addresses, Names, and Diagnostics Channels  
+
+- Address: 0x01  
+  ECU Name: BCM  
+  Full Name: Body Control Unit  
+  Diagnostics Channel: Body-CAN  
+  NM ID: 0x501  
+  Diagnostics Response (Tx): 0x601  
+  Diagnostics Request (Rx): 0x681  
+
+- Address: 0x02  
+  ECU Name: XGW  
+  Full Name: Gateway  
+  Diagnostics Channel: Diag-CAN  
+  NM ID: 0x502  
+  Diagnostics Response (Tx): 0x602  
+  Diagnostics Request (Rx): 0x682  
+
+- Address: 0x04  
+  ECU Name: MHU  
+  Full Name: Media Head Unit  
+  Diagnostics Channel: Info-CAN  
+  NM ID: 0x504  
+  Diagnostics Response (Tx): 0x604  
+  Diagnostics Request (Rx): 0x684  
+
+- Address: 0x08  
+  ECU Name: ACM  
+  Full Name: Airbag Control Unit  
+  Diagnostics Channel: Body-CAN  
+  NM ID: 0x508  
+  Diagnostics Response (Tx): 0x608  
+  Diagnostics Request (Rx): 0x689  
+
+- Address: 0x09  
+  ECU Name: CCU_F  
+  Full Name: Climate Control Unit Front  
+  Diagnostics Channel: Body-CAN  
+  NM ID: 0x509  
+  Diagnostics Response (Tx): 0x609  
+  Diagnostics Request (Rx): 0x689  
+
+- Address: 0x05  
+  ECU Name: AMP  
+  Full Name: Amplifier  
+  Diagnostics Channel: Info-CAN  
+  NM ID: 0x53F  
+  Diagnostics Response (Tx): 0x605  
+  Diagnostics Request (Rx): 0x685  
+
+- Address: 0x0D  
+  ECU Name: HUD  
+  Full Name: Head Up Display  
+  Diagnostics Channel: Info-CAN  
+  NM ID: 0x50D  
+  Diagnostics Response (Tx): 0x60D  
+  Diagnostics Request (Rx): 0x68D  
+
+- Address: 0x0E  
+  ECU Name: ETG  
+  Full Name: Electric Tail Gate  
+  Diagnostics Channel: Body-CAN  
+  NM ID: 0x50E  
+  Diagnostics Response (Tx): 0x60E  
+  Diagnostics Request (Rx): 0x68E  
+
+- Address: 0x0F  
+  ECU Name: YSS  
+  Full Name: Yaw-rate Sensor  
+  Diagnostics Channel: Chassis-CAN  
+  NM ID: NA  
+  Diagnostics Response (Tx): 0x60F  
+  Diagnostics Request (Rx): 0x68F  
+
+- Address: 0x10  
+  ECU Name: GS  
+  Full Name: Gear Shifter  
+  Diagnostics Channel: PT-CAN  
+  NM ID: 0x510  
+  Diagnostics Response (Tx): 0x610  
+  Diagnostics Request (Rx): 0x690  
+
+- Address: 0x11  
+  ECU Name: ASU_G  
+  Full Name: ASU Gateway  
+  Diagnostics Channel: Body-CAN  
+  NM ID: NA  
+  Diagnostics Response (Tx): 0x611  
+  Diagnostics Request (Rx): 0x691  
+
+- Address: 0x13  
+  ECU Name: BMS  
+  Full Name: Battery Management System  
+  Diagnostics Channel: BA-CAN  
+  NM ID: 0x513  
+  Diagnostics Response (Tx): 0x613  
+  Diagnostics Request (Rx): 0x693  
+
+- Address: 0x14  
+  ECU Name: CCU_R  
+  Full Name: Climate Control Unit Rear  
+  Diagnostics Channel: Body-CAN  
+  NM ID: 0x550  
+  Diagnostics Response (Tx): 0x614  
+  Diagnostics Request (Rx): 0x694  
+
+- Address: 0x15  
+  ECU Name: ASU  
+  Full Name: Air Spring Unit  
+  Diagnostics Channel: Body-CAN  
+  NM ID: NA  
+  Diagnostics Response (Tx): 0x615  
+  Diagnostics Request (Rx): 0x695  
+
+- Address: 0x1A  
+  ECU Name: EDS_R  
+  Full Name: Electric Drive System Rear  
+  Diagnostics Channel: PT-CAN  
+  NM ID: 0x51A  
+  Diagnostics Response (Tx): 0x61A  
+  Diagnostics Request (Rx): 0x69A  
+
+- Address: 0x1B  
+  ECU Name: EDS_F  
+  Full Name: Electric Drive System Front  
+  Diagnostics Channel: PT-CAN  
+  NM ID: 0x51B  
+  Diagnostics Response (Tx): 0x61B  
+  Diagnostics Request (Rx): 0x69B  
+
+- Address: 0x1E  
+  ECU Name: PSM_D  
+  Full Name: Power Seat Module Driver  
+  Diagnostics Channel: Body-CAN  
+  NM ID: 0x51E  
+  Diagnostics Response (Tx): 0x61E  
+  Diagnostics Request (Rx): 0x69E  
+
+- Address: 0x25  
+  ECU Name: MRGEN  
+  Full Name: Forward Facing Radar  
+  Diagnostics Channel: Chassis-CAN  
+  NM ID: NA  
+  Diagnostics Response (Tx): 0x625  
+  Diagnostics Request (Rx): 0x6A5  
+
+- Address: 0x26  
+  ECU Name: SCAM  
+  Full Name: Forward Facing Camera  
+  Diagnostics Channel: Chassis-CAN  
+  NM ID: NA  
+  Diagnostics Response (Tx): 0x626  
+  Diagnostics Request (Rx): 0x6A6  
+
+- Address: 0x2B  
+  ECU Name: EPS2  
+  Full Name: Electric Power Steering 2  
+  Diagnostics Channel: PT-CAN  
+  NM ID: NA  
+  Diagnostics Response (Tx): 0x62B  
+  Diagnostics Request (Rx): 0x6AB  
+
+- Address: 0x28  
+  ECU Name: EPS1  
+  Full Name: Electric Power Steering 1  
+  Diagnostics Channel: Chassis-CAN  
+  NM ID: NA  
+  Diagnostics Response (Tx): 0x628  
+  Diagnostics Request (Rx): 0x6A8
+</page>
+
+<page number="9">
+Version: V1.0.21  
+Uncontrolled copy when printed  
+9 | 18  
+
+Status: Functional  
+Responsibility: VinFast  
+
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+3.1.1. CAN ECU / node identification / addressing.  
+Each ECU in the OEM-vehicle shall be assigned with a unique identifier as listed in the following table. Even if an ECU is connected to different buses (e.g., Gateway-ECU), it shall be assigned only one address to identify each node connected to a bus-system.
+
+### Table 4: ECU/Nodes identification/address values in the OEM-vehicle:
+- **0x29**  
+  - **ECU Name:** IDB  
+  - **ECU full name:** Intelligent Distribute Brake  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** 0x529  
+  - **Diagnostics Response (Tx):** 0x629  
+  - **Diagnostics Request (Rx):** 0x6A9  
+
+- **0x2A**  
+  - **ECU Name:** AVAS  
+  - **ECU full name:** Acoustic Vehicle Alarm System  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** NA  
+  - **Diagnostics Response (Tx):** 0x62A  
+  - **Diagnostics Request (Rx):** 0x6AA  
+
+- **0x27**  
+  - **ECU Name:** RCU  
+  - **ECU full name:** Redundant Control Unit  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** 0x527  
+  - **Diagnostics Response (Tx):** 0x627  
+  - **Diagnostics Request (Rx):** 0x6A7  
+
+- **0x2C**  
+  - **ECU Name:** VCU  
+  - **ECU full name:** Vehicle Control Unit  
+  - **Diagnostics Channel:** PT-CAN  
+  - **NM ID:** 0x52C  
+  - **Diagnostics Response (Tx):** 0x62C  
+  - **Diagnostics Request (Rx):** 0x6AC  
+
+- **0x2E**  
+  - **ECU Name:** EASC  
+  - **ECU full name:** Electric Adjust Steering Column  
+  - **Diagnostics Channel:** Info-CAN  
+  - **NM ID:** 0x52E  
+  - **Diagnostics Response (Tx):** 0x62E  
+  - **Diagnostics Request (Rx):** 0x6AE  
+
+- **0x2F**  
+  - **ECU Name:** CPD  
+  - **ECU full name:** Child Presence Detection  
+  - **Diagnostics Channel:** Info-CAN  
+  - **NM ID:** 0x52F  
+  - **Diagnostics Response (Tx):** 0x62F  
+  - **Diagnostics Request (Rx):** 0x6AF  
+
+- **0x33**  
+  - **ECU Name:** OBD  
+  - **ECU full name:** On-Board Diagnostic  
+  - **Diagnostics Channel:** Diag-CAN  
+  - **NM ID:** 0x533  
+  - **Diagnostics Response (Tx):** 0x633  
+  - **Diagnostics Request (Rx):** 0x6B3  
+
+- **0x34**  
+  - **ECU Name:** SRR_FR  
+  - **ECU full name:** Corner radar front right  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** NA  
+  - **Diagnostics Response (Tx):** 0x634  
+  - **Diagnostics Request (Rx):** 0x6B4  
+
+- **0x35**  
+  - **ECU Name:** SRR_FL  
+  - **ECU full name:** Corner radar front left  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** NA  
+  - **Diagnostics Response (Tx):** 0x635  
+  - **Diagnostics Request (Rx):** 0x6B5  
+
+- **0x36**  
+  - **ECU Name:** SRR_RR  
+  - **ECU full name:** Corner radar rear right  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** NA  
+  - **Diagnostics Response (Tx):** 0x636  
+  - **Diagnostics Request (Rx):** 0x6B6  
+
+- **0x37**  
+  - **ECU Name:** SRR_RL  
+  - **ECU full name:** Corner radar rear left  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** NA  
+  - **Diagnostics Response (Tx):** 0x637  
+  - **Diagnostics Request (Rx):** 0x6B7  
+
+- **0x3B**  
+  - **ECU Name:** TRM  
+  - **ECU full name:** Trailer Module  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** 0x53B  
+  - **Diagnostics Response (Tx):** 0x63B  
+  - **Diagnostics Request (Rx):** 0x6BB  
+
+- **0x3D**  
+  - **ECU Name:** DCDC  
+  - **ECU full name:** DC/DC converter  
+  - **Diagnostics Channel:** PT-CAN  
+  - **NM ID:** 0x53D  
+  - **Diagnostics Response (Tx):** 0x63D  
+  - **Diagnostics Request (Rx):** 0x6BD  
+
+- **0x3E**  
+  - **ECU Name:** OBC  
+  - **ECU full name:** Onboard Charger  
+  - **Diagnostics Channel:** PT-CAN  
+  - **NM ID:** 0x53E  
+  - **Diagnostics Response (Tx):** 0x63E  
+  - **Diagnostics Request (Rx):** 0x6BE  
+
+- **0x3F**  
+  - **ECU Name:** POD_GW  
+  - **ECU full name:** Gateway for 3 in 1  
+  - **Diagnostics Channel:** PT-CAN  
+  - **NM ID:** NA  
+  - **Diagnostics Response (Tx):** 0x63F  
+  - **Diagnostics Request (Rx):** 0x6BF  
+
+- **0x40**  
+  - **ECU Name:** ADAS  
+  - **ECU full name:** Advanced Driver-Assistance System  
+  - **Diagnostics Channel:** Chassis-CAN  
+  - **NM ID:** 0x540  
+  - **Diagnostics Response (Tx):** 0x640  
+  - **Diagnostics Request (Rx):** 0x6C0  
+
+- **0x41**  
+  - **ECU Name:** APM  
+  - **ECU full name:** Anti Pinch Module  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** 0x541  
+  - **Diagnostics Response (Tx):** 0x641  
+  - **Diagnostics Request (Rx):** 0x6C1  
+
+- **0x42**  
+  - **ECU Name:** SHVU_F  
+  - **ECU full name:** Seat Heating Ventilation Unit (Front)  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** 0x542  
+  - **Diagnostics Response (Tx):** 0x642  
+  - **Diagnostics Request (Rx):** 0x6C2  
+
+- **0x43**  
+  - **ECU Name:** SHVU_R  
+  - **ECU full name:** Seat Heating Ventilation Unit (Rear)  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** 0x543  
+  - **Diagnostics Response (Tx):** 0x643  
+  - **Diagnostics Request (Rx):** 0x6C3  
+
+- **0x44**  
+  - **ECU Name:** OCS  
+  - **ECU full name:** Occupant Classification Sensor  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** 0x544  
+  - **Diagnostics Response (Tx):** 0x644  
+  - **Diagnostics Request (Rx):** 0x6C4  
+
+- **0x49**  
+  - **ECU Name:** LDM_L  
+  - **ECU full name:** Led Driving Matrix Left  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** 0x549  
+  - **Diagnostics Response (Tx):** 0x649  
+  - **Diagnostics Request (Rx):** 0x6C9  
+
+- **0x4A**  
+  - **ECU Name:** LDM_R  
+  - **ECU full name:** Led Driving Matrix Right  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** 0x54A  
+  - **Diagnostics Response (Tx):** 0x64A  
+  - **Diagnostics Request (Rx):** 0x6CA  
+
+- **0x2E**  
+  - **ECU Name:** CPD_2  
+  - **ECU full name:** Child protection detection 2  
+  - **Diagnostics Channel:** Info-CAN  
+  - **NM ID:** 0x52D  
+  - **Diagnostics Response (Tx):** 0x62D  
+  - **Diagnostics Request (Rx):** 0x6AD  
+
+- **NA**  
+  - **ECU Name:** DCM_APM  
+  - **ECU full name:** Door Control Module  
+  - **Diagnostics Channel:** Body-CAN  
+  - **NM ID:** NA  
+  - **Diagnostics Response (Tx):** 0x664  
+  - **Diagnostics Request (Rx):** 0x6E4
+</page>
+
+<page number="10">
+Version: V1.0.21  
+Uncontrolled copy when printed
+</page>
+
+<page number="10">
+| 18  
+Status: Functional  
+Responsibility: VinFast  
+
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+**Table 4:** ECU/Nodes identification/address ranges in the OEM-vehicle.  
+
+### 3.1.2. LIN ECU / Note Identification / Addressing  
+
+Each ECU in the OEM-vehicle shall be assigned with a unique identifier as listed in the following table. Even if an ECU is connected to different buses (e.g., Gateway-ECU), it shall be assigned only one address to identify each node connected to a bus-system.
+
+**List of LIN ECU Identifications and Addressing:**  
+
+| ECU Address [Hex] | ECU Name   | ECU Full Name/Comment                  | Network         | Diagnostic Response (Tx) | Diagnostic Request (Rx) |
+|-------------------|------------|----------------------------------------|-----------------|--------------------------|--------------------------|
+| 0x50             | ALT        | Alternator                            | EMS-LIN1        | 0x650                    | 0x6D0                    |
+| 0x51             | WP         | Electrical Water Pump                 | EMS-LIN1        | 0x651                    | 0x6D1                    |
+| 0x52             | SRGM       | Sunroof Glass Motor                   | BCM-LIN2        | 0x652                    | 0x6D2                    |
+| 0x53             | SRBM       | Sunroof Blind Motor                   | BCM-LIN2        | 0x653                    | 0x6D3                    |
+| 0x54             | WLC        | Wireless Charger                      | BCM-LIN2        | 0x654                    | 0x6D4                    |
+| 0x55             | SCM        | Steering Column Module                | BCM-LIN1        | 0x655                    | 0x6D5                    |
+| 0x56             | RLS        | Rain Light Sensor                     | BCM-LIN1        | 0x656                    | 0x6D6                    |
+| 0x57             | FKS        | Foot Kick Sensor                      | BCM-LIN2        | 0x657                    | 0x6D7                    |
+| 0x58             | BAS        | Battery Sensor                        | BCM-LIN1        | 0x658                    | 0x6D8                    |
+| 0x63             | MFS        | Multi-Function Switches               | XGW-LIN1        | 0x663                    | 0x6E3                    |
+| 0x64             | DSB        | Driver Switch Block                   | APM-LIN1        | 0x664                    | 0x6E4                    |
+| 0x65             | ITSe       | Internal Temperature Sensor           | CCU-LIN1        | 0x665                    | 0x6E5                    |
+| 0x75             | EAC        | Electric Air Conditioning Compressor  | VCU-LIN1        | 0x675                    | 0x6F5                    |
+| 0x76             | CHM        | Cabin Heater Module                   | VCU-LIN1        | 0x676                    | 0x6F6                    |
+| 0x77             | EVL3_1     | Electric Valve 3 Ways                 | VCU-LIN1        | 0x677                    | 0x6F7                    |
+| 0x78             | EVL4_1     | Electric Valve 4 Ways                 | VCU-LIN1        | 0x678                    | 0x6F8                    |
+| 0x79             | EVL4_2     | Electric Valve 4 Ways                 | VCU-LIN1        | 0x679                    | 0x6F9                    |
+| 0x7A             | AGS        | Active Grill Shutters                 | VCU-LIN1        | 0x67A                    | 0x6FA                    |
+| 0x7B             | IRVM       | Interior Rear-View Mirror             | BCM-LIN2        | 0x67B                    | 0x6FB                    |
+
+VinFast Released
+</page>
+
+<page number="11">
+Version: V1.0.21 Uncontrolled copy when printed | 11 | 18 | Print date | Status Functional Responsibility   
+VinFast  
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+Table 5: LIN ECU unique identification/address  
+
+3.1.3. Diagnostic addresses for Test equipment.  
+Test equipment requires also a unique address like an ECU. The possible addresses for test equipment are listed in the following table.  
+
+**Tester Address [hex] | Tester | Description | Bus system**  
+- 0xF0: **DiagTester0** | External Diagnostic tester 0 | all  
+- 0xF1: **DiagTester1** | External Diagnostic tester 1 | all  
+- 0xF2: **DiagTester2** | Internal Diagnostic tester (e.g., for special function for BCM or TBOX/IVDS) | all  
+- 0xF3 to 0xFA: **Reserved** | Reserved for tester extension (e.g., DoIP, GSM over Gateway, etc.) | all  
+- 0xFB: **DiagTester_Body** | Diagnostic tester to address all Body-CAN-ECUs (reserved) | Body-CAN  
+- 0xFC: **DiagTester_PT** | Diagnostic test to address all PT-CAN-ECUs (reserved) | PT-CAN  
+- 0xFD: **DiagTester_Chassis** | Diagnostic test to address all Chassis-CAN-ECUs (reserved) | ChassisCAN  
+- 0xFE: **DiagTester_Info** | Diagnostic test to address all Info-CAN-ECUs (reserved) | Info-CAN  
+
+**Table 6: Diagnostic addresses for test equipment.**  
+
+3.1.4. Diagnostic-Broadcast/functional addresses CAN.  
+To address a group of any ECUs or all ECUs in the OEM-vehicle, the following addresses as defined in the following table shall be used.  
+
+**Functional Address TA [hex] | Function | Description | Bus system | Message ID**  
+- 0xEF: **All_CAN_ECUs** | To address all CAN-ECUs | all | 0x6EF  
+- 0xFF: **All_ECUs** | To address all ECUs in the current vehicle (To be phased out) | all | 0x6FF  
+
+**Table 7: Target Address for CAN Broadcast.**  
+
+3.1.5. Diagnostic-Broadcast/functional addresses LIN.  
+To address a group of any LIN ECUs or all ECUs in the OEM-vehicle LIN network, the following addresses as defined in the following table shall be used. See also LIN Specification Package and ISO17987-2.
+</page>
+
+<page number="12">
+Version: V1.0.21 Uncontrolled copy when printed  
+VinFast  
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+### 3.1.5 Diagnostic-Broadcast/functional addresses LIN  
+To address a group of any LIN ECUs or all ECUs in the OEM-vehicle LIN network, the addresses defined in the following table shall be used. See also LIN Specification Package and ISO17987-2.  
+
+#### Table 8: NAD values  
+
+| LIN Node Address NAD [dec] | LIN Node Address NAD [hex] | Function | Comment | Bus System |
+|----------------------------|----------------------------|----------|---------|------------|
+| 126                        | 0x7E                      | Functional Node Address | Diagnostic transport layer addressing all LIN ECUs | LIN |
+| 127                        | 0x7F                      | Slave node address broadcast | Broadcast NAD | LIN |
+| 0                          | 0x0                       | Reserved for go to sleep command | | LIN |
+
+---
+
+### 3.1.6 Identifiers for Network Management  
+As required for diagnostics, each network node in the context of network management requires a unique identifier. The calculation of the CAN-message identifier associated to an NM message is shown below.
+
+#### Table 9: Example for NM message IDs  
+
+| ECU       | Assigned CAN-message identifier for NM | Bus System | Msg_ID = 0x500 + ECU_Address |
+|-----------|--------------------------------------|------------|-----------------------------|
+| BCM       | 0x501                                | Body-CAN   |                            |
+| IDB       | 0x529                                | Chassis-CAN |                            |
+| MHU       | 0x504                                | Info-CAN   |                            |
+
+---
+
+### 3.1.7 Development (e.g. CCP/XCP Master/Slave) – Identifiers  
+The CAN-message identifiers for ECU development purposes (XCP/CCP-master and slave) shall be calculated as:  
+- **REQ_ID**: Request-message = “XCP-Master message-ID” = 0x7AF + ECU_Address  
+- **RSP_ID**: Response-message = “XCP-slave message-ID” = 0x780 + ECU_Address  
+
+Maximum 94 CAN identifiers, ranging from 0x780 to 0x7DE, can be used for development purposes. These identifiers cater to supplier-specific protocols or transport-protocols according to ISO 15765-2, requiring two CAN identifiers for request and response.  
+
+In special cases, the Network Design Team Leader may assign the message ID for development purposes.  
+
+---
+
+### 3.1.8 Cyber Security Addresses  
+[Content not provided in the current extract.]
+</page>
+
+<page number="13">
+Version: V1.0.21  
+Uncontrolled copy when printed  
+13 | 18  
+
+VinFast  
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+ECU Address (Hex) | ECU Name | ECU Full Name/Comment | Cyber Security Tx Frame ID for Exchange | Cyber Security Rx Identifier for the Exchange  
+0x01 | BCM | Body Control Module | 0x70B | 0x70A  
+0x02 | XGW | Gateway | 0x707 | 0x706  
+0x04 | MHU | Media Head Unit | 0x733 | 0x732  
+0x08 | ACM | Airbag Control Module | 0x709 | 0x708  
+0x09 | CCUF | Climate Control Unit Front | 0x703 | 0x702  
+0x14 | CCUR | Climate Control Unit Rear | 0x701 | 0x700  
+0x0C | AMP | Amplifier | NA | NA  
+0x0D | HUD | Head Up Display | 0x731 | 0x730  
+0x0E | ETG | Electric Tail Gate | NA | NA  
+0x0F | YSS | Yaw-rate Sensor | NA | NA  
+0x10 | GS | Gear Shifter | NA | NA  
+0x11 | ASU_G | ASU Gateway | NA | NA  
+0x13 | BMS | Battery Management System | NA | NA  
+0x1A | EDS_R | Electric Drive System Rear | NA | NA  
+0x1B | EDS_F | Electric Drive System Front | NA | NA  
+0x1E | PSM_D | Power Seat Module Driver | NA | NA  
+0x25 | MRGEN | Forward Facing Radar | NA | NA  
+0x26 | SCAM | Forward Facing Camera | 0x727 | 0x726  
+0x2B | EPS2 | Electric Power Steering 2 | NA | NA  
+0x28 | EPS1 | Electric Power Steering 1 | 0x725 | 0x724  
+0x29 | IDB | Electronic Stability Control / Intelligent Distribute Brake | 0x719(CH), 0x717(PT) | 0x718(CH), 0x716(PT)  
+0x2A | AVAS | Acoustic Vehicle Alarm System | NA | NA  
+0x27 | RCU | Redundant Control Unit | NA | NA  
+0x2C | VCU | Vehicle Control Unit | 0x70D | 0x70C  
+
+VinFast Released
+</page>
+
+<page number="14">
+3.2. Appendix  
+3.2.1. Diagnostic message on CAN  
+Diagnostic/transport protocol-messages are not sent cyclically as they respond to spontaneous diagnostic requests. Every control unit has one CAN-Identifier, defined in Table 4, which is used by the control unit to send answers to requests from the Tester. For detailed descriptions of diagnostic messages, refer to the corresponding diagnostic specification document. Diagnostic message addressing shall use the "normal addressing" format.  
+
+3.2.2. Using “normal addressing”  
+Control Unit: Assigned CAN-message identifier for diagnostic purposes.  
+
+| Control Unit | Diagnostic-Response (TX) | Diagnostic-Request (RX) |  
+|--------------|---------------------------|--------------------------|  
+| BCM          | Msg_ID = 0x600 + ECU_Address (0x601) | Msg_ID = 0x680 + ECU_Address (0x681) |
+</page>
+
+<page number="15">
+3.2. Appendix.
+
+3.2.1. Diagnostic message on CAN.
+
+Diagnostic/transport protocol-messages are not sent cyclically as they answer to spontaneous diagnostic requests. Every control unit has one CAN-Identifier, defined in table at 4, which is used by the control unit when sending answers to requests from Tester. Please see the corresponding diagnostic specification document for a detailed description of the content of the diagnostic messages. Addressing format for diagnosis message "normal addressing" has to be used.
+
+3.2.2. Using "normal addressing."
+
+Assigned CAN-message-identifier for diagnostic:
+
+Control unit:
+- Diagnostic-Response (TX): Msg_ID = 0x600 + ECU_Address.
+- Diagnostic-Request (Rx): Msg_ID = 0x680 + ECU_Address.
+
+Examples:
+- BCM: Diagnostic-Response Msg_ID = 0x601, Diagnostic-Request Msg_ID = 0x681.
+- IDB: Diagnostic-Response Msg_ID = 0x629, Diagnostic-Request Msg_ID = 0x6A9.
+- MHU: Diagnostic-Response Msg_ID = 0x604, Diagnostic-Request Msg_ID = 0x684.
+
+Table 10: Examples of CAN-message identifiers for diagnostic physical addressing.
+
+ECU/function group assigned CAN-message-identifiers for diagnostic:
+
+- OBD_ECUs: Diagnostic-Response Msg_ID = 0x600 + ECU_Function_Address (0x633).
+- Body-CAN_ECUs: Diagnostic-Response Msg_ID = 0x600 + Function_Body_Address (0x6E9).
+- PT-CAN_ECUs: Diagnostic-Response Msg_ID = 0x600 + Function_PT_Address (0x6EA).
+- Chassis-CAN_ECUs: Diagnostic-Response Msg_ID = 0x600 + Function_Chassis_Address (0x6EB).
+- Info-CAN_ECUs: Diagnostic-Response Msg_ID = 0x600 + Function_Info_Address (0x6EC).
+- All_CAN_ECUs: Diagnostic-Response Msg_ID = 0x600 + Function_All_CAN_Address (0x6EF).
+- All_ECUs: Diagnostic-Response Msg_ID = 0x600 + Function_All_ECU_Address (0x6FF).
+- All_ECUs (Legislated OBD/EOBD diagnostic requirement US/EN): Diagnostic-Response Msg_ID = 0x600 + Function_All_ECU_Address (0x7DF).
+
+Table 11: Example of CAN-Message identifiers for diagnostic functional addressing using 11 bits normal addressing.
+
+3.2.3. Legislated OBD CAN identifiers.
+
+Legislated OBD CAN identifiers shown in the following table are according to ISO15765-2.
+
+CAN Identifier [hex]:
+- 0x7DF: ECU "all". Description: CAN identifier for functionally addressed request messages sent by external test equipment to all Legislated OBD ECUs.
+</page>
+
+<page number="16">
+Version: V1.0.21  
+VinFast ECU Identifier Specification VFDSXVEEP0013  
+
+3.2.4. Diagnostic messages on LIN.  
+Broadcast Address according to LIN_Specification_Package_Revision_2.1.  
+
+**Table 12: OBD Diagnostic Identifiers.**  
+- **Reserved Physical request CAN identifiers (0x7E2-0x7E7):** Reserved for External Test Equipment to OBD ECU.  
+- **Reserved Physical response CAN identifiers (0x7EA-0x7EF):** Reserved for OBD ECU response to External Test Equipment.  
+Note: Legislated OBD CAN identifiers are not used in the C-SUV project but reserved for future use.  
+
+**Broadcast addresses for LIN diagnostic messages.**  
+| LIN ID [Dec] | LIN ID [Hex] | Function                 | ECU full name/comment                                          | Bus System |
+|--------------|--------------|--------------------------|----------------------------------------------------------------|-----------|
+| 60           | 0x3C         | Master request frame     | Used for diagnostic and configuration data by the master node. | LIN       |
+| 61           | 0x3D         | Slave response frame     | Used for diagnostic and configuration data by the slave node.  | LIN       |
+| 62           | 0x3E         | Reserved frames          | Not used in LIN2.x cluster; reserved for future LIN extended format. | LIN |
+| 63           | 0x3F         | Reserved frames          | Not used in LIN2.x cluster; reserved for future LIN extended format. | LIN |
+
+**Table 13: Broadcast address LIN.**  
+
+3.2.5. Supplier Identifier on LIN.  
+Used for diagnosis of Supplier Codes in LIN nodes (Class I).  
+Refer to LIN_Specification_Package_Revision_2.1 and the updated list available at [http://www.lin-subbus.org](http://www.lin-subbus.org).  
+
+**Supplier Identifier Codes**  
+| Code     | Supplier               |
+|----------|-------------------------|
+| 0x0001   | Audi                   |
+| 0x0002   | BMW                    |
+| 0x0003   | Daimler AG             |
+| 0x0004   | Motorola               |
+| 0x0005   | VCT / Mentor Graphics  |
+| 0x0006   | VW (VW Group)          |
+| 0x0007   | Volvo Cars (Ford Group) |
+| 0x000B   | Freescale Semiconductor |
+| 0x0011   | NXP Semiconductor      |
+| 0x0012   | ST Microelectronics    |
+</page>
+
+<page number="17">
+4. Standard.
+
+4.1. Standards and Documents.
+
+**Document**  
+**Date**  
+**Version**  
+**Title** 
+ISO 11898-1  
+May 2006  
+-  
+Road vehicles – Controller area network (CAN) Part 1: Data link layer and physical signalling.
+</page>
+
+<page number="18">
+Version: V1.0.21 Uncontrolled copy when printed.
+
+VinFast  
+ECU Identifier Specification  
+VFDSXVEEP0013  
+
+ISO 11898-2 (Dec 2003) - Road vehicles – Controller area network (CAN) Part 2: High-speed medium access unit.
+
+ISO 11898-3 (Dec 2006) - Road vehicles – Controller area network (CAN) Part 3: Low-speed fault tolerant medium dependent interface.
+
+ISO 14229-1 (Apr 2007) - Road vehicles – Unified diagnostic services (UDS) Part 1: Specification and requirements.
+
+ISO 15765-2 (Oct 2004) - Road vehicles – Diagnostics on Controller Area Networks (CAN) Part 2: Network layer services.
+
+ISO 15765-3 (Jun 2007) - Road vehicles – Diagnostics on Controller Area Networks (CAN) Part 3: Implementation of unified diagnostic services (UDS on CAN).
+
+LIN Specification Package (2006), Version 2.1 - LIN Spec package reference to ISO17987-2.
+
+HIS FlashCom (2006-09-20), Version 1.0 - HIS-konforme Programmierung von Steuergeräten auf Basis von UDS.
+
+HIS Flashloader (2006-06-30), Version 1.1 - HIS Flashloader Specification.
+
+HIS Security (2006-07-03), Version 1.1 - HIS Security Module Specification.
+
+SAE-J1850 (Mar 1998) - Class B Data Communications Network Interface.
+
+RFC 2104 (Feb 1997) - HMAC: Keyed-Hashing for Message Authentication.
+
+RFC 3447 (Feb 2003), Version 2.1 - Public-Key Cryptography Standards (PKCS) #1: RSA Cryptography.
+
+Table 15: Referenced Documents  
+
+**4.2. Additional Documents**
+- CES_VFSCP_002_Basic_Diagnostic_Specification  
+
+**4.3. Referenced Documents**
+- CES_VFSCP_002_Basic_Diagnostic_Specification
+</page>
+</pages>

@@ -1,0 +1,1940 @@
+
+<filename>VFDSXVEEP1800_01_CSUV_SPB_HV_COMPRESSOR</filename>
+<pages>
+
+<page number="1">
+Spec book.
+
+First Edition (07.2020).
+
+HV COMPRESSOR Specification Book (SPB).
+</page>
+
+<page number="2">
+Scope.
+
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop a new C-SUV vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production of the PREM Program.
+
+Responsible Contact: v.cuongnv38@vinfast.vn.
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Index.
+
+Contents:
+- SCOPE  2
+- Index  3
+
+1. GENERAL DOCUMENT GUIDELINES  7
+   - 1.1 Purpose and Legal Binding  7
+   - 1.2 Language  7
+   - 1.3 Obligation of Requirement Wording  7
+     - 1.3.1 Vehicle profile  7
+     - 1.3.2 Sales Markets  7
+
+2. GENERAL PROJECT GUIDELINES  8
+   - 2.1 Development Scope Abstract  8
+   - 2.2 Initial Situation and Objective  8
+   - 2.3 Classification of the System / Component  8
+   - 2.4 Execution Regulations  8
+   - 2.5 Development and Supply Scope  8
+     - 2.5.1 Work Interface Chart (RASI) 8
+     - 2.5.2 Development Interface Agreement (DIA)  10
+   - 2.6 Quotation Scope  10
+   - 2.7 Properties, Condition and Durability  10
+   - 2.8 Development Process  10
+     - 2.8.1 Gates and Milestones  10
+     - 2.8.2 Prototype Statuses  10
+     - 2.8.3 Prototype Quantities  10
+     - 2.8.4 Acceptance Procedure  10
+     - 2.8.5 Type Approval and Certification  10
+   - 2.9 Quality and Reliability  10
+     - 2.9.1 Quality Concepts  10
+     - 2.9.2 Risk Management  11
+     - 2.9.3 Validation of the SW Development  11
+   - 2.10 Content Amendments  11
+
+3. PROJECT MANAGEMENT AND ORGANIZATION  11
+   - 3.1 Responsibilities in the Project and Project Management Plan 11
+   - 3.2 Documentation  11
+     - 3.2.1 Hardware Documentation  11
+     - 3.2.2 Software Documentation  11
+     - 3.2.3 Conformity Requirements  11
+   - 3.3 Content Amendments  11
+
+4. SYSTEM ENVIRONMENT  11
+   - 4.1 Functional System Environment  11
+   - 4.2 Physical System Environment / Mechanical Interfaces  12
+   - 4.3 HVAC System  16
+   - 4.4 System Diagram  16
+   - 4.5 Content Amendments  16
+
+5. FUNCTIONAL AND TECHNICAL REQUIREMENTS  17
+   -  Composable Technical Requirement  17
+     - Compressor (Mechanical side)  17
+</page>
+
+<page number="4">
+Index.
+
+Contents.
+
+SCOPE 2  
+Index 3  
+
+1. GENERAL DOCUMENT GUIDELINES.  
+   1.1 Purpose and Legal Binding.  
+   1.2 Language.  
+   1.3 Obligation of Requirement Wording.  
+      1.3.1 Vehicle Profile.  
+      1.3.2 Sales Markets.  
+
+2. GENERAL PROJECT GUIDELINES.  
+   2.1 Development Scope Abstract.  
+   2.2 Initial Situation and Objective.  
+   2.3 Classification of the System / Component.  
+   2.4 Execution Regulations.  
+   2.5 Development and Supply Scope.  
+      2.5.1 Work Interface Chart (RASI).  
+      2.5.2 Development Interface Agreement (DIA).  
+   2.6 Quotation Scope.  
+   2.7 Properties, Condition and Durability.  
+   2.8 Development Process.  
+      2.8.1 Gates and Milestones.  
+      2.8.2 Prototype Statuses.  
+      2.8.3 Prototype Quantities.  
+      2.8.4 Acceptance Procedure.  
+      2.8.5 Type Approval and Certification.  
+   2.9 Quality and Reliability.  
+      2.9.1 Quality Concepts.  
+      2.9.2 Risk Management.  
+      2.9.3 Validation of the SW Development.  
+   2.10 Content Amendments.  
+
+3. PROJECT MANAGEMENT AND ORGANIZATION.  
+   3.1 Responsibilities in the Project and Project Management Plan.  
+   3.2 Documentation.  
+      3.2.1 Hardware Documentation.  
+      3.2.2 Software Documentation.  
+      3.2.3 Conformity Requirements.  
+   3.3 Content Amendments.  
+
+4. SYSTEM ENVIRONMENT.  
+   4.1 Functional System Environment.  
+   4.2 Physical System Environment / Mechanical Interfaces.  
+   4.3 HVAC System.  
+   4.4 System Diagram.  
+   4.5 Content Amendments.  
+
+5. FUNCTIONAL AND TECHNICAL REQUIREMENTS.  
+   5.2 Inverter.  
+   5.2.1 Block and Principle Diagram.  
+      Elements of Systems.  
+   5.3 Functions.  
+      5.3.1 Overview Functions Description.  
+      5.3.2 Detailed Functions Description.  
+      5.3.3 Faulty Operation.  
+      5.3.4 Emergency Operation.  
+      5.3.5 Diagnostics.  
+   5.4 E/E System Schematic.  
+   5.5 Control Unit Concept.  
+      5.5.1 Hardware.  
+      5.5.2 Software.  
+   5.6 Electrical Interfaces.  
+      5.6.1 Signal Characteristics.  
+      5.6.2 Diagnostics.  
+      5.6.3 Network Management.  
+      5.6.4 Flashing and Coding.  
+      5.6.5 Pin Assignment.  
+      5.6.6 Component Connected to Terminal 30.  
+   5.7 Specific Characteristics.  
+   5.8 Safety Requirements.  
+      5.8.1 Vehicle Safety regarding Person and Passenger Protection.  
+      5.8.2 Vehicle Safety.  
+   5.9 Alternative and Future Variants.  
+   5.10 Mechanical Energy Management.  
+      5.10.1 Weight Targets.  
+      5.10.2 Fuel Consumption & Driving Performance.  
+   5.11 Installation.  
+      5.11.1 Installation Location.  
+      5.11.2 Assembly Concept and Requirement from Production.  
+      5.11.3 Geometry.  
+      5.11.4 Tolerances.  
+   5.12 Styling and Design.  
+   5.13 Ergonomics.  
+      5.13.1 Optical Characteristics and Surface Feel.  
+      5.13.2 Actuation Acoustics.  
+      5.13.3 Handling.  
+   5.14 Technical Material Requirements.  
+   5.15 Resistance to Media and Chemical Requirements.  
+      5.15.1 Contamination.  
+      5.15.2 Cleaning.  
+      5.15.3 Corrosion Protection.  
+      5.15.4 Tightness and Protection Classes.  
+   5.16 Environmental Compatibility.  
+      5.16.1 Material Selection.  
+      5.16.2 End of Life Treatment.  
+      5.16.3 Eco-Design.  
+      5.16.4 Lifecycle Analysis.  
+      5.16.5 Emissions & Toxicology.  
+   5.17 Mechanical Requirements.  
+      5.17.1 Load.  
+      5.17.2 Vibration Behavior.  
+      5.17.3 Stiffness and Cushioning Characteristics.  
+      5.17.4 Deformation.
+</page>
+
+<page number="5">
+Index.
+
+Contents:
+SCOPE  2
+Index  3
+
+1 GENERAL DOCUMENT GUIDELINES  7
+1.1 Purpose and Legal Binding.  7
+1.2 Language  7
+1.3 Obligation of Requirement Wording.  7
+   1.3.1 Vehicle profile  7
+   1.3.2 Sales Markets  7
+
+2 GENERAL PROJECT GUIDELINES  8
+2.1 Development Scope Abstract 8
+2.2 Initial Situation and Objective  8
+2.3 Classification of the System / Component  8
+2.4 Execution Regulations  8
+2.5 Development and Supply Scope  8
+   2.5.1 Work Interface Chart (RASI)  8
+   2.5.2 Development Interface Agreement (DIA)  10
+2.6 Quotation Scope  10
+2.7 Properties, Condition and Durability  10
+2.8 Development Process  10
+   2.8.1 Gates and Milestones  10
+   2.8.2 Prototype Statuses  10
+   2.8.3 Prototype Quantities  10
+   2.8.4 Acceptance Procedure  10
+   2.8.5 Type Approval and Certification  10
+2.9 Quality and Reliability  10
+   2.9.1 Quality Concepts  10
+   2.9.2 Risk Management  11
+   2.9.3 Validation of the SW Development  11
+2.10 Content Amendments  11
+
+3 PROJECT MANAGEMENT AND ORGANIZATION  11
+3.1 Responsibilities in the Project and Project Management Plan  11
+3.2 Documentation  11
+   3.2.1 Hardware Documentation  11
+   3.2.2 Software Documentation  11
+   3.2.3 Conformity Requirements  11
+3.3 Content Amendments  11
+
+4 SYSTEM ENVIRONMENT  11
+4.1 Functional System Environment  11
+4.2 Physical System Environment / Mechanical Interfaces  12
+4.3 HVAC System  16
+4.4 System Diagram  16
+4.5 Content Amendments  16
+
+5 FUNCTIONAL AND TECHNICAL REQUIREMENTS  17
+5.1 Technical Requirement  17
+5.1.2 Inverter  17
+5.2 Block and Principle Diagram  18
+   5.2.1 Elements of Systems  18
+5.3 Functions  18
+   5.3.1 Overview Functions Description  18
+   5.3.2 Detailed Functions Description  19
+   5.3.3 Faulty Operation  34
+   5.3.4 Emergency Operation  34
+   5.3.5 Diagnostics  34
+5.4 E/E System Schematic  35
+5.5 Control Unit Concept  35
+   5.5.1 Hardware  35
+   5.5.2 Software  35
+5.6 Electrical Interfaces  35
+   5.6.1 Signal Characteristics  36
+   5.6.2 Diagnostics  38
+   5.6.3 Network Management  39
+   5.6.4 Flashing and Coding  39
+   5.6.5 Pin Assignment  39
+   5.6.6 Component Connected to Terminal 30  39
+5.7 Specific Characteristics  39
+5.8 Safety Requirements  39
+   5.8.1 Vehicle Safety regarding Person and Passenger Protection  39
+   5.8.2 Vehicle Safety  39
+5.9 Alternative and Future Variants  39
+5.10 Mechanical Energy Management  39
+   5.10.1 Weight Targets  39
+   5.10.2 Fuel Consumption & Driving Performance  39
+5.11 Installation  39
+   5.11.1 Installation Location  39
+   5.11.2 Assembly Concept and Requirement from Production  39
+   5.11.3 Geometry  39
+   5.11.4 Tolerances  39
+5.12 Styling and Design  40
+5.13 Ergonomics  40
+   5.13.1 Optical Characteristics and Surface Feel  40
+   5.13.2 Actuation Acoustics  40
+   5.13.3 Handling  40
+5.14 Technical Material Requirements  40
+5.15 Resistance to Media and Chemical Requirements  40
+   5.15.1 Contamination  40
+   5.15.2 Cleaning  40
+   5.15.3 Corrosion Protection  40
+   5.15.4 Tightness and Protection Classes  40
+5.16 Environmental Compatibility  40
+   5.16.1 Material Selection  40
+   5.16.2 End of life treatment  40
+   5.16.3 Eco-Design  40
+   5.16.4 Lifecycle Analysis  40
+   5.16.5 Emissions & Toxicology  40
+5.17 Mechanical Requirements  40
+   5.17.1 Load  40
+   5.17.2 Vibration Behavior  41
+   5.17.3 Stiffness and Cushioning Characteristics  41
+   5.17.4 Deformation  42
+   5.17.5 Pressure  42
+   5.17.6 NVH / Acoustic Performance  42
+5.18 Durability / Life Time  42
+5.19 Electrical Requirements  42
+   5.19.1 Description of the Requirements  42
+   5.19.2 Power Consumption  42
+   5.19.3 Low Voltage Energy Management  43
+   5.19.4 High Voltage Energy Management  43
+   5.19.5 Electromagnetic Compatibility  43
+   5.19.6 Electrostatic Discharge  43
+5.20 Climatic Requirements / Thermal Management  43
+   5.20.1 Thermal Management Requirements  43
+5.21 Service Requirements  43
+5.22 Transport Protection  43
+5.23 Logistics Requirements  43
+5.24 Quality Assurance Requirements  43
+5.25 Content Amendments  43
+
+6 TESTING AND VALIDATION  43
+6.1 Proof of Compliance  44
+   6.1.1 Testing Plan (DVP + FRS Plan)  44
+   6.1.2 Package  44
+6.2 Electrical Systems & Functions  44
+6.3 Virtual Testing and Simulation  44
+6.4 Vehicle Testing  44
+6.5 Tests  44
+   6.5.1 Test Name A  44
+
+7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS  44
+7.1 Functional Safety Requirements  44
+7.2 Deliverables for Functional Safety  45
+   a) FUSA Deliverables expected before nomination  45
+   b) FUSA Deliverables expected after nomination  45
+7.3 Homologation and safety regulation requirements  45
+   7.3.1 North America  45
+   7.3.2 Europe  46
+
+8 DEFINITIONS AND LIST OF ABBREVIATIONS  47
+8.1 Definitions  47
+8.2 Definitions and List of Abbreviations  47
+8.3 List of Tables  48
+8.4 List of Figures  48
+
+9 FURTHER APPLICABLE DOCUMENTS  48
+</page>
+
+<page number="6">
+Release.
+
+Version: 1.0.  
+Date: July-2020.  
+
+Approval confirmed by:  
+
+| Function                     | Name                                    |  
+|------------------------------|-----------------------------------------|  
+| CHIEF Engineer              | Markus Leitner: v.markusl@vinfast.vn   |  
+| ER-CV                       | Clifton Wellington Springer: v.cliftonsw@vinfast.vn |  
+| ER-MGL PWT                  | Nguyen Hoang Vu: v.nguyenhv3@vinfast.vn |  
+| ER-MGL CHS                  | Clifford Michael Vince: v.cliffordvm@vinfast.vn |  
+| ER-MGL E/E                  | John Ewald Matthias: v.matthiasje@vinfast.vn |  
+| ER-MGL BIW/DC               | Robert Smith: v.robs@vinfast.vn        |  
+| ER-MGL Interior/Exterior    | Jason John Taylor: v.jasontj@vinfast.vn |  
+| QSC Quality & Standard Center | Nguyễn Thành Nam: v.namnt36@vinfast.vn |  
+| T&V Testing & Validation    | Nguyễn Quốc Tuấn: v.tuannq13@vinfast.vn |  
+
+Revisions since previous version:  
+
+| Version | Change Description | Signature | Date      |  
+|---------|---------------------|-----------|-----------|  
+| 1.0     | First edition       |           | 24/03/2020 |  
+|         | New format          |           | 7/7/2020   |
+</page>
+
+<page number="7">
+1 General Document Guidelines.
+
+1.1 Purpose and Legal Binding.
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other (e.g. what is not included in Part 1 can be included in Part 2, and so on). All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2 -> level 2 is applicable).
+
+1.2 Language.
+This document is written in English.  
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.
+
+1.3 Obligation of Requirement Wording.
+The following wording rules are used throughout this document:
+
+- **Shall**  
+  The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+
+- **Should**  
+  The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+
+- **May**  
+  The word “may” is used to denote options that are left to the implementer.
+
+1.3.1 Vehicle profile.  
+See Appendix_Feature list:  
+VFDSXVCVC0501  
+CSUV_Appendix_5_Features List  
+
+**PALS**  
+VFDSXVCVC3201  
+C-SUV PALS Product Attribute Leadership Strategy  
+
+1.3.2 Sales Markets.  
+LHD countries: Vietnam & Asean, US.  
+Volume refer to appendix:  
+VFDSXVCVC2101  
+CSUV_Appendix_1_Product_Volume
+</page>
+
+<page number="8">
+2 General Project Guidelines.
+
+2.1 Development Scope Abstract.  
+N/A.
+
+2.2 Initial Situation and Objective.  
+N/A.
+
+2.3 Classification of the System / Component.  
+N/A.
+
+2.4 Execution Regulations.  
+N/A.
+
+2.5 Development and Supply Scope.  
+
+2.5.1 Work Interface Chart (RASI).  
+Work Interface Chart (RASI):  
+The main supplier obligations are described in the work interface chart (RASI).  
+The status of the supplier (“Built to Print” or “System Development Supplier”) is defined below System/Component Specification.  
+RASI is defined as follows:  
+
+- **R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+- **A: Approval**  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+
+- **S: Support**  
+Obligated to active support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+- **I: Information**  
+Right to information. This team member is entitled to demand information from R.  
+
+Details deliverables and RASI.
+</page>
+
+<page number="9">
+2 General Project Guidelines
+
+### 2.1 Development Scope Abstract
+N/A
+
+### 2.2 Initial Situation and Objective
+N/A
+
+### 2.3 Classification of the System / Component
+N/A
+
+### 2.4 Execution Regulations
+N/A
+
+### 2.5 Development and Supply Scope
+#### 2.5.1 Work Interface Chart (RASI)
+Work Interface Chart (RASI):
+The main supplier obligations are described in the work interface chart (RASI).  
+The status of the supplier (“Built to Print” or “System Development Supplier”) is defined below System / Component Specification.  
+
+RASI is defined as follows:
+- **R: Responsible**
+  Responsible for the proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+- **A: Approval**
+  Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution “R” is the decider.
+- **S: Support**
+  Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution “R” in achieving the targets.
+- **I: Information**
+  Right to information. This team member is entitled to demand information from “R.”
+
+### No Gate Process - Deliverables and Responsibilities Table  
+
+| No Gate | Stage | Deliverable | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|---------|-------|-------------|----------------|---------------|----------|-----|---------------|
+| 1       | PV    | List of Concept in Commodity | R | S | I | I | I |
+| 2       | PV    | SOR for Concept in Commodity | R | S | I | I | I |
+| 3       | PPS   | SOB through LOI - Letter of Intent for Concept in Commodity | S | R | S | I | I |
+| 4       | PPS   | EDD order release for Concept in Commodity | S | R | S | I | I |
+| 5       | PPS   | Deliver Bill of Materials in Team Center | R | I | I | I | I |
+| 6       | PPS   | Supply chain strategy - Deliver Sourcing Strategy | S | R | I | S | I |
+| 7       | PPS   | Commodity Timing plan in each business area supports Program timing for concept commodity | S | S | R | S | I |
+| 8       | PPS   | Organization and resources for the concept phase, resource planning for series development | S | S | R | S | I |
+| 9       | PPS   | Opportunities and risks for the program have been detailed and measures defined - Cost reductions, Design Optimization, Timing optimization | A | S | R | S | I |
+| 10      | PPS   | Quality planning to meet program requirements - APQP Kickoff | R | S | S | S | I |
+
+--- Continued in the full deliverable list format ---
+VinFast Released.
+</page>
+
+<page number="10">
+2 General Project Guidelines.
+
+2.5.2 Development Interface Agreement (DIA):
+TBD.
+
+2.6 Quotation Scope:
+N/A.
+
+2.7 Properties, Condition and Durability:
+N/A.
+
+2.8 Development Process.
+
+2.8.1 Gates and Milestones.
+2.8.1.1 Gates:
+Refer to Appendix: VFDSXVCVC1101 CSUV_Appendix_1_Project timing.
+
+2.8.1.2 Milestones:
+Refer to Appendix: VFDSXVCVC1101 CSUV_Appendix_1_Project timing.
+
+2.8.1.3 Reviews:
+N/A.
+
+2.8.2 Prototype Statuses:
+N/A.
+
+2.8.3 Prototype Quantities:
+N/A.
+
+2.8.4 Acceptance Procedure:
+N/A.
+
+2.8.5 Type Approval and Certification:
+N/A.
+
+2.9 Quality and Reliability.
+
+2.9.1 Quality Concepts:
+The proposed EVH33X is a Commercial Off The Shelf (COTS) and modified product that does not require any additional customer-funded tooling or Engineering Design and Development (ED&D). The EVH33X has already been developed and validated to meet Mitsubishi Heavy Industries Thermal Systems group (MTH) internal requirements. The COTS design allows MTH to offer customers a competitive electric compressor, both commercially and technically. In order to maintain the COTS design, MTH does not accept any design changes or additional validation tests.
+
+By such product attributes, the customer shall understand and accept the following Requirements/Conditions:
+- This Product Specification includes interface requirements and usage restrictions to use the EVH33X appropriately. The customer shall understand and accept all of them.
+- The EVH33X has already been developed and validated to meet MTH’s internal requirements, and the product is already in production. However, it does not guarantee compressor durability, performance, and operation under all usage conditions at the customer. The customer shall evaluate the compressor at their usage condition and verify there are no problems.
+- The customer is responsible for safely applying the EVH33X to their vehicle.
+- The customer shall design to fit the vehicle-side interfaces to the EVH33X, including but not limited to high voltage and low voltage connectors and harnesses.
+</page>
+
+<page number="11">
+1 General Document Guidelines.  
+1.1 Purpose and Legal Binding.  
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other (e.g., what is not included in Part 1 can be included in Part 2, and so on). All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g., level 3 vs level 2 → level 2 is applicable).  
+
+1.2 Language.  
+This document is written in English.  
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.  
+
+1.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document:  
+- **Shall**: The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+- **Should**: The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+- **May**: The word “may” is used to denote options that are left to the implementer.  
+
+1.3.1 Vehicle profile.  
+See Appendix_Feature list:  
+VFDSXVCVC0501 CSUV_Appendix_5_Features List.  
+
+1.3.2 Sales Markets.  
+LHD countries: Vietnam & ASEAN, US.  
+Volume refer to Appendix: VFDSXVCVC2101 CSUV_Appendix_1_Product_Volume.
+</page>
+
+<page number="12">
+VinFast Management System  
+
+VFDSXVEEP1800  
+
+Version: 1  
+Uncontrolled copy when printed
+</page>
+
+<page number="12">
+of 48  
+
+---
+
+**4 System Environment**  
+
+**4.2 Physical System Environment / Mechanical Interfaces**  
+
+**4.2.1 Discharge and Section ports**  
+The following outlines interface information for the discharge and suction lines. The plumbing fittings at the discharge and suction ports are designed based on the Standard GM Slim Line Sealing Washer Design. The rubber hose is required to use POE oil-compatible material.
+
+- **Discharge side:**  
+  - **Port:** ½” Seal Washer - Standard GM Slim Line Sealing Washer  
+  - **Hose:** Rubber hose must utilize POE oil-compatible hose  
+  - **Secure Torque (Recommended):** 16+/-4Nm
+</page>
+
+<page number="13">
+## Physical System Environment / Mechanical Interfaces
+
+### Suction side:
+- **Port:** ¾” Seal Washer - Standard GM Slim Line Sealing Washer  
+- **Hose:** Rubber hose must utilize POE oil compatible hose  
+- **Secure Torque (Recommended):** 16+/-4Nm  
+
+#### Diagram Description:
+This diagram illustrates the physical interface between the vehicle side and compressor side for suction connection fittings.  
+- **Vehicle Side:** Includes a plumbing fitting with dimensions specified for compatibility with GM Slim Line Sealing Washer.  
+- **Compressor Side (Reference):** Includes a compressor fitting compatible with the specified GM Slim Line Sealing Washer design. Detailed dimensions are provided to ensure proper alignment and sealing.
+
+The diagram also specifies:
+- **Chamfer dimensions:** For enhanced sealing and assembly ease.  
+- Various tolerances and measurements for critical fitting points.  
+- Recommended assembly practices to avoid misalignment and ensure durability.
+</page>
+
+<page number="14">
+### Physical System Environment / Mechanical Interfaces.
+
+#### 4.2.1 Discharge and Suction Ports
+Here is the interface information for the discharge and suction lines. The plumbing fittings at the discharge and suction ports are based on Standard GM Slim Line Sealing Washer Design. The rubber hose must use POE oil compatible hoses.
+
+##### Discharge Side:
+- **Port:** ½” Seal Washer - Standard GM Slim Line Sealing Washer.
+- **Hose:** Rubber hose must utilize POE oil compatible hose.
+- **Secure Torque (Recommended):** 16±4 Nm.
+
+##### Suction Side:
+- **Port:** ¾” Seal Washer - Standard GM Slim Line Sealing Washer.
+- **Hose:** Rubber hose must utilize POE oil compatible hose.
+- **Secure Torque (Recommended):** 16±4 Nm.
+
+**Note on Diagram:** The diagram illustrates the vehicle side pluming fitting and compressor side fitting with detailed dimensions for proper installation.
+
+---
+
+#### 4.2.2 Mounting
+The customer is responsible for mounting the EVH33X in their vehicle in a manner that avoids noise and vibration generation or failures due to corrosion. Below are the general requirements:
+
+- The EVH33X must be mounted using all three (3) M8 bolts, and all bolts must be properly torqued.
+- Mount the EVH33X on a large mass like an engine or motor drive unit. Do not mount it on non-stiff components such as the chassis frame.
+- If the EVH33X is mounted on a compressor bracket, the "mounting natural frequency of the compressor with bracket" must be designed to exceed 300 Hz.
+- Information on the Center of Gravity (CG) and Moments of Inertia of the EVH33X is provided in the figure to assist the customer in designing the compressor bracket.
+- If an isolation mounting bracket is used, an additional ground strap from the EVH33X to the chassis ground (GND) is required.
+- The EVH33X must not interfere with other vehicle parts except for the designated mounting portion.
+
+**Note on Figure:** The figure provides details regarding the dimensions and design for mounting the EVH33X accurately, including specifications for CG and Moments of Inertia to support bracket design.
+</page>
+
+<page number="15">
+4.2.2 Mounting.  
+Customer is responsible for properly mounting the EVH33X in their vehicle to avoid noise and vibration generation or failures due to compressor corrosion. General requirements are outlined below:  
+- The EVH33X shall be mounted using three (3) M8 bolts, all properly torqued.  
+- The EVH33X shall be mounted on a large mass such as an engine or motor drive unit. It should not be mounted on a non-rigid part like the chassis frame.  
+- If the EVH33X is mounted using a compressor bracket, its "mounting natural frequency with bracket" must be designed to exceed 300Hz.  
+- Information regarding the Center of Gravity (CG) and Moments of Inertia for the EVH33X is provided in the figure to assist customers with bracket design.  
+- If an isolation mounting bracket is utilized, an additional grounding strap connecting the EVH33X to the chassis GND is required.  
+- The EVH33X must not interfere with other vehicle parts except for the mounted portion.  
+- The suction and discharge lines must not interfere with other vehicle parts except for connected portions.  
+- The EVH33X shall be mounted in a position where immersion is avoided, and splash exposure is limited.  
+- The EVH33X must be mounted in a position that minimizes collision-induced damage.  
+- The EVH33X must be mounted within the specified mounting angles shown in Fig. 3.5 to ensure proper oil separator function.  
+
+4.2.3 Discharge Temperature.  
+The EVH33X must operate at a discharge temperature fulfilling these conditions:  
+- Less than 140°C under steady-state operation.
+</page>
+
+<page number="16">
+4.2.2 Mounting.
+
+Customer has the responsibility to mount the EVH33X in their vehicle to avoid opportunities of noise and vibration generation, failures by compressor corrosion, etc., but here are some general requirements:
+- The EVH33X shall be mounted by all three (3) M8 bolts - All must be properly torqued.
+- The EVH33X shall be mounted on a big mass like the Engine or Motor Drive unit. Do not mount the EVH33X on something unstable like a chassis frame.
+- If the EVH33X is mounted by a compressor bracket, "mounting natural frequency of the compressor with bracket" shall be designed to be sufficiently high (over 300Hz).
+- Information regarding Center of Gravity (CG) and Moments of Inertia for the EVH33X is provided in the figure to assist the customer in designing the compressor bracket.
+- If an isolation mounting bracket is utilized, an additional ground strap from the EVH33X to the chassis GND is required.
+- The EVH33X shall not interfere with other vehicle parts (except the mounted portion).
+- The suction and discharge lines shall not interfere with other vehicle parts (except connected portions).
+- The EVH33X shall be mounted in a position where it will not be immersed and where splash exposure is limited.
+- The EVH33X shall be mounted in a position to minimize potential damage as a result of collisions.
+- The EVH33X shall be mounted within the required mounting angles provided in Figure 3.5 to ensure proper functioning of the oil separator.
+
+4.2.3 Discharge Temperature.
+
+The EVH33X shall be operated with the discharge temperature below:
+- Less than 140°C (Steady state).
+- Less than 150°C (Transient state).
+
+4.2.4 Super Heat.
+
+The EVH33X shall be operated with the compressor suction super heat exceeding:
+- More than 5°C.
+
+4.3 HVAC System. 
+
+4.3.1 High Side Pressure Protection.
+
+The maximum allowable discharge pressure of the EVH33X is 2.8MPaG. The customer shall provide proper "high side pressure protection" and prevent the compressor from operating beyond 2.8MPaG at the discharge point. A high side pressure sensor or switch shall be installed on the compressor discharge line (as close to the compressor as possible) before the condenser inlet for this function.
+
+4.3.2 Low Side Pressure Protection.
+
+The minimum recommended suction pressure for the EVH33X is 0.18~0.2MPaG. Although the EVH33X could operate at 0.06MPaG for short durations, it is highly recommended that the customer ensures proper "low side pressure protection" to prevent operation under 0.18~0.2MPaG at the suction point. A low side pressure sensor or switch shall be located on the suction line (as close to the compressor as possible). In cases where the low side pressure sensor or switch is not installed, at least an “evaporator frost protection” provided by an evaporator air-thermistor or fin-thermistor shall be alternatively applied. The customer must additionally confirm this measure will prevent evaporator frost under all conditions and that it never allows the compressor to operate under negative pressure.
+
+4.3.3 Low Refrigerant Charge Protection.
+
+The customer shall implement a proper “low refrigerant charge protection” system to prevent the compressor from operating under unusually low refrigerant charge conditions. The customer may use either a low side pressure sensor, a high side pressure sensor, or a combination of both for this purpose.
+
+4.4 System Diagram.
+
+Refer to diagrams for detailed system overview.
+
+4.5 Content Amendments.
+
+N/A.
+</page>
+
+<page number="17">
+5 Functional and Technical Requirements.
+
+5.1 Technical Requirement.
+
+| No | Part Name      | Part No.       | Qtty | Material | Purchase Level | ICE | BEV |
+|----|----------------|----------------|------|----------|----------------|-----|-----|
+| 1  | HV Compressor  | EEP30018000    | 1    | TBD      | P              | -   | X   |
+
+### 5.1.1 Compressor (Mechanical Side)
+- **Model Name:** EVH33X  
+- **Displacement (Compressor Type):** 34.3 cc/rev (Scroll)  
+- **Outline:** D123 x L211 mm  
+- **Mass (without oil):** 6.1 kg  
+- **Applicable Refrigerant:** R-134a, R-1234yf  
+- **Applicable Lubricant:** POE (MA68EV)  
+- **Compressor Speed Range:** 800 rpm (minimum) ~ 9000 rpm (maximum)  
+- **Maximum Allowable Discharge Pressure:** 2.8 MPaG (at compressor discharge port)  
+- **Maximum Allowable Discharge Temperature:** 140 degC (at compressor discharge port)  
+- **Protection Device:** High Pressure Relief Valve  
+- **Oil Separator:** Integrated  
+
+### 5.1.2 Inverter
+- **Temperature:**
+  - Operation Range: -10 ~ 125 degC  
+  - Storage Range: -40 ~ 125 degC  
+- **High Voltage System:**
+  - Voltage Range: 275 ~ 470 V  
+  - Allowable Max Input: 28 A  
+  - Allowable Max Power: 6500 W  
+- **Low Voltage System:**
+  - Voltage Range: 8 ~ 16 V  
+  - Allowable Max Input: 0.25 A  
+- **Communication:** LIN  
+- **Inverter Carrier Frequency:** 20 kHz  
+- **IP Code (Dust/Waterproof Capacity):** IP6K7
+</page>
+
+<page number="18">
+# Functional and Technical Requirements
+
+## 5.1 Technical Requirement
+
+### Compressor (Mechanical side)
+- **Model Name:** EVH33X
+- **Displacement (Compressor Type):** 34.3 cc/rev (Scroll)
+- **Outline:** D123 x L211 mm
+- **Mass (without oil):** 6.1 kg
+- **Applicable Refrigerant:** R-134a, R-1234yf
+- **Applicable Lubricant:** POE (MA68EV)
+- **Compressor Speed Range:** 800 rpm (minimum) ~ 9000 rpm (maximum)
+- **Maximum Allowable Discharge Pressure:** 2.8 MPaG (at compressor discharge port)
+- **Maximum Allowable Discharge Temperature:** 140 degC (at compressor discharge port)
+- **Protection Device:** High Pressure Relief Valve
+- **Oil Separator:** Integrated
+
+### Inverter
+- **Temperature Operation Range:** -10 ~ 125 degC
+- **Storage Range:** -40 ~ 125 degC
+- **High Voltage System:**
+  - **Voltage Range:** 275 ~ 470 V
+  - **Allowable Max Input:** 28 A
+  - **Allowable Max Power:** 6500 W
+- **Low Voltage System:**
+  - **Voltage Range:** 8 ~ 16 V
+  - **Allowable Max Input:** 0.25 A
+- **Communication:** LIN
+- **Inverter Carrier Frequency:** 20 kHz
+- **IP Code (Dust/Water proof capacity):** IP6K7
+
+---
+
+## 5.2 Block and Principle Diagram
+
+### Elements of Systems
+A detailed schematic highlighting system components, including:
+- LIN communication interfaces
+- DC/DC converter
+- Gate driver circuits
+- Current detection circuits
+- IGBT components for power regulation
+- Capacitor temperature sensors
+
+---
+
+## 5.3 Functions
+
+### Overview Functions Description
+This product specification supplements the released drawing and component specification for the high voltage compressor, an electric air conditioning compressor (EAC). It describes:
+1. Physical and mechanical characteristics.
+2. Electrical and operational characteristics.
+3. Diagnostic capabilities of the compressor design.
+</page>
+
+<page number="19">
+### 5 Functional and Technical Requirements  
+
+#### 5.1 Technical Requirements  
+
+**No | Part Name | Part No. | Qtty | Material | Purchase Level | ICE | BEV**  
+- **HV Compressor**: Part No. EEP30018000, Qtty 1, Material TBD, Purchase Level P  
+  - **Applicable Models**: C-SUV-ICE Smart (Vietnam), C-SUV-ICE Plus (Vietnam), C-SUV-BEV Smart (-), C-SUV-BEV Plus (US).  
+
+#### 5.1.1 Compressor (Mechanical Side)  
+- **Model Name**: EVH33X  
+- **Displacement (Compressor Type)**: 34.3 cc/rev (Scroll)  
+- **Outline**: D123 x L211 mm  
+- **Mass (without oil)**: 6.1 kg  
+- **Applicable Refrigerants**: R-134a, R-1234yf  
+- **Applicable Lubricant**: POE (MA68EV)  
+- **Compressor Speed Range**: RPM 800 (minimum) ~ 9000 (maximum)  
+- **Maximum Allowable Discharge Pressure**: 2.8 MPaG (at compressor discharge port)  
+- **Maximum Allowable Discharge Temperature**: 140°C (at compressor discharge port)  
+- **Protection Device**: High Pressure Relief Valve  
+- **Oil Separator**: Integrated  
+
+#### 5.1.2 Inverter  
+- **Temperature**:  
+  - Operation Range: -10°C ~ 125°C  
+  - Storage Range: -40°C ~ 125°C  
+- **High Voltage System**:  
+  - Voltage Range: 275V ~ 470V  
+  - Allowable Max Input: 28A  
+  - Allowable Max Power: 6500W  
+- **Low Voltage System**:  
+  - Voltage Range: 8V ~ 16V  
+  - Allowable Max Input: 0.25A  
+- **Communication**: LIN  
+- **Inverter Carrier Frequency**: 20 kHz  
+- **IP Code (Dust/Water Proof Capacity)**: IP6K7  
+
+---
+
+### 5.2 Block and Principle Diagram  
+
+#### 5.2.1 Elements of Systems  
+The diagram provides detailed block and principle-level information regarding the High Voltage compressor system. Key components include LIN interface, power supply regulators, EEPROM, and board temperature monitoring circuits. 
+
+---
+
+### 5.3 Functions  
+
+#### 5.3.1 Overview Functions Description  
+This product specification supplements the released drawing and component specification for the High Voltage Compressor (EAC).  
+
+- **Purpose**: Describes physical, mechanical, electrical, operational characteristics, and diagnostic capabilities.  
+- **Use Case**: EAC is suitable for hybrid, electric, or fuel-cell vehicles. 
+
+---
+
+#### 5.3.2 Detailed Functions Description  
+
+##### 5.3.2.1.1 General Functions  
+The EAC assembly consists of:  
+- Inverter.  
+- Electric motor.  
+- Scroll gas compression mechanism.  
+
+**Primary Function**: Compresses low-temperature/pressure gaseous refrigerant to higher temperature/pressure for passenger cabin cooling or for cooling drivetrain energy storage components.  
+
+**Power Requirements**:  
+- High Voltage Power Supply.  
+- Low Voltage Power Supply.  
+
+**Communication**: LIN Network.  
+
+---
+
+##### 5.3.2.1.2 System Performance  
+
+###### 5.3.2.1.2.1 Cooling Capacity and Power Consumption  
+- Measured values highlight cooling capacity vs. power consumption dependence on compressor speed RPM.  
+
+###### 5.3.2.1.2.2 Operational Pressure Range  
+- **Conditions**: Complies with maximum discharge pressure and minimum suction pressure defined in sections 4.3.1 and 4.3.2.  
+
+**Typical Operation**:  
+- Operates within normal operation range unless transitional changes occur (e.g. vehicle speed changes).  
+- **Transient Operation**: Limited up to 4 hours across the vehicle's lifespan.  
+
+---
+</page>
+
+<page number="20">
+### 5. Functional and Technical Requirements
+
+#### 5.3.2.1.2.3 Noisy (Sound Power Level)
+This section provides measured values for sound power levels across varying compressor speeds. Note that these figures are not guaranteed values.
+
+The following sound levels and conditions were observed:
+
+1. At a compressor speed of 3600 rpm:
+   - Sound Power Level: 60 dBA
+   - Test Conditions: 
+     - Refrigerant: R134a
+     - Discharge/Suction Pressures: 1.76/0.30 MPaG
+     - Superheat: Approximately 10°C
+     - Vin: 260V
+
+2. At a compressor speed of 6000 rpm:
+   - Sound Power Level: 70 dBA
+   - Test Conditions:
+     - Refrigerant: R134a
+     - Discharge/Suction Pressures: 1.94/0.22 MPaG
+     - Superheat: Approximately 10°C
+     - Vin: 260V
+
+3. At a compressor speed of 8400 rpm:
+   - Sound Power Level: 75 dBA
+   - Test Conditions:
+     - Refrigerant: R134a
+     - Discharge/Suction Pressures: 2.08/0.18 MPaG
+     - Superheat: Approximately 10°C
+     - Vin: 260V
+
+Additionally, this section features graphical representations for both the ordinary and transient operation ranges of discharge and suction pressures, and the variation in sound power levels based on compressor speed.
+</page>
+
+<page number="21">
+5.3.2.1.3 Power Supply (High Voltage)
+
+5.3.2.1.3.1 High Voltage Fuse  
+It is recommended that the high voltage bus serving the EAC be fused at 35 - 40A. The fuse selection is the responsibility of the vehicle side. Suitable fuse shall be selected by the customer.
+
+5.3.2.1.3.2 Operating Parameters  
+The operating parameters of high voltage power are given in the following table:  
+- **Nominal Voltage**: 400 V  
+- **Voltage Range**: 280 ~ 465 V  
+- **Maximum Allowable Voltage Range**: 480 V (Operation Voltage, Transient)  
+- **Allowable High Voltage Bus Ripple**: < 33 V  
+- **Maximum Power Consumption**: 6.5 kW  
+- **Maximum Continuous Current Flow**: 28 A ± ripple  
+- **Parasitic Current**: < 3 mA  
+- **Limited Performance Thresholds**:  
+  - Voltage < 280 V  
+  - Voltage > 465 V  
+- **Shutdown Thresholds**:  
+  - Shuts off at 270 V, turns back on at 280 V  
+  - Shuts off at 470 V, turns back on at 465 V  
+- **Carrier Frequency**: 20 kHz  
+- **Capacitor**: 9.4 μF  
+
+5.3.2.1.3.3 High Voltage Interlock  
+Interlock function is available as an option. HV connector and LV connector provide terminals named "IL IN" and "IL OUT" that are looped in the circuit board as shown in the EE System Schematic. For the connector terminal assignment, see Section 5.6.1.2 Low Voltage Connector.  
+
+In case the interlock is applied, the customer can use these terminals, and the interlock detection circuit shall be prepared by the vehicle side with specifications meeting the table below. If the interlock is not applied, these terminals in the vehicle side connectors shall be sealed for waterproofing.  
+
+- **Maximum Voltage**: 16 V  
+- **Maximum Current Consumption**: 50 mA  
+
+5.3.2.1.3.4 Power Up and Operation Start  
+In order to facilitate the initialization of the communication network, the vehicle is required to follow an orderly Power Up sequence, which is shown in the following figure.  
+
+The EAC can be initialized by a Wake-up signal. It is necessary to turn on the high voltage power at least 100 ms after receiving the Wake-up signal. LIN communication will become available within 100 ms after receiving the Wake-up signal. The EAC will begin sending LIN initial values within 200 ms after LIN communication becomes available. The Motor Drive will be started approximately 3 seconds after LIN value initialization is completed.
+</page>
+
+<page number="22">
+5.3.2.1.3.5 Protection.
+
+The EAC has built-in protection designed to prevent internal or system damage under specific circumstances. The protections are as follows:
+
+1. High Voltage Over Voltage Protection: Activates when voltage exceeds > 465V for 3 seconds or > 480V instantly.
+2. High Voltage Under Voltage Protection: Activates when voltage drops below < 270V for 3 seconds or < 230V instantly.
+3. Internal 15V Power Supply Under Voltage Protection: Prevents operation under insufficient voltage.
+4. Internal 15V Power Supply Over Voltage Protection: Prevents operation above specified voltage thresholds.
+5. Motor Current Over Current Protection: Activates when current exceeds > 60A for 3 seconds.
+6. Input Current Over Current Protection: Activates when input current exceeds > 29A for 3 seconds.
+7. Circuit Board Lower Temperature Protection: Activates under temperatures <= -15°C for 1 second.
+8. IGBT Over Temperature Protection: Activates under temperatures >= 135°C for 1 second.
+9. Capacitor Over Temperature Protection: Activates under temperatures >= 125°C for 1 second.
+10. High Voltage Resonance Protection: Activates when oscillation of voltage >= 33V occurs.
+11. Over Power Protection: Activates when inverter input power exceeds >= 6500W or inverter input current exceeds >= 28A.
+12. Over Motor-Current Protection by IGBT Temperature: Monitors motor current protection related to IGBT temperature.
+13. Rotor Lock Protection: Prevents operation when rotor lock occurs.
+14. Slugging Protection: Protects against compressor slugging conditions.
+15. Lost Communication Protection: Activates when there is a loss of communication within the system.
+</page>
+
+<page number="23">
+Any of these protections will cause the compressor to shut down operation if the given condition exists. The recovery from these protections varies depending on the nature of the event and the time required to recover from the event. These recovery conditions are given in the table below, along with the protection name and status communicated by the EAC during the protection stage.
+
+### Recovery Condition of Each Protection
+| No. | Diagnostics / Protection Name                | EAC Status    | Recovery Condition from Inoperative Status                           |
+|-----|---------------------------------------------|---------------|---------------------------------------------------------------------|
+| 1a  | High Voltage Over Voltage Protection        | Inoperative   | Error condition is resolved.                                       |
+| 1b  | High Voltage Over Voltage Protection - instantly | Inoperative | Error condition is resolved.                                       |
+| 2a  | High Voltage Under Voltage Protection       | Inoperative   | Error condition is resolved.                                       |
+| 2b  | High Voltage Under Voltage Protection - instantly | Inoperative | Error condition is resolved.                                       |
+| 3   | Internal 15V power supply Under Voltage Protection | Inoperative | Error condition is resolved.                                       |
+| 4   | Internal 15V power supply Over Voltage Protection | Inoperative | Error condition is resolved.                                       |
+| 5   | Motor Current Over Current Protection       | Inoperative   | 1) Error condition is resolved.                                    |
+|     |                                             |               | 2) Compressor will be in permanent stop after this protection occurs 10 times. |
+| 6   | Input Current Over Current Protection       | Inoperative   | Error condition is resolved.                                       |
+| 7   | Board Lower Temperature Protection          | -             | Error condition is resolved.                                       |
+| 8   | IGBT Over Temperature Protection            | Inoperative   | 1) Error condition is resolved.                                    |
+|     |                                             |               | 2) Go to sleep mode if this protection occurs 2 times in 1 hour.   |
+| 9   | Capacitor Over Temperature Protection       | Inoperative   | 1) Error condition is resolved.                                    |
+|     |                                             |               | 2) Go to sleep mode if this protection occurs 2 times in 1 hour.   |
+| 10  | High Voltage Resonance Protection           | Degraded Operation or Inoperative | 1) Error condition is resolved.                                    |
+|     |                                             |               | 2) Go to sleep mode if this protection occurs 5 times in a row.   |
+| 11  | Over Power Protection                       | Degraded Operation or Inoperative | 1) Error condition is resolved.                                    |
+|     |                                             |               | 2) Go to sleep mode if this protection occurs 5 times in a row.   |
+| 12  | Over Motor-Current Protection by IGBT Temperature | Degraded Operation or Inoperative | Error condition is resolved.                                       |
+| 13  | Rotor Lock Protection                       | Inoperative   | Go to sleep mode and 15 minutes passed after rotor lock occurred.  |
+| 14  | Slugging Protection                         | Degraded Operation | Error condition is resolved.                                       |
+| 15  | Lost Communication on LIN                  | Inoperative   | Error condition is resolved.                                       |
+</page>
+
+<page number="24">
+5.3.2.1.3.5 Protection  
+The EAC has built-in protection to prevent internal or system damage under given circumstances.  
+The protections include:  
+1. High Voltage Over Voltage Protection (> 465V for 3 sec or > 480V instant).  
+2. High Voltage Under Voltage Protection (< 270V for 3 sec or < 230V instant).  
+3. Internal 15V power supply Under Voltage Protection.  
+4. Internal 15V power supply Over Voltage Protection.  
+5. Motor Current Over Current Protection (> 60A for 3 sec).  
+6. Input Current Over Current Protection (> 29A for 3 sec).  
+7. Circuit Board Lower Temperature Protection (≤ -15°C for 1 sec).  
+8. IGBT Over Temperature Protection (≥ 135°C for 1 sec).  
+9. Capacitor Over Temperature Protection (≥ 125°C for 1 sec).  
+10. High Voltage Resonance Protection (Oscillation of Voltage ≥ 33V).  
+11. Over Power Protection (Inverter Input Power ≥ 6500W or Inverter Input Current ≥ 28A).  
+12. Over Motor-Current Protection by IGBT Temperature.  
+13. Rotor Lock Protection.  
+14. Slugging Protection.  
+15. Lost Communication Protection.  
+
+**Recovery Conditions of Protections**  
+Any of these protections will cause the compressor to shut down operation if the given condition exists. Recovery from these protections varies depending on the nature of the event and the time required to resolve the issue.  
+
+| **No.** | **Diagnostics / Protection Name**                     | **EAC Status**                 | **Recovery Condition**                                              |  
+|---------|-------------------------------------------------------|--------------------------------|----------------------------------------------------------------------|  
+| 1a      | High Voltage Over Voltage Protection                  | Inoperative                   | Error condition is resolved.                                        |  
+| 1b      | High Voltage Over Voltage Protection - instantly      | Inoperative                   | Error condition is resolved.                                        |  
+| 2a      | High Voltage Under Voltage Protection                 | Inoperative                   | Error condition is resolved.                                        |  
+| 2b      | High Voltage Under Voltage Protection - instantly     | Inoperative                   | Error condition is resolved.                                        |  
+| 3       | Internal 15V power supply Under Voltage Protection    | Inoperative                   | Error condition is resolved.                                        |  
+| 4       | Internal 15V power supply Over Voltage Protection     | Inoperative                   | Error condition is resolved.                                        |  
+| 5       | Motor Current Over Current Protection                 | Inoperative                   | 1) Error condition is resolved.  
+                                                                                                         2) Compressor will be in permanent stop after this protection occurs 10 times. |  
+| 6       | Input Current Over Current Protection                 | Inoperative                   | Error condition is resolved.                                        |  
+| 7       | Board Lower Temperature Protection                    | -                              | -                                                                  |  
+| 8       | IGBT Over Temperature Protection                      | Inoperative                   | 1) Error condition is resolved.  
+                                                                                                         2) Go to sleep mode if this protection occurs 2 times in 1 hour.      |  
+| 9       | Capacitor Over Temperature Protection                 | Inoperative                   | 1) Error condition is resolved.  
+                                                                                                         2) Go to sleep mode if this protection occurs 2 times in 1 hour.      |  
+| 10      | High Voltage Resonance Protection                     | Degraded operation or Inoperative | 1) Error condition is resolved.  
+                                                                                                         2) Go to sleep mode if this protection occurs 5 times in a row.       |  
+| 11      | Over Power Protection                                 | Degraded operation or Inoperative | 1) Error condition is resolved.  
+                                                                                                         2) Go to sleep mode if this protection occurs 5 times in a row.       |  
+| 12      | Over Motor-Current Protection by IGBT Temperature     | Degraded operation or Inoperative | Error condition is resolved.                                   |  
+| 13      | Rotor Lock Protection                                 | Inoperative                   | Go to sleep mode and 15 minutes passed after rotor lock occurred.   |  
+| 14      | Slugging Protection                                   | Degraded operation            | Error condition is resolved.                                        |  
+| 15      | Lost Communication on LIN                             | Inoperative                   | Error condition is resolved.                                        |  
+
+### Figures and Behavior Description
+**Over Voltage Protection and Under Voltage Protection**  
+The EAC stops operation of the motor and sends an error message to the vehicle via LIN communication bus simultaneously in the event that the voltage deviates from the normal voltage area. After the voltage recovers within the recovery voltage range, the EAC resumes operation.  
+
+**Motor Current Over Current Protection**  
+The EAC immediately stops the motor operation upon detecting overcurrent conditions to ensure the IGBT current remains within allowable limits, sending an error message to the vehicle via LIN communication bus. If repeated occurrences happen, the EAC recognizes these as Compressor Failures and permanently stops motor operation.  
+
+**Input Current Over Current Protection**  
+Similar to Motor Current Over Current Protection, the EAC halts motor operation upon detecting overcurrent input conditions. Behavior is outlined in the figure provided.
+</page>
+
+<page number="25">
+5.3.2.1.3.5 Protection
+
+**Any of these protections will cause the compressor to shut down operation if the given condition exists.** The recovery from these protections varies depending on the nature of the event and the time required to recover from the event. These recovery conditions are described in the accompanying table along with the protection name and status communicated by the EAC during the protection stage.
+
+**Recovery condition of each protection:**
+
+| No.  | Diagnostics / Protection Name                        | EAC Status       | Recovery condition from inoperative status                                             |
+|------|------------------------------------------------------|------------------|----------------------------------------------------------------------------------------|
+| 1a   | High Voltage Over Voltage Protection                 | Inoperative      | Error condition is resolved.                                                          |
+| 1b   | High Voltage Over Voltage Protection - instantly     | Inoperative      | Error condition is resolved.                                                          |
+| 2a   | High Voltage Under Voltage Protection                | Inoperative      | Error condition is resolved.                                                          |
+| 2b   | High Voltage Under Voltage Protection - instantly    | Inoperative      | Error condition is resolved.                                                          |
+| 3    | Internal 15V power supply Under Voltage Protection   | Inoperative      | Error condition is resolved.                                                          |
+| 4    | Internal 15V power supply Over Voltage Protection    | Inoperative      | Error condition is resolved.                                                          |
+| 5    | Motor Current Over Current Protection                | Inoperative      | 1) Error condition is resolved. <br> 2) Compressor will be in permanent stop after this protection occurs 10 times. |
+| 6    | Input Current Over Current Protection                | Inoperative      | Error condition is resolved.                                                          |
+| 7    | Board Lower Temperature Protection                   |                  |                                                                                    |
+| 8    | IGBT Over Temperature Protection                     | Inoperative      | 1) Error condition is resolved. <br> 2) Go to sleep mode if this protection occurs 2 times in 1 hour. |
+| 9    | Capacitor Over Temperature Protection                | Inoperative      | 1) Error condition is resolved. <br> 2) Go to sleep mode if this protection occurs 2 times in 1 hour. |
+| 10   | High Voltage Resonance Protection                    | Degraded operation or Inoperative | 1) Error condition is resolved. <br> 2) Go to sleep mode if this protection occurs 5 times in a row. |
+| 11   | Over Power Protection                                | Degraded operation or Inoperative | 1) Error condition is resolved. <br> 2) Go to sleep mode if this protection occurs 5 times in a row. |
+| 12   | Over Motor-Current Protection by IGBT Temperature    | Degraded operation or Inoperative | Error condition is resolved.                                                          |
+| 13   | Rotor Lock Protection                                | Inoperative      | Go to sleep mode and 15 minutes passed after rotor lock occurred.                    |
+| 14   | Slugging Protection                                  | Degraded operation | Error condition is resolved.                                                          |
+| 15   | Lost Communication on LIN                           | Inoperative      | Error condition is resolved.                                                          |
+
+---
+
+### Diagrams
+
+1. **Behavior of Over Voltage Protection and Under Voltage Protection:**
+   The accompanying figure illustrates the behavior of the EAC when voltage values deviate from the normal voltage area. During such events:
+   - The compressor shuts down and becomes inoperative.
+   - Error messages are sent to the vehicle via LIN communication bus simultaneously.
+   - The motor resumes operation after voltage stabilizes within the recovery voltage range.
+
+2. **Motor Current Over Current Protection:**
+   The accompanying figure illustrates how the EAC handles motor current over current conditions:
+   - The motor operation halts immediately upon detecting an over current event in order to prevent IGBT current from exceeding the allowable limit.
+   - Error messages are sent via LIN communication bus.
+   - If this situation repeats, the EAC identifies the compressor as failed and will permanently cease its motor operation after 10 occurrences.
+
+3. **Input Current Over Current Protection:**
+   - The figure demonstrates that the EAC halts motor operation when detecting an input current over current scenario and communicates the error via LIN communication bus.
+
+4. **Behavior of Over Temperature and Lower Temperature Protection:**
+   - A detailed illustration shows the EAC stopping motor operation and sending error messages via LIN communication upon detecting temperature limits.
+   - Motor operation resumes once temperature stabilizes below recovery levels.
+
+5. **Behavior of High Voltage Resonance Protection:**
+   - An associated figure shows motor speed adjustments upon detecting voltage oscillations that exceed allowable values.
+   - The EAC gradually reduces oscillation of voltage and subsequently increases motor speed to the target value once stabilization occurs.
+</page>
+
+<page number="26">
+**5.3.2.1.3.5 Protection Description**
+The EAC includes multiple built-in protections to prevent internal or system damage under defined circumstances. The protections are:
+
+1. **No.11, Over Power Protection**:  
+   The EAC reduces motor speed when either "allowable power consumption" or "input current" exceeds specified limitations. This helps lower power and current levels. Once allowable power consumption decreases below the defined limitation, the EAC increases motor speed back up to the target speed.  
+   - Behavior illustrated in Figure:  
+     - *Abnormal Operation*: Exceeding power/current limits leads to degraded operation mode.  
+     - *Recovery*: System releases from abnormal conditions and resumes target speed.  
+
+2. **No.12, Over Motor Current Protection by IGBT Temperature**:  
+   The EAC evaluates IGBT temperature and adjusts allowable current limits accordingly. Based on detected temperature, the motor operates within constrained current and temperature limits.  
+   - Behavior illustrated in Figure:  
+     - *Degraded Operation*: Controlled motor speed adapts to manage IGBT current and temperature.
+     - *Recovery*: Compressor status returns to normal after temperatures stabilize within allowable limits.
+</page>
+
+<page number="27">
+5.3.2.1.3.5 Protection.
+
+The EAC has built-in protection to prevent internal or system damage under specific circumstances. The protections include:
+
+1. **High Voltage Over Voltage Protection** (> 465V for 3 seconds or > 480V instant).
+2. **High Voltage Under Voltage Protection** (< 270V for 3 seconds or < 230V instant).
+3. **Internal 15V Power Supply Under Voltage Protection**.
+4. **Internal 15V Power Supply Over Voltage Protection**.
+5. **Motor Current Over Current Protection** (> 60A for 3 seconds).
+6. **Input Current Over Current Protection** (> 29A for 3 seconds).
+7. **Circuit Board Lower Temperature Protection** (≤ -15°C for 1 second).
+8. **IGBT Over Temperature Protection** (≥ 135°C for 1 second).
+9. **Capacitor Over Temperature Protection** (≥ 125°C for 1 second).
+10. **High Voltage Resonance Protection** (Oscillation of Voltage ≥ 33V).
+11. **Over Power Protection** (Inverter Input Power ≥ 6500W or Inverter Input Current ≥ 28A).
+12. **Over Motor-Current Protection by IGBT Temperature**.
+13. **Rotor Lock Protection**.
+14. **Slugging Protection**.
+15. **Lost Communication Protection**.
+
+Any of these protections cause the compressor to shut down operation if the specified condition exists. The recovery conditions for each protection vary depending on the nature of the event. Below Table outlines the recovery conditions, EAC status, and protections during various stages.
+
+### Recovery Condition of Each Protection.
+| No. | Diagnostics / Protection Name                | EAC Status      | Recovery Condition from Inoperative Status                                  |
+|-----|---------------------------------------------|-----------------|----------------------------------------------------------------------------|
+| 1a  | High Voltage Over Voltage Protection        | Inoperative     | Error condition is resolved.                                               |
+| 1b  | High Voltage Over Voltage Protection – instant | Inoperative  | Error condition is resolved.                                               |
+| 2a  | High Voltage Under Voltage Protection       | Inoperative     | Error condition is resolved.                                               |
+| 2b  | High Voltage Under Voltage Protection – instant | Inoperative  | Error condition is resolved.                                               |
+| 3   | Internal 15V Power Supply Under Voltage Protection | Inoperative | Error condition is resolved.                                               |
+| 4   | Internal 15V Power Supply Over Voltage Protection | Inoperative | Error condition is resolved.                                               |
+| 5   | Motor Current Over Current Protection       | Inoperative     | 1) Error condition is resolved. 2) Permanent stop after 10 occurrences.   |
+| 6   | Input Current Over Current Protection       | Inoperative     | Error condition is resolved.                                               |
+| 7   | Board Lower Temperature Protection          | Inoperative     | Error condition is resolved.                                               |
+| 8   | IGBT Over Temperature Protection            | Inoperative     | 1) Error condition is resolved. 2) Sleep mode after 2 instances in 1 hour. |
+| 9   | Capacitor Over Temperature Protection       | Inoperative     | 1) Error condition is resolved. 2) Sleep mode after 2 instances in 1 hour. |
+| 10  | High Voltage Resonance Protection           | Degraded Operation/Inoperative | 1) Error condition is resolved. 2) Sleep mode after 5 instances consecutively. |
+| 11  | Over Power Protection                       | Degraded Operation/Inoperative | 1) Error condition is resolved. 2) Sleep mode after 5 instances consecutively. |
+| 12  | Over Motor-Current Protection by IGBT Temperature | Degraded Operation/Inoperative | Error condition is resolved.                                               |
+| 13  | Rotor Lock Protection                       | Inoperative     | Sleep mode after rotor lock occurs for 15 minutes.                         |
+| 14  | Slugging Protection                         | Degraded Operation | Error condition is resolved.                                              |
+| 15  | Lost Communication on LIN                  | Inoperative     | Error condition is resolved.                                               |
+
+### Protection Mechanisms.
+
+**No.1–2, Over Voltage and Under Voltage Protection**  
+Below figure illustrates the behavior of Over Voltage and Under Voltage Protection. The EAC halts compressor operation and sends an error message via LIN communication if the voltage deviates from the specified range. The compressor resumes operation when the voltage recovers to the defined recovery range.
+
+**No.5, Motor Current Over Current Protection**  
+The EAC stops motor operation immediately upon detecting overcurrent to prevent IGBT current from exceeding allowable levels. An error message is sent via LIN communication. If repeated, the EAC recognizes compressor failure and will permanently stop after 10 consecutive events.
+
+**No.6, Input Current Over Current Protection**  
+The EAC stops motor operation upon detecting input current exceeding allowable levels. Error status is conveyed via LIN communication.
+
+**No.7–9, Over Temperature and Lower Temperature Protection**  
+Operations are halted if temperature exceeds allowable limits or becomes too low. Error messages are sent via LIN communication. The motor resumes operation after recovery within allowable temperature ranges.
+
+**No.10, High Voltage Resonance Protection**  
+Motor speed is adjusted to reduce high voltage oscillation exceeding the allowable limit. Regular speed resumes once oscillation falls below permissible levels.
+
+**No.11, Over Power Protection**  
+Motor speed is reduced if power consumption or input current exceeds allowable limits. Speed returns to normal upon recovery.
+
+**No.12, Over Motor Current Protection by IGBT Temperature**  
+EAC adjusts motor operation based on detected IGBT temperature and permissible current thresholds.
+
+**No.13, Rotor Lock Protection**  
+Motor halts if the rotor fails to rotate due to mechanical failures or inability to reach specified revolutions within a particular duration. Error message is sent via LIN and motor remains inactive temporarily.
+
+**No.14, Slugging Protection**  
+Motor speed increases to optimal levels calculated based on required torque in cases where liquid refrigerant fills the compressor.
+</page>
+
+<page number="28">
+5.3.2.1.3.5 Protection.
+
+The EAC has built-in protection to prevent internal or system damage under given circumstances. The protections are:
+1. High Voltage Over Voltage Protection (> 465V for 3 sec or > 480V instant).
+2. High Voltage Under Voltage Protection (<270V for 3 sec or <230V instant).
+3. Internal 15V power supply Under Voltage Protection.
+4. Internal 15V power supply Over Voltage Protection.
+5. Motor Current Over Current Protection (> 60A for 3sec).
+6. Input Current Over Current Protection (> 29A for 3sec).
+7. Circuit Board Lower Temperature Protection (=< -15°C for 1 sec).
+8. IGBT Over Temperature Protection (>= 135°C for 1 sec).
+9. Capacitor Over Temperature Protection (>= 125°C for 1 sec).
+10. High Voltage Resonance Protection (Oscillation of Voltage >= 33V).
+11. Over Power Protection (Inverter Input Power >= 6500W or Inverter Input Current >= 28A).
+12. Over Motor-Current Protection by IGBT Temperature.
+13. Rotor Lock Protection.
+14. Slugging Protection.
+15. Lost Communication Protection.
+
+Any of these protections will cause the compressor to shut down operation if the given condition exists. The recovery conditions for these protections vary depending on the nature of the event. 
+
+Recovery conditions for each protection:
+
+| No. | Diagnostics/Protection Name                | EAC Status             | Recovery Condition from Inoperative Status                                     |
+|-----|-------------------------------------------|------------------------|--------------------------------------------------------------------------------|
+| 1a  | High Voltage Over Voltage Protection      | Inoperative            | Error condition is resolved.                                                  |
+| 1b  | High Voltage Over Voltage Protection - instantly | Inoperative      | Error condition is resolved.                                                  |
+| 2a  | High Voltage Under Voltage Protection     | Inoperative            | Error condition is resolved.                                                  |
+| 2b  | High Voltage Under Voltage Protection - instantly | Inoperative   | Error condition is resolved.                                                  |
+| 3   | Internal 15V power supply Under Voltage Protection | Inoperative     | Error condition is resolved.                                                  |
+| 4   | Internal 15V power supply Over Voltage Protection | Inoperative     | Error condition is resolved.                                                  |
+| 5   | Motor Current Over Current Protection     | Inoperative            | 1. Error condition is resolved.                                               |
+|     |                                           |                        | 2. Compressor will permanently stop after protection occurs 10 times.         |
+| 6   | Input Current Over Current Protection     | Inoperative            | Error condition is resolved.                                                  |
+| 8   | IGBT Over Temperature Protection          | Inoperative            | 1. Error condition is resolved.                                               |
+|     |                                           |                        | 2. Goes into sleep mode if protection occurs twice within 1 hour.             |
+| 9   | Capacitor Over Temperature Protection     | Inoperative            | 1. Error condition is resolved.                                               |
+|     |                                           |                        | 2. Goes into sleep mode if protection occurs twice within 1 hour.             |
+| 10  | High Voltage Resonance Protection         | Degraded or Inoperative| 1. Error condition is resolved.                                               |
+|     |                                           |                        | 2. Goes into sleep mode if protection occurs 5 times in a row.                |
+| 11  | Over Power Protection                     | Degraded or Inoperative| 1. Error condition is resolved.                                               |
+|     |                                           |                        | 2. Goes into sleep mode if protection occurs 5 times.                         |
+| 12  | Over Motor Current Protection by IGBT Temperature | Degraded or Inoperative | Error condition is resolved.                                            |
+| 13  | Rotor Lock Protection                     | Inoperative            | Goes into sleep mode after 15 minutes of rotor lock occurrence.               |
+| 14  | Slugging Protection                       | Degraded Operation     | Error condition is resolved.                                                  |
+| 15  | Lost Communication on LIN                 | Inoperative            | Error condition is resolved.                                                  |
+
+Diagram descriptions for significant protections:
+
+1. **Over Voltage and Under Voltage Protection:** The EAC stops motor operation and sends an error message to the vehicle via the LIN communication bus if voltage deviates from the normal range. Recovery occurs within the recovery voltage range.
+
+2. **Motor Current Over Current Protection:** The EAC stops motor operation if overcurrent is detected to prevent IGBT current from exceeding allowable levels. Compressor stops permanently if the situation occurs repeatedly 10 times.
+
+3. **Input Current Over Current Protection:** The EAC stops motor operation when input current exceeds the allowable level and sends an error message.
+
+4. **Over Temperature and Lower Temperature Protection:** The EAC stops motor operation and sends an error message when temperature exceeds or goes below allowable limits. Recovery occurs when temperature returns to acceptable levels.
+
+5. **High Voltage Resonance Protection:** The EAC reduces motor speed if voltage oscillation exceeds limitations and increases speed when oscillation returns to allowable values.
+
+6. **Over Power Protection:** The EAC reduces motor speed when power consumption or input current exceeds allowable limitations. Recovery occurs when reduced to acceptable levels.
+
+7. **Over Motor Current Protection by IGBT Temperature:** The EAC operates motor speed within allowable current and temperature limits based on detected temperature of IGBT.
+
+8. **Rotor Lock Protection:** The EAC stops motor operation and sends an error message if the rotor fails to rotate continuously or reach specified revolution after a duration.
+
+9. **Slugging Protection:** The EAC increases motor speed under optimum calculated conditions when the compressor fills with liquid refrigerant.
+
+10. **Lost Communication Protection:** The EAC stops motor operation when LIN communication between the vehicle and EAC fails for a specified time.
+
+Inapplicable protections on the EAC side:
+| Inapplicable Protection                  | Request on Vehicle Side                                                                                                                                                                                      |
+|------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Reverse polarity of high voltage terminal (P, N) | The HV connector is designed to prevent reverse connection. However, the EAC lacks built-in protection for reverse polarity. Vehicle-side precautions are necessary to avoid reverse polarity incidents. |
+</page>
+
+<page number="29">
+5.3.2.2 LIN Interfaces.
+
+- The EAC conforms to LIN 2.1.
+
+5.3.2.17.1 Transmit Messages
+
+- LIN Transmit message list:
+</page>
+
+<page number="30">
+### 5.3.2.2 LIN Interfaces.
+
+The EAC conforms to LIN 2.1.
+
+#### 5.3.2.17.1 Transmit Messages
+
+- **LIN Transmit signal layout:**
+
+1. **Frame ID:** $1D  
+   **Frame Name:** EAC_1  
+   **Signal Function:**
+   - Signal Byte No. 0, Signal Bit No. 0, Signal Name: EAC_CompElecCurrV, Signal Function: Compressor Electrical Current Validity ($0=Valid, $1=Invalid). Bit Length=1, Init Value=1.
+   - Signal Byte No. 1, Signal Bit No. 0, Signal Name: EAC_CompStat, Signal Function: Compressor Status ($0=Normal Operation, $1=Degraded Operation, $2=Inoperative). Bit Length=4, Init Value=0.
+   - Signal Byte No. 5, Signal Bit No. 0, Signal Name: EAC_CompElecPwrV, Signal Function: Compressor Electrical Power Validity ($0=Valid, $1=Invalid). Bit Length=1, Init Value=1.
+   - Signal Byte No. 6, Signal Bit No. 0, Signal Name: EAC_CompSpdIncrReq, Signal Function: Compressor Speed Increasing Request ($0=False, $1=True). Bit Length=1, Init Value=0.
+   - Signal Byte No. 7, Signal Bit No. 0, Signal Name: EAC_CompSpdV, Signal Function: Compressor Actual Speed Validity ($0=Valid, $1=Invalid). Bit Length=1, Init Value=1.
+   - Signal Byte No. 0, Signal Bit No. 0, Signal Name: EAC_CompElecPwr, Signal Function: Compressor Electrical Power. Value Range: 0-10200W, Resolution: 40W. Bit Length=8, Init Value=0.
+   - Signal Byte No. 1, Signal Bit No. 0, Signal Name: EAC_CompSpd, Signal Function: Compressor Speed. Value Range: 0-16383rpm, Resolution: 1rpm. Bit Length=14, Init Value=0.
+   - Signal Byte No. 4, Signal Bit No. 0, Signal Name: EAC_CompElecCurr, Signal Function: Compressor Electrical Current. Value Range: 0-51A, Resolution: 0.2Amp. Bit Length=8, Init Value=0.
+   - Signal Byte No. 5, Signal Bit No. 0, Signal Name: EAC_CompFlStat, Signal Function: Compressor Fault Status ($0=No Fault, $1=Under Voltage, $2=Over Voltage, $3=Over Temperature, $4=Temperature Fault, $5=Current Fault). Bit Length=4, Init Value=0.
+   - Signal Byte No. 7, Signal Bit No. 0, Signal Name: EAC_1_LIN_Response_Error, Signal Function: LIN Response Error ($0=Normal, $1=Error). Bit Length=1, Init Value=0.
+
+2. **Frame ID:** $1E  
+   **Frame Name:** EAC_2  
+   **Signal Function:**
+   - Signal Byte No. 5, Signal Bit No. 0, Signal Name: EAC_CompIGBTTempV, Signal Function: Compressor IGBT Temperature Validity ($0=Valid, $1=Invalid). Bit Length=1, Init Value=1.
+   - Signal Byte No. 6, Signal Bit No. 0, Signal Name: EAC_CompHVInputV, Signal Function: Compressor High Voltage Input Validity ($0=Valid, $1=Invalid). Bit Length=1, Init Value=1.
+   - Signal Byte No. 7, Signal Bit No. 0, Signal Name: EAC_CompBoardTempV, Signal Function: Compressor Board Temperature Validity ($0=Valid, $1=Invalid). Bit Length=1, Init Value=1.
+   - Signal Byte No. 0, Signal Bit No. 0, Signal Name: EAC_CompBoardTemp, Signal Function: Compressor Board Temperature. Value Range: -40-215degC, Resolution: 1degC. Bit Length=8, Init Value=$28.
+   - Signal Byte No. 2, Signal Bit No. 0, Signal Name: EAC_CompHVInput, Signal Function: Compressor High Voltage Input. Value Range: 0-10200V, Resolution: 40V. Bit Length=8, Init Value=0.
+   - Signal Byte No. 3, Signal Bit No. 0, Signal Name: EAC_CompIGBTTemp, Signal Function: Compressor IGBT Temperature. Value Range: -40-215degC, Resolution: 1degC. Bit Length=8, Init Value=$28.
+
+3. **Frame ID:** $3D  
+   **Frame Name:** DIAGNOSTIC_RESPONSE  
+   **Signal Function:**
+   - Signal Byte No. 0, Signal Bit No. 0, Signal Name: DIAGNOSTIC_RESPONSE, Signal Function: Diagnostic response. Bit Length=64.
+</page>
+
+<page number="31">
+- Transmit Message and Signal Definitions
+
+Transmit Message contains the following 2 frames. The details of each frame are as follows:
+
+<EAC_1>  
+This frame contains 10 signals which convey the operational status back to the commanding controller:
+
+• **EAC_CompStat**  
+This signal is responsible for indicating whether the compressor is operational and/or operating at full capacity. There are 3 possible values: $0 = Normal Operation, $1 = Degraded Operation, $2 = Inoperative.  
+
+• **EAC_CompElecCurr**  
+This signal contains the value of the high voltage DC input current measured within the EAC. The resolution is 0.2 Amp per bit.  
+
+• **EAC_CompElecCurrV**  
+This signal is a binary signal that indicates whether the above signal “EAC_CompElecCurr” has been calculated appropriately or has any underlying errors. A value of “0” indicates valid data, whereas a value of “1” indicates that the data should be ignored.  
+
+• **EAC_CompSpd**  
+(Details for this specific signal are not provided in the visible image.)
+</page>
+
+<page number="32">
+- Transmit Message and Signal Definitions.
+
+Transmit Message contains the following 2 frames. The details of each frame are as outlined below.
+
+<EAC_1>  
+This frame contains 10 signals, which convey the operational status back to the commanding controller:  
+
+• **EAC_CompStat**  
+   This signal is responsible for indicating whether or not the compressor is able to operate and/or operate at full capacity. There are 3 possible values: $0 = Normal Operation, $1 = Degraded Operation, $2 = Inoperative.  
+
+• **EAC_CompElecCurr**  
+   This signal contains the value of the high voltage DC input current measured within the EAC. The resolution is 0.2 Amp per bit.  
+
+• **EAC_CompElecCurrV**  
+   This signal is a binary signal indicating whether the above signal “EAC_CompElecCurr” has been calculated and whether any underlying dependencies have errors. A value of “0” indicates good data, and a value of “1” indicates that the data should be ignored.  
+
+• **EAC_CompSpd**  
+   This signal contains the value of the actual speed that the compressor is controlling to. The signal has a value of 1 rpm per bit.  
+
+• **EAC_CompSpdV**  
+   This signal is a binary signal indicating whether the above signal “EAC_CompSpd” has been calculated and whether any underlying dependencies have errors. A value of “0” indicates good data, and a value of “1” indicates that the data should be ignored.  
+
+• **EAC_CompElecPwr**  
+   This signal contains the value of the high voltage power consumption as measured by the EAC. The signal has a value of 40 watts per bit.  
+
+• **EAC_CompElecPwrV**  
+   This signal is a binary signal indicating whether the above signal “EAC_CompElecPwr” has been calculated and whether any underlying dependencies have errors. A value of “0” indicates good data, and a value of “1” indicates that the data should be ignored.  
+
+• **EAC_CompSpdIncrReq**  
+   This signal is used to aid in extending operation of the EAC under conditions which are causing the EAC to self-protect. A value of “1” for this signal indicates to the commanding controller that the internal temperature of the EAC is rising and that the EAC needs to increase the present operating speed in order to maintain cooling to the internal components.  
+   It represents a request to the commanding controller to increase its speed request to the EAC. If the commanding controller accommodates this request, then once the internal components measured temperature/current conditions have returned to safe levels, the value will change to “0” and the commanding controller can return to a lower speed if necessary. If the commanding controller cannot accommodate this request, the EAC will need to eventually shut itself down in order to self-protect.  
+
+• **EAC_CompFltStat**  
+   This signal is responsible for providing a brief explanation of why the status of “Inoperative” is being broadcast in the “EAC_CompStat” signal.  
+
+• **EAC_1_LIN_Response_Error**  
+   This signal indicates LIN response error. If the value is "1," there is a LIN response error.  
+
+<EAC_2>  
+This frame contains 6 signals, which convey some of the compressor’s internal sensor readings:  
+
+• **EAC_CompIGBTTemp**  
+   This signal contains the measured internal temperature of the IGBT. This signal has a value of 1 degC per bit and an offset of -40.  
+
+• **EAC_CompIGBTTempV**  
+   This signal is a binary signal indicating whether the above signal “EAC_CompIGBTTemp” has been calculated and whether any underlying dependencies have errors. A value of “0” indicates good data, and a value of “1” indicates that the data should be ignored.
+</page>
+
+<page number="33">
+- LIN Transmit and Receive Messages  
+
+This section describes the LIN interface for the EAC, including both transmit and receive message structures.
+
+### <EAC_2>  
+This frame contains 6 signals which convey specific compressor internal sensor readings:  
+
+• **EAC_CompIGBTTemp**  
+This signal contains the measured internal temperature of the IGBT. It has a value of 1 degC per bit and an offset of -40.  
+
+• **EAC_CompIGBTTempV**  
+This binary signal indicates the validity of the "EAC_CompIGBTTemp". A value of "0" represents good data, while "1" indicates that the data should be ignored.  
+
+• **EAC_CompHVInput**  
+This signal includes the value of the high voltage measured within the EAC. The signal has a resolution of 4 volts per bit.  
+
+• **EAC_CompHVInputV**  
+This binary signal indicates the validity of the "EAC_CompHVInput". "0" signifies valid data, and "1" means the data is unreliable and should be disregarded.  
+
+• **EAC_CompBoardTemp**  
+This signal reflects the internal temperature of the CPU PCB board within the EAC. The resolution is 1 degC per bit, with an offset of -40.  
+
+• **EAC_CompBoardTempV**  
+This binary signal states the validity of the "EAC_CompBoardTemp". A value of "0" indicates valid data, while a value of "1" suggests invalid data.  
+
+### <DIAGNOSTIC_RESPONSE>  
+This diagnostic message is transmitted by the EAC for the purpose of sending requested DTCs (Diagnostic Trouble Codes), DIDs (Diagnostic Information Data), and similar information.  
+
+---
+
+### Lin Receive Messages  
+
+#### **Receive Message List:**  
+
+1. **AC_4**  
+   - Signal Name: CompSpdReq  
+   - Signal Function: Compressor Speed Request  
+   - Signal Value: 0 to 16383 rpm, resolution of 1 rpm per bit  
+
+2. **DIAGNOSTIC_REQUEST**  
+   - Signal Name: Diagnostic Request  
+   - Signal Function: Sending diagnostic-related requests  
+   - Signal Value: Variable  
+
+---
+
+### LIN Receive Signal Layout  
+The layout identifies the structures for incoming LIN messages, detailing signal configuration and signal purpose with resolution and initialization values as defined.
+</page>
+
+<page number="34">
+- Receive message and signal definitions.
+Receive Message contains the following 1 frame. The details of each frame are as below:
+
+< AC_4 >
+This frame contains 1 signal of importance to compressor operation:
+• CompSpdReq.
+This signal indicates the required speed from the vehicle. The value range is 0rpm to 16383rpm, and the resolution is 1rpm. (The EAC will recognize 0rpm if the required speed is under 800rpm, and the upper limit of recognition is 9000rpm.)
+
+< DIAGNOSTIC_REQUEST >
+This is the diagnostic message received by the EAC. It is used for requesting DTCs, DIDs, etc.
+
+5.3.3 Faulty Operation.
+
+5.3.4 Emergency Operation.
+
+5.3.5 Diagnostics.
+</page>
+
+<page number="35">
+### 5.4 E/E System Schematic
+The EAC interacts with the other components/subsystems of the vehicle as depicted in the schematic. Electrical Energy, Information/Signal, HV Connection, LV Connection, Charging Communication, Mechanical Connection, and CAN Communication are outlined as essential interaction mediums. The characteristics and requirements of these functional interfaces are described throughout the specification.
+
+---
+
+### 5.5 Control Unit Concept
+
+#### 5.5.1 Hardware
+Details related to the hardware of the control unit concept.
+
+#### 5.5.2 Software
+Details related to the software of the control unit concept.
+
+---
+
+### 5.6 Electrical Interfaces
+The EAC interacts with the other components/subsystems of the vehicle as shown in the system interactions. The characteristics and requirements of these functional interfaces are described throughout this specification.
+</page>
+
+<page number="36">
+## Signal Characteristics
+
+### 5.6.1.1 Operating Parameters
+The operating parameters of the signal are as follows:
+- **Nominal Voltage:** 12 V
+- **Voltage Range (Full Functionality):** 8 ~ 16 V
+- **Maximum Voltage:**
+  - 19 V for 1 hour
+  - 27 V for 1 minute
+- **Maximum Current Consumption:** < 250 mA
+- **Maximum Inrush Current:** 1 A
+- **Reverse Polarity:** -14 V
+- **Parasitic Current:** < 50 μA
+</page>
+
+<page number="37">
+### 5.6.1.2 Low Voltage Connector
+
+**LV Connector:**  
+- **Supplier:** Hirschman  
+- **Part Number:**  
+  - Compressor Side: 906-884-001  
+  - Vehicle Side: 805-031-541  
+
+**LV Connector pin out:**  
+- **Pin Out Table:**  
+  1. **BATT+:** Fused 12V positive  
+  2. **LIN:** LIN communication  
+  3. **GND:** Low voltage ground  
+  4. **NOT ASSIGNED:** This pin is not used  
+  5. **NOT ASSIGNED:** This pin is not used  
+  6. **IL IN:** Interlock — In  
+  7. **IL OUT:** Interlock — Out  
+  8. **NOT ASSIGNED:** This pin is not used  
+
+**Diagram:**  
+A labeled diagram of the LV connector pinout illustrates the arrangement and function of each terminal.  
+
+---
+
+### 5.6.1.3 High Voltage Connector
+
+**HV Connector:**  
+- **Supplier:** Hirschman  
+- **Part Number (Housing):**  
+  - Compressor Side: 806-029-101 (Key type A)  
+  - Vehicle Side: 805-972-021 (Key type A)
+</page>
+
+<page number="38">
+- HV Connector Pin out:
+
+| Pin No | Terminal Name | Description                              |
+|--------|---------------|------------------------------------------|
+| 1      | HV+           | Power – High Voltage Positive           |
+| 2      | HV-           | Power – High Voltage Negative           |
+| 3      | IL IN         | Interlock – In                          |
+| 4      | IL OUT        | Interlock – Out                         |
+
+- HV Connector signal definition:
+HVDC Positive (+) and HVDC Negative (-) power from the high voltage power supply is provided through this set of connectors. The shield is terminated to the EAC case (Aluminum body).
+
+- HV shield (EMC) Grounding:
+The EAC case needs to be grounded to the vehicle chassis, or a structure designated as the low voltage ground reference for proper EMC protection. Grounding can be accomplished either by direct mounting to the powertrain (via the compressor mounting bolts) or, in the case of an isolation mount for the compressor, via a separate EMC grounding strap. The recommended grounding point on the compressor body is one of the EAC mounting bosses. The ground strap should be affixed between the mounting bolt head and the mounting boss. Use of an EMC ground strap should follow the vehicle manufacturer's EMC requirements for bond impedance of grounding terminations at the chassis connection.
+
+- HV Isolation:
+The EAC meets the requirements for High Voltage Insulation Breakdown as specified in UL840. The EAC is tested using a 500-volt maximum input voltage. 100% of the EAC units are isolation tested during the manufacturing process on the production line. Both the high voltage positive bus and high voltage negative bus, referenced to the EAC case, are tested using a test voltage of 500 Vrms AC at 50Hz or 60Hz for 2 seconds. The isolation between the primary (high voltage) circuitry and the secondary (low voltage) circuitry is measured as greater than 10 MΩ.
+
+5.6.2 Diagnostics.
+
+5.6.2.1 Diagnostic Requirements.
+</page>
+
+<page number="39">
+### 5.6.3 Network Management
+#### 5.6.3.1 Network Management Requirements
+
+### 5.6.4 Flashing and Coding
+#### 5.6.4.1 Flashing and Coding Requirements
+
+### 5.6.5 Pin Assignment
+
+### 5.6.6 Component Connected to Terminal 30
+
+### 5.7 Specific Characteristics
+
+### 5.8 Safety Requirements
+#### 5.8.1 Vehicle Safety regarding Person and Passenger Protection
+##### 5.8.1.1 Safety Goals
+#### 5.8.2 Vehicle Safety
+
+### 5.9 Alternative and Future Variants
+
+### 5.10 Mechanical Energy Management
+#### 5.10.1 Weight Targets
+Weight Target: 6.3kg
+#### 5.10.2 Fuel Consumption & Driving Performance
+
+### 5.11 Installation
+#### 5.11.1 Installation Location
+#### 5.11.2 Assembly Concept and Requirement from Production
+#### 5.11.3 Geometry
+#### 5.11.4 Tolerances
+</page>
+
+<page number="40">
+## Styling and Design.
+
+## Ergonomics.
+
+### Optical Characteristics and Surface Feel.
+### Actuation Acoustics.
+### Handling.
+
+## Technical Material Requirements.
+
+## Resistance to Media and Chemical Requirements.
+### Contamination.
+### Cleaning.
+### Corrosion Protection.
+### Tightness and Protection Classes.
+
+## Environmental Compatibility.
+### Material Selection.
+### End of life treatment.
+### Eco-Design.
+### Lifecycle Analysis.
+### Emissions & Toxicology.
+
+## Mechanical Requirements.
+### Load.
+#### Compressor Mechanical.
+</page>
+
+<page number="41">
+### 5.17.1.2 Compressor Electrical (Inverter side)
+#### Temperature
+- **Operation range:** -10°C ~ 125°C  
+- **Storage range:** -40°C ~ 125°C  
+
+#### High Voltage System
+- **Voltage Range:** 275V ~ 470V  
+- **Allowable Max Input:** 28A  
+- **Allowable Max Power:** 6500W  
+
+#### Low Voltage System
+- **Voltage Range:** 8V ~ 16V  
+- **Allowable Max Input:** 0.25A  
+
+#### Communication
+- **Communication Standard:** LIN  
+- **Inverter Carrier Frequency:** 20kHz  
+
+#### IP Code
+- **Dust/Waterproof Capacity:** IP6K7  
+
+---
+
+### 5.17.2 Vibration Behavior
+#### Stiffness and Cushioning Characteristics
+Details of the EVH33X outline drawing with major dimensions are provided. For specific measurements, refer to the released drawing.
+</page>
+
+<page number="42">
+5.17.4 Deformation.  
+5.17.5 Pressure.  
+5.17.6 NVH / Acoustic Performance.  
+
+5.18 Durability / Life Time.  
+
+5.19 Electrical Requirements.  
+5.19.1 Description of the Requirements.  
+5.19.2 Power Consumption.  
+5.19.2.1 Power Consumption Requirements.  
+See the 5.17.1.2 Compressor Electrical (Inverter side).
+</page>
+
+<page number="43">
+5.19.3 Low Voltage Energy Management  
+5.19.3.1 Energy Management Requirements.  
+
+5.19.4 High Voltage Energy Management.  
+5.19.4.1 Energy Management Requirements.  
+
+5.19.5 Electromagnetic Compatibility  
+5.19.5.1 EMC Requirements.  
+
+5.19.6 Electrostatic Discharge  
+5.19.6.1 ESD Requirements.  
+
+5.20 Climatic Requirements / Thermal Management  
+5.20.1 Thermal Management Requirements  
+
+5.21 Service Requirements  
+
+5.22 Transport Protection  
+
+5.23 Logistics Requirements  
+
+5.24 Quality Assurance Requirements  
+
+5.25 Content Amendments  
+
+6 Testing and Validation  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement  
+- How and with which devices the testing was performed (description of testing set-up with pictures)  
+- Where the testing was performed (internal/external)  
+- Duration and time flow of the testing (in form of project plan)  
+- Part variant, description of part  
+- No. of tested components/parts  
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).
+</page>
+
+<page number="44">
+6.1 Proof of Compliance.  
+6.1.1 Testing Plan (DVP + FRS Plan).  
+The HV Compressor needs to meet EMC test requirements at the vehicle level. The DVP Verification Plan at the vehicle level is as follows:  
+- VFDSXVCVC1401: CSUV_BEV_Appendix_4_DVP_Design Verification Plan.  
+- VFDSXVCVC2401: CSUV_ICE_Appendix_4_DVP_Design Verification Plan.  
+
+Component DVP reference: VFDSXVEEP8818-CSUV_DVP_HV_COMPRESSOR.  
+
+6.1.2 Package.  
+
+6.2 Electrical Systems & Functions.  
+
+6.3 Virtual Testing and Simulation.  
+
+6.4 Vehicle Testing.  
+
+6.5 Tests.  
+6.5.1 Test Name A.  
+6.5.1.1 Test Equipment and Test Mules.  
+6.5.1.2 Properties and Condition of the Prototype Status to be Tested.  
+6.5.1.3 Test Parameters and Cycles.  
+6.5.1.4 Operation Conditions.  
+
+7 Function Safety, Homologation, and Safety Regulations.  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.  
+
+7.1 Functional Safety Requirements.  
+The supplier shall ensure that the developed/manufactured part(s) meet the IATF 16949:2016 standard, which specifies quality management system requirements for automotive production.  
+
+The supplier shall also ensure that the developed/manufactured part(s) meet the ISO 26262:2018 standard, which defines the functional safety requirements for road vehicles.
+</page>
+
+<page number="45">
+<MGL and FuSa to add here reference to system-specific Functional Safety Requirements document.>
+
+7.2 Deliverables for Functional Safety.  
+Indicative RASIC* for expected deliverables:  
+
+**5.5 Work products:**  
+| VINFAST         | SUPPLIER        |  
+|------------------|-----------------|  
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R | I |  
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.     | R | S |  
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3.                  | A | R |  
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3.                   | A | R |  
+| 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I | R |  
+| 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.           | R | S |  
+| 6.5.3 Safety case, resulting from 6.4.6.                                         | A | R |  
+
+***RASIC description in section “Deliverables”:***  
+
+**a) FUSA Deliverables expected before nomination:**  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+**b) FUSA Deliverables expected after nomination:**  
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.  
+
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.  
+
+**7.3 Homologation and safety regulation requirements:**  
+**7.3.1 North America:**  
+a. Homologation and safety regulation activities.  
+
+VinFast Released.
+</page>
+
+<page number="46">
+7.2 Deliverables for Functional Safety.
+
+Indicative RASIC for expected deliverables:
+
+**5.5 Work Products:**
+| VINFAST | SUPPLIER |
+|---------|----------|
+| **5.5.1** Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R | I |
+| **5.5.2** Development interface agreement (DIA) resulting from requirement 5.4.3. | R | S |
+| **5.5.3** Supplier's project plan resulting from requirement 5.4.3. | A | R |
+| **5.5.4** Supplier's safety plan resulting from requirement 5.4.3. | A | R |
+| **5.5.5** Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I | R |
+| **5.5.6** Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3. | R | S |
+| **6.5.3** Safety case, resulting from 6.4.6. | A | R |
+
+**RASIC description:** Refer to the "Deliverables" section.
+
+**a) FUSA Deliverables expected before nomination.**
+
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree upon a Development Interface Agreement (DIA) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.
+
+**b) FUSA Deliverables expected after nomination.**
+
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations, and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+
+7.3 Homologation and Safety Regulation Requirements.
+
+**7.3.1 North America.**
+
+**a) Homologation and safety regulation activities.**
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal motor vehicle safety standards (FMVSS), and Canadian motor vehicle safety standards (CMVSS). The supplier must provide or support any documentation to be submitted to the relevant authorities.
+
+**b) Self-certification and test report(s).**
+The supplier is responsible for "self-certifying" their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale. VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.
+
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS. 
+(*) Refer Appendix 8 of Manufacturer_Handbook.
+
+**c) Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or European regulations.**
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced. The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect. The supplier must propose an appropriate risk assessment and resolution plan.
+
+**7.3.2 Europe.**
+
+**a) Homologation and safety regulation activities.**
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+**b) Test report(s) and Certificate(s).**
+The supplier is responsible for ensuring their part(s), product(s), or system(s) meet applicable UN-ECE regulations before those products can be offered for sale. VinFast requests the supplier to conduct tests as specified in certain UN-ECE regulations at authorized technical services. The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.
+
+VinFast also requests the supplier to provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities to get certification for the EC vehicle type-approval (if any). The supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate compliance with each corresponding UN-ECE regulation.
+
+**c) Duty to notify VinFast of a non-compliance with UN-ECE regulations.**
+</page>
+
+<page number="47">
+VinFast  
+Management System  
+
+VFDSXVEEP1800  
+
+Version: 1  
+Uncontrolled copy when printed  
+47 | 48  
+Print date  
+Status  
+Functional Responsibility  
+
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast on such an issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.  
+
+8 Definitions and List of Abbreviations  
+
+### 8.1 Definitions  
+
+### 8.2 Definitions and List of Abbreviations  
+| Abbreviation | Explanation                                   |
+|--------------|-----------------------------------------------|
+| AA           | Attack Angle                                 |
+| ABG          | Airbag control module                       |
+| ABS          | Anti-lock braking system                    |
+| AC           | Alternating Current                         |
+| ACM          | Airbag control module                       |
+| ADAS         | Advanced Driver Assistance Systems          |
+| ADC          | Analog to Digital Converter                 |
+| AI           | Articulation Index                          |
+| AIA          | Activity Interface Agreement = Work Interface Chart (RASI) |
+| AKS          | Aktiver Kurzschluss (Active short circuit)  |
+| APQP         | Advanced Product Quality Planning           |
+| ASIL         | Automotive Safety Integrity Level           |
+| ASM          | Asynchronous Machine                       |
+| AWD          | All wheel drive                             |
+| BCM          | Body control module                         |
+| BDU          | Battery disconnect unit                     |
+| BEV          | Battery Electric Vehicle                   |
+| BFR          | Basic Function Requirement                  |
+| BIW          | Body in White                               |
+| BMU          | Battery management unit                     |
+| BOM          | Bill Of Material                            |
+| BSM          | Blind Spot Monitoring                       |
+| CAD          | Computer Aided Design                       |
+| CAE          | Computer-Aided Engineering                  |
+| CAM          | Computer-Aided Manufacturing                |
+| CAN          | Controller Area Network                     |
+| MSC          | Manufacturing Strategy Confirmation         |
+| TS           | Theme selection Model                       |
+| MFC          | Manufacturing Feasibility Confirmation      |
+| MSI          | Major Suppliers Identified                  |
+| SST          | Sourcing Strategy                           |
+
+VinFast Released
+</page>
+
+<page number="48">
+LLS: Long Lead Suppliers on board.  
+SLS: Short Lead Suppliers on board.  
+LLT: Long Lead Tooling.  
+PTP: Prototype Parts out of Serial tooling (Hand finished).  
+OTS: Off Tools Samples.  
+ESO: Engineering Sign Off.  
+MSO: Manufacturing Sign Off.  
+SOP-LM: SOP Launch Model (1 specific Model - „Edition“).  
+SOP: Start of Production.  
+SOP-ID: SOP implementation date.  
+SOB: Supplier on Board.  
+LOI: Letter of Intent.  
+LON: Letter of Nominated.  
+
+8.3 List of Tables.  
+
+8.4 List of Figures.  
+
+9 Further Applicable Documents.  
+
+Code or Std No.: Name detail.
+</page>
+</pages>

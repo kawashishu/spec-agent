@@ -1,0 +1,6104 @@
+Page 1
+FUNCTIONAL SPECIFICATION.
+
+Remote Parking.
+Page 2
+Table of contents.
+
+14. APL28_RP ......................................................................................................................... 8  
+14.1. Document Issued ............................................................................................................. 8  
+14.2. Introduction ....................................................................................................................... 9  
+14.2.1. Function Introduction ............................................................................................. 9  
+14.2.2. References To Documents And Specifications ................................................. 12  
+14.2.3. System Architecture ............................................................................................. 16  
+14.2.4. Component Parameter .......................................................................................... 20  
+14.2.4.1. Camera Optical Parameter .......................................................................... 20  
+14.2.4.2. Camera Sensor Performance ..................................................................... 24  
+14.2.4.3. UPA USS Parameter ................................................................................... 27  
+14.3. System Description ....................................................................................................... 31  
+14.3.1. System State Machine ........................................................................................... 33  
+14.3.1.1. E1: Power on (KL15), self-check passed ................................................... 36  
+14.3.1.2. E2: The system receives the user's turn on signal .................................... 38  
+14.3.1.3. E3: The user long presses the control buttons on the C-APP .................. 39  
+14.3.1.4. E4: The RP function completed ................................................................. 41  
+14.3.1.5. E5: Finished state lasts for 4s ................................................................. 41  
+14.3.1.6. E6: The pause condition is triggered .......................................................... 42  
+14.3.1.7. E7: The pause condition disappears, the user long presses the control 
+button on the C-APP again ......................................................................................... 42  
+14.3.1.8. E8: The Abort condition is triggered ........................................................ 42  
+14.3.1.9. E9: The suspension condition has not disappeared, the user quits actively 
+or the system has timed out ......................................................................................... 43  
+14.3.1.10. E10: Abort state lasts for 4s ...................................................................... 44  
+14.3.1.11. E11: The user actively exited or the Abort condition was triggered ......... 44  
+14.3.1.12. E12: The system Power off ......................................................................... 45  
+14.3.1.13. E13: The system itself fails ....................................................................... 45  
+14.3.2. Interactive signal .................................................................................................. 45
+Page 3
+14.4 Function Description.
+
+14.4.1 Usage Scenario Description.
+14.4.1.1 Perpendicular parking slot with parking line.
+14.4.1.2 Parallel parking slot with parking line.
+14.4.1.3 Angled parking slot with parking line (45°～60°).
+14.4.1.4 Perpendicular parking slot without parking lines.
+14.4.1.5 Parallel parking slot without parking lines.
+14.4.1.6 Parking slot on slopes ranging from 0 to 8% (Unidirectional slope compatibility).
+14.4.1.7 Open space with parking lines.
+
+14.4.2 Subsystem Description.
+
+14.4.3 Function Definition.
+14.4.3.1 Remote Parking.
+14.4.3.1.1 Step 1.
+14.4.3.1.2 Step 2.
+14.4.3.1.3 Step 3.
+14.4.3.1.4 Step 4.
+14.4.3.1.5 Step 5.
+14.4.3.1.6 Step 6.
+14.4.3.1.7 Step 7.
+14.4.3.1.8 Step 8.
+14.4.3.1.9 Step 9.
+14.4.3.1.10 Step 10.
+14.4.3.1.10.1 All FAPA suspension conditions (except seat belts).
+14.4.3.1.10.2 Release the "Parking Start" button.
+14.4.3.1.11 Step 11.
+14.4.3.1.12 Step 12.
+14.4.3.1.12.1 All FAPA termination conditions.
+Page 4
+14.4 Function Description.
+
+14.4.1 Usage Scenario Description.
+
+14.4.1.1 Perpendicular parking slot with parking line.
+
+14.4.1.2 Parallel parking slot with parking line.
+
+14.4.1.3 Angled parking slot with parking line (45° ～ 60°).
+
+14.4.1.4 Perpendicular parking slot without parking lines.
+
+14.4.1.5 Parallel parking slot without parking lines.
+
+14.4.1.6 Parking slot on slopes ranging from 0 to 8% (Unidirectional slope compatibility).
+
+14.4.1.7 Open space with parking lines.
+
+14.4.2 Subsystem Description.
+
+14.4.3 Function Definition.
+
+14.4.3.1 Remote Parking.
+
+14.4.3.1.1 Step 1.
+
+14.4.3.1.2 Step 2.
+
+14.4.3.1.3 Step 3.
+
+14.4.3.1.4 Step 4.
+
+14.4.3.1.5 Step 5.
+
+14.4.3.1.6 Step 6.
+
+14.4.3.1.7 Step 7.
+
+14.4.3.1.8 Step 8.
+
+14.4.3.1.9 Step 9.
+
+14.4.3.1.10 Step 10.
+
+14.4.3.1.10.1 All FAPA suspension conditions (except seat belts).
+
+14.4.3.1.10.2 Release the "Parking Start" button.
+
+14.4.3.1.11 Step 11.
+
+14.4.3.1.12 Step 12.
+
+14.4.3.1.12.1 All FAPA termination conditions.
+
+14.4.3.1.12.2 Remote communication is disconnected “MHU_RemoteconnectionSts = 0:Disconnect”.
+
+14.4.3.1.13 Step 13.
+
+14.4.3.1.14 Step 14.
+
+14.4.3.1.15 Step 15.
+
+14.4.3.2 Remote Parking Out trigger on MHU.
+
+14.4.3.2.1 Step 1.
+
+14.4.3.2.2 Step 2.
+
+14.4.3.2.3 Step 3.
+
+14.4.3.2.4 Step 4.
+
+14.4.3.2.5 Step 5.
+
+14.4.3.2.6 Step 6.
+
+14.4.3.2.7 Step 7.
+
+14.4.3.2.8 Step 8.
+
+14.4.3.2.9 Step 9.
+
+14.4.3.2.10 Step 10.
+
+14.4.3.2.11 Step 11.
+
+14.4.3.2.12 Step 12.
+
+14.4.3.2.12.1 All FAPA suspension conditions (except seat belts).
+
+14.4.3.2.12.2 Release the "Parking Start" button.
+
+14.4.3.2.13 Step 13.
+
+14.4.3.2.14 Step 14.
+
+14.4.3.2.14.1 All FAPA termination conditions.
+
+14.4.3.2.14.2 Remote communication is disconnected “MHU_RemoteconnectionSts = 0:Disconnect”.
+
+14.4.3.2.15 Step 15.
+
+14.4.3.2.16 Step 16.
+
+14.4.3.2.17 Step 17.
+
+14.4.3.3 Remote Parking Out trigger on C-APP.
+Page 5
+14.4.3.3 Remote Parking Out trigger on C-APP.
+
+14.4.3.3.1 Step 1.  
+14.4.3.3.2 Step 2.  
+14.4.3.3.3 Step 3.  
+14.4.3.3.4 Step 4.  
+14.4.3.3.5 Step 5.  
+14.4.3.3.6 Step 6.  
+14.4.3.3.7 Step 7.  
+14.4.3.3.8 Step 8.  
+14.4.3.3.9 Step 9.  
+14.4.3.3.10 Step 10.  
+14.4.3.3.11 Step 11.  
+14.4.3.3.12 Step 12.  
+
+14.4.3.3.12.1 All FAPA suspension conditions (except seat belts).  
+14.4.3.3.12.2 Release the "Parking Start" button.  
+
+14.4.3.3.13 Step 13.  
+14.4.3.3.14 Step 14.  
+
+14.4.3.3.14.1 All FAPA termination conditions.  
+14.4.3.3.14.2 Remote communication is disconnected “MHU_RemoteconnectionSts = 0: Disconnect.” 
+
+14.4.3.3.15 Step 15.  
+14.4.3.3.16 Step 16.  
+14.4.3.3.17 Step 17.  
+
+14.4.3.4 Remote Straight Parking.
+
+14.4.3.4.1 Step 1.  
+14.4.3.4.2 Step 2.  
+14.4.3.4.3 Step 3.  
+14.4.3.4.4 Step 4.  
+14.4.3.4.5 Step 5.  
+14.4.3.4.6 Step 6.
+Page 6
+14.4.3.4 Remote Straight Parking.
+
+14.4.3.4.7 Step 7.
+14.4.3.4.8 Step 8.
+14.4.3.4.9 Step 9.
+14.4.3.4.9.1 All FAPA suspension conditions (except seat belts).
+14.4.3.4.9.2 Release the "Parking Start" button.
+14.4.3.4.10 Step 10.
+14.4.3.4.11 Step 11.
+14.4.3.4.11.1 All FAPA termination conditions.
+14.4.3.4.11.2 Remote communication is disconnected “MHU_RemoteconnectionSts = 0:Disconnect”.
+14.4.3.4.12 Step 12.
+14.4.3.4.13 Step 13.
+14.4.3.4.14 Step 14.
+
+14.4.4 Associated System Interaction.
+
+14.4.4.1 RP And EPS System Interaction.
+14.4.4.2 RP And ESC System Interaction.
+14.4.4.3 RP And VCU System Interaction.
+14.4.4.4 RP And T-box Interaction.
+14.4.4.4.1 When RP process is successfully finished. RPA_Status = 0x4: Finished, RP will disconnect the handshake after 3 cycles.
+14.4.4.4.2 When RP process is successfully finished. RPA_Status = 0x4: Finished, RP will disconnect the handshake after 3 cycles.
+14.4.4.4.3 When authentication status is fault; ADAS_TboxAuthStatus = 2: FAILED: Authentication fail RP will disconnect the handshake.
+14.4.4.4.4 When the driver clicks "Exit", the T-box actively disconnects the handshake with the RP by sending MHU_RPAParkingControlReq = 0x0: No request.
+14.4.4.5 RP And BCM System Interaction.
+
+14.5 Performance Requirements.
+
+14.5.1 KPI.
+Page 7
+14.5 Performance Requirements.
+
+14.5.1 KPI.
+14.5.1.1 The maximum speed for parking spot detection is defined.
+14.5.1.2 The maximum speed of the parking process is detailed.
+14.5.1.3 The side distance of the vehicle and parking slot is specified.
+14.5.1.4 The parking limit time is described.
+14.5.1.5 The standard length of the parking slot is provided.
+14.5.1.6 The minimum length of the parking slot is identified.
+14.5.1.7 The error of parking slot size is included.
+14.5.1.8 The minimum diameter of a circular object is outlined.
+14.5.1.9 The minimum length of a square object is described.
+14.5.1.10 The minimum radius of a curve is defined.
+14.5.1.11 The maximum identifiable angle is specified.
+14.5.1.12 The minimum height of the curb is described.
+14.5.1.13 The safe parking distance is outlined.
+14.5.1.14 The maximum number of vehicle adjustments is provided.
+14.5.1.15 The parking recognition rate is specified.
+14.5.1.16 The parking success rate is detailed.
+14.5.1.17 The vehicle angle after parking is complete is defined.
+14.5.1.18 The parking position deviation after finish for marked parking slots is described.
+14.5.1.19 The parking position deviation after finish for space parking slots is outlined.
+Page 8
+14 APL28_RP.
+
+Requirement ID: FS-225894.
+Type: Information.
+Status: New.
+Upstream References (0): No Upstream References.
+Downstream References: No Downstream References. 
+Associations: No Associations.
+
+14.1 Document Issued.
+
+Requirement ID: FS-226726.
+Type: Information.
+Status: New.
+Upstream References (0): No Upstream References.
+Downstream References: No Downstream References.
+Associations: No Associations.
+
+Versions:
+- V1.0:
+  - Author: Calmcar.
+  - Date: 2021/10/27.
+  - Description: 编制compile.
+  
+- V1.1:
+  - Author: Calmcar.
+  - Date: 2021/11/12.
+  - Description:
+    - 删除3.3.3和3.3.4章节内涉及车辆启动的内容。
+      Delete the contents related to vehicle start in chapters 3.3.3 and 3.3.4.
+    - 删除3.4.5内的熄火后内容.
+      Delete the content after flameout in 3.4.5.
+    - 修订状态机；Revise the state machine.
+    - 增加引用规范Add reference specifications.
+    - 修订系统架构图；Revise the system architecture diagram.
+Page 9
+14 APL28_RP.
+
+Requirement ID: FS-225894.  
+Type: Information.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.
+
+Downstream References:  
+No Downstream References.  
+
+Associations:  
+No Associations.  
+
+---
+
+14.1 Document Issued.
+
+Requirement ID: FS-226726.  
+Type: Information.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References:  
+No Downstream References.  
+
+Associations:  
+No Associations.  
+
+Versions:  
+- V1.0  
+  - Author: Calmcar.  
+  - Date: 2021/10/27.  
+  - Description: Compile.
+
+- V1.1  
+  - Author: Calmcar.  
+  - Date: 2021/11/12.  
+  - Description:  
+    1. 删除3.3.3和3.3.4章节内涉及车辆启动的内容。  
+       Delete the contents related to vehicle start in chapters 3.3.3 and 3.3.4.  
+    2. 删除3.4.5内的熄火后内容。  
+       Delete the content after flameout in 3.4.5.  
+    3. 修订状态机；Revise the state machine.  
+    4. 增加引用规范；Add reference specifications.  
+    5. 修订系统架构图；Revise the system architecture diagram.  
+    6. 更改3.1内斜列泊车角度；Modify the angle of "angled parking".  
+
+---
+
+14.2 Introduction.
+
+Requirement ID: FS-226727.  
+Type: Information.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References:  
+No Downstream References.  
+
+Associations:  
+No Associations.  
+
+---
+
+14.2.1 Function Introduction.
+
+Requirement ID: FS-226728.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (71):  
+- HT-277681: RP_TC_040.  
+- HT-277680: RP_TC_039.  
+- HT-277676: RP_TC_035.  
+- HT-277668: RP_TC_027.
+Page 10
+14 APL28_RP.
+
+Requirement ID:
+FS-225894.
+Type:
+Information.
+Status:
+New.
+
+**Upstream References:**
+No Upstream References.
+No Downstream References.
+No Associations.
+
+---
+
+14.1 Document Issued.
+
+Requirement ID:
+FS-226726.
+Type:
+Information.
+Status:
+New.
+
+**Upstream References:**
+No Upstream References.
+No Downstream References.
+No Associations.
+
+---
+
+Versions.
+Author: Calmcar.
+Date: 2021/10/27.
+Description:
+V1.0 编制compile.
+
+Changes in V1.1:
+1. 删除3.3.3和3.3.4章节内涉及车辆启动的内容。 (Delete the contents related to vehicle start in chapters 3.3.3 and 3.3.4).
+2. 删除3.4.5内的熄火后内容 (Delete the content after flameout in 3.4.5).
+3. 修订状态机； (Revise the state machine).
+4. 增加引用规范； (Add reference specifications).
+5. 修订系统架构图； (Revise the system architecture diagram).
+6. 更改3.1内斜列泊车角度； (Modify the Angle of "angled parking").
+
+---
+
+14.2 Introduction.
+
+Requirement ID:
+FS-226727.
+Type:
+Information.
+Status:
+New.
+
+**Upstream References:**
+No Upstream References.
+No Downstream References.
+No Associations.
+
+---
+
+14.2.1 Function Introduction.
+
+Requirement ID:
+FS-226728.
+Type:
+Functional.
+Status:
+New.
+
+**Upstream References:**
+No Upstream References.
+
+**Downstream References (71):**
+- HT-277681 RP_TC_040.
+- HT-277680 RP_TC_039.
+- HT-277676 RP_TC_035.
+- HT-277668 RP_TC_027.
+- HT-277648 RP_TC_007.
+- HT-277647 RP_TC_006.
+- HT-277646 RP_TC_005.
+- HT-277645 RP_TC_004.
+- HT-279412 RP_SC_064.
+- HT-279411 RP_SC_063.
+- HT-279410 RP_SC_062.
+- HT-279409 RP_SC_061.
+- HT-279408 RP_SC_060.
+- HT-279407 RP_SC_059.
+- HT-279406 RP_SC_058.
+- HT-279405 RP_SC_057.
+- HT-279404 RP_SC_056.
+- HT-279403 RP_SC_055.
+- HT-279402 RP_SC_054.
+- HT-279401 RP_SC_053.
+- HT-279400 RP_SC_052.
+- HT-279399 RP_SC_051.
+- HT-279398 RP_SC_050.
+- HT-279397 RP_SC_049.
+- HT-279396 RP_SC_048.
+- HT-279395 RP_SC_047.
+- HT-279394 RP_SC_046.
+- HT-279393 RP_SC_045.
+Page 11
+14 APL28_RP.
+
+Requirement ID: FS-225894.
+Type: Information.
+Status: New.
+Upstream References: None.
+Downstream References: None.
+Associations: None.
+
+---
+
+14.1 Document Issued.
+
+Requirement ID: FS-226726.
+Type: Information.
+Status: New.
+Upstream References: None.
+Downstream References: None.
+Associations: None.
+
+版本 Versions:
+- **Version V1.0**:
+  - Author: Calmcar.
+  - Date: 2021/10/27.
+  - Description: 编制compile.
+- **Version V1.1**:
+  - Author: Calmcar.
+  - Date: 2021/11/12.
+  - Description:
+    - 删除3.3.3和3.3.4章节内涉及车辆启动的内容 (Delete the contents related to vehicle start in chapters 3.3.3 and 3.3.4).
+    - 删除3.4.5内的熄火后内容 (Delete the content after flameout in 3.4.5).
+    - 修订状态机 (Revise the state machine).
+    - 增加引用规范 (Add reference specifications).
+    - 修订系统架构图 (Revise the system architecture diagram).
+    - 更改3.1内斜列泊车角度 (Modify the angle of "angled parking").
+
+---
+
+14.2 Introduction.
+
+Requirement ID: FS-226727.
+Type: Information.
+Status: New.
+Upstream References: None.
+Downstream References: None.
+Associations: None.
+
+---
+
+14.2.1 Function Introduction.
+
+Requirement ID: FS-226728.
+Type: Functional.
+Status: New.
+Upstream References: None.
+Downstream References (71):
+- HT-277681: RP_TC_040.
+- HT-277680: RP_TC_039.
+- HT-277676: RP_TC_035.
+- HT-277668: RP_TC_027.
+- HT-277648: RP_TC_007.
+- HT-277647: RP_TC_006.
+- HT-277646: RP_TC_005.
+- HT-277645: RP_TC_004.
+- HT-279412: RP_SC_064.
+- HT-279411: RP_SC_063.
+- HT-279410: RP_SC_062.
+- HT-279409: RP_SC_061.
+- HT-279408: RP_SC_060.
+- HT-279407: RP_SC_059.
+- HT-279406: RP_SC_058.
+- HT-279405: RP_SC_057.
+- HT-279404: RP_SC_056.
+- HT-279403: RP_SC_055.
+- HT-279402: RP_SC_054.
+- HT-279401: RP_SC_053.
+- HT-279400: RP_SC_052.
+- HT-279399: RP_SC_051.
+- HT-279398: RP_SC_050.
+- HT-279397: RP_SC_049.
+- HT-279396: RP_SC_048.
+- HT-279395: RP_SC_047.
+- HT-279394: RP_SC_046.
+- HT-279393: RP_SC_045.
+- HT-279392: RP_SC_044.
+- HT-279391: RP_SC_043.
+- HT-279390: RP_SC_042.
+- HT-279389: RP_SC_041.
+- HT-279388: RP_SC_040.
+- HT-279387: RP_SC_039.
+- HT-279386: RP_SC_038.
+- HT-279385: RP_SC_037.
+- HT-279384: RP_SC_036.
+- HT-279383: RP_SC_035.
+- HT-279382: RP_SC_034.
+- HT-279381: RP_SC_033.
+- HT-279380: RP_SC_032.
+- HT-279379: RP_SC_031.
+- HT-279378: RP_SC_030.
+- HT-279377: RP_SC_029.
+- HT-279376: RP_SC_028.
+- HT-279375: RP_SC_027.
+- HT-279374: RP_SC_026.
+- HT-279373: RP_SC_025.
+- HT-279372: RP_SC_024.
+- HT-279371: RP_SC_023.
+- HT-279370: RP_SC_022.
+- HT-279369: RP_SC_021.
+Page 12
+The remote parking assist system (Remote Parking) is developed on the basis of FAPA automatic parking technology. The system uses C-APP to remotely control the vehicle to achieve the purpose of parking the vehicle outside the vehicle.  
+
+### 14.2.2 References To Documents And Specifications
+Page 13
+Requirement ID: FS-226729  
+Type: Information  
+Status: New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (62):**  
+- HT-279412: RP_SC_064  
+- HT-279411: RP_SC_063  
+- HT-279410: RP_SC_062  
+- HT-279409: RP_SC_061  
+- HT-279408: RP_SC_060  
+- HT-279407: RP_SC_059  
+- HT-279406: RP_SC_058  
+- HT-279405: RP_SC_057  
+- HT-279404: RP_SC_056  
+- HT-279403: RP_SC_055  
+- HT-279402: RP_SC_054  
+- HT-279401: RP_SC_053  
+- HT-279400: RP_SC_052  
+- HT-279399: RP_SC_051  
+- HT-279398: RP_SC_050  
+- HT-279397: RP_SC_049  
+- HT-279396: RP_SC_048  
+- HT-279395: RP_SC_047  
+- HT-279394: RP_SC_046  
+- HT-279393: RP_SC_045  
+- HT-279392: RP_SC_044  
+- HT-279391: RP_SC_043
+Page 14
+HT-279365 RP_SC_017  
+HT-279366 RP_SC_018  
+HT-279367 RP_SC_019  
+HT-279368 RP_SC_020  
+HT-279369 RP_SC_021  
+HT-279370 RP_SC_022  
+HT-279371 RP_SC_023  
+HT-279372 RP_SC_024  
+HT-279374 RP_SC_026  
+HT-279375 RP_SC_027  
+HT-279376 RP_SC_028  
+HT-279377 RP_SC_029  
+HT-279378 RP_SC_030  
+HT-279379 RP_SC_031  
+HT-279381 RP_SC_033  
+HT-279382 RP_SC_034  
+HT-279383 RP_SC_035  
+HT-279384 RP_SC_036  
+HT-279385 RP_SC_037  
+HT-279386 RP_SC_038  
+HT-279387 RP_SC_039  
+HT-279388 RP_SC_040  
+HT-279389 RP_SC_041  
+HT-279390 RP_SC_042
+Page 15
+1. ISO 20900 2019 Intelligent transportation systems – Partially automated parking systems (PAPS) – Performance requirements and test procedures.
+2. ISO 16787 2017 (E) Intelligent transportation systems – Assisted parking system (APS) – Performance requirements and test procedures.
+3. ECE R79-03 Uniform provisions concerning the approval of vehicles with regard to steering equipment.
+Page 16
+14.2.3 System Architecture.
+
+Requirement ID: FS-226730.  
+Type: Functional.  
+Status: New.  
+
+Upstream References: (0).  
+No Upstream References.  
+
+Downstream References: (61).  
+- HT-279412 (RP_SC_064).  
+- HT-279411 (RP_SC_063).  
+- HT-279410 (RP_SC_062).  
+- HT-279409 (RP_SC_061).  
+- HT-279408 (RP_SC_060).  
+- HT-279407 (RP_SC_059).  
+- HT-279406 (RP_SC_058).  
+- HT-279405 (RP_SC_057).  
+- HT-279403 (RP_SC_055).  
+- HT-279402 (RP_SC_054).  
+- HT-279401 (RP_SC_053).  
+- HT-279400 (RP_SC_052).  
+- HT-279399 (RP_SC_051).  
+- HT-279398 (RP_SC_050).  
+- HT-279397 (RP_SC_049).  
+- HT-279396 (RP_SC_048).  
+- HT-279395 (RP_SC_047).  
+- HT-279394 (RP_SC_046).  
+- HT-279393 (RP_SC_045).  
+- HT-279392 (RP_SC_044).  
+- HT-279391 (RP_SC_043).
+Page 17
+### 14.2.3 System Architecture
+
+**Requirement ID:** FS-226730  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (61):**  
+- HT-279412: RP_SC_064  
+- HT-279411: RP_SC_063  
+- HT-279410: RP_SC_062  
+- HT-279409: RP_SC_061  
+- HT-279408: RP_SC_060  
+- HT-279407: RP_SC_059  
+- HT-279406: RP_SC_058  
+- HT-279405: RP_SC_057  
+- HT-279403: RP_SC_055  
+- HT-279402: RP_SC_054  
+- HT-279401: RP_SC_053  
+- HT-279400: RP_SC_052  
+- HT-279399: RP_SC_051  
+- HT-279398: RP_SC_050  
+- HT-279397: RP_SC_049  
+- HT-279396: RP_SC_048  
+- HT-279395: RP_SC_047  
+- HT-279394: RP_SC_046  
+- HT-279393: RP_SC_045  
+- HT-279392: RP_SC_044  
+- HT-279391: RP_SC_043  
+- HT-279390: RP_SC_042  
+- HT-279389: RP_SC_041  
+- HT-279388: RP_SC_040  
+- HT-279387: RP_SC_039  
+- HT-279386: RP_SC_038  
+- HT-279385: RP_SC_037  
+- HT-279384: RP_SC_036  
+- HT-279383: RP_SC_035  
+- HT-279381: RP_SC_033  
+- HT-279379: RP_SC_031  
+- HT-279378: RP_SC_030  
+- HT-279377: RP_SC_029  
+- HT-279376: RP_SC_028  
+- HT-279375: RP_SC_027  
+- HT-279374: RP_SC_026  
+- HT-279373: RP_SC_025  
+- HT-279372: RP_SC_024  
+- HT-279371: RP_SC_023  
+- HT-279370: RP_SC_022  
+- HT-279369: RP_SC_021  
+- HT-279368: RP_SC_020  
+- HT-279367: RP_SC_019  
+- HT-279366: RP_SC_018  
+- HT-279365: RP_SC_017
+Page 18
+14.2.3 System Architecture.
+
+Requirement ID: FS-226730.
+Type: Functional.
+Status: New.
+
+Upstream References (0): No Upstream References.
+Downstream References (61):
+- HT-279412: RP_SC_064.
+- HT-279411: RP_SC_063.
+- HT-279410: RP_SC_062.
+- HT-279409: RP_SC_061.
+- HT-279408: RP_SC_060.
+- HT-279407: RP_SC_059.
+- HT-279406: RP_SC_058.
+- HT-279405: RP_SC_057.
+- HT-279403: RP_SC_055.
+- HT-279402: RP_SC_054.
+- HT-279401: RP_SC_053.
+- HT-279400: RP_SC_052.
+- HT-279399: RP_SC_051.
+- HT-279398: RP_SC_050.
+- HT-279397: RP_SC_049.
+- HT-279396: RP_SC_048.
+- HT-279395: RP_SC_047.
+- HT-279394: RP_SC_046.
+- HT-279393: RP_SC_045.
+- HT-279392: RP_SC_044.
+- HT-279391: RP_SC_043.
+- HT-279390: RP_SC_042.
+- HT-279389: RP_SC_041.
+- HT-279388: RP_SC_040.
+- HT-279387: RP_SC_039.
+- HT-279386: RP_SC_038.
+- HT-279385: RP_SC_037.
+- HT-279384: RP_SC_036.
+- HT-279383: RP_SC_035.
+- HT-279381: RP_SC_033.
+- HT-279379: RP_SC_031.
+- HT-279378: RP_SC_030.
+- HT-279377: RP_SC_029.
+- HT-279376: RP_SC_028.
+- HT-279375: RP_SC_027.
+- HT-279374: RP_SC_026.
+- HT-279373: RP_SC_025.
+- HT-279372: RP_SC_024.
+- HT-279371: RP_SC_023.
+- HT-279370: RP_SC_022.
+- HT-279369: RP_SC_021.
+- HT-279368: RP_SC_020.
+- HT-279367: RP_SC_019.
+- HT-279366: RP_SC_018.
+- HT-279365: RP_SC_017.
+- HT-279364: RP_SC_016.
+- HT-279363: RP_SC_015.
+- HT-279362: RP_SC_014.
+- HT-279361: RP_SC_013.
+- HT-279360: RP_SC_012.
+- HT-279359: RP_SC_011.
+- HT-279358: RP_SC_010.
+- HT-279357: RP_SC_009.
+- HT-279356: RP_SC_008.
+- HT-279355: RP_SC_007.
+- HT-279354: RP_SC_006.
+- HT-279353: RP_SC_005.
+- HT-279352: RP_SC_004.
+- HT-279351: RP_SC_003.
+- HT-279350: RP_SC_002.
+- HT-279349: RP_SC_001.
+
+No Associations.
+Page 19
+System Architecture.
+
+Short name:
+RP.  
+Full name:
+Remote Parking.  
+Chinese description:
+遥控泊车.  
+
+Short name:
+VCU.  
+Full name:
+Vehicle Control Unit.  
+Chinese description:
+车辆控制单元.  
+
+Short name:
+IDB.  
+Full name:
+Integrated Dynamic Brake.  
+Chinese description:
+综合电子制动器.  
+
+Short name:
+RCU.
+
+Short name:
+EPS.  
+Full name:
+Electric Power Steering.  
+Chinese description:
+电子助力转向系统.  
+
+Short name:
+MHU.  
+Full name:
+Media Head Unit.  
+Chinese description:
+媒体终端单元。  
+
+Short name:
+BCM.  
+Full name:
+Body Control Module.  
+Chinese description:
+车身控制器.
+Page 20
+VinFast Management System.
+
+VFDSXVEEP9129.
+
+The RP system is composed of one controller, 12 ultrasonic sensors (USS), and four cameras. Its working process requires cooperation of multiple actuators of the vehicle, such as EPS, MHU, IDB, VCU, BCM, and other modules.
+
+### 14.2.4 Component Parameter
+**Requirement ID:** FS-226731  
+**Type:** Information  
+**Status:** New  
+
+No Upstream References.  
+No Downstream References.  
+No Associations.  
+
+Sensor parameters are subject to the final confirmation of VF.
+
+### 14.2.4.1 Camera Optical Parameter
+**Requirement ID:** FS-226732  
+**Type:** Information  
+**Status:** New  
+
+No Upstream References.  
+Downstream References (61):  
+HT-279412: RP_SC_064.  
+HT-279411: RP_SC_063.  
+HT-279410: RP_SC_062.  
+HT-279409: RP_SC_061.
+Page 21
+System Architecture.
+
+The RP system is composed of one controller, 12 USS sensors, and 4 cameras. Its working process requires the cooperation of multiple actuators of the vehicle, such as EPS, MHU, IDB, VCU, BCM, and other modules.
+
+14.2.4 Component Parameter.
+
+Requirement ID: FS-226731.
+Type: Information.
+Status: New.
+
+Upstream References: None.
+Downstream References: None.
+No Associations.
+
+Sensor parameters are subject to the final confirmation of VF.
+
+14.2.4.1 Camera Optical Parameter:
+
+Requirement ID: FS-226732.
+Type: Information.
+Status: New.
+
+Upstream References: None.
+Downstream References:
+1. HT-279412 – RP_SC_064.
+2. HT-279411 – RP_SC_063.
+3. HT-279410 – RP_SC_062.
+4. HT-279409 – RP_SC_061.
+5. HT-279408 – RP_SC_060.
+6. HT-279407 – RP_SC_059.
+7. HT-279406 – RP_SC_058.
+8. HT-279405 – RP_SC_057.
+9. HT-279404 – RP_SC_056.
+10. HT-279403 – RP_SC_055.
+11. HT-279402 – RP_SC_054.
+12. HT-279401 – RP_SC_053.
+13. HT-279400 – RP_SC_052.
+14. HT-279399 – RP_SC_051.
+15. HT-279398 – RP_SC_050.
+16. HT-279397 – RP_SC_049.
+17. HT-279396 – RP_SC_048.
+18. HT-279395 – RP_SC_047.
+19. HT-279393 – RP_SC_045.
+20. HT-279392 – RP_SC_044.
+21. HT-279391 – RP_SC_043.
+22. HT-279390 – RP_SC_042.
+23. HT-279389 – RP_SC_041.
+24. HT-279388 – RP_SC_040.
+25. HT-279386 – RP_SC_038.
+26. HT-279385 – RP_SC_037.
+27. HT-279384 – RP_SC_036.
+28. HT-279383 – RP_SC_035.
+Page 22
+System Architecture  
+The table below describes key components of the system architecture with corresponding short names, full names, and Chinese descriptions:
+
+- **RP**: Remote Parking, 遥控泊车.
+- **VCU**: Vehicle Control Unit, 车辆控制单元.
+- **IDB**: Integrated Dynamic Brake, 综合电子制动器.
+- **RCU**: Not listed, description unavailable.
+- **EPS**: Electric Power Steering, 电子助力转向系统.
+- **MHU**: Media Head Unit, 媒体终端单元.
+- **BCM**: Body Control Module, 车身控制器.
+
+RP system requires cooperation among multiple actuators within the vehicle, including EPS, MHU, IDB, VCU, BCM, and other modules. It is composed of one controller, 12 USS sensors, and four cameras.
+
+### Requirement ID: FS-226731  
+#### 14.2.4 Component Parameter  
+- **Type**: Information  
+- **Status**: New  
+- **Upstream References**: None  
+- **Downstream References**: None  
+- **Associations**: None  
+Sensor parameters are subject to the final confirmation of VF.
+
+### Requirement ID: FS-226732  
+#### 14.2.4.1 Camera Optical Parameter  
+- **Type**: Information  
+- **Status**: New  
+- **Upstream References**: None  
+- **Downstream References**:  
+  - HT-279412: RP_SC_064  
+  - HT-279411: RP_SC_063  
+  - HT-279410: RP_SC_062  
+  - HT-279409: RP_SC_061  
+  - HT-279408: RP_SC_060  
+  - HT-279407: RP_SC_059  
+  - HT-279406: RP_SC_058  
+  - HT-279405: RP_SC_057  
+  - HT-279404: RP_SC_056  
+  - HT-279403: RP_SC_055  
+  - HT-279402: RP_SC_054  
+  - HT-279401: RP_SC_053  
+  - HT-279400: RP_SC_052  
+  - HT-279399: RP_SC_051  
+  - HT-279398: RP_SC_050  
+  - HT-279397: RP_SC_049  
+  - HT-279396: RP_SC_048  
+  - HT-279395: RP_SC_047  
+  - HT-279393: RP_SC_045  
+  - HT-279392: RP_SC_044  
+  - HT-279391: RP_SC_043  
+  - HT-279390: RP_SC_042  
+  - HT-279389: RP_SC_041  
+  - HT-279388: RP_SC_040  
+  - HT-279386: RP_SC_038  
+  - HT-279385: RP_SC_037  
+  - HT-279384: RP_SC_036  
+  - HT-279383: RP_SC_035  
+  - HT-279381: RP_SC_033  
+  - HT-279380: RP_SC_032  
+  - HT-279379: RP_SC_031  
+  - HT-279378: RP_SC_030  
+  - HT-279377: RP_SC_029  
+  - HT-279376: RP_SC_028  
+  - HT-279375: RP_SC_027  
+  - HT-279374: RP_SC_026  
+  - HT-279373: RP_SC_025  
+  - HT-279372: RP_SC_024  
+  - HT-279371: RP_SC_023  
+  - HT-279370: RP_SC_022  
+  - HT-279369: RP_SC_021  
+  - HT-279368: RP_SC_020  
+  - HT-279367: RP_SC_019  
+  - HT-279366: RP_SC_018  
+  - HT-279365: RP_SC_017  
+  - HT-279364: RP_SC_016  
+  - HT-279363: RP_SC_015  
+  - HT-279362: RP_SC_014  
+  - HT-279361: RP_SC_013  
+  - HT-279360: RP_SC_012  
+  - HT-279359: RP_SC_011  
+  - HT-279358: RP_SC_010
+Page 23
+System Architecture  
+short name: RP  
+full name: Remote Parking  
+Chinese description: 遥控泊车  
+
+short name: VCU  
+full name: Vehicle Control Unit  
+Chinese description: 车辆控制单元  
+
+short name: IDB  
+full name: Integrated Dynamic Brake  
+Chinese description: 综合电子制动器  
+
+short name: RCU  
+Chinese description: (not provided)  
+
+short name: EPS  
+full name: Electric Power Steering  
+Chinese description: 电子助力转向系统  
+
+short name: MHU  
+full name: Media Head Unit  
+Chinese description: 媒体终端单元。  
+
+short name: BCM  
+full name: Body Control Module  
+Chinese description: 车身控制器  
+
+TRM  
+YSS  
+ACU  
+USS  
+
+RP system is composed of 1 controller, 12 USS, and 4 cameras. Its working process requires the cooperation of multiple actuators of the vehicle, such as EPS, MHU, IDB, VCU, BCM, and other modules.
+
+---
+
+14.2.4 Component Parameter  
+
+Requirement ID: FS-226731  
+Type: Information  
+Status: New  
+
+Upstream References: No Upstream References  
+Downstream References: No Downstream References  
+No Associations  
+
+Sensor parameters are subject to the final confirmation of VF.  
+
+---
+
+14.2.4.1 Camera Optical Parameter  
+
+Requirement ID: FS-226732  
+Type: Information  
+Status: New  
+
+Upstream References: No Upstream References  
+Downstream References: (as listed below)  
+
+Downstream References:  
+- HT-279412: RP_SC_064  
+- HT-279411: RP_SC_063  
+- HT-279410: RP_SC_062  
+- HT-279409: RP_SC_061  
+
+---
+
+No Associations  
+
+**Camera Parameters**  
+- F/No: 2.0±5%  
+- Focal Length: 0.95mm±0.05mm  
+
+**FOV (Field of View):**  
+- Diagonal: 220°±5°  
+- Horizontal: 198°±5°  
+- Vertical: 150°±5°  
+
+**Resolution:**  
+- Center (0-field): 550LW/PH  
+- Corner (0.8-field): /  
+
+**Distortion:**  
+- Optical: -129%  
+- TV: /  
+
+**Relative illumination:** 40%  
+**Chief ray angle:** 9.5°  
+**Lens construction:** 2G4P
+Page 24
+IR Filter: The infrared filter specification is 650nm ±10nm.
+
+14.2.4.2 Camera Sensor Performance.
+
+Requirement ID: FS-226733.  
+Type: Information.  
+Status: New.  
+
+Upstream References (0): No Upstream References.  
+
+Downstream References (58):  
+HT-279412: RP_SC_064.  
+HT-279411: RP_SC_063.  
+HT-279410: RP_SC_062.  
+HT-279408: RP_SC_060.  
+HT-279407: RP_SC_059.  
+HT-279406: RP_SC_058.  
+HT-279405: RP_SC_057.  
+HT-279404: RP_SC_056.  
+HT-279403: RP_SC_055.  
+HT-279402: RP_SC_054.  
+HT-279401: RP_SC_053.  
+HT-279400: RP_SC_052.  
+HT-279399: RP_SC_051.  
+HT-279398: RP_SC_050.  
+HT-279397: RP_SC_049.  
+HT-279396: RP_SC_048.  
+HT-279395: RP_SC_047.
+Page 25
+14.2.4.2 Camera Sensor Performance.
+
+Requirement ID: FS-226733.  
+Type: Information.  
+Status: New.  
+
+Upstream References (0): No Upstream References.  
+Downstream References (58):  
+- HT-279394: RP_SC_046.  
+- HT-279393: RP_SC_045.  
+- HT-279392: RP_SC_044.  
+- HT-279391: RP_SC_043.  
+- HT-279390: RP_SC_042.  
+- HT-279389: RP_SC_041.  
+- HT-279388: RP_SC_040.  
+- HT-279387: RP_SC_039.  
+- HT-279385: RP_SC_037.  
+- HT-279384: RP_SC_036.  
+- HT-279383: RP_SC_035.  
+- HT-279381: RP_SC_033.  
+- HT-279380: RP_SC_032.  
+- HT-279379: RP_SC_031.  
+- HT-279378: RP_SC_030.  
+- HT-279376: RP_SC_028.  
+- HT-279375: RP_SC_027.  
+- HT-279374: RP_SC_026.  
+- HT-279373: RP_SC_025.  
+- HT-279372: RP_SC_024.  
+- HT-279371: RP_SC_023.  
+- HT-279370: RP_SC_022.  
+- HT-279369: RP_SC_021.  
+- HT-279368: RP_SC_020.  
+
+No Associations.
+Page 26
+HT-279367: RP_SC_019  
+HT-279366: RP_SC_018  
+HT-279365: RP_SC_017  
+HT-279364: RP_SC_016  
+HT-279363: RP_SC_015  
+HT-279362: RP_SC_014  
+HT-279360: RP_SC_012  
+HT-279359: RP_SC_011  
+HT-279358: RP_SC_010  
+HT-279357: RP_SC_009  
+HT-279356: RP_SC_008  
+HT-279355: RP_SC_007  
+HT-279354: RP_SC_006  
+HT-279353: RP_SC_005  
+HT-279352: RP_SC_004  
+HT-279350: RP_SC_002  
+HT-279349: RP_SC_001  
+
+No Associations:
+
+- Sensor model: Aptina AR0147  
+- Optical format: 1/4-inch  
+- Number of max pixel: 1280*960  
+- Pixel Size: 3μm*3μm
+Page 27
+14.2.4.3 UPA USS Parameter:
+
+Requirement ID: FS-226734  
+Type: Information  
+Status: New  
+
+Upstream References (0): No Upstream References  
+
+Downstream References (55):  
+HT-279412: RP_SC_064  
+HT-279411: RP_SC_063  
+HT-279410: RP_SC_062  
+HT-279407: RP_SC_059  
+HT-279406: RP_SC_058  
+HT-279405: RP_SC_057  
+HT-279404: RP_SC_056  
+HT-279403: RP_SC_055  
+HT-279402: RP_SC_054  
+HT-279401: RP_SC_053  
+HT-279400: RP_SC_052  
+HT-279399: RP_SC_051  
+HT-279398: RP_SC_050  
+HT-279397: RP_SC_049  
+HT-279396: RP_SC_048  
+HT-279395: RP_SC_047  
+HT-279394: RP_SC_046  
+HT-279393: RP_SC_045  
+HT-279391: RP_SC_043
+Page 28
+14.2.4.3 UPA USS Parameter:
+
+Requirement ID: FS-226734.  
+Type: Information.  
+Status: New.  
+
+Upstream References: (0)  
+- No Upstream References  
+
+Downstream References: (55)  
+- HT-279412 RP_SC_064  
+- HT-279411 RP_SC_063  
+- HT-279410 RP_SC_062  
+- HT-279407 RP_SC_059  
+- HT-279406 RP_SC_058  
+- HT-279405 RP_SC_057  
+- HT-279404 RP_SC_056  
+- HT-279403 RP_SC_055  
+- HT-279402 RP_SC_054  
+- HT-279401 RP_SC_053  
+- HT-279400 RP_SC_052  
+- HT-279399 RP_SC_051  
+- HT-279398 RP_SC_050  
+- HT-279397 RP_SC_049  
+- HT-279396 RP_SC_048  
+- HT-279395 RP_SC_047  
+- HT-279394 RP_SC_046  
+- HT-279393 RP_SC_045  
+- HT-279391 RP_SC_043  
+- HT-279390 RP_SC_042  
+- HT-279389 RP_SC_041  
+- HT-279388 RP_SC_040  
+- HT-279387 RP_SC_039  
+- HT-279386 RP_SC_038  
+- HT-279384 RP_SC_036  
+- HT-279383 RP_SC_035  
+- HT-279381 RP_SC_033  
+- HT-279380 RP_SC_032  
+- HT-279379 RP_SC_031  
+- HT-279378 RP_SC_030  
+- HT-279377 RP_SC_029  
+- HT-279376 RP_SC_028  
+- HT-279375 RP_SC_027  
+- HT-279373 RP_SC_025  
+- HT-279372 RP_SC_024  
+- HT-279370 RP_SC_022  
+- HT-279369 RP_SC_021  
+- HT-279368 RP_SC_020  
+- HT-279367 RP_SC_019  
+- HT-279365 RP_SC_017  
+- HT-279364 RP_SC_016  
+- HT-279363 RP_SC_015  
+- HT-279361 RP_SC_013.
+Page 29
+14.2.4.3 UPA USS Parameter:
+
+Requirement ID: FS-226734.  
+Type: Information.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (55):  
+
+HT-279412 RP_SC_064.  
+HT-279411 RP_SC_063.  
+HT-279410 RP_SC_062.  
+HT-279407 RP_SC_059.  
+HT-279406 RP_SC_058.  
+HT-279405 RP_SC_057.  
+HT-279404 RP_SC_056.  
+HT-279403 RP_SC_055.  
+HT-279402 RP_SC_054.  
+HT-279401 RP_SC_053.  
+HT-279400 RP_SC_052.  
+HT-279399 RP_SC_051.  
+HT-279398 RP_SC_050.  
+HT-279397 RP_SC_049.  
+HT-279396 RP_SC_048.  
+HT-279395 RP_SC_047.  
+HT-279394 RP_SC_046.  
+HT-279393 RP_SC_045.  
+HT-279392 RP_SC_044.  
+HT-279391 RP_SC_043.  
+HT-279390 RP_SC_042.  
+HT-279389 RP_SC_041.  
+HT-279388 RP_SC_040.  
+HT-279387 RP_SC_039.  
+HT-279386 RP_SC_038.  
+HT-279384 RP_SC_036.  
+HT-279383 RP_SC_035.  
+HT-279381 RP_SC_033.  
+HT-279380 RP_SC_032.  
+HT-279379 RP_SC_031.  
+HT-279378 RP_SC_030.  
+HT-279377 RP_SC_029.  
+HT-279376 RP_SC_028.  
+HT-279375 RP_SC_027.  
+HT-279373 RP_SC_025.  
+HT-279372 RP_SC_024.  
+HT-279370 RP_SC_022.  
+HT-279369 RP_SC_021.  
+HT-279368 RP_SC_020.  
+HT-279367 RP_SC_019.  
+HT-279365 RP_SC_017.  
+HT-279364 RP_SC_016.  
+HT-279363 RP_SC_015.  
+HT-279361 RP_SC_013.  
+HT-279360 RP_SC_012.  
+HT-279359 RP_SC_011.  
+HT-279358 RP_SC_010.  
+HT-279357 RP_SC_009.  
+HT-279356 RP_SC_008.  
+HT-279355 RP_SC_007.  
+HT-279354 RP_SC_006.  
+HT-279353 RP_SC_005.  
+HT-279352 RP_SC_004.  
+HT-279351 RP_SC_003.  
+HT-279350 RP_SC_002.  
+HT-279349 RP_SC_001.  
+
+No Associations.  
+
+**Items and Parameter Values:**  
+
+- **Operating Frequency:**  
+  - Min: 43 kHz.  
+  - Typ: 48 kHz.  
+  - Max: 53 kHz.  
+
+- **Minimum Distance:**  
+  - Value: 0.3 m.  
+
+- **Maximum Distance:**  
+  - Value: 1.8 m.  
+
+- **Beam Pattern:**  
+  - Vertical FOV:  
+    - Min: 30°.  
+    - Typ: 40°.  
+    - Max: 50°.  
+  - Horizontal FOV:  
+    - Min: 90°.  
+    - Typ: 100°.  
+    - Max: 110°.  
+
+- **Response time:**  
+  - Value: 52.  
+
+- **Resolution:**  
+  - Value: 0.1 m.
+Page 30
+Accuracy: 5%.
+
+Support Working Mode: Indirect and Direct Mode.
+
+Number of Echo support: 1.
+
+Support Width & Height of Echoes: Yes.
+
+Support Fault Information: Yes.
+
+Operating Voltage: 9V, 12V, 16V.
+
+Power Consumption: 2W.
+
+Operating Temperature: -30°C to +80°C.
+
+Storage Temperature: -40°C to +85°C.
+
+Sensor Protection Class: IP6K9K.
+
+Humidity: 90% max.
+
+Interface: LIN 2.1.
+
+Safety Level: ASIL QM.
+
+FAPA USS Parameter:
+
+Items:
+- Operating Frequency ranges from a minimum of 47kHz, typical value of 52kHz, to a maximum of 57kHz.
+- Minimum Distance: 0.3m.
+- Maximum Distance: 4.5m.
+- Beam Pattern Vertical FOV ranges from a minimum of 30°, typical value of 35°, to a maximum of 40°.
+Page 31
+Horizontal FOV (**) has values of minimum 50°, typical 55°, and maximum 60°. 
+
+Response time is 70ms.
+
+Distance Resolution is 0.1m.
+
+Distance Accuracy is 5%.
+
+Support Working Mode is Direct Mode.
+
+Number of Echo Support is 2.
+
+Support Width & Height of Echoes is set to Yes.
+
+Support Fault Information is Yes.
+
+Operating Voltage is given as 9V, 12V, and 16V.
+
+Power Consumption is 2W.
+
+Operating Temperature ranges between -30°C to +80°C.
+
+Storage Temperature ranges between -40°C to +80°C.
+
+Sensor Protection Class is IP6K9K.
+
+Maximum Humidity is 90%.
+
+Interface used is LIN 2.1.
+
+Safety Level is ASIL QM.
+
+14.3 System Description.
+
+Requirement ID: FS-226735. 
+
+Type is Functional.
+
+Status is New.
+
+Upstream References show 0 references.
+Page 32
+No Upstream References.  
+Downstream References (37):  
+
+1. HT-277681: RP_TC_040.  
+2. HT-277680: RP_TC_039.  
+3. HT-277679: RP_TC_038.  
+4. HT-277678: RP_TC_037.  
+5. HT-277677: RP_TC_036.  
+6. HT-277676: RP_TC_035.  
+7. HT-277675: RP_TC_034.  
+8. HT-277674: RP_TC_033.  
+9. HT-277673: RP_TC_032.  
+10. HT-277672: RP_TC_031.  
+11. HT-277671: RP_TC_030.  
+12. HT-277670: RP_TC_029.  
+13. HT-277669: RP_TC_028.  
+14. HT-277668: RP_TC_027.  
+15. HT-277667: RP_TC_026.  
+16. HT-277666: RP_TC_025.  
+17. HT-277665: RP_TC_024.  
+18. HT-277664: RP_TC_023.  
+19. HT-277663: RP_TC_022.  
+20. HT-277662: RP_TC_021.  
+21. HT-277661: RP_TC_020.  
+22. HT-277660: RP_TC_019.  
+23. HT-277659: RP_TC_018.
+Page 33
+HT-277658 RP_TC_017  
+HT-277657 RP_TC_016  
+HT-277656 RP_TC_015  
+HT-277655 RP_TC_014  
+HT-277654 RP_TC_013  
+HT-277653 RP_TC_012  
+HT-277652 RP_TC_011  
+HT-277651 RP_TC_010  
+HT-277650 RP_TC_009  
+HT-277649 RP_TC_008  
+HT-277648 RP_TC_007  
+HT-277647 RP_TC_006  
+HT-277646 RP_TC_005  
+HT-277645 RP_TC_004  
+
+No Associations  
+--  
+
+14.3.1 System State Machine  
+
+Requirement ID: FS-226736.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0)  
+No Upstream References.  
+
+Downstream References (37):  
+HT-277681 RP_TC_040  
+HT-277680 RP_TC_039  
+HT-277679 RP_TC_038
+Page 34
+HT-277678 RP_TC_037  
+HT-277677 RP_TC_036  
+HT-277676 RP_TC_035  
+HT-277675 RP_TC_034  
+HT-277674 RP_TC_033  
+HT-277673 RP_TC_032  
+HT-277672 RP_TC_031  
+HT-277671 RP_TC_030  
+HT-277670 RP_TC_029  
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277661 RP_TC_020  
+HT-277660 RP_TC_019  
+HT-277659 RP_TC_018  
+HT-277658 RP_TC_017  
+HT-277657 RP_TC_016  
+HT-277656 RP_TC_015  
+HT-277655 RP_TC_014
+Page 35
+```markdown
+VinFast Management System 
+
+HT-277654 RP_TC_013  
+HT-277653 RP_TC_012  
+HT-277652 RP_TC_011  
+HT-277651 RP_TC_010  
+HT-277650 RP_TC_009  
+HT-277649 RP_TC_008  
+HT-277648 RP_TC_007  
+HT-277647 RP_TC_006  
+HT-277646 RP_TC_005  
+HT-277645 RP_TC_004  
+
+No Associations  
+
+Diagram Description:  
+This figure illustrates the system's state machine, including the transitions between states such as Off, Standby, Enable, Active, Finish, Pause, Abort, and Failure. Each arrow represents a transition path triggered by events such as initialization, operational processes, or errors. The system starts in the Off state and progresses to Standby and Enable before becoming Active. The system can enter the Finish or Pause state directly from the Active state, as indicated. Error conditions lead to the Abort or Failure states.
+Page 36
+### Conditions
+
+#### 14.3.1.1 E1: Power on (KL15), self-check passed.
+
+**Requirement ID:** FS-226737  
+**Type:** Functional  
+**Status:** New  
+
+#### Upstream References (0)
+No Upstream References  
+
+#### Downstream References (37)
+- **HT-277681**: RP_TC_040  
+- **HT-277680**: RP_TC_039  
+- **HT-277679**: RP_TC_038  
+- **HT-277678**: RP_TC_037  
+- **HT-277677**: RP_TC_036  
+- **HT-277676**: RP_TC_035  
+- **HT-277675**: RP_TC_034  
+- **HT-277674**: RP_TC_033  
+- **HT-277673**: RP_TC_032  
+- **HT-277672**: RP_TC_031  
+- **HT-277671**: RP_TC_030  
+- **HT-277670**: RP_TC_029
+Page 37
+VinFast Management System.
+
+VFDSXVEEP9129.
+
+HT-277669 RP_TC_028.  
+HT-277668 RP_TC_027.  
+HT-277667 RP_TC_026.  
+HT-277666 RP_TC_025.  
+HT-277665 RP_TC_024.  
+HT-277664 RP_TC_023.  
+HT-277663 RP_TC_022.  
+HT-277662 RP_TC_021.  
+HT-277661 RP_TC_020.  
+HT-277660 RP_TC_019.  
+HT-277659 RP_TC_018.  
+HT-277658 RP_TC_017.  
+HT-277657 RP_TC_016.  
+HT-277656 RP_TC_015.  
+HT-277655 RP_TC_014.  
+HT-277654 RP_TC_013.  
+HT-277653 RP_TC_012.  
+HT-277652 RP_TC_011.  
+HT-277651 RP_TC_010.  
+HT-277650 RP_TC_009.  
+HT-277649 RP_TC_008.  
+HT-277648 RP_TC_007.  
+HT-277647 RP_TC_006.  
+HT-277646 RP_TC_005.
+Page 38
+No Associations.
+
+14.3.1.2 E2: The system receives the user's turn on signal.
+
+Requirement ID: FS-226738. Type: Functional. Status: New.
+
+Upstream References (0). No Upstream References.
+
+Downstream References (29):
+HT-277681 RP_TC_040.  
+HT-277680 RP_TC_039.  
+HT-277679 RP_TC_038.  
+HT-277678 RP_TC_037.  
+HT-277677 RP_TC_036.  
+HT-277676 RP_TC_035.  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277669 RP_TC_028.  
+HT-277668 RP_TC_027.  
+HT-277667 RP_TC_026.
+Page 39
+Conditions
+
+14.3.1.3 E3: The user long presses the control buttons on the C-APP.
+
+Requirement ID: FS-226739  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (37):  
+HT-277681 RP_TC_040  
+HT-277680 RP_TC_039  
+HT-277679 RP_TC_038  
+HT-277678 RP_TC_037  
+HT-277677 RP_TC_036  
+HT-277676 RP_TC_035  
+HT-277675 RP_TC_034  
+HT-277674 RP_TC_033  
+HT-277673 RP_TC_032  
+HT-277672 RP_TC_031  
+HT-277671 RP_TC_030  
+HT-277670 RP_TC_029  
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277661 RP_TC_020  
+HT-277660 RP_TC_019  
+HT-277659 RP_TC_018  
+HT-277658 RP_TC_017  
+HT-277657 RP_TC_016  
+HT-277656 RP_TC_015  
+HT-277655 RP_TC_014  
+HT-277654 RP_TC_013  
+HT-277653 RP_TC_012
+Page 40
+No Associations  
+--  
+
+14.3.1.3 E3: The user long presses the control buttons on the C-APP;  
+
+Requirement ID: FS-226739  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (37)  
+HT-277681 RP_TC_040  
+HT-277680 RP_TC_039  
+HT-277679 RP_TC_038  
+HT-277678 RP_TC_037  
+HT-277677 RP_TC_036  
+HT-277676 RP_TC_035  
+HT-277675 RP_TC_034  
+HT-277674 RP_TC_033  
+HT-277673 RP_TC_032  
+HT-277672 RP_TC_031  
+HT-277671 RP_TC_030  
+HT-277670 RP_TC_029  
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277661 RP_TC_020  
+HT-277660 RP_TC_019  
+HT-277659 RP_TC_018  
+HT-277658 RP_TC_017  
+HT-277657 RP_TC_016  
+HT-277656 RP_TC_015  
+HT-277655 RP_TC_014
+Page 41
+14.3.1.4 E4: The RP function completed.
+
+Requirement ID: FS-226740  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (2)  
+HT-277653: RP_TC_012  
+HT-277648: RP_TC_007  
+
+No Associations  
+--  
+
+14.3.1.5 E5: Finished state lasts for 4s.
+Page 42
+Requirement ID: FS-226741. This functional requirement corresponds to the finished state lasting for 4 seconds.
+
+Downstream References:
+HT-277653: RP_TC_012.
+
+No Associations.
+--
+
+14.3.1.6 E6: The pause condition is triggered.
+
+Requirement ID: FS-226742. This functional requirement describes the triggering of the pause condition.
+
+Upstream References:
+No Upstream References.
+
+Downstream References:
+No Downstream References.
+
+No Associations.
+--
+
+14.3.1.7 E7: The pause condition disappears, the user long presses the control button on the C-APP again.
+
+Requirement ID: FS-226743. This functional requirement outlines the disappearance of the pause condition followed by the user pressing the control button on the C-APP again.
+
+Upstream References:
+No Upstream References.
+
+Downstream References:
+No Downstream References.
+
+No Associations.
+--
+
+14.3.1.8 E8: The Abort condition is triggered.
+
+Requirement ID: FS-226744. This functional requirement addresses the triggering of the Abort condition.
+
+Upstream References:
+No Upstream References.
+Page 43
+14.3.1.9 E9: The suspension condition has not disappeared, the user quits actively or the system has timed out.
+
+Requirement ID: FS-226745  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (15)  
+
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277660 RP_TC_019  
+HT-277659 RP_TC_018  
+HT-277658 RP_TC_017  
+HT-277657 RP_TC_016  
+HT-277656 RP_TC_015  
+HT-277655 RP_TC_014  
+HT-277654 RP_TC_013  
+
+No Associations
+--
+Page 44
+14.3.1.10 E10: Abort state lasts for 4s.
+
+Requirement ID: FS-226746  
+Type: Functional  
+Status: New  
+Upstream References: No Upstream References  
+Downstream References:  
+- HT-277681: RP_TC_040  
+- HT-277679: RP_TC_038  
+- HT-277678: RP_TC_037  
+- HT-277677: RP_TC_036  
+- HT-277676: RP_TC_035  
+- HT-277675: RP_TC_034  
+- HT-277674: RP_TC_033  
+- HT-277673: RP_TC_032  
+- HT-277672: RP_TC_031  
+- HT-277671: RP_TC_030  
+- HT-277670: RP_TC_029  
+- HT-279361: RP_SC_013  
+
+No Associations.  
+--
+
+14.3.1.11 E11: The user actively exited or the Abort condition was triggered.
+
+Requirement ID: FS-226747  
+Type: Functional  
+Status: New  
+Upstream References: No Upstream References  
+Downstream References: No Downstream References  
+
+No Associations.  
+--
+Page 45
+14.3.1.12 E12: The system Power off.
+
+Requirement ID: FS-226748  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (0)  
+No Downstream References  
+
+No Associations  
+
+14.3.1.13 E13: The system itself fails.
+
+Requirement ID: FS-226749  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (0)  
+No Downstream References  
+
+No Associations  
+
+14.3.2 Interactive signal.
+
+Requirement ID: FS-226750  
+Type: --  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations
+Page 46
+Downstream References (37):  
+- HT-277681 RP_TC_040.  
+- HT-277680 RP_TC_039.  
+- HT-277679 RP_TC_038.  
+- HT-277678 RP_TC_037.  
+- HT-277677 RP_TC_036.  
+- HT-277676 RP_TC_035.  
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+- HT-277669 RP_TC_028.  
+- HT-277668 RP_TC_027.  
+- HT-277667 RP_TC_026.  
+- HT-277666 RP_TC_025.  
+- HT-277665 RP_TC_024.  
+- HT-277664 RP_TC_023.  
+- HT-277663 RP_TC_022.  
+- HT-277662 RP_TC_021.  
+- HT-277661 RP_TC_020.  
+- HT-277660 RP_TC_019.  
+- HT-277659 RP_TC_018.  
+- HT-277658 RP_TC_017.
+Page 47
+14.4 Function Description.
+
+Requirement ID: FS-226751.
+Type: Functional.
+Status: New.
+Upstream References: (0).
+No Upstream References.
+
+Downstream References (35):
+- HT-277681: RP_TC_040.
+- HT-277680: RP_TC_039.
+- HT-277679: RP_TC_038.
+- HT-277678: RP_TC_037.
+- HT-277677: RP_TC_036.
+- HT-277676: RP_TC_035.
+- HT-277675: RP_TC_034.
+- HT-277674: RP_TC_033.
+- HT-277673: RP_TC_032.
+- HT-277672: RP_TC_031.
+- HT-277671: RP_TC_030.
+- HT-277670: RP_TC_029.
+- HT-277669: RP_TC_028.
+- HT-277668: RP_TC_027.
+- HT-277667: RP_TC_026.
+- HT-277666: RP_TC_025.
+- HT-277665: RP_TC_024.
+- HT-277664: RP_TC_023.
+- HT-277663: RP_TC_022.
+- HT-277662: RP_TC_021.
+- HT-277661: RP_TC_020.
+- HT-277660: RP_TC_019.
+- HT-277659: RP_TC_018.
+- HT-277658: RP_TC_017.
+- HT-277657: RP_TC_016.
+- HT-277656: RP_TC_015.
+- HT-277655: RP_TC_014.
+- HT-277654: RP_TC_013.
+- HT-277653: RP_TC_012.
+- HT-277652: RP_TC_011.
+- HT-277651: RP_TC_010.
+- HT-277650: RP_TC_009.
+- HT-277649: RP_TC_008.
+- HT-277648: RP_TC_007.
+
+No Associations.
+Page 48
+14.4 Function Description
+
+Requirement ID: FS-226751  
+Type: Functional  
+Status: New  
+
+- Upstream References (0):  
+  No Upstream References  
+
+- Downstream References (35):  
+  HT-277681: RP_TC_040  
+  HT-277680: RP_TC_039  
+  HT-277679: RP_TC_038  
+  HT-277678: RP_TC_037  
+  HT-277677: RP_TC_036  
+  HT-277676: RP_TC_035  
+  HT-277675: RP_TC_034  
+  HT-277674: RP_TC_033  
+  HT-277673: RP_TC_032  
+  HT-277672: RP_TC_031  
+  HT-277671: RP_TC_030  
+  HT-277669: RP_TC_028  
+  HT-277668: RP_TC_027  
+  HT-277667: RP_TC_026  
+  HT-277666: RP_TC_025  
+  HT-277665: RP_TC_024  
+  HT-277664: RP_TC_023  
+  HT-277663: RP_TC_022  
+  HT-277662: RP_TC_021  
+  HT-277661: RP_TC_020  
+  HT-277660: RP_TC_019  
+  HT-277659: RP_TC_018  
+  HT-277658: RP_TC_017  
+  HT-277657: RP_TC_016  
+  HT-277656: RP_TC_015  
+  HT-277655: RP_TC_014  
+  HT-277654: RP_TC_013  
+  HT-277653: RP_TC_012
+Page 49
+14.4.1 Usage Scenario Description.
+
+Requirement ID: FS-226752.  
+Type: Functional.  
+Status: New.  
+Upstream References: (0).  
+No Upstream References.  
+Downstream References (37):
+1. HT-277681: RP_TC_040.
+2. HT-277680: RP_TC_039.
+3. HT-277679: RP_TC_038.
+4. HT-277678: RP_TC_037.
+5. HT-277677: RP_TC_036.
+6. HT-277676: RP_TC_035.
+7. HT-277675: RP_TC_034.
+8. HT-277674: RP_TC_033.
+9. HT-277673: RP_TC_032.
+10. HT-277672: RP_TC_031.
+11. HT-277671: RP_TC_030.
+12. HT-277669: RP_TC_028.
+13. HT-277668: RP_TC_027.
+14. HT-277667: RP_TC_026.
+15. HT-277666: RP_TC_025.
+16. HT-277665: RP_TC_024.
+17. HT-277664: RP_TC_023.
+18. HT-277663: RP_TC_022.
+19. HT-277662: RP_TC_021.
+20. HT-277661: RP_TC_020.
+21. HT-277660: RP_TC_019.
+22. HT-277659: RP_TC_018.
+23. HT-277658: RP_TC_017.
+24. HT-277657: RP_TC_016.
+25. HT-277656: RP_TC_015.
+26. HT-277655: RP_TC_014.
+27. HT-277654: RP_TC_013.
+28. HT-277653: RP_TC_012.
+29. HT-277652: RP_TC_011.
+30. HT-277651: RP_TC_010.
+31. HT-277650: RP_TC_009.
+32. HT-277649: RP_TC_008.
+33. HT-277648: RP_TC_007.
+34. HT-277647: RP_TC_006.
+35. HT-277646: RP_TC_005.
+
+No Associations.
+---
+Page 50
+14.4.1 Usage Scenario Description.
+
+Requirement ID: FS-226752.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (37):  
+HT-277681 RP_TC_040.  
+HT-277680 RP_TC_039.  
+HT-277679 RP_TC_038.  
+HT-277678 RP_TC_037.  
+HT-277677 RP_TC_036.  
+HT-277676 RP_TC_035.  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277669 RP_TC_028.  
+HT-277668 RP_TC_027.  
+HT-277667 RP_TC_026.  
+HT-277666 RP_TC_025.  
+HT-277665 RP_TC_024.  
+HT-277664 RP_TC_023.  
+HT-277663 RP_TC_022.  
+HT-277662 RP_TC_021.  
+HT-277661 RP_TC_020.  
+HT-277660 RP_TC_019.  
+HT-277659 RP_TC_018.  
+HT-277658 RP_TC_017.  
+HT-277657 RP_TC_016.  
+HT-277656 RP_TC_015.  
+HT-277655 RP_TC_014.  
+HT-277654 RP_TC_013.  
+HT-277653 RP_TC_012.  
+HT-277652 RP_TC_011.  
+HT-277651 RP_TC_010.  
+HT-277650 RP_TC_009.  
+HT-277649 RP_TC_008.  
+HT-277648 RP_TC_007.
+
+No Associations.
+Page 51
+14.4.1.1 Perpendicular parking slot with parking line:
+
+Requirement ID: FS-226753.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (13):  
+1. HT-277650: RP_TC_009.  
+2. HT-277649: RP_TC_008.  
+3. HT-279437: RP_SC_089.  
+4. HT-279435: RP_SC_087.  
+5. HT-279422: RP_SC_074.  
+6. HT-279416: RP_SC_068.  
+7. HT-279380: RP_SC_032.  
+8. HT-279366: RP_SC_018.  
+9. HT-279365: RP_SC_017.  
+10. HT-279364: RP_SC_016.  
+11. HT-279363: RP_SC_015.  
+12. HT-279354: RP_SC_006.  
+13. HT-279350: RP_SC_002.  
+
+No Associations.
+Page 52
+14.4.1.2 Parallel parking slot with parking line:
+
+Requirement ID: FS-226754.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+No Upstream References.  
+
+Downstream References:  
+- HT-277672 RP_TC_031.  
+- HT-277670 RP_TC_029.  
+- HT-277668 RP_TC_027.  
+- HT-277661 RP_TC_020.  
+- HT-277660 RP_TC_019.  
+- HT-277658 RP_TC_017.  
+- HT-277657 RP_TC_016.  
+- HT-277656 RP_TC_015.  
+- HT-277649 RP_TC_008.  
+- HT-277648 RP_TC_007.  
+- HT-277647 RP_TC_006.  
+- HT-277645 RP_TC_004.  
+- HT-279438 RP_SC_090.  
+- HT-279436 RP_SC_088.  
+
+Figure description: The three images depict various configurations of parking slots. The first image shows indoor parking spaces with clearly marked parallel slots, highlighted by numeric indicators. The second image shows outdoor parking spaces with broad parking lines for medium to large vehicles. The third image illustrates an organized parking facility with designated slots for parallel parking, emphasizing accessibility and space efficiency.
+Page 53
+14.4.1.3 Angled parking slot with parking line (45°～60°):
+
+Requirement ID: FS-226755  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (19):  
+HT-277651: RP_TC_010  
+HT-279440: RP_SC_092  
+HT-279439: RP_SC_091  
+HT-279418: RP_SC_070  
+HT-279421: RP_SC_073  
+HT-279419: RP_SC_071  
+HT-279415: RP_SC_067  
+HT-279394: RP_SC_046  
+HT-279373: RP_SC_025  
+HT-279370: RP_SC_022  
+HT-279369: RP_SC_021  
+HT-279368: RP_SC_020  
+HT-279353: RP_SC_005  
+
+Description:
+This section illustrates angled parking slots with parking lines ranging between 45° and 60°, depicting a layout optimized for parking in constrained spaces. The displayed images provide visual representations of angled parking scenarios.
+Page 54
+14.4.1.4 Perpendicular parking slot without parking lines:
+
+Requirement ID: FS-226756  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References:  
+- HT-279414 RP_SC_066  
+- HT-279413 RP_SC_065  
+- HT-279408 RP_SC_060  
+- HT-279399 RP_SC_051  
+- HT-279392 RP_SC_044  
+- HT-279391 RP_SC_043  
+- HT-279390 RP_SC_042  
+- HT-279389 RP_SC_041  
+- HT-279383 RP_SC_035  
+- HT-279371 RP_SC_023  
+- HT-279361 RP_SC_013  
+- HT-279358 RP_SC_010  
+- HT-279357 RP_SC_009  
+- HT-279356 RP_SC_008  
+- HT-279349 RP_SC_001
+Page 55
+14.4.1.5 Parallel parking slot without parking lines.
+
+Requirement ID: FS-226757.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0)**  
+No Upstream References.  
+
+**Downstream References (10)**  
+- HT-277654 corresponds to RP_TC_013.  
+- HT-277645 corresponds to RP_TC_004.  
+- HT-279395 corresponds to RP_SC_047.  
+- HT-279386 corresponds to RP_SC_038.  
+- HT-279387 corresponds to RP_SC_039.  
+- HT-279375 corresponds to RP_SC_027.  
+- HT-279372 corresponds to RP_SC_024.  
+- HT-279352 corresponds to RP_SC_004.
+Page 56
+14.4.1.6 Parking slot on slopes ranging from 0 to 8% (Unidirectional slope compatibility):
+
+Requirement ID: FS-226758  
+Type: Functional  
+Status: New  
+
+**Upstream References:**  
+No Upstream References  
+
+**Downstream References:**  
+HT-279376: RP_SC_028  
+
+**No Associations.**
+
+This section describes compatibility with unidirectional slopes for parking slots. The slope range indicated is between 0 and 8 percent. Example visuals show cars parked on slopes with a gradient of approximately 5°.
+Page 57
+14.4.1.7 Open space with parking lines.
+
+Requirement ID: FS-226759  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (14):  
+HT-279425: RP_SC_077  
+HT-279424: RP_SC_076  
+HT-279417: RP_SC_069  
+HT-279412: RP_SC_064  
+HT-279411: RP_SC_063  
+HT-279409: RP_SC_061  
+HT-279386: RP_SC_038  
+HT-279378: RP_SC_030  
+HT-279374: RP_SC_026  
+HT-279372: RP_SC_024  
+HT-279362: RP_SC_014  
+HT-279360: RP_SC_012  
+HT-279359: RP_SC_011  
+HT-279351: RP_SC_003  
+
+No Associations.
+Page 58
+14.4.2 Subsystem Description.
+
+Requirement ID: FS-226760. Type: Functional. Status: New.
+
+Upstream References (0): No Upstream References.
+
+Downstream References (94): 
+- HT-277680 RP_TC_039.
+- HT-277679 RP_TC_038.
+- HT-277675 RP_TC_034.
+- HT-277674 RP_TC_033.
+- HT-277673 RP_TC_032.
+- HT-277672 RP_TC_031.
+- HT-277671 RP_TC_030.
+- HT-277670 RP_TC_029.
+- HT-277667 RP_TC_026.
+- HT-277665 RP_TC_024.
+- HT-277664 RP_TC_023.
+- HT-277663 RP_TC_022.
+- HT-277662 RP_TC_021.
+- HT-277646 RP_TC_005.
+- HT-277645 RP_TC_004.
+- HT-279424 RP_SC_076.
+- HT-279417 RP_SC_069.
+- HT-279412 RP_SC_064.
+- HT-279411 RP_SC_063.
+- HT-279409 RP_SC_061.
+- HT-279386 RP_SC_038.
+
+No Associations.
+Page 59
+14.4.2 Subsystem Description.
+
+Requirement ID: FS-226760.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (94):  
+- HT-277680 RP_TC_039.  
+- HT-277679 RP_TC_038.  
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+- HT-277667 RP_TC_026.  
+- HT-277665 RP_TC_024.  
+- HT-277664 RP_TC_023.  
+- HT-277663 RP_TC_022.  
+- HT-277662 RP_TC_021.  
+- HT-277646 RP_TC_005.  
+- HT-277645 RP_TC_004.  
+- HT-279424 RP_SC_076.  
+- HT-279417 RP_SC_069.  
+- HT-279412 RP_SC_064.  
+- HT-279411 RP_SC_063.  
+- HT-279409 RP_SC_061.  
+- HT-279386 RP_SC_038.  
+- HT-279378 RP_SC_030.  
+- HT-279374 RP_SC_026.  
+- HT-279372 RP_SC_024.  
+- HT-279362 RP_SC_014.  
+- HT-279360 RP_SC_012.  
+- HT-279359 RP_SC_011.  
+- HT-279351 RP_SC_003.  
+- HT-279376 RP_SC_028.  
+- HT-279395 RP_SC_047.  
+- HT-279384 RP_SC_036.  
+- HT-279381 RP_SC_033.  
+- HT-279355 RP_SC_007.  
+- HT-279393 RP_SC_045.  
+- HT-279387 RP_SC_039.  
+- HT-279352 RP_SC_004.  
+- HT-279440 RP_SC_092.  
+- HT-279439 RP_SC_091.  
+- HT-279418 RP_SC_070.  
+- HT-279414 RP_SC_066.  
+- HT-279413 RP_SC_065.  
+- HT-279408 RP_SC_060.  
+- HT-279399 RP_SC_051.  
+- HT-279392 RP_SC_044.  
+- HT-279391 RP_SC_043.
+Page 60
+14.4.2 Subsystem Description.
+
+Requirement ID: FS-226760  
+Type: Functional  
+Status: New  
+
+Upstream References (0): No Upstream References.  
+
+Downstream References (94):  
+HT-277680 RP_TC_039.  
+HT-277679 RP_TC_038.  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277667 RP_TC_026.  
+HT-277665 RP_TC_024.  
+HT-277664 RP_TC_023.  
+HT-277663 RP_TC_022.  
+HT-277662 RP_TC_021.  
+HT-277646 RP_TC_005.  
+HT-277645 RP_TC_004.  
+HT-279424 RP_SC_076.  
+HT-279417 RP_SC_069.  
+HT-279412 RP_SC_064.  
+HT-279411 RP_SC_063.  
+HT-279409 RP_SC_061.  
+HT-279386 RP_SC_038.  
+HT-279378 RP_SC_030.  
+HT-279374 RP_SC_026.  
+HT-279372 RP_SC_024.  
+HT-279362 RP_SC_014.  
+HT-279360 RP_SC_012.  
+HT-279359 RP_SC_011.  
+HT-279351 RP_SC_003.  
+HT-279376 RP_SC_028.  
+HT-279395 RP_SC_047.  
+HT-279384 RP_SC_036.  
+HT-279381 RP_SC_033.  
+HT-279355 RP_SC_007.  
+HT-279393 RP_SC_045.  
+HT-279387 RP_SC_039.  
+HT-279352 RP_SC_004.  
+HT-279440 RP_SC_092.  
+HT-279439 RP_SC_091.  
+HT-279418 RP_SC_070.  
+HT-279414 RP_SC_066.  
+HT-279413 RP_SC_065.  
+HT-279408 RP_SC_060.  
+HT-279399 RP_SC_051.  
+HT-279392 RP_SC_044.  
+HT-279391 RP_SC_043.  
+HT-279390 RP_SC_042.  
+HT-279389 RP_SC_041.  
+HT-279383 RP_SC_035.  
+HT-279371 RP_SC_023.  
+HT-279361 RP_SC_013.  
+HT-279358 RP_SC_010.  
+HT-279357 RP_SC_009.  
+HT-279356 RP_SC_008.  
+HT-279349 RP_SC_001.  
+HT-279438 RP_SC_090.  
+HT-279436 RP_SC_088.  
+HT-279421 RP_SC_073.  
+HT-279419 RP_SC_071.  
+HT-279415 RP_SC_067.  
+HT-279394 RP_SC_046.  
+HT-279373 RP_SC_025.  
+HT-279370 RP_SC_022.  
+HT-279369 RP_SC_021.  
+HT-279368 RP_SC_020.  
+HT-279353 RP_SC_005.  
+HT-279437 RP_SC_089.  
+HT-279435 RP_SC_087.  
+HT-279422 RP_SC_074.  
+HT-279416 RP_SC_068.
+Page 61
+14.4.2 Subsystem Description.
+
+Requirement ID: FS-226760.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (94):  
+- HT-277680: RP_TC_039.  
+- HT-277679: RP_TC_038.  
+- HT-277675: RP_TC_034.  
+- HT-277674: RP_TC_033.  
+- HT-277673: RP_TC_032.  
+- HT-277672: RP_TC_031.  
+- HT-277671: RP_TC_030.  
+- HT-277670: RP_TC_029.  
+- HT-277667: RP_TC_026.  
+- HT-277665: RP_TC_024.  
+- HT-277664: RP_TC_023.  
+- HT-277663: RP_TC_022.  
+- HT-277662: RP_TC_021.  
+- HT-277646: RP_TC_005.  
+- HT-277645: RP_TC_004.  
+- HT-279424: RP_SC_076.  
+- HT-279417: RP_SC_069.  
+- HT-279412: RP_SC_064.  
+- HT-279411: RP_SC_063.  
+- HT-279409: RP_SC_061.  
+- HT-279386: RP_SC_038.  
+- HT-279378: RP_SC_030.  
+- HT-279374: RP_SC_026.  
+- HT-279372: RP_SC_024.  
+- HT-279362: RP_SC_014.  
+- HT-279360: RP_SC_012.  
+- HT-279359: RP_SC_011.  
+- HT-279351: RP_SC_003.  
+- HT-279376: RP_SC_028.  
+- HT-279395: RP_SC_047.  
+- HT-279384: RP_SC_036.  
+- HT-279381: RP_SC_033.  
+- HT-279355: RP_SC_007.  
+- HT-279393: RP_SC_045.  
+- HT-279387: RP_SC_039.  
+- HT-279352: RP_SC_004.  
+- HT-279440: RP_SC_092.  
+- HT-279439: RP_SC_091.  
+- HT-279418: RP_SC_070.  
+- HT-279414: RP_SC_066.  
+- HT-279413: RP_SC_065.  
+- HT-279408: RP_SC_060.  
+- HT-279399: RP_SC_051.  
+- HT-279392: RP_SC_044.  
+- HT-279391: RP_SC_043.  
+- HT-279390: RP_SC_042.  
+- HT-279389: RP_SC_041.  
+- HT-279383: RP_SC_035.  
+- HT-279371: RP_SC_023.  
+- HT-279361: RP_SC_013.  
+- HT-279358: RP_SC_010.  
+- HT-279357: RP_SC_009.  
+- HT-279356: RP_SC_008.  
+- HT-279349: RP_SC_001.  
+- HT-279438: RP_SC_090.  
+- HT-279436: RP_SC_088.  
+- HT-279421: RP_SC_073.  
+- HT-279419: RP_SC_071.  
+- HT-279415: RP_SC_067.  
+- HT-279394: RP_SC_046.  
+- HT-279373: RP_SC_025.  
+- HT-279370: RP_SC_022.  
+- HT-279369: RP_SC_021.  
+- HT-279368: RP_SC_020.  
+- HT-279353: RP_SC_005.  
+- HT-279437: RP_SC_089.  
+- HT-279435: RP_SC_087.  
+- HT-279422: RP_SC_074.  
+- HT-279416: RP_SC_068.  
+- HT-279380: RP_SC_032.  
+- HT-279366: RP_SC_018.  
+- HT-279365: RP_SC_017.  
+- HT-279364: RP_SC_016.  
+- HT-279363: RP_SC_015.  
+- HT-279354: RP_SC_006.  
+- HT-279350: RP_SC_002.  
+- HT-279423: RP_SC_075.  
+- HT-279420: RP_SC_072.  
+- HT-279410: RP_SC_062.  
+- HT-279407: RP_SC_059.  
+- HT-279406: RP_SC_058.  
+- HT-279404: RP_SC_056.  
+- HT-279403: RP_SC_055.  
+- HT-279402: RP_SC_054.  
+- HT-279401: RP_SC_053.  
+- HT-279400: RP_SC_052.  
+- HT-279398: RP_SC_050.  
+- HT-279397: RP_SC_049.  
+- HT-279396: RP_SC_048.  
+- HT-279388: RP_SC_040.  
+- HT-279385: RP_SC_037.  
+- HT-279382: RP_SC_034.  
+- HT-279379: RP_SC_031.
+Page 62
+14.4.2 Subsystem Description.
+
+The remote parking assist system is developed on the basis of the FAPA system. The system remotely controls the vehicle through C-APP, allowing users to control parking outside the vehicle. This method can effectively solve the embarrassing problem of the driver being unable to enter or exit the vehicle in tight parking spots.
+
+Remote parking has remote parking in function, remote parking out function, and remote straight move function. See the table below for details:
+
+System: The Remote Parking Assist  
+Sub System: Remote parking in  
+Function Description:  
+After the user finds a parking slot while driving the vehicle, the user needs to connect vehicular communication. After the connection is successful, the user can control the vehicle through the C-APP after exiting the vehicle and park the vehicle in the parking space (perpendicular, parallel, angled). The system will take over control of the brake and throttle, steering, and gear shifting.  
+
+Sub System: Remote parking out  
+Function Description:  
+After the user opens the C-APP and connects the vehicular communication, the vehicle is first remotely started and enters the parking out function. After that, the user can control the vehicle to park from the parking space (parallel, perpendicular, angled) through the C-APP. The system takes over control of the vehicle's power, throttle, steering, and gear shifting.  
+
+Sub System: Remote straight parking  
+Function Description:  
+After the user opens the C-APP and connects the vehicular communication, the vehicle will be started remotely. After entering the remote straight parking function, the user can control the vehicle to move straight forward or backward through the C-APP.
+
+14.4.3 Function Definition.
+Page 63
+Requirement ID: FS-226761.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (16):  
+- HT-277680: RP_TC_039.  
+- HT-277679: RP_TC_038.  
+- HT-277675: RP_TC_034.  
+- HT-277674: RP_TC_033.  
+- HT-277673: RP_TC_032.  
+- HT-277672: RP_TC_031.  
+- HT-277671: RP_TC_030.  
+- HT-277670: RP_TC_029.  
+- HT-277667: RP_TC_026.  
+- HT-277665: RP_TC_024.  
+- HT-277664: RP_TC_023.  
+- HT-277663: RP_TC_022.  
+- HT-277662: RP_TC_021.  
+- HT-277646: RP_TC_005.  
+- HT-277645: RP_TC_004.  
+- HT-279375: RP_SC_027.  
+
+No Associations: None.  
+
+14.4.3.1 Remote Parking  
+
+Requirement ID: FS-226762.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.
+Page 64
+Requirement ID: FS-226761. Type: Functional. Status: New. This requirement has zero upstream references.
+
+Downstream References (16):
+1. HT-277680 RP_TC_039
+2. HT-277679 RP_TC_038
+3. HT-277675 RP_TC_034
+4. HT-277674 RP_TC_033
+5. HT-277673 RP_TC_032
+6. HT-277672 RP_TC_031
+7. HT-277671 RP_TC_030
+8. HT-277670 RP_TC_029
+9. HT-277667 RP_TC_026
+10. HT-277665 RP_TC_024
+11. HT-277664 RP_TC_023
+12. HT-277663 RP_TC_022
+13. HT-277662 RP_TC_021
+14. HT-277646 RP_TC_005
+15. HT-277645 RP_TC_004
+16. HT-279375 RP_SC_027.
+
+There are no associations.
+
+---
+
+14.4.3.1 Remote Parking.
+
+Requirement ID: FS-226762. Type: Functional. Status: New. This requirement has zero upstream references.
+
+Downstream References (86):
+1. HT-277675 RP_TC_034
+2. HT-277674 RP_TC_033
+3. HT-277673 RP_TC_032
+4. HT-277672 RP_TC_031
+5. HT-277671 RP_TC_030
+6. HT-277670 RP_TC_029
+7. HT-277661 RP_TC_020
+8. HT-277660 RP_TC_019
+9. HT-277659 RP_TC_018
+10. HT-277658 RP_TC_017
+11. HT-277657 RP_TC_016
+12. HT-277656 RP_TC_015
+13. HT-277655 RP_TC_014
+14. HT-277654 RP_TC_013
+15. HT-277645 RP_TC_004
+16. HT-279425 RP_SC_077
+17. HT-279424 RP_SC_076
+18. HT-279417 RP_SC_069
+19. HT-279412 RP_SC_064
+20. HT-279411 RP_SC_063
+21. HT-279409 RP_SC_061
+22. HT-279386 RP_SC_038
+23. HT-279378 RP_SC_030.
+
+There are no associations.
+Page 65
+Requirement ID: FS-226761.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (16):  
+- HT-277680 RP_TC_039.  
+- HT-277679 RP_TC_038.  
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+- HT-277667 RP_TC_026.  
+- HT-277665 RP_TC_024.  
+- HT-277664 RP_TC_023.  
+- HT-277663 RP_TC_022.  
+- HT-277662 RP_TC_021.  
+- HT-277646 RP_TC_005.  
+- HT-277645 RP_TC_004.  
+- HT-279375 RP_SC_027.  
+
+No Associations: --
+Page 66
+Requirement ID: FS-226761. Type: Functional. Status: New.
+
+No Upstream References.
+
+Downstream References (16):
+1. HT-277680: RP_TC_039.
+2. HT-277679: RP_TC_038.
+3. HT-277675: RP_TC_034.
+4. HT-277674: RP_TC_033.
+5. HT-277673: RP_TC_032.
+6. HT-277672: RP_TC_031.
+7. HT-277671: RP_TC_030.
+8. HT-277670: RP_TC_029.
+9. HT-277667: RP_TC_026.
+10. HT-277665: RP_TC_024.
+11. HT-277664: RP_TC_023.
+12. HT-277663: RP_TC_022.
+13. HT-277662: RP_TC_021.
+14. HT-277646: RP_TC_005.
+15. HT-277645: RP_TC_004.
+16. HT-279375: RP_SC_027.
+
+No Associations.
+
+14.4.3.1 Remote Parking.
+
+Requirement ID: FS-226762. Type: Functional. Status: New.
+
+No Upstream References.
+
+Downstream References (86):
+1. HT-277675: RP_TC_034.
+2. HT-277674: RP_TC_033.
+3. HT-277673: RP_TC_032.
+4. HT-277672: RP_TC_031.
+5. HT-277671: RP_TC_030.
+6. HT-277670: RP_TC_029.
+7. HT-277661: RP_TC_020.
+8. HT-277660: RP_TC_019.
+9. HT-277659: RP_TC_018.
+10. HT-277658: RP_TC_017.
+11. HT-277657: RP_TC_016.
+12. HT-277656: RP_TC_015.
+13. HT-277655: RP_TC_014.
+14. HT-277654: RP_TC_013.
+15. HT-277645: RP_TC_004.
+16. HT-279425: RP_SC_077.
+17. HT-279424: RP_SC_076.
+18. HT-279417: RP_SC_069.
+19. HT-279412: RP_SC_064.
+20. HT-279411: RP_SC_063.
+21. HT-279409: RP_SC_061.
+22. HT-279386: RP_SC_038.
+23. HT-279378: RP_SC_030.
+24. HT-279372: RP_SC_024.
+25. HT-279362: RP_SC_014.
+26. HT-279360: RP_SC_012.
+27. HT-279359: RP_SC_011.
+28. HT-279351: RP_SC_003.
+29. HT-279376: RP_SC_028.
+30. HT-279395: RP_SC_047.
+31. HT-279384: RP_SC_036.
+32. HT-279381: RP_SC_033.
+33. HT-279367: RP_SC_019.
+34. HT-279355: RP_SC_007.
+35. HT-279393: RP_SC_045.
+36. HT-279387: RP_SC_039.
+37. HT-279375: RP_SC_027.
+38. HT-279352: RP_SC_004.
+39. HT-279440: RP_SC_092.
+40. HT-279439: RP_SC_091.
+41. HT-279418: RP_SC_070.
+42. HT-279414: RP_SC_066.
+43. HT-279413: RP_SC_065.
+44. HT-279392: RP_SC_044.
+45. HT-279391: RP_SC_043.
+46. HT-279390: RP_SC_042.
+47. HT-279389: RP_SC_041.
+48. HT-279383: RP_SC_035.
+49. HT-279371: RP_SC_023.
+50. HT-279361: RP_SC_013.
+51. HT-279358: RP_SC_010.
+52. HT-279357: RP_SC_009.
+53. HT-279356: RP_SC_008.
+54. HT-279349: RP_SC_001.
+55. HT-279438: RP_SC_090.
+56. HT-279436: RP_SC_088.
+57. HT-279421: RP_SC_073.
+58. HT-279419: RP_SC_071.
+59. HT-279415: RP_SC_067.
+60. HT-279394: RP_SC_046.
+61. HT-279373: RP_SC_025.
+62. HT-279370: RP_SC_022.
+63. HT-279369: RP_SC_021.
+64. HT-279368: RP_SC_020.
+65. HT-279353: RP_SC_005.
+66. HT-279437: RP_SC_089.
+67. HT-279435: RP_SC_087.
+68. HT-279422: RP_SC_074.
+69. HT-279416: RP_SC_068.
+70. HT-279380: RP_SC_032.
+71. HT-279366: RP_SC_018.
+72. HT-279365: RP_SC_017.
+73. HT-279364: RP_SC_016.
+74. HT-279363: RP_SC_015.
+75. HT-279354: RP_SC_006.
+76. HT-279350: RP_SC_002.
+77. HT-279423: RP_SC_075.
+78. HT-279420: RP_SC_072.
+79. HT-279410: RP_SC_062.
+80. HT-279407: RP_SC_059.
+81. HT-279406: RP_SC_058.
+82. HT-279404: RP_SC_056.
+83. HT-279403: RP_SC_055.
+84. HT-279402: RP_SC_054.
+85. HT-279401: RP_SC_053.
+86. HT-279400: RP_SC_052.
+
+No Associations.
+Page 67
+HT-279365: RP_SC_017.  
+HT-279364: RP_SC_016.  
+HT-279363: RP_SC_015.  
+HT-279354: RP_SC_006.  
+HT-279350: RP_SC_002.  
+HT-279427: RP_SC_079.  
+HT-279426: RP_SC_078.  
+HT-279423: RP_SC_075.  
+HT-279410: RP_SC_062.  
+HT-279398: RP_SC_050.  
+HT-279397: RP_SC_049.  
+HT-279396: RP_SC_048.  
+HT-279385: RP_SC_037.  
+HT-279382: RP_SC_034.  
+HT-279377: RP_SC_029.  
+
+No Associations.  
+The parking slot search process of the remote parking function is shared with the FAPA system. This article will describe it after the user clicks the "RP parking" button on MHU.  
+
+14.4.3.1.1 Step 1.  
+
+Requirement ID: FS-226763.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (15):  
+HT-277675: RP_TC_034.
+Page 68
+Requirement ID: FS-226764.  
+Type: Functional.  
+Status: New.  
+
+No Associations.  
+After the user switches the gear to the P gear, the system will send the signal "APA_MHU_DisplaystartbuttonReq = 0x1: FAPA Request" to the MHU. The MHU will display the parking start selection button and remind the user to release the brake and steering wheel.  
+
+Downstream References (15):  
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+- HT-277661 RP_TC_020.  
+- HT-277660 RP_TC_019.  
+- HT-277659 RP_TC_018.  
+- HT-277658 RP_TC_017.  
+- HT-277657 RP_TC_016.  
+- HT-277656 RP_TC_015.  
+- HT-277655 RP_TC_014.  
+- HT-277654 RP_TC_013.  
+- HT-277645 RP_TC_004.
+Page 69
+HT-277673 RP_TC_032  
+HT-277672 RP_TC_031  
+HT-277671 RP_TC_030  
+HT-277670 RP_TC_029  
+HT-277661 RP_TC_020  
+HT-277660 RP_TC_019  
+HT-277659 RP_TC_018  
+HT-277658 RP_TC_017  
+HT-277657 RP_TC_016  
+HT-277656 RP_TC_015  
+HT-277655 RP_TC_014  
+HT-277654 RP_TC_013  
+HT-277645 RP_TC_004  
+
+No Associations.  
+
+After the user clicks the RP function start button on the HMI, the MHU will send the signal  
+“MHU_RPAParkingControlReq = 1:request” and “MHU_APA_ParkingStartReq = 2 'request RPA'” to the T-box and RP to request the RP function to be turned on.  
+
+**Figure Description:**  
+This figure demonstrates the activation of the remote parking function. The user exits the vehicle and continues Auto Park control from their phone. The HMI indicates that the gear is in "P" and visually prompts the user to activate the parking function.
+Page 70
+14.4.3.1.3 Step 3.
+
+Requirement ID: FS-226765.  
+Type: Functional.  
+Status: New.  
+
+No Upstream References.  
+Downstream References (15):  
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+- HT-277661 RP_TC_020.  
+- HT-277660 RP_TC_019.  
+- HT-277659 RP_TC_018.  
+- HT-277658 RP_TC_017.  
+- HT-277657 RP_TC_016.  
+- HT-277656 RP_TC_015.  
+- HT-277655 RP_TC_014.  
+- HT-277654 RP_TC_013.  
+- HT-277645 RP_TC_004.  
+
+No Associations.  
+After the RP is selected, it cannot be switched back to the FAPA function. The RP starts the RP function after receiving the MHU signal “MHU_APA_ParkingStartReq = 2 "request RPA".”  
+
+14.4.3.1.4 Step 4.
+Page 71
+14.4.3.1.3 Step 3.
+
+After the RP is selected, it cannot be switched back to the FAPA function. The RP starts the RP function after receiving the MHU signal “MHU_APA_ParkingStartReq = 2 'request RPA'”。
+
+14.4.3.1.4 Step 4.
+
+Requirement ID: FS-226766.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+Downstream References (15): 
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+- HT-277661 RP_TC_020.  
+- HT-277660 RP_TC_019.  
+- HT-277659 RP_TC_018.  
+- HT-277658 RP_TC_017.  
+- HT-277657 RP_TC_016.  
+- HT-277656 RP_TC_015.  
+- HT-277655 RP_TC_014.  
+- HT-277654 RP_TC_013.  
+- HT-277645 RP_TC_004.  
+
+No Associations.  
+
+After receiving the signal, T-box actively establishes a handshake with the RP. For the handshake process, see chapter 3.4.4. After the handshake is completed, the user is requested to open the C-APP and get out of the car with the key.
+
+14.4.3.1.5 Step 5.
+
+Requirement ID: FS-226767.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+Downstream References (15): 
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+- HT-277661 RP_TC_020.  
+- HT-277660 RP_TC_019.  
+- HT-277659 RP_TC_018.  
+- HT-277658 RP_TC_017.  
+- HT-277657 RP_TC_016.  
+- HT-277656 RP_TC_015.  
+- HT-277655 RP_TC_014.  
+- HT-277654 RP_TC_013.  
+- HT-277645 RP_TC_004.  
+
+No Associations.  
+
+After receiving the signal, T-box actively establishes a handshake with the RP. For the handshake process, see chapter 3.4.4. After the handshake is completed, the user is requested to open the C-APP and get out of the car with the key.
+Page 72
+14.4.3.1.6 Step 6.
+
+Requirement ID: FS-226768.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0):**
+No Upstream References.  
+
+**Downstream References (15):**  
+- HT-277675: RP_TC_034.  
+- HT-277674: RP_TC_033.  
+- HT-277673: RP_TC_032.  
+- HT-277672: RP_TC_031.  
+- HT-277671: RP_TC_030.  
+- HT-277670: RP_TC_029.  
+- HT-277661: RP_TC_020.  
+- HT-277660: RP_TC_019.  
+- HT-277659: RP_TC_018.  
+- HT-277658: RP_TC_017.  
+- HT-277657: RP_TC_016.  
+- HT-277656: RP_TC_015.  
+- HT-277655: RP_TC_014.  
+- HT-277654: RP_TC_013.  
+- HT-277645: RP_TC_004.  
+
+**No Associations:**  
+After opening the APP, the user needs to select the "remote control parking in" function button. Then, C-APP will send the "remote control parking in function activation information" to the T-box. The T-box will send the signal "MHU_RPA_FuncMode = 0x1: parking in" to the RP after receiving the APP signal.
+Page 73
+**Downstream References (14):**
+- HT-277675 RP_TC_034
+- HT-277674 RP_TC_033
+- HT-277673 RP_TC_032
+- HT-277672 RP_TC_031
+- HT-277671 RP_TC_030
+- HT-277670 RP_TC_029
+- HT-277661 RP_TC_020
+- HT-277660 RP_TC_019
+- HT-277659 RP_TC_018
+- HT-277658 RP_TC_017
+- HT-277657 RP_TC_016
+- HT-277655 RP_TC_014
+- HT-277654 RP_TC_013
+- HT-277645 RP_TC_004
+
+**No Associations:**
+After the RP system receives the T-box's remote parking in function start signal, the RP will conduct a system self-check to determine whether the current state meets the parking conditions. The check conditions are as follows:
+1. Check whether the four doors, trunk and engine hood are closed.
+2. Whether the gear is in P gear.
+3. Whether the tire pressure is normal.
+4. Whether the slope meets the requirements.
+5. Whether the system and related systems are faulty.
+
+If there is no problem in the RP system check, no fault signal will be sent to the T-box.
+
+If the inspection finds that the requirements are not met, the RP will send the signal RPA_ReqInfoDispTxt2 = xxx to the T-box. After the T-box receives the signal, it will be forwarded to the C-APP, and the C-APP will display the corresponding information to the user.
+Page 74
+14.4.3.1.7 Step 7.
+
+Requirement ID: FS-226774.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (14):  
+HT-277675 - RP_TC_034.  
+HT-277674 - RP_TC_033.  
+HT-277673 - RP_TC_032.  
+HT-277672 - RP_TC_031.  
+HT-277671 - RP_TC_030.  
+HT-277670 - RP_TC_029.  
+HT-277661 - RP_TC_020.  
+HT-277660 - RP_TC_019.  
+HT-277659 - RP_TC_018.  
+HT-277658 - RP_TC_017.  
+HT-277657 - RP_TC_016.  
+HT-277656 - RP_TC_015.  
+HT-277655 - RP_TC_014.  
+HT-277654 - RP_TC_013.  
+
+No Associations.  
+When the user long presses "parking start" in the C-APP, C-APP will send an instruction to T-box, and T-box will send "MHU_RPAParkingstartReq = 1:request" to ADCU after receiving the instruction from C-APP. ADCU handshakes with EPS, VCU, IDB after receiving the T-box signal, and then the vehicle enters the control phase.
+Page 75
+14.4.3.1.8 Step 8.
+
+Requirement ID: FS-226775.  
+Type: Functional.  
+Status: New.  
+
+No Upstream References.  
+
+Downstream References (14):  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277661 RP_TC_020.  
+HT-277660 RP_TC_019.  
+HT-277659 RP_TC_018.  
+HT-277658 RP_TC_017.  
+HT-277657 RP_TC_016.  
+HT-277656 RP_TC_015.  
+HT-277655 RP_TC_014.  
+HT-277654 RP_TC_013.  
+
+No Associations.  
+When the user releases the button, the C-APP stops sending the parking start signal, and the T-box also stops sending the signal. After the ADCU detects that there is no parking start command, the parking will be suspended.  
+
+14.4.3.1.9 Step 9.
+
+Requirement ID: FS-226776.  
+Type: Functional.  
+Status: New.
+Page 76
+14.4.3.1.10 Step 10.
+
+Requirement ID: FS-226777.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (8):  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277661 RP_TC_020.  
+HT-277660 RP_TC_019.  
+
+No Associations.  
+During the control phase, ADCU will send the signal `ADAS_BCM_IndicatorlightReq = 0x3: Hazard` to BCM, requesting BCM to turn on the hazard warning light.
+Page 77
+14.4.3.1.10 Step 10.
+
+Requirement ID: FS-226778.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+None.
+
+Downstream References (16):  
+- HT-277660: RP_TC_019.  
+- HT-277659: RP_TC_018.  
+- HT-277658: RP_TC_017.  
+- HT-277657: RP_TC_016.  
+- HT-277656: RP_TC_015.  
+- HT-277655: RP_TC_014.  
+- HT-277654: RP_TC_013.  
+
+No Associations.  
+When the RP pause condition is triggered, the RP system will control the vehicle to stop and control the brake system to maintain pressure continuously. RP will send a signal RP_ReqInfoDispTxt1 = xxx to the T-box to inform the user that the parking is paused. At this time, the C-APP needs to inhibit sending start parking instructions and waits for the user to eliminate the trigger condition. The suspend time is limited by the overall parking time.
+
+RP suspension conditions:
+
+14.4.3.1.10.1 All FAPA suspension conditions (except seat belts).
+Page 78
+14.4.3.1.10.2 Release the "Parking Start" button.
+
+Requirement ID: FS-226779.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0): No Upstream References.  
+Downstream References (1):  
+HT-277661 RP_TC_020.  
+
+No Associations: --.  
+
+14.4.3.1.11 Step 11.
+Page 79
+14.4.3.1.11 Step 11.
+
+Requirement ID: FS-226780.  
+Type: Functional.  
+Status: New.  
+
+No Upstream References.  
+
+Downstream References:  
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+
+No Associations.  
+RP will automatically detect whether the system pause condition has been eliminated. When the user eliminates the interruption condition, RP will automatically stop sending the pause signal. C-APP releases the inhibition of the start command, and the user needs to press and hold the parking start command again to resume Parking.  
+
+14.4.3.1.12 Step 12.
+
+Requirement ID: FS-226781.  
+Type: Functional.  
+Status: New.  
+
+No Upstream References.  
+
+Downstream References:  
+- HT-277675 RP_TC_034.  
+- HT-277674 RP_TC_033.  
+- HT-277673 RP_TC_032.  
+- HT-277672 RP_TC_031.  
+- HT-277671 RP_TC_030.  
+- HT-277670 RP_TC_029.  
+
+No Associations.  
+After the RP termination condition is triggered, the RP will control the vehicle to stop and send the signal RP_ReqInfoDispTxt1 = xxx to the T-box, requesting the corresponding information to be displayed.
+Page 80
+14.4.3.1.12 Step 12.
+
+Requirement ID: FS-226780.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References (4):**  
+- HT-277675: RP_TC_034.
+- HT-277674: RP_TC_033.
+- HT-277673: RP_TC_032.
+- HT-277672: RP_TC_031.
+
+**No Associations:**  
+RP will automatically detect whether the system pause condition has been eliminated. When the user eliminates the interruption condition, RP will automatically stop sending the pause signal, C-APP releases the inhibition of the start command, and the user needs to press and hold the parking start command again to resume Parking.  
+
+---
+
+14.4.3.1.12.1 All FAPA termination conditions.
+
+Requirement ID: FS-226782.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References (5):**  
+- HT-277674: RP_TC_033.
+- HT-277673: RP_TC_032.
+- HT-277672: RP_TC_031.
+- HT-277671: RP_TC_030.
+- HT-277670: RP_TC_029.
+
+**No Associations:**  
+--
+
+---
+
+14.4.3.1.12.2 Remote communication is disconnected "MHU_RemoteconnectionSts = 0:Disconnect".
+
+Requirement ID: FS-226783.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References (1):**  
+- HT-277675: RP_TC_034.
+
+**No Associations:**  
+--
+Page 81
+14.4.3.1.13 Step 13:  
+Before the RP is completed, it will request to be put into the P gear and pull up the EPB, and then send a parking completion signal to the outside.  
+
+Requirement ID: FS-226784  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (13):  
+HT-277675 (RP_TC_034)  
+HT-277674 (RP_TC_033)  
+HT-277673 (RP_TC_032)  
+HT-277672 (RP_TC_031)  
+HT-277671 (RP_TC_030)  
+HT-277670 (RP_TC_029)  
+HT-277661 (RP_TC_020)  
+HT-277659 (RP_TC_018)  
+HT-277658 (RP_TC_017)  
+HT-277657 (RP_TC_016)  
+HT-277656 (RP_TC_015)  
+HT-277655 (RP_TC_014)  
+HT-277654 (RP_TC_013)  
+
+No Associations
+Page 82
+14.4.3.1.14 Step 14.
+
+After the RP is completed, it will switch its status to RP_Status = 0x4: Finished, and disconnect the handshake with the T-box after 3 cycles.
+
+Requirement ID: FS-226785.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (14):  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277661 RP_TC_020.  
+HT-277659 RP_TC_018.  
+HT-277658 RP_TC_017.  
+HT-277657 RP_TC_016.  
+HT-277656 RP_TC_015.  
+HT-277655 RP_TC_014.  
+HT-277654 RP_TC_013.  
+HT-277645 RP_TC_004.  
+
+No Associations.
+
+14.4.3.1.15 Step 15.
+
+Requirement ID: FS-226786.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (14):  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277661 RP_TC_020.  
+HT-277659 RP_TC_018.  
+HT-277658 RP_TC_017.  
+HT-277657 RP_TC_016.  
+HT-277656 RP_TC_015.  
+HT-277655 RP_TC_014.  
+HT-277654 RP_TC_013.  
+HT-277645 RP_TC_004.  
+
+No Associations.
+Page 83
+14.4.3.1.15 Step 15.
+
+Requirement ID: FS-226786.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+No Upstream References.  
+
+Downstream References (14):  
+HT-277675 RP_TC_034.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277672 RP_TC_031.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277661 RP_TC_020.  
+HT-277659 RP_TC_018.  
+HT-277658 RP_TC_017.  
+HT-277657 RP_TC_016.  
+HT-277656 RP_TC_015.  
+HT-277655 RP_TC_014.  
+HT-277654 RP_TC_013.  
+HT-277645 RP_TC_004.  
+
+No Associations.  
+There should be an "end" button on the C-APP terminal. When the user clicks the "end" button at any time during the RP control process, C-APP will send a parking exit instruction to T-box. The T-box will then send the signal "MHU_RPA_QuitReq = 1:request exit." RP will immediately interrupt the handshake with the T-box after receiving the signal, control the vehicle to stop at the same time, put in P gear, pull up the EPB, and finally disconnect the handshake with all actuators. The RP ends.
+
+14.4.3.2 Remote Parking Out trigger on MHU.
+
+Requirement ID: FS-226787.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+No Upstream References.  
+
+Downstream References (19):  
+HT-277646 RP_TC_005.  
+
+No Associations.  
+--
+Page 84
+14.4.3.2 Remote Parking Out trigger on MHU.
+
+Requirement ID: FS-226787.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (19):  
+HT-279408: RP_SC_060.  
+HT-279399: RP_SC_051.  
+HT-279434: RP_SC_086.  
+HT-279432: RP_SC_084.  
+HT-279431: RP_SC_083.  
+HT-279430: RP_SC_082.  
+HT-279429: RP_SC_081.  
+HT-279428: RP_SC_080.  
+HT-279420: RP_SC_072.  
+HT-279410: RP_SC_062.  
+HT-279407: RP_SC_059.  
+HT-279406: RP_SC_058.  
+HT-279405: RP_SC_057.  
+HT-279404: RP_SC_056.  
+HT-279403: RP_SC_055.  
+HT-279402: RP_SC_054.  
+HT-279401: RP_SC_053.  
+HT-279400: RP_SC_052.  
+
+No Associations.  
+--  
+
+14.4.3.2.1 Step 1.
+
+Requirement ID: FS-226788.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References: Not specified.  
+
+No Associations.  
+--
+Page 85
+Requirement ID: FS-226788  
+Type: Functional  
+Status: New  
+
+Downstream References (1)  
+HT-277646 RP_TC_005  
+
+No Associations.  
+When the user switches the gear to the P gear, the system will send the signal "APA_MHU_DisplaystartbuttonReq = 0x1: FAPA Request" to the MHU, let the MHU display the parking start selection button and remind the user to release the brake and steering wheel.
+
+---
+
+14.4.3.2.2 Step 2  
+
+Requirement ID: FS-226789  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277646 RP_TC_005  
+
+No Associations.  
+When the user clicks the remote parking start button on the HMI, the MHU will send the signal "MHU_RPAParkingControlReq = 1:request" to the T-box and ADCU to request the RP function to be turned on.
+
+---
+
+14.4.3.2.3 Step 3  
+
+Requirement ID: FS-226790  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (1)  
+HT-277646 RP_TC_005  
+
+No Associations.  
+After receiving the MHU signal, the RP will send "APA_MHU_DisplaystartbuttonReq = 2: RP Request" to the MHU, so that the MHU will display the button in the figure below.
+Page 86
+14.4.3.2.4 Step 4.
+
+Requirement ID: FS-226791.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0): No Upstream References.  
+Downstream References (1): HT-277646 (RP_TC_005).  
+
+No Associations.  
+After the RP is selected, it cannot be switched back to the FAPA function. The RP will start the RP function after receiving the MHU signal "MHU_RPAParkingControlReq = 1:request".  
+
+14.4.3.2.5 Step 5.
+
+Requirement ID: FS-226792.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0): No Upstream References.  
+Downstream References (1): HT-277646 (RP_TC_005).  
+
+No Associations.
+Page 87
+After receiving the signal, T-box actively establishes a handshake with the RP. For the handshake process, see Chapter 3.4.4. After the handshake is completed, the user is requested to open the C-APP and get out of the car with the key.
+
+### 14.4.3.2.6 Step 6
+**Requirement ID:** FS-226793  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (1):**  
+- HT-277646, RP_TC_005  
+
+**No Associations:**  
+After the user opens the APP, the user needs to select the "remote control parking out" function button, and then the C-APP will send the "remote parking out function activation information" to the T-box.
+
+### 14.4.3.2.7 Step 7
+**Requirement ID:** FS-226794  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (1):**  
+- HT-277646, RP_TC_005  
+
+**No Associations:**  
+When the vehicle is in the activated state, that is "VCU_HV_DRVsystem_status = 1 Normal," the T-box will directly send the signal "MHU_RPA_FuncMode = 0x2: parking out" to the RP.
+
+### 14.4.3.2.8 Step 8
+**Requirement ID:** FS-226795  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References
+Page 88
+14.4.3.2.8 Step 8  
+Requirement ID: FS-226795  
+Type: Functional  
+Status: New  
+
+Downstream References (1):  
+HT-277646 RP_TC_005  
+
+**No Associations**  
+After the RP system receives the T-box's remote parking out function start signal, the RP will conduct a system self-check to determine whether the current state meets the parking conditions. The check conditions are as follows:  
+1. Check whether the four doors, trunk, and engine hood are closed.  
+2. Whether the gear is in P gear.  
+3. Whether the tire pressure is normal.  
+4. Whether the slope meets the requirements.  
+5. Whether the system and related systems are faulty.  
+
+If there is no problem in the RP system check, no fault signal will be sent to T-box.  
+
+If the inspection finds that the requirements are not met, the RP will send the signal "RPA_ReqInfoDispTxt2 = xxx" to the T-box. After the T-box receives the signal, it will be forwarded to the C-APP, and the C-APP will display the corresponding information to the user.  
+
+---
+
+14.4.3.2.9 Step 9  
+Requirement ID: FS-226801  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+No Downstream References  
+
+**No Associations**  
+When the user long presses "parking start" in the C-APP, C-APP will send an instruction to T-box, and T-box will send "MHU_RPAParkingstartReq = 1:request" to ADCU after receiving the instruction from C-APP. ADCU handshakes with EPS, VCU, IDB after receiving the T-box signal, and then the vehicle enters the control phase.  
+
+---
+
+14.4.3.2.10 Step 10  
+Requirement ID: FS-226802  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+No Downstream References  
+
+**No Associations**
+Page 89
+When the user releases the button, the C-APP stops sending the parking start signal, and the T-box also stops sending the signal. After the ADCU detects that there is no parking start command, the parking will be suspended.
+
+### 14.4.3.2.11 Step 11
+#### Requirement ID:
+FS-226803  
+#### Type:  
+Functional  
+#### Status:  
+New  
+#### Upstream References (0):  
+No Upstream References  
+#### Downstream References (1):  
+HT-277646  
+RP_TC_005  
+#### No Associations:  
+No relevant associations are listed.  
+
+During the control phase, ADCU will send the signal `ADAS_BCM_IndicatorlightReq = 0x3: Hazard` to BCM, requesting BCM to turn on the hazard warning light.
+
+### 14.4.3.2.12 Step 12
+#### Requirement ID:
+FS-226804  
+#### Type:  
+Functional  
+#### Status:  
+New  
+#### Upstream References (0):  
+No Upstream References  
+#### Downstream References (0):  
+No Downstream References  
+#### No Associations:  
+No relevant associations are listed.  
+
+When the RP pause condition is triggered, the RP system will control the vehicle to stop and control the brake system to maintain pressure continuously. RP will send a signal `RP_ReqInfoDispTxt1 = xxx` to the T-box to inform the user that the parking is paused. At this time, the C-APP needs to inhibit sending start parking instructions and waits for the user to eliminate the trigger condition. The paused time is limited by the overall parking time.
+
+#### RP suspension conditions:
+1. Check whether the four doors, trunk, and engine hood are closed.
+2. Verify the gear is in P gear.
+3. Confirm the tire pressure is normal.
+4. Ensure the slope meets the requirements.
+5. Confirm that the system and related subsystems are functioning correctly.
+Page 90
+14.4.3.2.12.1 All FAPA suspension conditions (except seat belts).
+
+Requirement ID: FS-226805  
+Type: Functional  
+Status: New  
+
+Upstream References: (0)  
+No Upstream References  
+
+Downstream References (4):  
+HT-279374 RP_SC_026  
+HT-279351 RP_SC_003  
+HT-279371 RP_SC_023  
+HT-279379 RP_SC_031  
+
+No Associations.  
+
+---
+
+14.4.3.2.12.2 Release the "Parking Start" button.
+
+Requirement ID: FS-226806  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+No Downstream References.  
+
+No Associations.  
+
+---
+
+14.4.3.2.13 Step 13.
+
+Requirement ID: FS-226807  
+Type: Functional  
+Status: New  
+
+Upstream References (0):  
+No Upstream References  
+
+No Downstream References.  
+
+No Associations.
+Page 91
+RP will automatically detect whether the system pause condition has been eliminated. When the user eliminates the interruption condition, RP will automatically stop sending the pause signal, C-APP releases the inhibition of the start command, and the user needs to press and hold the parking start command again to resume Parking.
+
+14.4.3.2.14 Step 14.  
+Requirement ID: FS-226808.  
+Type: Functional.  
+Status: New.  
+Upstream References: (0).  
+No Upstream References.  
+No Downstream References.  
+No Associations.  
+After the RP termination condition is triggered, the RP will control the vehicle to stop and send the signal RP_ReqInfoDispTxt1 = xxx to the T-box, requesting the corresponding information to be displayed to the user. The RP immediately disconnects the handshake with the T-box after sending the stop parking signal for 3 cycles.  
+
+**RP termination conditions**:
+
+14.4.3.2.14.1 All FAPA termination conditions.  
+Requirement ID: FS-226809.  
+Type: Functional.  
+Status: New.  
+Upstream References: (0).  
+No Upstream References.  
+No Downstream References.  
+No Associations.  
+--
+
+14.4.3.2.14.2 Remote communication is disconnected “MHU_RemoteconnectionSts = 0: Disconnect”.  
+Requirement ID: FS-226810.  
+Type: Functional.  
+Status: New.  
+Upstream References: (0).  
+No Upstream References.
+Page 92
+14.4.3.2.15 Step 15.
+
+Requirement ID: FS-226811.  
+Type: Functional.  
+Status: New.  
+
+No Upstream References.  
+No Downstream References.  
+
+Before the RP is completed, it will request to be put into the P gear and pull up the EPB, and then send a parking completion signal to the outside.
+
+14.4.3.2.16 Step 16.
+
+Requirement ID: FS-226812.  
+Type: Functional.  
+Status: New.  
+
+No Upstream References.  
+No Downstream References.  
+
+After the RP is completed, it will switch its status to RP_Status = 0x4: Finished, and disconnect the handshake with the T-box after 3 cycles.
+Page 93
+There should be an "end" button on the C-APP terminal. When the user clicks the "end" button at any time during the RP control process, C-APP will send a parking exit instruction to T-box, and T-box will send a signal "MHU_RPA_QuitReq = 1:request exit". RP will immediately interrupt the handshake with T-box after receiving the signal and control the vehicle to stop. At the same time, it will put in P gear, pull up EPB, and finally disconnect the handshake with all actuators. RP ends.
+
+### 14.4.3.3 Remote Parking Out trigger on C-APP
+
+Requirement ID: FS-226814.
+Type: Functional.
+Status: New.
+Upstream References: None.
+Downstream References:
+1. HT-277680 RP_TC_039.
+2. HT-277679 RP_TC_038.
+3. HT-277678 RP_TC_037.
+4. HT-277677 RP_TC_036.
+5. HT-277676 RP_TC_035.
+6. HT-277669 RP_TC_028.
+7. HT-277668 RP_TC_027.
+8. HT-277667 RP_TC_026.
+9. HT-277666 RP_TC_025.
+10. HT-277665 RP_TC_024.
+11. HT-277664 RP_TC_023.
+Page 94
+14.4.3.3 Remote Parking Out trigger on C-APP
+
+Requirement ID: FS-226814  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (36):  
+- HT-277663 RP_TC_022  
+- HT-277662 RP_TC_021  
+- HT-277651 RP_TC_010  
+- HT-277650 RP_TC_009  
+- HT-277649 RP_TC_008  
+- HT-277648 RP_TC_007  
+- HT-277647 RP_TC_006  
+- HT-279408 RP_SC_060  
+- HT-279399 RP_SC_051  
+- HT-279434 RP_SC_086  
+- HT-279433 RP_SC_085  
+- HT-279432 RP_SC_084  
+- HT-279431 RP_SC_083  
+- HT-279430 RP_SC_082  
+- HT-279429 RP_SC_081  
+- HT-279428 RP_SC_080  
+- HT-279420 RP_SC_072  
+- HT-279410 RP_SC_062  
+- HT-279407 RP_SC_059  
+- HT-279406 RP_SC_058  
+- HT-279405 RP_SC_057  
+- HT-279404 RP_SC_056  
+- HT-279403 RP_SC_055  
+- HT-279401 RP_SC_053  
+
+No Associations  
+--
+Page 95
+14.4.3.3.1 Step 1.
+
+Requirement ID: FS-226815.  
+Type: Functional.  
+Status: New.  
+
+Upstream References:  
+No Upstream References.  
+
+Downstream References:  
+HT-277680 RP_TC_039;  
+HT-277679 RP_TC_038;  
+HT-277678 RP_TC_037;  
+HT-277677 RP_TC_036;  
+HT-277676 RP_TC_035;  
+HT-277669 RP_TC_028;  
+HT-277668 RP_TC_027;  
+HT-277667 RP_TC_026;  
+HT-277666 RP_TC_025;  
+HT-277665 RP_TC_024;  
+HT-277664 RP_TC_023;  
+HT-277663 RP_TC_022;  
+HT-277662 RP_TC_021;  
+HT-277651 RP_TC_010;  
+HT-277650 RP_TC_009.  
+
+No Associations.  
+
+RP is not responsible for vehicle startup and Bluetooth connection and only executes C-APP control commands after the vehicle is started.
+Page 96
+## 4 May 2022  
+Uncontrolled copy when printed  
+Page 96 | 159  
+VinFast Management System VFDSXVEEP9129  
+
+### HT-277649 RP_TC_008  
+### HT-277648 RP_TC_007  
+### HT-277647 RP_TC_006  
+
+No Associations  
+C-APP/T-box completes the vehicle startup and Bluetooth connection.  
+
+### 14.4.3.3.2 Step 2  
+**Requirement ID:** FS-226816  
+**Type:** Functional  
+**Status:** New  
+**Upstream References:** (0)  
+No Upstream References  
+
+**Downstream References (18):**  
+HT-277680 RP_TC_039  
+HT-277679 RP_TC_038  
+HT-277678 RP_TC_037  
+HT-277677 RP_TC_036  
+HT-277676 RP_TC_035  
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277651 RP_TC_010
+Page 97
+After the user enters the APP through the mobile phone, if the user wants to use the remote parking function, they need to click the remote parking out function button, and the C-APP will send the remote parking out function activation signal to the T-box.
+
+### 14.4.3.3.3 Step 3
+- **Requirement ID**: FS-226817  
+- **Type**: Functional  
+- **Status**: New  
+
+#### Upstream References:  
+No Upstream References  
+
+#### Downstream References (18):  
+1. HT-277680  RP_TC_039  
+2. HT-277679  RP_TC_038  
+3. HT-277678  RP_TC_037  
+4. HT-277677  RP_TC_036  
+5. HT-277676  RP_TC_035  
+6. HT-277669  RP_TC_028  
+7. HT-277668  RP_TC_027  
+8. HT-277667  RP_TC_026  
+9. HT-277666  RP_TC_025  
+10. HT-277665  RP_TC_024  
+11. HT-277664  RP_TC_023  
+12. HT-277663  RP_TC_022  
+13. HT-277662  RP_TC_021  
+14. HT-277651  RP_TC_010  
+15. HT-277650  RP_TC_009  
+16. HT-277649  RP_TC_008  
+17. HT-277648  RP_TC_007  
+18. HT-277647  RP_TC_006  
+
+#### No Associations  
+No further references or associations are listed for this step.
+Page 98
+RP is not responsible for vehicle startup and Bluetooth connection, and only executes C-APP control commands after the vehicle is started.
+
+14.4.3.3.1 Step 1  
+Requirement ID: FS-226815  
+Type: Functional  
+Status: New  
+Upstream References: No Upstream References  
+Downstream References:  
+- HT-277680 RP_TC_039  
+- HT-277679 RP_TC_038  
+- HT-277678 RP_TC_037  
+- HT-277677 RP_TC_036  
+- HT-277676 RP_TC_035  
+- HT-277669 RP_TC_028  
+- HT-277668 RP_TC_027  
+- HT-277667 RP_TC_026  
+- HT-277666 RP_TC_025  
+- HT-277665 RP_TC_024  
+- HT-277664 RP_TC_023  
+- HT-277663 RP_TC_022  
+- HT-277662 RP_TC_021  
+- HT-277651 RP_TC_010  
+- HT-277650 RP_TC_009  
+- HT-277649 RP_TC_008  
+- HT-277648 RP_TC_007  
+- HT-277647 RP_TC_006  
+
+No Associations.  
+
+---
+
+C-APP/T-box completes the vehicle startup and Bluetooth connection.
+
+14.4.3.3.2 Step 2  
+Requirement ID: FS-226816  
+Type: Functional  
+Status: New  
+Upstream References: No Upstream References  
+Downstream References:  
+- HT-277680 RP_TC_039  
+- HT-277679 RP_TC_038  
+- HT-277678 RP_TC_037  
+- HT-277677 RP_TC_036  
+- HT-277676 RP_TC_035  
+- HT-277669 RP_TC_028  
+- HT-277668 RP_TC_027  
+- HT-277667 RP_TC_026  
+- HT-277666 RP_TC_025  
+- HT-277665 RP_TC_024  
+- HT-277664 RP_TC_023  
+- HT-277663 RP_TC_022  
+- HT-277662 RP_TC_021  
+- HT-277651 RP_TC_010  
+- HT-277650 RP_TC_009  
+- HT-277649 RP_TC_008  
+- HT-277648 RP_TC_007  
+- HT-277647 RP_TC_006  
+
+No Associations.  
+
+---
+
+After the user enters the APP through the mobile phone, if the user wants to use the remote parking function, they need to click the remote parking out function button, and the C-APP will send the remote parking out function activation signal to the T-box.
+
+14.4.3.3.3 Step 3  
+Requirement ID: FS-226817  
+Type: Functional  
+Status: New  
+Upstream References: No Upstream References  
+Downstream References:  
+- HT-277680 RP_TC_039  
+- HT-277679 RP_TC_038  
+- HT-277678 RP_TC_037  
+- HT-277677 RP_TC_036  
+- HT-277676 RP_TC_035  
+- HT-277669 RP_TC_028  
+- HT-277668 RP_TC_027  
+- HT-277667 RP_TC_026  
+- HT-277666 RP_TC_025  
+- HT-277665 RP_TC_024  
+- HT-277664 RP_TC_023  
+- HT-277663 RP_TC_022  
+- HT-277662 RP_TC_021  
+- HT-277651 RP_TC_010  
+- HT-277650 RP_TC_009  
+- HT-277649 RP_TC_008  
+- HT-277648 RP_TC_007  
+- HT-277647 RP_TC_006  
+
+No Associations.  
+
+---
+
+After receiving the instruction from C-APP, T-box will actively handshake with RP. For the handshake process, see chapter 3.4.4. After the handshake is completed, it will send "MHU_RPA_FuncMode = 0x2: parking out" to ADCU.
+
+14.4.3.3.4 Step 4  
+Requirement ID: FS-226818  
+Type: Functional  
+Status: New  
+Upstream References: No Upstream References  
+Downstream References:  
+- HT-277680 RP_TC_039  
+- HT-277679 RP_TC_038  
+- HT-277678 RP_TC_037  
+- HT-277677 RP_TC_036  
+- HT-277676 RP_TC_035  
+- HT-277669 RP_TC_028  
+- HT-277668 RP_TC_027  
+- HT-277667 RP_TC_026  
+- HT-277666 RP_TC_025  
+- HT-277665 RP_TC_024  
+- HT-277664 RP_TC_023  
+- HT-277663 RP_TC_022  
+- HT-277662 RP_TC_021  
+- HT-277651 RP_TC_010  
+- HT-277650 RP_TC_009  
+- HT-277649 RP_TC_008  
+- HT-277648 RP_TC_007  
+- HT-277647 RP_TC_006  
+
+No Associations.
+Page 99
+After the RP system receives the T-box's remote parking out function start signal, the RP will conduct a system self-check to determine whether the current state meets the parking conditions. The check conditions are as follows:
+
+1. Check whether the four doors, trunk, and engine hood are closed.  
+2. Check whether the gear is in P gear.  
+3. Check whether the tire pressure is normal.  
+4. Check whether the slope meets the requirements.  
+5. Check whether the system and related systems are faulty.
+
+If there is no problem in the RP system check, no fault signal will be sent to the T-box.  
+
+If the inspection finds that the requirements are not met, the RP will send the signal `RPA_ReqInfoDispTxt2 = xxx` to the T-box. After the T-box receives the signal, it will be forwarded to the C-APP, and the C-APP will display the corresponding information to the user.
+
+### 14.4.3.3.5 Step 5
+**Requirement ID:** FS-226824  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (18):**  
+- HT-277680: RP_TC_039
+Page 100
+After the RP enters the system, it will send the signal "RP_ParkOutModeDisReq = 1:request" to the T-box (C-APP), requesting the C-APP to display the park-out type (parallel/perpendicular/angled) interface.
+
+### 14.4.3.3.6 Step 6
+
+**Requirement ID:** FS-226825  
+**Type:** Functional  
+**Status:** New  
+**Upstream References:** (0)  
+No Upstream References
+Page 101
+### 14.4.3.3.7 Step 7
+
+#### Requirement ID:
+FS-226825  
+
+#### Type:
+Functional  
+
+#### Status:
+New  
+
+#### Upstream References (0):
+No Upstream References  
+
+#### Downstream References (18):
+- HT-277680 (RP_TC_039)  
+- HT-277679 (RP_TC_038)  
+- HT-277678 (RP_TC_037)  
+- HT-277677 (RP_TC_036)  
+- HT-277676 (RP_TC_035)  
+- HT-277669 (RP_TC_028)  
+- HT-277668 (RP_TC_027)  
+- HT-277667 (RP_TC_026)  
+- HT-277666 (RP_TC_025)  
+- HT-277665 (RP_TC_024)  
+- HT-277664 (RP_TC_023)  
+- HT-277663 (RP_TC_022)  
+- HT-277662 (RP_TC_021)  
+- HT-277651 (RP_TC_010)  
+- HT-277650 (RP_TC_009)  
+- HT-277649 (RP_TC_008)  
+- HT-277648 (RP_TC_007)  
+- HT-277647 (RP_TC_006)  
+
+#### No Associations:
+After the user selects a parking type, the C-APP will send a signal to the T-box, and the T-box will send the signal "MHU_RPA_ParkOutModeConfirm = 1~3" to the RP after receiving the user's request.
+Page 102
+Requirement ID: FS-226826  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (18):  
+HT-277680 RP_TC_039  
+HT-277679 RP_TC_038  
+HT-277678 RP_TC_037  
+HT-277677 RP_TC_036  
+HT-277676 RP_TC_035  
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277651 RP_TC_010  
+HT-277650 RP_TC_009  
+HT-277649 RP_TC_008  
+HT-277648 RP_TC_007  
+HT-277647 RP_TC_006  
+
+No Associations:  
+If the user chooses perpendicular or parallel to park out, RP will send a parking direction request "RP_ParkOutDircnDisReq = 1: request" to C-APP (T-box), requesting C-APP to display the parking direction interface. The user selects diagonal when arranging the parking type, it is not necessary to select the parking direction.
+Page 103
+14.4.3.3.8 Step 8.
+
+Requirement ID: FS-226827. Type: Functional. Status: New.
+
+Upstream References (0): No Upstream References.
+
+Downstream References (18):
+1. HT-277680 RP_TC_039.
+2. HT-277679 RP_TC_038.
+3. HT-277678 RP_TC_037.
+4. HT-277677 RP_TC_036.
+5. HT-277676 RP_TC_035.
+6. HT-277669 RP_TC_028.
+7. HT-277668 RP_TC_027.
+8. HT-277667 RP_TC_026.
+9. HT-277666 RP_TC_025.
+10. HT-277665 RP_TC_024.
+11. HT-277664 RP_TC_023.
+12. HT-277663 RP_TC_022.
+13. HT-277662 RP_TC_021.
+14. HT-277651 RP_TC_010.
+15. HT-277650 RP_TC_009.
+16. HT-277649 RP_TC_008.
+17. HT-277648 RP_TC_007.
+18. HT-277647 RP_TC_006.
+
+No Associations.
+Page 104
+4 May 2022  
+Uncontrolled copy when printed  
+104 | 159  
+Print date  
+Status  
+Functional Responsibility  
+
+VinFast  
+Management System  
+
+VFDSXVEEP9129  
+
+After the user selects the parking direction, the C-APP will send a signal to the T-box. After receiving the signal, the T-box will send "MHU_RPA_ParkOutDircnConfirm = 1: left/2: right" to the RP. After the RP receives the parking direction, waiting to receive the control command.
+
+14.4.3.3.9 Step 9  
+
+Requirement ID:  
+FS-226828  
+Type:  
+Functional  
+Status:  
+New  
+
+Upstream References (0):  
+No Upstream References  
+
+Downstream References (18):  
+- HT-277680 RP_TC_039  
+- HT-277679 RP_TC_038  
+- HT-277678 RP_TC_037  
+- HT-277677 RP_TC_036  
+- HT-277676 RP_TC_035  
+- HT-277669 RP_TC_028  
+- HT-277668 RP_TC_027  
+- HT-277667 RP_TC_026  
+- HT-277666 RP_TC_025  
+- HT-277665 RP_TC_024  
+- HT-277664 RP_TC_023  
+- HT-277663 RP_TC_022  
+- HT-277662 RP_TC_021  
+- HT-277651 RP_TC_010  
+- HT-277650 RP_TC_009  
+- HT-277649 RP_TC_008  
+- HT-277648 RP_TC_007  
+- HT-277647 RP_TC_006
+Page 105
+The C-APP should immediately jump to the parking control interface after selecting the parking direction. When the user long presses the "Start" button, the RP will handshakes with the associated system to enter the automatic control phase.
+
+14.4.3.3.10 Step 10.
+
+Requirement ID: FS-226829.
+
+Type: Functional.
+
+Status: New.
+
+Upstream References (0).
+No Upstream References.
+
+Downstream References (18):  
+HT-277680 RP_TC_039  
+HT-277679 RP_TC_038  
+HT-277678 RP_TC_037  
+HT-277677 RP_TC_036  
+HT-277676 RP_TC_035  
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277651 RP_TC_010  
+HT-277650 RP_TC_009  
+HT-277649 RP_TC_008  
+HT-277648 RP_TC_007  
+HT-277647 RP_TC_006.
+Page 106
+14.4.3.3.11 Step 11.
+
+When the user releases the button, the C-APP stops sending the parking start signal, and the T-box also stops sending the signal. After the ADCU detects that there is no parking start command, the parking will be suspended.
+
+Requirement ID: FS-226830.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (18):  
+- HT-277680: RP_TC_039.  
+- HT-277679: RP_TC_038.  
+- HT-277678: RP_TC_037.  
+- HT-277677: RP_TC_036.  
+- HT-277676: RP_TC_035.  
+- HT-277669: RP_TC_028.  
+- HT-277668: RP_TC_027.  
+- HT-277667: RP_TC_026.  
+- HT-277666: RP_TC_025.  
+- HT-277665: RP_TC_024.  
+- HT-277664: RP_TC_023.  
+- HT-277663: RP_TC_022.  
+- HT-277662: RP_TC_021.
+Page 107
+During the control phase, ADCU sends the signal ADAS_BCM_IndicatorlightReq = 0x3: Hazard to BCM, requesting BCM to activate the hazard warning light.
+
+### 14.4.3.3.12 Step 12
+- **Requirement ID:** FS-226831  
+- **Type:** Functional  
+- **Status:** New  
+- **Upstream References:** No Upstream References  
+- **Downstream References (8):**
+  - HT-277669: RP_TC_028  
+  - HT-277668: RP_TC_027  
+  - HT-277667: RP_TC_026  
+  - HT-277666: RP_TC_025  
+  - HT-277665: RP_TC_024  
+  - HT-277664: RP_TC_023  
+  - HT-277663: RP_TC_022  
+  - HT-277662: RP_TC_021  
+
+#### No Associations:
+When the RP pause condition is triggered, the RP system controls the vehicle to stop and maintains pressure continuously within the brake system. RP sends a signal RP_ReqInfoDispTxt1 = xxx to the T-box to notify the user that the parking is paused. Concurrently, the C-APP must inhibit further action until the condition changes.
+Page 108
+sending parking start instructions and waits for the user to eliminate the trigger condition. The waiting time is limited by the overall parking time.  
+
+RP suspension conditions:  
+
+### 14.4.3.3.12.1 All FAPA suspension conditions (except seat belts).  
+
+**Requirement ID:** FS-226832  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (7):**  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+
+**No Associations**  
+--  
+
+### 14.4.3.3.12.2 Release the "Parking Start" button.  
+
+**Requirement ID:** FS-226833  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (1):**  
+HT-277669 RP_TC_028
+Page 109
+14.4.3.3.13 Step 13.
+
+Requirement ID: FS-226834.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References (5):**  
+1. HT-277680: RP_TC_039.  
+2. HT-277679: RP_TC_038.  
+3. HT-277678: RP_TC_037.  
+4. HT-277677: RP_TC_036.  
+5. HT-277676: RP_TC_035.  
+
+No Associations.  
+
+RP will automatically detect whether the system pause condition has been eliminated. When the user eliminates the interruption condition, RP will automatically stop sending the pause signal, C-APP releases the inhibition of the start command, and the user needs to press and hold the parking start command again to resume Parking.  
+
+14.4.3.3.14 Step 14.
+
+Requirement ID: FS-226835.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References (0):**  
+No Upstream References.  
+
+**Downstream References (5):**  
+1. HT-277680: RP_TC_039.  
+2. HT-277679: RP_TC_038.  
+
+No Associations.
+Page 110
+After the RP termination condition is triggered, the RP will control the vehicle to stop and send the signal RP_ReqInfoDispTxt1 = xxx to the T-box, requesting the corresponding information to be displayed to the user. The RP immediately disconnects the handshake with the T-box after sending the stop parking signal for 3 cycles.
+
+14.4.3.3.14.1 All FAPA termination conditions.
+
+Requirement ID: FS-226836.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References:  
+- HT-277679: RP_TC_038.  
+- HT-277678: RP_TC_037.  
+- HT-277677: RP_TC_036.  
+- HT-277676: RP_TC_035.  
+
+No Associations: --  
+
+14.4.3.3.14.2 Remote communication is disconnected “MHU_RemoteconnectionSts = 0: Disconnect”.
+
+Requirement ID: FS-226837.  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.
+Page 111
+14.4.3.3.15 Step 15.
+
+Requirement ID: FS-226838.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.
+
+Downstream References (13):  
+HT-277680 RP_TC_039.  
+HT-277679 RP_TC_038.  
+HT-277678 RP_TC_037.  
+HT-277677 RP_TC_036.  
+HT-277676 RP_TC_035.  
+HT-277665 RP_TC_024.  
+HT-277664 RP_TC_023.  
+HT-277662 RP_TC_021.  
+HT-277651 RP_TC_010.  
+HT-277650 RP_TC_009.  
+HT-277649 RP_TC_008.  
+HT-277648 RP_TC_007.  
+HT-277647 RP_TC_006.  
+
+No Associations.
+Page 112
+Before the RP is completed, it will request to be put into the P gear and pull up the EPB, and then send a parking completion signal to the outside.
+
+14.4.3.3.16 Step 16.
+
+Requirement ID: FS-226839.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (13):  
+- HT-277680 RP_TC_039.  
+- HT-277679 RP_TC_038.  
+- HT-277678 RP_TC_037.  
+- HT-277677 RP_TC_036.  
+- HT-277676 RP_TC_035.  
+- HT-277665 RP_TC_024.  
+- HT-277664 RP_TC_023.  
+- HT-277662 RP_TC_021.  
+- HT-277651 RP_TC_010.  
+- HT-277650 RP_TC_009.  
+- HT-277649 RP_TC_008.  
+- HT-277648 RP_TC_007.  
+- HT-277647 RP_TC_006.  
+
+No Associations.
+
+After the RP is completed, it will switch its status to RP_Status = 0x4: Finished, and disconnect the handshake with the T-box after 3 cycles.
+Page 113
+14.4.3.3.17 Step 17.
+
+Requirement ID: FS-226840.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0).  
+No Upstream References.  
+
+Downstream References (13):  
+HT-277680  RP_TC_039.  
+HT-277679  RP_TC_038.  
+HT-277678  RP_TC_037.  
+HT-277677  RP_TC_036.  
+HT-277676  RP_TC_035.  
+HT-277665  RP_TC_024.  
+HT-277664  RP_TC_023.  
+HT-277662  RP_TC_021.  
+HT-277651  RP_TC_010.  
+HT-277650  RP_TC_009.  
+HT-277649  RP_TC_008.  
+HT-277648  RP_TC_007.  
+HT-277647  RP_TC_006.  
+
+No Associations.
+
+There should be an "end" button on the C-APP terminal. When the user clicks the "end" button at any time during the RP control process, C-APP will send a parking exit instruction to T-box, and T-box will send a signal "MHU_RPA_QuitReq = 1:request exit". RP will immediately interrupt the handshake with T-box after receiving the signal, control the vehicle to stop at the same time, put in P gear, pull up EPB, and finally disconnect the handshake with all actuators. RP ends.
+
+14.4.3.4 Remote Straight Parking.
+
+Requirement ID: FS-226841.  
+Type: Functional.  
+Status: New.
+Page 114
+Before the RP is completed, it will request to be put into the P gear and pull up the EPB, and then send a parking completion signal to the outside.
+
+### 14.4.3.3.16 Step 16
+**Requirement ID:** FS-226839  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0)**
+No Upstream References.
+
+**Downstream References (13)**  
+- HT-277680: RP_TC_039  
+- HT-277679: RP_TC_038  
+- HT-277678: RP_TC_037  
+- HT-277677: RP_TC_036  
+- HT-277676: RP_TC_035  
+- HT-277665: RP_TC_024  
+- HT-277664: RP_TC_023  
+- HT-277662: RP_TC_021  
+- HT-277651: RP_TC_010  
+- HT-277650: RP_TC_009  
+- HT-277649: RP_TC_008  
+- HT-277648: RP_TC_007  
+- HT-277647: RP_TC_006  
+
+**No Associations.**  
+After the RP is completed, it will switch its status to `RP_Status = 0x4`: Finished, and disconnect the handshake with the T-box after 3 cycles.
+
+---
+
+### 14.4.3.3.17 Step 17
+**Requirement ID:** FS-226840  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0)**  
+No Upstream References.
+
+**Downstream References (13)**  
+- HT-277680: RP_TC_039  
+- HT-277679: RP_TC_038  
+- HT-277678: RP_TC_037  
+- HT-277677: RP_TC_036  
+- HT-277676: RP_TC_035  
+- HT-277665: RP_TC_024  
+- HT-277664: RP_TC_023  
+- HT-277662: RP_TC_021  
+- HT-277651: RP_TC_010  
+- HT-277650: RP_TC_009  
+- HT-277649: RP_TC_008  
+- HT-277648: RP_TC_007  
+- HT-277647: RP_TC_006  
+
+**No Associations.**  
+There should be an "end" button on the C-APP terminal. When the user clicks the "end" button at any time during the RP control process, C-APP will send a parking exit instruction to T-box, and T-box will send a signal "`MHU_RPA_QuitReq = 1`: request exit." RP will immediately interrupt the handshake with T-box after receiving the signal, and control the vehicle to stop at the same time, put in P gear, pull up EPB, and finally disconnect the handshake with all actuators. RP ends.
+
+---
+
+### 14.4.3.4 Remote Straight Parking
+**Requirement ID:** FS-226841  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0)**  
+No Upstream References.
+
+**Downstream References (57)**  
+- HT-277681: RP_TC_040  
+- HT-277653: RP_TC_012  
+- HT-277652: RP_TC_011  
+- HT-279425: RP_SC_077  
+- HT-279424: RP_SC_076  
+- HT-279417: RP_SC_069  
+- HT-279411: RP_SC_063  
+- HT-279409: RP_SC_061  
+- HT-279386: RP_SC_038  
+- HT-279378: RP_SC_030  
+- HT-279374: RP_SC_026  
+- HT-279362: RP_SC_014  
+- HT-279359: RP_SC_011  
+- HT-279351: RP_SC_003  
+- HT-279376: RP_SC_028  
+- HT-279367: RP_SC_019  
+- HT-279355: RP_SC_007  
+- HT-279387: RP_SC_039  
+- HT-279375: RP_SC_027  
+- HT-279352: RP_SC_004  
+- HT-279440: RP_SC_092  
+- HT-279439: RP_SC_091  
+- HT-279418: RP_SC_070  
+
+**No Associations.**  
+--
+Page 115
+VinFast Management System  
+VFDSXVEEP9129  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (57)  
+HT-279414 RP_SC_066  
+HT-279413 RP_SC_065  
+HT-279371 RP_SC_023  
+HT-279361 RP_SC_013  
+HT-279358 RP_SC_010  
+HT-279356 RP_SC_008  
+HT-279349 RP_SC_001  
+HT-279438 RP_SC_090  
+HT-279436 RP_SC_088  
+HT-279421 RP_SC_073  
+HT-279419 RP_SC_071  
+HT-279415 RP_SC_067  
+HT-279373 RP_SC_025  
+HT-279370 RP_SC_022  
+HT-279369 RP_SC_021  
+HT-279368 RP_SC_020  
+HT-279353 RP_SC_005  
+HT-279437 RP_SC_089  
+HT-279435 RP_SC_087  
+HT-279422 RP_SC_074  
+HT-279416 RP_SC_068  
+HT-279366 RP_SC_018  
+HT-279365 RP_SC_017  
+HT-279364 RP_SC_016
+Page 116
+RP is not responsible for vehicle startup and Bluetooth connection, and only executes C-APP control commands after the vehicle is started.
+
+### 14.4.3.4.1 Step 1
+
+#### Requirement ID:
+FS-226842
+
+#### Type:
+Functional
+
+#### Status:
+New
+
+#### Upstream References:
+No Upstream References. Upstream References count: (0)
+
+#### Downstream References:
+Downstream References count: (3)
+
+- HT-277681 RP_TC_040.
+- HT-277653 RP_TC_012.
+- HT-277652 RP_TC_011.
+Page 117
+14.4.3.4.2 Step 2.
+
+Requirement ID: FS-226843.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References:**  
+No Upstream References.
+
+**Downstream References (3):**  
+HT-277681 - RP_TC_040.  
+HT-277653 - RP_TC_012.  
+HT-277652 - RP_TC_011.
+
+**No Associations.**  
+After the user enters the APP through the mobile phone, if the user wants to use the remote control direct in and out function, they need to click the "direct in and out" function button, and the C-APP will send the direct in and out function activation signal to the T-box.
+
+---
+
+14.4.3.4.3 Step 3.
+
+Requirement ID: FS-226844.  
+Type: Functional.  
+Status: New.  
+
+**Upstream References:**  
+No Upstream References.
+
+**Downstream References (3):**  
+HT-277681 - RP_TC_040.  
+HT-277653 - RP_TC_012.  
+HT-277652 - RP_TC_011.
+
+**No Associations.**  
+
+1. The T-box receives the C-APP directive and actively initiates a handshake with RP. The handshake process is described in Section 3.4.4. Upon completion, the T-box sends the signal “MHU_RPA_FuncMode = 0x4: parking out” to RP.
+Page 118
+14.4.3.4.4 Step 4.
+
+Requirement ID: FS-226845.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (3):  
+- HT-277681: RP_TC_040.  
+- HT-277653: RP_TC_012.  
+- HT-277652: RP_TC_011.  
+
+No Associations.  
+
+After the RP system receives the T-box's remote parking start signal, the RP will conduct a system self-check to determine whether the current state meets the parking conditions. The check conditions are as follows:  
+
+1. Check whether the four doors, trunk and engine hood are closed.  
+2. Whether the gear is in P gear.  
+3. Whether the tire pressure is normal.  
+4. Whether the slope meets the requirements.  
+5. Whether the system and related systems are faulty.  
+
+If there is no problem in the RP system check, no fault signal will be sent to T-box.  
+
+If the inspection finds that the requirements are not met, the RP will send the signal RPA_ReqInfoDispTxt2 = xxx to the T-box. After the T-box receives the signal, it will be forwarded to the C-APP, and the C-APP will display the corresponding information to the user.  
+
+---
+
+14.4.3.4.5 Step 5.
+
+Requirement ID: FS-226851.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (1):  
+No Associations.
+Page 119
+14.4.3.4.7 Step 7.
+
+Requirement ID: FS-226853.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (3):  
+- HT-277681: RP_TC_040.  
+- HT-277653: RP_TC_012.  
+- HT-277652: RP_TC_011.  
+
+No Associations.
+Page 120
+14.4.3.4.8 Step 8.
+
+Requirement ID: FS-226854.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (3):  
+HT-277681 RP_TC_040.  
+HT-277653 RP_TC_012.  
+HT-277652 RP_TC_011.  
+
+No Associations.  
+During the control phase, ADCU will send the signal ADAS_BCM_IndicatorlightReq = 0x3: Hazard to BCM, requesting BCM to turn on the hazard warning light.
+
+---
+
+14.4.3.4.9 Step 9.
+
+Requirement ID: FS-226855.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+No Downstream References.  
+
+No Associations.  
+When the RP pause condition is triggered, the RP system will control the vehicle to stop and control the brake system to maintain pressure continuously. RP will send a signal RP_ReqInfoDispTxt1 = xxx to the T-box to inform the user that the parking is paused. At this time, the C-APP needs to inhibit sending start parking instructions and waits for the user to eliminate the trigger condition. The waiting time is limited by the overall parking time.
+
+RP suspension conditions:
+Page 121
+14.4.3.4.9.1 All FAPA suspension conditions (except seat belts).
+
+Requirement ID: FS-226856  
+Type: Functional  
+Status: New  
+Upstream References: None  
+Downstream References: None  
+No Associations.  
+--
+
+14.4.3.4.9.2 Release the "Parking Start" button.
+
+Requirement ID: FS-226857  
+Type: Functional  
+Status: New  
+Upstream References: None  
+Downstream References: None  
+No Associations.  
+--
+
+14.4.3.4.10 Step 10.
+
+Requirement ID: FS-226858  
+Type: Functional  
+Status: New  
+Upstream References: None  
+Downstream References (1):  
+- HT-277681: RP_TC_040  
+
+No Associations.  
+RP will automatically detect whether the system pause condition has been eliminated. When the user eliminates the interruption condition, RP will automatically stop sending the pause signal, C-APP releases the inhibition of the start command, and the user needs to press and hold "forward" or "back again" to resume parking.
+Page 122
+14.4.3.4.11 Step 11.
+
+Requirement ID: FS-226859.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (1):  
+HT-277681 RP_TC_040.  
+
+No Associations:  
+After the RP termination condition is triggered, the RP will control the vehicle to stop and send the signal RP_ReqInfoDispTxt1 = xxx to the T-box, requesting the corresponding information to be displayed to the user. The RP immediately disconnects the handshake with the T-box after sending the stop parking signal for 3 cycles.  
+
+RP termination conditions:  
+
+14.4.3.4.11.1 All FAPA termination conditions.
+
+Requirement ID: FS-226860.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (2):  
+HT-279376 RP_SC_028.  
+HT-279388 RP_SC_040.  
+
+No Associations:  
+--
+Page 123
+### 14.4.3.4.11 Step 11
+
+**Requirement ID:** FS-226859  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (1):**  
+- HT-277681 RP_TC_040  
+
+**No Associations:**  
+After the RP termination condition is triggered, the RP will control the vehicle to stop and send the signal RP_ReqInfoDispTxt1 = xxx to the T-box, requesting the corresponding information to be displayed to the user. The RP immediately disconnects the handshake with the T-box after sending the stop parking signal for 3 cycles.  
+
+**RP termination conditions:**  
+
+---
+
+### 14.4.3.4.11.1 All FAPA termination conditions;
+
+**Requirement ID:** FS-226860  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (2):**  
+- HT-279376 RP_SC_028  
+- HT-279388 RP_SC_040  
+
+**No Associations:**  
+--
+
+---
+
+### 14.4.3.4.11.2 Remote communication is disconnected “MHU_RemoteconnectionSts = 0:Disconnect”;
+
+**Requirement ID:** FS-226861  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (1):**  
+- HT-277681 RP_TC_040  
+
+**No Associations:**  
+--
+
+---
+
+### 14.4.3.4.12 Step 12
+
+**Requirement ID:** FS-226862  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (3):**  
+- HT-277681 RP_TC_040  
+- HT-277653 RP_TC_012  
+- HT-277652 RP_TC_011  
+
+**No Associations:**  
+Before the RP is completed, it will request to be put into the P gear and pull up the EPB, and then send a parking completion signal to the outside.
+
+---
+
+### 14.4.3.4.13 Step 13
+
+**Requirement ID:** FS-226863  
+**Type:** Functional  
+**Status:** New  
+
+**Upstream References (0):**  
+No Upstream References  
+
+**Downstream References (3):**  
+- HT-277681 RP_TC_040  
+- HT-277653 RP_TC_012  
+- HT-277652 RP_TC_011  
+
+**No Associations:**  
+--
+Page 124
+14.4.3.4.11 Step 11.
+
+Requirement ID: FS-226859.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (1):  
+- HT-277681 RP_TC_040.  
+
+No Associations.  
+After the RP termination condition is triggered, the RP will control the vehicle to stop and send the signal RP_ReqInfoDispTxt1 = xxx to the T-box, requesting the corresponding information to be displayed to the user. The RP immediately disconnects the handshake with the T-box after sending the stop parking signal for 3 cycles.  
+
+RP termination conditions:  
+
+14.4.3.4.11.1 All FAPA termination conditions.  
+
+Requirement ID: FS-226860.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (2):  
+- HT-279376 RP_SC_028.  
+- HT-279388 RP_SC_040.  
+
+No Associations.  
+--  
+
+14.4.3.4.11.2 Remote communication is disconnected. “MHU_RemoteconnectionSts = 0:Disconnect”.
+
+Requirement ID: FS-226861.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (1):  
+- HT-277681 RP_TC_040.  
+
+No Associations.  
+--  
+
+14.4.3.4.12 Step 12.  
+
+Requirement ID: FS-226862.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (3):  
+- HT-277681 RP_TC_040.  
+- HT-277653 RP_TC_012.  
+- HT-277652 RP_TC_011.  
+
+No Associations.  
+Before the RP is completed, it will request to be put into the P gear and pull up the EPB, and then send a parking completion signal to the outside.  
+
+14.4.3.4.13 Step 13.  
+
+Requirement ID: FS-226863.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (3):  
+- HT-277681 RP_TC_040.  
+- HT-277653 RP_TC_012.  
+- HT-277652 RP_TC_011.  
+
+No Associations.  
+After the RP is completed, it will switch its status to RP_Status = 0x4: Finished, and disconnect the handshake with the T-box after 3 cycles.  
+
+14.4.3.4.14 Step 14.  
+
+Requirement ID: FS-226864.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (3):  
+- HT-277681 RP_TC_040.  
+- HT-277653 RP_TC_012.  
+- HT-277652 RP_TC_011.  
+
+No Associations.  
+There should be an "end" button on the C-APP terminal. When the user clicks the "end" button at any time during the RP control process, C-APP will send a parking exit instruction to T-box, and T-box will send a signal "MHU_RPA_QuitReq = 1:request exit". RP will immediately interrupt the handshake with T-box after receiving the signal, and control the vehicle to stop at the same time, put in P gear, pull up EPB, and finally disconnect the handshake with all actuators. RP ends.  
+
+14.4.4 Associated System Interaction.  
+
+Requirement ID: FS-226865.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References (28):  
+--
+Page 125
+14.4.4 Associated System Interaction  
+
+Downstream References:  
+- HT-277681: RP_TC_040  
+- HT-277674: RP_TC_033  
+- HT-277673: RP_TC_032  
+- HT-277671: RP_TC_030  
+- HT-277670: RP_TC_029  
+- HT-277669: RP_TC_028  
+- HT-277668: RP_TC_027  
+- HT-277667: RP_TC_026  
+- HT-277666: RP_TC_025  
+- HT-277665: RP_TC_024  
+- HT-277664: RP_TC_023  
+- HT-277663: RP_TC_022  
+- HT-277662: RP_TC_021  
+- HT-277661: RP_TC_020  
+- HT-277660: RP_TC_019  
+- HT-277659: RP_TC_018  
+- HT-277658: RP_TC_017  
+- HT-277656: RP_TC_015  
+- HT-277655: RP_TC_014  
+- HT-277654: RP_TC_013  
+- HT-277653: RP_TC_012  
+- HT-277652: RP_TC_011  
+- HT-277651: RP_TC_010  
+- HT-277650: RP_TC_009
+Page 126
+14.4.4.1 RP And EPS System Interaction.
+
+- Requirement ID: FS-226866.
+- Type: Functional.
+- Status: New.
+
+Upstream References: 
+None.
+
+Downstream References:
+1. HT-277681 (RP_TC_040).
+2. HT-277674 (RP_TC_033).
+3. HT-277673 (RP_TC_032).
+4. HT-277671 (RP_TC_030).
+5. HT-277670 (RP_TC_029).
+6. HT-277669 (RP_TC_028).
+7. HT-277668 (RP_TC_027).
+8. HT-277667 (RP_TC_026).
+9. HT-277666 (RP_TC_025).
+10. HT-277665 (RP_TC_024).
+11. HT-277664 (RP_TC_023).
+12. HT-277663 (RP_TC_022).
+13. HT-277662 (RP_TC_021).
+
+No Associations.
+--
+Page 127
+14.4.4.1 RP And EPS System Interaction.
+
+Requirement ID: FS-226866.
+Type: Functional.
+Status: New.
+Upstream References (0): No Upstream References.
+Downstream References (114):
+- HT-277681: RP_TC_040.
+- HT-277674: RP_TC_033.
+- HT-277673: RP_TC_032.
+- HT-277671: RP_TC_030.
+- HT-277670: RP_TC_029.
+- HT-277669: RP_TC_028.
+- HT-277668: RP_TC_027.
+- HT-277667: RP_TC_026.
+- HT-277666: RP_TC_025.
+- HT-277665: RP_TC_024.
+- HT-277664: RP_TC_023.
+- HT-277663: RP_TC_022.
+- HT-277662: RP_TC_021.
+- HT-277661: RP_TC_020.
+- HT-277660: RP_TC_019.
+- HT-277659: RP_TC_018.
+- HT-277658: RP_TC_017.
+- HT-277656: RP_TC_015.
+- HT-277655: RP_TC_014.
+- HT-277654: RP_TC_013.
+- HT-277653: RP_TC_012.
+- HT-277652: RP_TC_011.
+- HT-277651: RP_TC_010.
+- HT-277650: RP_TC_009.
+- HT-277649: RP_TC_008.
+- HT-277648: RP_TC_007.
+- HT-277647: RP_TC_006.
+- HT-277646: RP_TC_005.
+- HT-279425: RP_SC_077.
+- HT-279424: RP_SC_076.
+- HT-279417: RP_SC_069.
+- HT-279412: RP_SC_064.
+- HT-279411: RP_SC_063.
+- HT-279409: RP_SC_061.
+- HT-279386: RP_SC_038.
+- HT-279378: RP_SC_030.
+- HT-279374: RP_SC_026.
+Page 128
+4 May 2022  
+Uncontrolled copy when printed  
+128 | 159  
+Print date  
+Status  
+Functional Responsibility  
+
+VinFast  
+Management System  
+
+VFDSXVEEP9129  
+
+HT-279372 RP_SC_024  
+HT-279362 RP_SC_014  
+HT-279360 RP_SC_012  
+HT-279359 RP_SC_011  
+HT-279376 RP_SC_028  
+HT-279395 RP_SC_047  
+HT-279384 RP_SC_036  
+HT-279381 RP_SC_033  
+HT-279367 RP_SC_019  
+HT-279355 RP_SC_007  
+HT-279393 RP_SC_045  
+HT-279387 RP_SC_039  
+HT-279375 RP_SC_027  
+HT-279352 RP_SC_004  
+HT-279440 RP_SC_092  
+HT-279439 RP_SC_091  
+HT-279418 RP_SC_070  
+HT-279414 RP_SC_066  
+HT-279413 RP_SC_065  
+HT-279408 RP_SC_060  
+HT-279399 RP_SC_051  
+HT-279392 RP_SC_044  
+HT-279391 RP_SC_043  
+HT-279390 RP_SC_042
+Page 129
+### 14.4.4.1 RP And EPS System Interaction  
+
+**Requirement ID:**  
+FS-226866  
+**Type:**  
+Functional  
+**Status:**  
+New  
+
+#### Upstream References (0)  
+No Upstream References  
+
+#### Downstream References (114)  
+- HT-277681: RP_TC_040  
+- HT-277674: RP_TC_033  
+- HT-277673: RP_TC_032  
+- HT-277671: RP_TC_030  
+- HT-277670: RP_TC_029  
+- HT-277669: RP_TC_028  
+- HT-277668: RP_TC_027  
+- HT-277667: RP_TC_026  
+- HT-277666: RP_TC_025  
+- HT-277665: RP_TC_024  
+- HT-277664: RP_TC_023  
+- HT-277663: RP_TC_022  
+- HT-277662: RP_TC_021  
+- HT-277661: RP_TC_020  
+- HT-277660: RP_TC_019  
+- HT-277659: RP_TC_018  
+- HT-277658: RP_TC_017  
+- HT-277656: RP_TC_015  
+- HT-277655: RP_TC_014  
+- HT-277654: RP_TC_013  
+- HT-277653: RP_TC_012  
+- HT-277652: RP_TC_011  
+- HT-277651: RP_TC_010  
+- HT-277650: RP_TC_009  
+- HT-277649: RP_TC_008  
+- HT-277648: RP_TC_007  
+- HT-277647: RP_TC_006  
+- HT-277646: RP_TC_005  
+- HT-279425: RP_SC_077  
+- HT-279424: RP_SC_076  
+- HT-279417: RP_SC_069  
+- HT-279412: RP_SC_064  
+- HT-279411: RP_SC_063  
+- HT-279409: RP_SC_061  
+- HT-279386: RP_SC_038  
+- HT-279378: RP_SC_030  
+- HT-279374: RP_SC_026  
+- HT-279372: RP_SC_024  
+- HT-279362: RP_SC_014  
+- HT-279360: RP_SC_012  
+- HT-279359: RP_SC_011  
+- HT-279376: RP_SC_028  
+- HT-279395: RP_SC_047  
+- HT-279384: RP_SC_036  
+- HT-279381: RP_SC_033  
+- HT-279367: RP_SC_019  
+- HT-279355: RP_SC_007  
+- HT-279393: RP_SC_045  
+- HT-279387: RP_SC_039  
+- HT-279375: RP_SC_027  
+- HT-279352: RP_SC_004  
+- HT-279440: RP_SC_092  
+- HT-279439: RP_SC_091  
+- HT-279418: RP_SC_070  
+- HT-279414: RP_SC_066  
+- HT-279413: RP_SC_065  
+- HT-279408: RP_SC_060  
+- HT-279399: RP_SC_051  
+- HT-279392: RP_SC_044  
+- HT-279391: RP_SC_043  
+- HT-279390: RP_SC_042  
+- HT-279389: RP_SC_041  
+- HT-279383: RP_SC_035  
+- HT-279371: RP_SC_023  
+- HT-279361: RP_SC_013  
+- HT-279358: RP_SC_010  
+- HT-279357: RP_SC_009  
+- HT-279356: RP_SC_008  
+- HT-279349: RP_SC_001  
+- HT-279438: RP_SC_090  
+- HT-279436: RP_SC_088  
+- HT-279421: RP_SC_073  
+- HT-279419: RP_SC_071  
+- HT-279415: RP_SC_067  
+- HT-279394: RP_SC_046  
+- HT-279373: RP_SC_025  
+- HT-279370: RP_SC_022  
+- HT-279369: RP_SC_021  
+- HT-279368: RP_SC_020  
+- HT-279353: RP_SC_005  
+- HT-279437: RP_SC_089  
+- HT-279435: RP_SC_087  
+- HT-279422: RP_SC_074  
+- HT-279416: RP_SC_068  
+- HT-279380: RP_SC_032  
+
+#### No Associations  
+--
+Page 130
+HT-279365 RP_SC_017
+HT-279364 RP_SC_016
+HT-279363 RP_SC_015
+HT-279354 RP_SC_006
+HT-279350 RP_SC_002
+HT-279434 RP_SC_086
+HT-279433 RP_SC_085
+HT-279432 RP_SC_084
+HT-279428 RP_SC_080
+HT-279427 RP_SC_079
+HT-279426 RP_SC_078
+HT-279423 RP_SC_075
+HT-279420 RP_SC_072
+HT-279410 RP_SC_062
+HT-279407 RP_SC_059
+HT-279406 RP_SC_058
+HT-279405 RP_SC_057
+HT-279404 RP_SC_056
+HT-279403 RP_SC_055
+HT-279402 RP_SC_054
+HT-279401 RP_SC_053
+HT-279400 RP_SC_052
+HT-279398 RP_SC_050
+HT-279397 RP_SC_049
+Page 131
+EPS receives RP's steering request during the RP process and executes RP's lateral control.
+
+The normal handshake signal sequence is as follows:
+Page 132
+4 May 2022   
+Uncontrolled copy when printed  
+132 | 159  
+Print date  
+Status  
+Functional Responsibility  
+
+VinFast  
+Management System  
+
+VFDSXVEEP9129  
+
+图1  
+The difference between the process of RP controlling EPS and FAPA controlling EPS is that ADCU requests EPS function mode signal "ADAS_EPS_FuncMode". After RP function is turned on, ADCU needs to send "ADAS_EPS_FuncMode = RP mode" to EPS.  
+Except for the above differences, FAPA and RP are all the same in controlling EPS.  
+
+Figure description:  
+The diagram outlines the signal exchange during the RP process controlling EPS compared to FAPA's process. It highlights the handshake sequence and distinguishes the RP-specific signal "ADAS_EPS_FuncMode = RP Mode" requested by ADCU. The handshake steps include a request, activation, and disconnection phases.
+
+14.4.4.2 RP And ESC System Interaction
+Page 133
+Requirement ID: FS-226867. This requirement is categorized as "Functional" and its current status is marked as "New."
+
+Upstream References (0): There are no upstream references associated with this requirement.
+
+Downstream References (110): The requirement has the following downstream references:  
+1. HT-277681, RP_TC_040.  
+2. HT-277674, RP_TC_033.  
+3. HT-277673, RP_TC_032.  
+4. HT-277671, RP_TC_030.  
+5. HT-277670, RP_TC_029.  
+6. HT-277669, RP_TC_028.  
+7. HT-277668, RP_TC_027.  
+8. HT-277667, RP_TC_026.  
+9. HT-277666, RP_TC_025.  
+10. HT-277665, RP_TC_024.  
+11. HT-277664, RP_TC_023.  
+12. HT-277663, RP_TC_022.  
+13. HT-277661, RP_TC_020.  
+14. HT-277660, RP_TC_019.  
+15. HT-277659, RP_TC_018.  
+16. HT-277658, RP_TC_017.  
+17. HT-277656, RP_TC_015.  
+18. HT-277655, RP_TC_014.  
+19. HT-277654, RP_TC_013.  
+20. HT-277653, RP_TC_012.  
+21. HT-277652, RP_TC_011.  
+22. HT-277651, RP_TC_010.
+Page 134
+VinFast Management System.
+
+Requirement ID: FS-226867. Type: Functional. Status: New.
+
+Downstream References (110):
+HT-277681 RP_TC_040.  
+HT-277674 RP_TC_033.  
+HT-277673 RP_TC_032.  
+HT-277671 RP_TC_030.  
+HT-277670 RP_TC_029.  
+HT-277669 RP_TC_028.  
+HT-277668 RP_TC_027.  
+HT-277667 RP_TC_026.  
+HT-277666 RP_TC_025.  
+HT-277665 RP_TC_024.  
+HT-277664 RP_TC_023.  
+HT-277663 RP_TC_022.  
+HT-277650 RP_TC_009.  
+HT-277649 RP_TC_008.  
+HT-277648 RP_TC_007.  
+HT-277647 RP_TC_006.  
+HT-277646 RP_TC_005.  
+HT-279425 RP_SC_077.  
+HT-279424 RP_SC_076.  
+HT-279417 RP_SC_069.  
+HT-279412 RP_SC_064.  
+HT-279411 RP_SC_063.  
+HT-279386 RP_SC_038.  
+HT-279378 RP_SC_030.  
+HT-279374 RP_SC_026.  
+HT-279372 RP_SC_024.  
+HT-279362 RP_SC_014.  
+HT-279360 RP_SC_012.  
+HT-279359 RP_SC_011.  
+HT-279351 RP_SC_003.  
+HT-279395 RP_SC_047.  
+HT-279384 RP_SC_036.  
+HT-279381 RP_SC_033.  
+HT-279367 RP_SC_019.  
+HT-279355 RP_SC_007.  
+HT-279393 RP_SC_045.
+Page 135
+HT-279387: RP_SC_039.  
+HT-279375: RP_SC_027.  
+HT-279352: RP_SC_004.  
+HT-279440: RP_SC_092.  
+HT-279439: RP_SC_091.  
+HT-279418: RP_SC_070.  
+HT-279414: RP_SC_066.  
+HT-279413: RP_SC_065.  
+HT-279408: RP_SC_060.  
+HT-279399: RP_SC_051.  
+HT-279392: RP_SC_044.  
+HT-279391: RP_SC_043.  
+HT-279390: RP_SC_042.  
+HT-279389: RP_SC_041.  
+HT-279383: RP_SC_035.  
+HT-279371: RP_SC_023.  
+HT-279358: RP_SC_010.  
+HT-279357: RP_SC_009.  
+HT-279356: RP_SC_008.  
+HT-279438: RP_SC_090.  
+HT-279436: RP_SC_088.  
+HT-279421: RP_SC_073.  
+HT-279419: RP_SC_071.  
+HT-279415: RP_SC_067.
+Page 136
+HT-279394 RP_SC_046  
+HT-279370 RP_SC_022  
+HT-279369 RP_SC_021  
+HT-279368 RP_SC_020  
+HT-279353 RP_SC_005  
+HT-279437 RP_SC_089  
+HT-279435 RP_SC_087  
+HT-279422 RP_SC_074  
+HT-279416 RP_SC_068  
+HT-279380 RP_SC_032  
+HT-279366 RP_SC_018  
+HT-279365 RP_SC_017  
+HT-279364 RP_SC_016  
+HT-279363 RP_SC_015  
+HT-279354 RP_SC_006  
+HT-279350 RP_SC_002  
+HT-279434 RP_SC_086  
+HT-279433 RP_SC_085  
+HT-279432 RP_SC_084  
+HT-279428 RP_SC_080  
+HT-279427 RP_SC_079  
+HT-279426 RP_SC_078  
+HT-279420 RP_SC_072  
+HT-279410 RP_SC_062
+Page 137
+HT-279407. RP_SC_059  
+HT-279406. RP_SC_058  
+HT-279405. RP_SC_057  
+HT-279404. RP_SC_056  
+HT-279403. RP_SC_055  
+HT-279402. RP_SC_054  
+HT-279401. RP_SC_053  
+HT-279400. RP_SC_052  
+HT-279398. RP_SC_050  
+HT-279397. RP_SC_049  
+HT-279396. RP_SC_048  
+HT-279388. RP_SC_040  
+HT-279385. RP_SC_037  
+HT-279382. RP_SC_034  
+HT-279379. RP_SC_031  
+HT-279377. RP_SC_029  
+
+No Associations.  
+IDB is responsible for the deceleration in the longitudinal control during the RP process.
+
+The normal handshake signal sequence is as follows:
+Page 138
+图2  
+The difference between the process of RP controlling IDB and FAPA controlling IDB is that ADCU requests IDB function mode signal "ADAS_IDB_FuncMode". After RP function is turned on, ADCU needs to send "ADAS_IDB_FuncMode = RP mode" to IDB.  
+Except for the above differences, FAPA and RP are all the same in controlling IDB.  
+
+14.4.4.3 RP And VCU System Interaction  
+
+Requirement ID: FS-226868.  
+Type: Functional.  
+Status: New.  
+Upstream References (0).
+Page 139
+No Upstream References.
+
+Downstream References (107):
+- HT-277681: RP_TC_040
+- HT-277674: RP_TC_033
+- HT-277673: RP_TC_032
+- HT-277671: RP_TC_030
+- HT-277670: RP_TC_029
+- HT-277669: RP_TC_028
+- HT-277668: RP_TC_027
+- HT-277667: RP_TC_026
+- HT-277666: RP_TC_025
+- HT-277665: RP_TC_024
+- HT-277664: RP_TC_023
+- HT-277663: RP_TC_022
+- HT-277661: RP_TC_020
+- HT-277660: RP_TC_019
+- HT-277659: RP_TC_018
+- HT-277658: RP_TC_017
+- HT-277656: RP_TC_015
+- HT-277655: RP_TC_014
+- HT-277654: RP_TC_013
+- HT-277653: RP_TC_012
+- HT-277652: RP_TC_011
+- HT-277651: RP_TC_010
+- HT-277650: RP_TC_009
+Page 140
+Requirement ID: FS-226868  
+Type: Functional  
+Status: New  
+
+Upstream References:  
+No Upstream References  
+
+Downstream References:  
+HT-277681: RP_TC_040  
+HT-277674: RP_TC_033  
+HT-277673: RP_TC_032  
+HT-277671: RP_TC_030  
+HT-277670: RP_TC_029  
+HT-277669: RP_TC_028  
+HT-277668: RP_TC_027  
+HT-277667: RP_TC_026  
+HT-277666: RP_TC_025  
+HT-277665: RP_TC_024  
+HT-277664: RP_TC_023  
+HT-277663: RP_TC_022  
+HT-277661: RP_TC_020  
+HT-277660: RP_TC_019  
+HT-277659: RP_TC_018  
+HT-277658: RP_TC_017  
+HT-277656: RP_TC_015  
+HT-277655: RP_TC_014  
+HT-277654: RP_TC_013  
+HT-277653: RP_TC_012  
+HT-277652: RP_TC_011  
+HT-277651: RP_TC_010  
+HT-277649: RP_TC_008  
+HT-277648: RP_TC_007  
+HT-277647: RP_TC_006  
+HT-277646: RP_TC_005  
+HT-279425: RP_SC_077  
+HT-279424: RP_SC_076  
+HT-279417: RP_SC_069  
+HT-279412: RP_SC_064  
+HT-279411: RP_SC_063  
+HT-279409: RP_SC_061  
+HT-279386: RP_SC_038  
+HT-279378: RP_SC_030  
+HT-279374: RP_SC_026  
+HT-279362: RP_SC_014  
+HT-279360: RP_SC_012  
+HT-279359: RP_SC_011  
+HT-279351: RP_SC_003  
+HT-279376: RP_SC_028  
+HT-279395: RP_SC_047  
+HT-279384: RP_SC_036  
+HT-279381: RP_SC_033  
+HT-279367: RP_SC_019  
+HT-279355: RP_SC_007  
+HT-279393: RP_SC_045
+Page 141
+Requirement IDs and References:
+
+- HT-279387 RP_SC_039
+- HT-279375 RP_SC_027
+- HT-279352 RP_SC_004
+- HT-279418 RP_SC_070
+- HT-279414 RP_SC_066
+- HT-279413 RP_SC_065
+- HT-279408 RP_SC_060
+- HT-279399 RP_SC_051
+- HT-279392 RP_SC_044
+- HT-279391 RP_SC_043
+- HT-279390 RP_SC_042
+- HT-279389 RP_SC_041
+- HT-279383 RP_SC_035
+- HT-279361 RP_SC_013
+- HT-279358 RP_SC_010
+- HT-279357 RP_SC_009
+- HT-279356 RP_SC_008
+- HT-279349 RP_SC_001
+- HT-279421 RP_SC_073
+- HT-279419 RP_SC_071
+- HT-279415 RP_SC_067
+- HT-279394 RP_SC_046
+- HT-279373 RP_SC_025
+- HT-279370 RP_SC_022
+Page 142
+HT-279369: RP_SC_021  
+HT-279368: RP_SC_020  
+HT-279353: RP_SC_005  
+HT-279435: RP_SC_087  
+HT-279422: RP_SC_074  
+HT-279416: RP_SC_068  
+HT-279380: RP_SC_032  
+HT-279366: RP_SC_018  
+HT-279365: RP_SC_017  
+HT-279364: RP_SC_016  
+HT-279363: RP_SC_015  
+HT-279354: RP_SC_006  
+HT-279350: RP_SC_002  
+HT-279434: RP_SC_086  
+HT-279433: RP_SC_085  
+HT-279432: RP_SC_084  
+HT-279428: RP_SC_080  
+HT-279427: RP_SC_079  
+HT-279426: RP_SC_078  
+HT-279420: RP_SC_072  
+HT-279410: RP_SC_062  
+HT-279407: RP_SC_059  
+HT-279406: RP_SC_058  
+HT-279405: RP_SC_057
+Page 143
+HT-279404 RP_SC_056.  
+HT-279403 RP_SC_055.  
+HT-279402 RP_SC_054.  
+HT-279401 RP_SC_053.  
+HT-279400 RP_SC_052.  
+HT-279398 RP_SC_050.  
+HT-279397 RP_SC_049.  
+HT-279396 RP_SC_048.  
+HT-279388 RP_SC_040.  
+HT-279385 RP_SC_037.  
+HT-279382 RP_SC_034.  
+HT-279377 RP_SC_029.  
+
+No Associations.  
+The VCU receives RP's acceleration and change gear request during the parking process, and executes the acceleration and change gear action of the vehicle.  
+
+Sequence diagram of normal control signal:
+Page 144
+4 May 2022  
+Uncontrolled copy when printed  
+144 | 159  
+Print date  
+Status  
+Functional Responsibility  
+
+VinFast  
+Management System  
+
+VFDSXVEEP9129  
+
+图3  
+The difference between the process of RP controlling VCU and FAPA controlling VCU is that ADCU requests VCU function mode signal "ADAS_VCU_FuncMode". After RP function is turned on, ADCU needs to send "ADAS_VCU_FuncMode = RP mode" to VCU.  
+Except for the above differences, FAPA and RP are all the same in controlling VCU.
+
+14.4.4.4 RP And T-box Interaction  
+
+Requirement ID: FS-226869  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+
+Downstream References (28)  
+HT-277681 RP_TC_040  
+HT-277674 RP_TC_033
+Page 145
+HT-277673 RP_TC_032  
+HT-277671 RP_TC_030  
+HT-277670 RP_TC_029  
+HT-277669 RP_TC_028  
+HT-277668 RP_TC_027  
+HT-277667 RP_TC_026  
+HT-277666 RP_TC_025  
+HT-277665 RP_TC_024  
+HT-277664 RP_TC_023  
+HT-277663 RP_TC_022  
+HT-277662 RP_TC_021  
+HT-277661 RP_TC_020  
+HT-277660 RP_TC_019  
+HT-277659 RP_TC_018  
+HT-277658 RP_TC_017  
+HT-277656 RP_TC_015  
+HT-277655 RP_TC_014  
+HT-277654 RP_TC_013  
+HT-277653 RP_TC_012  
+HT-277652 RP_TC_011  
+HT-277651 RP_TC_010  
+HT-277650 RP_TC_009  
+HT-277649 RP_TC_008  
+HT-277648 RP_TC_007
+Page 146
+HT-277647 RP_TC_006  
+HT-277646 RP_TC_005  
+
+No Associations.
+
+图4  
+ADCU will reply ADAS_TboxAuthStatus = 0X1:"PASSED". Handshake success.  
+When the following situations occur, RP will actively disconnect the handshake with the T-box:  
+
+14.4.4.4.1 When RP process is successfully finished. RPA_Status = 0x4: Finished, RP will disconnect the handshake after 3 cycles.  
+
+Requirement ID: FS-226870  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations
+Page 147
+14.4.4.4.2 When RP process is successfully finished. RPA_Status = 0x4: Finished, RP will disconnect the handshake after 3 cycles.
+
+Requirement ID: FS-226871  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+14.4.4.4.3 When authentication status is fault; ADAS_TboxAuthStatus = 2: FAILED: Authentication fail RP will disconnect the handshake.
+
+Requirement ID: FS-226872  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+14.4.4.4.4 When the driver clicks "Exit", the T-box actively disconnects the handshake with the RP by sending MHU_RPAParkingControlReq = 0x0: No request.
+
+Requirement ID: FS-226873  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+14.4.4.5 RP And BCM System Interaction
+Page 148
+Requirement ID: FS-226874. Type: Functional. Status: New.
+
+Upstream References (0): No Upstream References.
+
+Downstream References (73): 
+- HT-279412: RP_SC_064.
+- HT-279411: RP_SC_063.
+- HT-279409: RP_SC_061.
+- HT-279386: RP_SC_038.
+- HT-279378: RP_SC_030.
+- HT-279374: RP_SC_026.
+- HT-279372: RP_SC_024.
+- HT-279362: RP_SC_014.
+- HT-279360: RP_SC_012.
+- HT-279359: RP_SC_011.
+- HT-279351: RP_SC_003.
+- HT-279376: RP_SC_028.
+- HT-279395: RP_SC_047.
+- HT-279384: RP_SC_036.
+- HT-279367: RP_SC_019.
+- HT-279355: RP_SC_007.
+- HT-279393: RP_SC_045.
+- HT-279387: RP_SC_039.
+- HT-279352: RP_SC_004.
+- HT-279418: RP_SC_070.
+- HT-279414: RP_SC_066.
+- HT-279413: RP_SC_065.
+Page 149
+HT-279408: RP_SC_060  
+HT-279399: RP_SC_051  
+HT-279392: RP_SC_044  
+HT-279391: RP_SC_043  
+HT-279390: RP_SC_042  
+HT-279389: RP_SC_041  
+HT-279371: RP_SC_023  
+HT-279361: RP_SC_013  
+HT-279358: RP_SC_010  
+HT-279357: RP_SC_009  
+HT-279356: RP_SC_008  
+HT-279349: RP_SC_001  
+HT-279421: RP_SC_073  
+HT-279419: RP_SC_071  
+HT-279415: RP_SC_067  
+HT-279394: RP_SC_046  
+HT-279373: RP_SC_025  
+HT-279370: RP_SC_022  
+HT-279369: RP_SC_021  
+HT-279368: RP_SC_020  
+HT-279353: RP_SC_005  
+HT-279435: RP_SC_087  
+HT-279422: RP_SC_074  
+HT-279416: RP_SC_068
+Page 150
+HT-279366 RP_SC_018.  
+HT-279365 RP_SC_017.  
+HT-279364 RP_SC_016.  
+HT-279363 RP_SC_015.  
+HT-279354 RP_SC_006.  
+HT-279350 RP_SC_002.  
+HT-279434 RP_SC_086.  
+HT-279433 RP_SC_085.  
+HT-279432 RP_SC_084.  
+HT-279420 RP_SC_072.  
+HT-279410 RP_SC_062.  
+HT-279407 RP_SC_059.  
+HT-279406 RP_SC_058.  
+HT-279405 RP_SC_057.  
+HT-279404 RP_SC_056.  
+HT-279403 RP_SC_055.  
+HT-279402 RP_SC_054.  
+HT-279401 RP_SC_053.  
+HT-279400 RP_SC_052.  
+HT-279398 RP_SC_050.  
+HT-279397 RP_SC_049.  
+HT-279396 RP_SC_048.  
+HT-279388 RP_SC_040.  
+HT-279385 RP_SC_037.
+Page 151
+HT-279382: RP_SC_034.  
+HT-279379: RP_SC_031.  
+HT-279377: RP_SC_029.  
+
+No Associations: During parking, the RP function will request BCM to execute some vehicle body functions, such as:  
+- Lights: hazard warning lights, turn signals, brake lights, position lights, high beam lights, low beam lights, front/rear fog lights.
+
+### 14.5 Performance Requirements
+
+#### Requirement ID: FS-226875  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+No Associations.  
+
+---
+
+### 14.5.1 KPI  
+
+#### Requirement ID: FS-226876  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+No Associations.
+
+---
+
+#### 14.5.1.1 The max speed for parking spot detection  
+
+#### Requirement ID: FS-226877  
+Type: Functional.  
+Status: New.  
+Upstream References: None.  
+Downstream References: None.  
+No Associations.
+Page 152
+Parking Performance Requirements.
+
+The max speed for parking spot detection is less than or equal to 30 km/h.
+
+### 14.5.1.2 The max speed of parking process.
+Requirement ID: FS-226878.  
+Type: Functional.  
+Status: New.  
+
+No upstream references.  
+No downstream references.  
+No associations.
+
+The max speed of the parking process is less than or equal to 5 km/h.
+
+### 14.5.1.3 The side distance of the vehicle and parking slot.
+Requirement ID: FS-226879.  
+Type: Functional.  
+Status: New.  
+
+No upstream references.  
+No downstream references.  
+No associations.
+Page 153
+14.5.1.3 The side distance of vehicle and parking slot.
+
+Requirement ID: FS-226879.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References:  
+No Downstream References.  
+
+Associations:  
+No Associations.  
+
+Description:  
+The side distance of vehicle and parking slot.  
+
+Value:  
+50~180 cm.  
+
+14.5.1.4 Parking limit time.
+
+Requirement ID: FS-226880.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References:  
+No Downstream References.  
+
+Associations:  
+No Associations.  
+
+Description:  
+Parking limit time.  
+
+Value:  
+240s.  
+
+14.5.1.5 The Standard length of parking slot.
+
+Requirement ID: FS-226881.  
+Type: Functional.  
+Status: New.  
+
+Upstream References (0):  
+No Upstream References.  
+
+Downstream References:  
+No Downstream References.  
+
+Associations:  
+No Associations.  
+
+Description:  
+The Standard length of parking slot.  
+
+Value:  
+- Vehicle length + 1.0m (parallel).  
+- Vehicle width + 1.0m (vertical).
+Page 154
+14.5.1.6 The Min length of parking slot.
+
+Requirement ID: FS-226882  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description: The Min length of parking slot.  
+Value: Vehicle length + 1m (parallel), Vehicle width + 0.8m (vertical).  
+
+---
+
+14.5.1.7 The error of parking slot size.
+
+Requirement ID: FS-226883  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description: The error of parking slot size.  
+Value: ≤30cm.  
+
+---
+
+14.5.1.8 The min diameter of a circular object.
+
+Requirement ID: FS-226884  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations
+Page 155
+14.5.1.8 The min diameter of a circular object.
+
+Requirement ID: FS-226884  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations.  
+
+Description:  
+The min diameter of a circular object: 0.5m.  
+
+14.5.1.9 The min length of a square object.
+
+Requirement ID: FS-226885  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations.  
+
+Description:  
+The min length of a square object: 0.5m.  
+
+14.5.1.10 The min radius of curve.
+
+Requirement ID: FS-226886  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations.  
+
+Description:  
+The min radius of curve: 40 m.
+Page 156
+14.5.1.11 Maximum identifiable angle.
+
+Requirement ID: FS-226887  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description: Maximum identifiable angle.  
+Value: ≤± 6°  
+
+14.5.1.12 Minimum height of the curb.
+
+Requirement ID: FS-226888  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description: Minimum height of the curb.  
+Value: 15cm  
+
+14.5.1.13 Safe parking distance.
+
+Requirement ID: FS-226889  
+Type: Functional  
+Status: New  
+
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description: Safe parking distance.  
+Value: 15cm
+Page 157
+14.5.1.13 Safe parking distance.
+
+Description:  
+Safe parking distance.  
+Value: 30cm.
+
+14.5.1.14 Max. number of vehicle adjustments.
+
+Requirement ID: FS-226890.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (0): No Downstream References.  
+No Associations.  
+
+Description:  
+Max. number of vehicle adjustments.  
+Value: 7次.
+
+14.5.1.15 Parking recognition rate.
+
+Requirement ID: FS-226891.  
+Type: Functional.  
+Status: New.  
+Upstream References (0): No Upstream References.  
+Downstream References (0): No Downstream References.  
+No Associations.  
+
+Description:  
+Parking recognition rate.  
+Value: 90%.
+Page 158
+14.5.1.16 Parking success rate.
+
+Requirement ID: FS-226892  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description:  
+Parking success rate.  
+
+Value:  
+90%.
+
+---
+
+14.5.1.17 The vehicle angle after parking is complete.
+
+Requirement ID: FS-226893  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description:  
+The vehicle angle after parking is complete.  
+
+Value:  
+<3°.
+
+---
+
+14.5.1.18 Parking position deviation after finish (Marked parking slot).
+
+Requirement ID: FS-226894  
+Type: Functional  
+Status: New  
+Upstream References (0)  
+No Upstream References  
+No Downstream References  
+No Associations  
+
+Description:  
+Parking position deviation after finish (Marked parking slot).  
+
+Value:  
+<3°.
+Page 159
+14.5.1.18 Parking position deviation after finish (Marked parking slot)
+
+Requirement ID: FS-226894  
+Type: Functional  
+Status: New  
+
+Description:  
+After the completion of the vehicle inclination angle <3°.  
+The rear distance from the parking line >0.1m.  
+
+---
+
+14.5.1.19 Parking position deviation after finish (Space parking slot)
+
+Requirement ID: FS-226895  
+Type: Functional  
+Status: New  
+
+Description:  
+After the completion of the vehicle inclination angle <3°.  
+With kerb: Distance kerb 0.1m~0.4m.  
+Without kerb: The outer edge deviation < ±0.15m.  
+
+Refer to the following documents for parking standards:  
+KPI Of APA System.pdf

@@ -1,0 +1,928 @@
+
+<filename>VFDSXVBIN0001_AIRBAG SYSTEM_V1.0</filename>
+<pages>
+
+<page number="1">
+SPEC BOOK.
+
+First edition (06.2020).
+
+FSS.
+
+AIRBAG SYSTEMS.
+
+Applicable for System Development Supplier.
+
+SPEC BOOK (SPB).
+</page>
+
+<page number="2">
+## Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a new VF35/e35 vehicle in both BEV and ICE (PREM). Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production the PREM Program.
+
+**Responsible Contact:** Christopher Stalker.
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+**Index**
+
+**Contents**
+- SCOPE AND PURPOSE  2
+
+**1 SCOPE OF PRODUCT/COMMODITY**  6
+1.1 Vehicle profile  6  
+VFDSXVCVC0501  6  
+VF35/E35_ICE_BEV_APPENDIX_5_FEATURES LIST  6  
+1.2 Sales Markets  6  
+1.3 Production volume  6  
+
+**2 PROGRAM TIMING AND BUILD PLAN**  6
+2.1 Timing plan  6
+2.2 Build Plan  6  
+
+**3 ORGANIZATION AND CONTACT**  6  
+
+**4 DEFINITIONS AND APPLICABLE DOCUMENTS**  6
+4.1 CAD Data/ Transfer data-CAD Requirements  6
+4.2 Change Documentation and Part History Documentation  6  
+
+**5 DESCRIPTION AND SCOPE OF WORK**  7
+5.1 Technical requirement  7  
+5.2 General CAE Requirements  8  
+5.3 Material requirement  8  
+5.4 Traceability  8  
+5.5 Labeling of Parts  8  
+5.6 Functional Requirements  8  
+  5.6.1 VF35/e35 Airbag Modules  8  
+  5.6.2 Triggering Time and Airbag Inflation Time  9  
+  5.6.3 Requirement of Airbag System during and after deployment  10  
+  5.6.4 Airbag System Effective Protection Area  10  
+
+**6 TESTING AND VALIDATION AND DVP&R**  14  
+
+**7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS**  14
+7.1 Functional Safety Requirements  14  
+7.2 Deliverables for Functional Safety  14  
+  a) FUSA Deliverables expected before nomination  15  
+  b) FUSA Deliverables expected after nomination  15  
+7.3 Homologation and safety regulation requirements  15  
+  7.3.1 North America  15  
+  7.3.2 Europe  16  
+
+**8 DELIVERABLES**  16
+8.1 Technical deliverables  16  
+8.2 Details deliverables and RASI  17  
+
+**9 SUPPLIER RESPONSIBILITIES**  19
+</page>
+
+<page number="4">
+10. Intellectual Property / Copyright.
+11. Insurance / Warranties.
+12. VinFast GTC & Part Packaging and Incoterms.
+13. Definitions and List of Abbreviations.
+</page>
+
+<page number="5">
+Release.
+
+Version: 1.0.  
+Date: Jun-2020.  
+Updated by:
+
+- Chief Engineer: John Nolan, v.nolanj@vinfast.vn.  
+- ER-CV: Gary Carroll, v.carrollg@vinfast.vn.  
+- ER-MGL PWT: Nicholas True, v.truen@vinfast.vn.  
+- ER-MGL CHS: Joseph Sawyer, v.sawyerja@vinfast.vn.  
+- ER-MGL E/E: Shane Kimball, v.kimballsr@vinfast.vn.  
+- ER-MGL BIW/DC: Markus Kirchweger, v.markusk@vinfast.vn.  
+- ER-MGL Interior: Rowan Surendra Lal, v.lalrs@vinfast.vn.  
+
+Revisions since previous version.
+
+Version: 1.  
+Change Description: First edition.  
+Signature: —  
+Date: 30/06/2020.
+</page>
+
+<page number="6">
+1 Scope of product/commodity.
+
+1.1 Vehicle profile.
+Refer to appendix:
+VFDSXVCVC0501 VF35/e35_ICE_BEV_Appendix_5_Features list.
+
+1.2 Sales Markets.
+LHD countries: Vietnam (VN) & Asean, US, EU.
+
+1.3 Production volume.
+Following purchase information.
+
+2 Program Timing and Build Plan.
+
+2.1 Timing plan.
+VFDSXVCVC1101_Appendix_1_Project timing.
+
+2.2 Build Plan.
+VF35_VFe35_Material production Launch Schedule-Build plan_MRD.
+
+3 Organization and contact.
+
+| Contact | Name                          | Email ID               | Contact Number       |
+|---------|-------------------------------|------------------------|----------------------|
+| Commodity Buyer      | Nguyen Thi Thanh           | v.thanhnt78@vinfast.vn   | N/A                  |
+| Commodity Buyer Manager | Nethaji Subbarayalu     | v.nethajis@vinfast.vn    | +84(0)888733322      |
+| Commodity Engineering  | David Brierley            | v.brierleydj@vinfast.vn  | +84(0)888142882      |
+| Commodity Engineering Manager | Chris Stalker     | v.stalkerc@vinfast.vn    | N/A                  |
+| SQE (Site Engineer)     | Prescott Michael Philip  | v.michaelpp@vinfast.vn   | +84(0)812252266      |
+| SQE Manager             | Steve Jeon               | v.jeons@vinfast.vn       | +82-10-8488-8367     |
+| SCM Analyst             | Dilshod Tokhtasinov      | v.dilshod@vinfast.vn     | +84(0)888352662      |
+| Packaging Analyst       | Attsawarungsun Nimnaul   | v.nimnaula@vinfast.vn    | +84(0)888329955      |
+| SCM Manager             | Benjamin Peter Stewart   | v.bens@vinfast.vn        | +84(0)888798855      |
+
+4 Definitions and applicable documents.
+
+4.1 CAD Data/ Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 follow VF standard VFDST00000014. CAD data transfer from VinFast to supplier will be done through Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.
+
+4.2 Change Documentation and Part History Documentation.
+During the development & production process, all the history of changes within the framework of the development process should be thoroughly documented.
+</page>
+
+<page number="7">
+1. Scope of product/commodity.
+1.1. Vehicle profile.  
+Refer to appendix:  
+- VFDSXVCVC0501.  
+- VF35/e35_ICE_BEV_Appendix_5_Features list.  
+
+1.2. Sales Markets.  
+LHD countries: Vietnam (VN) & Asean, US, EU.  
+
+1.3. Production volume.  
+Following purchase information.  
+
+2. Program Timing and Build Plan.
+2.1. Timing plan.  
+VFDSXVCVC1101_Appendix_1_Project timing.  
+
+2.2. Build Plan.  
+VF35_VFe35_Material production Launch Schedule-Build plan_MRD.  
+
+3. Organization and contact.  
+
+**Contact Table:**  
+| Contact Role              | Name                   | Email ID                   | Contact Number     |
+|---------------------------|------------------------|----------------------------|--------------------|
+| Commodity Buyer           | Nguyen Thi Thanh      | v.thanhnt78@vinfast.vn    | N/A                |
+| Commodity Buyer Manager   | Nethaji Subbarayalu   | v.nethajis@vinfast.vn     | +84(0)888733322    |
+| Commodity Engineering     | David Brierley        | v.brierleydj@vinfast.vn   | +84(0)888142882    |
+| Commodity Engineering Manager | Chris Stalker     | v.stalkerc@vinfast.vn     | N/A                |
+| SQE (Site Engineer)       | Prescott Michael Philip | v.michaelpp@vinfast.vn | +84(0)812252266    |
+| SQE Manager               | Steve Jeon            | v.jeons@vinfast.vn        | +82-10-8488-8367   |
+| SCM Analyst               | Dilshod Tokhtasinov   | v.dilshod@vinfast.vn      | +84(0)888352662    |
+| Packaging Analyst         | Attsawarungsun Nimnaul| v.nimnaula@vinfast.vn     | +84(0)888329955    |
+| SCM Manager               | Benjamin Peter Stewart | v.bens@vinfast.vn        | +84(0)888798855    |
+
+4. Definitions and applicable documents.
+4.1. CAD Data/Transfer data-CAD Requirements.  
+- All CAD data must be designed with CATIA V5 following VF standard VFDST00000014.  
+- CAD data transfer from VinFast to supplier will be done through the Supplier collaborative module. For more details, refer to the Supplier collaborative module in the RFQ package.  
+
+4.2. Change Documentation and Part History Documentation.  
+- During the development & production process, all the history of changes within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g. entries in a project manual).  
+- The form of the data can be defined by the contractor. Vehicle Documentation Systems or components, which have to fulfill safety regulations of authorities or legal requirements, have to be remarked on the drawings.  
+- The reasons and the characteristics that have to be documented are listed by authorities. These demands will be requested during the development of the part and latest in the PTO phase.  
+
+5. Description and scope of work.  
+5.1. Technical requirement.  
+- The technical information should be shown in accordance with the information below:  
+  - Vinfast designated part number, usage per car, procurement code, part applicability VF35/e35-ICE, VF35/e35-BEV.  
+  - Technical requirements – Part design, Part requirements – Functional and Performance requirements – VinFast level. For detail please refer to Table 1.  
+
+**Table 1: Technical Information Table (Simplified as Sentences per Row)**  
+1. Part Name: Curtain Airbag LH; Part No: BIN30034001; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE, VFe35 MID, VFe35 FULL; Market: Vietnam, EU, US.  
+2. Part Name: Curtain Airbag RH; Part No: BIN30034002; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE, VFe35 MID, VFe35 FULL; Market: Vietnam, EU, US.  
+3. Part Name: Center Airbag; Part No: BIN30038000; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Plus, BEV - VFe35 MID, VFe35 FULL; Market: Vietnam, EU, US.  
+4. Part Name: RR Side Airbag LH; Part No: BIN30039001; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: BEV - VFe35 MID, VFe35 FULL; Market: Vietnam, EU, US.  
+5. Part Name: RR Side Airbag RH; Part No: BIN30039002; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: BEV - VFe35 MID, VFe35 FULL; Market: Vietnam, EU, US.  
+6. Part Name: Driver Airbag VN; Part No: BIN30035001; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE; Market: Vietnam.  
+7. Part Name: Driver Airbag US; Part No: BIN30035002; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: BEV - VFe35 MID, VFe35 FULL; Market: United States.  
+8. Part Name: Knee Airbag LH; Part No: BIN30007029; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE, VFe35 MID, VFe35 FULL; Market: Vietnam, EU, US.  
+9. Part Name: Knee Airbag RH; Part No: BIN30007030; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE, VFe35 MID, VFe35 FULL; Market: Vietnam, EU, US.  
+10. Part Name: Passenger Airbag VN; Part No: BIN30008001; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE; Market: Vietnam.  
+11. Part Name: Passenger Airbag US; Part No: BIN30008002; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: BEV - VFe35 MID, VFe35 FULL; Market: United States.  
+12. Part Name: Side Airbag VN LH; Part No: BIN30024001; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE; Market: Vietnam.  
+13. Part Name: Side Airbag VN RH; Part No: BIN30024002; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: ICE - VF35 Smart, VF35 Plus, BEV - VFe35 BASE; Market: Vietnam.  
+14. Part Name: Side Airbag US LH; Part No: BIN30024003; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: BEV - VFe35 BASE, VFe35 MID, VFe35 FULL; Market: United States.  
+15. Part Name: Side Airbag US RH; Part No: BIN30024004; Quantity: 1; Material: VAR; Purchase Level: P; Applicability: BEV - VFe35 BASE, VFe35 MID, VFe35 FULL; Market: United States.
+</page>
+
+<page number="8">
+VinFast Management System VFDSXVBIN0001. Version: 1.0. Uncontrolled copy when printed.  
+
+**5.2 General CAE Requirements.**  
+Please refer to Appendix 2: CAE-FEM-GENERAL Statement of Requirement (SOR) Specification Book.  
+VinFast General FE Modelling and Analysis Requirements.  
+Finite Element Modelling Requirements to support VinFast SOR.  
+
+---
+
+**5.3 Material Requirement.**  
+- **Prohibited or Restricted Substances, Emissions & Toxicology.**  
+  The conformance to prohibited and restricted substances and obligations in terms of notification must be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product lifecycle according to VFDST00007601.  
+
+  IMDS material data sheets must be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601.  
+  Specific targets on vehicle indoor air quality must follow VFDSXVCVC3401-VIAQ_Testing_Guideline.  
+
+  Material specifications must detail weight, grade, and density.  
+
+---
+
+**5.4 Traceability.**  
+For part requirements, follow specifications defined in VinFast standard VFDST00010501.  
+
+---
+
+**5.5 Labeling of Parts.**  
+Suppliers must comply with VinFast standard VFDST00000010. Figures must be provided to illustrate the position of labels on parts (label positioning set-up with pictures).  
+
+---
+
+**5.6 Functional Requirements.**  
+
+**5.6.1 VF35/e35 Airbag Modules.**  
+The VF35/e35 vehicle comprises the following components/modules:  
+1) **VN Variant** (refer to Table 2):  
+   - a. Driver Airbag Module (DAB).  
+   - b. Passenger Airbag Module (PAB).  
+   - c. Side Airbag Module (SAB).  
+   - d. Curtain Airbag Module (CAB).
+</page>
+
+<page number="9">
+### 5 Description and scope of work
+
+#### 5.6.2 Triggering Time and Airbag Inflation Time
+The triggering time or 'time to fire' (TTF) refers to the deployment time determined by the Airbag Control Unit (ACU). Pending the type and severity of the impact, the ACU sends out triggering voltage to the airbag(s).
+
+The inflation time refers to the duration required for the airbag to be triggered by the ACU, reach its restraint position, and achieve full inflation. The minimum required inflation time for the VF35/e35 airbag modules is as follows:
+
+**VN Airbag System:**
+- **Driver Airbag Module (DAB):** TTF + TBD milliseconds (ms)
+- **Passenger Airbag Module (PAB):** TTF + TBD ms
+- **Side Airbag Module (SAB):** TTF + TBD ms
+- **Curtain Airbag Module (CAB):** TTF + TBD ms
+</page>
+
+<page number="10">
+4) US Airbag System:  
+a. Driver Airbag Module (DAB):  
+   i. 1st Stage Only => TTF + TBDms  
+   ii. 1st Stage + 2nd Stage (High Energy) => TTF + TBDms  
+b. Passenger Airbag Module (PAB):  
+   i. 1st Stage Only => TTF + TBDms  
+   ii. 1st Stage + 2nd Stage (High Energy) => TTF + TBDms  
+c. Knee Airbag Module => TTF + TBDms  
+d. 1st Row Side Airbag Module (1st SAB) => TTF + TBDms  
+e. 2nd Row Side Airbag Module (2nd SAB) => TTF + TBDms  
+f. 1st Row Centre Side Airbag Module (CTR-SAB) => TTF + TBDms  
+g. Curtain Airbag Module (CAB) => TTF + TBDms  
+
+### 5.6.3 Requirement of Airbag System During and After Deployment  
+During and after deployment of the airbag system, all airbag modules must conform with the following requirements:  
+1) No sharp edges, hard objects, and/or deformed parts are allowed.  
+2) No health hazard substances and/or gaseous vapours exposed to the environment and occupants.  
+3) Must be firmly secured or connected to their mounting structures.  
+
+### 5.6.4 Airbag System Effective Protection Area  
+The effective protection area of the airbag system must cover the complete adjustment range for the seat and steering column (applicable only for drivers) within the passenger compartment. The following sub-sections highlight the VF35/e35 (VN & US) ICE & BEV variants coverage.  
+
+#### 5.6.4.1 Frontal Airbag System  
+The VF35/e35 frontal airbag system consists of the following modules:  
+1) VN BEV and ICE Variants (5 & 7 Seater):  
+   a) Driver Airbag with single-stage inflator  
+   b) Passenger Airbag with single-stage inflator  
+2) US BEV Variant (5 Seater):  
+   a) Driver Airbag with dual-stage inflator  
+   b) Passenger Airbag with dual-stage inflator  
+   c) Driver and Passenger Knee Airbags with single inflator  
+
+#### 5.6.4.2 Side Airbag System  
+The VF35/e35 side airbag system consists of the following modules:  
+1) VN BEV and ICE Variants (5 & 7 Seater):  
+   a) 1st Row Side Airbag (Thorax + Pelvis Coverage)  
+   b) Curtain Airbag (1st Row and 2nd Row Coverage)  
+2) US BEV Variant (5 Seater):  
+   a) 1st Row Side Airbags (Thorax + Pelvis)  
+   b) 1st Row Centre Airbag (Far Side Protection)  
+   c) 2nd Row Side Airbags (Thorax)  
+   d) Curtain Airbag (1st Row and 2nd Row Coverage)
+</page>
+
+<page number="11">
+System and Vehicle Testing Activities.
+
+In addition to the Component Level Testing Activities for the restraint system modules listed in Section 6, it is crucial that System and Vehicle levels of testing activities are conducted to facilitate the development outlined in Sections 5.6.1 to 5.6.4. The work contents are frequently categorized into:
+i. Virtual Testing Activities or Computer Aided Engineering (CAE).
+ii. Sled Testing Activities.
+iii. Full Vehicle Crash Testing Activities.
+
+The findings from these testing activities confirm the airbag requirements on module and system levels, the effectiveness of protection coverage, and Time to Fire (TTF) for specific load cases, typically dictated by high-speed impacts (Front and Side). Once the testing activities confirm these requirements, the airbags are installed into the vehicle and validated with Physical Full Vehicle Crash Testing Activities. Following confirmation through testing, this document will be updated accordingly.
+
+**Figures:**
+The image illustrates Airbag Coverage for Driver (US and VN) variants.
+- US Cushion Volume: 55L (TBD).
+- VN Cushion Volume: 45L (TBD).
+</page>
+
+<page number="12">
+System and Vehicle Testing Activities.
+
+Beside Component Level Testing Activities of restraint system modules listed in Section 6, it is important that System and Vehicle levels of testing activities are conducted to support development as outlined in Sections 5.6.1 to 5.6.4. These testing activities are divided into three categories:
+i. Virtual Testing Activities or Computer Aided Engineering (CAE).
+ii. Sled Testing Activities.
+iii. Full Vehicle Crash Testing Activities.
+
+The results from these activities confirm the airbag requirements at the module and system levels, including protection effectiveness and Time to Fire for load cases dictated by high-speed impact (Front and Side). Upon validation, the system will be installed in the vehicle, with further Physical Full Vehicle Crash Testing Activities conducted. This document will be updated to reflect the findings from testing.
+
+### Key Illustrations:
+
+#### Driver Airbag Coverage – US and VN
+Pictures illustrating airbag coverage for the driver are included, indicating differences in cushion volume:
+- **US Cushion Volume:** TBD liters.
+- **VN Cushion Volume:** TBD liters.
+
+---
+
+Pictures showing Airbag Coverage for 1st Row Passenger (US and VN) to be included.
+
+#### Passenger Airbag Coverage – VN Only
+Images (both front and side views) depict airbag coverage for the VN variant. 
+
+#### Side Airbag Coverage
+Pictures demonstrating side airbag coverage include:
+- **FRT VN/US Common:** Diagram showing dimensions and coverage areas.
+- **Rear US Only:** Illustration highlighting the rear passenger coverage specific to the US variant.
+
+---
+
+#### Passenger Airbag Coverage – US Only
+Figures (front and side views) depict enhanced airbag coverage for the US variant, with detailed dimensional data:
+- Height: 1135mm (TBD).
+- Width: 390mm and other measurements indicated in accompanying diagrams.
+</page>
+
+<page number="13">
+System and Vehicle Testing Activities.
+
+Beside Component Level Testing Activities restraint system modules as listed in Section 6, it is important that System and Vehicle levels of testing activities are conducted in order to support the development as listed in Section 5.6.1 to 5.6.4. The work contents are often divided into three categories:
+- Virtual Testing Activities or Computer-Aided Engineering (CAE).
+- Sled Testing Activities.
+- Full Vehicle Crash Testing Activities.
+
+The findings of the work contents can confirm the airbag requirements on module and system levels, effectiveness of protection coverage, and Time to Fire for specific load cases generally being dictated by high-speed impact (Front and Side). Once they are confirmed, they shall be installed into the vehicle and validated with Physical Full Vehicle Crash Testing Activities. Once validated via testing activities, the document shall be updated accordingly.
+
+Pictures showing Airbag Coverage for Driver (US and VN) to be included:
+- US Cushion Volume: 55L (TBD).
+- VN Cushion Volume: 45L (TBD).
+
+Pictures showing Airbag Coverage for 1st Row Passenger (US and VN) to be included.
+
+Passenger Airbag VN Only.
+
+Pictures (Front and Side Views) showing Side Airbag Coverage for (VN) to be included:
+- Side Airbag FRT VN/US Common.
+- Side Airbag Rear US Only:
+  - <H-Point>
+    - X: 1409
+    - Z: 320
+  - H-Point:
+    - X: 2236
+    - Z: 350.
+
+Pictures (Front and Side Views) showing Airbag Coverage for (US) to be included:
+- Passenger Airbag US Only:
+  - Dimensions:
+    - 1135
+    - 390
+    - 655
+    - 470.
+
+Pictures (Side Views) showing Airbag Coverage for (US) to be included:
+- Center Airbag US Only:
+  - <H-Point>
+    - X: 1409
+    - Z: 320.
+  - Dimensions:
+    - 450
+    - 440
+    - 40
+    - 230
+    - 820
+    - 70.
+
+Pictures (Front and Side Views) showing Airbag Coverage for (US) to be included:
+- VN/US Common:
+  - Dimensions:
+    - 780
+    - 1180
+    - 820
+    - 2880.
+</page>
+
+<page number="14">
+6 Testing and Validation and DVP&R.
+
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level in line with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests is provided in the DVP&R file and requires collaboration with Testing & Validation department:
+- Testing with declaration of standard, norm, and legal requirements.
+- Detailed explanation of devices used in testing (description of testing set-up with pictures).
+- Location of testing (internal/external).
+- Duration and testing workflow (in the form of a project plan).
+- Part variant and description of part.
+- Number of tested components/parts.
+
+Refer to appendix: VFDSXVBIN0101_DVP component_Airbag_Systems.  
+Ensure Mileage Target Life: 160,000 km or 10 years (whichever comes first).  
+
+7 Function Safety, Homologation, and Safety Regulations.
+
+Safety is crucial in automotive development and integration. Functional safety focuses on E/E systems.
+
+7.1 Functional Safety Requirements.
+
+The supplier must ensure compliance with:
+- IATF 16949:2016 standard, quality management system requirements for automotive production.
+- ISO 26262:2018 standard, Road vehicles – Functional safety.
+
+< MGL and FuSa to add references to system-specific Functional Safety Requirements documents. >  
+
+7.2 Deliverables for Functional Safety.
+
+Indicative RASIC* for expected deliverables:
+
+| 5.5 Work products:                                                                                      | VINFAST | SUPPLIER |
+|----------------------------------------------------------------------------------------------------------|---------|----------|
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2.                        | R       | I        |
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3.                           | R       | S        |
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3.                                         | A       | R        |
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3.                                          | A       | R        |
+| 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5.               | I       | R        |
+| 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3.                                  | R       | S        |
+| 6.5.3 Safety case, resulting from requirement 6.4.6.                                                    | A       | R        |
+</page>
+
+<page number="15">
+6 Testing and validation and DVP&R.
+Testing and validation activities in line with DVP and PC test responsibilities adhere to RASIC. DVP for systems, subsystems, and component levels must align with the Complete Vehicle Specification book during the concept phase. Detailed hardware test plans follow the DVP&R and require collaboration with the Testing & Validation department. Activities include:
+- Declaration of standard, norm, and legal requirement.
+- Description of testing setups with supporting pictures.
+- Identification of internal/external test locations.
+- Duration and timeline specification through project plans.
+- Detailed part variant descriptions.
+- Specification of the number of tested components.
+Refer to appendix: VFDSXVBIN0101_DVP component_Airbag_Systems.
+Ensure the mileage target life: 160,000 km or 10 years (whichever comes first).
+
+7 Function Safety, Homologation and Safety Regulations.
+
+7.1 Functional Safety Requirements.
+The supplier must ensure developed/manufactured parts meet the IATF 16949:2016 standard, specifying automotive production quality management systems. The supplier must also ensure compliance with ISO 26262:2018 for road vehicle functional safety requirements.
+Reference system-specific Functional Safety Requirements documents.
+
+7.2 Deliverables for Functional Safety.
+The expected RASIC deliverables are:
+- Supplier selection report: Suppliers propose acceptance statements or justification for unmet safety requirements. (R/I)
+- Development interface agreement (DIA): Suppliers cooperate on DIA creation, detailing items per ISO 26262-8 Clause 5.4.3.1. (R/S)
+- Supplier's project plan: Submission to meet process and documentation requirements. (A/R)
+- Supplier's safety plan: Submission per requirements, detailing processes and resources. (A/R)
+- Functional safety assessment report: Assessment on adherence to safety measures during development. (I/R)
+- Supply agreement: Agreement stemming from safety requirement obligations. (R/S)
+- Safety case: Compilation of outcomes, results, and deviations. (A/R)
+
+7.3 Homologation and Safety Regulation Requirements.
+The supplier must ensure homologation compliance for their parts, products, or systems concerning North American regulations.
+
+7.3.1 North America.
+a. Homologation and safety regulation activities.
+Suppliers must meet regulations such as FMVSS and CMVSS and ensure submission of required documentation to authorities.
+
+b. Self-certification and test reports.
+Suppliers are responsible for certifying compliance before product sales and providing evidence through test reports.
+
+c. Duty to notify VinFast of a non-compliance.
+Suppliers must inform VinFast if they detect any FMVSS, CMVSS, or European regulatory non-compliance.
+</page>
+
+<page number="16">
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced. The supplier has a duty to notify VinFast on such an issue within five working days after determining the existence of a non-compliance or a safety-related defect. The supplier must propose an appropriate risk assessment and resolution plan.
+
+### 7.3.2 Europe
+
+#### Homologation and safety regulation activities
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+#### Test report(s) and Certificate(s)
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale. VinFast requests suppliers to conduct tests as specified in certain parts of the UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.
+
+VinFast also requests that suppliers provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities to gain certification for the EC vehicle type-approval (if any). The supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+#### Duty to notify VinFast of a non-compliance with UN-ECE regulations
+Notwithstanding its certification of a product, a supplier may subsequently determine that non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced. The supplier has a duty to notify VinFast on such an issue within five working days after determining the existence of a non-compliance or a safety-related defect. The supplier must propose an appropriate risk assessment and resolution plan.
+
+---
+
+### 8 Deliverables
+
+#### 8.1 Technical Deliverables
+Work Interface Chart (RASI). The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“System Development Supplier”) is defined in the System/Component Specification. RASI is defined as follows:
+</page>
+
+<page number="17">
+**VinFast Management System**
+
+**VFDSXVBIN0001**
+
+**Version: 1.0**  
+**Page: 17 | 23**
+
+---
+
+### Definitions of RASIC Roles:
+**R:** Responsible  
+Responsible for proper execution of the activities to fulfill the requirements. This individual may request necessary support from other project team members.
+
+**A:** Approval  
+Obligated to decide/release outcomes. If no decider is defined, the individual designated as "Responsible" assumes the role of the decider.
+
+**S:** Support  
+Actively supports tasks, even if this requires capacity, expenses, and/or transfer of know-how. This team member proactively assists the person responsible for execution.
+
+**I:** Information  
+Entitled to demand and receive information relevant to the activity.
+
+---
+
+### 8.2 Details Deliverables and RASIC
+
+**Note:** Revise RASI dates according to the Master Timing updates from PMO.
+
+| **No** | **Gate** | **Stage**          | **Deliverable**                                                   | **VF Engineering** | **VF Purchasing** | **Supplier** | **SQE** | **Manufacturing** |
+|--------|----------|--------------------|--------------------------------------------------------------------|-------------------|-------------------|--------------|-------|-------------------|
+| 1      | PV       | **Concept Phase**  | List of Concept in Commodity                                      | **R**             | **S**             | **I**        | **I**   | **I**             |
+| 2      | PV       |                    | SOR for Concept in Commodity                                      | **R**             | **S**             | **I**        | **I**   | **I**             |
+| 3      | PPS      |                    | SOB through LOI - Letter of Intent for Concept in Commodity       | **S**             | **R**             | **S**        | **I**   | **I**             |
+| 4      | PPS      |                    | EDD order release for Concept in Commodity                        | **S**             | **R**             | **S**        | **I**   | **I**             |
+| 5      | PPS      |                    | Deliver Bill of Materials in Team center                          | **R**             | **I**             | **I**        | **I**   | **I**             |
+| 6      | PPS      |                    | Supply chain strategy - Deliver Sourcing Strategy                 | **S**             | **R**             | **I**        | **S**   | **I**             |
+| 7      | PPS      |                    | Commodity Timing plan in each business area supports Program timing | **S**          | **S**             | **R**        | **S**   | **I**             |
+| 8      | PPS      |                    | Organization & resources for the concept phase, resource planning for series development | **S** | **S**      | **R**        | **S**   | **I**             |
+| 9      | PPS      |                    | Opportunities & risks for program detailed; measures defined (e.g. Cost reductions, Design Optimization, Timing optimization) | **A** | **S** | **R** | **S**   | **I** |
+| 10     | PPS      |                    | Quality planning to meet program requirements - APQP Kickoff      | **R**             | **S**             | **S**        | **S**   | **I**             |
+| 11     | PPS      |                    | Concept proposal for engineering review & finalization - For Concept Commodity | **A** | **I** | **R** | **I**   | **I** |
+| 12     | PPS      |                    | Concept & Proposal development to meet the target material cost   | **A**             | **I**             | **R**        | **I**   | **I**             |
+| 13     | PPS      |                    | Parts list and BoM available; target values for lead vehicle cost and weight verified - C Class | **A**   | **I** | **R** | **I**   | **I** |
+| 14     | PPS      |                    | Initial CAD data to support C class development for Concept commodity | **A**      | **I** | **R** | **I**   | **I** |
+| 15     | PPS      |                    | System & Sub-system Functional targets agreed and cascaded to component level, in line with Complete Vehicle Targets | **A** | **S** | **R** | **I** | **I** |
+
+---
+</page>
+
+<page number="18">
+### VinFast Management System
+
+#### VFDSXVBIN0001  
+**Version:** 1.0  
+**Uncontrolled copy when printed**  
+Page: 18 | 23  
+
+---
+
+### Functional Responsibility: Detailed Deliverables and RASI
+
+#### R: Responsible
+Responsible for the proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+
+#### A: Approval
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution (R) is the decider.
+
+#### S: Support
+Obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (R) in achieving the targets.
+
+#### I: Information
+Right to information. This team member is entitled to demand information from the responsible person (R).
+
+---
+
+#### 8.2 Details Deliverables and RASI  
+*Need to revise the date of RASI according to Master Timing, as provided by the PMO side.*
+
+| **No** | **Gate** | **Stage**                   | **Deliverable**                                                                                  | **VF Engineering** | **VF Purchasing** | **Supplier** | **SQE** | **Manufacturing** |
+|--------|----------|-----------------------------|--------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------|--------|-------------------|
+| 16     | PPS      | Concept Phase              | DVP (virtual and physical testing) for System, Sub-system & Component Level; detailed test plan. | A                  | S                  | R            | I      | I                 |
+| 17     | TA       | CAD Development           | Package study to support B-class surface development                                            | A                  | I                  | R            | I      | I                 |
+| 18     | PPS      | Manufacturing Feasibility | Manufacturing feasibility for CAS development for concept commodity                             | A                  | I                  | R            | I      | I                 |
+| 19     | PPS      | Design Validation         | Design and Validation & Testing plan for concept commodity                                      | A                  | I                  | R            | I      | I                 |
+| 20     | TA       | B-Class                 | Parts list and BoM available; target values for lead vehicle cost and weight verified-B Class    | A                  | I                  | R            | I      | I                 |
+| 21     | TA       | A-Class                 | Parts list and BoM available; target values for lead vehicle cost and weight verified-A Class    | A                  | I                  | R            | I      | I                 |
+| 22     | TA       | Series Development       | Contract Series development - LON for Concept Commodity / LON for B2P Commodity                 | A                  | R                  | S            | I      | I                 |
+| 23     | TA       | Milestone Planning       | Timing plan for complete program detailing milestones for B2P Commodity                         | A                  | S                  | R            | I      | I                 |
+| 24     | TA       | Resource Planning        | Organization/resource planning for series development                                           | A                  | S                  | R            | I      | I                 |
+| 25     | TA       | Fixation Strategy        | RPS/Location & fixation strategy reviewed (Before B Class freeze)                               | A                  | S                  | R            | I      | I                 |
+| 26     | TA       | DMU Development          | DMU study for system level and sub-system level                                                 | A                  | S                  | R            | I      | I                 |
+| 27     | TA       | Functional Analysis      | Functional CAE analysis                                                                         | A                  | S                  | R            | I      | I                 |
+| 28     | TA       | Component Data Sheets    | EE - Component Data Sheet (CDS) inputs                                                         | A                  | S                  | R            | I      | I                 |
+| 29     | TA       | Manufacturing Feasibility| Manufacturing feasibility for Built-to-Print Commodities                                        | A                  | S                  | R            | I      | I                 |
+| 30     | TA       | Flow Analysis            | Stamping/Mold flow analysis for Concept commodity                                               | A                  | S                  | R            | I      | I                 |
+| 31     | TA       | DFMEA Creation           | DFMEA for Concept Commodity/SC/CC & Key characteristics controls                               | A                  | S                  | R            | I      | I                 |
+| 32     | TA       | Fit-Finish Documentation | DTS-Fit/Finish document confirming gap/finish strategy                                         | A                  | S                  | R            | I      | I                 |
+| 33     | TA       | B-Class CAD Development  | 3D design for B-car class surface completed                                                   | A                  | S                  | R            | I      | I                 |
+| 34     | TA       | CAD Submission           | 3D CAD/2D Drawing submission to VinFast Engineering for P&I release                            | A                  | S                  | R            | I      | I                 |
+| 35     | TA       | Tool Order Release       | Tool order release for long-lead parts                                                         | S                  | R                  | S            | I      | I                 |
+| 36     | TA       | Tooling Kick-off         | CAD release for P&I for long-lead tooling kick-off                                             | A                  | S                  | R            | I      | I                 |
+| 37     | TA       | Final CAD Submission     | 3D design finalized before A-Class (one week before TA)                                        | A                  | S                  | R            | I      | I                 |
+| 38     | TA       | Surface Feasibility      | Feasibility confirmation to support A-Class surface development                                | A                  | S                  | R            | I      | I                 |
+| 39     | TA       | Attribute Development    | Strategy confirmed for serial development phase                                               | A                  | S                  | R            | I      | I                 |
+| 40     | TA       | Serial Development Phase | DVP for Serial Development Phase created                                                        | A                  | S                  | R            | I      | I                 |
+| 41     | TA       | Tooling Concept          | Define tooling concept/injection points                                                        | S                  | I                  | R            | S      | I                 |
+| 42     | TA       | Manufacturing Study      | Feasibility/manufacturing study confirmed                                                      | S                  | I                  | R            | S      | I                 |
+| 43     | TA       | Styling Convergence      | Technical & Styling convergence                                                                | A                  | S                  | R            | I      | I                 |
+| 44     | TA       | Commercial Review for PR | 3D CAD/2D Drawing submission for commercial quote                                             | A                  | S                  | R            | I      | I                 |
+| 45     | PR       | PR CAD Review            | VinFast review/release for PR CAD                                                            | R                  | S                  | S            | I      | A                 |
+| 46     | CC       | PFMEA                   | System/Component development                                                                  | S                  | I                  | R            | A      | I                 |
+| 47     | CC       | Commercial Finalization   | Finalization of PR-level design                                                              | S                  | R                  | S            | I      | I                 |
+| 48     | CC       | Testing Completion       | System/Sub-system/Component DV completed                                                     | A                  | S                  | R            | I      | I                 |
+| 49     | CC       | Deviation Evaluation     | Targets/measures agreed                                                                      | A                  | S                  | R            | I      | I                 |
+| 50     | CC       | Tool Order Release       | Tooling orders for all parts                                                                  | I                  | R                  | S            | I      | I                 |
+| 51     | CC       | Engineering Change       | Engineering change management release kickoff                                                | R                  | S                  | S            | S      | S                 |
+| 52     | CC       | Change Management        | On-going engineering change management                                                       | R                  | S                  | S            | S      | S                 |
+</page>
+
+<page number="19">
+53. LS - Process Validation Completion before LS.  
+Responsible parties:  
+- A: Approval.  
+- S: Support.  
+- R: Responsible.  
+- I: Information.  
+
+54. PTO - Parts fit to nominal.  
+Responsible parties:  
+- S: Support.  
+- I: Information.  
+- S: Support.  
+- R: Responsible.  
+- I: Information.  
+
+55. PTO - System, Sub-System & Component Level PV Complete.  
+Responsible parties:  
+- A: Approval.  
+- S: Support.  
+- R: Responsible.  
+- S: Support.  
+- I: Information.  
+
+56. PTO - System, Sub-System & Component Level target achievement confirmed.  
+Responsible parties:  
+- A: Approval.  
+- S: Support.  
+- R: Responsible.  
+- S: Support.  
+- I: Information.  
+
+57. LS - Part level - Appearance approval, Color harmony, Grain approval.  
+Responsible parties:  
+- A: Approval.  
+- I: Information.  
+- R: Responsible.  
+- S: Support.  
+- I: Information.  
+
+58. LS - Engineering sign-off.  
+Responsible parties:  
+- A: Approval.  
+- S: Support.  
+- S: Support.  
+- S: Support.  
+- S: Support.  
+
+---
+
+## 9 Supplier Responsibilities
+### Customer Service Requirements:
+- **After-sales spare parts should be ready at startup:**  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.
+
+- **Spare Parts Support Cycle:**  
+  The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SOR.
+
+- **Maintenance Information of After-Sale Spare Parts:**  
+  The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc.).
+
+---
+
+## 10 Intellectual Property / Copyright
+Refer to VinFast General Term and Condition (GTC).
+
+---
+
+## 11 Insurance / Warranties
+Refer to VinFast General Term and Condition (GTC).
+
+---
+
+## 12 VinFast GTC & Part Packaging and Incoterms
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirement in the RFQ package.
+
+---
+
+## 13 Definitions and List of Abbreviations
+- **DVP&R:** Design Verification Plan & Report.  
+- **ESO:** Engineering Sign Off.  
+- **GTC:** General Term and Condition.  
+- **LLS:** Long Lead Suppliers on board.  
+- **LLT:** Long Lead Tooling.
+</page>
+
+<page number="20">
+VinFast Management System  
+VFDSXVBIN0001  
+Version: 1.0  
+Uncontrolled copy when printed  
+
+20 | 23  
+
+### Applicable Specifications
+
+The following specification, either in whole or relevant sections related to Airbags, must be adhered to:
+
+#### Legal and Industry Regulations/Standards:
+| ID            | Document                      | Title                                                        |
+|---------------|-------------------------------|-------------------------------------------------------------|
+| 1             | No. 06/2007/QH12              | Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017) |
+| 2             | ECE-R21                       | Interior Fittings                                           |
+| 3             | ECE-R32                       | Rear-end collision                                          |
+| 4             | ECE-R33                       | Head-on collision                                           |
+| 5             | ECE-R94                       | Frontal collision protection                                |
+| 6             | ECE-R95                       | Lateral collision protection                                |
+| 7             | ECE-R114                      | Airbag Modules (replacement)                               |
+| 8             | ECE-R118                      | Flammability                                                |
+| 9             | ECE-R133                      | Reusability, Recyclability, and Recoverability             |
+| 10            | ECE-R135                      | Pole Side Impact (PSI)                                      |
+| 11            | ECE-R137                      | Restraint System in Frontal Impact                         |
+| 12            | 2015 / 863 / EC               | Restriction of hazardous substances                        |
+</page>
+
+<page number="21">
+VinFast 
+Management System 
+ 
+VFDSXVBIN0001 
+ 
+Version: 1.0 
+Uncontrolled copy when printed 
+ 
+Page: 21 | 23 
+ 
+13 Applicable Specifications.
+
+The following specification either in whole or relevant sections related to Airbags must be adhered to:
+
+Legal and Industry Regulations/ Standards: 
+
+| **ID** | **Document**            | **Title**                                                                    |
+|--------|--------------------------|------------------------------------------------------------------------------|
+|  13    | 2000 / 53 / EC           | EU Directive for End-of-life Vehicles                                        |
+|  14    | 168/2013/EU - C - VII    | Electromagnetic compatibility (EMC)                                          |
+|  15    | 168/2013/EU - B - XVII   | Interior fittings                                                           |
+|  16    | EG95/28                  | Flammability                                                                |
+|  17    | FMVSS 571.201            | Occupant protection in interior impact                                      |
+|  18    | FMVSS 571.202a           | Head Restraints                                                             |
+|  19    | FMVSS 571.203            | Impact Protection for the Driver from the Steering Control System           |
+|  20    | FMVSS 571.204            | Steering control rearward displacement                                      |
+|  21    | FMVSS 571.207            | Seating Systems                                                            |
+|  22    | FMVSS 571.208            | Occupant Crash Protection                                                   |
+|  23    | FMVSS 571.213            | Child Restraint Systems                                                    |
+|  24    | FMVSS 571.214            | Side impact protection                                                      |
+|  25    | FMVSS 571.226            | Ejection Mitigation                                                        |
+|  26    | FMVSS 571.302            | Flammability of interior materials                                          |
+|  27    | FMVSS 575.105            | Vehicle rollover                                                           |
+|  28    | FMVSS 587                | Side Impact Moving Deformable Barrier and Offset Deformable Barrier         |
+|  29    | GADSL                    | Global Automotive Declarable Substances List                                |
+|  30    | IATF 16949               | Quality management system requirements for automotive production            |
+
+VinFast Specific Requirements:
+
+| **ID** | **Document**            | **Title**                                                                    |
+|--------|--------------------------|------------------------------------------------------------------------------|
+|  1     | VFDST00000010           | General Part Marking                                                        |
+|  2     | VFDST00000011           | Reference Point System and Requirements                                     |
+|  3     | VFDST00000014           | CAD working methods and requirement Catia v5                                |
+|  4     | VFDST00002900           | Recycling                                                                   |
+|  5     | VFDST00007601           | Substances of concern – Materials and components; prohibited and declarable substances |
+</page>
+
+<page number="22">
+VinFast Management System
+
+VFDSXVBIN0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+22 | 23  
+
+Print date  
+Status  
+Functional Responsibility  
+
+6 VFDST00007602  
+Substances of concern – Process materials and auxiliary materials; prohibited and declarable substances.  
+
+7 VFDST00007604  
+Substances of concern - Materials and components; constituents and emissions.  
+
+8 VFDST00007701  
+VF Drawing Standard.  
+
+9 VFDST00008500  
+Vibration examination of interior/exterior parts.  
+
+10 VFDST00008700  
+Marking of sample parts.  
+
+11 VFDST00008800  
+Development Sample Report (DSR).  
+
+12 VFDST00008900  
+Preparation of measurement reports.  
+
+13 VFDST00009000  
+Mounting / dismounting.  
+
+14 VFDST00009300  
+Dimensional Management – Functional Measurements Concept.  
+
+15 VFDST00009600  
+Changes in drawings.  
+
+16 VFDST00009705  
+Title block.  
+
+17 VFDST00010502  
+Component identification marking.  
+
+18 VFDST00017601  
+Technical drawings.  
+
+19 VFDST00017700  
+CAD product description.  
+
+20 VFDST00028101  
+Electrical General requirements.  
+
+21 VFDST00034100  
+Statistical evaluation of dynamic tests.  
+
+22 VFDST00090200  
+Air Bag-System module - Installation location steering wheel.  
+
+23 VFDST00096000  
+QV side airbag and head airbag system (installation site: roof or seat).  
+
+24 VFDST00097500  
+Airbag System.  
+
+Industry Standards  
+
+ID | Document | Title  
+---|---|---  
+1 | ISO 105 | Textiles - Tests for colour fastness.  
+2 | ISO 2768 | General tolerances.  
+3 | ISO 3560 | Road vehicles — Frontal fixed barrier or pole impact test procedure.  
+4 | ISO 5658 | Reaction to fire tests — Spread of flame.  
+5 | ISO 6487 | Road vehicles. Measurement techniques in impact tests. Instrumentation.  
+6 | ISO 9001 | Quality management systems.  
+7 | ISO 12097 | Road Vehicles – Airbag components.  
+8 | ISO 13715 | Technical product documentation - Edges of undefined shape - Indication and dimensioning.  
+9 | ISO 14040 | Environmental Management; Life Cycle Assessment.  
+10 | ISO 16750 | Road vehicles — Environmental conditions and testing for electrical and electronic equipment.  
+11 | ISO/TS16949 | Quality management systems Special requirements when applying ISO 9001.  
+12 | ISO/IEC 17020 | General criteria for the operation of various types of bodies performing inspection.
+</page>
+
+<page number="23">
+13. ISO/IEC 17021. Conformity assessment - Requirements for bodies providing audit and certification of management systems.
+
+14. ISO/IEC 17025. General requirements for the competence of testing and calibration laboratories.
+
+15. ISO 26262. Road vehicles – Functional safety.
+
+16. SAE J211/1. Instrumentation for Impact Test - Part 1 - Electronic Instrumentation.
+
+17. ASTM D6695. Standard Practice for Xenon-Arc Exposures of Paint and Related Coatings.
+</page>
+</pages>

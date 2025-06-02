@@ -1,0 +1,4408 @@
+Page 1
+FUNCTIONAL SPECIFICATION.  
+Adaptive Cruise Control.  
+
+SCOPE: VF8 / VF9.  
+
+Function owner: Vu Hoang Duong (v.duongvh3@vinfast.vn).
+Page 2
+Table of Contents.
+
+- 4 / APL10_ACC
+  - 4.1 / / 1 Document Management .......................................................... 8
+  - 4.2 / / 2 Glossary ................................................................................... 9
+  - 4.3 / / 3 ACC function overview ......................................................... 10
+    - 4.3.1 / / ACC Function Introduction ACC ......................................... 11
+      - 4.3.1.1 / / Cruise Control Mode ................................................. 12
+      - 4.3.1.2 / / Follow Mode ............................................................. 12
+      - 4.3.1.3 / / Bend limit Mode ....................................................... 13
+      - 4.3.1.4 / / Overtaking Mode ..................................................... 13
+    - 4.3.2 / / ACC Function Variants ACC .............................................. 14
+      - 4.3.2.1 / / ACC S&G: ................................................................. 14
+    - 4.3.3 / / ACC .................................................................................... 14
+      - 4.3.3.1 / / ICE-Deceleration & Wheel torque interface ............ 15
+      - 4.3.3.2 / / BEV-Deceleration & Wheel torque interface ............ 15
+  - 4.4 / / 4 Signal Interface ....................................................................... 15
+    - 4.4.1 / / Chassis Signal Interface ................................................... 16
+      - 4.4.1.1 / / Input signals from Chassis ....................................... 16
+      - 4.4.1.2 / / Output Signals to Chassis ......................................... 24
+    - 4.4.2 / / Powertrain Signal Interface ............................................... 26
+      - 4.4.2.1 / / Input signals from Powertrain .................................. 26
+      - 4.4.2.2 / / Out Signals to Powertrain ......................................... 34
+    - 4.4.3 / / BCM Signal Interface ......................................................... 35
+      - 4.4.3.1 / / Input Signals from BCM ........................................... 35
+    - 4.4.4 / / Info CAN Signal Interface .................................................. 37
+      - 4.4.4.1 / / Input signals from Info CAN ...................................... 37
+      - 4.4.4.2 / / Out Signals to Info CAN ........................................... 39
+  - 4.5 / / 5 Function Description ............................................................. 43
+    - 4.5.1 / / Function Cancel/Inhibit Mode ............................................ 43
+      - 4.5.1.1 / / Inhibit Condition ....................................................... 44
+      - 4.5.1.2 / / Quick Cancellation Condition ................................... 48
+Page 3
+4.5.1.3 Slow Cancellation Condition.
+
+4.5.2 ACC Take Over Request ACC.
+
+4.6 ACC Functional Requirement.
+
+4.6.1 ACC Statement Machine.
+4.6.1.1 Off.
+4.6.1.2 Passive.
+4.6.1.3 Standby.
+4.6.1.4 Standstill Active.
+4.6.1.5 Standstill Wait.
+4.6.1.6 Active.
+4.6.1.7 Override.
+4.6.1.8 Brake Only.
+4.6.1.9 Failure.
+
+4.6.2 ACC System State Transitions.
+4.6.2.1 Off state transfer to other state ‘’.
+4.6.2.1.1 Off --> Passive ‘’.
+4.6.2.1.1.1 Anyone of inhibit conditions in <5.1.1 Inhibit Condition> is detected.
+4.6.2.1.2 Off --> Standby ‘’.
+4.6.2.1.2.1 There is no inhibit condition detected.
+4.6.2.1.3 Off --> Failure Mode ‘’.
+4.6.2.1.3.1 Any ACC system fault is detected.
+4.6.2.2 Other Mode transfer to Off ‘’.
+4.6.2.2.1 1) IGN OFF.
+4.6.2.3 Passive state transfer to other state ‘’.
+4.6.2.3.1 Passive --> Standby ‘’.
+4.6.2.3.2 Passive --> Failure ‘’.
+4.6.2.4 Standby state transfer to other state ‘’.
+4.6.2.4.1 Standby --> Passive ‘’.
+4.6.2.4.1.1 Anyone of inhibit conditions in <5.1.1 Inhibit Condition> is detected.
+4.6.2.4.2 Standby --> Active ‘’.
+Page 4
+4.6.2.4.3 / / Standby transfers to Standstill Active state.  
+4.6.2.4.4 / / Standby transfers to Failure state.  
+4.6.2.5 / / Active state transitions to other states.  
+4.6.2.5.1 / / Active transfers to Passive state.  
+4.6.2.5.2 / / Active transfers to Standby state.  
+4.6.2.5.2.1 / / Driver presses the CANCEL button (0x3F7.MFS_CAN_RESControl == 1 short press or 2 long presses).  
+4.6.2.5.3 / / Active transfers to Brake Only state.  
+4.6.2.5.3.1 / / A slow cancellation condition in <5.1.3> is detected.  
+4.6.2.5.4 / / Active transfers to Override state.  
+4.6.2.5.5 / / Active transfers to Standstill Active state.  
+4.6.2.5.6 / / Active transfers to Failure state.  
+4.6.2.6 / / Override state transitions to other states.  
+4.6.2.6.1 / / Override transfers to Active state.  
+4.6.2.6.1.1 / / Driver releases the accelerator pedal.  
+4.6.2.6.2 / / Override transfers to Passive state.  
+4.6.2.6.3 / / Override transfers to Brake Only state.  
+4.6.2.6.4 / / Override transfers to Failure state.  
+4.6.2.7 / / Brake Only state transitions to other states.  
+4.6.2.7.1 / / Brake Only transfers to Passive state.  
+4.6.2.7.1.1 / / A quick cancellation condition in <5.1.2> is detected.  
+4.6.2.7.1.2 / / The vehicle is in standstill condition.  
+4.6.2.7.1.3 / / Driver overrides the system manually.  
+4.6.2.7.2 / / Brake Only transfers to Failure state.  
+4.6.2.8 / / Standstill Active state transitions to other states.  
+4.6.2.8.1 / / Standstill Active transfers to Passive state.  
+4.6.2.8.2 / / Standstill Active transfers to Override state.  
+4.6.2.8.3 / / Standstill Active transfers to Active state.  
+4.6.2.8.4 / / Standstill Active transfers to Standstill Wait state.  
+4.6.2.8.4.1 / / The duration of the 'standstill-active' state exceeds 3 seconds.
+Page 5
+4.6.2.8.5 / / Standstill Active --> Failure.
+
+4.6.2.9 / / Standstill Wait state transfer to other state.
+
+4.6.2.9.1 / / Standstill Wait --> Passive.
+4.6.2.9.1.1 / / Quick cancellation condition in <6.1.2>.
+4.6.2.9.1.2 / / Slow cancellation condition in <6.13>.
+4.6.2.9.1.3 / / The duration time of Stand-Wait state over APV_Stl_Wait_Pas_Time (5 mins).
+
+4.6.2.9.2 / / Standstill Wait --> Active.
+4.6.2.9.3 / / Standstill Wait --> Override.
+4.6.2.9.4 / / Standstill Wait --> Standstill Active.
+4.6.2.9.5 / / Standstill Wait --> Failure.
+
+4.6.3 / / ACC Take Over Warning ACC.
+
+4.7 / / 7 Typical Use Cases.
+4.7.1 / / Cruise Control Mode.
+4.7.2 / / Follow Mode.
+4.7.3 / / Intelligent Curving Mode.
+4.7.4 / / Overtaking Mode.
+
+4.8 / / 8 ACC Performance Requirement ACC.
+4.8.1 / / Set speed control accuracy.
+4.8.2 / / Maximum deceleration limit.
+4.8.3 / / Maximum negative jerk limit.
+4.8.4 / / Max acceleration limit.
+4.8.5 / / Maximum Curve.
+4.8.6 / / ACC S&G.
+4.8.7 / / EPB.
+4.8.8 / / ACC S&G maximum drive-off slop ACC S&G.
+4.8.9 / / Performance on different drive mode.
+
+4.9 / / 9 HMI Requirement.
+4.9.1 / / Button Design.
+4.9.1.1 / / Received Button Signal.
+4.9.1.2 / / Transmitted Button Signal.
+Page 6
+4.9.1.3 / / ACC Status.  
+
+4.9.1.4 / / ACC Gap Setting.  
+4.9.1.4.1 / / With 1st level to 4th level distance, the headway to the impeding vehicle shall be 1s~2s and able to be calibrated.  
+
+4.9.1.5 / / ACC Set Speed.  
+4.9.1.5.1 / / After IGN ON, the default value of 0x353. ADAS_ACC_TagSpeed shall be set as 0.  
+4.9.1.5.2 / / By pressing the SET button (0x3F7.MFS_CruiseOn_Off), the ACC set speed shall be min{150km/h, max {20 km/h, current MHU display speed.  
+4.9.1.5.3 / / ACC set speed shall only be adjusted with SPEED+, SPEED-, or SET buttons once ACC is in Active, Standstill_Active, Standstill_Wait, or Override state.  
+4.9.1.5.4 / / During ACC Standstill_Wait state, the set speed shall be able to be adjusted without the brake pedal pressed.  
+4.9.1.5.5 / / By pressing the CANCEL button to deactivate the ACC function, the current ACC set speed shall be memorized for the next activation.  
+4.9.1.5.6 / / By pressing the RESUME button (0x3F7.MFS_CAN_RESControl), the previous memorized set speed shall be retrieved. RESUM ACC.  
+4.9.1.5.7 / / Output signal shall always be in the unit of km/h (MHU will handle the conversion from km/h to mph if the current setting is mph).  
+4.9.1.5.8 / / By short pressing the Speed Increase/Decrease button (on detecting the rising edge of 0x353. MFS_CruiseSpeedDecrease == short press || MFS_CruiseSpeedIncrease == short press), the ACC set speed shall increase or decrease by 1kph or 1mph based on the current unit setting.  
+4.9.1.5.9 / / By long pressing the Speed Increase/Decrease button (on detecting the rising edge of 0x353. MFS_CruiseSpeedDecrease == long press || MFS_CruiseSpeedIncrease == long press), the ACC set speed shall keep increasing or decreasing by 5kph or 5mph based on the current unit setting.  
+4.9.1.5.10 / / In case of long press of SPEED+/SPEED- detected, the ACC set speed shall first be rounded to the nearest multiple of 5. For example, if the current set speed is 112kph and long press of SPEED+ is detected, the new set speed shall go to 115kph first, then continue.  
+4.9.1.5.11 / / In case floating speed values occur due to unit conversion, the ACC set speed shall be rounded down to an integer.  
+
+4.9.2 / / Display Design.  
+4.9.2.1 / / ACC Target Display.  
+4.9.2.1.1 / System shall provide 6 objects for display showing as below.
+Page 7
+4.9.2.1.1.1 / ADAS_OBJ0X_Class (X:1~6).
+4.9.2.1.1.2 / ADAS_OBJ0X_ID (X:1~6).
+4.9.2.1.1.3 / ADAS_OBJ0X_Lane (X:1~6).
+4.9.2.1.1.4 / ADAS_OBJ0X_LatDis (X:1~6).
+4.9.2.1.1.5 / ADAS_OBJ0X_LgDis (X:1~6).
+
+4.9.2.2 / Icon Display.
+
+4.9.2.3 / Popup Message and Chime.
+
+4.10 / ACC.
+4.10.1 / Deceleration.
+4.10.2 / Acceleration.
+4.10.3 / Speed range.
+4.10.4 / Slope range.
+4.10.5 / Speed control accuracy on flat road.
+4.10.6 / Speed control accuracy on slope.
+4.10.7 / Comfort bend-in control.
+4.10.8 / Control in bend.
+4.10.9 / Acceleration in bend.
+4.10.10 / Follow to stop.
+4.10.11 / Drive off.
+4.10.12 / First activation after IGN ON.
+4.10.13 / Resume.
+4.10.14 / ACC cancel after follow to stop.
+Page 8
+4 / APL10_ACC
+
+Requirement ID: FS-225884  
+Type: --  
+Status: New  
+
+4.1 / / 1 Document Management  
+
+Requirement ID: FS-226003  
+Type: --  
+Status: New  
+
+### VF Version:
+Version | Change by         | Change description                     | Initiator     | Approver          
+-------|--------------------|----------------------------------------|---------------|-------------------  
+1.0    | ECR60004069       | Initial version released for LS phase  | Duong Hoai An | Ng Dennis Koon Siu  
+2.0    | ECR60005557       | Release for SOP phase                  | Duong Hoai An | Ng Dennis Koon Siu  
+
+### Supplier Version:
+Release | Date       | Author   | Reviewer | Remarks / Changes  
+-------|------------|----------|----------|-------------------  
+V1.0   | 2020/09/01 | Chen Lei | --       | Initial version
+Page 9
+4 / APL10_ACC  
+
+Requirement ID: FS-225884.  
+Type: --  
+Status: New.  
+
+---
+
+4.1 / / 1 Document Management  
+
+Requirement ID: FS-226003.  
+Type: --  
+Status: New.  
+
+### VF Version:  
+| Version | Change by     | Change description                   | Initiator       | Approver               |
+|---------|---------------|---------------------------------------|-----------------|------------------------|
+| 1.0     | ECR60004069   | Initial version released for LS phase| Duong Hoai An   | Ng Dennis Koon Siu    |
+| 2.0     | ECR60005557   | Release for SOP phase                | Duong Hoai An   | Ng Dennis Koon Siu    |
+
+---
+
+### Supplier Version:  
+| Release | Date       | Author     | Reviewer   | Remarks / Changes      |
+|---------|------------|------------|------------|-------------------------|
+| V1.0    | 2020/09/01 | Chen Lei   | --         | Initial version         |
+
+---
+
+### Supplier Version Updates:  
+| Version | Date       | Author       | Changes                                                                                                     |
+|---------|------------|--------------|-------------------------------------------------------------------------------------------------------------|
+| V1.1    | 2021/10/25 | Chen Lei     | 1. Add signal descriptions about VF BEV project.                                                            |
+|         |            |              | 2. HMI specification update according to VF project.                                                        |
+| V1.2    | 2021/11/15 | Chen Lei     | 1. Add signal 0x353.ADAS_TagSpeed_Icon_Feed.                                                                |
+|         |            |              | 2. Update signal message information based on BEV CAN matrix V7.0.3.                                        |
+|         |            |              | 3. Update based on VinFast review comments.                                                                 |
+| V1.3    | 2022/01/25 | Xiong Jian   | 1. Add inhibit signal Valet mode.                                                                           |
+|         |            |              | 2. Delete 0xC6.                                                                                             |
+| V1.4    | 2022/06/13 | Xiong Jian   | 1. Update the description with blue color.                                                                  |
+| V1.5    | 2022/12/15 | Xiong Jian   | 1. Update brake to cancel condition.                                                                        |
+|         |            |              | 2. Add take over popup end condition.                                                                       |
+
+---
+
+### Document Aim:  
+The aim of this document is to describe the ACC function and related vehicle system interface definitions for the VinFast project.  
+
+---
+
+4.2 / / 2 Glossary  
+
+Requirement ID: FS-226004.  
+Type: --  
+Status: New.
+Page 10
+4 / APL10_ACC
+
+Requirement ID: FS-225884  
+Type: --  
+Status: New  
+
+4.1 / / 1 Document Management  
+
+Requirement ID: FS-226003  
+Type: --  
+Status: New  
+
+VF version  
+Version | Change by | Change description | Initiator | Approver  
+1.0 | ECR60004069 | Initial version released for LS phase | Duong Hoai An | Ng Dennis Koon Siu  
+2.0 | ECR60005557 | Release for SOP phase | Duong Hoai An | Ng Dennis Koon Siu  
+
+Supplier version:  
+Release: V1.0  
+Date: 2020/09/01  
+Author: Chen Lei  
+Reviewer: --    
+Remarks/Changes: Initial version  
+
+Release: V1.1  
+Date: 2021/10/25  
+Author: Chen Lei  
+Reviewer: --  
+Remarks/Changes:  
+1. Add signal descriptions about VF BEV project.  
+2. HMI specification update according to VF project.  
+
+Release: V1.2  
+Date: 2021/11/15  
+Author: Chen Lei  
+Reviewer: --  
+Remarks/Changes:  
+1. Add signal 0x353.ADAS_TagSpeed_Icon_Feed.  
+2. Update signal message information based on BEV CAN matrix V7.0.3.  
+3. Update based on VinFast review comments.  
+
+Release: V1.3  
+Date: 2022/01/25  
+Author: Xiong Jian  
+Reviewer: --  
+Remarks/Changes:  
+1. Add inhibit signal Valet mode.  
+2. Delete 0xC6.  
+
+Release: V1.4  
+Date: 2022/06/13  
+Author: Xiong Jian  
+Reviewer: --  
+Remarks/Changes: Update the description with blue color.  
+
+Release: V1.5  
+Date: 2022/12/15  
+Author: Xiong Jian  
+Reviewer: --  
+Remarks/Changes:  
+1. Update brake to cancel condition.  
+2. Add take over popup end condition.  
+
+The aim of this document is to describe the ACC function and related vehicle system interface definition for VinFast project.  
+
+4.2 / / 2 Glossary  
+
+Requirement ID: FS-226004  
+Type: --  
+Status: New  
+
+Acronym | Full Form  
+---|---  
+ACC | Adaptive Cruise Control  
+EPB | Electrical Park Brake  
+ABS | Antilock Brake System  
+TCS | Traction Control System  
+MSR | Motor Control Slide Retainer  
+ESC | Electrical Stability Control  
+VDC | Vehicle Dynamic Control  
+EMS | Engine Management System  
+TCU | Transmission Control Unit  
+BCM | Body Control Management  
+PWT | Powertrain  
+HMI | Human Machine Interface  
+BEV | Battery Electric Vehicle  
+ICE | Internal Combustion Engine  
+IDB | Integrated Dynamic Brake (Mando)  
+SAS | Steering Angle Sensor  
+
+4.3 / / 3 ACC function overview  
+
+Requirement ID: FS-226005  
+Type: --  
+Status: New
+Page 11
+4 / APL10_ACC.
+
+Requirement ID: FS-225884.  
+Type: --.  
+Status: New.  
+
+---
+
+4.1 / / 1 Document Management.
+
+Requirement ID: FS-226003.  
+Type: --.  
+Status: New.  
+
+### VF Version
+Version | Change by        | Change description                     | Initiator      | Approver  
+------- | ---------------- | -----------------------------------    | ------------- | ------------  
+1.0     | ECR60004069     | Initial version released for LS phase | Duong Hoai An | Ng Dennis Koon Siu  
+2.0     | ECR60005557     | Release for SOP phase                 | Duong Hoai An | Ng Dennis Koon Siu  
+
+---
+
+### Supplier Version
+Release | Date       | Author    | Reviewer  | Remarks/Changes  
+------- | ---------- | --------- | --------- | --------------------  
+V1.0    | 2020/09/01 | Chen Lei  | --        | Initial version.  
+
+---
+
+V1.1  
+Date: 2021/10/25.  
+Author: Chen Lei.  
+- Add signal descriptions about VF BEV project.
+- HMI specification update according to VF project.  
+
+---
+
+V1.2  
+Date: 2021/11/15.  
+Author: Chen Lei.  
+- Add signal 0x353.ADAS_TagSpeed_Icon_Feed.
+- Update signal message information based on BEV CAN matrix V7.0.3.
+- Update based on VinFast review comments.  
+
+---
+
+V1.3  
+Date: 2022/01/25.  
+Author: Xiong Jian.  
+- Add inhibit signal for valet mode.
+- Delete 0xC6.  
+
+---
+
+V1.4  
+Date: 2022/06/13.  
+Author: Xiong Jian.  
+- Update description with blue color.  
+
+---
+
+V1.5  
+Date: 2022/12/15.  
+Author: Xiong Jian.  
+- Update brake cancel condition.
+- Add takeover popup end condition.  
+
+---
+
+The aim of this document is to describe the ACC function and related vehicle system interface defined for VinFast project.
+
+4.2 / / 2 Glossary.
+
+Requirement ID: FS-226004.  
+Type: --.  
+Status: New.  
+
+---
+
+### Acronyms and Full Forms
+- **ACC**: Adaptive Cruise Control.
+- **EPB**: Electrical Park Brake.
+- **ABS**: Antilock Brake System.
+- **TCS**: Traction Control System.
+- **MSR**: Motor Control Slide Retainer.
+- **ESC**: Electrical Stability Control.
+- **VDC**: Vehicle Dynamic Control.
+- **EMS**: Engine Management System.
+- **TCU**: Transmission Control Unit.
+- **BCM**: Body Control Management.
+- **PWT**: Powertrain.
+- **HMI**: Human Machine Interface.
+- **BEV**: Battery Electric Vehicle.
+- **ICE**: Internal Combustion Engine.
+- **IDB**: Integrated Dynamic Brake (Mando).
+- **SAS**: Steering Angle Sensor.  
+
+---
+
+4.3 / / 3 ACC Function Overview.
+
+Requirement ID: FS-226005.  
+Type: --.  
+Status: New.  
+---
+
+### 4.3.1 / / ACC Function Introduction ACC.  
+
+Requirement ID: FS-226006.  
+Type: --.  
+Status: Submitted.  
+
+Adaptive Cruise Control (ACC) is a driver assistance system that supports drivers to guarantee a safe and comfortable stop-and-go driving experience with full deceleration capabilities by automatically controlling the brake and throttle. As a driver assistance system, this feature maintains a clearance to a forward vehicle or maintains the set speed, whichever speed is lower.  
+
+The feature is also able to reduce the vehicle's speed in front of and during curves to be able to take the curve at a safe and comfortable speed. When the vehicle has reached a stop due to the vehicle in front being stopped as well, the driver needs to manually confirm continuation after a stop of 3 seconds or more.  
+
+At the first ignition cycle ONLY, the vehicle needs to reach an operation speed of 20 kph or higher to activate the ACC function.  
+
+After the first ACC activation, if the driver deactivates ACC using the Cancel button or presses and releases the brake pedal, ACC can be reactivated using the Resume button. This is allowed at any speed with or without a leading vehicle as long as the driver confirms.  
+
+For ACC Stop & Go:
+- The ACC system can come to a complete stop and automatically resume from 0 kph without driver confirmation if within 3 seconds.  
+- If the vehicle is stopped between 3 seconds and 5 minutes, the driver can resume using the Resume button or tap on the gas pedal.  
+- If the holding time exceeds 5 minutes, the electronic parking brake will apply. The driver must release the electronic parking brake or press the gas to release the parking brake, after which ACC can be reactivated.  
+
+Due to sensor limitations:
+- If ACC operates at speeds above 60 kph, it cannot detect or stop for a stationary vehicle. The driver must remain vigilant at all times and take control as necessary.  
+
+If ACC is degraded due to limited front visibility (e.g., camera obstruction), ACC Stop & Go functionality will not be available, and activation speed will be limited to 20 kph or higher. The driver must pay attention and supervise the system.  
+
+The system requires driver supervision under all conditions, as the driver retains control of longitudinal and steering dynamics. The adaptive cruise control is not a collision avoidance system, and intervention is required if the system does not detect a vehicle in front.  
+
+Limitations of the system:  
+- ACC does not brake for pedestrians, animals, small vehicles such as bicycles, or certain motorcycle types. It also does not detect oncoming, slow, or stationary vehicles.
+Page 12
+4 / APL10_ACC 
+
+Requirement ID:  
+FS-225884.  
+Type: --  
+Status: New.
+
+4.1 / / 1 Document Management.  
+
+Requirement ID:  
+FS-226003.  
+Type: --  
+Status: New.  
+
+VF version table:  
+- **Version:** 1.0  
+  - **Change by:** ECR60004069  
+  - **Change description:** Initial version released for LS phase.  
+  - **Initiator:** Duong Hoai An.  
+  - **Approver:** Ng Dennis Koon Siu.  
+
+- **Version:** 2.0  
+  - **Change by:** ECR60005557  
+  - **Change description:** Release for SOP phase.  
+  - **Initiator:** Duong Hoai An.  
+  - **Approver:** Ng Dennis Koon Siu.  
+
+Supplier version table:  
+- **Release:** V1.0  
+  - **Date:** 2020/09/01  
+  - **Author:** Chen Lei.  
+  - **Reviewer:** --  
+  - **Remark/Changes:** Initial version.  
+
+4.2 / / 2 Glossary.  
+
+Requirement ID:  
+FS-226004.  
+Type: --  
+Status: New.
+
+**Acronym table:**  
+- ACC: Adaptive Cruise Control.  
+- EPB: Electrical Park Brake.  
+- ABS: Antilock Brake System.  
+- TCS: Traction Control System.  
+- MSR: Motor Control Slide Retainer.  
+- ESC: Electrical Stability Control.  
+- VDC: Vehicle Dynamic Control.  
+- EMS: Engine Management System.  
+- TCU: Transmission control Unit.  
+- BCM: Body Control Management.  
+- PWT: Powertrain.  
+- HMI: Human Machine Interface.  
+- BEV: Battery Electric Vehicle.  
+- ICE: Internal Combustion Engine.  
+- IDB: Integrated Dynamic Brake (Mando).  
+- SAS: Steering Angle Sensor.
+
+4.3 / / 3 ACC function overview.  
+
+Requirement ID:  
+FS-226005.  
+Type: --  
+Status: New.
+
+4.3.1 / / ACC Function Introduction ACC.  
+
+Requirement ID:  
+FS-226006.  
+Type: --  
+Status: Submitted.
+
+The ACC Function Introduction outlines the Adaptive Cruise Control (ACC) as a driver assistance system designed to ensure safe and comfortable stop-and-go driving. It automatically controls the throttle and brakes, maintaining distance from a forward vehicle or the set speed, whichever is lower. Key functions include adjustment of vehicle speed to safely navigate curves and dynamic management of stopping and resuming.  
+
+Additional details:  
+- Activation speed: 20kph or higher during the first ignition cycle.  
+- Reactivation possible via Resume button or tapping the gas pedal.   
+- Operation limitations: ACC detects stationary vehicles only below 60kph, does not avoid small objects, pedestrians, or certain motorcycles, and is not suitable for slippery or congested roads.  
+- Driver supervision required for steering control and timely intervention as ACC is not a collision avoidance system.
+
+4.3.1.1 / / Cruise Control Mode.  
+
+Requirement ID:  
+FS-226007.  
+Type: --  
+Status: New.  
+
+Cruise Control Mode serves as the basic ACC function, maintaining speed in the absence of an impeding vehicle. It dynamically adjusts powertrain or braking systems based on user-defined speeds while allowing inputs such as speed changes and pedal override from the driver. ACC calculates potential lane changes to ensure safe and seamless lane transitions.
+
+4.3.1.2 / / Follow Mode.  
+
+Requirement ID:  
+FS-226008.  
+Type: --  
+Status: New.  
+
+Follow Mode activates when ACC detects a slower preceding vehicle, and dynamically regulates speed relative to the distance and movement of the detected object. It ensures safe following while accommodating speed variations based on the impeding vehicle’s behavior.
+Page 13
+At the same time, if the vehicle in the front side lane cuts into the lane, ACC system will send a deceleration request. ACC reacts to Driver input of the desired headway (time gap) and accelerator/brake pedal overrides in follow mode.
+
+### 4.3.1.3 / / Bend Limit Mode
+
+**Requirement ID:** FS-226009  
+**Type:** --  
+**Status:** New  
+
+Bend limit mode limits the acceleration of the host vehicle in bends according to the lateral acceleration, yaw rate, and driving speed for safety and comfort reasons. ACC can take the initiative to slow down in the corner. The deceleration value depends on the vehicle lateral acceleration (refer to the following table, could be calibrated). This aims at safe driving in the corner.
+
+| Vehicle speed (m/s) | Lateral acceleration (m/s²) | Deceleration values (m/s²) |
+| -------------------- | -------------------------- | -------------------------- |
+| 5                   | 0.5                        | 1.42                      |
+|                     | 1.5                        | 1.42                      |
+|                     | 2.5                        | 0.6                       |
+|                     | 3.0                        | 0.2                       |
+|                     | 3.5                        | -0.7                      |
+|                     | 4.0                        | -1.2                      |
+|                     | 4.5                        | -2.0                      |
+| 10                  | 0.5                        | 1.3                       |
+|                     | 1.5                        | 1.3                       |
+|                     | 2.5                        | 0.6                       |
+|                     | 3.0                        | 0                         |
+|                     | 3.5                        | -0.7                      |
+|                     | 4.0                        | -1.2                      |
+|                     | 4.5                        | -2.0                      |
+| 15                  | 0.5                        | 1.2                       |
+|                     | 1.5                        | 1.2                       |
+|                     | 2.5                        | 0.4                       |
+|                     | 3.0                        | -0.2                      |
+|                     | 3.5                        | -0.7                      |
+|                     | 4.0                        | -1.2                      |
+|                     | 4.5                        | -2.0                      |
+| 25                  | 0.5                        | 1.2                       |
+|                     | 1.5                        | 1.2                       |
+|                     | 2.5                        | 0.3                       |
+|                     | 3.0                        | -0.2                      |
+|                     | 3.5                        | -0.7                      |
+|                     | 4.0                        | -1.2                      |
+|                     | 4.5                        | -2.0                      |
+| 40                  | 0.5                        | 1.0                       |
+|                     | 1.5                        | 0.9                       |
+|                     | 2.5                        | 0.3                       |
+|                     | 3.0                        | -0.2                      |
+|                     | 3.5                        | -0.7                      |
+|                     | 4.0                        | -1.2                      |
+|                     | 4.5                        | -2.0                      |
+| 55                  | 0.5                        | 1.0                       |
+|                     | 1.5                        | 0.7                       |
+|                     | 2.5                        | 0.2                       |
+|                     | 3.0                        | -0.2                      |
+|                     | 3.5                        | -0.7                      |
+|                     | 4.0                        | -1.2                      |
+|                     | 4.5                        | -2.0                      |
+
+---
+
+### 4.3.1.4 / / Overtaking Mode
+
+**Requirement ID:** FS-226010  
+**Type:** --  
+**Status:** New  
+
+When following an impeding vehicle, ACC detects the overtaking intention of the driver when the indicator/turn signal on the left is set. ACC then starts accelerating and reducing the distance to the impeding vehicle below the desired time headway setting. When the driver changes the lane, ACC accelerates to the ACC set speed.
+
+**Note:**  
+This sub-function shall be configured according to customer requirement, and it is not enabled by default.
+Page 14
+In VinFast project, this feature shall be enabled.
+
+4.3.2 / / ACC Function Variants ACC.
+
+Requirement ID: FS-226011. Type: --. Status: New.
+
+ACC Function Variants ACC. Sub variants of the ACC function include ACC30, ACC FTS, and ACC S&G. In VinFast ZF develops ACC S&G (fusion) for L2 autonomous driving.
+
+4.3.2.1 / / ACC S&G.
+
+Requirement ID: FS-226012. Type: --. Status: New.
+
+ACC S&G (Stop & Go) means the ACC function manages the vehicle's longitudinal dynamics from its activation by Driver during a cruise (unless a deactivation is requested by Driver or road/system conditions). ACC S&G variant must be equipped on a vehicle with an automotive transmission gearbox and an advanced ESC unit.
+
+4.3.3 / / ACC.
+
+Requirement ID: FS-226013. Type: --. Status: New.
+
+ACC From the vehicle level overview, ACC is a function that requires multi-ECUs involved. In this system, radar or camera provides target vehicle information as a sensor, then core ACC control algorithm needs to be integrated inside. Here OEMs need to realize, discussing signal interfaces, determining functional schemes, and distributing the algorithm modules required to ECUs is necessary before the project is officially developed. System architecture can be divided as the following options:
+
+Since different actuators are chosen in different VinFast project variants, interfaces will be different:
+- ICE variant will be developed based on deceleration demands to ESC and wheel torque demands to EMS.
+- BEV variant will be developed based on acceleration and deceleration demands to IDB.
+Page 15
+4.3.3.1 ICE-Deceleration & Wheel torque interface. Requirement ID: FS-226014. Type: --. Status: New.  
+In ICE variant, the ADAS ECU requests deceleration setpoint values to ESC and requests wheel torque to Powertrain. Gearshift logic is handled by the powertrain system.  
+
+4.3.3.2 BEV-Deceleration & Wheel torque interface. Requirement ID: FS-226015. Type: --. Status: New.  
+In BEV variant, the ADAS ECU requests acceleration/deceleration setpoint values to IDB. IDB handles driving torque control and deceleration control while requesting wheel torque to Powertrain. Other features like regenerative braking and gear shifting are not handled by ADAS ECU.  
+
+4.4 Signal Interface.
+Page 16
+Requirement ID: FS-226016  
+Type: --  
+Status: New  
+
+This chapter introduces the signals necessary for the ACC algorithm function development and interaction with each ECU. The specific signal name and message definition in the VinFast project should be based on the latest ADAS communication network signal matrix released by VinFast.  
+
+### 4.4.1 // Chassis Signal Interface  
+Requirement ID: FS-226017  
+Type: --  
+Status: New  
+
+#### 4.4.1.1 // Input signals from Chassis  
+Requirement ID: FS-226018  
+Type: --  
+Status: New  
+
+**Signal name:** 0x17E.SAS_SteerWheelAngle  
+**Description:** Steering wheel angle  
+**Values:** (Positive, to left; Negative, to right)  
+**Variant:** BEV ICE  
+
+**Signal name:** 0x17E.SAS_SteerWheelAngleValid  
+**Description:** Steering wheel angle validity  
+**Values:**  
+1. "Valid"  
+2. "Invalid"  
+**Variant:** BEV ICE  
+
+**Signal name:** 0x17E.SAS_SteerWhlRotSpd  
+**Description:** Steering wheel rotation speed  
+**Values:** (Positive, to left; Negative, to right)  
+**Variant:** BEV ICE  
+
+**Signal name:** 0x17E.SAS_SteerWhlRotSpdStatus  
+**Description:** The status of rotation speed of the steering wheel.  
+**Values:**  
+1. "Valid"  
+0. "Invalid"  
+**Variant:** BEV ICE
+Page 17
+4.4.1.1 / / Input signals from Chassis  
+
+Requirement ID: FS-226018  
+Type: --  
+Status: New  
+
+Signal name: 0x17E.SAS_SteerWheelAngle.  
+Description: Steering wheel angle (Positive, to left; Negative, to right).  
+Values:  
+- Positive, to left.  
+- Negative, to right.  
+Variant: BEV ICE.  
+
+Signal name: 0x17E.SAS_SteerWheelAngleValid.  
+Description: Steering wheel angle validity.  
+Values:  
+1. Valid.  
+2. Invalid.  
+Variant: BEV ICE.  
+
+Signal name: 0x17E.SAS_SteerWhlRotSpd.  
+Description: Steering wheel rotation speed (Positive, to left; Negative, to right).  
+Values:  
+- Positive, to left.  
+- Negative, to right.  
+Variant: BEV ICE.  
+
+Signal name: 0x17E.SAS_SteerWhlRotSpdStatus.  
+Description: The status of rotation speed of the steering wheel.  
+Values:  
+1. Valid.  
+0. Invalid.  
+Variant: BEV ICE.  
+
+Signal name: 0x32F.IDB_ACC_Available_Flag.  
+Description: Whether ACC function is available (ACC).  
+Values:  
+1. Not available.  
+2. Available.  
+Variant: BEV.  
+
+Signal name: 0x32F.IDB_ACC_Acceleration_Flag.  
+Description: Response for ACC acceleration request (Whether IDB is executing ACC acceleration request).  
+Values:  
+1. Not active.  
+2. Active.  
+Variant: BEV.  
+
+Signal name: 0x32F.IDB_ACC_Deceleration_Flag.  
+Description: Response for ACC deceleration request (Whether IDB is executing ACC deceleration request).  
+Values:  
+1. Not active.  
+2. Active.  
+Variant: BEV.  
+
+Signal name: 0x136.ESC_CDD_Available.  
+Description: Indicates CDD is available or not.  
+Values:  
+1. Not available.  
+2. Available.  
+Variant: ICE.  
+
+Signal name: 0x136.ESC_CDD_Active.  
+Description: Indicates CDD is active or not.  
+Values:  
+1. Not active.  
+2. Active.  
+Variant: ICE.  
+
+Signal name: 0x136.ESC_CDD_Error.  
+Description: Indicates whether or not CDD is off and the function degrades due to errors (Note: CDD error including EPB error).  
+Values:  
+- 0x0 No error.  
+- 0x1 Error.  
+Variant: ICE.  
+
+Signal name: 0x178.YSS_LONG_ACC.  
+Variant: BEV.
+Page 18
+4.4.1.1 / / Input signals from Chassis.
+
+**Requirement ID:** FS-226018  
+**Type:** --  
+**Status:** New  
+
+- **Signal name:** 0x17E.SAS_SteerWheelAngle  
+  - **Description:** Steering wheel angle.  
+  - **Values:** Positive, to left; Negative, to right.  
+  - **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x17E.SAS_SteerWheelAngleValid  
+  - **Description:** Steering wheel angle validity.  
+  - **Values:**  
+    1. "Valid."  
+    2. "Invalid."  
+  - **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x17E.SAS_SteerWhlRotSpd  
+  - **Description:** Steering wheel rotation speed.  
+  - **Values:** Positive, to left; Negative, to right.  
+  - **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x17E. SAS_SteerWhlRotSpdStatus  
+  - **Description:** The status of rotation speed of the steering wheel.  
+  - **Values:**  
+    1. "Valid."  
+    0. "Invalid."  
+  - **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x32F.IDB_ACC_Available_Flag  
+  - **Description:** Whether ACC function is available (ACC).  
+  - **Values:**  
+    1. "Not available."  
+    2. "Available."  
+  - **Variant:** BEV.  
+
+- **Signal name:** 0x32F.IDB_ACC_Acceleration_Flag  
+  - **Description:** Response for ACC acceleration request (whether IDB is executing ACC acceleration request) (IDB ACC).  
+  - **Values:**  
+    1. "Not active."  
+    2. "Active."  
+  - **Variant:** BEV.  
+
+- **Signal name:** 0x32F.IDB_ACC_Deceleration_Flag   
+  - **Description:** Response for ACC deceleration request (whether IDB is executing ACC deceleration request) (IDB ACC).  
+  - **Values:**  
+    1. "Not active."  
+    2. "Active."  
+  - **Variant:** BEV.  
+
+- **Signal name:** 0x136.ESC_CDD_Available  
+  - **Description:** Indicates CDD is available or not.  
+  - **Values:**  
+    1. "Not available."  
+    2. "Available."  
+  - **Variant:** ICE.  
+
+- **Signal name:** 0x136.ESC_CDD_Active  
+  - **Description:** Indicates CDD is active or not.  
+  - **Values:**  
+    1. "Not active."  
+    2. "Active."  
+  - **Variant:** ICE.  
+
+- **Signal name:** 0x136.ESC_CDD_Error  
+  - **Description:** Indicates whether or not CDD is off and the function degrades due to errors. CDD error includes EPB error.  
+  - **Values:**  
+    - 0x0: No error.  
+    - 0x1: Error.  
+  - **Variant:** ICE.  
+
+- **Signal name:** 0x178.YSS_LONG_ACC  
+  - **Description:** Longitudinal acceleration.  
+  - **Variant:** BEV.  
+
+- **Signal name:** 0x178.YSS_LONG_ACC_QUAL  
+  - **Description:** Longitudinal acceleration valid flag.  
+  - **Values:**  
+    2: "VALID."  
+    4: "SUBSTITUTE."  
+    6: "INVALID."  
+    14: "NOT AVAILABLE."  
+    15: "UNFILLED."  
+  - **Variant:** BEV.  
+
+- **Signal name:** 0x289.AcceleratorX  
+  - **Description:** Longitudinal acceleration.  
+  - **Variant:** ICE.  
+
+- **Signal name:** 0x289.AxOutStatus  
+  - **Description:** Longitudinal acceleration status.  
+  - **Values:**  
+    - 0x0: Valid.  
+    - 0x1: Invalid.  
+  - **Variant:** ICE.  
+
+- **Signal name:** 0x17D.YSS_LAT_ACC  
+  - **Description:** Lateral acceleration.  
+  - **Values:** Positive when vehicle is turning left; Negative when vehicle is turning right.  
+  - **Variant:** BEV.  
+
+- **Signal name:** 0x17D.YSS_LAT_ACC_QUAL  
+  - **Description:** Lateral acceleration valid flag.  
+  - **Values:**  
+    2: "VALID."  
+    4: "SUBSTITUTE."  
+    6: "INVALID."  
+    14: "NOT AVAILABLE."  
+    15: "UNFILLED."  
+  - **Variant:** BEV.  
+
+- **Signal name:** 0x289.AcceleratorY  
+  - **Description:** Lateral acceleration.  
+  - **Variant:** ICE.  
+
+- **Signal name:** 0x289.AyOutStatus  
+  - **Description:** Lateral acceleration valid flag.  
+  - **Values:**  
+    - 0x0: Valid.  
+    - 0x1: Invalid.  
+  - **Variant:** ICE.
+Page 19
+4.4 / / 4 Signal Interface.
+
+Requirement ID: FS-226016.  
+Type: --  
+Status: New.  
+
+This chapter introduces the signals necessary for the ACC algorithm function development and interaction with each ECU. The specific signal name and message definition in the VinFast project should be based on the latest ADAS communication network signal matrix released by VinFast.
+
+4.4.1 / / Chassis Signal Interface.
+
+Requirement ID: FS-226017.  
+Type: --  
+Status: New.  
+
+4.4.1.1 / / Input signals from Chassis.
+
+Requirement ID: FS-226018.  
+Type: --  
+Status: New.  
+
+Signal name: 0x17E.SAS_SteerWheelAngle.  
+Description: Steering wheel angle.  
+Values: (Positive, to left; Negative, to right).  
+Variant: BEV ICE.  
+
+Signal name: 0x17E.SAS_SteerWheelAngleValid.  
+Description: Steering wheel angle validity.  
+Values:
+1. "Valid".  
+2. "Invalid".  
+Variant: BEV ICE.  
+
+Signal name: 0x17E.SAS_SteerWhlRotSpd.  
+Description: Steering wheel rotation speed.  
+Values: (Positive, to left; Negative, to right).  
+Variant: BEV ICE.  
+
+Signal name: 0x17E.SAS_SteerWhlRotSpdStatus.  
+Description: The status of rotation speed of the steering wheel.  
+Values:
+1. "Valid".  
+0. "Invalid".  
+Variant: BEV ICE.  
+
+Signal name: 0x32F.IDB_ACC_Available_Flag.  
+Description: Whether ACC function is available.  
+Values:
+1. "Not available".  
+2. "Available".  
+Variant: BEV.  
+
+Signal name: 0x32F.IDB_ACC_Acceleration_Flag.  
+Description: Response for ACC acceleration request (Whether IDB is executing ACC acceleration request).  
+Values:
+1. "Not active".  
+2. "Active".  
+Variant: BEV.  
+
+Signal name: 0x32F.IDB_ACC_Deceleration_Flag.  
+Description: Response for ACC deceleration request (Whether IDB is executing ACC acceleration request).  
+Values:
+1. "Not active".  
+2. "Active".  
+Variant: BEV.  
+
+Signal name: 0x136.ESC_CDD_Available.  
+Description: Indicates CDD is available or not.  
+Values:
+1. "Not available".  
+2. "Available".  
+Variant: ICE.  
+
+Signal name: 0x136.ESC_CDD_Active.  
+Description: Indicates CDD is active or not.  
+Values:
+1. "Not active".  
+2. "Active".  
+Variant: ICE.  
+
+Signal name: 0x136.ESC_CDD_Error.  
+Description: Indicates whether or not CDD is off and the function degrades due to errors.  
+Values:
+0x0: No error.  
+0x1: Error.  
+Notes: CDD error includes EPB error.  
+Variant: ICE.  
+
+Signal name: 0x178.YSS_LONG_ACC.  
+Description: Longitudinal acceleration.  
+Variant: BEV.  
+
+Signal name: 0x178.YSS_LONG_ACC_QUAL.  
+Description: Longitudinal acceleration valid flag.  
+Values:
+2. "VALID".  
+4. "SUBSTITUTE".  
+6. "INVALID".  
+14. "NOT AVAILABLE".  
+15. "UNFILLED".  
+Variant: BEV.  
+
+Signal name: 0x289.AcceleratorX.  
+Description: Longitudinal acceleration.  
+Variant: ICE.  
+
+Signal name: 0x289.AxOutStatus.  
+Description: Longitudinal acceleration status.  
+Values:
+0x0: Valid.  
+0x1: Invalid.  
+Variant: ICE.  
+
+Signal name: 0x17D.YSS_LAT_ACC.  
+Description: Lateral acceleration.  
+Values: Positive when vehicle is turning left. Negative when vehicle is turning right.  
+Variant: BEV.  
+
+Signal name: 0x17D.YSS_LAT_ACC_QUAL.  
+Description: Lateral acceleration valid flag.  
+Values:
+2. "VALID".  
+4. "SUBSTITUTE".  
+6. "INVALID".  
+14. "NOT AVAILABLE".  
+15. "UNFILLED".  
+Variant: BEV.  
+
+Signal name: 0x289.AcceleratorY.  
+Description: Lateral acceleration.  
+Variant: ICE.  
+
+Signal name: 0x289.AyOutStatus.  
+Description: Lateral acceleration valid flag.  
+Values:
+0x0: Valid.  
+0x1: Invalid.  
+Variant: ICE.  
+
+Signal name: 0x17D.YSS_YAW_RATE_UNFILTERED.  
+Description: Unfiltered yaw rate.  
+Values: Positive when vehicle is turning left. Negative when vehicle is turning right.  
+Variant: BEV.  
+
+Signal name: 0x17D.YSS_YAW_RATE_UNFILTERED_QUAL.  
+Description: Unfiltered yaw rate qualifier.  
+Values:
+2. "VALID".  
+4. "SUBSTITUTE".  
+6. "INVALID".  
+14. "NOT AVAILABLE".  
+15. "UNFILLED".  
+Variant: BEV.  
+
+Signal name: 0x289.VYAW_VEH.  
+Description: Unfiltered yaw rate.  
+Values: Positive when vehicle is turning left. Negative when vehicle is turning right.  
+Variant: ICE.  
+
+Signal name: 0x289.QU_VYAW_VEH.  
+Description: Unfiltered yaw rate qualifier.  
+Values:
+15. "Signal invalid, Not used".  
+8. "Initialization".  
+6. "Signal invalid (ACAN)".  
+2. "Signal value is valid (ACAN)".  
+Variant: ICE.  
+
+Signal name: 0x20D.VehicleSpd.  
+Description: Vehicle speed.  
+Values: Unit: km/h.  
+Variant: BEV ICE.  
+
+Signal name: 0x20D.VehicleSpdSts.  
+Description: Vehicle speed status.  
+Values:
+1. "Invalid".  
+0. "Valid".  
+Variant: BEV ICE.  
+
+Signal name: 0x3C0.WheelSpeedFR.  
+Description: Front right wheel speed.  
+Values: Unit: km/h.  
+Variant: BEV ICE.  
+
+Signal name: 0x3C0.WheelSpeedFL.  
+Description: Front left wheel speed.  
+Values: Unit: km/h.  
+Variant: BEV ICE.
+Page 20
+4.3.3.1 / / ICE-Deceleration & Wheel torque interface.
+
+Requirement ID: FS-226014.  
+Type: --.  
+Status: New.  
+
+In ICE variant, ADAS ECU requests a deceleration setpoint value to ESC and wheel torque to Powertrain. Gearshift logic will be handled by the Powertrain system.  
+
+---
+
+4.3.3.2 / / BEV-Deceleration & Wheel torque interface.
+
+Requirement ID: FS-226015.  
+Type: --.  
+Status: New.  
+
+In BEV variant, ADAS ECU requests acceleration/deceleration setpoint values to IDB, and IDB handles driving torque control and deceleration control while requesting wheel torque to Powertrain. Features such as regenerative braking and gear shifting will not be handled by ADAS ECU.  
+
+---
+
+4.4 / / Signal Interface.
+
+Requirement ID: FS-226016.  
+Type: --.  
+Status: New.  
+
+This chapter introduces the signals necessary for the ACC algorithm function development and interaction with each ECU. The specific signal names and message definitions in the VinFast project should be based on the latest ADAS communication network signal matrix released by VinFast.  
+
+---
+
+4.4.1 / / Chassis Signal Interface.
+
+Requirement ID: FS-226017.  
+Type: --.  
+Status: New.  
+
+Chassis Signal Interface.  
+
+---
+
+4.4.1.1 / / Input signals from Chassis.
+
+Requirement ID: FS-226018.  
+Type: --.  
+Status: New.  
+
+### Signal Definitions
+1. **0x17E.SAS_SteerWheelAngle**  
+   - Description: Steering wheel angle.  
+   - Values: Positive (left); Negative (right).  
+   - Variant: BEV, ICE.  
+
+2. **0x17E.SAS_SteerWheelAngleValid**  
+   - Description: Steering wheel angle validity.  
+   - Values: 1 "Valid", 2 "Invalid".  
+   - Variant: BEV, ICE.  
+
+3. **0x17E. SAS_SteerWhlRotSpd**  
+   - Description: Steering wheel rotation speed.  
+   - Values: Positive (left); Negative (right).  
+   - Variant: BEV, ICE.  
+
+4. **0x17E.SAS_SteerWhlRotSpdStatus**  
+   - Description: Status of the steering wheel rotation speed.  
+   - Values: 1 "Valid", 0 "Invalid".  
+   - Variant: BEV, ICE.  
+
+5. **0x32F.IDB_ACC_Available_Flag**  
+   - Description: Whether ACC function is available.  
+   - Values: 1 "Not available", 2 "Available".  
+   - Variant: BEV.  
+
+6. **0x32F.IDB_ACC_Acceleration_Flag**  
+   - Description: Response for ACC acceleration request (whether IDB is executing ACC acceleration request).  
+   - Values: 1 "Not active", 2 "Active".  
+   - Variant: BEV.  
+
+7. **0x32F.IDB_ACC_Deceleration_Flag**  
+   - Description: Response for ACC deceleration request (whether IDB is executing ACC deceleration request).  
+   - Values: 1 "Not active", 2 "Active".  
+   - Variant: BEV.  
+
+8. **0x136.ESC_CDD_Available**  
+   - Description: Indicates CDD availability.  
+   - Values: 1 "Not available", 2 "Available".  
+   - Variant: ICE.  
+
+9. **0x136.ESC_CDD_Active**  
+   - Description: Indicates whether CDD is active.  
+   - Values: 1 "Not active", 2 "Active".  
+   - Variant: ICE.  
+
+10. **0x136.ESC_CDD_Error**  
+    - Description: Indicates CDD errors causing function degradation (including EPB error).  
+    - Values: 0x0 "No error", 0x1 "Error".  
+    - Variant: ICE.  
+
+11. **0x178.YSS_LONG_ACC**  
+    - Description: Longitudinal acceleration.  
+    - Variant: BEV.  
+
+12. **0x178.YSS_LONG_ACC_QUAL**  
+    - Description: Longitudinal acceleration valid flag.  
+    - Values: 2 "Valid", 4 "Substitute", 6 "Invalid", 14 "Not available", 15 "Unfilled".  
+    - Variant: BEV.  
+
+13. **0x289.AcceleratorX**  
+    - Description: Longitudinal acceleration.  
+    - Variant: ICE.  
+
+14. **0x289.AxOutStatus**  
+    - Description: Longitudinal acceleration status.  
+    - Values: 0x0 "Valid", 0x1 "Invalid".  
+    - Variant: ICE.  
+
+15. **0x17D.YSS_LAT_ACC**  
+    - Description: Lateral acceleration (positive when turning left, negative when turning right).  
+    - Variant: BEV.  
+
+16. **0x17D.YSS_LAT_ACC_QUAL**  
+    - Description: Lateral acceleration valid flag.  
+    - Values: 2 "Valid", 4 "Substitute", 6 "Invalid", 14 "Not available", 15 "Unfilled".  
+    - Variant: BEV.  
+
+17. **0x289.AcceleratorY**  
+    - Description: Lateral acceleration.  
+    - Variant: ICE.  
+
+18. **0x289.AyOutStatus**  
+    - Description: Lateral acceleration valid flag.  
+    - Values: 0x0 "Valid", 0x1 "Invalid".  
+    - Variant: ICE.  
+
+19. **0x3C0.WheelSpeedFR**  
+    - Description: Front right wheel speed.  
+    - Values: Unit: km/h.  
+    - Variant: BEV, ICE.  
+
+20. **0x3C0.WheelSpeedFL**  
+    - Description: Front left wheel speed.  
+    - Values: Unit: km/h.  
+    - Variant: BEV, ICE.  
+
+21. **0x3C1.WheelSpeedRL**  
+    - Description: Rear left wheel speed.  
+    - Values: Unit: km/h.  
+    - Variant: BEV, ICE.  
+
+22. **0x3C1.WheelSpeedRR**  
+    - Description: Rear right wheel speed.  
+    - Values: Unit: km/h.  
+    - Variant: BEV, ICE.  
+
+23. **0x3C0.WheelSpeedFRStatus**  
+    - Description: Valid flag for WheelSpeed_FR.  
+    - Values: 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid".  
+    - Variant: BEV.  
+
+24. **0x3C0.WheelSpeedFLStatus**  
+    - Description: Valid flag for WheelSpeed_FL.  
+    - Values: 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid".  
+    - Variant: BEV.  
+
+25. **0x3C1.WheelSpeedRRStatus**  
+    - Description: Valid flag for WheelSpeed_RR.  
+    - Values: 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid".  
+    - Variant: BEV.  
+
+26. **0x3C1.WheelSpeedRLStatus**  
+    - Description: Valid flag for WheelSpeed_RL.  
+    - Values: 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid".  
+    - Variant: BEV.  
+
+27. **0x3C0.WheelSpeedFLStatus**  
+    - Description: Valid flag for WheelSpeed_FL.  
+    - Values: 1 "Standstill", 2 "Forward", 3 "Backward", 4 "Invalid".  
+    - Variant: ICE.
+Page 21
+4.4.1.2 / / Output signals to Chassis  
+
+**Requirement ID:**  
+FS-226019  
+
+**Type:**  
+--  
+
+**Status:**  
+New  
+
+**Signal name:**  
+- **0x3C0.WheelSpeedFRStatus:**  
+  - Valid flag of WheelSpeed_FR.  
+  - Values:  
+    1. "Standstill"  
+    2. "Forward"  
+    3. "Backward"  
+    4. "Invalid"  
+  - Applicable variants: ICE  
+
+- **0x3C1.WheelSpeedRLStatus:**  
+  - Valid flag of WheelSpeed_RL.  
+  - Values:  
+    1. "Standstill"  
+    2. "Forward"  
+    3. "Backward"  
+    4. "Invalid"  
+  - Applicable variants: ICE  
+
+- **0x3C1.WheelSpeedRRStatus:**  
+  - Valid flag of WheelSpeed_RR.  
+  - Values:  
+    1. "Standstill"  
+    2. "Forward"  
+    3. "Backward"  
+    4. "Invalid"  
+  - Applicable variants: ICE  
+
+- **0x113.MainCylinderPres:**  
+  - Master Cylinder pressure.  
+  - Applicable variants: BEV, ICE  
+
+- **0x113.STAT_MainCylinderPresValid:**  
+  - Validity bit for the signal Brake Main Cylinder Pressure.  
+  - Values:  
+    3. "Signal invalid"  
+    2. "Reserved"  
+    1. "Reserved"  
+    0. "Valid"  
+  - Applicable variants: BEV, ICE  
+
+- **0x32F.IDB_ACC_DriverOverride:**  
+  - Information of Driver pedal override (ASIL-B).  
+  - Values:  
+    1. "No override"  
+    2. "Acceleration pedal override"  
+    3. "Brake pedal override"  
+  - Applicable variants: BEV  
+
+- **0x20D.VDCActive:**  
+  - VDC in regulation VDC.  
+  - Values:  
+    1. "Active"  
+    0. "Inactive"  
+  - Applicable variants: BEV, ICE
+Page 22
+### Requirement ID: FS-226016  
+**Type:** --  
+**Status:** New  
+
+This chapter introduces the signals necessary for the ACC algorithm function development and interaction with each ECU. The specific signal name and message definition in the VinFast project should be based on the latest ADAS communication network signal matrix released by VinFast.  
+
+### 4.4.1 // Chassis Signal Interface  
+
+#### Requirement ID: FS-226017  
+**Type:** --  
+**Status:** New  
+
+**Chassis Signal Interface**
+
+#### 4.4.1.1 // Input signals from Chassis  
+
+#### Signal Name: 0x17D.YSS_YAW_RATE_UNFILTERED  
+**Description:** Unfiltered yaw rate. Positive when the vehicle is turning left. Negative when the vehicle is turning right.  
+**Variant:** BEV  
+
+#### Signal Name: 0x17D.YSS_YAW_RATE_UNFILTERED_QUAL  
+**Description:** Unfiltered yaw rate qualifier.  
+**Values:** 2 "VALID", 4 "SUBSTITUTE", 6 "INVALID", 14 "NOT AVAILABLE", 15 "UNFILLED"  
+**Variant:** BEV  
+
+#### Signal Name: 0x289.VYAW_VEH  
+**Description:** Unfiltered yaw rate. Positive when the vehicle is turning left. Negative when the vehicle is turning right.  
+**Variant:** ICE  
+
+#### Signal Name: 0x289.QU_VYAW_VEH  
+**Description:** Unfiltered yaw rate qualifier.  
+**Values:** 15 "Signal invalid Not used", 8 "Initialisierung", 6 "Signal invalid (ACAN)", 2 "Signal value is valid (ACAN)"  
+**Variant:** ICE  
+
+#### Signal Name: 0x20D.VehicleSpd  
+**Description:** Vehicle speed.  
+**Unit:** km/h  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x20D.VehicleSpdSts  
+**Description:** Vehicle speed status.  
+**Values:** 1 "Invalid", 0 "Valid"  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x3C0.WheelSpeedFR  
+**Description:** Front right wheel speed.  
+**Unit:** km/h  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x3C0.WheelSpeedFL  
+**Description:** Front left wheel speed.  
+**Unit:** km/h  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x3C1.WheelSpeedRL  
+**Description:** Rear left wheel speed.  
+**Unit:** km/h  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x3C1.WheelSpeedRR  
+**Description:** Rear right wheel speed.  
+**Unit:** km/h  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x3C0.WheelSpeedFRStatus  
+**Description:** Valid flag for WheelSpeed_FR.  
+**Values:** 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid"  
+**Variant:** BEV  
+
+#### Signal Name: 0x3C0.WheelSpeedFLStatus  
+**Description:** Valid flag for WheelSpeed_FL.  
+**Values:** 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid"  
+**Variant:** BEV  
+
+#### Signal Name: 0x3C1.WheelSpeedRRStatus  
+**Description:** Valid flag for WheelSpeed_RR.  
+**Values:** 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid"  
+**Variant:** BEV  
+
+#### Signal Name: 0x3C1.WheelSpeedRLStatus  
+**Description:** Valid flag for WheelSpeed_RL.  
+**Values:** 3 "Reserved", 2 "Init", 1 "Invalid", 0 "Valid"  
+**Variant:** BEV  
+
+#### Signal Name: 0x3C0.WheelSpeedFRStatus  
+**Description:** Valid flag for WheelSpeed_FR.  
+**Values:** 1 "Standstill", 2 "Forward", 3 "Backward", 4 "Invalid"  
+**Variant:** ICE  
+
+#### Signal Name: 0x3C1.WheelSpeedRLStatus  
+**Description:** Valid flag for WheelSpeed_RL.  
+**Values:** 1 "Standstill", 2 "Forward", 3 "Backward", 4 "Invalid"  
+**Variant:** ICE  
+
+#### Signal Name: 0x3C1.WheelSpeedRRStatus  
+**Description:** Valid flag for WheelSpeed_RR.  
+**Values:** 1 "Standstill", 2 "Forward", 3 "Backward", 4 "Invalid"  
+**Variant:** ICE  
+
+#### Signal Name: 0x113.MainCylinderPres  
+**Description:** Master Cylinder pressure.  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x113.STAT_MainCylinderPresValid  
+**Description:** Validity bit for the signal Brake Main Cylinder Pressure.  
+**Values:** 3 "Signal invalid", 2 "Reserved", 1 "Reserved", 0 "Valid"  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x32F.IDB_ACC_DriverOverride  
+**Description:** Information of Driver pedal override (ASIL-B).  
+**Values:** 1 "No override", 2 "Acceleration pedal override", 3 "Brake pedal override"  
+**Variant:** BEV  
+
+#### Signal Name: 0x20D.VDCActive  
+**Description:** VDC in regulation.  
+**Values:** 1 "Active", 0 "Inactive"  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x20D.ABSActive  
+**Description:** ABS in regulation.  
+**Values:** 1 "Active", 0 "Inactive"  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x20D.TCSActive  
+**Description:** TCS (ASR) in regulation.  
+**Values:** 1 "Active", 0 "Inactive"  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x20D.ESC_Braking_effort  
+**Description:** Status of braking effort (used to know when ESC needs to apply brake effort to ensure deceleration).  
+**Values:** 1 "No brake force generated", 2 "Brake force generated"  
+**Variant:** BEV, ICE  
+
+#### Signal Name: 0x20D.ESC_VehicleHoldStat  
+**Description:** Set if the vehicle is stationary for ACC or detected hold.  
+**Values:** ACC Variant: 1 "No vehicle hold due to ADAS function", 2 "Vehicle hold due to comfort function"; AEB Variant: 1 "Vehicle hold due to security function", 1 "Reserved".  
+**Variant:** BEV  
+
+#### Signal Name: 0x20D.ESC_VehicleStandstill  
+**Description:** Vehicle stationary signal.  
+**Values:** 1 "NO_VEHICLE_STANDSTILL", 2 "VEHICLE_STANDSTILL"  
+**Variant:** BEV, ICE
+Page 23
+Requirement ID: FS-226016  
+Type: --  
+Status: New  
+
+This chapter introduces the signals necessary for the ACC algorithm function development and interaction with each ECU. The specific signal name and message definition in the VinFast project should be based on the latest ADAS communication network signal matrix released by VinFast.  
+
+### 4.4.1 / / Chassis Signal Interface  
+
+Requirement ID: FS-226017  
+Type: --  
+Status: New  
+
+#### 4.4.1.1 / / Input Signals from Chassis  
+
+Requirement ID: FS-226018  
+Type: --  
+Status: New  
+
+- **0x17E.SAS_SteerWheelAngle**: Steering wheel angle. Positive values indicate turning left; negative values indicate turning right. Applicable for BEV and ICE.  
+- **0x17E.SAS_SteerWheelAngleValid**: Steering wheel angle validity status. Possible values are:  
+  1. "Valid"  
+  2. "Invalid". Applicable for BEV and ICE.  
+- **0x17E.SAS_SteerWhlRotSpd**: Steering wheel rotation speed. Positive values indicate rotation to the left; negative values indicate rotation to the right. Applicable for BEV and ICE.  
+- **0x17E.SAS_SteerWhlRotSpdStatus**: Steering wheel rotation speed status. Possible values are:  
+  - 1 "Valid"  
+  - 0 "Invalid". Applicable for BEV and ICE.  
+
+### 4.4. Signal Interface  
+
+Requirement ID: FS-226016  
+Type: --  
+Status: New  
+
+Relevant signal for interaction with chassis control modules and necessary definitions derived from the ADAS communication matrix specific to the VinFast project.
+Page 24
+Requirement ID: FS-226019  
+Type: --  
+Status: New.  
+
+### **4.4.1.2 Output Signals to Chassis**
+
+#### **Signal Name**: 0x32D.ADAS_ACC_Status  
+- **Description**: ACC Fail Information in ADAS side ACC.  
+- **Values**:  
+  1. "System without error"  
+  2. "Performance Degraded"  
+  3. "Temporary unavailable"  
+  4. "ACC Service Required"  
+- **Variant**: BEV.
+Page 25
+Requirement ID: FS-226019  
+Type: --  
+Status: New  
+
+**Signal name:**  
+0x131.ADAS_ACC_Information  
+
+**Description:**  
+ACC Fail Information in ADAS side.  
+
+**Values:**  
+1. "System without error"  
+2. "Performance Degraded"  
+3. "Temporary unavailable"  
+4. "ACC Service Required"  
+
+**Variant:**  
+ICE  
+
+---
+
+**Signal name:**  
+0x32D.ADAS_ACC_Mode  
+
+**Description:**  
+ACC control state.  
+
+**Values:**  
+1. "initialization"  
+2. "OFF"  
+3. "Inhibited"  
+4. "Standby"  
+5. "Active"  
+6. "Override"  
+7. "Brake Only"  
+8. "Fault"  
+
+**Variant:**  
+BEV  
+
+---
+
+**Signal name:**  
+0x131.ADAS_ACC_ESC_Mode  
+
+**Description:**  
+ACC control state.  
+
+**Values:**  
+1. "initialization"  
+2. "OFF"  
+3. "Inhibited"  
+
+**Variant:**  
+ICE  
+
+---
+
+**Signal name:**  
+0x32D.ADAS_ACC_Mode  
+
+**Description:**  
+ACC control state.  
+
+**Values:**  
+0 "initialization"  
+1 "OFF"  
+2 "Inhibited"  
+3 "Standby"  
+4 "Active"  
+5 "Override"  
+6 "Brake Only"  
+7 "Fault"  
+
+**Variant:**  
+BEV  
+
+---
+
+**Signal name:**  
+0x32D.ADAS_ACC_AccelDecel_Cmd  
+
+**Description:**  
+Target Acceleration/Deceleration of ACC.  
+
+**Values:**  
+ACC / Unit: m/s²  
+
+**Variant:**  
+BEV  
+
+---
+
+**Signal name:**  
+0x32D.ADAS_ACC_IDB_DecCMDACT  
+
+**Description:**  
+Flag which indicates that the deceleration command from ADAS is valid or not.  
+
+**Values:**  
+1. invalid  
+2. valid  
+
+**Variant:**  
+BEV  
+
+---
+
+**Signal name:**  
+0x131.ADAS_ACC_ESC_DecCmdAct  
+
+**Description:**  
+Flag which indicates that the deceleration command from ADAS is valid or not.  
+
+**Values:**  
+1. "No Deceleration"  
+2. "Deceleration"  
+
+**Variant:**  
+ICE
+Page 26
+0x131.ADAS_ACC_ESC_DecelerationAx  
+Deceleration command (For ESC).  
+ICE  
+
+0x32D.ADAS_ACC_Main_Mode  
+Main switch status of ACC (shall always be ON after IGN ON).  
+ACC  
+1. "ACC Switch Off"  
+2. "ACC Switch On"  
+BEV  
+
+0x131.ADAS_ACC_Main_Mode  
+Main switch status of ACC (shall always be ON after IGN ON).  
+ACC  
+1. "ACC Switch Off"  
+2. "ACC Switch On"  
+ICE  
+
+0x32D.ADAS_ACC_StandstillReq  
+Standstill request flag.  
+1. "No request"  
+2. "Stop control is required"  
+BEV  
+
+0x131.ADAS_StandstillReq  
+Standstill request flag.  
+1. "No request"  
+2. "StandStill is required"  
+ICE  
+
+0x131.ADAS_ACC_IDB_DriveOff  
+DriveOff request flag.  
+ACC  
+1. "No request"  
+2. "Drive Off is required"  
+BEV  
+
+0x131.ADAS_ACC_ESC_DriveOff  
+DriveOff request flag.  
+ACC  
+1. "No request"  
+2. "DriveOff is required"  
+ICE  
+
+### 4.4.2 Powertrain Signal Interface  
+
+#### Requirement ID: FS-226020  
+Type: --  
+Status: New  
+
+### 4.4.2.1 Input signals from Powertrain
+Page 27
+Requirement ID: FS-226021.
+Type: --.
+Status: New.
+
+0x95.MSR_Active  
+MSR in regulation.  
+Values:  
+3 "Signal invalid".  
+2 "Reserved".  
+1 "Active".  
+0 "Inactive".  
+Variant: BEV, ICE.
+
+0x95.STAT_DSC  
+Dynamic Stability Control status.  
+DSC.  
+Values:  
+3 "Signal invalid".  
+2 "IDB-OFF".  
+1 "Traction Mode" (ESC OFF).  
+0 "IDB normal".  
+Variant: BEV, ICE.
+
+0xD9.VCU_ACTGear  
+Actual Gear.  
+Values:  
+7 "Fault".  
+6 "Reserved".  
+5 "Reserved".  
+4 "Reserved".  
+3 "D".  
+2 "N".  
+1 "R".  
+0 "P".  
+Variant: BEV.
+
+0xD9.VCU_ACTGearValid  
+Indicate the current gear position.  
+Values:  
+1 "Valid".  
+2 "Invalid".  
+Variant: BEV.
+
+0x3F9.ST_GRSEL_DRV  
+The signal indicates the gear in which the gearbox is currently located (only for ICE).  
+Values:  
+0 "initialization".  
+1 "N".  
+2 "R".  
+3 "P".  
+4 "NP".  
+5 "1".  
+6 "2".  
+7 "3".  
+8 "4".  
+9 "5".  
+10 "6".  
+11 "7".  
+12.
+Page 28
+Requirement ID: FS-226021  
+Type: --  
+Status: New  
+
+Signal name  
+Description  
+Values  
+Variant  
+
+**0x95.MSR_Active**  
+MSR in regulation:  
+3 "Signal invalid",  
+2 "Reserved",  
+1 "Active",  
+0 "Inactive".  
+**BEV, ICE**  
+
+**0x95.STAT_DSC**  
+Dynamic Stability Control status (DSC):  
+3 "Signal invalid",  
+2 "IDB-OFF",  
+1 "Traction Mode" (ESC OFF),  
+0 "IDB normal".  
+**BEV, ICE**  
+
+**0xD9.VCU_ACTGear**  
+Actual Gear:  
+7 "Fault",  
+6 "Reserved",  
+5 "Reserved",  
+4 "Reserved",  
+3 "D",  
+2 "N",  
+1 "R",  
+0 "P".  
+**BEV**  
+
+**0xD9.VCU_ACTGearValid**  
+Indicates the current gear position:  
+1 "Valid",  
+2 "Invalid".  
+**BEV**  
+
+**0x3F9.ST_GRSEL_DRV**  
+Indicates the gear in which the gearbox is currently located (only for ICE):  
+0 "initialization",  
+1 "N",  
+2 "R",  
+3 "P",  
+4 "NP",  
+5 "1",  
+6 "2",  
+7 "3",  
+8 "4",  
+9 "5",  
+10 "6",  
+11 "7",  
+12 "8",  
+13 "9",  
+15 "Signal invalid".  
+**ICE**
+
+**0xD9.VCU_HV_DRVsystem_status**  
+Status of driving system (High voltage):  
+1 "Not available",  
+2 "Normal",  
+3 "Degradation",  
+4 "Limp home",  
+5 "Error",  
+6 "Reserved",  
+7 "Reserved",  
+8 "Reserved".  
+**BEV**  
+
+**0xD9.VCU_ACPD_Percent**  
+Actual acceleration pedal position.  
+Unit: %%!  
+**BEV**  
+
+**0xD9.VCU_ACPD_Percent_Valid**  
+Qualifier for corresponding signal:  
+1 "Valid",  
+2 "Invalid".  
+**BEV**
+
+**0xD8.AVL_ANG_ACPD**  
+Actual angle of the driving pedal reported by the drivetrain (only for ICE).  
+Unit: %%!  
+**ICE**
+
+**0xD8.QU_AVL_ANG_ACPD**  
+Extended status qualifier for the actual-value angle accelerator pedal signal (only for ICE):  
+8 "Initialization",  
+1 "Signal value is valid and secured and plausible",  
+9 "Reserved",  
+2 "Reserved",  
+10 "Reserved",  
+3 "Reserved",  
+11 "Reserved",  
+4 "Reserved",  
+12 "Adjustment value is set in the useful signal state".  
+**ICE**
+Page 29
+0xD8.AVL_ANG_ACPD_VIRT. This signal transmits the calculated pedal angle resulting from the current driving speed control. (only for ICE). Unit: %%!.
+
+0xD9.VCU_ACT_DriveMode. Vehicle Drive Mode:
+1. “Normal mode”
+2. “Eco mode”
+3. “Sport mode”
+3~6 Reserved
+7 Invalid.
+
+0x214.VCU_Accel_Pedal_Position_Virtual. Virtual Accel Pedal Position re-built during ACC control (equivalent to driver request). ACC active. Unit: %%!.
+
+0x23A.IDB_WheelDirection_FL. IDB Front Left Wheel Direction:
+1. "Standstill"
+2. "Forward"
+3. "Backward"
+4. "Invalid".
+
+0x23A.IDB_WheelDirection_FR. IDB Front Right Wheel Direction:
+1. "Standstill"
+2. "Forward"
+3. "Backward"
+4. "Invalid".
+Page 30
+0x23A.IDB_WheelSpeedRC_FL. IDB Front Left Wheel Speed Pulse. BEV.
+
+0x23A.IDB_WheelSpeedRC_FR. IDB Front Right Wheel Speed Pulse. BEV.
+
+0x23B.IDB_WheelDirection_RL. IDB Rear Left Wheel Direction.  
+1. "Standstill"  
+2. "Forward"  
+3. "Backward"  
+4. "Invalid".  
+BEV.
+
+0x23B.IDB_WheelDirection_RR. IDB Rear Right Wheel Direction.  
+1. "Standstill"  
+2. "Forward"  
+3. "Backward"  
+4. "Invalid".  
+BEV.
+
+0x23B.IDB_WheelSpeedRC_RL. IDB Rear Left Wheel Speed Pulse. BEV.
+
+0x23B.IDB_WheelSpeedRC_RR. IDB Rear Right Wheel Speed Pulse. BEV.
+
+0x23E.RCU_EPB_FltSts. EPB Fault Status EPB.  
+1. Not valid  
+2. No Error  
+3. Initialization  
+4. DiagSession  
+5. Temporary Fail  
+6. Permanent Fail.  
+BEV.
+Page 31
+0x163.AVL_LOGR_RW. Estimated longitudinal gradient of the roadway. Note: Only available when host speed is less than 10kph. For speeds higher than 10kph, this signal cannot be used. ICE.
+
+0x163.QU_AVL_LOGR_RW. Extended status qualifier to signal actual value of longitudinal gradient of the roadway. Values include: 
+- 8: "Initialization"
+- 2: "Signal value is valid"
+- 14: "Signal value is invalid, state/status temporary"
+- 15: "Signal invalid"
+ICE.
+
+0x241.AVL_WMOM_PT_SUM_MAX. Upper limit for the currently feasible requirement of the driving sum wheel moment in relation to the currently applicable translation ratios. ICE.
+
+0x241.AVL_WMOM_PT_SUM_FAST_BOT. Lower limit for the fast adjustment range of the drive starting from the current operating point. ICE.
+
+0x241.AVL_WMOM_PT_SUM_FAST_TOP. Upper limit for the fast adjustment range of the drive starting from the current operating point. ICE.
+
+0xDE.QU_SER_WMOM_PT_SUM_DR_S. Service qualifier for the interface wheel torque requirement of the comfort systems for ACC. Values include: 
+- 0010: "Service available"
+- 0110: "Service not available (error occurred)"
+- 1011: "Service temporarily"
+ICE.
+Page 32
+0xDE.TAR_WMOM_PT_SUM_COOTD. This signal refers to the output size from the driver's wish coordination between the driver's requirement via the accelerator pedal and the wheel torque requirement of the comfort systems. ICE.
+
+0x3F9.ST_DRV_VEH. This signal indicates the availability of a vehicle drive without taking into account the positive engagement. Attention is required to evaluate all bits fully, as specified for ICE vehicles. The possible values are:
+1. "Engine OFF."
+2. "Engine cranking."
+3. "Engine run (Normal)."
+Page 33
+132 "Start announcement of the engine by driver."
+134 "Stop announcement of the engine by driver."
+136 "Engine stop by ESS (Engine Off)."
+137 "Engine start by ESS (Engine cranking)."
+140 "Start announcement of the engine by ESS."
+142 "Start announcement of the engine by ESS."
+146 "Engine in the outlet by driver."
+154 "Engine in the outlet by ESS."
+158 "Engine in the outlet with Start announcement by ESS."
+255 "Signal invalid."
+Page 34
+4.4.2.2 / / Out Signals to Powertrain.
+
+Requirement ID: FS-226022.  
+Type: --  
+Status: New.  
+
+Signal name: 0x209.ADAS_ACC_Mode_VCU.  
+Description: Function ACC Status for VCU ACC.  
+Values:  
+1. "initialization."  
+2. "OFF."  
+3. "Inhibited."  
+4. "Standby."  
+5. "Active."  
+6. "Override."  
+7. "Brake Only."  
+8. "Fault."  
+Variant: BEV.  
+
+Signal name: 0x137.TAR_2_WMOM_PT_SUM_DRS.  
+Description: This signal communicates the wheel torque request from the cruise control function.  
+Variant: ICE.  
+
+Signal name: 0x137.QU_TAR_2_WMOM_PT_SUM_DRS.  
+Description: This is the qualifier to the data signal of the cruise control torque request.  
+Values:  
+- 1000 ---- ----: initialization.  
+- 0010 ---- --00: Implement Setvalue, Setvalue-carrying function: DCC / ACC.  
+- 0010 ---- --10: Implement Setvalue with specification of the direction of travel request Setvalue-guiding function: PMA-LQ / RCP (Auto park).  
+- 0110 ---- ----: Reserved.  
+- 0111 ---- ----: Reserved.  
+- 1111 1111 1111: signal invalid.  
+Variant: ICE.
+Page 35
+4.4.3 / / BCM Signal Interface.
+
+Requirement ID: FS-226023.
+Type: --.
+Status: New.
+
+BCM Signal Interface.
+
+4.4.3.1 / / Input Signals from BCM.
+
+Requirement ID: FS-226024.
+Type: --.
+Status: New.
+
+Signal name: 0x106. BCM_TurnIndicatorSts.  
+Description: Turn light output status.  
+Values:  
+1. "OFF".  
+2. "Left On".  
+3. "Right On".  
+4. "Left and Right On".  
+Variant: BEV.
+
+Signal name: 0x381. ACM_Seat_Belt_Status_Driver.  
+Description: Driver seat belt state.  
+Values:  
+1. "Not_buckled".  
+2. "Buckled".  
+3. "Not_Available".  
+4. "Failure".  
+Variant: BEV ICE.
+
+Signal name: 0x105.BCM_STAT_BonnetAjar.  
+Description: Ajar Bonnet Status.  
+Values:  
+3 "Signal invalid".  
+2 "Reserved".  
+1 "Opened".  
+0 "Closed".  
+Variant: BEV ICE.
+
+Signal name: 0x105.BCM_STAT_DoorAjarFL.  
+Description: Front left door switch status.  
+Values:  
+3 "Signal invalid".  
+2 "Reserved".  
+1 "Opened".  
+0 "Closed".  
+Variant: BEV ICE.
+Page 36
+Front right door switch status is defined by signal 0x105.BCM_STAT_DoorAjarFR. The possible values are:
+- 3: "Signal invalid"
+- 2: "Reserved"
+- 1: "Opened"
+- 0: "Closed".
+Applicable variants: BEV and ICE.
+
+Rear right door switch status is defined by signal 0x105.BCM_STAT_DoorAjarRR. The possible values are:
+- 3: "Signal invalid"
+- 2: "Reserved"
+- 1: "Opened"
+- 0: "Closed".
+Applicable variants: BEV and ICE.
+
+Front right door switch status is defined by signal 0x105.BCM_STAT_DoorAjarRL. The possible values are:
+- 3: "Signal invalid"
+- 2: "Reserved"
+- 1: "Opened"
+- 0: "Closed".
+Applicable variants: BEV and ICE.
+
+Trunk ajar door status is defined by signal 0x105.BCM_STAT_TrunkAjar. The possible values are:
+- 3: "Signal invalid"
+- 2: "Reserved"
+- 1: "Opened"
+- 0: "Closed".
+Applicable variants: BEV and ICE.
+
+Stop light output status is defined by signal 0x106.BCM_StopLightSts. The possible statuses are:
+- 1: "OFF"
+- 2: "ON"
+- 3: "Fault" (Reserved)
+- 4: "Signal Invalid".
+Applicable variants: BEV and ICE.
+
+Brake pedal switch BCM pressed is defined by signal 0x109.BCM_STAT_BrakeSwitch. The possible statuses are:
+- 3: "Signal invalid"
+- 2: "Reserved"
+- 1: "Brake Pressed"
+- 0: "Brake not pressed".
+Applicable variants: BEV and ICE.
+
+Towing status is defined by signal 0x235.TowingDetected. The possible values are:
+- 3: "Invalid"
+- 1: "Towing detected"
+- 0: "Towing not detected".
+Applicable variants: BEV.
+Page 37
+0x235. TrailerDetected.
+
+Trailer Detected status.
+- 3 "Invalid".
+- 1 "Trailer detected".
+- 0 "Trailer not detected".
+
+BEV.
+
+4.4.4 Info CAN Signal Interface.
+
+Requirement ID: FS-226025. Type: --. Status: New.
+
+Info CAN Signal Interface.
+
+4.4.4.1 Input Signals from Info CAN.
+
+Requirement ID: FS-226026. Type: --. Status: New.
+
+Signal name:
+
+0x3F7.MFS_CAN_RESControl.
+
+Cancel / Resume Button.
+
+Values:
+- 4 "Signal Invalid".
+- 3 "Reserved".
+- 2 "Long Press".
+- 1 "Short Press".
+- 0 "Button not Pressed".
+
+Variants:
+BEV ICE.
+
+0x3F7.MFS_CruiseGapDecrease.
+
+Cruise Gap Decrease.
+
+Values:
+- 4 "Signal Invalid".
+- 3 "Reserved".
+- 2 "Long Press".
+- 1 "Short Press".
+- 0 "Button not Pressed".
+
+Variants:
+BEV ICE.
+Page 38
+4.4.3 BCM Signal Interface.
+
+Requirement ID: FS-226023. Type: --. Status: New.
+
+4.3 BCM Signal Interface.
+
+4.4.3.1 Input Signals from BCM.
+
+Requirement ID: FS-226024. Type: --. Status: New.
+
+Signal name: 0x105.BCM_STAT_DoorAjarFR.
+Description: Front right door switch status.
+Values: 
+  3 "Signal invalid".
+  2 "Reserved".
+  1 "Opened".
+  0 "Closed".
+Variant: BEV ICE.
+
+Signal name: 0x105.BCM_STAT_DoorAjarRR.
+Description: Rear right door switch status.
+Values: 
+  3 "Signal invalid".
+  2 "Reserved".
+  1 "Opened".
+  0 "Closed".
+Variant: BEV ICE.
+
+Signal name: 0x105.BCM_STAT_DoorAjarRL.
+Description: Front right door switch status.
+Values: 
+  3 "Signal invalid".
+  2 "Reserved".
+  1 "Opened".
+  0 "Closed".
+Variant: BEV ICE.
+
+Signal name: 0x105.BCM_STAT_TrunkAjar.
+Description: Trunk Ajar Door Status.
+Values: 
+  3 "Signal invalid".
+  2 "Reserved".
+  1 "Opened".
+  0 "Closed".
+Variant: BEV ICE.
+
+Signal name: 0x106.BCM_StopLightSts.
+Description: Stop light output Status.
+Values: 
+  1 "OFF".
+  2 "ON".
+  3 "Fault (Reserved)".
+  4 "Signal Invalid".
+Variant: BEV ICE.
+
+Signal name: 0x109.BCM_STAT_BrakeSwitch.
+Description: Brake pedal switch BCM pressed.
+Values: 
+  3 "Signal invalid".
+  2 "Reserved".
+  1 "Brake Pressed".
+  0 "Brake not pressed".
+Variant: BEV ICE.
+
+Signal name: 0x235.TowingDetected.
+Description: Towing status.
+Values: 
+  3 "Invalid".
+  1 "Towing detected".
+  0 "Towing not detected".
+Variant: BEV.
+
+Signal name: 0x235.TrailerDetected.
+Description: Trailer Detected status.
+Values: 
+  3 "Invalid".
+  1 "Trailer detected".
+  0 "Trailer not detected".
+Variant: BEV.
+
+4.4.4 Info CAN Signal Interface.
+
+Requirement ID: FS-226025. Type: --. Status: New.
+
+Info CAN Signal Interface.
+
+4.4.4.1 Input signals from Info CAN.
+
+Requirement ID: FS-226026. Type: --. Status: New.
+
+Signal name: 0x3F7.MFS_CAN_RESControl.
+Description: Cancel / Resume Button.
+Values: 
+  4 "Signal Invalid".
+  3 "Reserved".
+  2 "Long Press".
+  1 "Short Press".
+  0 "Button not Pressed".
+Variant: BEV ICE.
+
+Signal name: 0x3F7.MFS_CruiseGapDecrease.
+Description: Cruise Gap Decrease.
+Values: 
+  4 "Signal Invalid".
+  3 "Reserved".
+  2 "Long Press".
+  1 "Short Press".
+  0 "Button not Pressed".
+Variant: BEV ICE.
+
+Signal name: 0x3F7.MFS_CruiseGapIncrease.
+Description: Cruise Gap Increase.
+Values: 
+  4 "Signal Invalid".
+  3 "Reserved".
+  2 "Long Press".
+  1 "Short Press".
+  0 "Button not Pressed".
+Variant: BEV ICE.
+
+Signal name: 0x3F7.MFS_CruiseOn_Off.
+Description: Cruise control On/Off ACC.
+Values: 
+  4 "Signal Invalid".
+  3 "Reserved".
+  2 "Long Press".
+  1 "Short Press".
+  0 "Button not Pressed".
+Variant: BEV ICE.
+
+Signal name: 0x3F7.MFS_CruiseSpeedDecrease.
+Description: Cruise Speed Decrease.
+Values: 
+  4 "Signal Invalid".
+  3 "Reserved".
+  2 "Long Press".
+  1 "Short Press".
+  0 "Button not Pressed".
+Variant: BEV ICE.
+
+Signal name: 0x3F7.MFS_CruiseSpeedIncrease.
+Description: Cruise Speed Increase.
+Values: 
+  4 "Signal Invalid".
+  3 "Reserved".
+  2 "Long Press".
+  1 "Short Press".
+  0 "Button not Pressed".
+Variant: BEV ICE.
+
+Signal name: 0x3F7.MFS_Failure.
+Description: Multi-Function Switch Failure.
+Values: 
+  1 "No Error".
+  2 "Error".
+Variant: BEV ICE.
+
+Signal name: 0x40D.MHU_DigitSpeed.
+Description: This signal represents the digital speed and is displayed.
+Unit: km/h.
+Variant: BEV ICE.
+Page 39
+### 4.4.4 / / Info CAN Signal Interface
+
+#### Requirement ID: FS-226025  
+**Type:** --  
+**Status:** New  
+
+### Info CAN Signal Interface  
+
+#### 4.4.4.1 / / Input signals from Info CAN  
+
+#### Requirement ID: FS-226026  
+**Type:** --  
+**Status:** New  
+
+**Signal name:**  
+0x422.MHU_STAT_MileageUnit  
+
+**Description:**  
+Indicate current unit of mileage display in Screen (Km or Miles).  
+
+**Values:**  
+- 3: "Signal invalid"  
+- 2: "Reserved"  
+- 1: "KM"  
+- 0: "Mile"  
+
+**Variant:**  
+BEV ICE  
+
+---  
+
+**Signal name:**  
+0x3FD.DISP_PRG_GRB  
+
+**Description:**  
+The signal is used to control the program information display in the instrument pack (only for ICE).  
+
+**Values:**  
+- 1: "dark switching"  
+- 2: "S program"  
+- 3: "M program"  
+- 4: "L program"  
+- 5: "C program"  
+- 7: "signal invalid"  
+
+**Variant:**  
+ICE  
+
+---
+
+> **Note:**  
+The speed displayed on MHU shall not be less than the true speed of the vehicle. Following the conversion between the speed displayed (V1) and the true speed (V2), the following formula shall be followed:  
+0 <= (V1 - V2) = 3%V2 + 4 km/h  
+The parameters **3%** and **+4 km/h** shall be implemented and coded.  
+
+#### 4.4.4.2 / / Out Signals to Info CAN  
+
+#### Requirement ID: FS-226027  
+**Type:** --  
+**Status:** New  
+
+**Signal name:**  
+ADAS_OBJ0X_Class (X:1~6)  
+
+**Description:**  
+The class of object.  
+
+**Values:**  
+- 0x0: Unknown  
+- 0x1: Car  
+- 0x2: Truck  
+- 0x3: Motorbike  
+- 0x4: Bicycle  
+- 0x5: Pedestrian  
+- 0x6: Truck or car  
+- 0x7: Reserved  
+
+**Variant:**  
+BEV ICE
+Page 40
+ADAS_OBJ0X_ID (X:1~6) 
+
+The ID of object ID. 
+
+Values: 
+0~255
+
+Variant: BEV ICE  
+
+ADAS_OBJ0X_Lane (X:1~6) 
+
+Road information of object. 
+
+Values: 
+0x0 Undefined 
+0x1 Left lane 
+0x2 Host lane 
+0x3 Right lane 
+
+Variant: BEV ICE  
+
+ADAS_OBJ0X_LatDis (X:1~6) 
+
+Lateral distance of object (positive to right). 
+
+Values: 
+
+Variant: BEV ICE  
+
+ADAS_OBJ0X_LgDis (X:1~6) 
+
+Longitudinal distance of object. 
+
+Values: 
+
+Variant: BEV ICE  
+
+0x353.ADAS_ACC_check  
+
+Adaptive Cruise Control Check ACC. 
+
+Values:
+1. "Available" 
+2. "Temporarily not available" 
+3. "Permanently not available" 
+
+Variant: BEV ICE  
+
+0x353.ADAS_ACC_CnlBtn_Feed  
+
+Feedback of ACC Cancel Button. 
+
+Values: 
+1. "None" 
+2. "Cancel_Feed" 
+
+Variant: BEV ICE  
+
+0x353.ADAS_ACC_DistSet_lower_Feed  
+
+Feedback of Object Vehicle Gap Distance Adjustment (Reduction Button). 
+
+Values: 
+0 "None" 
+1 "Down_Feed"
+
+Variant: BEV ICE
+Page 41
+0x353. ADAS_ACC_DistSet_upper_Feed  
+Feedback of Object Vehicle Gap Distance Adjustment (Increase Button).  
+- Values:  
+  1. "None"  
+  2. "Up_Feed"  
+- Variant: BEV ICE  
+
+0x353. ADAS_ACC_ICON_Feed  
+ICON Feedback Request for ACC function.  
+- Values:  
+  1. "Off"  
+  2. "Gray ICON"  
+  3. "Green ICON"  
+  4. "White ICON"  
+  5. "Yellow ICON"  
+  6. "Red ICON"  
+- Variant: BEV ICE  
+
+0x353. ADAS_ACC_ObjDetec  
+ACC object detected or not.  
+- Values:  
+  1. "Object not detect"  
+  2. "Object detected"  
+- Variant: BEV ICE  
+
+0x353. ADAS_ACC_On_Feed  
+Feedback of ACC On Off Button (default ON).  
+- ACC ON:  
+  1. "Off"  
+  2. "On"  
+- Variant: BEV ICE  
+
+0x353. ADAS_ACC_PopUp_Feed  
+Popup messages for ACC function.  
+- Values:  
+  0. "None"  
+  1. "None (Feature On)"  
+  2. "None (Feature Off)"  
+  3. "Press gas pedal to re-engage the function"  
+  4. "Speed Assist is unavailable Conditions not met"  
+  5. "Resume not"  
+- Variant: BEV ICE
+Page 42
+available Please activate Speed Assist button.
+
+6 "Speed Assist is unavailable See Fault Details for more info."
+
+7 "Speed Assist will off below 20kph. Issue with vehicle sensors."
+
+8 "Take over driving now!"
+
+0x353.ADAS_ACC_Res_Feed. Feedback of ACC Resume Button ACC Resume.
+Values:
+1. "None."
+2. "Res_Feed."
+Variant: BEV ICE.
+
+0x353.ADAS_ACC_Set_Feed. Feedback of ACC Set Button ACC.
+Values:
+1. "None."
+2. "Set_Feed."
+Variant: BEV ICE.
+
+0x353.ADAS_ACC_SpdSet_lower_Feed. Feedback of Subject Vehicle Speed Setting (Reduction Button) ACC.
+Values:
+0. "None."
+1. "Down_Feed."
+Variant: BEV ICE.
+
+0x353.ADAS_ACC_SpdSet_upper_Feed. Feedback of Subject Vehicle Speed Setting (Increase Button) ACC.
+Values:
+1. "None."
+2. "Up_Feed."
+Variant: BEV ICE.
+Page 43
+0x353.ADAS_ACC_State  
+ACC State ACC.  
+Values:  
+0: Passive  
+1: Stand by  
+2: Active  
+3: Override  
+4: Brake only  
+5: Standstill active  
+6: Standstill wait  
+7: Fault  
+Variant: BEV ICE  
+
+0x353.ADAS_ACC_TagSpeed  
+ACC speed setting ACC.  
+Unit: km/h  
+Variant: BEV ICE  
+
+0x353.ADAS_ACC_TimeGapSet  
+ACC time gap setting ACC.  
+Values:  
+1: "No time gap"  
+2: "1st level distance"  
+3: "2nd level distance"  
+4: "3rd level distance"  
+5: "4th level distance"  
+Variant: BEV ICE  
+
+0x353.ADAS_TagSpeed_Icon_Feed  
+ACC target speed icon ACC.  
+Values:  
+1: "Off"  
+2: "Gray ICON"  
+3: "Green ICON"  
+4: "White ICON"  
+5: "Yellow ICON"  
+6: "Red ICON"  
+Variant: BEV ICE  
+
+4.5 / / 5 Function Description.
+Requirement ID: FS-226028.  
+Type: --  
+Status: New.  
+
+4.5.1 / / Function Cancel/Inhibit Mode.
+Page 44
+4.5.1.1 Inhibit Condition.
+
+Requirement ID: FS-226030.  
+Type: --.  
+Status: New.
+
+Inhibit condition:  
+
+1. **The handshake signal for braking system and ACC is not satisfied (ACC):**  
+   - BEV Signal: 0x32F.IDB_ACC_Available_Flag == 0x0 (Not available).  
+   - ICE Signal: 0x136.ESC_CDD_Available == 0x0 (Not available).  
+
+2. **The handshake signal for powertrain and ACC is not satisfied (ACC):**  
+   - BEV Signal: 0xD9.VCU_HV_DRVsystem_status == (0x2 Degradation || 0x3 Limp home).  
+   - ICE Signal: 0x3F9.ST_DRV_VEH == 0110---- || 1011---- || 1110----.  
+
+3. **AEB deceleration in progress (AEB):**  
+   - Both BEV and ICE Signal: Use internal signal to identify AEB.
+Page 45
+EPB applied status is determined with the following conditions:
+- BEV Signal: `0x210.RCU_EPBParkingStatus == (0x1 both brakes applied || 0x2 Both brakes in operation (applying/releasing))`.
+- ICE Signal: `0x136.ESC_EPBParkingStatus != 0 Both brakes released`.
+
+The auto parking system is active under the following conditions:
+- BEV Signal: `0x135.ADAS_Status = 2 enable or 3 Active or 4 Finished or 5 Suspend or 6 Abort`.
+- ICE Signal: Same as the BEV signal, `0x135.ADAS_Status = 2 enable or 3 Active or 4 Finished or 5 Suspend or 6 Abort`.
+
+Vehicle moving backward is identified as:
+- BEV Signal: `0x20D.ESC_BrakeReleaseFailsafe == 1`.
+
+Vehicle is not standstill, and the driver presses the brake pedal under these conditions:
+- BEV Signal: `0x32F.IDB_ACC_DriverOverride = 2 "Brake pedal override"` && `0x20D.ESC_VehicleStandstill == 0 no vehicle standstill`.
+- ICE Signal: `0x109.BCM_STAT_BrakeSwitch == “1 Brake pressed”` && `0x113.MainCylinderPres >= threshold` && `0x20D.ESC_VehicleStandstill == 0 no vehicle standstill`.
+
+Vehicle speed above 150 kph is determined by:
+- BEV Signal: `0x40D.MHU_DigitSpeed`.
+
+TCS off is identified using:
+- BEV Signal: `0x95.STAT_DSC == (0x1 Traction Mode || 0x2 IDB OFF)`.
+Page 46
+ESC off  
+ESC  
+0x95.STAT_DSC == 1 Traction mode  
+
+ABS active for a duration longer than APV_ABS_BraO_Threshold.  
+ABS  
+0x20D.ABSActive == 1 active  
+
+TCS active for a duration longer than APV_TCS_BraO_Threshold.  
+TCS  
+0x20D.TCSActive == 1 active  
+
+VDC active for a duration longer than APV_VDC_BraO_Threshold.  
+VDC  
+0x20D.VDCActive == 1 active  
+
+MSR active for a duration longer than APV_MSR_BraO_Threshold.  
+MSR  
+0x95.MSR_Active == 1 active
+Page 47
+Trunk open.
+0x105.BCM_STAT_TrunkAjar == 1 Opened.
+
+Bonnet/hood open.
+0x105.BCM_STAT_BonnetAjar == 1 Opened.
+
+Any door open.
+0x105.BCM_STAT_DoorAjarFL == 1 Opened  
+|| 0x105.BCM_STAT_DoorAjarFR== 1 Opened  
+|| 0x105.BCM_STAT_DoorAjarRR== 1 Opened  
+|| 0x105.BCM_STAT_DoorAjarRL== 1 Opened.
+
+Driver seatbelt not attached.
+0x381. ACM_Seat_Belt_Status_Driver == 0 Not buckled.
+
+Current gear position is not D.
+0xD9.VCU_ACTGear == (0x0 P||0x1 R||0x2 N).  
+0x3F9.ST_GRSEL_DRV.
+
+Auto transmission in manual mode.
+No manual mode for BEV.  
+0x3FD.DISP_PRG_GRB = 2 M.
+
+Radar blockage detected.
+Use private CAN signal to identify radar blockage.
+
+SAS not calibrated.
+0x17E.SAS_Calibrated == 0 Not Calibrated.
+Page 48
+SAS.  
+
+Towing status detected.  
+0x235.TowingDetected == 1 Towing detected.  
+
+Trailer detected.  
+0x235.TrailerDetected == 1 Trailer detected.  
+
+Valet mode activation.  
+0x403.MHU_ValetMode_Activation == 1 Active.  
+
+Camera failsafe detected and host speed <20kph (failsafe 20kph).  
+Use internal signal to identify camera failsafe.  
+
+4.5.1.2 // Quick Cancellation Condition  
+
+Requirement ID: FS-226031  
+Type: --  
+Status: New  
+
+Quick Cancellation Condition.  
+BEV Signal.  
+ICE Signal.
+Page 49
+The handshake signal for braking system and ACC is not satisfied.  
+ACC:  
+- `0x32F.IDB_ACC_Available_Flag == 0x0 Not available`  
+- `0x136.ESC_CDD_Available == 0x0 Not available`  
+
+AEB deceleration in progress.  
+AEB:  
+- Use internal signal to identify AEB.  
+
+EPB applied.  
+EPB:  
+- `0x210.RCU_EPBParkingStatus == (0x1 both brakes applied || 0x2 Both brakes in operation(applying/releasing))`  
+- `0x136.ESC_EPBParkingStatus != 0 Both brakes released`  
+
+Auto parking system active.  
+Auto parking system statuses:  
+- `0x135.ADAS_Status = 2 enable or 3 Active or 4 Finished or 5 Suspend or 6 Abort`  
+
+Vehicle slipping away detected and braking system needs to release brake force.  
+- `0x20D.ESC_BrakeReleaseFailsafe == 1`  
+
+Vehicle is not standstill and driver presses the brake pedal.  
+Conditions:  
+- `0x32F.IDB_ACC_DriverOverride = 2 "Brake pedal override"`  
+  `&& 0x20D.ESC_VehicleStandstill == 0 no vehicle standstill`  
+- `0x109.BCM_STAT_BrakeSwitch == "1 Brake pressed"`   
+  `&& 0x113.MainCylinderPres >= threshold`  
+  `&& 0x20D.ESC_VehicleStandstill == 0 no vehicle standstill`
+Page 50
+Vehicle speed >150kph;  
+0x40D.MHU_DigitSpeed  
+
+Vehicle could not hold after system follow to stop.  
+0x20D.ESC_VehicleStandstill == 0 No vehicle standstill after following to stop.  
+
+SAS not calibrated.  
+0x17E.SAS_Calibrated == 0 Not Calibrated.  
+
+Towing status detected.  
+0x235.TowingDetected == 1 Towing detected.  
+
+Trailer detected.  
+0x235.TrailerDetected == 1 Trailer detected.  
+
+Camera failsafe detected and host speed <20kph.  
+Use internal signal to identify camera failsafe.  
+
+Valet mode activation.  
+0x403.MHU_ValetMode_Activation == 1 Active.
+Page 51
+4.5.1.3 Slow Cancellation Condition.
+
+Requirement ID: FS-226032.
+Type: --.
+Status: New.
+
+Slow Cancellation condition.
+
+BEV Signal:
+
+**TCS off.**
+TCS:
+0x95.STAT_DSC == (0x1 Traction Mode || 0x2 IDB OFF).
+
+**ESC off.**
+ESC:
+0x95.STAT_DSC == 1 Traction mode.
+
+**ABS active for a duration longer than APV_ABS_BraO_Threshold.**
+ABS:
+0x20D.ABSActive == 1 active.
+
+**TCS active for a duration longer than APV_TCS_BraO_Threshold.**
+TCS:
+0x20D.TCSActive == 1 active.
+Page 52
+4.5.1.3. Slow Cancellation Condition.
+
+Requirement ID: FS-226032.  
+Type: --.  
+Status: New.  
+
+Slow Cancellation condition:  
+
+1. **VDC active for a duration longer than APV_VDC_BraO_Threshold**:  
+   - Signal: 0x20D.VDCActive == 1 active.  
+
+2. **MSR active for a duration longer than APV_MSR_BraO_Threshold**:  
+   - Signal: 0x95.MSR_Active == 1 active.  
+
+3. **ABS active for a duration longer than APV_ABS_BraO_Threshold**:  
+   - Signal: 0x20D.ABSActive == 1 active.  
+
+4. **Driver presses cancel switch during ACC active**:  
+   - Signal: 0x3F7.MFS_CAN_RESControl.  
+
+5. **The handshake signal for powertrain and ACC is not satisfied**:  
+   - Signal: 0xD9.VCU_HV_DRVsystem_status == (0x2 Degration||0x3 Limphome).  
+
+6. **Trunk open**:  
+   - Signal: 0x105.BCM_STAT_TrunkAjar == 1 Opened.
+Page 53
+Bonnet/hood open.
+0x105.BCM_STAT_BonnetAjar == 1 Opened.
+
+Any door open.
+0x105.BCM_STAT_DoorAjarFL == 1 Opened ||
+0x105.BCM_STAT_DoorAjarFR == 1 Opened ||
+0x105.BCM_STAT_DoorAjarRR == 1 Opened ||
+0x105.BCM_STAT_DoorAjarRL == 1 Opened.
+
+Driver seatbelt not attached.
+0x381.ACM_Seat_Belt_Status_Driver == 0 Not buckled.
+
+Current gear position is not D.
+0xD9.VCU_ACTGear != 3 D.
+
+Auto transmission in manual mode.
+No manual mode for BEV.
+
+Valet mode activation.
+0x403.MHU_ValetMode_Activation == 1 Active.
+
+Radar blockage detected.
+Use internal signal to identify radar blockage.
+
+Front right wheel speed.
+0x3C0.WheelSpeedFR.
+Page 54
+Go Displacement Limitation Check failed.
+(Longer than 1.6m within 1.5s)
+0x3C0.WheelSpeedFL  
+0x3C1.WheelSpeedRL  
+0x3C1.WheelSpeedRR  
+
+ACC target lost suddenly in near range.
+Use internal signal to identify.
+
+**4.5.2 ACC Take Over Request ACC**  
+Requirement ID: FS-226033  
+Type: --  
+Status: New  
+
+ACC Take Over Request ACC. When all the following conditions are satisfied, ACC will request the driver to take over. This request will be continuously sent out:  
+
+1. **Potential collision has been registered**, which means cannot avoid collision with ACC deceleration.  
+2. **Deceleration demand (absolute value)** is larger than APV_Dec_Value.  
+3. **Target vehicle has been detected** for a duration longer than APV_Detected_Time.  
+4. None of the system limit warning suppressions is active.  
+
+When any one of the slow cancellation conditions defined in chapter 5.1.3 is met, ACC will request the driver to take over.  
+
+When any one of the following conditions is satisfied, ACC will no longer request the driver to take over:  
+
+1. Driver takes over the vehicle through pressing the brake pedal.
+Page 55
+2. OR driver takes over the vehicle through pressing gas pedal.
+
+4.6 / / ACC Functional Requirement.
+Requirement ID: FS-226038  
+Type: --  
+Status: New  
+
+4.6.1 / / ACC Statement Machine.  
+Requirement ID: FS-226039  
+Type: --   
+Status: New  
+
+The statement machine of ACC function is used to manage ACC activation/deactivation and interact with diagnostic functions. It also designs input signals to the HMI function.
+Page 56
+4.6.1.1 Off. System is switched off. All drivers’ actions (other than main switch activation) are ignored. When the system is initializing, status which means system powers on and not yet available to Driver is also on the status of ‘off.' If the ACC function is disabled via configuration.
+
+4.6.1.2 Passive. System is switched on with the main switch activation, and an inhibit condition exists.
+
+4.6.1.3 Standby. ACC function is enabled via configuration. The inhibit condition is eliminated, and the driver does not press a button to activate the function.
+
+4.6.1.4 Standstill Active. Driver activates ACC function by pressing the main button, and the vehicle is in a standstill. The vehicle could be driven off once the drive-off condition is met even without driver’s confirmation.
+
+4.6.1.5 Standstill Wait. Vehicle is in stop mode and has been halted for more than 3 seconds, then ACC is waiting for the driver’s confirmation to go.
+Page 57
+4.6.1.6 / / Active:
+
+Requirement ID: FS-226045  
+Type: --  
+Status: New  
+
+Driver activates the ACC function by pressing set button, and system is activated and starts working.  
+
+4.6.1.7 / / Override:
+
+Requirement ID: FS-226046  
+Type: --  
+Status: New  
+
+Driver has override behavior.  
+
+4.6.1.8 / / Brake Only:
+
+Requirement ID: FS-515621  
+Type: --  
+Status: New  
+
+Engine torque control is inhibited, and only braking can be operated.  
+
+4.6.1.9 / / Failure:
+
+Requirement ID: FS-226047  
+Type: --  
+Status: New  
+
+Any ACC faults defined in the DTC table detected, system will go to Failure state. ACC.  
+Note: ACC function-related faults will be defined in the DTC table.  
+
+The following table is mapping the relationship between the state machine internal status (ACC Mode) and ACC CAN signal:  
+
+**ACC Mode Mapping Table:**  
+- ACC Mode: OFF  
+- 0x32D.ADAS_ACC_Mode: 0x1 = Off  
+- 0x32D.ADAS_ACC_Status: 2 "Temporary unavailable"
+Page 58
+Passive  
+0x2=Inhibited  
+2 "Temporary unavailable"
+
+Standby  
+0x3=StandBy  
+0 "System without error"
+
+Active  
+0x4=Active  
+0 "System without error"
+
+Brake Only  
+0x6=BrakeOnly  
+0 "System without error"
+
+Override  
+0x5=Override  
+0 "System without error"
+
+Standstill active  
+0x4=Active  
+0 "System without error"
+
+Standstill wait  
+0x4=Active  
+0 "System without error"
+
+Failure  
+0x7=Fault  
+2 "Temporary unavailable"
+
+---
+
+**4.6.2 / / ACC System State Transitions**  
+**Requirement ID:** FS-226048  
+**Type:** --  
+**Status:** New  
+
+ACC System State Transitions
+
+---
+
+**4.6.2.1 / / Off state transfer to other state**  
+**Requirement ID:** FS-226049  
+**Type:** --  
+**Status:** New  
+
+Once powered up, ACC function shall be automatically turned on (0x353. ADAS_ACC_On_Feed = 1 On and 0x32D. ADAS_ACC_Main_Mode = 1 On. No ACC main switch in VinFast project).  
+
+---
+
+**4.6.2.1.1 / / Off --> Passive**  
+**Requirement ID:** FS-226050  
+**Type:** --  
+**Status:** New  
+
+The system shall transfer from Off to Passive state if all the below conditions are fulfilled.
+Page 59
+4.6.2.1.1.1 / / Anyone of inhibit conditions in <5.1.1 Inhibit condition> is detected.
+
+Requirement ID: FS-226051  
+Type: --  
+Status: New  
+
+<5.1.1 Inhibit condition>  
+
+4.6.2.1.2 / / Off --> Standby.
+
+Requirement ID: FS-226052  
+Type: --  
+Status: New  
+
+The system shall transfer from Off to Standby state if all the below conditions are fulfilled.
+
+4.6.2.1.2.1 / / There is no inhibit condition detected.
+
+Requirement ID: FS-226053  
+Type: --  
+Status: New  
+
+<5.1.1 Inhibit condition>
+
+4.6.2.1.3 / / Off --> Failure Mode.
+
+Requirement ID: FS-226054  
+Type: --  
+Status: New  
+
+The system shall transfer from Off state to Failure state.
+
+4.6.2.1.3.1 / / Any ACC system fault is detected.
+
+Requirement ID: FS-226055  
+Type: --  
+Status: New  
+
+ACC  
+
+4.6.2.2 / / Other Mode transfer to Off.
+
+Requirement ID: FS-226056  
+Type: --  
+Status: New
+Page 60
+The system shall transfer from Other state to Off state once any one of the following conditions is met.
+
+4.6.2.2.1 // 1) IGN OFF.
+Requirement ID: FS-226057.
+Type: --.
+Status: New.
+
+---
+
+4.6.2.3 // Passive state transfer to other state.
+Requirement ID: FS-226058.
+Type: --.
+Status: New.
+
+---
+
+4.6.2.3.1 // Passive --> Standby.
+Requirement ID: FS-226059.
+Type: --.
+Status: New.
+
+The system shall transfer from Passive state to Standby state if all the following conditions are met:
+1) No inhibit condition detected. ACC.
+
+---
+
+4.6.2.3.2 // Passive --> Failure.
+Requirement ID: FS-226060.
+Type: --.
+Status: New.
+
+The system shall transfer from Passive state to Failure state once any ACC system fault is detected. ACC.
+
+---
+
+4.6.2.4 // Standby state transfer to other state.
+Requirement ID: FS-226061.
+Type: --.
+Status: New.
+Page 61
+4.6.2.4.1 / / Standby --> Passive
+
+Requirement ID: FS-226062  
+Type: --  
+Status: New  
+
+The system shall transfer from Standby state to Passive state if one of the following conditions is met:  
+
+4.6.2.4.1.1 / / Anyone of inhibit conditions in <5.1.1 Inhibit condition> is detected  
+
+Requirement ID: FS-226063  
+Type: --  
+Status: New  
+
+---
+
+4.6.2.4.2 / / Standby --> Active  
+
+Requirement ID: FS-226064  
+Type: --  
+Status: New  
+
+The system shall transfer from Standby to Active Control state if all the following conditions are fulfilled:  
+
+1. Driver has pressed SET button (0x3F7. MFS_CruiseOn_Off == 1 short press or 2 long press), or RESUME button (0x3F7.MFS_CAN_RESControl == 1 short press or 2 long press) if ACC function has been activated before in current ignition cycle.  
+2. There is no inhibit condition.  
+3. Vehicle is not in standstill status.  
+4. If ACC function hasn’t been activated in current ignition cycle (then system has no set speed) and there is no leading vehicle detected, host vehicle speed shall be larger than 20kph (dashboard speed).  
+
+    - OR  
+      If ACC function hasn’t been activated in current ignition cycle (then system has no set speed) and there is a leading vehicle detected, ACC can be activated at any host speed lower than 150kph.  
+
+    - OR  
+      If ACC function has been activated in current ignition cycle (then system has set speed), ACC can be resumed at any speed lower than 150kph with or without leading vehicle.
+Page 62
+4.6.2.4.3 / / Standby --> Standstill Active.
+
+Requirement ID: FS-226069.  
+Type: --.  
+Status: New.  
+
+The system shall transfer from Standby to Standstill Active state if all the following conditions are fulfilled:  
+1. Driver has pressed SET button (0x3F7. MFS_CruiseOn_Off == 1 short press or 2 long press), or RESUME button (0x3F7. MFS_CAN_RESControl == 1 short press or 2 long press) if ACC function has been activated before in current ignition cycle.  
+2. Vehicle is in standstill and brake pedal is pressed or wheel cylinder pressure is detected.  
+3. No inhibit condition detected.  
+4. If ACC function hasn’t been activated in current ignition cycle (then system has no set speed) and there is a stationary or stopped leading vehicle detected, ACC can be activated at standstill.  
+   OR  
+   If ACC function has been activated in current ignition cycle (then system has set speed), ACC can be resumed at standstill with or without leading vehicle.  
+
+---
+
+4.6.2.4.4 / / Standby --> Failure.  
+
+Requirement ID: FS-226074.  
+Type: --.  
+Status: New.  
+
+The system shall transfer from Standby state to Failure state once any ACC system fault is detected.  
+
+---
+
+4.6.2.5 / / Active state transfer to other state.
+
+Requirement ID: FS-226075.  
+Type: --.  
+Status: New.  
+
+---
+
+4.6.2.5.1 / / Active --> Passive.
+
+Requirement ID: FS-226076.  
+Type: --.  
+Status: New.
+Page 63
+4.6.2.5.1 / / Active --> Passive
+Requirement ID: FS-226076  
+Type: --  
+Status: New  
+
+The system shall transfer from Active to Passive state if anyone of quick cancellation conditions defined in <5.1.2> is detected.  
+
+4.6.2.5.2 / / Active --> Standby  
+Requirement ID: FS-226077  
+Type: --  
+Status: New  
+
+The system shall transfer from Active to Standby state if the following condition is met:  
+
+4.6.2.5.2.1 / / Driver has pressed CANCEL button (0x3F7.MFS_CAN_RESControl == 1 short press or 2 long press).  
+Requirement ID: FS-226078  
+Type: --  
+Status: New  
+
+4.6.2.5.3 / / Active --> Brake Only  
+Requirement ID: FS-226079  
+Type: --  
+Status: New  
+
+The system shall transfer from Active Control to Brake Only state if any of the following conditions are fulfilled:  
+
+4.6.2.5.3.1 / / Anyone of slow cancellation conditions in <5.1.3> is detected.  
+Requirement ID: FS-226080  
+Type: --  
+Status: New  
+
+Note: This transfer state has lower priority than ‘Active --> Passive’.  
+
+4.6.2.5.4 / / Active --> Override  
+Requirement ID: FS-226081  
+Type: --  
+Status: New
+Page 64
+4.6.2.5.4 / / Active --> Override  
+The system shall transfer from Active to Override state if the acceleration pedal position is larger than the threshold.  
+
+4.6.2.5.5 / / Active --> Standstill Active  
+Requirement ID: FS-226082  
+Type: --  
+Status: New  
+
+The system shall transfer from Active to Standstill Active state if all of the following conditions are fulfilled:  
+1. ACC brakes the vehicle to standstill.  
+2. The duration of standstill state is less than 3 seconds.  
+3. There is no drive-off request.  
+4. Brake pedal is not pressed.  
+
+4.6.2.5.6 / / Active --> Failure  
+Requirement ID: FS-226087  
+Type: --  
+Status: New  
+
+The system shall transfer from Active state to Failure Mode state once any ACC system fault is detected.  
+
+4.6.2.6 / / Override state transfer to other state  
+Requirement ID: FS-226088  
+Type: --  
+Status: New  
+
+4.6.2.6.1 / / Override --> Active  
+Requirement ID: FS-226089  
+Type: --  
+Status: New  
+
+The system shall transfer from Override to Active state if one of the following conditions are fulfilled:
+Page 65
+4.6.2.6.1.1. Driver releases the accelerator pedal.
+
+- **Requirement ID:** FS-226090  
+- **Type:** --  
+- **Status:** New  
+
+4.6.2.6.2. Override --> Passive.
+
+- **Requirement ID:** FS-226091  
+- **Type:** --  
+- **Status:** New  
+
+The system shall transfer from Override state to Passive Mode state once condition in `<5.1.2 Quick Cancellation Condition>` is met.  
+
+4.6.2.6.3. Override --> Brake Only.
+
+- **Requirement ID:** FS-226092  
+- **Type:** --  
+- **Status:** New  
+
+The system shall transfer from Override state to Brake Only state once condition in `<5.1.3 Slow Cancellation Condition>` is met.  
+
+4.6.2.6.4. Override --> Failure.
+
+- **Requirement ID:** FS-226093  
+- **Type:** --  
+- **Status:** New  
+
+The system shall transfer from Override state to Failure state once any ACC system fault is detected.  
+
+4.6.2.7. Brake Only state transfer to other state.
+
+- **Requirement ID:** FS-226094  
+- **Type:** --  
+- **Status:** New  
+
+4.6.2.7.1. Brake Only --> Passive.
+Page 66
+Requirement ID: FS-226095  
+Type: --  
+Status: New  
+
+The system shall transfer from Brake Only to Passive state if one of following conditions are fulfilled:  
+
+4.6.2.7.1.1 / / One of quick cancellation condition in <5.1.2> detected.  
+
+Requirement ID: FS-226096  
+Type: --  
+Status: New  
+
+--  
+
+4.6.2.7.1.2 / / Vehicle is in standstill.  
+
+Requirement ID: FS-226097  
+Type: --  
+Status: New  
+
+--  
+
+4.6.2.7.1.3 / / Driver override.  
+
+Requirement ID: FS-226098  
+Type: --  
+Status: New  
+
+--  
+
+4.6.2.7.2 / / Brake Only --> Failure  
+
+Requirement ID: FS-226099  
+Type: --  
+Status: New  
+
+The system shall transfer from Brake Only state to Failure Mode state once any ACC system fault is detected.  
+
+4.6.2.8 / / Standstill Active state transfer to other state  
+
+Requirement ID: FS-226100  
+Type: --  
+Status: New  
+
+--
+Page 67
+4.6.2.8.1. Standstill Active to Passive.
+
+Requirement ID: FS-226101  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Active state to Passive Mode state once quick cancellation condition in <5.1.2> or slow cancellation condition in <5.1.3>.  
+
+4.6.2.8.2. Standstill Active to Override.
+
+Requirement ID: FS-226102  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Active to Override state if the acceleration pedal position is larger than the threshold.  
+
+4.6.2.8.3. Standstill Active to Active.
+
+Requirement ID: FS-226103  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Active to Active state if all of the below conditions are fulfilled:  
+1. ACC drive off condition is satisfied.  
+
+ACC:  
+When the system meets all the following conditions, the system shall send the drive off request:  
+
+- System in the status of 'Override/standstill active.  
+- Request speed > 0.5m/s (could be calibrated) or the acceleration > 0.2m/s^2 (could be calibrated) for a certain time.  
+- Vehicle is standstill.  
+- Driver does not press the brake pedal.  
+- If the target vehicle exists, the relative distance between the target vehicle and the host vehicle > 8.5m (could be calibrated),  
+or the relative distance > 3.5m (could be calibrated) and relative speed > 0.5m/s for a certain time if the target vehicle exists.
+Page 68
+4.6.2.8.4 / / Standstill Active --> Standstill Wait.
+
+Requirement ID: FS-226106  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Active to Standstill Wait state if one of the below conditions is fulfilled:  
+
+4.6.2.8.4.1 / / The status of ‘standstill-active’ lasts longer than 3s.  
+
+Requirement ID: FS-226107  
+Type: --  
+Status: New  
+
+Note: The transition priority for ‘Standstill Active --> Standstill Wait’ is higher than ‘Standstill Active --> Passive’.
+
+4.6.2.8.5 / / Standstill Active --> Failure.
+
+Requirement ID: FS-226108  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Active state to Failure Mode state once any ACC system fault is detected.  
+
+ACC.
+
+4.6.2.9 / / Standstill Wait state transfer to other state.
+
+Requirement ID: FS-226109  
+Type: --  
+Status: New  
+
+4.6.2.9.1 / / Standstill Wait --> Passive.
+Page 69
+4.6.2.9.1 / / Standstill Wait --> Passive.
+
+Requirement ID: FS-226110  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Wait state to Passive state once one of the following conditions is met:  
+- Quick cancellation condition in <6.1.2>.  
+- Slow cancellation condition in <6.13>.  
+- The duration time of Stand-Wait state exceeds APV_Stl_Wait_Pas_Time (5 minutes).
+
+Requirement ID: FS-226111  
+Type: --  
+Status: New  
+
+Quick cancellation condition in <6.1.2>.  
+
+Requirement ID: FS-226112  
+Type: --  
+Status: New  
+
+Slow cancellation condition in <6.13>.  
+
+Requirement ID: FS-226113  
+Type: --  
+Status: New  
+
+The duration time of Stand-Wait state exceeds APV_Stl_Wait_Pas_Time 5 mins.  
+Note: For condition 3), EPB will be applied before ACC cancels braking request. EPB monitors duration time and applies first after 5 minutes, then ACC stops the holding request and transitions into Passive state.  
+
+4.6.2.9.2 / / Standstill Wait --> Active.
+
+Requirement ID: FS-226114  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Wait to Active Control state if all of the following conditions are fulfilled:  
+1. Driver presses RESUME (0x3F7.MFS_CAN_RESControl == 1 short press or 2 long presses) or taps the throttle.
+Page 70
+4.6.2.9.3 / / Standstill Wait --> Override.
+
+Requirement ID: FS-226118  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Wait to Override state if the acceleration pedal position is larger than the threshold. ACC.
+
+4.6.2.9.4 / / Standstill Wait --> Standstill Active.
+
+Requirement ID: FS-226119  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Wait to Standstill Active state if all of the following conditions are fulfilled:  
+
+1. Driver presses RESUME or taps the gas pedal (ACC_GO_Gas_Pedal_Min < GP < ACC_Go_Gas_Pedal_Max).  
+2. Front vehicle status doesn’t allow the host vehicle to Go.  
+3. Brake pedal is not pressed.  
+
+4.6.2.9.5 / / Standstill Wait --> Failure.
+
+Requirement ID: FS-226123  
+Type: --  
+Status: New  
+
+The system shall transfer from Standstill Wait state to Failure Mode state once any ACC system fault is detected.
+
+4.6.3 / / ACC Take Over Warning ACC.
+Page 71
+Requirement ID: FS-226124  
+Type: --  
+Status: New  
+
+When any one of the following conditions occurs, ACC will inform the driver to take over control:  
+
+1. Brake Only State.  
+2. Following conditions are all satisfied:  
+   - Potential collision has been registered, which means the system cannot avoid a collision with ACC deceleration.  
+   - Deceleration demand (absolute value) is larger than the tunable value.  
+   - Target vehicle has been detected for a duration longer than a tuned value.  
+   - None of the system limit warning suppressions is active.  
+
+If one of the following conditions are satisfied, ACC system limit warning suppression shall be active:  
+1. Driver takes control through braking.  
+2. Driver takes control through overriding.  
+
+---
+
+4.7 Typical Use Cases  
+
+Requirement ID: FS-226135  
+Type: --  
+Status: New  
+
+---
+
+4.7.1 Cruise Control Mode  
+
+Requirement ID: FS-226136  
+Type: --  
+Status: New
+Page 72
+Cruise Control mode is the basic function of ACC. This mode means when there is no impeding vehicle detected by the system tracking algorithm or the preceding vehicle is faster than the ACC speed.  
+In cruise mode, ACC adjusts the powertrain or braking system depending on the set speed given by the driver.  
+ACC reacts to driver inputs in cruise mode, accommodating set speed changes and accelerator pedal overrides.
+
+4.7.2 / / Follow Mode
+
+Requirement ID: FS-226137  
+Type: --  
+Status: New
+Page 73
+Follow mode is active when the system detects an impeding preceding vehicle driving at a speed lower than the ACC set speed.
+
+In follow mode:
+- ACC adjusts the driving speed based on the relative distance, relative speed of the target vehicle, and target acceleration.
+- ACC responds to driver inputs for desired headway (time gap) and the accelerator or brake pedal overrides.
+
+---
+
+4.7.3 / / Intelligent Curving Mode.
+
+Requirement ID: FS-226138  
+Type: --  
+Status: New  
+
+The Intelligent Curving Mode is designed to enhance vehicle safety and comfort while navigating curves.
+
+- The mode anticipates and decelerates according to the radius of curvature and lane width, using lane information sourced from the camera.  
+- Upon exiting the curve, the system accelerates to the set speed, defining the appropriate set speed based on road conditions.  
+- Bend limit mode restricts host vehicle acceleration in bends, factoring lateral acceleration, yaw rate, and driving speed.
+Page 74
+4.7.4 / / Overtaking Mode.
+
+Requirement ID: FS-226139.  
+Type: --  
+Status: New.  
+
+When following an impeding vehicle, ACC detects the overtaking intention of the Driver when the corresponding indicator or turn signal on the left is set. ACC then starts accelerating and reducing the distance to the impeding vehicle below the desired time headway setting. When the Driver changes the lane, ACC accelerates to the ACC set speed.
+
+4.8 / / ACC Performance Requirement.
+
+Requirement ID: FS-226140.  
+Type: --  
+Status: New.  
+
+4.8.1 / / Set speed control accuracy.
+
+Requirement ID: FS-226141.  
+Type: --  
+Status: New.  
+
+Set speed control accuracy: The control accuracy for horizontal road cruising speed is less than or equal to 1 km/h. The ramp cruising speed control accuracy is less than or equal to 3 km/h. (`≤±1 km/h, ≤±3 km/h`).
+Page 75
+4.8.2 / / Maximum deceleration limit.
+
+Requirement ID: FS-226142  
+Type: --  
+Status: New  
+
+Maximum deceleration limit. For ACC S&G, the average automatic deceleration shall not exceed 3.5 m/s² (average over 2 seconds) when the vehicle is travelling above 20 m/s, and 5 m/s² (average over 2 seconds) when the vehicle is travelling below 5 m/s, as illustrated in Figure 8.1.  
+
+Figure Description: Graph showing the relationship between subject vehicle speed (X-axis, m/s) and maximum deceleration (Y-axis, m/s²). The deceleration decreases linearly as the speed increases.
+
+---
+
+4.8.3 / / Maximum negative jerk limit.
+
+Requirement ID: FS-226143  
+Type: --  
+Status: New  
+
+Maximum negative jerk limit. For ACC S&G, the average rate of change of automatic deceleration (negative jerk) shall not exceed 2.5 m/s³ (average over 1 second) when the vehicle is travelling above 20 m/s, and 5 m/s³ (average over 1 second) when the vehicle is travelling below 5 m/s, as illustrated in Figure 8.2.  
+
+Figure Description: Graph showing the relationship between subject vehicle speed (X-axis, m/s) and negative jerk (Y-axis, m/s³). The negative jerk decreases linearly as the speed increases.
+Page 76
+4.8.4 // Max acceleration limit.
+
+Requirement ID: FS-226144  
+Type: --  
+Status: New  
+
+Max acceleration limit: For ACC S&G, the average automatic acceleration shall not exceed 2 m/s² (average over 2 s) when the vehicle is traveling above 20 m/s, and 4 m/s² (average over 2 s) when the vehicle is traveling below 5 m/s, as shown in Figure 8.3.
+
+Figure 8.3:  
+X-axis represents subject vehicle speed (m/s).  
+Y-axis represents automatic acceleration (m/s²).  
+
+---
+
+4.8.5 // Maximum Curve.
+
+Requirement ID: FS-226145  
+Type: --  
+Status: New  
+
+Maximum Curve: The curved radius Rmin shall be greater than or equal to 250m (Rmin ≥ 250m).  
+
+The system shall be capable of following a forward vehicle with a steady state if the forward vehicle cruises on a constant curve radius Rmin with a constant speed.
+
+---
+
+4.8.6 // ACC S&G.
+
+Requirement ID: FS-226146  
+Type: --  
+Status: New  
+
+ACC S&G: After the host vehicle follows the leading vehicle to stop, if the front car starts within 3 seconds, the car can automatically follow it out. If it exceeds 3 seconds, Driver's confirmation (via the ACC RESUME button or gas pedal) is required to drive the car out.
+Page 77
+4.8.7 / / EPB.
+
+Requirement ID: FS-226147  
+Type: --  
+Status: New  
+
+EPB: The host vehicle will follow the leading vehicle to stop and hold it standstill for 5 minutes. After that, EPB shall be applied and the ACC function will be canceled on receiving RCU_EPBParkingStatus ==1 && ESC_CDD_Active == Not active for ICE variant or 0x210.RCU_EPBParkingStatus ==1 for BEV variant.  
+
+Within the holding time, if the driver-side door is open, the driver seatbelt is unfastened, or the ACC goes to Failure state (0x32D.ADAS_ACC_Mode == 7 “fault”), EPB shall be applied and then the ACC function will be canceled.  
+
+4.8.8 / / ACC S&G maximum drive-off slope ACC S&G.
+
+Requirement ID: FS-226148  
+Type: --  
+Status: New  
+
+Host vehicle can follow the front car to stop and start off within a range from -15% to +15% of the ramp.  
+
+4.8.9 / / Performance on different drive mode.
+
+Requirement ID: FS-226149  
+Type: --  
+Status: New  
+
+ACC acceleration or deceleration performance is able to be calibrated based on different vehicle drive modes (0xD9.VCU_ACT_DriveMode).  
+
+Note: Performance under Normal Mode will be set as default and calibrated in the first place, and parameters under other drive modes subject to availability.
+Page 78
+4.9 / / HMI Requirement.
+
+Requirement ID: FS-226150  
+Type: --  
+Status: New  
+
+4.9.1 / / Button Design.
+
+Requirement ID: FS-226151  
+Type: --  
+Status: New  
+
+Button Design:  
+
+4.9.1.1 / / Received Button Signal.
+
+Requirement ID: FS-226152  
+Type: --  
+Status: New  
+
+Button description:  
+- **0x3F7.MFS_CAN_RESControl:** Cancel / Resume Button.  
+- **0x3F7.MFS_CruiseGapDecrease:** Cruise Gap Decrease.  
+- **0x3F7.MFS_CruiseGapIncrease:** Cruise Gap Increase.  
+- **0x3F7.MFS_CruiseOn_Off:** Cruise control On/Off ACC.
+Page 79
+4.9 / / HMI Requirement.
+
+Requirement ID: FS-226150.  
+Type: --  
+Status: New.  
+
+4.9.1 / / Button Design.  
+
+Requirement ID: FS-226151.  
+Type: --  
+Status: New.  
+
+Button Design.  
+
+4.9.1.1 / / Received Button Signal.  
+
+Requirement ID: FS-226152.  
+Type: --  
+Status: New.  
+
+Button Description:  
+1. Signal: 0x3F7.MFS_CAN_RESControl.  
+   Function: Cancel / Resume Button.  
+
+2. Signal: 0x3F7.MFS_CruiseGapDecrease.  
+   Function: Cruise Gap Decrease.  
+
+3. Signal: 0x3F7.MFS_CruiseGapIncrease.  
+   Function: Cruise Gap Increase.  
+
+4. Signal: 0x3F7.MFS_CruiseOn_Off.  
+   Function: Cruise Control On/Off ACC.  
+
+5. Signal: 0x3F7.MFS_CruiseSpeedDecrease.  
+   Function: Cruise Speed Decrease.  
+
+6. Signal: 0x3F7.MFS_CruiseSpeedIncrease.  
+   Function: Cruise Speed Increase.  
+
+7. Signal: 0x3F7.MFS_Failure.  
+   Function: Multi-Function Switch Failure.  
+
+All the button signals are received with the type "On Change with Repetition." This indicates that signals are received at a higher frequency (3 cycles with a 50ms cycle time) when a button is pressed. Once the button is released or after 3 cycles, the signals revert to a lower transmission frequency (1000ms cycle time).  
+
+4.9.1.2 / / Transmitted Button Signal.  
+
+Requirement ID: FS-226153.  
+Type: --  
+Status: New.  
+
+Button Description:  
+1. Signal: 0x353.ADAS_ACC_CnlBtn_Feed.  
+   Function: Feedback of ACC Cancel Button Cancel.  
+
+2. Signal: 0x353.ADAS_ACC_DistSet_lower_Feed.  
+   Function: Feedback of Object Vehicle Gap Distance Adjustment (Reduction Button).  
+
+3. Signal: 0x353.ADAS_ACC_DistSet_upper_Feed.  
+   Function: Feedback of Object Vehicle Gap Distance Adjustment (Increase Button).  
+
+4. Signal: 0x353.ADAS_ACC_On_Feed.  
+   Function: Feedback of ACC On/Off Button ACC.
+Page 80
+4.9 / / 9 HMI Requirement.
+
+Requirement ID: FS-226150. Type: --. Status: New.
+
+---
+
+4.9.1 / / Button Design.
+
+Requirement ID: FS-226151. Type: --. Status: New.
+
+**Button Design.**
+
+---
+
+4.9.1.1 / / Received Button Signal.
+
+Requirement ID: FS-226152. Type: --. Status: New.
+
+**Button Description:**
+- **0x3F7.MFS_CAN_RESControl:** Cancel / Resume Button.
+- **0x3F7.MFS_CruiseGapDecrease:** Cruise Gap Decrease.
+- **0x3F7.MFS_CruiseGapIncrease:** Cruise Gap Increase.
+- **0x3F7.MFS_CruiseOn_Off:** Cruise Control On/Off ACC.
+- **0x3F7.MFS_CruiseSpeedDecrease:** Cruise Speed Decrease.
+- **0x3F7.MFS_CruiseSpeedIncrease:** Cruise Speed Increase.
+- **0x3F7.MFS_Failure:** Multi-Function Switch Failure.
+
+**Signal Reception:**
+All the button signals are received with a type of “On Change with Repetition,” meaning:
+- Signals are received with higher frequency (3 cycles at 50ms cycle time) when the button is pressed.
+- Signals revert to a lower frequency (1000ms cycle time) when the button is released or after 3 cycles.
+
+---
+
+4.9.1.2 / / Transmitted Button Signal.
+
+Requirement ID: FS-226153. Type: --. Status: New.
+
+**Button Description:**
+- **0x353.ADAS_ACC_CnlBtn_Feed:** Feedback of ACC Cancel Button – Cancel.
+- **0x353.ADAS_ACC_DistSet_lower_Feed:** Feedback of Object Vehicle Gap Distance Adjustment (Reduction Button).
+- **0x353.ADAS_ACC_DistSet_upper_Feed:** Feedback of Object Vehicle Gap Distance Adjustment (Increase Button).
+- **0x353.ADAS_ACC_On_Feed:** Feedback of ACC On/Off Button – ACC.
+- **0x353.ADAS_ACC_Res_Feed:** Feedback of ACC Resume Button – ACC Resume.
+- **0x353.ADAS_ACC_Set_Feed:** Feedback of ACC Set Button – ACC.
+- **0x353.ADAS_ACC_SpdSet_lower_Feed:** Feedback of Subject Vehicle Speed Setting (Reduction Button).
+- **0x353.ADAS_ACC_SpdSet_upper_Feed:** Feedback of Subject Vehicle Speed Setting (Increase Button).
+
+**Transmission Notes:**
+- Button feedback signals are transmitted with a constant cycle time.
+- **ADAS_ACC_On_Feed:** Always sent with "ON" after IGN ON.
+- All other signals follow the same pattern corresponding to their triggered signals.
+
+---
+
+4.9.1.3 / / ACC Status.
+
+Requirement ID: FS-226154. Type: --. Status: New.
+
+**ACC Mode Mapping Table:**
+- **OFF:** 
+  - **0x353.ADAS_ACC_Status:** 0x0 = Off or Passive.
+  - **0x353.ADAS_ACC_check:** 0x0 = Available.
+- **Passive:** 
+  - **0x353.ADAS_ACC_Status:** 0x0 = Off or Passive.
+  - **0x353.ADAS_ACC_check:** 0x0 = Available.
+- **Standby:** 
+  - **0x353.ADAS_ACC_Status:** 0x1 = StandBy.
+  - **0x353.ADAS_ACC_check:** 0x0 = Available.
+Page 81
+4.9 / / HMI Requirement.
+
+Requirement ID: FS-226150.  
+Type: --.  
+Status: New.  
+
+4.9.1 / / Button Design.
+
+Requirement ID: FS-226151.  
+Type: --.  
+Status: New.  
+
+Button Design.
+
+4.9.1.1 / / Received Button Signal.
+
+Requirement ID: FS-226152.  
+Type: --.  
+Status: New.
+
+Button description:  
+- 0x3F7.MFS_CAN_RESControl: Cancel / Resume Button.  
+- 0x3F7.MFS_CruiseGapDecrease: Cruise Gap Decrease.  
+- 0x3F7.MFS_CruiseGapIncrease: Cruise Gap Increase.  
+- 0x3F7.MFS_CruiseOn_Off: Cruise control On/Off ACC.  
+- 0x3F7.MFS_CruiseSpeedDecrease: Cruise Speed Decrease.  
+- 0x3F7.MFS_CruiseSpeedIncrease: Cruise Speed Increase.  
+- 0x3F7.MFS_CruiseGapDecrease: Cruise Gap Decrease.  
+- 0x3F7.MFS_Failure: Multi-Function Switch Failure.  
+
+All the button signals are received with type of “On Change with Repetition,” meaning signals will be received with higher frequency (3 cycles with 50ms cycle time) when the button is pressed. The signals will revert to a lower frequency (1000ms cycle time) when the button is released or after three cycles.
+
+4.9.1.2 / / Transmitted Button Signal.
+
+Requirement ID: FS-226153.  
+Type: --.  
+Status: New.
+
+Button description:  
+- 0x353. ADAS_ACC_CnlBtn_Feed: Feedback of ACC Cancel Button (Cancel).  
+- 0x353. ADAS_ACC_DistSet_lower_Feed: Feedback of Object Vehicle Gap Distance Adjustment (Reduction Button).  
+- 0x353. ADAS_ACC_DistSet_upper_Feed: Feedback of Object Vehicle Gap Distance Adjustment (Increase Button).  
+- 0x353. ADAS_ACC_On_Feed: Feedback of ACC On/Off Button (ACC).  
+- 0x353. ADAS_ACC_Res_Feed: Feedback of ACC Resume Button (ACC Resume).  
+- 0x353. ADAS_ACC_Set_Feed: Feedback of ACC Set Button (ACC).  
+- 0x353. ADAS_ACC_SpdSet_lower_Feed: Feedback of Subject Vehicle Speed Setting (Reduction Button) (ACC).  
+- 0x353. ADAS_ACC_SpdSet_upper_Feed: Feedback of Subject Vehicle Speed Setting (Increase Button) (ACC).
+
+All the button feedback signals are transmitted with a constant cycle time:  
+- ADAS_ACC_On_Feed shall always be sent out with “ON” after vehicle ignition is turned on.  
+- All other signals (except ADAS_ACC_On_Feed) shall follow the same pattern corresponding to their triggered signals.
+
+4.9.1.3 / / ACC Status.
+
+Requirement ID: FS-226154.  
+Type: --.  
+Status: New.  
+
+The following table maps relationships between the state machine internal statuses (ACC Mode) and ACC CAN signals (0x353.ADAS_ACC_Status and 0x353.ADAS_ACC_check):  
+
+| ACC Mode           | 0x353.ADAS_ACC_Status | 0x353.ADAS_ACC_check |  
+|---------------------|-----------------------|-----------------------|  
+| OFF                | 0x0 = Off or Passive | 0x0 = Available       |  
+| Passive            | 0x0 = Off or Passive | 0x0 = Available       |  
+| Standby            | 0x1 = StandBy        | 0x0 = Available       |  
+| Active             | 0x2 = Active         | 0x0 = Available       |  
+| Brake Only         | 0x4 = BrakeOnly      | 0x0 = Available       |  
+| Override           | 0x3 = Override       | 0x0 = Available       |  
+| Standstill active  | 0x5 = Standstill Active | 0x0 = Available       |  
+| Standstill wait    | 0x6 = Standstill Wait  | 0x0 = Available       |  
+| Failure            | 0x7 = Fault          | 0x1 = Temporarily not available |  
+
+4.9.1.4 / / ACC Gap Setting.
+
+Requirement ID: FS-226155.  
+Type: --.  
+Status: New.  
+
+ACC shall support four different levels of following distance. After vehicle ignition, the default gap setting shall always default to the 4th level (0x353.ADAS_ACC_TimeGapSet == 4).
+
+4.9.1.4.1 / / With 1st level to 4th level distance, the headway to the impeding vehicle shall be 1s~2s and able to be calibrated.
+
+Requirement ID: FS-226156.  
+Type: --.  
+Status: New.  
+
+ACC headway: 1s~2s.
+Page 82
+4.9.1.5 / / ACC Set Speed
+
+Requirement ID: FS-226157  
+Type: --  
+Status: New  
+
+Follow requirements shall be satisfied for ACC set speed (0x353. ADAS_ACC_TagSpeed):
+
+4.9.1.5.1 / / After IGN ON, default value of 0x353. ADAS_ACC_TagSpeed shall be set as 0 0.  
+
+Requirement ID: FS-226158  
+Type: --  
+Status: New  
+
+4.9.1.5.2 / / By pressing SET button (0x3F7.MFS_CruiseOn_Off), ACC set speed shall be min{150 km/h, max{20 km/h, current MHU display speed}.
+Page 83
+4.9 / / HMI Requirement.
+
+Requirement ID: FS-226150.  
+Type: --.  
+Status: New.
+
+4.9.1 / / Button Design.
+
+Requirement ID: FS-226151.  
+Type: --.  
+Status: New.
+
+9.1 Button Design.
+
+4.9.1.1 / / Received Button Signal.
+
+Requirement ID: FS-226152.  
+Type: --.  
+Status: New.
+
+- Button description:
+  1. `0x3F7.MFS_CAN_RESControl` - Cancel / Resume Button.  
+  2. `0x3F7.MFS_CruiseGapDecrease` - Cruise Gap Decrease.  
+  3. `0x3F7.MFS_CruiseGapIncrease` - Cruise Gap Increase.  
+  4. `0x3F7.MFS_CruiseOn_Off` - Cruise Control On/Off ACC.  
+  5. `0x3F7.MFS_CruiseSpeedDecrease` - Cruise Speed Decrease.  
+  6. `0x3F7.MFS_CruiseSpeedIncrease` - Cruise Speed Increase.  
+  7. `0x3F7.MFS_Failure` - Multi-Function Switch Failure.
+
+- Signal behavior:  
+  All button signals are received with "On Change with Repetition," which means the signal will be received with higher frequency (3 cycles with 50ms cycle time) when the button is pressed, and signals return to lower frequency (1000ms cycle time) when the button is released or after 3 cycles.
+
+4.9.1.2 / / Transmitted Button Signal.
+
+Requirement ID: FS-226153.  
+Type: --.  
+Status: New.
+
+- Button description:
+  1. `0x353.ADAS_ACC_CnlBtn_Feed` - Feedback of ACC Cancel Button Cancel.  
+  2. `0x353.ADAS_ACC_DistSet_lower_Feed` - Feedback of Object Vehicle Gap Distance Adjustment (Reduction Button).  
+  3. `0x353.ADAS_ACC_DistSet_upper_Feed` - Feedback of Object Vehicle Gap Distance Adjustment (Increase Button).  
+  4. `0x353.ADAS_ACC_On_Feed` - Feedback of ACC On/Off Button ACC.  
+  5. `0x353.ADAS_ACC_Res_Feed` - Feedback of ACC Resume Button ACC Resume.  
+  6. `0x353.ADAS_ACC_Set_Feed` - Feedback of ACC Set Button ACC.  
+  7. `0x353.ADAS_ACC_SpdSet_lower_Feed` - Feedback of Subject Vehicle Speed Setting (Reduction Button).  
+  8. `0x353.ADAS_ACC_SpdSet_upper_Feed` - Feedback of Subject Vehicle Speed Setting (Increase Button).
+
+- Signal behavior:  
+  All feedback signals are transmitted with a constant cycle time.  
+  `ADAS_ACC_On_Feed` is sent with "ON" after ignition (IGN) ON, while all other signals follow patterns corresponding to their triggered signals.
+
+4.9.1.3 / / ACC Status.
+
+Requirement ID: FS-226154.  
+Type: --.  
+Status: New.
+
+- State-machine mapping between ACC modes and CAN signals:  
+
+  | ACC Mode         | 0x353..ADAS_ACC_Status | 0x353.ADAS_ACC_check                 |
+  |------------------|--------------------------|-------------------------------------|
+  | OFF              | 0x0 = Off or Passive    | 0x0 = Available                     |
+  | Passive          | 0x0 = Off or Passive    | 0x0 = Available                     |
+  | Standby          | 0x1 = StandBy           | 0x0 = Available                     |
+  | Active           | 0x2 = Active            | 0x0 = Available                     |
+  | Brake Only       | 0x4 = BrakeOnly         | 0x0 = Available                     |
+  | Override         | 0x3 = Override          | 0x0 = Available                     |
+  | Standstill Active| 0x5 = Standstill Active | 0x0 = Available                     |
+  | Standstill Wait  | 0x6 = Standstill Wait   | 0x0 = Available                     |
+  | Failure          | 0x7 = Fault             | 0x1 = Temporarily Not Available     |
+
+4.9.1.4 / / ACC Gap Setting.
+
+Requirement ID: FS-226155.  
+Type: --.  
+Status: New.
+
+- ACC shall support 4 different levels for following distance, with the default gap set to 4th level (0x353.ADAS_ACC_TimeGapSet == 4) after ignition ON.
+
+4.9.1.4.1 / / With 1st level to 4th level distances, the headway to the impeding vehicle shall be between 1s and 2s and able to be calibrated.
+
+Requirement ID: FS-226156.  
+Type: --.  
+Status: New.
+
+4.9.1.5 / / ACC Set Speed.
+
+Requirement ID: FS-226157.  
+Type: --.  
+Status: New.
+
+- Follow requirements for the ACC set speed (0x353.ADAS_ACC_TagSpeed):  
+  1. **4.9.1.5.1**: After IGN ON, the default value of 0x353.ADAS_ACC_TagSpeed shall be set to 0.  
+
+     Requirement ID: FS-226158.  
+     Type: --.  
+     Status: New.
+
+  2. **4.9.1.5.2**: By pressing the SET button (0x3F7.MFS_CruiseOn_Off), the ACC set speed shall be the minimum of {150 km/h, maximum of {20 km/h, current MHU display speed}}.  
+
+     Requirement ID: FS-226159.  
+     Type: --.  
+     Status: New.
+     - Note: To maintain consistency with ISLC, the minimum set speed is suggested to be changed to 20 km/h for ACC.  
+
+  3. **4.9.1.5.3**: The ACC set speed shall only be adjusted using SPEED+, SPEED-, or SET buttons when ACC is in Active, Standstill_Active, Standstill_Wait, or Override state.  
+
+     Requirement ID: FS-226160.  
+     Type: --.  
+     Status: New.
+
+  4. **4.9.1.5.4**: During the ACC Standstill_Wait state, the set speed shall be adjusted without engaging the brake pedal.  
+
+     Requirement ID: FS-226161.  
+     Type: --.  
+     Status: New.
+
+  5. **4.9.1.5.5**: By pressing the CANCEL button to deactivate the ACC function, the current ACC set speed shall be memorized for the next activation.  
+
+     Requirement ID: FS-226162.  
+     Type: --.  
+     Status: New.  
+     - (0x353.ADAS_ACC_TagSpeed shall continue transmitting the current value).  
+
+  6. **4.9.1.5.6**: By pressing the RESUME button (0x3F7.MFS_CAN_RESControl), the previously memorized set speed shall be retrieved.  
+
+     Requirement ID: FS-226163.  
+     Type: --.  
+     Status: New.
+Page 84
+4.9.1.5.7 Output signal shall always be with unit of km/h. MHU will handle the conversion from km/h to mph if the current setting is mph.
+
+Requirement ID: FS-226164  
+Type: --  
+Status: New  
+
+4.9.1.5.8 By short press of Speed Increase/Decrease button (On detecting the rising edge of 0x353. MFS_CruiseSpeedDecrease == short press || MFS_CruiseSpeedIncrease == short press), ACC set speed shall increase or decrease by 1kph or 1mph based on the current unit setting.
+
+Requirement ID: FS-226165  
+Type: --  
+Status: New  
+
+4.9.1.5.9 By long press of Speed Increase/Decrease button (On detecting the rising edge of 0x353. MFS_CruiseSpeedDecrease == long press || MFS_CruiseSpeedIncrease == long press), ACC set speed shall keep increasing or decreasing by 5kph or 5mph based on the current unit setting.
+
+Requirement ID: FS-226166  
+Type: --  
+Status: New  
+
+4.9.1.5.10 In case of a long press of SPEED+ / SPEED- detected, ACC set speed shall first be rounded to the closest integer multiple of 5. For example, if the current set speed is 112kph and a long press of SPEED+ is detected, the new set speed shall go to 115kph first, then continue increasing.
+
+Requirement ID: FS-226167  
+Type: --  
+Status: New  
+
+4.9.1.5.11 In case floating speed values occur due to unit conversion, ACC set speed shall be rounded down to the nearest integer.
+
+Requirement ID: FS-226168  
+Type: --  
+Status: New
+Page 85
+For the icon of target speed (ADAS_TagSpeed_Icon_Feed), it shall be consistent with ACC Status Icon (0x353.ADAS_ACC_ICON_Feed) except when ACC is degraded due to camera failsafe. ADAS_TagSpeed_Icon_Feed shall be Green, while ACC Status Icon shall be Yellow.
+
+4.9.2 / / Display Design.
+
+Requirement ID: FS-226169.  
+Type: --  
+Status: New.  
+
+Display Design.
+
+4.9.2.1 / / ACC target display.
+
+Requirement ID: FS-226170.  
+Type: --  
+Status: New.  
+
+Once ACC detects an impeding vehicle, 0x353.ADAS_ACC_ObjDetec == 1 “Object detect” shall be sent out.  
+0x353.ADAS_ACC_ObjDetec == 0 “Object not detected” shall be sent out when ACC is in cruising mode or ACC is in Standby/Passive/Failure state.
+
+4.9.2.1.1 / System shall provide 6 objects for display showing as below.
+Page 86
+4.9.2.1.1.5 /  ADAS_OBJ0X_LgDis(X:1~6)
+
+Requirement ID: FS-226175  
+Type: --  
+Status: New  
+  
+--
+Page 87
+4.9.2 / / Display Design.
+
+Requirement ID: FS-226169.  
+Type: --  
+Status: New.  
+
+Display Design.
+
+4.9.2.1 / / ACC target display.
+
+Requirement ID: FS-226170.  
+Type: --  
+Status: New.  
+
+Once ACC detects an impeding vehicle, 0x353.ADAS_ACC_ObjDetec == 1 ("Object detect") shall be sent out.  
+
+- When ACC is in cruising mode or in Standby/Passive/Failure state, 0x353.ADAS_ACC_ObjDetec == 0 ("Object not detected") shall be sent out.  
+
+4.9.2.1.1 / System shall provide six objects for display showing as below.
+
+Requirement ID: FS-226171.  
+Type: --  
+Status: New.  
+
+**Note:** Following signals are not used for ACC display. They are used in TJA/HWA functions.
+
+4.9.2.1.1.1 / ADAS_OBJ0X_Class (X:1~6).
+
+Requirement ID: FS-226172.  
+Type: --  
+Status: New.  
+
+4.9.2.1.1.2 / ADAS_OBJ0X_ID (X:1~6).
+
+Requirement ID: FS-226173.  
+Type: --  
+Status: New.  
+
+4.9.2.1.1.3 / ADAS_OBJ0X_Lane (X:1~6).
+
+Requirement ID: FS-226174.  
+Type: --  
+Status: New.  
+
+4.9.2.1.1.4 / ADAS_OBJ0X_LatDis (X:1~6).
+
+Requirement ID: FS-226175.  
+Type: --  
+Status: New.  
+
+4.9.2.1.1.5 / ADAS_OBJ0X_LgDis (X:1~6).
+
+Requirement ID: FS-226176.  
+Type: --  
+Status: New.  
+
+4.9.2.2 / / Icon Display.
+
+Requirement ID: FS-226177.  
+Type: --  
+Status: New.  
+
+Icon Display.
+
+**ACC State and Icon Signal Mapping:**
+
+| ACC State                              | Icon                           | Icon Signal Definition                        |
+|----------------------------------------|--------------------------------|-----------------------------------------------|
+| OFF / Passive / Failure                | No Icon                       | 0x353.ADAS_ACC_ICON_Feed = 0 (off)           |
+| Standby                                | Gray Icon                     | 0x353.ADAS_ACC_ICON_Feed = 1 (gray)          |
+| Active / Standstill_Active /           | Green Icon                    | 0x353.ADAS_ACC_ICON_Feed = 2 (green)         |
+| Standstill_Wait / Override / Brake Only|                               |                                               |
+| (without camera failsafe)              |                               |                                               |
+| Active / Override / Brake              | Yellow Icon                   | 0x353.ADAS_ACC_ICON_Feed = 4 (yellow)        |
+| Only (with camera failsafe)            |                               |                                               |
+
+4.9.2.3 / / Popup Message and Chime.
+
+Requirement ID: FS-226178.  
+Type: --  
+Status: New.  
+
+ADAS shall send out signal values based on the following conditions or use cases. While MHU shall define the specific text to be displayed on the MHU, along with predefined chime/sound.
+Page 88
+4.9.2.3 / / Popup Message and Chime
+
+Requirement ID: FS-226178  
+Type: --  
+Status: New  
+
+ADAS shall send out signal value based on following conditions/use cases. While MHU shall define the specific text displayed on MHU along with predefined chime/sound.
+
+**Popup Messages and Conditions:**
+
+1. **When ACC goes from Standby to Standstill_Active or Active:**
+   - Text Popup: NA  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 1`  
+   - Signal Duration Time: 1s  
+   - MHU Message: [MHU will give a feature-on chime]  
+
+2. **When ACC is deactivated by driver via RESUME button or brake pedal:**
+   - Text Popup: NA  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 2`  
+   - Signal Duration Time: 1s  
+   - MHU Message: [MHU will give a feature-off chime]  
+
+3. **When ACC enters Standstill_Wait state (>3s after braking to stop):**  
+   - Text Popup: `<gas pedal icon>`  
+     “Press gas pedal to reengage the function”  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 3`  
+   - Signal Duration Time: Until driver presses on gas pedal or RESUME button, or function is canceled.  
+
+4. **Driver tries to activate ACC (via SET or RESUME) when ACC is in Passive state:**  
+   - Text Popup:  
+     “Speed Assist is unavailable  
+     Conditions not met”  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 4`  
+   - Signal Duration Time: 4s  
+
+5. **Driver presses RESUME button while ACC hasn’t been activated yet after vehicle ignition:**  
+   - Text Popup:  
+     “Resume not available  
+     Please activate Speed Assist button”  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 5`  
+   - Signal Duration Time: 4s  
+
+6. **Driver tries to activate ACC (via SET or RESUME) when ACC is in Failure state:**  
+   - Text Popup:  
+     “Speed Assist is unavailable  
+     See Fault Details for more info”  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 6`  
+   - Signal Duration Time: 4s  
+
+7. **When ACC is degraded and host speed is lower than 25kph:**  
+   - Text Popup:  
+     “Speed Assist will off below 20kph.  
+     Issue with vehicle sensors”  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 7`  
+   - Signal Duration Time: 4s  
+
+8. **When ACC enters Brake Only state:**  
+   - Text Popup:  
+     “Take over driving now!”  
+   - Signal Definition: `0x353.ADAS_ACC_PopUp_Feed = 8`  
+   - Signal Duration Time: Until driver takes over.
+Page 89
+4.10 / ACC.
+
+Requirement ID: FS-198272.  
+Type: --  
+Status: New.
+
+-- Technical Agreement.
+Page 90
+4.10.1 / Deceleration
+
+Requirement ID: FS-198273  
+Type: --  
+Status: New  
+
+ACC deceleration request shall satisfy ISO15622, and this limitation shall be able to be calibrated.  
+
+Note: Refer ISO 15622.  
+ACC  
+[19/11]  
+duongvh3OK  
+
+---
+
+4.10.2 / Acceleration
+
+Requirement ID: FS-198274  
+Type: --  
+Status: New  
+
+Under the premise of meeting the functional safety requirements under drive off and other conditions and the relevant requirements of ISO 15622, different calibrations can be carried out on straight or curved roads to meet comfort requirements.  
+
+ACC  
+[19/11]  
+duongvh3OK  
+
+---
+
+4.10.3 / Speed range
+
+Requirement ID: FS-198275  
+Type: --  
+Status: New  
+
+Speed range: 0–150 km/h  
+
+ACC  
+[19/11]  
+duongvh3OK
+Page 91
+4.10.4. Slope range.
+
+Requirement ID: FS-198276.  
+Type: --  
+Status: New.  
+
+Slope range shall guarantee performance within ±15%.  
+
+ACC.  
+[19/11] duongvh3OK.  
+
+---
+
+4.10.5. Speed control accuracy on flat road.
+
+Requirement ID: FS-198277.  
+Type: --  
+Status: New.  
+
+Speed control accuracy on flat road shall be ≤±1km/h.  
+
+ACC.  
+[19/11] duongvh3OK.  
+
+---
+
+4.10.6. Speed control accuracy on slope.
+
+Requirement ID: FS-198278.  
+Type: --  
+Status: New.  
+
+Speed control accuracy on slope shall be ≤±3km/h.  
+
+ACC.  
+[19/11] duongvh3OK.  
+
+---
+
+4.10.7. Comfort bend-in control.
+
+Requirement ID: FS-198279.  
+Type: --  
+Status: New.  
+
+ACC shall adjust speed control on entering curve bend based on bend curvature and host speed.  
+
+ACC.  
+[19/11] duongvh3OK.
+Page 92
+4.10.8 / Control in bend.  
+ACC shall keep the host vehicle steady with a host speed of 80km/h in a bend with a radius of 125m. ACC shall be operational with a curve radius ≥250m. ACC with intelligent curving mode could control the vehicle speed according to the radius of the lane.  
+
+Requirement ID: FS-198280  
+Type: --  
+Status: New  
+
+ACC [19/11] Predictive Adaptive Cruise control? Radius 50 meters and speed table.  
+
+---
+
+4.10.9 / Acceleration in bend.  
+Following the target at low speed ahead in a curve, when the target is suddenly lost or becomes a non-critical target, ACC shall not accelerate sharply on the curve, and the acceleration should be less than a certain value. When the lateral acceleration exceeds a certain threshold, ACC shall decelerate.  
+
+Requirement ID: FS-198281  
+Type: --  
+Status: New  
+
+ACC [19/11] duongvh3OK  
+
+---
+
+4.10.10 / Follow to stop.  
+1. Within the operation speed range, ACC shall be able to follow the leading vehicle and brake to stop.  
+2. If the vehicle in front has been detected as stationary and the vehicle’s speed is below 60km/h, it should be able to recognize the vehicle and act, and the deceleration during braking should meet the requirements in the aforementioned "Deceleration" item, and FCW/AEB should not be triggered.  
+
+Requirement ID: FS-198282  
+Type: --  
+Status: New  
+
+ACC [19/11] duongvh3OK
+Page 93
+4.10.11. Drive off.
+
+Requirement ID: FS-198283  
+Type: --  
+Status: New  
+
+After following the leading vehicle to a stop state, if the preceding vehicle starts within 3 seconds, ACC shall be able to automatically drive off. After 3 seconds, the driver’s confirmation (push button or tap on the accelerator pedal) shall be received to resume ACC drive off.  
+
+ACC  
+[19/11]  
+duongvh3OK  
+
+4.10.12. First activation after IGN ON.
+
+Requirement ID: FS-198284  
+Type: --  
+Status: New  
+
+For the first time to activate ACC function after vehicle IGN ON, ACC shall be able to be activated at any speed of 0~150kph once the leading vehicle can be detected. ACC shall only be activated when the host vehicle speed is larger than 20kph in case no leading vehicle is detected.  
+
+ACC  
+[19/11]  
+duongvh3update  
+30kph to 20kph  
+
+4.10.13. Resume.
+
+Requirement ID: FS-198285  
+Type: --  
+Status: New  
+
+In case ACC has been activated in the current IGN cycle, ACC can be resumed at any speed of 0~150kph, regardless of whether a leading vehicle is detected or not.  
+
+ACC  
+[19/11]  
+duongvh3OK
+Page 94
+4.10.14 / ACC cancel after follow to stop.
+
+Requirement ID: FS-198286  
+Type: --  
+Status: New  
+
+ACC cancel after follow to stop.  
+In case ACC has followed to stop and holding the host vehicle in standstill for a duration longer than a threshold of 5 minutes, ACC shall be cancelled.  
+
+Note: Threshold is still under discussion.  
+
+ACC  
+[19/11]  
+duongvh3update  
+10 min to 5 mins

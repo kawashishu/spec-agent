@@ -1,0 +1,904 @@
+Page 1
+Classification: Confidential. 
+
+VinFast Management System. 
+
+VFDSXVEEP9282. 
+
+Version: 1. 
+
+Uncontrolled copy when printed. 
+
+Spec book. 
+
+First Edition (01.2023). 
+
+EDS LV Harness Specification Book (SPB).
+Page 2
+Scope.  
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop a New VFe35 BEV. Environmental impact and sustainability of the program are taken into account as essential target features. This specbook shall provide details for all components of this type for mass production.  
+
+This document has been prepared using the BS ISO 26262 series of standards.  
+
+This document applies to the LV EDS Harness (Wiring) for the VinFast vehicles being sold into Canada, Europe, USA & Vietnam.
+
+---
+
+**Table: Drawing and Part Numbers.**  
+
+- HARNESS_BODY_BEV_US_CA_ECO has Part No. EEP30208250 and Table Drawing EEP30201081.  
+- HARNESS_BODY_BEV_US_CA_PLUS has Part No. EEP30208251.  
+- HARNESS_BODY_BEV_EU_ECO has Part No. EEP30208252.  
+- HARNESS_BODY_BEV_EU_PLUS has Part No. EEP30208253.  
+- HARNESS_BODY_BEV_VN_ECO has Part No. EEP30208254.  
+- HARNESS_BODY_BEV_VN_PLUS has Part No. EEP30208255.  
+- HARNESS_IP_BEV_US_CA_ECO has Part No. EEP30208350 and Table Drawing EEP30201079.  
+- HARNESS_IP_BEV_US_CA_PLUS has Part No. EEP30208351.  
+- HARNESS_IP_BEV_EU_ECO has Part No. EEP30208352.  
+- HARNESS_IP_BEV_EU_PLUS has Part No. EEP30208353.  
+- HARNESS_IP_BEV_VN_ECO has Part No. EEP30208354.  
+- HARNESS_IP_BEV_VN_PLUS has Part No. EEP30208355.  
+- HARNESS_FRONT_BEV_VIE_ECO_PLUS has Part No. EEP30208450 and Table Drawing EEP30201080.  
+- HARNESS_FRONT_BEV_EU_ECO_PLUS has Part No. EEP30208451.  
+- HARNESS_FRONT_BEV_US_CA_ECO_PLUS has Part No. EEP30208452.  
+- HARNESS_CONSOLE_BEV_ECO_PLUS has Part No. EEP30205043 and Table Drawing EEP30205043.  
+- HARNESS_FR_DR_BEV_ECO_PLUS has Part No. EEP30208550 and Table Drawing EEP30208052.  
+- HARNESS_FL_DR_BEV_ECO_PLUS has Part No. EEP30208551 and Table Drawing EEP30208062.  
+- HARNESS_RL_DR_BEV_ECO_PLUS has Part No. EEP30208552 and Table Drawing EEP30201072.  
+- HARNESS_RR_DR_BEV_ECO_PLUS has Part No. EEP30208553.  
+- HARNESS_FR_BUMPER_BEV_ALL has Part No. EEP30208650 and Table Drawing EEP30205091.  
+- HARNESS_RR_BUMPER_BEV_CA_US_ECO has Part No. EEP30208651 and Table Drawing EEP30201100.  
+- HARNESS_RR_BUMPER_BEV_CA_US_PLUS has Part No. EEP30208652.  
+- HARNESS_RR_BUMPER_BEV_VN_EU_ECO has Part No. EEP30208653.  
+- HARNESS_RR_BUMPER_BEV_VN_EU_PLUS has Part No. EEP30208654.
+Page 3
+HARNESS_BK_DR_LOWER_BEV_ECO with Part Number EEP30205111 and Final SOP Drawing EEP30201075.  
+HARNESS_BK_DR_LOWER_BEV_PLUS with Part Number EEP30205112.  
+HARNESS_BK_DR_LH_BEV_ECO with Part Number EEP30208750 and Final SOP Drawing EEP30201073.  
+HARNESS_BK_DR_LH_BEV_PLUS with Part Number EEP30208751.  
+HARNESS_BK_DR_RH_BEV_ECO with Part Number EEP30205131 and Final SOP Drawing EEP30201074.  
+HARNESS_BK_DR_RH_BEV_PLUS with Part Number EEP30205132.  
+HARNESS_ROOF_BEV_ECO with Part Number EEP30208752 and Final SOP Drawing EEP30201077.  
+HARNESS_ROOF_BEV_PLUS with Part Number EEP30208753.  
+HARNESS_UNDERBODY_BEV_ECO_PLUS_US/EU/CA with Part Number EEP30207151 and Final SOP Drawing EEP30208153.  
+HARNESS_UNDERBODY_BEV_ECO_PLUS VN with Part Number EEP30208151.  
+HARNESS_CHMSL_BEV_ECO_PLUS with Part Number EEP30205162 and Final SOP Drawing EEP30205162.  
+HV_HARNESS_FR_PDU_HV_BATTERY with Part Number EEP30208754, Final SOP unavailable.  
+HV_HARNESS_FR_PDU_AIR_COMP_VN with Part Number EEP30205201, Final SOP unavailable.  
+HV_HARNESS_FR_PDU_AIR_COMP_US with Part Number EEP30014109, Final SOP unavailable.  
+HV_HARNESS_FR_PDU_HEATER with Part Number EEP30014107, Final SOP unavailable.  
+E_PUMP_PIGTAIL with Part Number EEP30200786, Final SOP unavailable.  
+SRR_PIGTAIL_HARNESS_LH with Part Number EEP30205172 and Final SOP Drawing EEP30201088.  
+SRR_PIGTAIL_HARNESS_RH with Part Number EEP30205176.  
+BATTERY_NEGATIVE_CABLE_BEV with Part Number EEP30208755, Final SOP unavailable.  
+FRONT_IMPACT_SENSOR_PIGTAIL_LH with Part Number EEP30205205 and Final SOP Drawing EEP30201089.  
+FRONT_IMPACT_SENSOR_PIGTAIL_RH with Part Number EEP30205206.
+Page 4
+Item Definition.
+
+According to BS ISO 26262-3, clause 5.4.1, a).
+
+**Regulations**  
+- RQ-4212 UN Regulation  
+- RQ-4199 Canadian Regulation  
+- RQ-4246 US Federal Regulation  
+- RQ-4253 State of California Regulation  
+
+**National/International Standards**  
+- BS ISO 16750  
+- BS ISO 20653  
+- BS ISO 6722  
+- BS EN IEC 60068  
+- BS EN IEC 60664  
+
+**Tests and Requirements**  
+- RQ-9148 Cable/Splice Tensile Strength  
+- RQ-9150 Splice Salt Water Immersion  
+- RQ-9152 Splice Volt Drop  
+- RQ-9154 Splice Peel Off Test  
+- RQ-9156 Oil Absorption  
+- RQ-9158 Thermal Shock  
+- RQ-9160 Thermal Cycle  
+- RQ-9162 Humidity Test  
+- RQ-9164 Salt Fog Test  
+- RQ-9356 Appearance Inspection  
+- RQ-9358 Dimensional Inspection  
+- RQ-10112 Connector Retention  
+- RQ-10109 Quality Test  
+- RQ-10110 Connector Pull Force  
+- RQ-10114 EMC Shielding  
+- RQ-10116 Insertion Extraction  
+- RQ-10119 Incorrect Circuits  
+- RQ-10126 Insulation Withstand Voltage
+Page 5
+Item Definition.
+
+BS ISO 26262-3, clause 5.4.1, a).
+
+Regulations:
+- RQ-4212 UN Regulation.
+- RQ-4199 Canadian Regulation.
+- RQ-4246 US Federal Regulation.
+- RQ-4253 State of California Regulation.
+
+National/International Standards:
+- BS ISO 16750.
+- BS ISO 20653.
+- BS ISO 6722.
+- BS EN IEC 60068.
+- BS EN IEC 60664.
+
+Tests and Requirements:
+- RQ-9148 Cable/Splice Tensile Strength.
+- RQ-9150 Splice Salt Water Immersion.
+- RQ-9152 Splice Volt Drop.
+- RQ-9154 Splice Peel Off Test.
+- RQ-9156 Oil Absorption.
+- RQ-9158 Thermal Shock.
+- RQ-9160 Thermal Cycle.
+- RQ-9162 Humidity Test.
+- RQ-9164 Salt Fog Test.
+- RQ-9356 Appearance Inspection.
+- RQ-9358 Dimensional Inspection.
+- RQ-10112 Connector Retention.
+- RQ-10109 Quality Test.
+- RQ-10110 Connector Pull Force.
+- RQ-10114 EMC Shielding.
+- RQ-10116 Insertion Extraction.
+- RQ-10119 Incorrect Circuits.
+- RQ-10126 Insulation Withstand Voltage.
+- RQ-10129 Shield Connection Resistance.
+- RQ-10132 Abnormal Withstand Voltage.
+- RQ-10482 Contact Insulation Test.
+- RQ-10136 Connection Strength Test.
+- RQ-10140 Impact Test.
+- RQ-10142 Free Fall Test.
+- RQ-10151 Cross Section Test.
+- RQ-10157 Chemical Solvent Test.
+- RQ-10189 Sulphur Dioxide Test.
+- RQ-10191 Ozone Resistance Test.
+- RQ-10193 Salt Fog Resistance.
+- RQ-10195 Voltage Drop and Temperature.
+- RQ-10197 Low Temperature Resistance.
+- RQ-10199 High Temperature Resistance.
+- RQ-10201 Temperature Change Resistance.
+- RQ-10203 Temperature and Humidity Cycle Resistance.
+- RQ-10205 IP Rating.
+- RQ-10207 Fire Retardation.
+- RQ-10209 HVIL.
+- RQ-10212 IP Level of Protection.
+- RQ-10215 Banned Substance Test.
+- RQ-10217 Vibration Test.
+
+BS ISO 26262-3, clause 5.4.1, b).
+The EDS systems shall work whilst the vehicle is in any state. Devices required to operate in specific vehicle states will be connected to the appropriate power supplies within the vehicle fuse boxes.
+
+BS ISO 26262-3, clause 5.4.1, c).
+The EDS shall function within the following voltage limits: LV 0-16V.
+
+BS ISO 26262-3, clause 5.4.1, d).
+The climatic operating environment shall be considered as -40 to +70 ºC.
+
+BS ISO 26262-3, clause 5.4.1, e).
+Page 6
+Potential consequences of failing to provide electrical power when required is covered within the FUSA documentation for each device connected to the EDS.
+
+**BS ISO 26262-3, clause 5.4.1, f):**  
+The EDS circuit design shall consider the current requirements for each device connected to it. If the current level is exceeded, the circuit will be protected via a fuse. The wire gauge shall be increased for circuits where the voltage drop calculations require this to happen.
+
+**BS ISO 26262-3, clause 5.4.2:**  
+The boundary of the EDS shall be the interfacing connectors to devices and the physical connections to BiW. The EDS system is an integral part of many of the vehicle functions and shall be considered in the FUSA assessment of each of those functions.
+
+### Hazard Analysis and Risk Assessment Report  
+**BS ISO 26262-3, clause 6.5.1:**  
+The EDS system is an integral part of many of the vehicle functions and shall be considered in the FUSA assessment of each of those functions.
+
+### Functional Safety Concept  
+**BS ISO 26262-3, clause 7.5.1:**  
+The EDS system is an integral part of many of the vehicle functions and shall be considered in the FUSA assessment of each of those functions.
+
+---
+
+**Responsibly contact:** Tạ Quang Tuyển (v.tuyentq3@vinfast.vn)
+
+**Copyright:**  
+"The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations."
+Page 7
+Range of Validity. VinFast VFe35 LHD (Canada, Europe, USA, Vietnam).
+
+Release. Version 1.0. Date: Jan 2023.
+
+Approval confirmed by: 
+
+- Function: EDS Eng Manager. Name: Hazell, Wayne (Wayne.Hazell@tatatechnologies.com).
+- Function: Chief Engineer. Name: Schoenherr Christian (v.christians@vinfast.vn).
+- Function: VF I&S LE. Name: Đỗ Văn Hiệp (v.HiepDV5@vinfast.vn).
+- Function: VF MML. Name: Emiliano Agnoletto (v.emilianoa@vinfast.vn).
+- Function: VF Quality. Name: Hitendra (v.hitendrak@vinfast.vn).
+- Function: VF T&V. Name: Luiz Augusto Cellio Soares (v.luizs@vinfast.vn).
+
+Change History: 
+
+- Version: 1.0. Brief Description: Initial Release. Date: 14/Jan/2023. Responsible person: Tạ Quang Tuyển.
+Page 8
+Range of Validity. VinFast VFe35 LHD (Canada, Europe, USA, Vietnam).
+
+Release. Version 1.0. Date: Jan 2023.
+
+Approval confirmed by:
+- EDS Eng Manager: Hazell, Wayne (Wayne.Hazell@tatatechnologies.com).
+- Chief Engineer: Schoenherr Christian (v.christians@vinfast.vn).
+- VF I&S LE: Đỗ Văn Hiệp (v.HiepDV5@vinfast.vn).
+- VF MML: Emiliano Agnoletto (v.emilianoa@vinfast.vn).
+- VF Quality: Hitendra (v.hitendrak@vinfast.vn).
+- VF T&V: Luiz Augusto Cellio Soares (v.luizs@vinfast.vn).
+
+Change History:
+- Version: 1.0.
+- Brief Description: Initial Release.
+- Date: 14/Jan/2023.
+- Responsible person: Tạ Quang Tuyển.
+Page 9
+**Safety Requirements.**
+Safety requirements are listed under section 5.7 on page 15.
+
+**Alternative and Future Variants.**
+Alternative and future variants are covered in section 5.8 on page 15.
+
+**Mechanical Energy Management.**
+Mechanical energy management is explained under section 5.9 on page 15.
+
+**Installation.**
+Information regarding installation specifics is provided in section 5.10 on page 16.
+
+**Styling and Design.**
+Styling and design considerations are detailed in section 5.11 on page 16.
+
+**Ergonomics.**
+Ergonomics is elaborated in section 5.12 on page 16.
+
+**Technical Material Requirements.**
+Technical material requirements are outlined in section 5.13 on page 16.
+
+**Resistance to Media and Chemical Requirements.**
+Resistance to media and chemical requirements is described in section 5.14 on page 16.
+
+**Environmental Compatibility.**
+Environmental compatibility is defined in section 5.15 on page 16.
+
+**Mechanical Requirements.**
+Mechanical requirements are addressed in section 5.16 on page 16.
+
+**Durability/Life Time.**
+Durability and lifetime considerations are documented in section 5.17 on page 16.
+
+**Electrical Requirements.**
+Electrical requirements are broken down in section 5.18 on page 16.
+
+**Climatic Requirements/Thermal Management.**
+Climatic requirements and thermal management are covered under section 5.19 on page 16.
+
+**Service Requirements.**
+Service requirements are identified in section 5.20 on page 16.
+
+**Transport Protection.**
+Transport protection guidelines are detailed in section 5.21 on page 16.
+
+**Logistics Requirements.**
+Logistics requirements are specified under section 5.22 on page 16.
+
+**Quality Assurance Requirements.**
+Quality assurance requirements are outlined in section 5.23 on page 17.
+
+**Content Amendments for Quality Assurance.**
+References for amendments in content related to quality assurance are provided in section 5.24 on page 17.
+
+**Testing and Validation.**
+Testing and validation methods are discussed in section 6 on page 17.
+
+**Proof of Compliance.**
+Proof of compliance is presented in section 6.1 on page 17.
+
+**Electrical Systems and Functions.**
+Details about electrical systems and functions are provided in section 6.2 on page 17.
+
+**Virtual Testing and Simulation.**
+Virtual testing and simulation processes are defined in section 6.3 on page 17.
+
+**Vehicle Testing.**
+Vehicle testing information is outlined in section 6.4 on page 17.
+
+**Tests.**
+Testing protocol and details are included in section 6.5 on page 17.
+
+**Functional Safety, Homologation and Safety Regulations.**
+Functional safety requirements and homologation specifications are explained under section 7 on page 17.
+
+**Definitions and List of Abbreviations.**
+Definitions and abbreviations are detailed in section 8 on page 18.
+
+**Further Applicable Documents.**
+Further applicable documents can be found in section 9 on page 20.
+
+**Appendices.**
+Appendices are located in section 10 on page 20.
+
+**List of Tables:**
+- **Table: Drawing and Part Numbers.** Referenced on page 2.
+- **Table 1: Standards List.** Referenced on page 12.
+- **Table 2: Abbreviations.** Referenced on page 20.
+Page 10
+1 General Document Guidelines.
+
+1.1 Purpose and Legal Binding.
+This version is legally binding. This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other (e.g., what is not included in Part 1 can be included in Part 2, and so on). All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g., level 3 vs level 2, then level 2 is applicable).
+
+1.2 Language.
+This document is written in English. All official project documentations must be written in English. If documents are bilingual, the English text is binding.
+
+1.3 Obligation of Requirement Wording.
+The following wording rules are used throughout this document:
+- **Shall**: The word “shall” be used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.
+- **Should**: The word “should” be used for preferences or desires in implementation that are not strictly binding.
+- **May**: The word “may” be used to denote options that are left to the implementer.
+Page 11
+2 General Project Guidelines.
+
+2.1 Development Scope Abstract.
+This document details the technical requirements of the Low Voltage (LV) Harness, which will be used in VFe35.
+
+2.2 Initial Situation and Objective.
+The objective is to provide all the necessary technical information requirements to develop a High Voltage Charging Socket Harness that is compatible with the vehicle attributes and requirements.
+
+2.3 Classification of the System / Component.
+1. Electrical.
+2. Mechanical.
+3. Electro-Mechanical.
+4. Thermal.
+Page 12
+2 General Project Guidelines
+
+2.4 Execution Regulations  
+The High Voltage Charging Inlet Harness must be developed with parts that meet the specified requirements of VinFast. The supplier shall obtain the type certification of the parts and submit all necessary documents to support the type certification of the whole vehicle.
+
+When synchronous development is completed, suppliers need to provide the necessary documentation to prove that their products have met the required regulatory requirements.
+
+**Table 1: Standards List**  
+- Road Vehicles Low Tension Cables: DIN 72551  
+- Specification for cables for motor vehicles: IS: 2465–1984  
+- Specification for PVC Insulation and Sheath of Electric Cables: IS: 5831–1984  
+- Specification for Elastomeric Insulation & Sheath of Electric Cables: IS: 6380–1984  
+- Specification for Conductors for Insulated Electric Cables: IS: 8130–1984  
+- Standards for Road vehicles - Environmental conditions, Part 2: Electrical load: ISO 16750-2:2006(E)  
+- Standards for Road Vehicles (single core cables): ISO 6722  
+- Test methods for Rubber or Plastic Insulated Wires & Cables: JIS C 3005  
+- Standard Wiring system: SAE J 2174 / SAE J2202  
+- Standards for Vehicle Electrical Wiring Harness: SAE J1742  
+- Standards for Vehicle Electrical Wiring Harness: SAE J2223–
+Page 13
+2 General Project Guidelines
+
+2.5 Development and Supply Scope
+The main supplier obligations are described in the work interface chart (RASI). 
+
+The status of the supplier “Built to Print” or “System Development Supplier” is defined in the System Technical Specification respectively in the Component Technical Specification.
+
+RASI is defined as followed:
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+  
+- **A: Approval**  
+  Obligation to decide/responsible for release. If no decider is defined, the person responsible for execution R is the decider.
+
+- **S: Support**  
+  Obligated to active support (even if this requires capacity, expenses and/or transfer of know-how).  
+  This project team member must proactively assist the person responsible for execution R in achieving targets.
+
+- **I: Information**  
+  Right to information. This team member is entitled to demand information from R.
+
+Details deliverables and RASI.  
+See Appendix 3.
+Page 14
+2 General Project Guidelines
+
+2.6 Quotation Scope  
+The quotation for the LV EDS Harness includes the development of all production tooling required and the DVP testing of the harness assembly.
+
+2.7 Properties, Condition and Durability  
+See harness drawings Appendices 1 & 2.
+
+2.8 Development Process  
+The supplier shall develop parts for PT build onwards. The harness design shall be checked and adjusted if required based on the design validation results during the build phases.
+
+2.9 Quality and Reliability  
+The supplier shall share the details of their quality system and the checks they perform on the parts prior to delivery. Parts will be tested on durability vehicles during the build phases.
+
+2.10 Content Amendments  
+Content changes to these General Project Guidelines must be agreed upon by TTL, VinFast, and the supplier prior to inclusion in this document.
+
+3 Project Management and Organisation
+
+3.1 Responsibilities In The Project and Project Management Plan  
+The supplier shall be responsible for the creation and management of the harness development plan.
+
+3.2 Documentation  
+The supplier shall be responsible for the creation and updating of the harness 2D drawing.
+
+3.3 Content Amendments  
+Content changes to the Project Management and Organisation must be agreed upon by TTL, VinFast, and the supplier prior to inclusion in this document.
+Page 15
+4 System Environment.
+
+4.1 Functional System Environment.  
+The HV Charging Inlet Harness is intended for use in the underhood environment of electrically powered vehicles. According to ISO 16750-4:2010, the classification is 125°C operating temperature and 70°C climatic temperature.
+
+4.2 Physical System Environment/Mechanical Interfaces.  
+The HV Charging Inlet Harness shall be sealed to IP6K9K. The harness has mechanical interfaces to the HV inlet bracket, the vehicle body, and mating devices.
+
+4.3 System Diagram.  
+See section 5.2 Block and Principle Diagram.
+
+4.4 Content Amendments.  
+Content changes to the System Environment must be agreed between TTL, VinFast, and the supplier prior to inclusion in this document.
+
+5 Functional and Technical Requirements.
+
+5.1 Technical Requirement.  
+See section 2.3 Classification of the system/component Functions.
+
+5.2 E/E System Schematic.  
+See harness drawings Appendices 1 & 2.
+
+5.3 Control Unit Concept.  
+There is no control unit incorporated into the design of this part.
+
+5.4 Electrical Interfaces.  
+See harness drawings Appendices 1 & 2.
+
+5.5 Specific Characteristics.  
+See harness drawings Appendices 1 & 2.
+
+5.6 Safety Requirements.  
+There are no specific safety requirements cascaded to this part.
+
+5.7 Alternative and Future Variants.  
+There are two variants of this part. They are the CCS1 and CCS2 variants. CCS1 is used for Canada and USA, CCS2 is used for Europe and Vietnam.
+
+5.8 Mechanical Energy Management.  
+The harness is clipped and the connectors are secured to the BiW to absorb mechanical energy.
+Page 16
+4 System Environment
+
+4.1 Functional System Environment  
+The HV Charging Inlet Harness is intended for use in the underhood environment of electrically powered vehicles. According to ISO 16750-4:2010, the classification is 125°C operating temperature and 70°C climatic temperature.  
+
+4.2 Physical System Environment/Mechanical Interfaces  
+The HV Charging Inlet Harness shall be sealed to IP6K9K. The harness has mechanical interfaces to the HV Inlet Bracket, the vehicle body, and mating devices.  
+
+4.3 System Diagram  
+See section 5.2, Block and Principle Diagram.  
+
+4.4 Content Amendments  
+Content changes to the System Environment must be agreed between TTL, VinFast, and the supplier prior to inclusion in this document.  
+
+5 Functional and Technical Requirements  
+
+5.1 Technical Requirement  
+See section 2.3, Classification of the system/component functions.  
+
+5.2 E/E System Schematic  
+See harness drawings Appendices 1 & 2.  
+
+5.3 Control Unit Concept  
+There is no control unit incorporated into the design of this part.  
+
+5.4 Electrical Interfaces  
+See harness drawings Appendices 1 & 2.  
+
+5.5 Specific Characteristics  
+See harness drawings Appendices 1 & 2.  
+
+5.6 Safety Requirements  
+There are no specific safety requirements cascaded to this part.  
+
+5.7 Alternative and Future Variants  
+There are two variants of this part. They are the CCS1 and CCS2 variants. CCS1 is used for Canada and USA, CCS2 is used for Europe and Vietnam.  
+
+5.8 Mechanical Energy Management  
+The harness is clipped and the connectors secured to the BiW to absorb mechanical energy.  
+
+5.9 Installation  
+The harness shall feature clips that are easily fitted to BiW.  
+
+5.10 Styling and Design  
+The harness finish shall be of an acceptable visual quality.  
+
+5.11 Ergonomics  
+The harness design shall be easily assembled to the vehicle.  
+
+5.12 Technical Material Requirements  
+The harness shall not feature materials that are prohibited. Cadmium, Lead, Mercury, or Hexavalent Chromium are prohibited under ELV Directive 2000/53/EC.  
+
+5.13 Resistance to Media and Chemical Requirements  
+The harness shall comply with the requirements of ISO 16750.  
+
+5.14 Environmental Compatibility  
+The harness shall comply with the requirements of ISO 16750.  
+
+5.15 Mechanical Requirements  
+The Inlet connector shall be able to withstand the forces of the mating connector being inserted and removed.  
+
+5.16 Durability/Life Time  
+160,000 km or 10 years.  
+
+5.17 Electrical Requirements  
+The harness shall comply with the requirements of ISO 16750.  
+
+5.18 Climatic Requirements/Thermal Management  
+The harness shall comply with the requirements of ISO 16750.  
+
+5.19 Service Requirements  
+It shall be possible to remove the harness from the vehicle if required. The harness design shall not require removal of the harness to gain access to standard service items within the vehicle.  
+
+5.20 Transport Protection  
+The harness will be supplied in its own plastic bag to protect it from getting tangled up with other harnesses. The bag will be clearly labeled with the correct harness part number.  
+
+5.21 Logistics Requirements  
+Logistics requirements are to be agreed upon between VinFast and the supplier.
+Page 17
+### 5.22 Quality Assurance Requirements
+QA requirements to be agreed between VinFast and Supplier.  
+
+### 5.23 Content Amendments
+Content changes to the Functional and Technical Requirements must be agreed between TTL, VinFast, and the supplier prior to inclusion in this document.
+
+## 6. Testing and Validation
+
+### 6.1 Proof of Compliance
+Proof of compliance shall be demonstrated through DVPR’s and PPAP documentation.
+
+### 6.2 Electrical Systems and Functions
+The finished harness shall be tested for the correct circuit assembly and a high voltage insulation test.
+
+### 6.3 Virtual Testing and Simulation
+Virtual testing and simulation DVPR’s may be submitted by the supplier as evidence of compliance.
+
+### 6.4 Vehicle Testing
+The supplier may request requirements for on-vehicle testing.
+
+### 6.5 Tests
+The supplier shall define their DVP testing and share the test result DVPR’s when complete.
+
+## 7. Functional Safety, Homologation, and Safety Regulations
+
+### 7.1 Functional Safety Requirements
+The supplier shall ensure that the developed/manufactured part meets IATF 16949:2016 standard, Quality Management System Requirements for automotive production.  
+See Appendix 4 for EDS FUSA document.
+
+### 7.2 Homologation and Safety Regulation Requirements
+UNECE R 20 Clause 5,1,1,1,4,3 specifies that the HV cables shall have an orange outer covering.
+Page 18
+8 Definitions and List of Abbreviations
+
+8.1 Definitions
+
+8.2 List of Abbreviations
+- ABG: Airbag
+- ABS: Anti-lock Braking System
+- AC: Alternating Current
+- ACM: Airbag Control Module
+- ADAS: Advanced Driver Assistance Systems
+- ADC: Analog to Digital Converter
+- AI: Articulation Index
+- AIA: Activity Interface Agreement (RASI)
+- AKS: Aktiver Kuzschluss (Active Short Circuit)
+- APQP: Advanced Product Quality Planning
+- ASIL: Automotive Safety Integrity Level
+- ASM: Asynchronous Machine
+- AWD: All Wheel Drive
+- BCM: Body Control Module
+- BDU: Battery Disconnect Unit
+- BEV: Battery Electric Vehicle
+- BFR: Basic Function Requirement
+- BIW: Body In White
+Page 19
+8 Definitions and List of Abbreviations
+
+8.1 Definitions
+
+8.2 List of Abbreviations  
+**Abbreviation** | **Explanation**  
+BMU | Battery Management Unit  
+BOM | Bill Of Material  
+BSM | Blind Spot Monitoring  
+BTP | Build To Print  
+CAD | Computer Aided Design  
+CAE | Computer Aided Engineering  
+CAM | Computer Aided Manufacturing  
+CAN | Control Area Network  
+DC | Direct Current  
+ESO | Engineering Sign Off  
+FSS | Full Service Supplier  
+HV | High Voltage  
+LLS | Long Lead Suppliers on board  
+LLT | Long Lead Tooling  
+LOI | Letter Of Intent  
+LON | Letter Of Nomination  
+LV | Low Voltage  
+MFC | Manufacturing Feasibility Confirmation  
+MSI | Major Suppliers Identified  
+MSO | Manufacturing Sign Off  
+OTS | Of The Shelf  
+PTP | Prototype Parts out of Serial tooling (Hand finished)  
+SLS | Short Lead Suppliers on board
+Page 20
+8 Definitions and List of Abbreviations.
+
+8.1 Definitions.
+
+8.2 List of Abbreviations.
+
+Abbreviation | Explanation
+--- | ---
+ABG | Airbag.
+ABS | Anti-lock Braking System.
+AC | Alternating Current.
+ACM | Airbag Control Module.
+ADAS | Advanced Driver Assistance Systems.
+ADC | Analog to Digital Converter.
+AI | Articulation Index.
+AIA | Activity Interface Agreement (RASI).
+AKS | Aktiver Kuzschluss (Active Short Circuit).
+APQP | Advanced Product Quality Planning.
+ASIL | Automotive Safety Integrity Level.
+ASM | Asynchronous Machine.
+AWD | All Wheel Drive.
+BCM | Body Control Module.
+BDU | Battery Disconnect Unit.
+BEV | Battery Electric Vehicle.
+BFR | Basic Function Requirement.
+BIW | Body In White.
+
+BMU | Battery Management Unit.
+BOM | Bill Of Material.
+BSM | Blind Spot Monitoring.
+BTP | Build To Print.
+CAD | Computer Aided Design.
+CAE | Computer Aided Engineering.
+CAM | Computer Aided Manufacturing.
+CAN | Control Area Network.
+DC | Direct Current.
+ESO | Engineering Sign Off.
+FSS | Full Service Supplier.
+HV | High Voltage.
+LLS | Long Lead Suppliers on board.
+LLT | Long Lead Tooling.
+LOI | Letter Of Intent.
+LON | Letter Of Nomination.
+LV | Low Voltage.
+MFC | Manufacturing Feasibility Confirmation.
+MSI | Major Suppliers Identified.
+MSO | Manufacturing Sign Off.
+OTS | Of The Shelf.
+PTP | Prototype Parts out of Serial tooling (Hand finished).
+SLS | Short Lead Suppliers on board.
+SOB | Supplier On Board.
+SOP | Start Of Production.
+SOP-LM | Start Of Production Launch Model.
+SST | Sourcing Strategy.
+
+9 Further Applicable Documents.
+
+- Appendix 1, LV Harness Part number.
+- Appendix 2, RASIC.
+- Appendix 3, EDS LV & HV FUSA.
+
+10 Appendices.
+
+Appendix 1: EDS LV Harness Part numbers.
+
+Description | Part No Final SOP | Table Drawing
+--- | --- | ---
+HARNESS_BODY_BEV_US_CA_ECO | EEP30208250 | EEP30201081.
+HARNESS_BODY_BEV_US_CA_PLUS | EEP30208251 | .
+HARNESS_BODY_BEV_EU_ECO | EEP30208252 | .
+HARNESS_BODY_BEV_EU_PLUS | EEP30208253 | .
+HARNESS_BODY_BEV_VN_ECO | EEP30208254 | .
+HARNESS_BODY_BEV_VN_PLUS | EEP30208255 | .
+HARNESS_IP_BEV_US_CA_ECO | EEP30208350 | EEP30201079.
+HARNESS_IP_BEV_US_CA_PLUS | EEP30208351 | .
+HARNESS_IP_BEV_EU_ECO | EEP30208352 | .
+HARNESS_IP_BEV_EU_PLUS | EEP30208353 | .
+HARNESS_IP_BEV_VN_ECO | EEP30208354 | .
+HARNESS_IP_BEV_VN_PLUS | EEP30208355 | .
+Page 21
+HARNESS_FRONT_BEV_VIE_ECO_PLUS: Part number EEP30208450, Table Drawing EEP30201080.  
+HARNESS_FRONT_BEV_EU_ECO_PLUS: Part number EEP30208451.  
+HARNESS_FRONT_BEV_US_CA_ECO_PLUS: Part number EEP30208452.  
+HARNESS_CONSOLE_BEV_ECO_PLUS: Part number EEP30205043, Table Drawing EEP30205043.  
+HARNESS_FR_DR_BEV_ECO_PLUS: Part number EEP30208550, Table Drawing EEP30208052.  
+HARNESS_FL_DR_BEV_ECO_PLUS: Part number EEP30208551, Table Drawing EEP30208062.  
+HARNESS_RL_DR_BEV_ECO_PLUS: Part number EEP30208552, Table Drawing EEP30201072.  
+HARNESS_RR_DR_BEV_ECO_PLUS: Part number EEP30208553.  
+HARNESS_FR_BUMPER_BEV_ALL: Part number EEP30208650, Table Drawing EEP30205091.  
+HARNESS_RR_BUMPER_BEV_CA_US_ECO: Part number EEP30208651, Table Drawing EEP30201100.  
+HARNESS_RR_BUMPER_BEV_CA_US_PLUS: Part number EEP30208652.  
+HARNESS_RR_BUMPER_BEV_VN_EU_ECO: Part number EEP30208653.  
+HARNESS_RR_BUMPER_BEV_VN_EU_PLUS: Part number EEP30208654.  
+HARNESS_BK_DR_LOWER_BEV_ECO: Part number EEP30205111, Table Drawing EEP30201075.  
+HARNESS_BK_DR_LOWER_BEV_PLUS: Part number EEP30205112.  
+HARNESS_BK_DR_LH_BEV_ECO: Part number EEP30208750, Table Drawing EEP30201073.  
+HARNESS_BK_DR_LH_BEV_PLUS: Part number EEP30208751.  
+HARNESS_BK_DR_RH_BEV_ECO: Part number EEP30205131, Table Drawing EEP30201074.  
+HARNESS_BK_DR_RH_BEV_PLUS: Part number EEP30205132.  
+HARNESS_ROOF_BEV_ECO: Part number EEP30208752, Table Drawing EEP30201077.  
+HARNESS_ROOF_BEV_PLUS: Part number EEP30208753.  
+HARNESS_UNDERBODY_BEV_ECO_PLUS_US/EU/CA: Part number EEP30207151, Table Drawing EEP30208153.  
+HARNESS_UNDERBODY_BEV_ECO_PLUS VN: Part number EEP30208151.  
+HARNESS_CHMSL_BEV_ECO_PLUS: Part number EEP30205162, Table Drawing EEP30205162.  
+HV_HARNESS_FR_PDU_HV_BATTERY: Part number EEP30208754, Not Required.  
+HV_HARNESS_FR_PDU_AIR_COMP_VN: Part number EEP30205201, Not Required.  
+HV_HARNESS_FR_PDU_AIR_COMP_US: Part number EEP30014109, Not Required.  
+HV_HARNESS_FR_PDU_HEATER: Part number EEP30014107, Not Required.  
+E_PUMP_PIGTAIL: Part number EEP30200786, Not Required.  
+SRR_PIGTAIL_HARNESS_LH: Part number EEP30205172, Table Drawing EEP30201088.  
+SRR_PIGTAIL_HARNESS_RH: Part number EEP30205176.  
+BATTERY_NEGATIVE_CABLE_BEV: Part number EEP30208755, Not Required.  
+FRONT_IMPACT_SENSOR_PIGTAIL_LH: Part number EEP30205205, Table Drawing EEP30201089.  
+FRONT_IMPACT_SENSOR_PIGTAIL_RH: Part number EEP30205206.
+Page 22
+### Appendix 2: RASIC 
+
+#### Responsibilities for Specific Supplier AIA Interface 
+
+- **Development Tasks:**
+  - Creation of pre-specification: Responsible (R), Support (S).
+  - Creation of final specification: Responsible (R), Approval (A), Support/Information (S/I).
+  - Technical preparation and evaluation of concept: Responsible (R), Information (I).
+  - Release recommendation of concept: Responsible (R).
+  - Release of concept: Responsible (R), Approval (A).
+  - Component package: Information (I), Responsible (R).
+  - Evaluation of component package: Support (S), Information (I), Responsible (R).
+  - Release recommendation of component package: Responsible (R), Support (S).
+  - Release of component package: Responsible (R), Information (I).
+
+- **Risk Assessments and Tests:**
+  - System and module risk assessment: Responsible (R), Information (I).
+  - Supervising of bending change attempts and water tightness tests for grommets/temperature tests: Information (I), Responsible (R).
+
+- **Concept Design:**
+  - Rough harness routing design for concept: Responsible (R), Information (I).
+  - Concept design of new grommets and ducts/mounting components (first rough 3D model): Responsible (R), Information (I).
+  - Design of new ducts, grommets, mounting components, etc. (3D model & 2D drawing): Responsible (R), Approval (A), Information (I).
+
+- **Harness and Wiring:**
+  - Creation of wiring/current diagram and harness schematics: Responsible (R), Information (I).
+  - Creation of KBL (3D and 2D schematics): Responsible (R), Information (I).
+  - Release of KBL (3D and 2D schematics): Responsible (R), Approval (A).
+  - Creation of harness drawings (based on 3D data and wiring/circuit schematic): Responsible (R), Information (I).
+  - Harness components selection and definition: Responsible (R), Information (I).
+  - Creation of harness family matrix with each harness part number (PN): Responsible (R), Support (S).
+  - Fixation of harness family matrix with each harness PN: Responsible (R), Approval (A), Support (S).
+  - Power/Ground distribution: Responsible (R), Approval (A).
+  - Creation of 2D harness drawing BOM: Responsible (R), Approval (A).
+
+- **Validation and Issue Checks:**
+  - Release recommendation for all component drawings: Responsible (R).
+  - Validation tests and reports: Responsible (R), Approval (A), Information (I).
+  - Design review for milestones: Responsible (R), Support (S).
+  - Harness and vehicle build issue check and provide solutions: Responsible (R), Information (I).
+  - Schematic change mark-up and drawing up a track list: Responsible (R), Information (I).
+  - ICD check (device interface definition): Responsible (R), Information (I).
+
+- **Component Database Management:**
+  - Creating/setup of component database (connector, seal, wire, terminal, plug, clip, cable channel, tape, tube, etc.) for 3D, 2D, and schematics: Responsible (R), Information (I).
+
+- **Release of All Drawings and Reports:**
+  - Release of all drawings: Responsible (R), Support (S).
+  - Validation tests and reports: Responsible (R), Approval (A), Information (I).
+
+#### Keys:
+- **R**: Responsible
+- **A**: Approval
+- **S**: Support
+- **I**: Information
+
+#### Notes:
+1. All mentioned points refer to the business model.
+2. Activities are aligned with the supplier and the development team.
+
+VinFast Released
+Page 23
+Appendix 3: EDS LV & HV FUSA.
+
+This document has been prepared using the BS ISO 26262 series of standards.
+
+Scope.
+This document applies to the LV EDS (Wiring) for the Vinfast vehicles being sold into Canada, Europe, USA & Vietnam.
+
+Item Definition.
+BS ISO 26262-3, clause 5.4.1, a.
+
+Regulations.
+- RQ-4212 UN Regulation.
+- RQ-4199 Canadian Regulation.
+- RQ-4246 US Federal Regulation.
+- RQ-4253 State of California Regulation.
+
+National/International Standards.
+- BS ISO 16750.
+- BS ISO 20653.
+- BS ISO 6722.
+- BS EN IEC 60068.
+- BS EN IEC 60664.
+
+Test Requirements:
+- RQ-9148 Cable/Splice Tensile Strength.
+- RQ-9150 Splice Salt Water Immersion.
+- RQ-9152 Splice Volt Drop.
+- RQ-9154 Splice Peel Off Test.
+- RQ-9156 Oil Absorption.
+- RQ-9158 Thermal Shock.
+- RQ-9160 Thermal Cycle.
+- RQ-9162 Humidity Test.
+- RQ-9164 Salt Fog Test.
+- RQ-9356 Appearance Inspection.
+- RQ-9358 Dimensional Inspection.
+- RQ-10112 Connector Retention.
+Page 24
+RQ-10109 Quality Test.  
+RQ-10110 Connector Pull Force.  
+RQ-10114 EMC Shielding.  
+RQ-10116 Insertion Extraction.  
+RQ-10119 Incorrect Circuits.  
+RQ-10126 Insulation Withstand Voltage.  
+RQ-10129 Shield Connection Resistance.  
+RQ-10132 Abnormal Withstand Voltage.  
+RQ-10482 Contact Insulation Test.  
+RQ-10136 Connection Strength Test.  
+RQ-10140 Impact Test.  
+RQ-10142 Free Fall Test.  
+RQ-10151 Cross Section Test.  
+RQ-10157 Chemical Solvent Test.  
+RQ-10189 Sulphur Dioxide Test.  
+RQ-10191 Ozone Resistance Test.  
+RQ-10193 Salt Fog Resistance.  
+RQ-10195 Voltage Drop and Temperature.  
+RQ-10197 Low Temperature Resistance.  
+RQ-10199 High Temperature Resistance.  
+RQ-10201 Temperature Change Resistance.  
+RQ-10203 Temperature and Humidity Cycle Resistance.  
+RQ-10205 IP Rating.  
+RQ-10207 Fire Retardation.  
+RQ-10209 HVIL.  
+RQ-10212 IP Level of Protection.  
+RQ-10215 Banned Substance Test.  
+RQ-10217 Vibration Test.  
+
+**BS ISO 26262-3, clause 5.4.1, b)**  
+The EDS systems shall work whilst the vehicle is in any state. Devices required to operate in specific vehicle states will be connected to the appropriate power supplies within the vehicle fuse boxes.
+Page 25
+BS ISO 26262-3, clause 5.4.1, c)  
+The EDS shall function within the following voltage limits:  
+LV 0-16V.  
+
+BS ISO 26262-3, clause 5.4.1, d)  
+The climatic operating environment shall be considered as -40 to +70°C.  
+
+BS ISO 26262-3, clause 5.4.1, e)  
+Potential consequences of failing to provide electrical power when required is covered within the FUSA documentation for each device connected to the EDS.  
+
+BS ISO 26262-3, clause 5.4.1, f)  
+The EDS circuit design shall consider the current requirements for each device connected to it. If the current level is exceeded the circuit will be protected via a fuse. The wire gauge shall be increased for circuits where the voltage drop calculations require this to happen.  
+
+BS ISO 26262-3, clause 5.4.2  
+The boundary of the EDS shall be the interfacing connectors to devices, the physical connections to BiW. The EDS system is an integral part in many of the vehicle functions and shall be considered in the FUSA assessment of each of those functions.  
+
+Hazard Analysis and Risk Assessment Report  
+BS ISO 26262-3, clause 6.5.1  
+The EDS system is an integral part in many of the vehicle functions and shall be considered in the FUSA assessment of each of those functions.  
+
+Functional Safety Concept  
+BS ISO 26262-3, clause 7.5.1  
+The EDS system is an integral part in many of the vehicle functions and shall be considered in the FUSA assessment of each of those functions.

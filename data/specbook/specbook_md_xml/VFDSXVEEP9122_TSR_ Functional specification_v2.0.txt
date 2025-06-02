@@ -1,0 +1,2502 @@
+
+<filename>VFDSXVEEP9122_TSR_ Functional specification_v2.0</filename>
+<pages>
+
+<page number="1">
+FUNCTIONAL SPECIFICATION. 
+
+Traffic Sign Recognition. 
+
+SCOPE: VF8 / VF9. 
+
+Function owner: Phuong Dinh Le (v.lepd1@vinfast.vn).
+</page>
+
+<page number="2">
+Table of Contents. 
+
+5 / APL11_TSR.  
+5.1 / / TSR and ISA Function Specification.  
+5.2 / / Document Management.  
+5.3 / / Glossary.  
+5.4 / / Feature Definition.  
+  5.4.1 / / Traffic Sign Recognition system (TSR) TSR.  
+  5.4.2 / / Intelligent Speed Alert system (ISA) ISA.  
+  5.4.3 / / Function configuration and Disclaimer.  
+5.5 / / Feature Interface.  
+  5.5.1 / / Input Signals from Vehicle CAN CAN.  
+  5.5.2 / / Output Signals to Vehicle CAN.  
+5.6 / / Function Definition.  
+  5.6.1 / / General Requirement.  
+  5.6.2 / / Signs Type.  
+  5.6.3 / / Signs Lateral Distance.  
+    5.6.3.1 / / System shall detect traffic signs when they are located to the left and/or right of the vehicle's host lane, up to a maximum lateral distance of 20 m (distance between the vehicle center and sign) from the camera position.  
+    5.6.3.2 / / For TSR function, system shall detect no entry traffic signs when they are located to the left and/or right of the vehicle's host lane, up to a maximum lateral distance of 5.5 m from the camera position.  
+  5.6.4 / / Signs Reported Time.  
+  5.6.5 / / Signs Speed/ Host Vehicle Speed.  
+    5.6.5.1 / / System shall detect speed limit signs in motion that are within the speed range between -10 km/h (the sign is moving backward) and 5 km/h.  
+    5.6.5.2 / / System shall detect signs at host vehicle speed between 0 km/h and 150 km/h.  
+    5.6.5.3 / / For TSR function, system shall detect the signs at host vehicle speed greater than 0 km/h and up to speeds of at least 60 km/h for No Entry sign.  
+  5.6.6 / / Signs Number in One Pole.
+</page>
+
+<page number="3">
+5.6.7 / Speed Limit Signs.
+
+5.6.7.1 / Detect Types of Speed Limit Signs.
+
+5.6.7.1.1 / System shall detect below speed limit sign and send speed limit information to the driver.
+
+5.6.7.1.2 / System shall detect electronic speed limit sign and send speed limit information to the driver.
+
+5.6.7.1.3 / System shall detect below end of speed limit sign and send end of speed limit information to the driver.
+
+5.6.7.2 / Typical Scenario of Speed Limit Signs.
+
+5.6.7.2.1 / The detection of speed limit information shall remain accurate and robust in situations where the speed limit signs are posted together with other signs such as no stopping or no parking signs as shown below.
+
+5.6.7.2.2 / System shall not detect speed-limit-sign-like small stickers which are often glued to the backside of a truck.
+
+5.6.7.3 / Fusion Strategy between Front Camera and Map.
+
+5.6.7.3.1 / If there is only valid speed limit value from camera, it shall be used as the output speed limit information.
+
+5.6.7.3.2 / If there is only valid speed limit value from map system, it shall be used as the output speed limit information.
+
+5.6.7.3.3 / If valid speed limit values from both camera and map system are received, speed limit value (explicit signs) from front camera shall be chosen as the output speed limit information, no matter they are the same or not. For implicit signs, map speed limit shall be used.
+
+5.6.8 / Signs Rotation.
+
+5.6.8.1 / A sign that is rotated around the X-axis is deemed to be positive when rotated clockwise.
+
+5.6.8.2 / A sign that is rotated around the Y-axis is deemed to be positive when it faces upwards.
+
+5.6.8.3 / A sign that is rotated around the Z-axis is deemed to be positive if it is facing into the driving lane.
+
+5.6.9 / Region Code.
+
+5.6.10 / Roadway Types.
+
+5.6.11 / Detected in Day and Night.
+
+5.6.12 / Terminated Display Logic.
+
+5.6.12.1 / Speed Limit Related Sign Terminated Display Logic.
+</page>
+
+<page number="4">
+5.6.12.1 System Termination Cases.
+
+5.6.12.1.1 The system termination case 1 is detailed in this subsection.  
+5.6.12.1.2 The system termination case 2 is outlined here.  
+5.6.12.1.3 The system termination case 3 is described as follows.  
+5.6.12.1.4 The system termination case 4 is specified under this section.  
+5.6.12.1.5 The system termination case 5 is explained in this subsection.  
+5.6.12.1.6 The system termination case 6 is provided below.  
+5.6.12.1.7 The system termination case 7 is defined in this part.  
+5.6.12.1.8 The system termination case 8 concludes this subsection.  
+
+5.6.12.2 Other Traffic Sign Terminated Display Logic.
+
+5.6.12.2.1 The other system termination case 1 logic is presented.  
+5.6.12.2.2 The other system termination case 2 logic is outlined in this subsection.  
+5.6.12.2.3 The other system termination case 3 logic is described here.  
+
+5.7 HMI Requirement.
+
+5.7.1 Function ON/OFF is detailed in this section.  
+5.7.2 Traffic Sign Recognition (TSR) Display requirements are presented here.  
+5.7.3 Speed Limit Alert, both visual and acoustic, is explained in this subsection.  
+5.7.4 Popup Message logic is outlined in this subsection.  
+
+5.8 Tuning Parameters.
+
+5.8.1 Traffic Sign Recognition (TSR) tuning parameters are provided here.  
+5.8.2 Parameters for the front camera functionality are described in this section.  
+5.8.3 Typical parameters relevant to system tuning are listed.  
+
+5.9 Test Requirement from GSR.
+
+Testing requirements as defined by GSR are presented in this section.  
+
+5.10 System Fault.
+
+5.10.1 Front camera failsafe mechanisms are described under this section.  
+5.10.2 Fault requirements are detailed here.  
+5.10.3 Other system faults are listed in this subsection:  
+  - 5.10.3.1 Battery voltage too low fault.  
+  - 5.10.3.2 Battery voltage too high fault.  
+  - 5.10.3.3 Vehicle CAN/ADAS CAN bus off fault.  
+  - 5.10.3.4 ISA-related signals are missing faults.  
+  - 5.10.3.5 Invalid checksum faults.  
+  - 5.10.3.6 Invalid rolling counter faults.
+</page>
+
+<page number="5">
+5.10.3.7 / / Invalid steering wheel angle fault.  
+5.10.3.8 / / Relevant signal invalid.  
+5.10.3.9 / / Out of calibration.  
+5.10.3.10 / / All core internal fault.  
+5.10.3.11 / / SPC incomplete fault.  
+5.10.3.12 / / Calibration not set fault.  
+5.10.3.13 / / NVM relevant fault.  
+5.10.3.14 / / CAN mute fault.  
+
+5.11 / TSR.  
+5.11.1 / Road Type.  
+5.11.2 / Sign Type.  
+5.11.3 / Report Time.  
+5.11.4 / Sign Display Duration(Distance).  
+5.11.5 / Speed Range.  
+5.11.6 / Road Type.
+</page>
+
+<page number="6">
+5 / APL11_TSR
+
+Requirement ID: FS-225885  
+Type: --  
+Status: New
+
+---
+
+5.1 / / TSR and ISA Function Specification  
+
+Requirement ID: FS-226180  
+Type: --  
+Status: New  
+
+TSRISA  
+Table of Contents  
+
+---
+
+5.2 / / Document Management  
+
+Requirement ID: FS-226181  
+Type: --  
+Status: New  
+
+VF version
+
+| Version | Change by       | Change description                      | Initiator       | Approver             |
+|---------|-----------------|------------------------------------------|----------------|---------------------|
+| 1.0     | ECR60004069    | Initial version released for LS phase    | Duong Hoai An  | Ng Dennis Koon Siu  |
+| 2.0     | ECR60005557    | Release for SOP phase                    | Duong Hoai An  | Ng Dennis Koon Siu  |
+</page>
+
+<page number="7">
+5 / APL11_TSR
+
+Requirement ID: FS-225885  
+Type: --  
+Status: New  
+
+---
+
+5.1 / / TSR and ISA Function Specification  
+
+Requirement ID: FS-226180  
+Type: --  
+Status: New  
+
+---
+
+5.2 / / Document Management  
+
+Requirement ID: FS-226181  
+Type: --  
+Status: New  
+
+### VF Version  
+
+- **Version:** 1.0  
+  - **Change by:** ECR60004069  
+  - **Change description:** Initial version released for LS phase  
+  - **Initiator:** Duong Hoai An  
+  - **Approver:** Ng Dennis Koon Siu  
+
+- **Version:** 2.0  
+  - **Change by:** ECR60005557  
+  - **Change description:** Release for SOP phase  
+  - **Initiator:** Duong Hoai An  
+  - **Approver:** Ng Dennis Koon Siu  
+
+---
+
+Release History  
+
+- **Release V1.0:**  
+  - **Date:** 2021-07-26  
+  - **Author:** Chen Lei  
+  - **Remarks / Changes:** Initial Version  
+
+- **Release V1.1:**  
+  - **Date:** 2021-11-04  
+  - **Author:** Chen Lei  
+  - **Remarks / Changes:** Update signal interfaces based on VinFast project. Update HMI requirements based on VinFast design.  
+
+- **Release V1.2:**  
+  - **Date:** 2021-11-15  
+  - **Author:** Chen Lei  
+  - **Remarks / Changes:** Update based on VinFast review comments.  
+
+- **Release V1.3:**  
+  - **Date:** 2022-06-13  
+  - **Author:** Xiong Jian  
+  - **Remarks / Changes:** Update with blue color.  
+
+---
+
+5.3 / / Glossary  
+
+Requirement ID: FS-226182  
+Type: --  
+Status: New  
+
+### Acronym Table  
+
+- **FCM:** Front Camera Module  
+- **ADAS:** Advanced Driving Assistance System  
+- **ECU:** Electronic Control Unit
+</page>
+
+<page number="8">
+5 / APL11_TSR
+
+Requirement ID: FS-225885  
+Type: --  
+Status: New  
+
+---
+
+5.1 / / TSR and ISA Function Specification  
+
+Requirement ID: FS-226180  
+Type: --  
+Status: New  
+
+TSRISA  
+Table of Contents  
+
+---
+
+5.2 / / Document Management  
+
+Requirement ID: FS-226181  
+Type: --  
+Status: New  
+
+VF Version  
+
+Version | Change by | Change description | Initiator | Approver  
+-------|-----------|---------------------|----------|---------  
+1.0    | ECR60004069 | Initial version released for LS phase | Duong Hoai An | Ng Dennis Koon Siu  
+2.0    | ECR60005557 | Release for SOP phase | Duong Hoai An | Ng Dennis Koon Siu  
+
+---
+
+5.3 / / Glossary  
+
+Requirement ID: FS-226182  
+Type: --  
+Status: New  
+
+Acronym | Full Form  
+--------|---------  
+FCM     | Front Camera Module  
+ADAS    | Advanced Driving Assistance System  
+ECU     | Electronic Control Unit  
+ISA     | Intelligent Speed Alert system  
+TSR     | Traffic Sign Recognition  
+FOV     | Field of View  
+HMI     | Human Machine Interface  
+
+---
+
+5.4 / / Feature Definition  
+
+Requirement ID: FS-226183  
+Type: --  
+Status: New  
+
+---
+
+5.4.1 / / Traffic Sign Recognition system (TSR) TSR  
+
+Requirement ID: FS-226184  
+Type: --  
+Status: New  
+
+System will detect predefined traffic signs on the road where the host vehicle is travelling on, then sending sign information on vehicle CAN bus for display.  
+
+TSRCAN  
+
+---
+
+5.4.2 / / Intelligent Speed Alert system (ISA) ISA  
+
+Requirement ID: FS-226185  
+Type: --  
+Status: New  
+
+System will detect the speed limit information on the road and send out proper alerts to the driver once current host speed surpasses the perceived speed limit. Apart from sensor detection, speed limit information from map systems could also be used as a supplement to enhance the performance, especially to cater for Regulation (EU) 2019/2144 2021/1958 (GSR) requirements.
+</page>
+
+<page number="9">
+5 / APL11_TSR
+
+Requirement ID: FS-225885  
+Type: --  
+Status: New  
+
+---
+
+5.1 / / TSR and ISA Function Specification  
+
+Requirement ID: FS-226180  
+Type: --  
+Status: New  
+
+TSRISA  
+
+Table of Contents  
+
+---
+
+5.2 / / Document Management  
+
+Requirement ID: FS-226181  
+Type: --  
+Status: New  
+
+VF version:  
+
+| Version | Change by     | Change description                     | Initiator       | Approver             |
+|---------|---------------|-----------------------------------------|-----------------|----------------------|
+| 1.0     | ECR60004069   | Initial version released for LS phase  | Duong Hoai An   | Ng Dennis Koon Siu   |
+| 2.0     | ECR60005557   | Release for SOP phase                  | Duong Hoai An   | Ng Dennis Koon Siu   |
+
+---
+
+Release Information:  
+
+| Version | Date       | Author      | Reviewer | Remarks / Changes                                                                 |
+|---------|------------|-------------|----------|----------------------------------------------------------------------------------|
+| V1.0    | 2021-7-26  | Chen Lei    | --       | Initial Version                                                                  |
+| V1.1    | 2021-11-4  | Chen Lei    | --       | Update signal interfaces based on VinFast project. Update HMI requirements.      |
+| V1.2    | 2021-11-15 | Chen Lei    | --       | Update based on VinFast review comments.                                         |
+| V1.3    | 2022-6-13  | Xiong Jian  | --       | Update with blue color.                                                          |
+
+---
+
+5.3 / / Glossary  
+
+Requirement ID: FS-226182  
+Type: --  
+Status: New  
+
+| Acronym | Full Form                             |
+|---------|---------------------------------------|
+| FCM     | Front Camera Module                  |
+| ADAS    | Advanced Driving Assistance System   |
+| ECU     | Electronic Control Unit              |
+| ISA     | Intelligent Speed Alert system       |
+| TSR     | Traffic Sign Recognition             |
+| FOV     | Field of View                        |
+| HMI     | Human Machine Interface              |
+
+---
+
+5.4 / / Feature Definition  
+
+Requirement ID: FS-226183  
+Type: --  
+Status: New  
+
+---
+
+5.4.1 / / Traffic Sign Recognition system (TSR) TSR  
+
+Requirement ID: FS-226184  
+Type: --  
+Status: New  
+
+System will detect predefined traffic signs on the road where the host vehicle is travelling on, then sending sign information on vehicle CAN bus for display.  
+
+---
+
+5.4.2 / / Intelligent Speed Alert system (ISA) ISA  
+
+Requirement ID: FS-226185  
+Type: --  
+Status: New  
+
+System will detect the speed limit information on the road and send out proper alert to driver once current host speed surpasses the perceived speed limit. Apart from sensor detection, speed limit information from the map system could also be used to enhance performance, especially to cater to Regulation (EU) 2019/2144 2021/1958 (GSR) requirements.
+
+---
+
+According to Regulation (EU) 2019/2144 2021/1958, an intelligent speed assistance system shall comprise a speed limit information function (SLIF) and either a speed limit warning function (SLWF) or a speed control function (SCF). In VinFast project, all three functions are required.  
+
+This document focuses on SLIF and SLWF-related requirements; for SCF requirements, please refer to the Adaptive Cruise Control function specification.  
+
+Relationship between ZF, VinFast, and GSR acronyms is as follows:  
+
+| ZF   | VinFast          | GSR                       |
+|------|------------------|---------------------------|
+| TSR  | TSR              | SLIF                      |
+| ISA  | TSR (audible warning) | SLWF              |
+| ISLC | ISA              | SCF                       |
+
+---
+
+5.4.3 / / Function configuration and Disclaimer  
+
+Requirement ID: FS-226186  
+Type: --  
+Status: New  
+
+Function configuration is defined as below:  
+
+1) For VF35 ICE and VF36 ICE: Only use front camera to detect traffic signs and speed limit signs.  
+2) For VFe35 BEV and VFe36 BEV: Combine front camera detection and map system information jointly for ISA function (performance requirement from GSR cannot be satisfied only with front camera detection) and only use front camera for TSR function.  
+
+Note that these two functions are only assistance functions and are designed to help drivers maintain a speed below the recommended speed limit and provide traffic sign information. They are not designed to replace the driver observing the traffic signs and obeying traffic rules for the environment they are driving in.  
+
+It is recommended that the OEM deploying such functions makes it clear to the driver either via a disclaimer in the vehicle HMI or vehicle user manual.
+</page>
+
+<page number="10">
+5.5 / / Feature Interface.
+
+Requirement ID: FS-226187.  
+Type: --.  
+Status: New.
+
+---
+
+5.5.1 / / Input Signals from Vehicle CAN CAN.
+
+Requirement ID: FS-226188.  
+Type: --.  
+Status: New.
+
+---
+
+Signal name: 0x354.MHU_TSR_Mode.  
+Description: TSR mode selection.  
+Values:  
+- 3 "Signal invalid."  
+- 2 "Reserve."  
+- 1 "ON."  
+- 0 "OFF."  
+Variant: BEV, ICE.  
+
+Signal name: 0x354.MHU_SET_TSR_SLAert.  
+Description: Speed Limit Alert select.  
+Values:  
+- 0 "OFF."  
+- 1 "Speed Limit."  
+- 2 "Speed Limit + 5."  
+- 3 "Speed Limit + 10."  
+Variant: BEV, ICE.  
+
+Signal name: 0x354.MHU_SET_TSR_AudWarn.  
+Description: TSR Audible Warning On/Off.  
+Values:  
+- 3 "Signal invalid."  
+- 2 "Reserved."  
+- 1 "ON."  
+- 0 "OFF."  
+Variant: BEV, ICE.  
+
+Signal name: 0x235.TrailerDetected.  
+Description: Trailer Detected status.  
+Values:  
+- 3 "Invalid."  
+- 1 "Trailer detected."  
+Variant: BEV, ICE.
+</page>
+
+<page number="11">
+5.5 / / Feature Interface.
+
+Requirement ID: FS-226187.  
+Type: --.  
+Status: New.
+
+5.5.1 / / Input Signals from Vehicle CAN CAN.
+
+Requirement ID: FS-226188.  
+Type: --.  
+Status: New.
+
+Signal Name: 0x354.MHU_TSR_Mode.  
+Description: TSR mode selection.  
+Value:  
+- 3 "Signal invalid".  
+- 2 "Reserve".  
+- 1 "ON".  
+- 0 "OFF".  
+Variant: BEV, ICE.  
+
+Signal Name: 0x354.MHU_SET_TSR_SLAert.  
+Description: Speed Limit Alert select.  
+Value:  
+- 0 "OFF".  
+- 1 "Speed Limit".  
+- 2 "Speed Limit + 5".  
+- 3 "Speed Limit + 10".  
+Variant: BEV, ICE.  
+
+Signal Name: 0x354.MHU_SET_TSR_AudWarn.  
+Description: TSR Audible Warning On/Off.  
+Value:  
+- 3 "Signal invalid".  
+- 2 "Reserved".  
+- 1 "ON".  
+- 0 "OFF".  
+Variant: BEV, ICE.  
+
+Signal Name: 0x235.TrailerDetected.  
+Description: Trailer Detected status.  
+Value:  
+- 3 "Invalid".  
+- 1 "Trailer detected".  
+- 0 "Trailer not detected".  
+Variant: BEV, ICE.  
+
+Signal Name: 0x106.BCM_FrntFogLmpSts.  
+Description: Front fog output status.  
+Value:  
+- 0 "OFF".  
+- 1 "ON".  
+- 2 "Fault (Reserved)".  
+- 3 "Signal Invalid".  
+Variant: BEV, ICE.  
+
+Signal Name: 0x106.BCM_TurnIndicatorSts.  
+Description: Turn light output status.  
+Value:  
+- 0 "OFF".  
+- 1 "Left On".  
+- 2 "Right On".  
+- 3 "Left and Right On".  
+Variant: BEV, ICE.  
+
+Signal Name: 0x2CA.MHU_STAT_AmbientTempRaw.  
+Description: Ambient Temperature Raw.  
+Variant: BEV, ICE.  
+
+Signal Name: 0x2B.WiperFront, 0x456.BCM_Wiper_Front_Status.  
+Description: Front Wiper Status.  
+Value:  
+- 0 "OFF".  
+- 1 "Mist".  
+- 2 "Intermittent Auto".  
+- 3 "Low Speed".  
+- 4 "High Speed".  
+- 5 "Reserved".  
+- 6 "Reserved".  
+- 7 "Invalid".  
+Variant: BEV, ICE.  
+
+Signal Name: 0x40D.MHU_DigitSpeed.  
+Description: This signal represents the digital speed and is displayed.  
+Unit: km/h.  
+Variant: BEV.
+</page>
+
+<page number="12">
+5.5 / Feature Interface
+
+Requirement ID: FS-226187  
+Type: --  
+Status: New  
+
+---
+
+5.5.1 / Input Signals from Vehicle CAN
+
+Requirement ID: FS-226188  
+Type: --  
+Status: New  
+
+Signal Name: 0x422.MHU_STAT_MileageUnit  
+Description: Indicates current unit of mileage display on screen (Km or Miles).  
+Values:  
+- 3: "Signal invalid"  
+- 2: "Reserved"  
+- 1: "KM"  
+- 0: "Mile"  
+Variant: BEV  
+
+Signal Name: 0x11A.NavCountryCode  
+Description: Country code defined by ISO3166-2.  
+Variant: BEV  
+
+Signal Name: 0x11A.NavSpdLmtVal  
+Description: Map Speed Limit Value.  
+Values:  
+- 0x0: No Display  
+- 0x1: SPL 5  
+- 0x2: SPL 10  
+- 0x3: SPL 15  
+- 0x4: SPL 20  
+- 0x5: SPL 25  
+- 0x6: SPL 30  
+- 0x7: SPL 35  
+- 0x8: SPL 40  
+- 0x9: SPL 45  
+- 0xA: SPL 50  
+- 0xB: SPL 55  
+- 0xC: SPL 60  
+- 0xD: SPL 65  
+Variant: BEV
+</page>
+
+<page number="13">
+5.5 / / Feature Interface.
+
+Requirement ID: FS-226187.  
+Type: --.  
+Status: New.
+
+5.5.1 / / Input Signals from Vehicle CAN CAN.
+
+Requirement ID: FS-226188.  
+Type: --.  
+Status: New.
+
+Signal name: 0x422.MHU_STAT_MileageUnit.  
+Description: Indicate current unit of mileage display in Screen (Km or Miles).  
+Value:  
+- 3: "Signal invalid".  
+- 2: "Reserved".  
+- 1: "KM".  
+- 0: "Mile".  
+Variant: BEV.
+
+Signal name: 0x11A.NavCountryCode.  
+Description: Country code defined by ISO3166-2.  
+Value: Not specified.  
+Variant: BEV.
+
+Signal name: 0x11A.NavSpdLmtVal.  
+Description: Map Speed Limit Value.  
+Values:  
+- 0x0: No Display.  
+- 0x1: SPL 5.  
+- 0x2: SPL 10.  
+- 0x3: SPL 15.  
+- 0x4: SPL 20.  
+- 0x5: SPL 25.  
+- 0x6: SPL 30.  
+- 0x7: SPL 35.  
+- 0x8: SPL 40.  
+- 0x9: SPL 45.  
+- 0xA: SPL 50.  
+- 0xB: SPL 55.  
+- 0xC: SPL 60.  
+- 0xD: SPL 65.  
+- 0xE: SPL 70.  
+- 0xF: SPL 75.  
+- 0x10: SPL 80.  
+- 0x11: SPL 85.  
+- 0x12: SPL 90.  
+- 0x13: SPL 95.  
+- 0x14: SPL 100.  
+- 0x15: SPL 105.  
+- 0x16: SPL 110.  
+- 0x17: SPL 115.  
+- 0x18: SPL 120.  
+- 0x19: SPL 125.  
+- 0x1A: SPL 130.  
+- 0x1B: SPL 135.  
+- 0x1C: SPL 140.  
+- 0x1D: SPL 145.  
+- 0x1E: SPL 150.  
+- 0x1F: SPL 155.  
+Variant: BEV.
+
+Signal name: 0x11A.NavSpdLmtValUnit.  
+Description: Map Speed Limit Value Units.  
+Values:  
+- 0x0: Unknown.  
+- 0x1: MPH.  
+- 0x2: KMH.  
+- 0x3: Reserved.  
+Variant: BEV.
+</page>
+
+<page number="14">
+5.5 / / Feature Interface.
+
+Requirement ID: FS-226187.  
+Type: --  
+Status: New.  
+
+5.5.1 / / Input Signals from Vehicle CAN.
+
+Requirement ID: FS-226188.  
+Type: --  
+Status: New.  
+
+**Signal name: 0x422.MHU_STAT_MileageUnit.**  
+Description: Indicate current unit of mileage display in Screen (Km or Miles).  
+Value:  
+- 0: "Mile".  
+- 1: "KM".  
+- 2: "Reserved".  
+- 3: "Signal invalid".  
+Variant: BEV.  
+
+**Signal name: 0x11A.NavCountryCode.**  
+Description: Country code defined by ISO3166-2.  
+Variant: BEV.  
+
+**Signal name: 0x11A.NavSpdLmtVal.**  
+Description: Map Speed Limit Value.  
+Value:  
+- 0x0: No Display.  
+- 0x1: SPL 5.  
+- 0x2: SPL 10.  
+- 0x3: SPL 15.  
+- 0x4: SPL 20.  
+- 0x5: SPL 25.  
+- 0x6: SPL 30.  
+- 0x7: SPL 35.  
+- 0x8: SPL 40.  
+- 0x9: SPL 45.  
+- 0xA: SPL 50.  
+- 0xB: SPL 55.  
+- 0xC: SPL 60.  
+Variant: BEV.  
+
+5.5.2 / / Output Signals to Vehicle CAN.  
+
+Requirement ID: FS-226189.  
+Type: --  
+Status: New.  
+
+**Signal name: 0x129 80.ADA_TSR_Mode_Feed.**  
+Description: The type of main sign detected TSR.  
+Value:  
+- 0: "Off".  
+- 1: "On".  
+Variant:  
+- BEV.  
+- ICE.  
+
+**Signal name: 0x129 80.ADAS_TSR_SLAert_Feed.**  
+Description: Feedback of Speed Limit Alert.  
+Value:  
+- 0: "OFF".  
+- 1: "Speed Limit".  
+- 2: "Speed Limit + 5".  
+Variant:  
+- BEV.  
+- ICE.
+</page>
+
+<page number="15">
+5.5 / / Feature Interface.
+
+Requirement ID: FS-226187. Type: --. Status: New.
+
+5.5.1 / / Input Signals from Vehicle CAN CAN.
+
+Requirement ID: FS-226188. Type: --. Status: New.
+
+- Signal name: `0x354.MHU_TSR_Mode`.
+  Description: TSR mode selection.
+  Value: 
+    - 3 "Signal invalid".
+    - 2 "Reserve".
+    - 1 "ON".
+    - 0 "OFF".
+  Variant: BEV/ICE.
+
+- Signal name: `0x354.MHU_SET_TSR_SLAert`.
+  Description: Speed Limit Alert select.
+  Value: 
+    - 0 "OFF".
+    - 1 "Speed Limit".
+    - 2 "Speed Limit + 5".
+    - 3 "Speed Limit + 10".
+  Variant: BEV/ICE.
+
+- Signal name: `0x354.MHU_SET_TSR_AudWarn`.
+  Description: TSR Audible Warning On/Off (ISA).
+  Value: 
+    - 3 "Signal invalid".
+    - 2 "Reserved".
+    - 1 "ON".
+    - 0 "OFF".
+  Variant: BEV/ICE.
+
+- Signal name: `0x235.TrailerDetected`.
+  Description: Trailer Detected status.
+  Value: 
+    - 3 "Invalid".
+    - 1 "Trailer detected".
+    - 0 "Trailer not detected".
+  Variant: BEV/ICE.
+
+- Signal name: `0x106.BCM_FrntFogLmpSts`.
+  Description: Front fog output Status.
+  Value: 
+    - 0 "OFF".
+    - 1 "ON".
+    - 2 "Fault (Reserved)".
+    - 3 "Signal Invalid".
+  Variant: BEV/ICE.
+
+- Signal name: `0x106.BCM_TurnIndicatorSts`.
+  Description: Turn light output Status.
+  Value: 
+    - 0 "OFF".
+    - 1 "Left On".
+    - 2 "Right On".
+    - 3 "Left and Right On".
+  Variant: BEV/ICE.
+
+- Signal name: `0x2CA.MHU_STAT_AmbientTempRaw`.
+  Description: Ambient Temperature Raw.
+  Variant: BEV/ICE.
+
+- Signal name: `0x2B.WiperFront / 0x456.BCM_Wiper_Front_Status`.
+  Description: Front Wiper Status.
+  Value: 
+    - 0 "OFF".
+    - 1 "Mist".
+    - 2 "Intermittent Auto".
+    - 3 "Low Speed".
+    - 4 "High Speed".
+    - 5 "Reserved".
+    - 6 "Reserved".
+    - 7 "Invalid".
+  Variant: BEV/ICE.
+
+- Signal name: `0x40D.MHU_DigitSpeed`.
+  Description: This signal represents the digital speed and is displayed.
+  Value: Unit: km/h.
+  Variant: BEV.
+
+5.5.2 / / Output Signals to Vehicle CAN.
+
+Requirement ID: FS-226189. Type: --. Status: New.
+
+- Signal name: `0x129 80.ADAS_TSR_Mode_Feed`.
+  Description: The type of main sign detected (TSR).
+  Value: 
+    - 0 "Off".
+    - 1 "On".
+  Variant: BEV/ICE.
+
+- Signal name: `0x129 80.ADAS_TSR_SLAert_Feed`.
+  Description: Feedback of Speed Limit Alert select.
+  Value: 
+    - 0 "OFF".
+    - 1 "Speed Limit".
+    - 2 "Speed Limit + 5".
+    - 3 "Speed Limit + 10".
+  Variant: BEV/ICE.
+
+- Signal name: `0x129 80.ADAS_TSR_AudWarning_Feed`.
+  Description: Feedback of TSR Audible Warning On/Off (ISA).
+  Value:
+    - 0 "Off".
+    - 1 "On".
+  Variant: BEV/ICE.
+
+- Signal name: `0x80.ADAS_TSR_Typ1`.
+  Description: Traffic Sign Speed Type.
+  Value: 
+    - 0 "No detected".
+    - 1 "Maximum Speed Limit".
+    - 2 "End of speed limit sign".
+  Variant: BEV/ICE.
+
+- Signal name: `0x80.ADAS_TSR_Typ1_value`.
+  Description: Traffic Sign Speed value.
+  Variant: BEV/ICE.
+
+- Signal name: `0x80.ADAS_TSR_Typ1_Flashing_Warning`.
+  Description: Speed limit warning (for icon flashing).
+  Value: 
+    - 0 "Off" (no warning).
+    - 1 "On" (trigger warning).
+  Variant: BEV/ICE.
+
+- Signal name: `0x80.ADAS_TSR_Typ2`.
+  Description: Condition traffic Sign Speed Type.
+  Value: 
+    - 0 "No detected".
+    - 1 "Minimum Speed Limit".
+    - 2 "School zone".
+    - 3 "Town zone".
+    - 4 "Rain".
+  Variant: BEV/ICE.
+</page>
+
+<page number="16">
+5.5.2 // Output Signals to Vehicle CAN.
+
+Requirement ID: FS-226189.  
+Type: --  
+Status: New.  
+
+Signal name: 0x129 80 .ADAS_TSR_Mode_Feed.  
+Description: The type of main sign detected TSR.  
+Value:  
+- 0 "Off".  
+- 1 "On".  
+Variant: BEV, ICE.  
+
+Signal name: 0x129 80 .ADAS_TSR_SLAert_Feed.  
+Description: Feedback of Speed Limit Alert select.  
+Value:  
+- 0 "OFF".  
+- 1 "Speed Limit".  
+- 2 "Speed Limit + 5".  
+- 3 "Speed Limit + 10".  
+Variant: BEV, ICE.  
+
+Signal name: 0x129 80 .ADAS_TSR_AudWarning_Feed.  
+Description: Feedback of TSR Audible Warning On/Off ISA.  
+Value:  
+- 0 "Off".  
+- 1 "On".  
+Variant: BEV, ICE.  
+
+Signal name: 0x80. ADAS_TSR_Typ1.  
+Description: Traffic Sign Speed Type.  
+Value:  
+- 0 "No detected".  
+- 1 "Maximum Speed Limit".  
+- 2 "End of speed limit sign".  
+Variant: BEV, ICE.  
+
+Signal name: 0x80. ADAS_TSR_Typ1_value.  
+Description: Traffic Sign Speed value.  
+Variant: BEV, ICE.  
+
+Signal name: 0x80. ADAS_TSR_Typ1_Flashing_Warning.  
+Description: Speed limit warning (for icon flashing).  
+Value:  
+- 0 "Off" (no warning).  
+- 1 "On" (trigger warning).  
+Variant: BEV, ICE.  
+
+Signal name: 0x80. ADAS_TSR_Typ2.  
+Description: Condition Traffic Sign Speed Type.  
+Value:  
+- 0 "No detected".  
+- 1 "Minimum Speed Limit".  
+- 2 "School zone".  
+- 3 "Town zone".  
+- 4 "Rain".  
+- 5 "Snow".  
+- 6 "Trailer".  
+- 7 "Camping Zone".  
+- 8 "Highway".  
+- 9 "Night".  
+- 10 "Ramp".  
+- 11 "Exit".  
+- 12 "Curve".  
+- 13 "Reserved".  
+- 14 "Invalid value".  
+Variant: BEV, ICE.  
+
+Additional values:  
+- 0 "No detected".  
+- 1 "Camping zone".  
+- 2 "Highway".  
+- 3 "Town zone".  
+- 4 "End of town zone".  
+- 5 "Express way".  
+- 6 "Bicycle way".  
+- 7 "Night".  
+- 8 "Minimum speed limit".  
+- 9 "Ramp".  
+- 10 "Exit".  
+- 11 "Curve".
+</page>
+
+<page number="17">
+5.5 / / Feature Interface
+
+Requirement ID: FS-226187  
+Type: --  
+Status: New  
+
+---
+
+5.5.1 / / Input Signals from Vehicle CAN CAN
+
+Requirement ID: FS-226188  
+Type: --  
+Status: New  
+
+- **Signal Name: 0x354. MHU_TSR_Mode**  
+  **Description:** TSR mode selection.  
+  **Value:**  
+  - 3 "Signal invalid"  
+  - 2 "Reserve"  
+  - 1 "ON"  
+  - 0 "OFF"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x354. MHU_SET_TSR_SLAert**  
+  **Description:** Speed Limit Alert select.  
+  **Value:**  
+  - 0 "OFF"  
+  - 1 "Speed Limit"  
+  - 2 "Speed Limit + 5"  
+  - 3 "Speed Limit + 10"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x354. MHU_SET_TSR_AudWarn**  
+  **Description:** TSR Audible Warning On/Off.  
+  **Value:**  
+  - 3 "Signal invalid"  
+  - 2 "Reserved"  
+  - 1 "ON"  
+  - 0 "OFF"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x235. TrailerDetected**  
+  **Description:** Trailer Detected status.  
+  **Value:**  
+  - 3 "Invalid"  
+  - 1 "Trailer detected"  
+  - 0 "Trailer not detected"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x106. BCM_FrntFogLmpSts**  
+  **Description:** Front fog output Status.  
+  **Value:**  
+  - 0 "OFF"  
+  - 1 "ON"  
+  - 2 "Fault (Reserved)"  
+  - 3 "Signal Invalid"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x106. BCM_TurnIndicatorSts**  
+  **Description:** Turn light output Status.  
+  **Value:**  
+  - 0 "OFF"  
+  - 1 "Left On"  
+  - 2 "Right On"  
+  - 3 "Left and Right On"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x2CA.MHU_STAT_AmbientTempRaw**  
+  **Description:** Ambient Temperature Raw.  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x2B.WiperFront / 0x456.BCM_Wiper_Front_Status**  
+  **Description:** Front Wiper Status.  
+  **Value:**  
+  - 0 "OFF"  
+  - 1 "Mist"  
+  - 2 "Intermittent Auto"  
+  - 3 "Low Speed"  
+  - 4 "High Speed"  
+  - 5 "Reserved"  
+  - 6 "Reserved"  
+  - 7 "Invalid"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x40D.MHU_DigitSpeed**  
+  **Description:** Digital speed signal displayed in km/h.  
+  **Variant:** BEV  
+
+- **Signal Name: 0x422.MHU_STAT_MileageUnit**  
+  **Description:** Indicates current unit of mileage display in screen (Km or Miles).  
+  **Value:**  
+  - 3 "Signal invalid"  
+  - 2 "Reserved"  
+  - 1 "KM"  
+  - 0 "Mile"  
+  **Variant:** BEV  
+
+- **Signal Name: 0x11A.NavCountryCode**  
+  **Description:** Country code defined by ISO3166-2.  
+  **Variant:** BEV  
+
+- **Signal Name: 0x11A.NavSpdLmtVal**  
+  **Description:** Map Speed Limit Value.  
+  **Value:**  
+  - 0x0: No Display  
+  - 0x1 to 0x1F: Speed Limit values ranging from SPL 5 to SPL 155.  
+  **Variant:** BEV  
+
+- **Signal Name: 0x11A.NavSpdLmtValUnit**  
+  **Description:** Map Speed Limit Value Units.  
+  **Value:**  
+  - 0x0: Unknown  
+  - 0x1: MPH  
+  - 0x2: KMH  
+  - 0x3: Reserved  
+  **Variant:** BEV  
+
+- **Signal Name: 0x11A.NavSpdLmtValSts**  
+  **Description:** Map Speed Limit Status.  
+  **Value:**  
+  - 0x0: Invalid  
+  - 0x1: Valid  
+  **Variant:** BEV  
+
+- **Signal Name: 0x11A.NavRoadType**  
+  **Description:** Road type of current location detected by navigation.  
+  **Value:**  
+  - 0x0: Residential area  
+  - 0x1: City/Build-up area  
+  - 0x2: Rural road  
+  - 0x3: Controlled access way  
+  - 0xF: Unknown  
+  **Variant:** BEV  
+
+---
+
+5.5.2 / / Output Signals to Vehicle CAN
+
+Requirement ID: FS-226189  
+Type: --  
+Status: New  
+
+- **Signal Name: 0x129.80.ADAS_TSR_Mode_Feed**  
+  **Description:** The type of main sign detected TSR.  
+  **Value:**  
+  - 0 "Off"  
+  - 1 "On"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x129.80.ADAS_TSR_SLAert_Feed**  
+  **Description:** Feedback of Speed Limit Alert select.  
+  **Value:**  
+  - 0 "OFF"  
+  - 1 "Speed Limit"  
+  - 2 "Speed Limit + 5"  
+  - 3 "Speed Limit + 10"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x129.80.ADAS_TSR_AudWarning_Feed**  
+  **Description:** Feedback of TSR Audible Warning On/Off (ISA).  
+  **Value:**  
+  - 0 "Off"  
+  - 1 "On"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x80.ADAS_TSR_Typ1**  
+  **Description:** Traffic Sign Speed Type.  
+  **Value:**  
+  - 0 "No detected"  
+  - 1 "Maximum Speed Limit"  
+  - 2 "End of speed limit sign"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x80.ADAS_TSR_Typ1_value**  
+  **Description:** Traffic Sign Speed value.  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x80.ADAS_TSR_Typ1_Flashing_Warning**  
+  **Description:** Speed limit warning (for icon flashing).  
+  **Value:**  
+  - 0 "Off" (no warning)  
+  - 1 "On" (trigger warning)  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x80.ADAS_TSR_Typ2**  
+  **Description:** Condition traffic Sign Speed Type.  
+  **Value:** Various values representing conditions such as snow, trailer, camping zone, etc.  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x80.ADAS_TSR_Typ2_value**  
+  **Description:** Condition traffic Sign Speed value.  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x80.ADAS_TSR_Typ2_Flashing_Warning**  
+  **Description:** Condition Speed limit warning (for icon flashing).  
+  **Value:**  
+  - 0 "Off"  
+  - 1 "On"  
+  **Variant:** BEV, ICE  
+
+- **Signal Name: 0x80.ADAS_TSR_Typ3**  
+  **Description:** Specific Traffic Sign Type detected.  
+  **Value:** Various values representing specific signs such as no entry, stop sign, tunnel, etc.  
+  **Variant:** BEV, ICE
+</page>
+
+<page number="18">
+5.5.2 // Output Signals to Vehicle CAN
+
+Requirement ID: FS-226189  
+Type: --  
+Status: New  
+
+Signal name                                                   Description                                Value                         Variant  
+------------------------------------------------------------------------------------------------------------  
+0x80. ADAS_TSR_Warning_audible        Speed limit acoustic warning            0 "Off"  
+                                                                                                                               1 "On"                         BEV ICE
+</page>
+
+<page number="19">
+5.6 / / Function Definition.
+
+Requirement ID: FS-226190.  
+Type: --  
+Status: New.  
+
+For the description below, if one requirement has special citation such as "For TSR function", it shall only be applicable for TSR function, so does to the ISA function. Otherwise, it's defined for both ISA and TSR functions.
+
+5.6.1 / / General Requirement.
+
+Requirement ID: FS-226191.  
+Type: --  
+Status: New.  
+
+1) All location related information shall always conform to the coordinate shown below:
+- X- perpendicular to the vehicle's longitudinal plane of symmetry and points to the right.
+- Z- forward in driving direction.
+- Y- pointing downwards.
+- Origin – middle of camera’s mount position on the car windshield.
+
+- X- ().  
+- Z- ().  
+- Y- ().
+</page>
+
+<page number="20">
+2. For TSR function, up to 10 traffic signs and their associated supplementary signs shall be detected by the system at any given instant in time.
+
+3. For TSR function, main signs without or with an associated supplementary sign shall be detected, while supplementary signs without a main sign to associate with shall not be detected.
+
+4. To follow the GSR, the system shall be able, through observation of road signs and signals using all relevant ISA system inputs (e.g., electronic map data), to determine the road speed limits included in the catalogue of road signs in R(EU) 2021/1958 Annex II.
+
+5. True positive distance of the correct speed limit shall be at least 90% of the total distance and at least 80% of the distance driven on each of the three road types (urban roads and streets, non-urban roads, and motorways/expressways/dual carriageways).
+
+### 5.6.2 // Signs Type
+
+#### Requirement ID:
+FS-226192  
+Type: --  
+Status: New  
+
+1. The signs that have a fixed pattern, with traffic information painted directly on a sign plate.
+
+2. The electronic signs - traffic information is displayed using a light matrix to form the graphical elements of the signs. For those electronic signs, their design, dimensions, font size, etc., must be the same as actual traffic signs.
+</page>
+
+<page number="21">
+5.6.3 // Signs Lateral Distance.
+
+Requirement ID: FS-226193  
+Type: --  
+Status: New.  
+
+5.6.3.1 // The system shall detect traffic signs when they are located to the left and/or right of the vehicle's host lane, up to a maximum lateral distance of 20 meters (distance between the vehicle center and sign) from the camera position.
+
+Requirement ID: FS-226194  
+Type: --  
+Status: New.  
+
+Note: No Entry Excluded.  
+Maximum lateral distance: 20m.
+</page>
+
+<page number="22">
+5.6.3.2 / / For TSR function, system shall detect no entry traffic signs when they are located to the left and/or right of the vehicle's host lane, up to a maximum lateral distance of 5.5m from the camera position.
+
+Requirement ID: FS-226195  
+Type: --  
+Status: New  
+
+TSR5.5m  
+
+---
+
+5.6.4 / / Signs Reported Time  
+
+Requirement ID: FS-226196  
+Type: --  
+Status: New  
+
+Speed limit value and traffic sign for the road where the host vehicle is travelling on shall be detected and reported latest, by the time the camera is parallel with the sign. Note: ‘Reported’ refers to related signal changes observable on the CAN bus. The actual driver's feeling may be later than this point due to instrument delay.
+
+CAN
+</page>
+
+<page number="23">
+5.6.5 / / Signs Speed/ Host Vehicle Speed.
+
+Requirement ID: FS-226197  
+Type: --  
+Status: New  
+
+5.6.5.1 / / 1. System shall detect speed limit signs in motion that are within the speed range between -10 km/h (the sign is moving backwards) and 5 km/h.
+
+Requirement ID: FS-226198  
+Type: --  
+Status: New  
+
+Note: This situation can occur in construction areas, where a large fixed pattern or electronic sign may be attached to a moving trailer.  
+Range: -10 km/h to 5 km/h.  
+
+5.6.5.2 / / 2. System shall detect signs at host vehicle speeds between 0 km/h and 150 km/h.
+
+Requirement ID: FS-226199  
+Type: --  
+Status: New
+</page>
+
+<page number="24">
+5.6.5 / / Signs Speed/ Host Vehicle Speed.
+
+Requirement ID: FS-226197  
+Type: --  
+Status: New  
+
+5.6.5.1 / / System shall detect speed limit signs in motion that are within the speed range between -10 km/h (the sign is moving backwards) and 5 km/h.  
+
+Requirement ID: FS-226198  
+Type: --  
+Status: New  
+
+Note: This situation can occur in construction areas, where a large fixed pattern or electronic sign may be attached to a moving trailer.  
+Speed range: -10 km/h to 5 km/h.  
+
+5.6.5.2 / / System shall detect signs at host vehicle speed between 0 km/h and 150 km/h.  
+
+Requirement ID: FS-226199  
+Type: --  
+Status: New  
+
+5.6.5.3 / / For TSR function, system shall detect the signs at host vehicle speed greater than 0 km/h and up to speeds of at least 60 km/h for No Entry sign.  
+
+Requirement ID: FS-226200  
+Type: --  
+Status: New  
+
+5.6.6 / / Signs Number in One Pole.
+
+Requirement ID: FS-226201  
+Type: --  
+Status: New  
+
+System shall be able to detect up to 3 traffic signs on a single pole or backing board.
+</page>
+
+<page number="25">
+5.6.7 / / Speed Limit Signs
+
+Requirement ID: FS-226202  
+Type: --  
+Status: New  
+
+5.6.7.1 / / Detect Types of Speed Limit Signs  
+
+Requirement ID: FS-226203  
+Type: --  
+Status: New  
+
+5.6.7.1.1 / / 1System shall detect below speed limit sign, and send speed limit information to the driver.  
+
+Requirement ID: FS-226204  
+Type: --  
+Status: New  
+
+5.6.7.1.2 / / 2System shall detect electronic speed limit signs and send speed limit information to the driver.  
+
+Requirement ID: FS-226205  
+Type: --  
+Status: New
+</page>
+
+<page number="26">
+5.6.7.1.3 / / System shall detect below end of speed limit sign and send end of speed limit information to the driver.
+
+Requirement ID:
+FS-226206  
+Type:  
+--  
+Status:  
+New  
+
+---
+
+5.6.7.2 / / Typical Scenario of Speed Limit Signs  
+
+Requirement ID:  
+FS-226208  
+Type:  
+--  
+Status:  
+New  
+
+---
+</page>
+
+<page number="27">
+5.6.7.2.1 / / 1) The detection of speed limit information shall remain accurate and robust in situations where the speed limit signs are posted together with other signs such as no stopping or no parking signs.
+
+Requirement ID: FS-226209  
+Type: --  
+Status: New  
+
+Image cannot be loaded: A sample image URL provided in the document displays traffic signs posted alongside "No Stopping" and "No Parking" signs to illustrate the requirement.  
+
+5.6.7.2.2 / / 2) System shall not detect speed-limit-sign-like small stickers which are often glued to the back side of a truck.
+
+Requirement ID: FS-226210  
+Type: --  
+Status: New  
+
+Illustration: A photo attachment in the document shows small stickers mimicking speed limit signs on the back of a truck. These include markings for 50 km/h, 60 km/h, and 70 km/h. The requirement specifies that such stickers must not be detected.
+
+5.6.7.3 / / Fusion Strategy between Front Camera and Map.
+
+Requirement ID: FS-226211  
+Type: --  
+Status: New  
+
+In VFe35 BEV and VFe36 BEV, speed limit value shall be fused with the following strategy:
+</page>
+
+<page number="28">
+5.6.7.3.1 If there is only a valid speed limit value from the camera, it shall be used as the output speed limit information.
+
+Requirement ID: FS-226212  
+Type: --  
+Status: New  
+
+5.6.7.3.2 If there is only a valid speed limit value from the map system, it shall be used as the output speed limit information.
+
+Requirement ID: FS-226213  
+Type: --  
+Status: New  
+
+5.6.7.3.3 If valid speed limit values from both the camera and map system are received, speed limit values (explicit signs) from the front camera shall be chosen as the output speed limit information, no matter if they are the same or not. For implicit signs, map speed limits shall be used.
+
+Requirement ID: FS-226214  
+Type: --  
+Status: New  
+
+5.6.8 Signs Rotation
+
+Requirement ID: FS-226215  
+Type: --  
+Status: New  
+
+System shall detect the signs rotation as below conditions:  
+-- Signs that have an X-axis rotation within the range -10° to 10° as long as no sign rotations in the other axes are present.
+</page>
+
+<page number="29">
+-- Signs that have a Y axis rotation within the range -10° to 10° as long as no sign rotations in the other axes are present.  
+-- Signs that have a Z axis rotation within the range -10° to 10° as long as no sign rotations in the other axes are present.  
+-- Signs that have a maximum combined rotation in all 3 axes within the range -10° to 10°.
+
+5.6.8.1 A sign that is rotated around the X axis is deemed to be positive when rotated clockwise.
+
+Requirement ID: FS-226216  
+Type: --  
+Status: New  
+
+5.6.8.2 A sign that is rotated around the Y axis is deemed to be positive when it faces upwards.
+
+Requirement ID: FS-226217  
+Type: --  
+Status: New
+</page>
+
+<page number="30">
+5.6.8.3 / / A sign that is rotated around the Z axis is deemed to be positive if it is facing into the driving lane.
+
+Requirement ID: FS-226218  
+Type: --  
+Status: New  
+
+---
+
+5.6.9 / / Region Code
+
+Requirement ID: FS-226219  
+Type: --  
+Status: New  
+
+TSR function requires region information.  
+The front camera is able to automatically detect the country-code within:  
+1. UK and Euro-Union.
+</page>
+
+<page number="31">
+2. Canada and America. Adjust the detection of traffic signs and speed limit signs accordingly.
+
+In VFe35 BEV and VFe36 BEV, the map system shall provide the speed limit sign in the unit of the country of operation. If the vehicle is traveling in a country where the speed units differ from those of the vehicle, the system shall display the speed limit sign in the unit of the country, while the SCF function shall use the speed limit converted to the unit used by the vehicle’s instrument panel.
+
+5.6.10 / / Roadway Types.  
+System shall detect signs on all types of roadways, including highways, rural roads, city roads, and tunnels.  
+
+Requirement ID: FS-226220.  
+Type: --.  
+Status: New.
+
+---
+
+5.6.11 / / Detected in Day and Night.  
+System shall detect the traffic signs during the day and night, as long as the traffic signs are illuminated either by the host vehicle's lighting or external lighting and the signs are clearly visible, i.e., not obstructed by vegetation, other vehicles, or inclement weather.  
+
+Requirement ID: FS-226221.  
+Type: --.  
+Status: New.
+
+---
+
+5.6.12 / / Terminated Display Logic.
+
+Requirement ID: FS-226222.  
+Type: --.  
+Status: New.
+
+5.6.12.1 / / Speed Limit Related Sign Terminated Display Logic.  
+
+Requirement ID: FS-226223.  
+Type: --.  
+Status: New.
+</page>
+
+<page number="32">
+5.6.12.1.4 / System termination case 4.
+
+Requirement ID: FS-226227.  
+Type: --.  
+Status: New.  
+
+In the case that turn light is ON and vehicle speed is within the range of  
+(TSI_PP_PAP_TurnSpeed_Threshold_LowSpeed_f, TSI_PP_PAP_TurnSpeed_Threshold_HighSpeed_f), if the yaw rate is more than the defined threshold, system shall terminate to send out the speed limit information after the steering wheel rotates back to its central position.
+</page>
+
+<page number="33">
+5.6.12.1.5 / System termination case 5.
+
+Requirement ID: FS-226228  
+Type: --  
+Status: New  
+
+Once the host vehicle has driven SLIF_PAP_MaxDist_And_Time_u16__Dist_XX distance with a FRONT CAMERA detected speed limit sign, or APV_Dis_keep_EE_XX distance with a sign received from map system, system shall terminate to send out the speed limit information.  
+
+5.6.12.1.6 / System termination case 6.
+
+Requirement ID: FS-226229  
+Type: --  
+Status: New  
+
+If the previous speed limit information was received from map system and a new speed limit information is received from FRONT CAMERA detection or map system, the new speed limit value shall be again displayed for a distance of SLIF_PAP_MaxDist_And_Time_u16__Dist_XX or APV_Dis_keep_EE_XX, no matter those two speed limit signs are the same or not.  
+
+5.6.12.1.7 / System termination case 7.
+
+Requirement ID: FS-226230  
+Type: --  
+Status: New  
+
+If the previous speed limit information is detected by FRONT CAMERA and a new speed limit information is detected by FRONT CAMERA as well, the new speed limit value shall be again displayed for a distance of SLIF_PAP_MaxDist_And_Time_u16__Dist_XX, no matter these two speed limit signs are the same or not.  
+
+5.6.12.1.8 / System termination case 8.
+
+Requirement ID: FS-226231  
+Type: --  
+Status: New  
+
+TSR is turned off (0x354. MHU_TSR_Mode = 0 off).
+</page>
+
+<page number="34">
+5.6.12.2 / / Other Traffic Sign Terminated Display Logic.
+
+Requirement ID: FS-226232.  
+Type: --.  
+Status: New.  
+
+The traffic sign information shall be terminated to send out on vehicle CAN, if one of the below conditions is fulfilled:  
+
+- CAN.  
+
+5.6.12.2.1 / / Other system termination 1).  
+
+Requirement ID: FS-226233.  
+Type: --.  
+Status: New.  
+
+The driving distance during display is more than APV_Dis_keep_TSR.  
+
+5.6.12.2.2 / / Other system termination 2).  
+
+Requirement ID: FS-226234.  
+Type: --.  
+Status: New.  
+
+TSR is turned off (0x354. MHU_TSR_Mode = 0 off).  
+
+5.6.12.2.3 / / Other system termination 3).  
+
+Requirement ID: FS-226235.  
+Type: --.  
+Status: New.  
+
+A new traffic sign with higher priority is detected. In signal 0x80.ADAS_TSR_Typ2, higher signal value holds a higher priority.  
+
+5.7 / / HMI Requirement.
+
+Requirement ID: FS-226236.  
+Type: --.  
+Status: New.
+</page>
+
+<page number="35">
+5.7.1 / / Function ON/OFF.
+
+Requirement ID: FS-226237  
+Type: --  
+Status: New  
+
+According to GSR, TSR and ISA function shall be always active when switching the vehicle ignition on. (0x129.ADAS_TSR_Mode_Feed = 1 on and 0x129.ADAS_TSR_AudWarning_Feed = 1 “on” after IGN on).  
+
+When TSR related faults are detected, 0x129.ADAS_TSR_Mode_Feed and 0x129.ADAS_TSR_AudWarning_Feed shall turn to 0 “off.”  
+
+MHU shall ensure 0x354.MHU_TSR_Mode=1 “On” and 0x354. MHU_SET_TSR_AudWarn=1 “On” after vehicle ignition on.  
+
+It should be possible to fully and partially (i.e., no warning) turn OFF the TSR/ISA.  
+
+When there is a TSR/ISA failure or TSR/ISA is fully turned OFF, a constant optical signal should be provided to inform the driver. (HMI).  
+
+When TSR/ISA is partially deactivated, an optical signal lasting at least 10s or until manually canceled by driver should be provided. (HMI).  
+
+5.7.2 / / TSR Display TSR.
+
+Requirement ID: FS-226238  
+Type: --  
+Status: New  
+
+The system shall display traffic sign recognition (TSR) information visually.  
+The attached images show examples of TSR detection:  
+- One sign detected.  
+- Two signs detected.  
+- Three signs detected.
+</page>
+
+<page number="36">
+5.7.1 Function ON/OFF.
+
+Requirement ID: FS-226237.
+Type: --.
+Status: New.
+
+According to GSR, TSR and ISA function shall be always active when switching the vehicle ignition on.
+(0x129.ADAS_TSR_Mode_Feed = 1 on and 0x129.ADAS_TSR_AudWarning_Feed = 1 “on” after IGN on).
+
+When TSR related faults are detected, 0x129.ADAS_TSR_Mode_Feed and 0x129.ADAS_TSR_AudWarning_Feed shall turn to 0 “off”.
+MHU shall ensure 0x354.MHU_TSR_Mode=1 “On” and 0x354. MHU_SET_TSR_AudWarn=1 “On” after vehicle ignition on.
+
+It should be possible to fully and partially (i.e., no warning) turn OFF the TSR/ISA.
+
+When there is a TSR/ISA failure or TSR/ISA is fully turned OFF, a constant optical signal should be provided to inform the driver (HMI).
+
+When TSR/ISA is partially deactivated, an optical signal lasting at least 10 seconds or until manually canceled by the driver should be provided (HMI).
+
+5.7.2 TSR Display TSR.
+
+Requirement ID: FS-226238.
+Type: --.
+Status: New.
+
+TSR shall send up to 3 types of traffic signs simultaneously to the dashboard for display with 3 different groups of interfaces.
+Traffic signs should be shown on the display within 2 seconds after the traffic sign passes the camera. If the vehicle speed is under 20 km/h, traffic signs should be shown within 10 m after the traffic sign passes the camera.
+
+- TYPE1: General maximum speed limit sign along with the end of speed limit: 0x80. ADAS_TSR_Typ1, 0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ1_Flashing_Warning.
+- TYPE2: Conditional speed limit sign type: 0x80. ADAS_TSR_Typ2, 0x80.ADAS_TSR_Typ2_value, 0x80.ADAS_TSR_Typ2_Flashing_Warning.
+
+Type Table:
+- Type: Camping Zone/Playground.
+  - Signal Value: 0x80.ADAS_TSR_Typ2 = 1.
+  - Sign Example: No specific speed limit value for this type of sign.
+  - Condition: When playground is reported.
+  - Enum: 175.
+  - iShow String: RESIDENTIAL_AREA.
+
+- Type: Highway.
+  - Signal Value: 0x80.ADAS_TSR_Typ2 = 2.
+  - Sign Example: Blue motorway sign representation.
+  - Condition: When highway sign is reported.
+  - Enum: 171.
+  - iShow String: MOTORWAY.
+</page>
+
+<page number="37">
+5.7.1 / / Function ON/OFF  
+Requirement ID: FS-226237  
+Type: --  
+Status: New  
+
+According to GSR, TSR and ISA function shall be always active when switching the vehicle ignition on. (0x129.ADAS_TSR_Mode_Feed = 1 on and 0x129.ADAS_TSR_AudWarning_Feed = 1 “on” after IGN on)  
+When TSR related faults are detected, 0x129.ADAS_TSR_Mode_Feed and 0x129.ADAS_TSR_AudWarning_Feed shall turn to 0 “off.”  
+MHU shall ensure 0x354.MHU_TSR_Mode = 1 “On” and 0x354.MHU_SET_TSR_AudWarn = 1 “On” after vehicle ignition on.  
+It should be possible to fully and partially (i.e., no warning) turn OFF the TSR/ISA.  
+When there is a TSR/ISA failure or TSR/ISA is fully turned OFF, a constant optical signal should be provided to inform the driver (HMI).  
+When TSR/ISA is partially deactivated, an optical signal lasting at least 10s or until manually canceled by the driver should be provided (HMI).  
+
+5.7.2 / / TSR Display  
+Requirement ID: FS-226238  
+Type: --  
+Status: New  
+
+TSR shall send up to 3 types of traffic signs simultaneously to the dashboard for display with 3 different groups of interfaces.  
+Traffic signs should be shown on the display within 2s after the traffic sign passes the camera. If the vehicle speed is under 20km/h, traffic signs should be shown within 10m after the traffic sign passes the camera.  
+
+- **TYPE1:** General maximum speed limit sign along with end of speed limit -- 0x80.ADAS_TSR_Typ1, 0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ1_Flashing_Warning.  
+- **TYPE2:** Conditional speed limit sign type -- 0x80.ADAS_TSR_Typ2, 0x80.ADAS_TSR_Typ2_value, 0x80.ADAS_TSR_Typ2_Flashing_Warning.  
+
+### Type Details:
+1. **Type:** Camping Zone/Playground  
+   **Signal Value:** 0x80.ADAS_TSR_Typ2 = 1  
+   **Condition:** When the playground is reported.  
+   **Enum:** 175  
+   **iShow String:** RESIDENTIAL_AREA  
+
+2. **Type:** Highway  
+   **Signal Value:** 0x80.ADAS_TSR_Typ2 = 2  
+   **Condition:** When the highway sign is reported.  
+   **Enum:** 171  
+   **iShow String:** MOTORWAY  
+
+3. **Type:** Town Zone/City Entrance  
+   **Signal Value:** 0x80.ADAS_TSR_Typ2 = 3  
+   **Condition:** When the city entrance sign is reported.  
+   **Enum:** 177  
+   **iShow String:** CITY_ENTRANCE  
+
+4. **Type:** End of Town Zone  
+   **Signal Value:** 0x80.ADAS_TSR_Typ2 = 4  
+   **Condition:** When the end of town zone sign is reported.  
+   **Enum:** 178  
+   **iShow String:** CITY_EXIT_COMBINED  
+
+5. **Type:** Expressway  
+   **Signal Value:** 0x80.ADAS_TSR_Typ2 = 5  
+   **Condition:** When the expressway sign is reported.  
+   **Enum:** 173  
+   **iShow String:** EXPRESSWAY  
+
+6. **Type:** Bicycle Way  
+   **Signal Value:** 0x80.ADAS_TSR_Typ2 = 6  
+   **Condition:** When the bicycle way sign is reported.  
+   **Enum:** 256  
+   **iShow String:** BICYCLE_LANE  
+
+7. **Type:** Night  
+   **Signal Value:** 0x80.ADAS_TSR_Typ2 = 7  
+   **Condition:** When the night sign, along with a specific speed limit value, is reported.  
+   **Enum:** 19  
+   **Note:** In this case, 0x80.ADAS_TSR_Typ1, 0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ1_Flashing_Warning are associated.
+</page>
+
+<page number="38">
+5.7.2 / / TSR Display TSR.
+
+Requirement ID: FS-226238.
+Type: --.
+Status: New.
+
+Traffic signs shall send up to three types of traffic signs simultaneously to the dashboard for display across three different groups of interfaces. 
+
+Traffic signs should be displayed within 2 seconds after the sign passes the camera. If the vehicle speed is under 20 km/h, traffic signs should be displayed within 10 meters after passing the camera.
+
+- **TYPE1**: General maximum speed limit sign along with end of speed limit -- 0x80.ADAS_TSR_Typ1, 0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ1_Flashing_Warning.  
+
+- **TYPE2**: Conditional speed limit sign type -- 0x80.ADAS_TSR_Typ2, 0x80.ADAS_TSR_Typ2_value, 0x80.ADAS_TSR_Typ2_Flashing_Warning.  
+
+### Table of Type2 Conditional Signs:
+1. **Camping Zone/Playground**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 1  
+   - Condition: Reported when playground is detected.  
+   - Notes: No specific speed limit value for this type of sign.  
+   - Enum: 175  
+   - iShow String: RESIDENTIAL_AREA.
+
+2. **Highway**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 2  
+   - Condition: Reported when a highway sign is detected.  
+   - Notes: No specific speed limit value for this type of sign.  
+   - Enum: 171  
+   - iShow String: MOTORWAY.
+
+3. **Town Zone/City Entrance**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 3  
+   - Condition: Reported when city entrance is detected.  
+   - Notes: No specific speed limit value for this type of sign.  
+   - Enum: 177  
+   - iShow String: CITY_ENTRANCE.
+
+4. **End of Town Zone**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 4  
+   - Condition: Reported when end of town zone is detected.  
+   - Notes: No specific speed limit value for this type of sign.  
+   - Enum: 178  
+   - iShow String: CITY_EXIT_COMBINED.
+
+5. **Expressway**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 5  
+   - Condition: Reported when expressway is detected.  
+   - Notes: No specific speed limit value for this type of sign.  
+   - Enum: 173  
+   - iShow String: EXPRESSWAY.
+
+6. **Bicycle Lane**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 6  
+   - Condition: Reported when bicycle way is detected.  
+   - Notes: No specific speed limit value for this type of sign.  
+   - Enum: 256  
+   - iShow String: BICYCLE_LANE.
+
+7. **Night**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 7  
+   - Condition: Reported when night sign with a specific speed limit value is detected.  
+   - Notes: Includes associated signals 0x80.ADAS_TSR_Typ1, 0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ1_Flashing_Warning.  
+   - Enum: 19.  
+
+8. **Minimum Speed Limit**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 8  
+   - Condition: Reported when minimum speed with a specific limit value is detected.  
+   - Notes: Includes associated signals 0x80.ADAS_TSR_Typ1, 0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ1_Flashing_Warning, which shall be reset with default value.  
+   - Enum: 27.  
+
+9. **Ramp**  
+   - Signal Value: 0x80.ADAS_TSR_Typ2 = 9  
+   - Condition: Reported when ramp sign is detected.  
+   - Notes: No specific speed limit value for this type of sign.  
+   - Enum: 23.  
+
+10. **Exit**  
+    - Signal Value: 0x80.ADAS_TSR_Typ2 = 10  
+    - Condition: Reported when an exit sign is detected.  
+    - Notes: No specific speed limit value for this type of sign.  
+    - Enum: 25.  
+
+11. **Advisory**  
+    - Signal Value: 0x80.ADAS_TSR_Typ2 = 11  
+    - Condition: Reported when an advisory sign along with a specific speed limit value is detected.  
+    - Notes: Includes associated signals 0x80.ADAS_TSR_Typ1, 0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ1_Flashing_Warning, which shall be reset with default value.  
+    - Enum: 26.
+</page>
+
+<page number="39">
+5.7.1 / / Function ON/OFF.
+
+Requirement ID: FS-226237  
+Type: --  
+Status: New  
+
+According to GSR, TSR and ISA function shall be always active when switching the vehicle ignition on.  
+(0x129.ADAS_TSR_Mode_Feed = 1 on and 0x129.ADAS_TSR_AudWarning_Feed = 1 “on” after IGN on)
+
+When TSR related faults are detected, 0x129.ADAS_TSR_Mode_Feed and 0x129.ADAS_TSR_AudWarning_Feed shall turn to 0 "off".  
+MHU shall ensure 0x354.MHU_TSR_Mode=1 “On” and 0x354.MHU_SET_TSR_AudWarn=1 “On” after vehicle ignition on.  
+It should be possible to fully and partially (i.e., no warning) turn OFF the TSR/ISA.  
+
+When there is a TSR/ISA failure or TSR/ISA is fully turned OFF, a constant optical signal should be provided to inform the driver (HMI).  
+When TSR/ISA is partially deactivated, an optical signal lasting at least 10 seconds or until manually canceled by the driver should be provided (HMI).  
+
+5.7.2 / / TSR Display TSR.
+
+Requirement ID: FS-226238  
+Type: --  
+Status: New  
+
+TSR shall send up to 3 types of traffic signs simultaneously to dashboard for display with 3 different groups of interfaces.  
+
+Traffic signs should be shown on the display within 2 seconds after the traffic sign passes the camera if the vehicle speed is under 20 km/h. Traffic signs should be shown within 10 meters after the traffic sign passes the camera.  
+
+TYPE1: General maximum speed limit sign along with end of speed limit.  
+
+- Signal IDs:  
+  - 0x80.ADAS_TSR_Typ1  
+  - 0x80.ADAS_TSR_Typ1_value  
+  - 0x80.ADAS_TSR_Typ1_Flashing_Warning  
+
+TYPE2: Conditional speed limit sign types.  
+
+| Type                  | Signal Value                | Sign Example       | Condition                                   | Enum | iShow String        |
+|-----------------------|----------------------------|--------------------|-------------------------------------------|------|---------------------|
+| Camping Zone/Playground | 0x80.ADAS_TSR_Typ2 = 1   | [Example Image]    | When playground is reported. No specific speed limit value for this type of sign. | 175  | RESIDENTIAL_AREA    |
+| Highway              | 0x80.ADAS_TSR_Typ2 = 2     | [Example Image]    | When highway sign is reported.             | 171  | MOTORWAY            |
+| Town Zone/City Entrance | 0x80.ADAS_TSR_Typ2 = 3   | [Example Image]    | When city entrance sign reported. Note: No specific speed limit value for this type of sign. | 177  | CITY_ENTRANCE       |
+| End of Town Zone      | 0x80.ADAS_TSR_Typ2 = 4     | [Example Image]    | When end of town zone sign reported. Note: No specific speed limit value for this type of sign. | 178  | CITY_EXIT_COMBINED  |
+| Express Way          | 0x80.ADAS_TSR_Typ2 = 5     | [Example Image]    | When express sign reported. Note: No specific speed limit value for this type of sign. | 173  | EXPRESSWAY          |
+| Bicycle Way          | 0x80.ADAS_TSR_Typ2 = 6     | [Example Image]    | When bicycle way sign reported. Note: No specific speed limit value for this type of sign. | 256  | BICYCLE_LANE        |
+| Night                | 0x80.ADAS_TSR_Typ2 = 7     | [Example Image]    | When night sign along with a specific speed limit value are reported. Note: In this case, signals will reset to default values. | 19   | WRN_NIGHT           |
+
+TYPE3: Specific Traffic Sign Types.  
+
+| Type                  | Signal Value                | Sign Example       | Enum | iShow String          |
+|-----------------------|----------------------------|--------------------|------|-----------------------|
+| End General           | 0x80.ADAS_TSR_Typ3 = 1     | [Example Image]    | 64   | END                   |
+| End of Tunnel         | 0x80.ADAS_TSR_Typ3 = 2     | [Example Image]    | [Enum Code] | TUNNEL                |
+| Beware of Snow        | 0x80.ADAS_TSR_Typ3 = 4     | [Example Image]    | 179  | WRN_BEWARE_OF_SNOW    |
+</page>
+
+<page number="40">
+5.7.2 / / TSR Display TSR  
+
+Requirement ID: FS-226238  
+Type: --  
+Status: New  
+
+Slippery Road: 0x80.ADAS_TSR_Typ3 = 5. Enum: 160. iShow String: WRN_SLIPPERY_WHEN_WET.  
+
+Pedestrian Crossing: 0x80.ADAS_TSR_Typ3 = 6. Enum: 52. iShow String: AT_PEDESTRIANS_CROSSING.  
+
+Children: 0x80.ADAS_TSR_Typ3 = 7. Enum: 134. iShow String: WRN_CHILDREN.  
+
+No Passing: 0x80.ADAS_TSR_Typ3 = 8. Enum: 200. iShow String: NO_PASS.  
+
+No Turn Left: 0x80.ADAS_TSR_Typ3 = 9. Enum: 245. iShow String: ARROW_NO_LEFT.  
+
+No Turn Right: 0x80.ADAS_TSR_Typ3 = 10. Enum: 246. iShow String: ARROW_NO_RIGHT.  
+
+No U Turn: 0x80.ADAS_TSR_Typ3 = 11. Enum: 48. iShow String: NO_U_TURN.
+</page>
+
+<page number="41">
+### Stop
+Signal Value: 0x80.ADAS_TSR_Typ3 = 12  
+Enum: 210  
+iShow String: STOP_SIGN  
+
+### Car Limit
+Signal Value: 0x80.ADAS_TSR_Typ3 = 13  
+Enum: 23  
+iShow String: CAR_LIMIT  
+
+### No Entrance
+Signal Value: 0x80.ADAS_TSR_Typ3 = 14  
+Enum: 199  
+iShow String: NO_ENTRANCE  
+
+### No Throughfare
+Signal Value: 0x80.ADAS_TSR_Typ3 = 15  
+Enum: --  
+iShow String: TSR3  
+
+TSR shall send the detected speed limit value (0x80.ADAS_TSR_Typ1_value, 0x80.ADAS_TSR_Typ2_value) to MHU for display.
+</page>
+
+<page number="42">
+For all signs except 'Stop Sign' and 'No Entrance Sign,' their display message shall be sent out once they are driven past by the host vehicle, until the host vehicle has driven the APV_Dis_keep_TSR distance.
+
+For TYPE2 and TYPE3, signal 0x80.ADAS_TSR_Typ2 and 0x80.ADAS_TSR_Typ3, higher signal value holds a higher priority. The current display signal can be terminated by a new signal with a higher value.
+
+0x80.ADAS_TSR_Typ1_value will always show explicit and implicit speed limit value. Typ2 shows the implicit sign (not value) and condition speed limit value. (The speed limit value of 0x80.ADAS_TSR_Typ2=1 to 6 will be sent in 0x80.ADAS_TSR_Typ1_value and 0x80.ADAS_TSR_Typ2, while the other speed limit value of 0x80.ADAS_TSR_Typ2=7 to 12 will be sent in 0x80.ADAS_TSR_Typ2_value and 0x80.ADAS_TSR_Typ2).
+
+For example, when the vehicle meets the Highway sign in France:
+</page>
+
+<page number="43">
+5.7.3 / / Speed Limit Alert (Visual/Acoustic).
+
+Requirement ID: FS-226239.  
+Type: --  
+Status: New.  
+
+System shall adjust the instant of alert based on 0x354.MHU_SET_TSR_SLAert and send out feedback signal 0x129.MHU_SET_TSR_SLAert_Feed.  
+
+System shall turn on/off acoustic warning based on 0x354.MHU_SET_TSR_AudWarn and send out feedback signal 0x129.MHU_SET_TSR_AudWarn_Feed.
+</page>
+
+<page number="44">
+When the speedometer speed exceeds the perceived speed limit, TSR function shall raise a visual warning through signal 0x80. ADAS_TSR_Typ1_Flashing_Warning = 1 within 1.5 seconds when the speedometer speed exceeds the perceived speed limit. The warning shall last for at least 5 seconds after the timeout of the acoustic warning or until the current vehicle speed is lower than the perceived speed limit if this occurs earlier, for the speed limit specified by 0x80. ADAS_TSR_Typ1_value.
+
+When any of the following conditions are met, for constant vehicle speed:  
+1. Current vehicle speed – 130% perceived speed limit > 0x354.MHU_SET_TSR_SLAert, for 3 seconds or longer.  
+2. Current vehicle speed – 120% perceived speed limit > 0x354.MHU_SET_TSR_SLAert, for 4 seconds or longer.  
+3. Current vehicle speed – 110% perceived speed limit > 0x354.MHU_SET_TSR_SLAert, for 5 seconds or longer.  
+4. Current vehicle speed – 100% perceived speed limit > 0x354.MHU_SET_TSR_SLAert, for 6 seconds or longer.  
+
+TSR function shall:  
+1. Raise visual warning through signal 0x80. ADAS_TSR_Typ2_Flashing_Warning = 1 until the current vehicle speed is lower than the perceived speed limit, for TYPE1 speed limit.  
+2. Raise visual warning through signal 0x80. ADAS_TSR_Typ2_Flashing_Warning = 1 for 4 seconds or until the current vehicle speed is lower than the perceived speed limit, for TYPE2 speed limit.  
+3. Raise acoustic warning through signal 0x129.ADAS_TSR_Warning_audible = 1 until the current vehicle speed is lower than the perceived speed limit or 5 seconds have expired, for TYPE1 or TYPE2 speed limit, provided acoustic warning has been enabled on MHU (0x354.MHU_SET_TSR_AudWarn = 1).  
+
+Raise acoustic warning through signal 0x129.ADAS_TSR_Warning_audible = 1 until the current vehicle speed is lower than the perceived speed limit or 4 seconds have expired when this occurs earlier, for speed limit 0x80. ADAS_TSR_Typ1_value, provided acoustic warning has been enabled on MHU (0x354.MHU_SET_TSR_AudWarn = 1).  
+
+**Note:**  
+1. Current speed shall be the vehicle display speed (0x40D.MHU_DigitSpeed, always received with KPH unit).  
+2. Based on GSR, MHU shall avoid sending out 0x354.MHU_SET_TSR_SLAert = 2 or 3 when the current region is Europe.  
+3. For the speed limit detected by camera and 0x354.MHU_SET_TSR_SLAert, the system shall use them with the unit based on 0x422.MHU_STAT_MileageUnit.
+
+When the vehicle is accelerating, the manufacturer shall select the appropriate time for the conditions referred to in points (b), (c), or (d), or 3.0 seconds as well as any duration between these two values.  
+
+When the vehicle is decelerating, the manufacturer shall select the appropriate time for the conditions referred to in points (a), (b), or (c), or 6.0 seconds as well as any duration between those values.  
+
+According to the GSR requirements.
+</page>
+
+<page number="45">
+Ÿ System shall use one timer for both acceleration and deceleration.
+
+Ÿ The timer shall be started when the current speedometer speed > 100% of the perceived speed limit, and it shall be reset when the current speedometer speed ≤ 100% of the perceived speed limit.
+
+Ÿ If any of the conditions listed in ID1712 (a), (b), (c), or (d) are met when the timer reaches 3 seconds, the acoustic warning shall be triggered. Otherwise, at the 4th, 5th, and 6th seconds, the system shall repeat checking the conditions in ID1712 (a), (b), (c), or (d) and determine whether to trigger the acoustic warning or not.
+
+Ÿ When the timer reaches 6 seconds, the system shall always trigger the acoustic warning.
+
+**Note**: These requirements mean that every condition shall hold its own timer. If any of these timers expire, no matter whether the vehicle is accelerating or decelerating, the acoustic warning shall be triggered.
+
+The cascaded acoustic warning shall be provided until the speedometer speed is less than or equal to the perceived speed limit or for at least 3.0 seconds after the initial activation of the cascaded acoustic warning.
+
+The acoustic warning shall not last more than 5.0 seconds, even in cases of successive speed limit changes, in order to minimize driver annoyance.
+
+The cascaded acoustic warning shall terminate immediately upon deliberate driver action, such as adjusting the target cruise speed through the SET or SPEED+ or SPEED- button.
+
+#### SET SPEED+/-
+- The acoustic warning shall be inhibited once the ISLC function has been activated. 
+- For Non-EU countries: If the ISLC function is activated (internal signal from ACC), the acoustic warning shall be inhibited. 
+- For EU countries: The acoustic warning shall NOT be inhibited when the ISLC function is active. If the driver manually overrides the ISLC function by increasing the target speed, visual and acoustic warnings shall resume and be ready after the next perceived speed limit.
+
+**Note**: EU countries reference RU 2021/1958 Annex II.
+
+When the vehicle is decelerating due to any of the following events, the cascaded acoustic warning shall either not be provided or terminate immediately:
+1. Full release of the accelerator control, except when the driving speed of the vehicle is actively controlled by a vehicle system, or during brief deceleration due to gear selection.
+2. Manual disengagement of a vehicle system controlling the driving speed.
+3. Activation of the service braking system.
+</page>
+
+<page number="46">
+1. Activation of an endurance braking system.
+
+After a warning has been terminated, the system shall be prepared to provide the next warning after one or more of the following conditions are applied:
+1. The speedometer speed dropped below the perceived speed limit.
+2. Reapplication of the accelerator control after the condition in point (a) leading to the termination of warning.
+3. Reengagement of the vehicle system controlling driving speed after the condition in point (b) leading to the termination of warning.
+4. The perceived speed limit has changed to a lower value.
+
+When the TSR displays the perceived speed limit, even when the speedometer speed is lower than the perceived speed limit, the system shall also provide a subtle and non-annoying audible notification each time when the perceived speed limit changes. (This will be done by MHU.)
+
+### 5.7.4 Popup Message
+**Requirement ID:** FS-226259  
+**Type:** --  
+**Status:** New  
+
+| No. | Conditions                                       | Text Popup                          | Signal Definition                | Signal Duration Time |
+|-----|--------------------------------------------------|--------------------------------------|-----------------------------------|-----------------------|
+| 1   | Current display speed – Perceived speed limit >= 20 kph | "Please slow down. Car is moving over speed limit" | 0x80. ADAS_TSR_PopUp_Feed = 4    | 4s                    |
+
+### 5.8 Turing Parameters
+**Requirement ID:** FS-226260  
+**Type:** --  
+**Status:** New
+</page>
+
+<page number="47">
+5.8.1 / / TSR Tuning Parameter TSR.
+
+Requirement ID: FS-226270.  
+Type: --  
+Status: New.  
+
+**Parameter**: APV_Dis_keep_TSR.  
+**Description**: The driven distance of the vehicle for displaying traffic sign information(Type 3).  
+**Typical Value**: 800.  
+**Actual Value**: Tunable value.  
+**Units**: m.   
+
+---
+
+5.8.2 / / Parameter for Front Camera.
+
+Requirement ID: FS-514877.  
+Type: --  
+Status: New.  
+
+After FRONT CAMERA detects speed limit sign, the speed limit information shall be sent out on vehicle CAN before the time the vehicle head is parallel with the sign. It is not correct to send speed limit information after vehicle head passes the speed limit sign.  
+
+The speed limit information shall be sent out on vehicle CAN for SLIF_PAP_MaxDist_And_Time_u16Dist_XX distance. This distance is tunable according to the detected limit speed.  
+
+**Note**: The distance starts counting from sending the first speed limit message.
+
+---
+
+Parameters:  
+**SLIF_PAP_MaxDist_And_Time_u16Dist_0_10**  
+**Speed Limit Information (km/h)**: 0-10.  
+**Distance (m)**: Tunable value.
+</page>
+
+<page number="48">
+SLIF_PAP_MaxDist_And_Time_u16Dist_11_20 corresponds to a speed limit of 11-20 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_21_30 corresponds to a speed limit of 21-30 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_31_40 corresponds to a speed limit of 31-40 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_41_50 corresponds to a speed limit of 41-50 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_51_60 corresponds to a speed limit of 51-60 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_61_70 corresponds to a speed limit of 61-70 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_71_80 corresponds to a speed limit of 71-80 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_81_90 corresponds to a speed limit of 81-90 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_91_100 corresponds to a speed limit of 91-100 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_101_110 corresponds to a speed limit of 101-110 km/h and has a tunable value for distance.
+
+SLIF_PAP_MaxDist_And_Time_u16Dist_111_120 corresponds to a speed limit of 111-120 km/h and has a tunable value for distance.
+</page>
+
+<page number="49">
+SLIF_PAP_MaxDist_And_Time_u16Dist_121_155: The speed limit information is applicable for distances ranging from 121-155 and allows a tunable value.
+
+5.8.3 // Typical Parameters
+
+Requirement ID: FS-514878  
+Type: --  
+Status: New  
+
+### Parameters Table
+
+1. **SLIF_PAP_MaxDist_And_Time_u16__Dist_0_10**:
+   - **Description**: The driven distance of the vehicle for displaying speed limit information of 0-10km/h which is from FRONT CAMERA.
+   - **Typical Value**: 250.
+   - **Units**: m.
+
+2. **SLIF_PAP_MaxDist_And_Time_u16__Dist_11_20**:
+   - **Description**: The driven distance of the vehicle for displaying speed limit information of 11-20km/h which is from FRONT CAMERA.
+   - **Typical Value**: 250.
+   - **Units**: m.
+
+3. **SLIF_PAP_MaxDist_And_Time_u16__Dist_21_30**:  
+   - **Description**: The driven distance of the vehicle for displaying speed limit information of 21-30km/h which is from FRONT CAMERA.
+   - **Typical Value**: 250.
+   - **Units**: m.
+
+4. **SLIF_PAP_MaxDist_And_Time_u16__Dist_31_40**:
+   - **Description**: The driven distance of the vehicle for displaying speed limit information of 31-40km/h which is from FRONT CAMERA.
+   - **Typical Value**: 400.
+   - **Units**: m.
+</page>
+
+<page number="50">
+When the distance parameter SLIF_PAP_MaxDist_And_Time_u16__Dist_41_50 is used, it represents the driven distance of the vehicle for displaying speed limit information of 41-50km/h from the FRONT CAMERA. The typical value is 400 meters.
+
+When the distance parameter SLIF_PAP_MaxDist_And_Time_u16__Dist_51_60 is used, it represents the driven distance of the vehicle for displaying speed limit information of 51-60km/h from the FRONT CAMERA. The typical value is 400 meters.
+
+When the distance parameter SLIF_PAP_MaxDist_And_Time_u16__Dist_61_70 is used, it represents the driven distance of the vehicle for displaying speed limit information of 61-70km/h from the FRONT CAMERA. The typical value is 800 meters.
+
+When the distance parameter SLIF_PAP_MaxDist_And_Time_u16__Dist_71_80 is used, it represents the driven distance of the vehicle for displaying speed limit information of 71-80km/h from the FRONT CAMERA. The typical value is 800 meters.
+
+When the distance parameter SLIF_PAP_MaxDist_And_Time_u16__Dist_81_90 is used, it represents the driven distance of the vehicle for displaying speed limit information of 81-90km/h from the FRONT CAMERA. The typical value is 800 meters.
+
+When the distance parameter SLIF_PAP_MaxDist_And_Time_u16__Dist_91_100 is used, it represents the driven distance of the vehicle for displaying speed limit information of 91-100km/h from the FRONT CAMERA. The typical value is 1200 meters.
+</page>
+
+<page number="51">
+1. **SLIF_PAP_MaxDist_And_Time_u16__Dist_101_110.**  
+   The driven distance of the vehicle for displaying speed limit information of 101-110km/h which is from FRONT CAMERA.  
+   **Typical Value:** 1200m  
+   **Units:** m  
+
+2. **SLIF_PAP_MaxDist_And_Time_u16__Dist_111_120.**  
+   The driven distance of the vehicle for displaying speed limit information of 111-120km/h which is from FRONT CAMERA.  
+   **Typical Value:** 1200m  
+   **Units:** m  
+
+3. **SLIF_PAP_MaxDist_And_Time_u16__Dist_121_155.**  
+   The driven distance of the vehicle for displaying speed limit information of 121-155km/h which is from FRONT CAMERA.  
+   **Typical Value:** 1500m  
+   **Units:** m  
+
+4. **TSI_PP_PAP_TurnSpeed_Threshold_LowSpeed_f.**  
+   Based on turn light ON, the speed for terminating display strategy (low speed).  
+   **Typical Value:** 35km/h  
+   **Units:** km/h  
+
+5. **TSI_PP_PAP_TurnSpeed_Threshold_HighSpeed_f.**  
+   Based on turn light ON, the speed for terminating display strategy (high speed).  
+   **Typical Value:** 50km/h  
+   **Units:** km/h  
+
+6. **TSI_PP_PAP_YawRate_Threshold_LowSpeed_f.**  
+   Based on turn light ON, the yaw rate for terminating display strategy (low speed).  
+   **Typical Value:** 24°/s  
+   **Units:** °/s  
+
+7. **TSI_PP_PAP_YawRate_Threshold_HighSpeed_f.**  
+   Based on turn light ON, the yaw rate for terminating display strategy (high speed).  
+   **Typical Value:** 12°/s  
+   **Units:** °/s
+</page>
+
+<page number="52">
+5.9 / Test Requirement from GSR.
+
+Requirement ID: **FS-514879**  
+Type: --  
+Status: New  
+
+The following test items should be performed:  
+1. Perceived speed limit determination through observation of explicit speed limit signs test.  
+2. Perceived speed limit determination through observation of implicit road signs and signals test procedure.  
+3. Speed limit determination real-world driving reliability test.  
+4. Speed limit warning function test procedure.  
+
+For detailed information, please refer to test procedures in the R(EU) 2021/1958.  
+
+5.10 / System Fault.
+
+Requirement ID: **FS-226271**  
+Type: --  
+Status: New  
+
+5.10.1 / FRONT CAMERA Failsafe FRONT CAMERA.
+
+Requirement ID: **FS-226272**  
+Type: --  
+Status: New  
+
+Camera failsafe will affect ISA function and if there is a related failsafe occur, the ISA function shall be unavailable. Examples include:  
+- Full Blockage  
+- Partial Blockage  
+- Out of focus, and so on.
+</page>
+
+<page number="53">
+5.10.2. Fault requirement.
+
+Requirement ID: FS-514880  
+Type: --  
+Status: New  
+
+- 0x80.ADAS_TSR_Mode_Feed, 0x80.ADAS_TSR_SLAert_Feed, 0x80.ADAS_TSR_AudWarning_Feed = OFF, and 0x80.ADAS_TSR_PopUp_Feed == 0x14 "ISA Malfunction" when any TSR/ISA fault is detected.  
+    - (For EU countries: including Map error).
+
+5.10.3. Other System Fault.
+
+Requirement ID: FS-226273  
+Type: --  
+Status: New  
+
+5.10.3.1. 1) Battery voltage too low fault.
+
+Requirement ID: FS-226274  
+Type: --  
+Status: New  
+
+5.10.3.2. 2) Battery voltage too high fault.
+
+Requirement ID: FS-226275  
+Type: --  
+Status: New  
+
+5.10.3.3. 3) Vehicle CAN/ADAS CAN bus off fault.
+
+Requirement ID: FS-226276  
+Type: --  
+Status: New  
+
+5.10.3.4. 4) The ISA related signals missing faults.
+</page>
+
+<page number="54">
+5.10.2 // Fault requirement.
+
+Requirement ID: FS-514880  
+Type: --  
+Status: New  
+
+0x80.ADAS_TSR_Mode_Feed, 0x80. ADAS_TSR_SLAert_Feed,  
+0x80.ADAS_TSR_AudWarning_Feed = OFF, and  
+0x80. ADAS_TSR_PopUp_Feed == 0x14 "ISA Malfunction" when any TSR/ISA fault is detected. (For EU countries: including Map error).  
+
+5.10.3 // Other System Fault.
+
+Requirement ID: FS-226273  
+Type: --  
+Status: New  
+
+5.10.3.1 // Battery voltage too low fault.
+
+Requirement ID: FS-226274  
+Type: --  
+Status: New  
+
+5.10.3.2 // Battery voltage too high fault.
+
+Requirement ID: FS-226275  
+Type: --  
+Status: New  
+
+5.10.3.3 // Vehicle CAN/ADAS CAN bus off fault.
+
+Requirement ID: FS-226276  
+Type: --  
+Status: New  
+
+5.10.3.4 // ISA related signals missing faults.
+
+Requirement ID: FS-226277  
+Type: --  
+Status: New  
+
+5.10.3.5 // Invalid checksum faults.
+
+Requirement ID: FS-226278  
+Type: --  
+Status: New  
+
+5.10.3.6 // Invalid Rolling counter faults.
+
+Requirement ID: FS-226279  
+Type: --  
+Status: New  
+
+5.10.3.7 // Invalid steering wheel angle fault.
+
+Requirement ID: FS-226280  
+Type: --  
+Status: New  
+
+5.10.3.8 // Relevant signal invalid.
+
+Requirement ID: FS-226281  
+Type: --  
+Status: New  
+
+5.10.3.9 // Out of calibration.
+
+Requirement ID: FS-226282  
+Type: --  
+Status: New  
+
+5.10.3.10 // All core internal fault.
+
+Requirement ID: FS-226283  
+Type: --  
+Status: New
+</page>
+
+<page number="55">
+5.10.3.11 / 11) SPC incomplete fault.
+
+Requirement ID: FS-226284  
+Type: --  
+Status: New  
+
+5.10.3.12 / 12) Calibration not set fault.
+
+Requirement ID: FS-226285  
+Type: --  
+Status: New  
+
+5.10.3.13 / 13) NVM relevant fault.
+
+Requirement ID: FS-226286  
+Type: --  
+Status: New  
+
+5.10.3.14 / 14) CAN mute fault.
+
+Requirement ID: FS-226287  
+Type: --  
+Status: New  
+
+5.11 / TSR
+
+Requirement ID: FS-198300  
+Type: --  
+Status: New  
+
+-- Technical Agreement  
+
+5.11.1 / Road Type
+
+Requirement ID: FS-198301  
+Type: --  
+Status: New  
+
+Road Type:  
+There are no special requirements for road type, and function shall work normally on expressways, urban roads, national roads, tunnels, ramps, bridge roads, straight roads, and curved roads.  
+
+TSR: [24/12]  
+Author: duongvh3  
+OK
+</page>
+
+<page number="56">
+5.11.2 / Sign Type.
+
+Requirement ID: FS-198302.  
+Type: --.  
+Status: New.
+
+**Sign Type**  
+Refer to TSR function specification.  
+
+TSR [24/12] duongvh3 OK.  
+
+---
+
+5.11.3 / Report Time.
+
+Requirement ID: FS-198303.  
+Type: --.  
+Status: New.
+
+**Report Time**  
+Traffic sign for the road segment shall be detected and reported latest by the time the camera is parallel with the sign.  
+
+TSR [24/12] duongvh3 OK.  
+
+---
+
+5.11.4 / Sign Display Duration (Distance).
+
+Requirement ID: FS-198304.  
+Type: --.  
+Status: New.
+
+**Sign Display Duration**  
+‘No Entrance Sign’ and ‘Stop Sign’ shall be displayed immediately when detected and shall stop displaying once they cannot be detected.  
+Other signs’ display shall be based on the host vehicle’s driving distance, and it shall be able to be calibrated.  
+
+TSR [24/12] duongvh3 OK.  
+
+---
+
+5.11.5 / Speed Range.
+
+Requirement ID: FS-198305.  
+Type: --.  
+Status: New.
+</page>
+
+<page number="57">
+Speed range: [0,150]km/h.  
+TSR  
+[24/12]  
+duongvh3 OK.  
+
+5.11.6 / Road Type.  
+Requirement ID: FS-198306.  
+Type: --.  
+Status: New.  
+
+Road Type:  
+There are no special requirements for road type, and function shall work normally on expressways, urban roads, national roads, tunnels, ramps, bridge roads, straight roads, and curved roads.  
+TSR.
+</page>
+</pages>

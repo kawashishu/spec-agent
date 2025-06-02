@@ -1,0 +1,651 @@
+
+<filename>VFDSXVBEX0047_BEV_GAP_HIDER_V01_ 2020.07.04</filename>
+<pages>
+
+<page number="1">
+SPB.
+
+Supersedes edition (06.2020).
+
+B2P.
+
+BEV_GAP_HIDER Spec book (SPB). Applicable for Build to Print Supplier.
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop a new C-SUV vehicle in both Battery Electric Vehicle (BEV) and Internal Combustion Engine (ICE) variants under the PREM program. Environmental impact and sustainability are integral target features of the program. This Specification Book (SPB) shall provide details for all components required for mass production within the PREM Program.
+
+Responsible Contact: KAILASH PARMAR  
+vf.pn.parmark@vinfast.vn  
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Index.
+
+Contents.
+
+SCOPE AND PURPOSE  2
+
+1. SCOPE OF PRODUCT/COMMODITY  5
+   1.1 Vehicle profile  5
+   1.2 Sales Markets  5
+   1.3 Production volume estimation (Estimate)  5
+       1.3.1 For Vietnam market  5
+       1.3.2 For US market  5
+
+2. PROGRAM TIMING AND BUILD PLAN  5
+   2.1 Timing plan  5
+   2.2 Build Plan  5
+
+3. ORGANIZATION AND CONTACT  6
+
+4. DEFINITIONS AND APPLICABLE DOCUMENTS  6
+   4.1 CAD Data/ Tranfer data-CAD Requirements  6
+   4.2 Change Documentation and Part History Documentation  6
+
+5. DESCRIPTION AND SCOPE OF WORK  7
+   5.1 Technical requirement  7
+       5.1.1 Function  8
+   5.2 General CAE Requirements  9
+   5.3 Material requirement & Corrosion  9
+   5.4 Traceability  12
+   5.5 Labeling of Parts  12
+   5.6 Vehicle Architecture  12
+   5.7 Operational Strength (Stiffness / Strength / Durability)  12
+
+6. TESTING AND VALIDATION AND DVP&R  13
+   6.1 Tightness  14
+   6.2 Environment Compatability  15
+
+7. HOMOLOGATION AND SAFETY REGULATIONS  17
+   7.1 Homologation and safety regulation requirements  17
+       7.1.1 North America  17
+       7.1.2 Europe  18
+
+8. DELIVERABLES  18
+   8.1 Technical deliverables  18
+   8.2 Details deliverables and RASI  19
+
+9. SUPPLIER RESPONSIBILITIES  19
+
+10. INTELLECTUAL PROPERTY / COPYRIGHT  20
+
+11. INSURANCE / WARRANTIES  20
+
+12. VINFAST GTC & PART PACKAGING AND INCOTERMS  20
+</page>
+
+<page number="4">
+13 DEFINITIONS AND LIST OF ABBREVIATIONS.
+
+Release.
+
+Version: 1.0.  
+Date: July-2020.  
+
+Updated by:  
+- **Function:** ER- Exterior.  
+  **Name:** Kailash Parmar (vf.pn.parmark@vinfast.vn).  
+- **Function:** ER-MGL Interior/Exterior.  
+  **Name:** Jason John Taylor (v.jasontj@vinfast.vn).  
+
+Revisions since previous version:  
+- **Version:** 1.0.  
+  **Change Description:** First edition.  
+  **Signature:** Kailash Parmar.  
+  **Date:** 03/07/2020.
+</page>
+
+<page number="5">
+1. Scope of product/commodity.
+
+1.1. Vehicle profile.  
+Refer to appendix:  
+VFDSXVCVC0501 CSUV_ICE_BEV_Appendix_5_Features list.
+
+1.2. Sales Markets.  
+LHD countries: Vietnam (VN) & ASEAN, US.
+
+1.3. Production volume estimation (Estimate).  
+
+1.3.1. For Vietnam market.  
+Refer to appendix:  
+VFDSXVCVC2101 CSUV_Appendix_1_Product_Volume.
+
+1.3.2. For US market.  
+Refer to appendix:  
+VFDSXVCVC2101 CSUV_Appendix_1_Product_Volume.
+
+2. Program Timing and Build Plan.
+
+2.1. Timing plan.  
+Refer to appendix:  
+VFDSXVCVC1101 CSUV_Appendix_1_Project timing.
+
+2.2. Build Plan.  
+*- Build volume under preparation, will be communicated shortly with the updated plan by PMO side.
+</page>
+
+<page number="6">
+### 3 Organization and contact
+
+**Contact Information:**
+
+- Commodity Buyer  
+  - **Name:** Nguyen Minh Tung  
+  - **Email ID:** v.tungnm4@vinfast.vn  
+  - **Contact Number:** 0936631437  
+
+- Commodity Buyer Manager  
+  - **Name:** Sang Yun Won  
+  - **Email ID:** v.wonsy@vinfast.vn  
+  - **Contact Number:** +84(0) 888 923 663  
+
+- Commodity Engineering  
+  - **Name:** Kailash Parmar  
+  - **Email ID:** vf.pn.parmark@vinfast.vn  
+  - **Contact Number:** Not specified  
+
+- Commodity Engineering Manager  
+  - **Name:** Amos Nmaju  
+  - **Email ID:** v.amosn@vinfast.vn  
+  - **Contact Number:** +84(0) 818733223  
+
+- SQE (Site Engineer)  
+  - **Name:** Prescott Michael Philip  
+  - **Email ID:** v.michaelpp@vinfast.vn  
+  - **Contact Number:** +84 812252266  
+
+- SQE Manager  
+  - **Name:** Nguyen Thanh Nam  
+  - **Email ID:** v.namnt36@vinfast.vn  
+  - **Contact Number:** +84 912 379 568  
+
+- SCM Analyst  
+  - **Name:** Dilshod Tokhtasinov  
+  - **Email ID:** v.dilshod@vinfast.vn  
+  - **Contact Number:** +84(0) 888352662  
+
+- Packaging Analyst  
+  - **Name:** Attsawarungsun Nimnaul  
+  - **Email ID:** v.nimnaula@vinfast.vn  
+  - **Contact Number:** +84(0) 888329955  
+
+- SCM Manager  
+  - **Name:** Benjamin Peter Stewart  
+  - **Email ID:** v.bens@vinfast.vn  
+  - **Contact Number:** +84(0) 888798855  
+
+---
+
+### 4 Definitions and applicable documents
+
+#### 4.1 CAD Data/ Transfer Data-CAD Requirements
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014.  
+CAD data transfer from VinFast to the supplier will be executed through the Supplier Collaborative Module. For more details, refer to the Supplier Collaborative Module in the RFQ package.
+
+#### 4.2 Change Documentation and Part History Documentation
+During the development and production process, all history of changes within the framework of the contractor must be documented and provided to VinFast and OEM/Supplier by the contractor (e.g., entries in a project manual).  
+
+The form of the data can be defined by the contractor.  
+Vehicle documentation systems or components, which must fulfill safety regulations or legal requirements, must be remarked on the drawings.  
+
+The reasons and the characteristics which have to be documented are listed by authorities. These demands will be requested during the development of the part and, at the latest, in the PTO phase.
+</page>
+
+<page number="7">
+5 Description and scope of work.
+
+5.1 Technical requirement.
+
+Table 1: Technical information table provides details about parts, their respective part numbers, quantities, materials, purchase levels, and applicability for ICE and BEV vehicles in different markets. The following records summarize the table:
+
+1. **BEV_HV_BATTERY_GAP_HIDER_FRT_LH** (Part No. BEX30011501) is made of PVC material and purchased at Level P. It is optional (X*) for after-sales solutions in VN+ASEAN, VN+ASEAN Plus, and US markets. It is applicable for BEV D-SUV and C-SUV vehicles.
+
+2. **BEV_HV_BATTERY_GAP_HIDER_FRT_RH** (Part No. BEX30011502) is made of PVC material and purchased at Level P. It is optional (X*) for after-sales solutions in VN+ASEAN, VN+ASEAN Plus, and US markets. It is applicable for BEV D-SUV and C-SUV vehicles.
+
+3. **BEV_HV_BATTERY_GAP_HIDER_RR_LH** (Part No. BEX30011503) is made of PVC material and purchased at Level P. It is optional (X*) for after-sales solutions in VN+ASEAN, VN+ASEAN Plus, and US markets. It is applicable for BEV D-SUV and C-SUV vehicles.
+
+4. **BEV_HV_BATTERY_GAP_HIDER_RR_RH** (Part No. BEX30011504) is made of PVC material and purchased at Level P. It is optional (X*) for after-sales solutions in VN+ASEAN, VN+ASEAN Plus, and US markets. It is applicable for BEV D-SUV and C-SUV vehicles.
+</page>
+
+<page number="8">
+# Description and Scope of Work
+
+## 5.1 Technical Requirement
+
+Refer Part Data Sheet for details VFSRXVBEX0047_PDS_BEV_GAP_HIDER_V01_2020.07.04.
+
+### 5.1.1 Function
+The function of this part is to cover the gap between the HV Battery and the Underbody Body in the Side Sill area. The part is located in the wet area of the vehicle and exposed to the environment.
+
+Suitable rigid PVC (Black color) sheets are to be used for vacuum forming of the parts. Recycled material is permitted to save cost. The supplier must submit a technical data sheet of the raw material and the manufacturing process layout along with the quotation.
+</page>
+
+<page number="9">
+5 Description and scope of work.
+
+5.1 Technical Requirement.
+
+Refer Part Data Sheet for details: VFSRXVBEX0047_PDS_BEV_GAP_HIDER_V01_2020.07.04.
+
+5.1.1 Function.
+The function of this part is to cover the gap between the HV Battery and the Underbody Body in the Side Sill area. The part is located in the wet area of the vehicle and exposed to the environment. Suitable rigid PVC (black color) sheets must be used for vacuum forming of the parts. Recycled material is permitted to save costs. The supplier must submit the technical data sheet of the raw material and the manufacturing process layout along with the quotation.
+
+5.2 General CAE Requirements.
+
+Please refer to Appendix 2: CAE-FEM-GENERAL, which outlines VinFast General FE Modeling and Analysis requirements established to support the VinFast Statement of Requirement (SOR). Finite Element Modeling requirements apply specifically to Project VINFAST.
+
+5.3 Material Requirement & Corrosion.
+
+Refer Table 1 (see 5.1) for detailed technical specifications.
+
+VinFast requires a clear determination of corrosion requirements, classified for each component in the system into four categories based on exposure:
+1. **Corrosivity Low:** Used when the position is not affected by macro wetness, mud/dirt, or road (deicing) salts.
+2. **Corrosivity Medium:** Used when the position is at most moderately affected by macro wetness, mud/dirt, or road (deicing) salts.
+3. **High Corrosivity:** Default classification for all exterior positions directly affected by road spray.
+4. **Very High Corrosivity:** Default classification for all positions directly affected by road spray, stone chipping, and dirt accumulation.
+
+General Requirements:
+- Vehicle exterior is considered an area with high corrosivity.
+- Material combinations must prevent galvanic corrosion. Fasteners and brackets must be properly coated (paint, plastic coating, or insulating spacers) if material combinations are critical.
+- Ensure drainage at lowest positions to avoid water and dirt accumulation. Avoid dirt traps where sand can act abrasively against painted surfaces through micro movement.
+- Contact surfaces on the body must remain dry, be sufficiently large for low pressure, and composed of non-abrasive materials to minimize micro-movement.
+- Ensure burr-free edges with paint systems exhibiting good edge coverage.
+</page>
+
+<page number="10">
+5 Description and scope of work.
+
+5.1 Technical requirement.
+
+Refer Part Data Sheet for details: VFSRXVBEX0047_PDS_BEV_GAP_HIDER_V01_2020.07.04.
+
+5.1.1 Function.
+The function of this part is to cover the gap between the HV Battery and Underbody Body in the Side Sill area. The part is located in the wet area of the vehicle and exposed to the environment. Suitable rigid PVC (black color) sheets must be used for vacuum forming the parts. Recycled material is permitted to save costs. The supplier must submit the technical data sheet of the raw material and the manufacturing process layout along with the quotation.
+
+5.2 General CAE Requirements.
+Please refer to Appendix 2: CAE-FEM-GENERAL Statement of Requirement (SOR) Specification Book. VinFast General FE Modelling and Analysis Requirements are defined within this document for Finite Element Modelling Requirements to support VinFast SOR. The range of validity is specifically for Project VINFAST.
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+
+5.3 Material requirement & Corrosion.
+Refer to Table 1 (see 5.1). 
+
+Material requirements and corrosion specifications must align with VinFast Request for Quotation and Part 1: General Project Requirements for Suppliers. The determination of corrosion requirements involves classifying the corrosivity positions for each component in the system:
+
+1. **Corrosivity Low:** Used for positions not affected by macro wetness, mud/dirt, road (deicing) salts.
+2. **Corrosivity Medium:** Used for positions moderately affected.
+3. **High corrosivity:** Default classification for exterior positions directly affected by road spray.
+4. **Very high corrosivity:** Reserved for positions directly impacted by road spray, stone chipping, and dirt accumulation.
+
+The vehicle exterior is generally considered an area with high corrosivity. Material combinations must ensure galvanic corrosion does not occur, with coatings or insulating measures applied as needed. Prevent water and dirt accumulation, provide drainage at low points, and avoid abrasive traps. Ensure paint systems have good edge coverage and burr-free edges.
+
+5.3.1 Corrosion tests.
+Parts must pass system/component tests and complete vehicle corrosion tests. Key tests include:
+
+- **Salt spray test:** ISO9227. Acceptance criteria are based on specific standards, avoiding red rust.
+- **Cyclic corrosion test (CCT):** ISO11997 Cycle B. Acceptance criteria detailed below.
+
+Test criteria:
+| Area                       | Corrosivity    | Metallic coatings         | Organic coatings           | Pass criteria                 |
+|----------------------------|----------------|---------------------------|----------------------------|-------------------------------|
+| Interior, mounted parts    | Low            | 240 h NSS -> ISO9227      | 96 h -> ISO6270 CH         | No red rust                   |
+| Exterior, wet areas        | Medium/High    | 480 h NSS -> ISO9227      | 5–10 cycl. CCT -> ISO11997 | NSS: No red rust CCT: See below |
+| High visible areas         | Very high      | 720 h NSS -> ISO9227      | 10 cycl. CCT -> ISO11997   | + stone chipping protection |
+| Stainless steel            |                | Avoid galvanic corrosion; insulating coating is needed. |
+
+Pass criteria for organic coatings after CCT include:
+- **Rust creep** (ISO4628-8): ≤ 4mm for galvanized steel, ≤ 1–2mm for non-galvanized/aluminum steel.
+- **Blistering:** Size ≤ S2 (ISO4628-2).
+- **Edge corrosion:** ≤ 10%.
+- **Weld seam corrosion:** ≤ 5%.
+- **Degree of rusting:** ≤ Ri 1 (ISO4628-3).
+
+Components must undergo testing as assembled sub-systems wherever feasible, simulating their installed positions on the vehicle.
+</page>
+
+<page number="11">
+VinFast  
+Management System  
+
+VFDSXVBEX0047  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+11 | 21  
+
+**Aluminium parts:**  
+Aluminium parts in high visible areas have to be painted or anodized.  
+Test criteria Painted Aluminium: See test criteria for organic coatings.  
+Test criteria Anodized Aluminium: 480h NSS ISO 9227 without change of surface.  
+Execute component test with assembled sub-system, where possible, and in a position as installed on the vehicle.  
+
+**Chromed metal parts:**  
+240h NSS ISO9227 without base material corrosion.  
+
+**Chromed plastic parts:**  
+CASS-Test according DIN EN ISO 9227; duration:  
+- 48h for Exterior  
+- 24h for Interior  
+
+Acceptance criteria: No surface defects.  
+Also: 240h NSS ISO9227 without surface defects.  
+
+**Electric parts:**  
+Electrically functional units in casings and boxes with enclosed air volumes, such as different types of control units, shall be ventilated via a moisture/wetness resistant membrane (type Gortex), when in wet locations.  
+Material combinations shall be chosen so that galvanic corrosion does not occur. This includes fasteners and attached brackets.  
+Avoid direct contact to more noble metals like steel, stainless steels, copper, brass, nickel, and conductive or anti-static rubber in environments affected by wetness. Use surface treatment on steel fasteners, etc., that are long-term corrosion resistant and fully compatible with other materials.  
+The electrical components must be installed so that vibrations do not generate fretting corrosion.  
+**Terminals, connectors:** Do not place terminals on the lowest points. Corrosion protection of terminals is a requirement for tightness: Electrical connections must be protected from humidity.  
+**Groundings:** Connecting surfaces of grounding must be water-tight if placed in a corrosive environment.  
+**Aluminium/sealing surfaces:** Aluminium alloys with copper and iron content of > 1% are very sensitive to corrosion and should be avoided for components that have sealing surfaces. Corrosion may penetrate the seal very fast, opening it for moisture to enter.  
+
+**Prevention of stone chipping issues:**  
+The risk of damage to the bodywork and related parts by stone chipping must be minimized by design measures.
+</page>
+
+<page number="12">
+### VinFast Management System  
+VFDSXVBEX0047  
+Version: 1.0  
+Uncontrolled copy when printed  
+12 | 21  
+
+---
+
+#### 5.7 Operational Strength (Stiffness / Strength / Durability)  
+- Ensuring sufficient operational strength concerning the intended, vehicle-typical operational conditions (operating loads and special events).  
+- Consideration and verification of product-typical characteristics, derived from the application profile.  
+
+---
+
+#### 5.6 Vehicle Architecture  
+
+**Vehicle Architecture**  
+The complete vehicle must pass the requirements from the vehicle layout plans. All changes to parts and modules that affect the vehicle layout dimensions or geometric coherence must be communicated to VinFast immediately by the supplier for separate evaluation. The definition and technical geometric specifications regarding complete vehicle dimensions in both interior and exterior are based on GCIE 2016 measurement definitions.  
+
+**Styling Technique Convergence**  
+All changes to parts and modules that affect the exterior and/or interior styling surfaces of the vehicle must be communicated immediately to VinFast by suppliers for evaluation. Part or system-related technical input requirements for styling evolution loops (e.g., tooling demands, assembly sequences) must be provided by the supplier. Such inputs can be submitted in office documents, 3D CAD data, or sections.
+
+---
+
+#### 5.5 Labeling of Parts  
+Suppliers must follow VinFast standard VFDST00000010. The supplier must provide a figure indicating the position for applying labels on parts (i.e., position labels set-up with pictures).  
+
+---
+
+#### 5.4 Traceability  
+For part requirements, please follow specifications outlined in VinFast standards VFDST00010502 and VFDST00010501.  
+
+---
+
+#### Prevention of Stone Chipping Issues  
+
+Design measures aimed at minimizing damage due to stone chipping:  
+- Provide shielding parts wherever possible for easily damageable components.  
+- Enlarge radii of parts in high-risk areas to prevent severe issues.  
+- Use materials and paint of the same color for parts in high stone-hitting risk areas to avoid visible abrasion marks.  
+- Avoid creating parts with edges pointing toward the vehicle’s driving direction.  
+- Design chromed styling elements on lower areas so they are recessed and cannot be easily hit by stones.
+</page>
+
+<page number="13">
+6 Testing and validation and DVP&R.
+
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level must align with the Complete Vehicle Specification book during the concept phase. A detailed test plan for hardware tests is outlined in the file DVP&R. Coordination with the Testing & Validation department is required to ensure proper implementation.
+
+The testing details must include:
+- Declaration of standard, norm, and legal requirements.
+- Description of testing set-up, with pictures to illustrate methodology.
+- Specification of the location where testing was conducted (internal/external).
+- Detailed duration and timeline of the testing (in the form of a project plan).
+</page>
+
+<page number="14">
+6 Testing and validation and DVP&R.
+
+- Part variant, description of part.
+- Number of tested components/parts.
+- Ensure Mileage Target Life: 160,000 km or 10 years (whichever comes first).
+
+Appendices:
+- DVP of this component: VFDSXVBEX0147.
+- Appendix for Complete Vehicle:
+  - VFDSXVCVC1401: CSUV_BEV_Appendix_4_DVP_Design Verification Plan.
+  - VFDSXVCVC2401: CSUV_ICE_Appendix_4_DVP_Design Verification Plan.
+
+6.1 Tightness.
+
+The complete vehicle has to pass the following tests:
+- Wading tests.
+- Splash tests.
+- Rain tests with different water flow rates and vehicle in tilted positions.
+- Wash tests with all possible kinds of washing methods, including high pressure.
+- Dust driving test.
+- Wet pollution test (vehicle on wet road behind lead vehicle).
+- Icing test (wet vehicle cooled down in chamber to -20°C).
+
+Basic Requirements for tightness, based on Complete vehicle tightness tests:
+- No function-relevant leakage throughout the vehicle life.
+- No water entrance into the cabin, also not by the HVAC system.
+- Dust entrance, even with open windows, must not exceed a certain level, as described in tightness requirements.
+- Washability to customer satisfaction.
+- Passing water pools with high speed and low speed up to fording depth must not cause damage to the vehicle.
+- No impairment of function after complete vehicle tightness tests.
+- No dirt or water retention in the obstructed condition is allowed.
+- Abrasion to the car body must be avoided.
+- No other effects which dissatisfy customers (pollution, dropping water, etc.).
+</page>
+
+<page number="15">
+6.2 Environmental Compatibility.
+
+The minimization of environmental impacts of a product through the complete life cycle is a key factor for future development of innovative products.
+
+A minimization of environmental impacts of a product requires:
+- Use of recyclable materials.
+- Use of recycled materials and renewable resources.
+- Prevention of hazardous substances.
+- Minimization of compartment emissions including odor.
+- Minimization of consumption of resources.
+- Strategy for waste prevention.
+- Parts marking for identification at end of life.
+- Depollution and drainage at end of life.
+
+The requirements of the following standards have to be met:
+- Reuse, Recycling & Recoverability obligations for vehicles, components and parts acc. UN Regulation No. 133.
+- Parts marking for identification of materials at end of life of vehicles, components and parts acc. ISO standards.
+- Prohibition & Restriction of substances acc. Global Automotive Declarable Substances List (GADSL).
+- Prohibition & Restriction of substances acc. Vietnam Law on Chemicals No. 06/2007/QH12 (incl. national chemical inventory 2017).
+- Prohibition & Restriction and Declaration of substances acc. California Proposition 65.
+- Prohibition & Restriction and Declaration of substances acc. ELV Directive 2000/53/EC and REACH (EC) No 1907/2006.
+- Prohibition & Restriction of substances acc. Regulation (EC) No 850/2004 on persistent organic pollutants.
+- Conflict Mineral Reporting from suppliers that use tin, tungsten, tantalum, or gold in their products or production of their product acc. US Dodd-Frank Act Sec.1502 (only applicable for companies listed on the US stock exchanges).
+- Reduction of environmental impacts regarding the categories Global Warming Potential (Carbon footprint) and Consumption of Resources have to be considered for Life Cycle Analysis acc. ISO 14040.
+
+**Material information, parts marking & substance information for VinFast.**  
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by suppliers.  
+- The conformance to prohibited substances has to be ensured by the supplier through the complete product life cycle.
+</page>
+
+<page number="16">
+6.2 Environment Compatibility.
+
+Environmental Compatibility minimizes environmental impacts of a product through its complete life cycle. The key considerations for minimizing impacts include:
+- Use of recyclable materials.
+- Use of recycled materials and renewable resources.
+- Prevention of hazardous substances.
+- Minimization of compartment emissions including odor.
+- Minimization of consumption of resources.
+- Strategy for waste prevention.
+- Parts marking for identification at end of life.
+- Depollution and drainage at end of life.
+
+### Applicable Standards:
+The following standards must be met:
+1. Reuse, Recycling & Recoverability obligations for vehicles, components and parts according to UN Regulation No. 133.
+2. Parts marking for identification of materials at end of life of vehicles, components, and parts according to ISO standards.
+3. Prohibition and Restriction of substances according to the Global Automotive Declarable Substances List (GADSL).
+4. Prohibition and Restriction of substances according to Vietnam Law on Chemicals No. 06/2007/QH12 (including the national chemical inventory 2017).
+5. Prohibition and Restriction and Declaration of substances according to California Proposition 65.
+6. Prohibition and Restriction and Declaration of substances according to ELV Directive 2000/53/EC and REACH (EC) No 1907/2006.
+7. Prohibition and Restriction of substances according to Regulation (EC) No 850/2004 on persistent organic pollutants.
+8. Conflict Mineral Reporting requirements for suppliers using tin, tungsten, tantalum, or gold in their products or production according to the US Dodd-Frank Act Sec. 1502 (applicable only for companies listed on US stock exchanges).
+9. Reduction of environmental impacts regarding Global Warming Potential (Carbon footprint) and Consumption of Resources during the Life Cycle Analysis according to ISO 14040.
+
+### Material Information, Parts Marking & Substance Information for VinFast:
+- The conformance to prohibited and restricted substances across the complete product life cycle must be ensured by the supplier.
+- For PPAP material data sheets (MDS), following IMDS Rules and Guidelines IMDS 001 and IMDS Recommendations 002 - 022 are mandatory. Updates must be offered for changes.
+- Material safety data sheets (SDS) according to Vietnam Law on Chemicals No. 06/2007/QH12 (including national chemical inventory 2017) must be provided at milestones for concept confirmation.
+- Marking of parts should follow the principle of "as few characters as possible but as many as necessary." Use brief type designations per DIN, EN, or ISO standards.
+
+### Recycling:
+#### Recycled Materials:
+Materials selection prioritizes reducing material variety and compatibility with proven recycling technologies. Secondary raw materials such as recycled polymeric PET fibers, recycled textiles, recycled foams, recycled thermoplastics, etc., must be preferred based on availability in the market. Such materials should adhere to parts marking standards and must be reported to VinFast’s environmental compliance team.
+
+#### Recycling Scheme:
+A recycling scheme should enable cost-effective recycling for the component at its end-of-life. Requirements include:
+1. A simple layout of the recycling process.
+2. Information about preferred recycling partners.
+3. Cost estimations.
+</page>
+
+<page number="17">
+7. Homologation and Safety Regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities.
+
+7.1 Homologation and Safety Regulation Requirements.
+
+7.1.1 North America.
+
+a. Homologation and Safety Regulation Activities.
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS). The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. Self-Certification and Test Report(s).
+The supplier is responsible for “self-certifying” their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale. 
+
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.
+
+The supplier should also be familiar with the laboratory test procedures that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS. (Refer to Appendix 8 of Manufacturer Handbook.)
+
+c. Duty to Notify VinFast of a Non-Compliance with an FMVSS/CMVSS or European Regulations.
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced. 
+
+The supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of a non-compliance or safety-related defect.
+</page>
+
+<page number="18">
+7.1.2 Europe
+
+a. Homologation and safety regulation activities.  
+The Supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s).  
+The supplier is responsible for getting their part(s), product(s) or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale. VinFast requests Suppliers to conduct tests as specified in certain of the UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+
+VinFast also requests Suppliers to provide supporting documentation, technical information, and drawings to be submitted to the relevant authorities to get certification for the EC vehicle type approval (if any).  
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.  
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an UN-ECE regulation or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The Supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.
+
+8. Deliverables
+
+8.1 Technical deliverables.  
+Work Interface Chart (RASI). The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“Built to Print”) is defined below System / Component Specification.  
+
+RASI is defined as follows:  
+
+R: Responsible.  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+A: Approval.  
+Obligation to decide/responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.
+</page>
+
+<page number="19">
+S: Support  
+Obligated to provide active support (even if this requires capacity, expenses and/or transfer of know-how). This project team member must proactively assist the person responsible for execution (R) in achieving the targets.  
+
+I: Information  
+Right to information. This team member is entitled to demand information from R.  
+
+**8.2 Details deliverables and RASI**  
+The date of RASI needs to be revised to follow the Master Timing latest from PMO side.  
+
+**9 Supplier responsibilities**  
+Supplier responsibilities are outlined to ensure compliance while completing the work. Responsibilities are itemized to mitigate the risk of an employer-employee relationship arising under the contract.  
+
+**Customer service requirements**  
+- **After-sales spare parts should be ready at startup.**  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+**Spare Parts Support Cycle**  
+Detailed steps for supplier spare parts readiness aligned with production milestones are required.
+</page>
+
+<page number="20">
+The support period of after-sales spare parts shall not be shorter than 10 years after VINFAST starts production of the whole vehicle, except as specified in this SPB.
+
+**Maintenance Information of After-Sale Spare Parts**  
+The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use, and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, and relevant technical parameters (installation clearance, parts performance parameters, etc.).
+
+**10 Intellectual Property / Copyright**  
+Refer to VinFast General Term and Condition (GTC).
+
+**11 Insurance / Warranties**  
+Refer to VinFast General Term and Condition (GTC).
+
+**12 VinFast GTC & Part Packaging and Incoterms**  
+Refer to VinFast General Term and Condition, Part packaging requirements, and Incoterms requirements in the RFQ package.
+
+**13 Definitions and List of Abbreviations**  
+
+- **DVP&R**: Design Verification Plan & Report  
+- **ESO**: Engineering Sign-Off  
+- **GTC**: General Term and Condition  
+- **LLS**: Long Lead Suppliers on Board  
+- **LLT**: Long Lead Tooling  
+- **LOI**: Letter of Intent  
+- **MFC**: Manufacturing Feasibility Confirmation  
+- **MSC**: Manufacturing Strategy Confirmation  
+- **MSI**: Major Suppliers Identified  
+- **MSO**: Manufacturing Sign-Off  
+- **OTS**: Off Tools Samples  
+- **PTP**: Prototype Parts out of Serial tooling (Hand Finished)  
+- **RFQ**: Request For Quotation  
+- **SLS**: Short Lead Suppliers on Board  
+- **SOB**: Supplier on Board  
+- **SOP**: Start of Production  
+- **SOP-ID**: SOP-Implementation Date  
+- **SOP-LM**: SOP Launch Model (1 Specific Model – “Edition”)  
+- **SST**: Sourcing Strategy  
+- **TS**: Theme Selection Model
+</page>
+
+<page number="21">
+VinFast  
+Management System  
+
+VFDSXVBEX0047  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+21 | 21  
+Print date  
+
+Status  
+Functional Responsibility  
+
+FUSA: Function Safety  
+T&V: Testing & Validation
+</page>
+</pages>

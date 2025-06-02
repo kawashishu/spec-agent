@@ -1,0 +1,1211 @@
+
+<filename>VFDSXVCHS4124_VFe36_EASC</filename>
+<pages>
+
+<page number="1">
+Specification Book. 
+
+14.12.2021.
+
+SPB-FSS.
+
+Electric Adjust Steering Column (EASC) BEV Specification Book (SPB).
+</page>
+
+<page number="2">
+Scope and purpose.
+
+VinFast LLC (VinFast Trading and Production Limited Liability Company) have started to design and develop vehicle projects: VFe36. Environmental impact and sustainability of the program are taken into account as essential target features. The document shall provide details for all components for mass production.
+
+Responsible Contact: Edson Uehara (VF-KPTSP-VF35).
+
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+</page>
+
+<page number="3">
+Contents.
+
+SCOPE AND PURPOSE 2  
+Contents 3  
+
+1. SCOPE OF PRODUCT/COMMODITY 6  
+   1.1 Sales Markets 6  
+   1.2 Production volume 6  
+   1.3 Build Plan 6  
+
+2. DEFINITIONS AND APPLICABLE DOCUMENTS 6  
+   2.1 CAD Data/Transfer data-CAD Requirements 6  
+   2.2 Change Documentation and Part History Documentation 6  
+
+3. REQUIREMENTS 7  
+   3.1 Contact 7  
+   3.2 Technical requirements 7  
+   3.3 General CAE Requirements 14  
+   3.4 Material requirements 14  
+   3.5 Mass Reduction 14  
+   3.6 EE requirements 15  
+   3.7 Traceability 22  
+   3.8 Labeling of Parts 22  
+
+4. TESTING AND VALIDATION AND DVP&R 23  
+   A. Column Bending Test 23  
+   B. Torsional Fatigue Test 23  
+   C. Vibration Durability 24  
+   D. Tilt & telescopic operating durability 24  
+   E. Environmental Test 24  
+   F. Operation temperature test 25  
+   G. Static Torsional Strength Test 25  
+   H. General function 25  
+   J. Electrical Test 30  
+   K. Emission Test 30  
+   L. Immunity Test 31  
+   M. ENV. Test 31  
+   4.1 Appearance Approval - Applicable for all Visible Parts 32  
+
+5. FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS 32  
+   5.1 Homologation and safety regulation requirements 33  
+
+6. DELIVERABLES 34  
+   6.1 Technical deliverables 34  
+   6.2 Details deliverables and RASI 35  
+
+7. SUPPLIER RESPONSIBILITIES 37  
+
+8. INTELLECTUAL PROPERTY/COPYRIGHT 37  
+
+9. INSURANCE/WARRANTIES 37  
+
+10. VINFAST GTC & PART PACKAGING AND INCOTERMS 37  
+
+11. DEFINITIONS AND LIST OF ABBREVIATIONS 38
+</page>
+
+<page number="4">
+List of figures.
+
+Table 1: Technical information table appears on page 7.
+
+Figure 1: Isometric view appears on page 8.
+
+Figure 2: Section appears on page 9.
+
+Figure 3: Steering wheel end appears on page 9.
+
+Figure 4: Intermediate shaft end appears on page 10.
+
+Figure 5: Connection to steering wheel appears on page 11.
+
+Figure 6: Steering wheel center to column end appears on page 11.
+
+Figure 7: Steering wheel center to column end appears on page 12.
+
+Figure 8: Angular tolerance appears on page 12.
+
+Figure 9: Static Architecture of SW appears on page 16.
+
+Figure 10: System Block Diagram appears on page 16.
+
+Figure 11: System Interface appears on page 17.
+
+Figure 12: PIN assignment & Connector appears on page 17.
+
+Table 2: Controller Connector appears on page 18.
+
+Figure 13: Motor specifications appear on page 18.
+
+Table 3: Motor Connector appears on page 19.
+
+Figure 14: ECU specifications appear on page 19.
+
+Figure 15: Adjustment Feature appears on page 20.
+
+Figure 16: Memorize Feature appears on page 20.
+
+Figure 17: Recovery Feature appears on page 21.
+
+Figure 18: Position concept appears on page 21.
+
+Figure 19: Static collapse load diagram appears on page 28.
+</page>
+
+<page number="5">
+Release.
+
+Version: 3.0.  
+Date: 20-Dec-2021.  
+
+Updated by:  
+
+| Function  | Name                                                           |
+|-----------|----------------------------------------------------------------|
+| Chassis   | Liam Quinn                                                     |
+| Chassis   | Jonas Drößler                                                  |
+| MGL CHS   | Edson Uehara, v.edsonu@vinfast.vn                              |
+
+Revisions since previous version.  
+
+| Version | Change Description                      | Signature | Date       |
+|---------|------------------------------------------|-----------|------------|
+| 1       | First edition                           |           | 14/12/2021 |
+| 2       | Change according to supplier comments   |           | 07/01/2022 |
+| 3       | Adding ECU and Function specifications  |           | 10/01/2022 |
+</page>
+
+<page number="6">
+1 Scope of product/commodity.
+
+1.1 Sales Markets.
+LHD countries: VN (Vietnam), NA: North America (US: United States, CA: Canada), EU (Europe).
+Vehicle profile.
+Refer to appendix: VFDSXXCVC0501, Appendix_5_Features list.
+
+1.2 Production volume.
+Refer to Purchasing Request for Quotation.
+
+1.3 Build Plan.
+Refer to appendix: VFDSXXCVC1101, Appendix_1_Build Plan_MRD.
+
+2 Definitions and applicable documents.
+
+2.1 CAD Data/ Transfer data-CAD Requirements.
+All CAD data must be designed with CATIA V5 following VF standard VFDST00000014. 
+CAD data transfer from VinFast to the supplier will be done through the Supplier Collaborative Module. For more details, refer to the Supplier Collaborative Module in the RFQ package.
+
+2.2 Change Documentation and Part History Documentation.
+During the development & production process, all history of changes within the framework of the contractor must be documented and provided to VinFast. The format of the data can be defined by the contractor.
+
+Vehicle Documentation Systems or components, which must fulfill safety regulations of authorities or legal requirements, must be remarked on the drawings.
+
+The reasons and characteristics that need to be documented are listed by authorities. These requirements will be requested during the development of the part and latest in the PTO phase.
+</page>
+
+<page number="7">
+3 Requirements
+
+### 3.1 Contact
+
+**Contact Information**
+- **Commodity Buyer**  
+  - *Name*: Vignesh Valliappan  
+  - *Email ID*: v.vigneshv@vinfast.vn  
+
+- **Commodity Buyer Manager**  
+  - *Name*: Jaiganesh Kunchithapatham  
+  - *Email ID*: v.jaiganeshk@vinfast.vn  
+
+- **Commodity Engineering**  
+  - *Name*: Kedar Joshi  
+  - *Email ID*: vf.mse.joshikp@vinfast.vn  
+  - *Contact Number*: +84(0) 362727466  
+
+  - *Name*: Jonas Drößler  
+  - *Email ID*: jonas.droessler@edag.com  
+  - *Contact Number*: +49 151 61997694  
+
+- **Commodity Engineering Manager**  
+  - *Name*: Juan Pablo Medina  
+  - *Email ID*: v.juanpm@vinfast.vn  
+
+- **SQE (Site Engineer)**  
+  - *Name*: Gregory Alan Reed  
+  - *Email ID*: v.gregoryar@vinfast.vn  
+  - *Contact Number*: +84 (0) 826 792 232  
+
+- **SQE Manager**  
+  - *Name*: Gregory Alan Reed  
+  - *Email ID*: v.gregoryar@vinfast.vn  
+  - *Contact Number*: +84 (0) 826 792 232  
+
+- **SCM Manager**  
+  - *Name*: Dilshod Tokhtasinov  
+  - *Email ID*: v.dilshod@vinfast.vn  
+  - *Contact Number*: +84(0) 888352662  
+
+- **Packaging Analyst**  
+  - *Name*: Trần Xuân Phong  
+  - *Email ID*: v.phongtx1@vinfast.vn  
+
+- **SCM Director**  
+  - *Name*: Benjamin Peter Stewart  
+  - *Email ID*: v.bens@vinfast.vn  
+  - *Contact Number*: +84(0) 888798855  
+
+---
+
+### 3.2 Technical Requirements
+
+The technical information should be displayed on the information of parts and components, including:
+- Vinfast designated part number.
+- Usage per car.
+- Procurement code.
+- Part applicability VFe36.
+
+Technical requirements include part design, part requirements, and functional and performance requirements at Vinfast level. Details are provided in **Table 1: Technical Information Table** below:
+
+| No | Part Name                               | Part No.      | Qtty | Material      | Purchase Level | BEV  | VF36  | ECO | PLUS | PLUS     | VN+ ASEAN | VN+ ASEAN | EU/US |
+|----|----------------------------------------|---------------|------|---------------|----------------|------|-------|-----|------|----------|-------------|-----------|-------|
+| 1  | EASC_Electric_Adjustment_Steering_Column D-SUV | CHS80005001 | 1    | Multi Material | P              | X    | X     |     |      |          |             |           |       |
+
+**Table 1: Technical Information Table**
+</page>
+
+<page number="8">
+### 3 Requirements
+
+#### 3.2.1 General Description of the Component
+The electric adjust steering column is a device intended primarily for connecting the steering wheel to the steering mechanism.  
+
+The secondary functions are the following:
+- Energy dissipation management in the event of a frontal collision.
+- Providing mounting for: the multi-function switch, column wiring, gauges or other instruments as well as the electro motor and gear.
+- Offer electrical (height and/or length) adjustment to suit driver preference.
+
+---
+
+#### 3.2.2 Electric_Adjust_Steering_Column
+**Figure 1:** Isometric view.  
+This figure illustrates the electric adjust steering column in an isometric perspective. The diagram highlights the integration of the adjustment mechanism, multi-material structure, and electro motor for height and length adjustments.
+</page>
+
+<page number="9">
+### 3 Requirements
+
+#### 3.2.3 EASC-Section
+The EASC-Section provides a detailed sectional view of the electric adjust steering column, illustrating the internal structure and components involved in its design. Figure 2 demonstrates the section layout for reference.
+
+#### Figure 2: Section
+The sectional diagram explicitly labels and highlights the intricate components of the electric adjust steering column, ensuring clarity in its engineering structure.
+
+---
+
+#### 3.2.4 EASC-Steering Wheel End
+The EASC-Steering Wheel End illustrates the connection point of the steering column to the steering wheel. This section shows specific dimensional details and tolerances necessary for assembly alignment. Figure 3 provides dimensional profiles for precise engineering specifications.
+
+#### Figure 3: Steering Wheel End
+This diagram emphasizes measurements such as tilt-up, tilt-down positions, and tele adjustments for compatibility with vehicle systems. It also includes detailed annotations for specific points like gage line and diameter tolerances required by the steering wheel end design.
+</page>
+
+<page number="10">
+VinFast  
+Management System  
+
+VFDSXVCHS4124  
+
+Version: 1  
+Uncontrolled copy when printed  
+10 | 38  
+
+Print date  
+Status  
+Functional Responsibility  
+
+### 3.2.5 EASC-Mechanical connection to upper intermediate shaft  
+
+The intermediate shaft connection includes detailed dimensions and specifications. Measurements ensure a smooth-running go-gauge for the connection mechanism.  
+
+**Specifications of Intermediate Shaft Connection:**  
+- Number of teeth: 48.  
+- Major diameter (head circle diameter): 18.974 ± 0.051.  
+- Minor diameter (root diameter): 17.907 ± 0.10.  
+- Pin diameter (measuring pin diameter): 0.864.  
+- Over pin dimension (gauge measurement above two pins): Minimum: 19.914 / Maximum: 20.005.  
+- Radius root fillet: Maximum 0.1.  
+- Included space angle (tooth gap angle): 90°.  
+- Included tooth angle: 82.5°.  
+
+#### Figure 4: Intermediate shaft end  
+The diagram illustrates the mechanical connection with detailed annotations of measurements and the section view for clarity.
+</page>
+
+<page number="11">
+## 3 Requirements
+
+### 3.2.1 General Description of the Component
+The electric adjust steering column is a device intended primarily for connecting the steering wheel to the steering mechanism.  
+The secondary functions are the following:
+- Energy dissipation management in the event of a frontal collision.
+- Providing mounting for: the multi-function switch, column wiring, gauges or other instruments as well as the electro motor and gear.
+- Offering electrical (height and/or length) adjustment to suit driver preference.
+
+### 3.2.2 Electric_Adjust_Steering_Column
+Figure 1: Isometric view.
+
+### 3.2.3 EASC-Section
+Figure 2: Section.
+
+### 3.2.4 EASC-Steering Wheel End
+Figure 3: Steering wheel end.
+
+### 3.2.5 EASC-Mechanical Connection to Upper Intermediate Shaft
+Figure 4: Intermediate shaft end.
+
+The mechanical connection to the upper intermediate shaft is represented by detailed specifications, including:
+- **Number of teeth**: 48.
+- **Major diameter** (Head circle diameter): 18.974 ± 0.051.
+- **Minor diameter** (Root diameter): 17.907 ± 0.10.
+- **Pin diameter**: 0.864.
+- **Over pin dimension**: Minimum 19.914 / Maximum 20.005.
+- **Radius root fillet**: Maximum 0.1.
+- **Included space angle** (Tooth gap angle): 90°.
+- **Included tooth angle**: 82.5°.
+
+### 3.2.6 Mechanical Connection to Steering Wheel
+Figure 5: Connection to steering wheel.
+
+The mechanical connection to the steering wheel is defined as follows:
+- **Spline toothing** includes 46 teeth with the following specifications:
+  - **Included tooth angle**: 82.5°.
+  - **Included space angle** (Tooth gap angle): 90°.
+  - **Minor apex diameter** (Theoretic root diameter): 17.921 ± -0.093.
+  - **Toothing pre diameter**: 18.57 ± 0.5.
+  - **Major apex diameter** (Theoretic head circle diameter): 19.219 ± -0.1.
+  - **Minor diameter** (Root diameter): 18.136 ± -0.229.
+  - **Major diameter** (Head circle diameter): 19 ± -0.2.
+  - **Pin diameter** (Measuring roll-, Ball diameter): 0.8.
+  - **Radius root fillet**: Maximum 0.15.
+
+### 3.2.7 Steering Wheel Center to Column End
+Figure 6: Steering wheel center to column end.
+
+The steering wheel center to column end is designed with detailed measurements as displayed in the diagram.
+</page>
+
+<page number="12">
+VinFast Management System
+
+VFDSXVCHS4124
+
+Version: 1  
+Uncontrolled copy when printed  
+12 | 38  
+Print date  
+Status  
+Functional Responsibility  
+
+3.2.8 Steering wheel center to column end-Length Details.  
+The figure depicts detailed measurements of the steering wheel center to the column end. This includes key dimensions such as overall length, tilt angle, and mounting points.  
+
+Figure 7: steering wheel center to column end.
+
+3.2.9 Angular tolerance.  
+The angular tolerance specifies the alignment between the steering shaft connection and the steering wheel connection. It includes the tooth center of the serration and alignment measures to ensure proper assembly.
+
+Figure 8: Angular tolerance.
+</page>
+
+<page number="13">
+3.2.10 Tightening Torque.
+
+Tightening torque values for the following connections are provided below:
+- Steering wheel to steering column: 62.5 Nm ±15%.
+- Steering column to cross bar beam: 19.0 Nm ±15%.
+- Multi-Function switch (SZL): 2.0 Nm ±15%.
+
+NOTE: For more detailed information, see drawing CHS80005001.
+</page>
+
+<page number="14">
+3.3 General CAE Requirements.
+
+For FSS CAE is responsible by Supplier. 
+
+VFSRXXCVC0201 VF33_Appendix_2_CAE_FEM_General requirements.
+
+Part/system CAE models must be provided on demand, e.g., to support and reach vehicle data freeze milestones. It must be realized within LsDyna, as well as validated, numerical, and physical stable.
+
+For generating validated CAE material cards, activities must be planned, performed, and financed by the supplier. This includes principle tests on systems as well as components.
+
+3.4 Material requirements.
+
+Prohibited or Restricted Substances, Emissions & Toxicology.
+
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle according to VFDST00007601.
+
+IMDS material data sheets have to be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601. 
+
+Specific targets on vehicle indoor air quality must also be adhered to according to VFDSXVCVC3401-VIAQ_Testing_Guideline.
+
+The material must fulfill the VF corrosion requirement VFDSXXCVC4401 according to ISO 9227. Any exceptions to the requirement must not result in a loss of functionality or safety requirements.
+
+- Material has to fulfill required material validation tests according to DRAWING and Specbook.
+- Each material must adhere to the material requirements defined by VinFast.
+- A table of material test matrix must be created by the supplier and confirmed by VinFast.
+- On invisible areas, test criteria may be lower than mentioned in VFDSXXCVC4401, but it must be ensured that no corrosive products appear in visible areas. Additionally, full functionality over the product's lifetime must be assured.
+
+3.5 Mass Reduction.
+
+The supplier is obliged to consider feasible lightweight proposals made by VinFast for further mass reduction. The supplier is expected to offer lightweight alternatives, which must be evaluated regarding costs, mass, and performance.
+
+Throughout the entire vehicle development process, the supplier must continuously optimize components and sub-parts for the lowest possible mass according to VinFast's suggestions and requirements.
+</page>
+
+<page number="15">
+3.6 EE Requirements.
+
+The following VF requirements need to be fulfilled:
+
+**VF Standard Document**
+- CES_VINFAST_EE_VFDSP50000001_EMC_Standard_Vehicle-v1.0.0  
+- CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component-v1.0.0  
+- CES_VINFAST_EE_VFDSP50000004_General_Electric_v0.0.1  
+- CES_VINFAST_EE_VFDSP50000005_Energy_Management_V1.0.0  
+- CES_VINFAST_EE_VFDSP50000008_Thermal_Management_V1.0.0  
+- CES_VINFAST_EE_VFDSP50000014_Clamp_ICE_BEV_V0.2.6_31072020  
+- CES_VINFAST_EE_VFDSP50000015_Basic_Software_on_CAN-ECUs_V1.0.0  
+- CES_VINFAST_EE_VFDSP50000016_Flash_Specification_V1.0.3  
+- CES_VINFAST_EE_VFDSP50000017_Coding_Specification_V1.0.1  
+- CES_VINFAST_EE_VFDSP50000018_High Current Consumers_v0.1.0  
+- CES_VINFAST_EE_VFDSP50000019_Basic_Diagnostics_Specification_V0.5  
+- CES_VINFAST_EE_VFDSP50000020_Security_Access_Algorithm_V1.0.2  
+- CES_VINFAST_EE_VFDSP50000021_Basic_DID_PID_Specification_V1.0.0  
+- CES_VINFAST_EE_VFDSXVEEP0047_CAN_Specification-v1.0.2  
+- CTS_VINFAST_EE_VFDSP50000006_Energy_Management_V1.0.0  
+- CTS_VINFAST_EE_VFDSP50000007_Load_Analysis_V1.0.0  
+- CTS_VINFAST_EE_VFDSP50000009_Thermal_Management_V1.0.0  
+- SUP_VINFAST_EE_Software Logistics-V0.1.2  
+- VFDSP50000012_LIN_Specification  
+- VFDST00026304 EMC full vehicle  
+- VFDST00026305 EMC full vehicle low frequency range 9KHz-30Mhz  
+- VFDST00026306 EMC full vehicle low frequency range 10 Hz to 400 kHz  
+- VFDST00028121 - Electrical requirements and testings  
+- VFDST00028122 - Electrical requirements and tests  
+- VFDST00028131 - Environmental Electronics Testings  
+- VFDSXVEEP0011__CUV_ECU_Residual_Bussimulation_V1.0.0  
+- VFDSXVEEP0013__CUV_ECU_Identifier_Specification_V1.0.6  
+- VFDSXVEEP0014_CLAMP_Specification  
+- VFDSXVEEP0034_Basic_DID_PID_Specification  
+- VFDSXVEEP0035_Flash_Specification  
+- VFDSXVEEP0048_CAN_Network_Test_Specification_V1.0.0  
+- VFDSXVEEP5053_CSUV_SPB_EE_Warning_Message_Catalog_V0.93  
+
+**Note:** The following chapters from **3.6.1 to 3.6.8** are just for reference until the supplier gives a final approval.
+</page>
+
+<page number="16">
+3.6.1 Logical and Static Architecture.
+
+**Static Architecture of Software.**
+
+The static architecture of the software includes various layers, as showcased in Figure 9:
+- **Application Layer:** Logic Management Routine.
+- **Middleware Layer:** Power Management, Motor Driver, Hall Sensor Driver, CAN Application Signal Management.
+- **Hardware BIOS Layer:** ADC, SPI, PWM, Input Capture.
+- **Bootloader CAN:** Incorporates EEPROM Driver and CAN Driver, developed by ERAE and purchased from Vector.
+
+**Figure 9: Static Architecture of Software.**
+
+**System Block Diagram.**
+
+The system block diagram describes the electrical connections and software systems of the EASC ECU assembly, as shown in Figure 10:
+- The system is powered by a battery (BAT+) and includes an LDO with Watchdog for Alive_5V and SW_5V systems.
+- Inputs such as the Touch Screen, MHU, and CAN_HighLow interface with the system via the CAN TR, Temp Sense, MCU, and MOSFET Driver components.
+- Output is controlled through four MOSFET units driving the Tilt Motor and Tele Motor, supported by Tilt Hall Sensors and Tele Hall Sensors.
+
+**Figure 10: System Block Diagram.**
+</page>
+
+<page number="17">
+3.6.2 System Interface.
+
+Figure 11 illustrates the system interface, where the ECU (EASC) connects various components. The manual software settings and key FOB ID position interfaces communicate through high-speed CAN (500 kbps) with the ECU. Additional connections include vehicle information and diagnostic interfaces. The ECU outputs signals to the tilt motor (up and down) and telescope motor (in and out directions), both monitored by Hall Sensors.
+
+3.6.3 Controller Connector Info table.
+
+Figure 12 identifies the PIN assignment and connector information. The system uses a 26-pin hybrid connector divided into three blocks (A, B, and C):
+
+- **A Block:** Includes connections for battery power input, ground, tilt up motor, tilt down motor, telescope out motor, and telescopic in motor.
+- **B Block:** Contains Hall Sensor connections for the tilt and telescopic motors along with ground connections.
+- **C Block:** Provides CAN connections (CAN1_HIGH and CAN1_LOW).
+
+The connector used is a female TYCO_1318757-1 hybrid model.
+</page>
+
+<page number="18">
+3.6.4 Motor specifications.
+
+Motor:
+- Rated current: Max. 4 [A].
+- Stalled current: Max. 27 [A].
+- Thermal cut off temperature: 140℃ ±5℃.
+- Cut off current: 19.7 [A] (when applied for 4 to 10 seconds).
+
+Hall Sensor:
+- Output voltage diagram included showing hall signal with rotation angles.
+- Circuit diagrams provided for connection details.
+- Connector specifications include various manufacturers like Sumitomo and Delphi.
+- Hall sensor operation described with mild deviations for ±0.5V in output.
+
+Figure 13: Motor specifications.
+</page>
+
+<page number="19">
+3.6.5 ECU specifications.
+
+The ECU specifications are detailed as follows:
+
+**Standard Specifications:**
+- Nominal voltage: 12 V.
+- Operating voltage range: 9 ~ 16 V.
+- Operating temperature: -40°C ~ 85°C.
+- Maximum peak current: 40 A.
+- Nominal current: 9 A.
+- Leakage current: 0.1 mA.
+
+**ECU Image:**
+The ECU includes the following components:
+- Case.
+- PCB assembly.
+- Screws (4 pieces).
+
+**Table 3: Motor Connector:**
+The motor connector information is as follows:
+- Hall IC VCC.
+- Hall IC Signal.
+- Motor (T2).
+- Motor (T4).
+
+The connector housing is identified as FCI 3 023 59 01, and the connector terminal features TE MQS PIN Contact 6-928918-1 with dimensions of 0.63 x 0.63 mm. The circuit diagram of the motor connector is also represented to illustrate the electrical connection between components.
+
+**Figure 14 ECU specifications.**
+This figure visually depicts detailed specifications and the assembly of the ECU.
+</page>
+
+<page number="20">
+3.6.6 CAN Signal.  
+For full list of CAN signals, see the latest CAN DBC provided by the VinFast E/E department.  
+
+3.6.7 Functions and Features.  
+
+Adjustment.  
+Figure 15: Adjustment Feature.  
+The adjustment feature enables the MHU to send steering control signals to EASC. When the steering control is turned on, the EASC receives the signal and steers accordingly. Various controls such as UpControl, DownControl, LeftControl, and RightControl are used to adjust the tilt and telescope positions. The EASC then sends the current position values back to the MHU for confirmation.  
+
+Memorize.  
+Figure 16: Memorize Feature.  
+The memorize feature allows the EASC to store and recall current tilt and telescope positions. Once the column position is sent by EASC to MHU, it is stored for future use. The system can retrieve these positions when required to set the column to the user's specified profile.
+</page>
+
+<page number="21">
+3.6.8 Position concept.
+
+Figure 17: Recovery Feature – This figure illustrates the recovery feature within the system, showing the sequential interaction among BCM, MHU, and EASC, including feedback checks and warning mechanisms.
+
+Figure 18: Position concept – This figure describes the position concept of EASC, with normal position values ranging from EASC_TiltPos 0~100 (0x64) and EASC_TelePos 0~100 (0x64). Invalid values are indicated by EASC_TiltPos Invalid = 255(0xFF) and EASC_TelePos Invalid = 255(0xFF). The tilt and tele positions are shown with graphical representations of their range.
+</page>
+
+<page number="22">
+3.7 Traceability.  
+For part requirements, follow specifications as detailed in VinFast standard VFDST00010501.  
+
+3.8 Labeling of Parts.  
+The supplier must adhere to VinFast standard VFDST00000010 and provide figures that display the label placement on parts (set up position labels with pictures).
+</page>
+
+<page number="23">
+4. Testing and validation and DVP&R.
+
+DVP and PV test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:
+- Testing with declaration of standard, norm, legal requirement.
+- How and with which devices the testing was performed (description of testing set-up with pictures).
+- Where the testing was performed (internal/external).
+- Duration and time flow of the testing (in form of project plan).
+- Part variant, description of part.
+- No. of tested components/parts.
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first). For detailed DVP test specification, see testing plan VFDSXVCHS4133.
+
+**EASC (Electric Adjustable Steering Column) Test.**
+
+**A. Column Bending Test.**
+**Test condition and method:**
+1) Column is horizontally mounted with attached steering wheel to the upper shaft. Load is applied to a steering wheel in a vertical.
+2) Apply the torque with the following condition:
+   - Load: ±500 N at steering wheel.
+   - Speed: 5Hz (300 cpm).
+   - Cycle: 20,000 cycles.
+
+**Criterion:**
+1. Rotating torque of shaft is 0,3 Nm max.
+2. Shaft must be rotated smoothly.
+3. Be free from defect.
+
+**B. Torsional Fatigue Test.**
+**Test condition and method:**
+1) Column ASM is horizontally mounted.
+2) Fix lower shaft and ±40 Nm torque applied to upper shaft.
+3) Apply the torque with the following condition:
+   - Test Speed: 100~600 cpm.
+   - Cycle: 500,000 cycles.
+
+**Criterion:**
+1. Rotating torque of shaft is 0,3 Nm max.
+2. Shaft must be rotated smoothly.
+3. Be free from defect.
+</page>
+
+<page number="24">
+### 4 Testing and validation and DVP&R
+
+DVP and PV test responsibility follows the RASIC model. Both virtual and physical testing (DVP) are performed for System, Sub-system, and Component Level, in line with the Complete Vehicle Specification book during the concept phase. A detailed test plan for hardware is documented in the DVP&R file and requires collaboration with the Testing & Validation department, covering:
+
+- **Testing with declaration of standard, norm, legal requirement**
+- **Description of testing setup with pictures**, detailing the devices used for testing
+- **Location of testing**, specifying whether internal or external
+- **Duration and time flow of testing**, presented in the project plan format
+- **Part variant and description**
+- **Number of tested components/parts**
+
+Ensure the Mileage Target Life of 160,000 km or 10 years, whichever comes first. For detailed test specifications, refer to testing plan VFDSXVCHS4133.
+
+---
+
+### **EASC (Electric Adjustable Steering Column) Tests**
+
+#### **A. Column Bending Test**
+**Test condition and method:**  
+1. Column mounted horizontally with an attached steering wheel on the upper shaft.  
+   Load applied vertically to the steering wheel.  
+2. Torque is applied under the following condition:  
+   - **Load:** ±500 N at the steering wheel  
+   - **Speed:** 5 Hz (300 cycles per minute)  
+   - **Cycle:** 20,000 cycles  
+
+**Criterion:**  
+1. Rotating torque of shaft ≤ 0.3 Nm.  
+2. Shaft rotation is smooth.  
+3. No defects observed.  
+
+---
+
+#### **B. Torsional Fatigue Test**
+**Test condition and method:**  
+1. Column ASM mounted horizontally.  
+2. Lower shaft fixed while ±40 Nm torque is applied to the upper shaft.  
+3. Torque applied under the following condition:  
+   - **Test speed:** 100–600 cycles per minute  
+   - **Cycle:** 500,000 cycles  
+
+**Criterion:**  
+1. Rotating torque of shaft ≤ 0.3 Nm.  
+2. Smooth shaft rotation.  
+3. Absence of defects.  
+
+---
+
+#### **C. Vibration Durability Test**  
+**Test condition and method:**  
+1. Column mounted at vehicle angle with attached equivalent steering wheel mass (2.334 kg) at the upper shaft.  
+2. Vibration applied under the following conditions:  
+   - **Frequency:** 15–40 Hz (randomly)  
+   - **Acceleration:** ±2.5 G by vertical acceleration  
+   - **Cycle:** 3,000,000 cycles  
+
+**Criterion:**  
+1. Rotating torque of shaft ≤ 0.3 Nm.  
+2. No defects observed.  
+3. Free from deformation or fractures.  
+
+---
+
+#### **D. Tilt & Telescopic Operating Durability**
+**Test condition and method:**  
+1. Column mounted on a test fixture with equivalent steering wheel mass (2.334 kg) attached to the end of the upper shaft.  
+2. Testing performed according to the following sequence:  
+   - **1 Cycle:**  
+     - Tilt Up & Tele Out →  
+     - Tilt Up & Tele In →  
+     - Tilt Down & Tele In →  
+     - Tilt Down & Tele Out →  
+     - Tilt Up & Tele Out  
+   - **Test Cycle:** 20,000 cycles  
+   - **Voltage:** 12.5 V  
+
+**Criterion:**  
+1. Rotating torque of shaft ≤ 0.3 Nm.  
+2. No defects observed.  
+3. Free from deformation or fractures.  
+
+---
+
+#### **E. Environmental Test**
+The steering column assembly is tested to ensure functionality (mechanical and electrical) under specific environmental conditions.  
+
+**Test condition and method:**  
+1. Column mounted at vehicle angle with attached equivalent steering wheel mass (2.334 kg) at the upper shaft.  
+2. Connect the operating ECU.  
+3. Perform environmental soaking at:  
+   - **-40°C** for 24 hours →  
+   - **80°C** for 24 hours →  
+   - **90°C** for 1 hour.  
+   - Return to room temperature and conduct a visual inspection.  
+
+**Criterion:**  
+1. No abnormal defects observed.  
+2. Compliance with shaft rotational torque specifications.
+</page>
+
+<page number="25">
+F. Operation Temperature Test  
+The steering column assembly is to be functional, both mechanically and electrically, when subjected to the following environmental temperature tests.  
+
+**Test Condition and Method**  
+1) Column mounted in vehicle angle with attached equivalent steering wheel mass (2.334kg) to the upper shaft.  
+2) Connect the operating ECU.  
+3) Soak at -30°C for 1 hour and then apply a voltage of 12 V at -30°C for operating check.  
+   Soak at 80°C for 1 hour and then apply a voltage of 12 V at 80°C for operating check.  
+
+**Criterion:**  
+1. No abnormal defect.  
+2. Tilt and telescope should be operated in 15 seconds.  
+
+---
+
+G. Static Torsional Strength Test  
+
+**Test Condition and Method**  
+1) Install shaft assembly to JIG.  
+2) Fix lower shaft and apply the torque with a speed of 2 rpm to upper shaft and check the yield torque and breaking torque.  
+
+**Criterion:**  
+1. Yield torque should be 170 Nm Min.  
+2. Ultimate torsional strength should be 250 Nm Min.  
+
+---
+
+H. General Function  
+
+- Operating voltage: 12V  
+- Operating voltage range: 9V ≤ U ≤ 16V  
+- Operating temperature range: -35°C up to 60°C  
+- Max. storage temperature (1h): 90°C  
+- Testing temperature: 23°C ±5°C  
+- The test specimen is to be conditioned for 4h at the appropriate testing temperature.  
+
+**Motor Switching Characteristics of the Thermal Switch Breaker**  
+1) First ON time: 1.5~40s.  
+2) First OFF time: 60s max.
+</page>
+
+<page number="26">
+## H-1. Tilt & Telescopic Operating Performance
+### Test Condition and Method
+1) Column mounted in vehicle angle with attached equivalent wheel mass (2.334 kg) to the upper shaft.  
+2) Input voltage: 12V.  
+3) Temperature: 25°C.  
+4) Measure operation time from Tilt Up to Tilt Down.  
+5) Measure operation time from Tele In to Tele Out.  
+
+### Criterion
+1. Tilt full stroke time: 2.0~6.0 seconds (ECU control standards).  
+2. Tele full stroke time: 3.0~10.0 seconds (ECU control standards).  
+
+---
+
+## H-2. Operating Sound Test
+### Test Condition and Method
+1) Column mounted at vehicle angle in anechoic room.  
+2) Attached with the equivalent steering wheel mass (2.334 kg).  
+3) Position the microphone 150mm from steering wheel mass center in the column axial direction.  
+4) Input voltage: 12V.  
+5) Temperature: room temperature.  
+6) Tilt & Tele Mid → Tilt Up → Tilt Down → Tilt Mid → Tele In → Tele Out → Tele Mid operating and sound measurement.  
+
+### Criterion
+1. Tilt Start noise: 50 dB max.  
+2. Tilt Running noise: 45 dB max.  
+3. Tele Start noise: 50 dB max.  
+4. Tele Running noise: 45 dB max.  
+
+---
+
+## H-3. Shaft Rotational Torque
+### Test Condition and Method
+1) Column is horizontally mounted.  
+2) Measure the torque as rotating ±360°.  
+
+### Criterion
+1. Rotating torque of shaft is 0.3 Nm max.  
+2. Shaft must be rotated smoothly.
+</page>
+
+<page number="27">
+H-4. Natural Frequency  
+**Test condition and method**  
+1) Column mounted in vehicle angle with attached equivalent wheel mass (2.334 kg) to the upper shaft.  
+2) Measure the natural frequency in vertical and horizontal directions.  
+3) Measure Tilt-Mid and Tele-Mid adjustment positions.  
+**Criterion:**  
+1. 50 Hz minimum.  
+
+H-5. Axial Lash  
+**Test condition and method**  
+1) With the column held rigidly by the jacket, a 25N axial load is applied to the center line of the upper steering shaft end.  
+**Criterion:**  
+1. 0.1mm maximum lash is allowed along the shaft axial direction.  
+
+H-6. Radial Lash  
+**Test condition and method**  
+1) With the column held rigidly by the jacket, a 25N transverse load is applied perpendicular to the upper steering shaft end.  
+**Criterion:**  
+1. 0.1mm maximum lash is allowed for the shaft vertical direction.
+</page>
+
+<page number="28">
+H-7. Static collapse load & stroke.
+
+**Test condition and method:**
+1) The column is mounted vertically.
+2) Support the lower shaft to prevent axial movement.
+3) Apply load at a speed of 100 mm/min and measure the graph (Load vs. displacement).
+
+**Criterion:**
+1. Shall meet the following load band.
+
+**Figure 19: Static collapse load diagram.**
+The diagram illustrates the relationship between load and displacement. The load is measured at 100 mm/min, and the shaded area represents the valid range of collapse load measurements. The graph includes a range extending from 10 to 80 on the horizontal axis and up to 10,000 on the vertical axis, with a label "T.B.D" in the center.
+</page>
+
+<page number="29">
+H-8. Dynamic collapse load test  
+**Test condition and method:**  
+1) Column mounted at vehicle mounting angle.  
+2) Install steering column at Tilt/Tele Mid condition.  
+3) Set the 40kg mass at 0.7 Meter height from the top of the rubber cushion.  
+4) Fix the load cell firmly at the upper steering shaft.  
+5) Attach the hemisphere of 35~40mm radius on the load cell, and set up the rubber cushion on it to reduce the impact spike.  
+6) Measure the axial force (X-Axis), bending force (Y, Z-Axis), and collapse stroke with recording.  
+
+**Criterion:**  
+1. Column should be collapsed 60% of the full collapse stroke.  
+
+H-9. Electrical resistance  
+**Test condition and method:**  
+1) Column horizontally mounted.  
+2) Measure the resistance value between the upper shaft to the lower mounting bracket.  
+
+**Criterion:**  
+1. Resistance value is 4Ω max.  
+
+H-10. Rotational Lash  
+**Test condition and method:**  
+1) Fix the column lower shaft.  
+2) 0.1 Nm torque is engaged at the end of the column upper shaft (test speed: 0.03 deg/s).  
+
+**Criterion:**  
+1. Rotational lash must be 5′ max.
+</page>
+
+<page number="30">
+EASC Controller Test  
+Controller is to follow VinFast Test procedure and to meet the requirements.  
+Refer to VinFast specification number described on each test item.  
+
+**J. Electrical Test**  
+VinFast Spec No: VFDST00028121 Electrical Requirements and Testings  
+
+- J-1. LONG-TERM OVERVOLTAGE  
+- J-2. TRANSIENT OVERVOLTAGE  
+- J-3. TRANSIENT UNDERVOLTAGE  
+- J-4. JUMP START  
+- J-5. LOAD DUMP  
+- J-6. SUPERIMPOSED ALTERNATING VOLTAGE  
+- J-7. SLOW DECREASE AND INCREASE OF THE SUPPLY VOLTAGE  
+- J-8. SLOW DECREASE, QUICK INCREASE OF THE SUPPLY VOLTAGE  
+- J-9. RESET BEHAVIOR  
+- J-10. SHORT INTERRUPTIONS  
+- J-11. START PULSES  
+- J-12. VOLTAGE CURVE WITH INTELLIGENT GENERATOR CONTROL  
+- J-13. PIN INTERRUPTION  
+- J-14. CONNECTOR INTERRUPTION  
+- J-15. REVERSE POLARITY  
+- J-16. GROUND OFFSET (NOT APPLICABLE)  
+- J-17. SHORT CIRCUIT IN SIGNAL CIRCUIT AND LOAD CIRCUITS  
+- J-18. INSULATION RESISTANCE  
+- J-19. CLOSED-CIRCUIT CURRENT  
+- J-20. DIELECTRIC STRENGTH  
+- J-21. OVERCURRENTS  
+
+**K. Emission Test**  
+VinFast Spec No: VFDST00026302 Electromagnetic Compatibility (EMC) 60V  
+
+- K-1. RF-EMISSIONS MEASUREMENTS AT THE ARTIFICIAL NETWORK (AN)  
+- K-2. RF-EMISSIONS - MEASUREMENT WITH ANTENNAS (RE)  
+- K-3. RF-EMISSIONS MEASUREMENT WITH THE CURRENT PROBE (CP)  
+- K-4. TRANSIENT EMISSIONS ON SUPPLY LINES (CTE)  
+- K-5. SLEW RATE CLOCKED SIGNAL (SR)
+</page>
+
+<page number="31">
+VinFast Management System  
+VFDSXVCHS4124  
+
+Version: 1  
+Uncontrolled copy when printed  
+31 | 38  
+
+L. Immunity Test.  
+VinFast Specification No: VFDST00026302 Electromagnetic Compatibility (EMC) 60V.
+
+**L-1. RF-Immunity to interference - Bulk Current Injection (BCI).**  
+**L-2. RF-Immunity to interference - Using Antennas (ALSE).**  
+**L-3. RF-Immunity to interference - Bulk Current Injection (BCICL) (Test is optional).**  
+**L-4. Immunity to Magnetic Fields (LFM).**  
+**L-5. Transients on Supply Lines (TSUP).**  
+**L-6. Transients on Lines Except for Supply Lines (TOL).**  
+**L-7. Electrostatic Discharge - Handling Test (ESDH).**  
+**L-8. Electrostatic Discharge (Powered Up) - Direct Discharge (ESDD).**  
+**L-9. Electrostatic Discharge (Powered Up) - Indirect Discharge (ESDI).**
+
+---
+
+M. ENV Test.  
+VinFast Specification No: VFDST00028131 Environmental Electronics Testing.
+
+**M-1. Free Fall.**  
+**M-2. Dust Test.**  
+**M-3. Vibration Test.**  
+**M-4. Mechanical Shock.**  
+**M-5. Low Temperature Operation.**  
+**M-6. High & Low Temperature Storage.**  
+**M-7. Thermal Shock.**  
+**M-8. Damp Heat Cyclic.**  
+**M-9. Damp Heat Cyclic (With Frost).**  
+**M-10. Damp Heat, Steady State.**  
+**M-11. Thermal Shock (Without Housing).**  
+**M-12. Chemical Requirements and Tests.**  
+**M-13. Life Test: High-Temperature Endurance Test.**  
+**M-14. Life Test: Temperature Cycle Endurance Test.**
+</page>
+
+<page number="32">
+4.1 Appearance Approval - Applicable for all Visible Parts.  
+AAR is a PPAP deliverable.  
+
+The AAR process is described in the VFDST00038401 (quantity of parts, timing).  
+
+For each step of the process, the supplier has the responsibility to submit parts to VF Quality Design following agreed timing with VF to get OK Shape, OKTG, and AAR Approval.  
+
+The process will start in the early phase at PT build to secure AAR Approval at LS.  
+
+The supplier has to include this activity in their development process and ED&D Cost.  
+
+---
+
+5 Function Safety, Homologation and Safety Regulations.  
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+</page>
+
+<page number="33">
+5.1 Homologation and safety regulation requirements.
+
+5.1.1 North America.
+
+a. Homologation and safety regulation activities.
+The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS). The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. Self-certification and test report(s).
+The supplier is responsible for “self-certifying” their part(s), product(s) or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale. VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance. The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of Manufacturer_Handbook.
+
+c. Duty to notify VinFast of non-compliance with a FMVSS/CMVSS or European regulations.
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with a FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced. The supplier has a duty to notify VinFast of such issues within five working days after determining the existence of a non-compliance or a safety-related defect. The supplier must propose an appropriate risk assessment and resolution plan.
+
+5.1.2 Europe.
+
+a. Homologation and safety regulation activities.
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s).
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.
+</page>
+
+<page number="34">
+VinFast Management System  
+VFDSXVCHS4124  
+
+Version: 1  
+Uncontrolled copy when printed  
+34 | 38  
+
+### 5.1.2 Europe
+
+#### c. Duty to notify VinFast of a non-compliance with UN-ECE regulations  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.  
+
+### 6 Deliverables  
+#### 6.1 Technical deliverables  
+Work Interface Chart (RASI). The main supplier obligations are described in the Work Interface Chart (RASI). The status of the supplier ("System Development Supplier") is defined in System / Component Specification.  
+
+RASI is defined as follows:  
+**R: Responsible**  
+Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.  
+
+**A: Approval**  
+Obligation to decide / responsible for release. If no decider is defined, the person who is responsible for execution R is the decider.  
+
+**S: Support**  
+Obligated to active support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+**I: Information**  
+Right to information. This team member is entitled to demand information from R.
+</page>
+
+<page number="35">
+VinFast  
+Management System  
+
+VFDSXVCHS4124  
+
+Version: 1  
+Uncontrolled copy when printed  
+35 | 38  
+Print date  
+Status  
+Functional Responsibility  
+
+6.2 Details deliverables and RASI.  
+Need revise date of RASI follow Timing Gate.  
+
+No | Gate | Stage              | Deliverable                                                               | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing  
+---|------|--------------------|---------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------  
+1  | PV   | CONCEPT PHASE      | List of Concept in Commodity                                              | R              | S             | I        | I   | I  
+2  | PV   |                    | SOR for Concept in Commodity                                              | R              | S             | I        | I   | I  
+3  | PPS  |                    | SOB through LOI - Letter of Intent for Concept in Commodity               | S              | R             | S        | I   | I  
+4  | PPS  |                    | EDD order release for Concept in Commodity                                | S              | R             | S        | I   | I  
+5  | PPS  |                    | Deliver Bill of Materials in Team center                                  | R              | I             | I        | I   | I  
+6  | PPS  |                    | Supply chain strategy - Deliver Sourcing Strategy                         | S              | R             | I        | S   | I  
+7  | PPS  |                    | Commodity Timing plan in each business area supports Program timing       
+             for concept commodity                                                        | S              | S             | R        | S   | I  
+8  | PPS  |                    | Organization and resources for the concept phase, resource planning       
+             for series development                                                       | S              | S             | R        | S   | I  
+9  | PPS  |                    | Opportunities and risks for the program have been detailed and             
+             measures defined - Cost reductions, Design Optimization, Timing               
+             optimization                                                                  | A              | S             | R        | S   | I  
+10 | PPS  |                    | Quality planning to meet program requirements - APQP Kickoff               | R              | S             | S        | S   | I  
+11 | PPS  |                    | Concept proposal for engineering review and finalization - For Concept    
+             Commodity.                                                                   | A              | I             | R        | I   | I  
+12 | PPS  |                    | Concept & Proposal development to meet the target material cost            | A              | I             | R        | I   | I  
+13 | PPS  |                    | Parts list and BoM available; target values for lead vehicle cost and     
+             weight verified - C Class                                  | A              | I             | R        | I   | I  
+14 | PPS  |                    | Initial CAD data to support C class development for Concept               
+             commodity                                                                  | A              | I             | R        | I   | I  
+15 | PPS  |                    | System & Sub-system Functional targets agreed and cascaded to             
+             Component level, In-line with Complete Vehicle Targets.  | A              | S             | R        | I   | I  
+16 | PPS  |                    | DVP (virtual and physical testing) for System, Sub-system & Component     
+             Level in-line with Complete Vehicle Specification book               
+             in the concept phase. Detailed test plan for hardware tests. | A              | S             | R        | I   | I  
+17 | TA   |                    | Package study to support B class surface development                        | A              | I             | R        | I   | I  
+18 | PPS  |                    | Manufacturing feasibility for CAS development for concept commodity        | A              | I             | R        | I   | I  
+19 | PPS  |                    | Design and Validation & Testing plan for concept Commodity                 | A              | I             | R        | I   | I  
+20 | TA   |                    | Parts list and BoM available; target values for lead vehicle cost and     
+             weight verified - B Class                                   | A              | I             | R        | I   | I  
+21 | TA   |                    | Parts list and BoM available; target values for lead vehicle cost and     
+             weight verified - A Class                                  | A              | I             | R        | I   | I  
+22 | TA   |                    | Contract Series development - LON for Concept Commodity / LON for         
+             B2P Commodity                                                            | A              | R             | S        | I   | I  
+23 | TA   |                    | Timing plan for the complete Program detailing milestones and              
+             critical activities for B2P Commodity                       | A              | S             | R        | I   | I  
+24 | TA   |                    | Organization and resources for the concept phase, resource planning       
+             for series development                                   | A              | S             | R        | I   | I  
+25 | TA   |                    | RPS / Location and fixation strategy developed and reviewed (Before       
+             B Class freeze)                                          | A              | S             | R        | I   | I  
+26 | TA   |                    | DMU study for system level and sub system level                           | A              | S             | R        | I   | I  
+27 | TA   |                    | Functional CAE analysis                                                   | A              | S             | R        | I   | I  
+28 | TA   |                    | EE - Component Data Sheet (CDS) inputs                                    | A              | S             | R        | I   | I  
+29 | TA   |                    | Manufacturing feasibility for Built to Print Commodities                  | A              | S             | R        | I   | I
+</page>
+
+<page number="36">
+6.2 Details deliverables and RASI  
+Need revise date of RASI follow Timing Gate.  
+
+| No | Gate | Stage                | Deliverable                                                             | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|----------------------|-------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 30 | TA   | Stamping / Mold flow analysis for Concept commodity                                           | A              | S             | R        | I   | I             |
+| 31 | TA   | DFMEA for Concept Commodity / SC/CC & Key characteristics Controls                            | A              | S             | R        | I   | I             |
+| 32 | TA   | DTS - Fit and Finish document confirm gap and finish strategy for system & sub system level   | A              | S             | R        | I   | I             |
+| 33 | TA   | 3D design for B car class surface to be completed                                             | A              | S             | R        | I   | I             |
+| 34 | TA   | 3D CAD and 2D - Drawing submission to VinFast Engineering for P & I release                  | A              | S             | R        | I   | I             |
+| 35 | TA   | Tool order release for long lead parts, P Release for Tool Design and I Release for Tool Hardware, PR Release for tool machining | S | R | S | I | I |
+| 36 | TA   | CAD release for P & I for Long lead tooling kick-off                                          | A              | S             | R        | I   | I             |
+| 37 | TA   | 3D design to be finalized before A class (One week before TA)                                | A              | S             | R        | I   | I             |
+| 38 | TA   | Feasibility confirmation to support A class surface development                              | A              | S             | R        | I   | I             |
+| 39 | TA   | Development strategy for each Attributes confirmed and available for the serial development phase. | A          | S             | R        | I   | I             |
+| 40 | TA   | System, Sub-System & Component Level DVP for the Serial Development Phase has been created and agreed. | A | S | R | I | I |
+| 41 | TA   | Define tooling concept / injection points / …                                                | S              | I             | R        | S   | I             |
+| 42 | TA   | Feasibility / manufacturing study and confirmation for parts                                 | S              | I             | R        | S   | I             |
+| 43 | TA   | Technical and Styling Convergence (By PR)                                                   | A              | S             | R        | I   | I             |
+| 44 | TA   | 3D CAD and 2D - Drawing Submission to VinFast Engineering for review & Commercial quote for PR level design | A | S | R | I | I |
+| 45 | PR   | VinFast review and release the PR cad and 2D Drawing                                         | R              | S             | S        | I   | A             |
+| 46 | CC   | PFMEA                                                                                       | S              | I             | R        | A   | I             |
+| 47 | CC   | Commercial finalization for PR level design                                                 | S              | R             | S        | I   | I             |
+| 48 | CC   | System, Sub-System & Component Level DV Complete.                                           | A              | S             | R        | I   | I             |
+| 49 | CC   | Deviations to module targets detected and measures agreed.                                  | A              | S             | R        | I   | I             |
+| 50 | CC   | Tooling order releases for all parts                                                        | I              | R             | S        | I   | I             |
+| 51 | CC   | Engineering change management release kick-off                                              | R              | S             | S        | S   | S             |
+| 52 | CC   | On-going engineering change management                                                      | R              | S             | S        | S   | S             |
+| 53 | LS   | Process Validation Completion before LS                                                     | A              | S             | R        | I   | I             |
+| 54 | PTO  | Parts fit to nominal                                                                        | S              | I             | S        | R   | I             |
+| 55 | PTO  | System, Sub-System & Component Level PV Complete.                                           | A              | S             | R        | S   | I             |
+| 56 | PTO  | System, Sub-System & Component Level target achievement confirmed.                          | A              | S             | R        | S   | I             |
+| 57 | LS   | Part level - Appearance approval, Color harmony, Grain approval                             | A              | I             | R        | S   | I             |
+| 58 | LS   | Engineering sign-off                                                                        | A              | S             | S        | S   | S             |
+</page>
+
+<page number="37">
+7 Supplier responsibilities  
+Supplier is responsible to provide/ensure while completing the work. Supplier Responsibilities are itemised to help mitigate the risk to the organisation of an employer-employee relationship arising under the contract.  
+
+**Customer service requirements**  
+- **After-sales spare parts should be ready at startup:**  
+  The spare parts provided by the supplier should be ready at the start of the whole vehicle production.  
+
+- **Spare Parts Support Cycle:**  
+  The support period of after-sales spare parts shall need ensure life cycles of project and requirements in GTC after VINFAST end of production of the whole vehicle, except as specified in this SPB.  
+
+- **Maintenance Information of After-Sale Spare Parts:**  
+  The supplier of the first-level assembly should provide VINFAST after-sales engineering department information about the design, use and maintenance of the assembly before OTS, such as BOM table, parts structure and function description, fault diagnosis, special tools for maintenance, relevant technical parameters (installation clearance, parts performance parameters, etc).  
+
+8 Intellectual Property / Copyright  
+Refer to VinFast General Term and Condition (GTC).  
+
+9 Insurance / Warranties  
+Refer to VinFast General Term and Condition (GTC).  
+
+10 VinFast GTC & Part Packaging and Incoterms  
+Refer to VinFast General Term and Condition, Part packaging requirements and Incoterms requirement in the RFQ package.
+</page>
+
+<page number="38">
+11. Definitions and List of Abbreviations.
+
+DVP&R: Design Verification Plan & Report.  
+ESO: Engineering Sign Off.  
+GTC: General Term and Condition.  
+LLS: Long Lead Suppliers on Board.  
+LLT: Long Lead Tooling.  
+LOI: Letter of Intent.  
+MFC: Manufacturing Feasibility Confirmation.  
+MSC: Manufacturing Strategy Confirmation.  
+MSI: Major Suppliers Identified.  
+MSO: Manufacturing Sign Off.  
+OTS: Off The Shelf.  
+PTP: Prototype Parts out of Serial Tooling (Hand Finished).  
+RFQ: Request For Quotation.  
+SLS: Short Lead Suppliers on Board.  
+SOB: Supplier on Board.  
+SOP: Start of Production.  
+SOP-ID: SOP-Implementation Date.  
+SOP-LM: SOP Launch Model (1 Specific Model - "Edition").  
+SPB: Specifications Book.  
+SST: Sourcing Strategy.  
+TS: Theme Selection Model.  
+FUSA: Function Safety.  
+T&V: Testing & Validation.  
+IMDS: International Material Information System.  
+SC: Significant Characteristic.  
+CC: Critical Characteristic.
+</page>
+</pages>

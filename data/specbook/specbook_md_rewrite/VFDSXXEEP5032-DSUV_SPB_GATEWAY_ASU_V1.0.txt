@@ -1,0 +1,1467 @@
+Page 1
+Spec book.
+
+Supercedes Edition (11.2021).
+
+SPB-FSS.
+
+GATEWAY ASU Specification Book (SPB).
+Page 2
+Scope.  
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop vehicle projects VF36/VFe36, respectively. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production.
+
+**Figure Reference:** The figure illustrates a hardware component designed for integration into VinFast vehicle projects. This component represents a key element for sustainable production and environmental impact considerations in VF36/VFe36 designs.
+
+Responsible Contact: tobias.knauer@edag.com.  
+The reproduction, distribution, and utilization of this document as well as the communication of its contents to others without express authorization is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 3
+Contents.
+
+1 GENERAL DOCUMENT GUIDELINES. ........................................................................................ 6
+1.1 Purpose and Legal Binding. ....................................................................................................... 6
+1.2 Language. .................................................................................................................................. 6
+1.3 Obligation of Requirement Wording. .......................................................................................... 6
+    1.3.1 Vehicle Profile .................................................................................................................... 7
+    1.3.2 Sales Markets .................................................................................................................... 7
+
+2 GENERAL PROJECT GUIDELINES. ........................................................................................... 8
+2.1 Development Scope Abstract ..................................................................................................... 8
+2.2 Initial Situation and Objective .................................................................................................... 8
+2.3 Classification of the System / Component ............................................................................... 8
+2.4 Execution Regulations ............................................................................................................... 8
+2.5 Development and Supply Scope .............................................................................................. 8
+    2.5.1 Work Interface Chart (RASI) .............................................................................................. 9
+    2.5.2 Development Interface Agreement (DIA) ......................................................................... 11
+2.6 Quotation Scope ...................................................................................................................... 11
+2.7 Properties, Condition and Durability ....................................................................................... 11
+2.8 Development Process ............................................................................................................... 11
+    2.8.1 Gates and Milestones ....................................................................................................... 11
+    2.8.2 Prototype Statuses and Quantities ................................................................................... 11
+    2.8.3 Type Approval and Certification ........................................................................................ 12
+2.9 Quality and Reliability ............................................................................................................... 12
+    2.9.1 Quality Concepts ............................................................................................................... 12
+    2.9.2 Risk Management ............................................................................................................ 12
+    2.9.3 Validation of the SW Development .................................................................................. 12
+2.10 Content Amendments ............................................................................................................... 12
+
+3 PROJECT MANAGEMENT AND ORGANIZATION. ................................................................. 13
+3.1 Responsibilities in the Project and Project Management Plan ................................................. 13
+3.2 Documentation .......................................................................................................................... 13
+    3.2.1 Hardware Documentation ................................................................................................ 13
+    3.2.2 Software Documentation ................................................................................................ 13
+    3.2.3 Conformity Requirements ............................................................................................... 13
+
+4 SYSTEM ENVIRONMENT. ......................................................................................................... 15
+4.1 Functional System Environment .............................................................................................. 15
+4.2 Physical System Environment / Mechanical Interfaces .......................................................... 15
+4.3 System Diagram ....................................................................................................................... 16
+
+5 FUNCTIONAL AND TECHNICAL REQUIREMENTS. ............................................................... 17
+5.1 Technical Requirement ............................................................................................................. 17
+5.2 Block and Principle Diagram .................................................................................................... 18
+    5.2.1 Elements of Systems ...................................................................................................... 18
+5.3 Functions .................................................................................................................................. 18
+    5.3.1 Overview Functions Description ...................................................................................... 18
+    5.3.2 Detailed Functions Description ....................................................................................... 18
+    5.3.3 Faulty Operation ............................................................................................................ 19
+    5.3.4 Emergency Operation .................................................................................................... 19
+    5.3.5 Display and Operation Concept (HMI) ............................................................................ 19
+    5.3.6 Service and Application Functions .................................................................................. 19
+    5.3.7 Diagnostics .................................................................................................................... 19
+E/E System Schematic ................................................................................................................. 19
+Page 4
+Contents.
+
+1. GENERAL DOCUMENT GUIDELINES .............................................................. 6
+
+1.1 Purpose and Legal Binding. .................................................................................. 6  
+1.2 Language ............................................................................................................. 6  
+1.3 Obligation of Requirement Wording. ................................................................. 6  
+   1.3.1 Vehicle profile ............................................................................................. 7  
+   1.3.2 Sales Markets ............................................................................................ 7  
+
+2. GENERAL PROJECT GUIDELINES .................................................................. 8  
+
+2.1 Development Scope Abstract .............................................................................. 8  
+2.2 Initial Situation and Objective ............................................................................. 8  
+2.3 Classification of the System / Component ........................................................ 8  
+2.4 Execution Regulations ........................................................................................ 8  
+2.5 Development and Supply Scope ........................................................................ 8  
+   2.5.1 Work Interface Chart (RASI) ...................................................................... 9  
+   2.5.2 Development Interface Agreement (DIA) ................................................. 11  
+2.6 Quotation Scope ............................................................................................... 11  
+2.7 Properties, Condition and Durability ................................................................. 11  
+2.8 Development Process ...................................................................................... 11  
+   2.8.1 Gates and Milestones ............................................................................... 11  
+   2.8.2 Prototype Statuses and Quantities .......................................................... 11  
+   2.8.3 Type Approval and Certification .............................................................. 12  
+2.9 Quality and Reliability ....................................................................................... 12  
+   2.9.1 Quality Concepts ...................................................................................... 12  
+   2.9.2 Risk Management .................................................................................... 12  
+   2.9.3 Validation of the SW Development ......................................................... 12  
+2.10 Content Amendments ..................................................................................... 12  
+
+3. PROJECT MANAGEMENT AND ORGANIZATION ......................................... 13  
+
+3.1 Responsibilities in the Project and Project Management Plan ......................... 13  
+3.2 Documentation ................................................................................................. 13  
+   3.2.1 Hardware Documentation ......................................................................... 13  
+   3.2.2 Software Documentation .......................................................................... 13  
+   3.2.3 Conformity Requirements ......................................................................... 13  
+
+4. SYSTEM ENVIRONMENT ................................................................................ 15  
+
+4.1 Functional System Environment ....................................................................... 15  
+4.2 Physical System Environment / Mechanical Interfaces .................................... 15  
+4.3 System Diagram ............................................................................................... 16  
+
+5. FUNCTIONAL AND TECHNICAL REQUIREMENTS ...................................... 17  
+
+5.1 Technical Requirement .................................................................................... 17  
+5.2 Block and Principle Diagram ........................................................................... 18  
+   5.2.1 Elements of Systems ................................................................................ 18  
+5.3 Functions ......................................................................................................... 18  
+   5.3.1 Overview Functions Description .............................................................. 18  
+   5.3.2 Detailed Functions Description ............................................................... 18  
+   5.3.3 Faulty Operation ...................................................................................... 19  
+   5.3.4 Emergency Operation .............................................................................. 19  
+   5.3.5 Display and Operation Concept (HMI) .................................................... 19  
+   5.3.6 Service and Application Functions .......................................................... 19  
+5.4 Diagnostics ...................................................................................................... 19  
+5.5 E/E System Schematic .................................................................................... 19  
+
+5.6 Control Unit Concept ....................................................................................... 20  
+   5.6.1 Hardware ................................................................................................. 20  
+   5.6.2 Software .................................................................................................. 20  
+5.7 Electrical Interfaces ......................................................................................... 20  
+   5.7.1 Signal Characteristics ............................................................................. 22  
+   5.7.2 Diagnostics ............................................................................................. 22  
+   5.7.3 Network Management ............................................................................. 24  
+   5.7.4 Flashing and Coding ............................................................................... 25  
+   5.7.5 Pin Assignment ....................................................................................... 25  
+   5.7.6 Component Connected to Terminal 30 ................................................... 27  
+
+5.8 Specific Characteristics ................................................................................... 27  
+5.9 Safety Requirements ....................................................................................... 27  
+   5.9.1 Vehicle Safety Regarding Person and Passenger Protection .................. 27  
+   5.9.2 Vehicle Safety ......................................................................................... 27  
+5.10 Alternative and Future Variants ....................................................................... 27  
+5.11 Mechanical Energy Management ................................................................... 28  
+   5.11.1 Weight Targets ....................................................................................... 28  
+   5.11.2 Fuel Consumption & Driving Performance ............................................ 28  
+
+5.12 Installation ....................................................................................................... 28  
+   5.12.1 Installation Location ................................................................................ 28  
+   5.12.2 Assembly Concept and Requirements from Production ....................... 29  
+   5.12.3 Geometry ............................................................................................... 29  
+   5.12.4 Tolerances ............................................................................................. 30  
+
+5.13 Styling and Design .......................................................................................... 30  
+   5.13.1 Optical Characteristics and Surface Feel .............................................. 30  
+   5.13.2 Actuation Acoustics ............................................................................... 30  
+   5.13.3 Handling ................................................................................................ 30  
+
+5.14 Technical Material Requirements .................................................................. 31  
+5.15 Resistance to Media and Chemical Requirements ........................................ 31  
+   5.15.1 Contamination ........................................................................................ 31  
+   5.15.2 Cleaning ................................................................................................ 31  
+   5.15.3 Corrosion Protection ............................................................................. 31  
+   5.15.4 Tightness and Protection Classes ........................................................ 31  
+
+5.16 Environmental Compatibility .......................................................................... 31  
+   5.16.1 Material Selection ................................................................................... 31  
+   5.16.2 End of Life Treatment ............................................................................ 31  
+   5.16.3 Eco-Design ............................................................................................ 32  
+   5.16.4 Lifecycle Analysis ................................................................................... 32  
+   5.16.5 Emissions & Toxicology ......................................................................... 32  
+
+5.17 Mechanical Requirements .............................................................................. 32  
+   5.17.1 Load ...................................................................................................... 32  
+   5.17.2 Vibration Behavior ................................................................................. 32  
+   5.17.3 Stiffness and Cushioning Characteristics ............................................. 32  
+   5.17.4 Deformation ........................................................................................... 32  
+   5.17.5 Pressure ................................................................................................ 32  
+   5.17.6 NVH / Acoustic Performance ................................................................ 32  
+
+5.18 Durability / Lifetime ......................................................................................... 32  
+5.19 Electrical Requirements .................................................................................. 32  
+   5.19.1 Description of the Requirements ......................................................... 32  
+   5.19.2 Power Consumption .............................................................................. 33  
+   5.19.3 Low Voltage Energy Management ........................................................ 33  
+   5.19.4 High Voltage Energy Management ....................................................... 33  
+   5.19.5 Electromagnetic Compatibility ............................................................... 33  
+   5.19.6 Electrostatic Discharge ......................................................................... 33
+Page 5
+Contents.
+
+6 TESTING AND VALIDATION AND DVP&R ......................................................................... 34
+   6.1 Proof of Compliance ....................................................................................................... 34
+        6.1.1 Testing Plan (DVP + FRS Plan) ............................................................................ 34
+        6.1.2 Package ............................................................................................................. 34
+   6.2 Electrical Systems & Functions .................................................................................... 34
+   6.3 Virtual Testing and Simulation ...................................................................................... 34
+   6.4 Vehicle Testing ............................................................................................................. 34
+   6.5 Tests ............................................................................................................................. 34
+   6.6 Appearance Approval - Applicable for all Visible Parts ................................................. 34
+
+7 FUNCTION SAFETY, HOMOLOGATION AND SAFETY REGULATIONS ......................... 35
+   7.1 Functional Safety Requirements ................................................................................... 35
+   7.2 Deliverables for Functional Safety:
+        a) FUSA Deliverables expected before nomination ..................................................... 35
+        b) FUSA Deliverables expected after nomination ....................................................... 35
+   7.3 Homologation and Safety Regulation Requirements .................................................... 36
+        7.3.1 North America ..................................................................................................... 36
+        7.3.2 Europe ................................................................................................................ 36
+
+8 DEFINITIONS AND LIST OF ABBREVIATIONS ................................................................. 38
+   8.1 Definitions ...................................................................................................................... 38
+   8.2 Definitions and List of Abbreviations ............................................................................ 38
+   8.3 List of Tables ................................................................................................................ 39
+   8.4 List of Figures ............................................................................................................... 39
+
+9 FURTHER APPLICABLE DOCUMENTS ............................................................................. 40
+Page 6
+## Release Information
+**Version:** 1.0  
+**Date:** Dec-2021  
+
+### Updated by:
+| Function                      | Name          |
+|-------------------------------|---------------|
+| Initial version & main responsibility | Tobias, Knauer |
+
+---
+
+## Revisions Since Previous Version:
+| Version | Change Description | Signature | Date     |
+|---------|---------------------|-----------|----------|
+| 1.0     | First edition       | Tobias K. | 07/2022  |
+
+---
+
+# 1 General Document Guidelines
+
+## 1.1 Purpose and Legal Binding.
+This version is legally binding.  
+This document is based on the VDA component requirement specification structure and VF standard.  
+
+Requirement documents are divided into three levels, which are complementary to each other. All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2 → level 2 is applicable).
+
+---
+
+## 1.2 Language
+This document is written in English.  
+All official project documentations have to be done in English. If documents are bilingual, the English text is binding.
+
+---
+
+## 1.3 Obligation of Requirement Wording.
+The following wording rules are used throughout this document:  
+
+**Shall**  
+The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+
+**Should**  
+The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+
+**May**
+Page 7
+The word “may” is used to denote options that are left to the implementer.
+
+1.3.1 Vehicle Profile  
+Refer to appendix:  
+VFDSXXCVC0501 - Appendix_5_Features List  
+
+PALS  
+VFDSXXCVC3201 - VF36_VFe36 PALS Product Attribute Leadership Strategy  
+
+Documents are managed and distributed by VinFast.
+
+1.3.2 Sales Markets  
+LHD Countries: VN (Vietnam), NA (North America: USA - United States, CA - Canada), EU (Europe).
+
+**Production Volume**  
+Production volume and production mix assumptions are provided by engineering for reference only. The actual figures must be confirmed by suppliers in collaboration with VinFast purchasing.
+
+Production volume details:  
+- For VF e36 vehicles in Vietnam (VN): 2021E - 5,000, 2022E - 7,500, 2023E - 11,000, 2024E - 15,000, 2025E - 20,000, 2026E - 58,500.
+- For VF e36 vehicles in the USA: 2021E - 22,300, 2022E - 51,000, 2023E - 83,000, 2024E - 94,000, 2025E - 255,300.
+- For VF e36 vehicles in Canada: 2021E - 1,000, 2022E - 1,500, 2023E - 2,500, 2024E - 5,000, 2025E - 6,500, 2026E - 19,800.
+- For VF e36 vehicles in Europe (EUR): 2021E - 19,500, 2022E - 23,800, 2023E - 32,800, 2024E - 64,100.
+
+**Mix Rate Details:**  
+- For VF e36 in Vietnam (VN): Smart - 30%, ECO - 70%.  
+- For VF e36 in USA: Smart - 50%, ECO - 50%.  
+- For VF e36 in Canada: Smart - 35%, ECO - 65%.  
+- For VF e36 in Europe (EUR): Smart - 70%, ECO - 30%.
+Page 8
+2 General Project Guidelines  
+
+### 2.1 Development Scope Abstract  
+This technical specification is a written summary of requirements to be taken into account in the development of the USB Sockets.  
+The requirements described in this technical specification relate primarily to functional characteristics. The contractor ensures that the development of the components respects all applied standards, characteristics, and project requirements. Any possible cost savings as a result of improvements in design, production, or validation details must be reported immediately.  
+The contractor is a ‘Full Service Supplier’, with complete responsibility for the supplied system within the system boundaries.  
+
+### 2.2 Initial Situation and Objective  
+The USB Socket is a new development component that controls the charging process of attached USB peripherals. Through the implementation of testing and vehicle performance verification, it meets the performance design requirements of the Socket.  
+
+### 2.3 Classification of the System / Component  
+
+| No | Part Name                  | Part No.      | Qtty | Purchase level | VFe36 ECO | VFe36 PLUS | VN, EU, US, CA | VN, EU, US, CA |
+|----|----------------------------|---------------|------|----------------|-----------|------------|----------------|----------------|
+| 1  | GATEWAY_ASU_ASSY          | EEP80160010   | 1    | I              | x         | x          |                |                |
+| 1.1| GATEWAY_ASU_BRACKET       | EEP80160012   | 1    | H              | x         | x          |                |                |
+|1.2–1.5| HEX_NUT_M6_8_ZNFE_SW   | STD99000036   | 4    | P              | x         | x          |                |                |
+| 1.6| GATEWAY_ASU_ASSY          | EEP80260010   | 1    | P              | x         | x          |                |                |
+|1.6.1| GATEWAY_ASU_HW           | EEP80160011   | 1    | D              | x         | x          |                |                |
+|1.6.2| SOW_GATEWAY_ASU          | SOW80160020   | 1    | D              | x         | x          |                |                |
+
+### 2.4 Execution Regulations  
+The supplier must ensure that the developed parts meet the specified requirements of VinFast, obtain the type certification of the parts, and submit all necessary documents to support the type certification of the whole vehicle.  
+When synchronous development is completed, suppliers need to provide the necessary documentation to prove that their products have met the required regulatory requirements, including but not limited to ISO26262.  
+
+### 2.5 Development and Supply Scope  
+The supplier status is "Full Service Supplier", which means that the supplier has complete responsibility for the supplied system within the system boundaries. This responsibility includes the following:  
+- Define, develop, 3D-design all parts within the system.  
+- Create release drawings.  
+- Ensure the function of the system.  
+- Perform any required simulations or calculations on the system level.  
+- Validate the system according to the technical targets and tests stated in this specification.  
+- System timing (in terms of project management, development, and industrialization).
+Page 9
+2 General Project Guidelines.
+
+2.5.1 Work Interface Chart (RASI).
+The work interface chart (RASI) illustrates the agreed work-share and defines the obligations of the supplier as described in this section. The supplier's status as "Built to Print" or "Full Service Supplier" is determined based on the System Technical Specification or Component Technical Specification.
+
+RASI definitions are as follows:
+- **R: Responsible** – Responsible for proper execution of the required activities and may request necessary support from other project team members.
+- **A: Approval** – Decision-making responsibility for release. If no specific decider is assigned, the person responsible for execution (R) holds the decision authority.
+- **S: Support** – Obligation to actively assist and proactively support the person responsible (R), including resource allocation and know-how transfer.
+- **I: Information** – Entitled to demand updates and information from the responsible party (R).
+
+Details of deliverables and RASI responsibilities are outlined below:
+
+| No. | Gate      | Stage               | Deliverable                                                      | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|-----|-----------|---------------------|------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1   | PV        | Concept Phase       | List of Concept in Commodity                                    | R              | S             | I        | I   | I             |
+| 2   | PV        | Concept Phase       | SOR for Concept in Commodity                                    | R              | S             | I        | I   | I             |
+| 3   | PPS       | Concept Phase       | SOB through LOI - Letter of Intent for Concept in Commodity     | S              | R             | S        | I   | I             |
+| 4   | PPS       | Concept Phase       | EDD order release for Concept in Commodity                      | S              | R             | S        | I   | I             |
+| 5   | PPS       | Concept Phase       | Deliver Bill of Materials in Team Center                        | R              | I             | I        | I   | I             |
+| 6   | PPS       | Concept Phase       | Supply Chain Strategy Deliver Sourcing Strategy                 | S              | R             | I        | S   | I             |
+| 7   | PPS       | Concept Phase       | Commodity Timing Plan supporting Program Timing in business areas | S              | S             | R        | S   | I             |
+| 8   | PPS       | Concept Phase       | Organizational Planning and Resource Allocation for Series Development | S          | S             | R        | S   | I             |
+| 9   | PPS       | Concept Phase       | Detailed Opportunities and Risks for Program Measures           | A              | S             | R        | S   | I             |
+| 10  | PPS       | Concept Phase       | Quality Planning to meet Program Requirements - APQP Kickoff    | R              | S             | S        | S   | I             |
+Page 10
+VinFast Management System  
+
+**VFDSXXEEP5032**  
+Version: 3.0  
+Uncontrolled copy when printed  
+10 | 40  
+
+### 2.5.1 Work Interface Chart (RASI)
+
+The agreed work-share is documented in section 2.5.1. The main supplier obligations are described in the work interface chart (RASI). The status of the supplier “Built to Print” or “Full Service Supplier” is defined in the System Technical Specification or the Component Technical Specification.  
+
+#### RASI Defined Roles:  
+- **R: Responsible**  
+  Responsible for proper execution of activities to fulfill requirements; entitled to request necessary support from other project team members.  
+- **A: Approval**  
+  Obligation to decide and release; if no specific decider, the person responsible for execution becomes the decider.  
+- **S: Support**  
+  Proactively assists the responsible party, even if capacity, expenses, or transfer of know-how are required.  
+- **I: Information**  
+  Entitled to request and receive information from Responsible parties.  
+
+---
+
+### Detailed Deliverables and Chart  
+
+| No | Gate | Stage  | Deliverable                                                                                 | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|--------|---------------------------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 11 | PPS  | CONCEPT PHASE | Concept proposal for engineering review and finalization – For Concept Commodity           | A              | I             | R        | I   | I             |
+| 12 | PPS  |            | Concept & Proposal development to meet the target material cost                            | A              | I             | R        | I   | I             |
+| 13 | PPS  |            | Parts list and BoM available; target values for lead vehicle cost and weight verified -C Class | A              | I             | R        | I   | I             |
+| 14 | PPS  |            | Initial CAD data to support C class development for Concept commodity                       | A              | I             | R        | I   | I             |
+| 15 | PPS  |            | System & Sub-system functional targets agreed and cascaded to component level, inline with complete vehicle targets | A | S | R | I | I |
+| 16 | PPS  |            | DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification in concept phase; detailed test plan for hardware tests | A | S | R | I | I |
+| 17 | TA   |            | Package study to support B class surface development                                       | A              | I             | R        | I   | I             |
+| 18 | PPS  |            | Manufacturing feasibility for CAS development for concept commodity                        | A              | I             | R        | I   | I             |
+| 19 | PPS  |            | Design and Validation & Testing plan for Concept Commodity                                | A              | I             | R        | I   | I             |
+| 20 | TA   |            | Parts list and BoM available; target values for lead vehicle cost and weight verified - B Class | A | I | R | I | I |
+| 21 | TA   |            | Parts list and BoM available; target values for lead vehicle cost and weight verified - A Class | A | I | R | I | I |
+| 22 | TA   |            | Contract series development – LON for Concept Commodity/B2P Commodity                     | A              | R             | S        | I   | I             |
+| 23 | TA   |            | Timing plan for complete Program detailing milestones and critical activities for B2P Commodity | A | S | R | I | I |
+| 24 | TA   |            | Organization and resources for concept phase; resource planning for series development    | A              | S             | R        | I   | I             |
+| 25 | TA   |            | RPS/Location and fixation strategy developed & reviewed (Before B Class freeze)          | A              | S             | R        | I   | I             |
+| 26 | TA   |            | DMU study for System & Sub-system level                                                   | A              | S             | R        | I   | I             |
+| 27 | TA   |            | Functional CAE analysis                                                                   | A              | S             | R        | I   | I             |
+| 28 | TA   |            | EE – Component Data Sheet (CDS) Inputs                                                   | A              | S             | R        | I   | I             |
+| 29 | TA   |            | Manufacturing feasibility for Built to Print Commodities                                  | A              | S             | R        | I   | I             |
+| 30 | TA   |            | Stamping/Mold Flow Analysis for Concept Commodity                                         | A              | S             | R        | I   | I             |
+| 31 | TA   |            | DFMEA for Concept Commodity/SC/CC & Key Characteristics Controls                         | A              | S             | R        | I   | I             |
+
+*Table continues for gates 32-46 including milestones such as tooling release, styling, and technical validation.*
+Page 11
+47. Commercial finalization for PR level design: Supplier (S) is responsible (R) with support (S), informed (I), and involvement (I).  
+48. System, Sub-System & Component Level DV Complete: Approval (A), Supplier responsible (R), supported (S), and informed (I).  
+49. Deviations to module targets detected and measures agreed: Approval (A), Supplier responsible (R), supported (S), informed (I).  
+50. Tooling order releases for all parts: Supplier responsible (R) with support (S), informed (I).  
+51. Engineering change management release kick-off: Supplier responsible (R) supported by all.  
+52. On-going engineering change management: Supplier responsible (R) supported by all.  
+53. Process Validation Completion before LS: Approval (A), Supplier responsible (R), supported (S), informed (I).  
+54. Parts fit to nominal: Supplier responsible (R), support (S), informed (I).  
+55. System, Sub-System & Component Level PV Complete: Approval (A), Supplier responsible (R), supported (S).  
+56. System, Sub-System & Component Level target achievement confirmed: Approval (A), Supplier responsible (R), supported (S).  
+57. Part level - Appearance approval, Color harmony, Grain approval: Approval (A), Supplier responsible (R), supported (S), informed (I).  
+58. Engineering sign-off: Approval (A), Supplier supported (S), informed (S).
+
+**2.5.2 Development Interface Agreement (DIA)**  
+Development Interface Agreement (DIA) is established according to functional safety requirements.
+
+**2.6 Quotation Scope**  
+Refer to Statement of Requirements (SOR) and Request for Quote (RFQ).
+
+**2.7 Properties, Condition and Durability**  
+- **Ambient Operating Temperature**: -40 ~ +85 ℃.  
+- **Storage Temperature**: -40 ~ +85 ℃.  
+- **Ingress Protection**: IP5K2.  
+- **Input Voltage Range**: 9V to 16V.  
+- **Work Voltage**: DC 9V ~ 16V (typical 12V).  
+- **Communication interface**: CAN x2.  
+- **Functional Safety**: ECU is considered to be ISO-26262 QA rating.  
+- **Weight**: 240 g.
+
+**2.8 Development Process**  
+
+**2.8.1 Gates and Milestones**  
+
+**2.8.1.1 Gates**  
+The actual gates must be confirmed with suppliers through VinFast purchasing.  
+Document reference: VFDSXXCVC1101, VF36_VFe36_Material production Launch Schedule-Build plan_MRD.
+
+**2.8.1.2 Milestones**  
+The actual milestones must be confirmed with suppliers through VinFast purchasing.  
+Document reference: VFDSXXCVC1101, VF36_VFe36_Material production Launch Schedule-Build plan_MRD.
+
+**2.8.2 Prototype Statuses and Quantities**  
+Prototype statuses and quantities align with VinFast’s LabCar build and overall vehicle build plan.
+Page 12
+### 2.8.3 Type Approval and Certification.
+VinFast is responsible for the integration and certification of the vehicle-grade system. Vehicle-level certification projects include urban simulation road tests and enhanced road tests. Suppliers of spare parts/subsystems will be responsible for timely responses to failure reports encountered during the integration and certification processes of the vehicle-level system. All countermeasures to resolve issues addressed in failure reports must be executed by the supplier and approved by PPAP.
+
+The integration and certification of components/subsystems are the responsibility of the component supplier. Suppliers must complete all parts/subsystem tests to ensure compliance. The certification of parts/subsystems can be carried out either directly by the supplier or via a third party after receiving approval from VinFast.
+
+However, in all cases, the supplier is required to complete all specified test requirements. Suppliers must provide the VinFast Product Release Engineer with a comprehensive test certification plan for parts/subsystems and obtain approval. The plan should include details such as the number of specimens, test sequences, locations, and schedules for each test.
+
+### 2.9 Quality and Reliability  
+#### 2.9.1 Quality Concepts  
+Suppliers must ensure compliance with the quality commitment made to VinFast, guaranteeing less than 100 waste products per 1,000,000 spare parts sent to VinFast (PPM ≤100, CPK ≥1.33).  
+
+#### 2.9.2 Risk Management  
+Suppliers must notify the VinFast Product Release Engineer in writing of any potential technical issues, including problems, incidents, updated information, or project changes that could lead to increased costs, delayed project milestones, or late deliveries. Notifications must include a detailed repair plan, risk assessments, and an updated schedule covering the overall project progress.
+
+#### 2.9.3 Validation of the SW Development  
+Suppliers are required to regularly report relevant design input factors to VinFast and provide engineering support. Attendance at supplier development meetings and the completion of necessary design validation are mandatory.  
+
+In cases where the specifications do not align with the project requirements, suppliers should collaborate with VinFast to resolve discrepancies. Suppliers must also ensure the availability of competent on-site service personnel to assist VinFast with issues related to supplier parts during vehicle assembly, especially during the start-up phase of production.
+
+### 2.10 Content Amendments  
+Suppliers are obligated to notify VinFast Product Release Engineers in writing regarding any technical matters that may affect costs, schedules, or project nodes. Written notifications should include details of repair plans, risk assessments, and overall project schedule updates.
+Page 13
+3 Project Management and Organization
+
+3.1 Responsibilities in the Project and Project Management Plan
+Roles:
+- **Commodity Buyer**  
+  - Name: Phạm Thị Thanh Hà  
+    Email ID: v.haptt18@vinfast.vn  
+
+- **Commodity Buyer Manager**  
+  - Name: Axel Ulrich Kessel  
+    Email ID: v.axeluk@vinfast.vn  
+
+- **Commodity Engineering**  
+  - Name: Knauer, Tobias  
+    Email ID: Tobias.knauer@edag.com  
+
+- **Commodity Engineering Manager**  
+  - Name: Kiran Devlukia  
+    Email ID: Kiran.Devlukia@tatatechnologies.com  
+
+- **SQE (Site Engineer)**  
+  - Name: Mark Shannon  
+    Email ID: v.shannonm@vinfast.vn  
+
+- **SQE Manager**  
+  - Name: Paul Martin Hennessey  
+    Email ID: v.hennesseyp@vinfast.vn  
+    Contact Number: +84(0) 833 263 353  
+
+- **SCM Analyst**  
+  - Name: Di Thi Ncog Oanh  
+    Email ID: v.oanhdtn4@vinfast.vn  
+
+- **Packaging Analyst**  
+  - Name: Johannes Nißl  
+    Email ID: johannes.nissl@edag.com  
+    Contact Number: +49 162 279474  
+
+- **SCM Manager**  
+  - Name: Benjamin Peter Steward  
+    Email ID: v.bens@vinfast.vn  
+    Contact Number: +84(0) 888798855  
+
+3.2 Documentation
+
+3.2.1 Hardware Documentation
+Supplier should be required to document the following pieces of hardware at various stages:
+1. 2D, 3D Data drawings.
+2. Report of banned substances.
+3. PFMEA of the product (if designed by VinFast). If supplier designs the product, both PFMEA and DFMEA shall be provided.
+4. BOM of parts.
+5. Provide DV/PV type test report according to the technical requirements of product development.
+
+3.2.2 Software Documentation
+Supplier should be required to document the following pieces of software at various stages:
+1. Software unit test report.
+2. Software integration test report.
+3. Software system test report.
+
+3.2.3 Conformity Requirements
+All homologation of the vehicle relevant legal requirements shall be fulfilled for the planned sales markets. All corresponding drafts, proposals and all series of amendments/supplements have to be considered during development.
+
+To obtain whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems together with all applicable legal markings in accordance with the regulations of the planned sales markets.
+
+If separate technical units, parts, and systems for the planned sales markets are required to be certified or tested by a Technical Service or Authority, the supplier is solely responsible for timely certification.
+Page 14
+3.2.3 Conformity Requirements.
+
+The supplier must ensure complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed with the homologation department of VinFast.
+
+If requirements of a planned sales market are subject to conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.
+Page 15
+4 System Environment.
+
+4.1 Functional System Environment.
+
+**Temperature Environment Term**  
+- Working temperature: The lowest is -40℃, the highest is 85℃.  
+- Storage temperature: The lowest is -40℃, the highest is 85℃.  
+
+4.2 Physical System Environment / Mechanical Interfaces.  
+Refer to section 5.6.6.
+Page 16
+4 System Environment.
+
+4.1 Functional System Environment.
+
+| Temperature Environment Term | Temperature (℃) |
+|-------------------------------|-------------------|
+| Working temperature           | -40              |
+|                               | 85               |
+| Storage temperature           | -40              |
+|                               | 85               |
+
+4.2 Physical System Environment / Mechanical Interfaces.
+
+Refer to 5.6.6.
+
+4.3 System Diagram.
+
+The system diagram illustrates the integration and connectivity for various functional modules within the VinFast vehicle system, including Body-CAN and Private-CAN networks. It represents components such as ACM, SHVU-F, SHVU-R, OCS, ETG, MHL L, MHL R, and POS, connected via a translation box and interfacing with XGW, BMS, ADAS modules, and gateway systems. This diagram details both the physical and logical connections and interactions between vehicle components, ensuring streamlined communication and operations through specified CAN protocols.
+Page 17
+## Airspring Suspension System VFe36
+
+The last released system schematic is valid: VFDSXVEEP0049 – **System Schematics VFe36**.
+
+---
+
+# 5 Functional and Technical Requirements  
+
+### 5.1 Technical Requirement  
+**General information for the Procurement Team:**
+
+- In this project, the ASU (Air Spring Unit) is considered a carry-over part. The receiver side signals of the ASU are specified by the supplier and must be operated.  
+- The translation box is responsible for translating the signals sent by the vehicle to the ASU and vice versa.  
+- The box operates with the voltage levels of a 12V vehicle architecture (10V - 14.8V).  
+- Signal translation is required from vehicle-side signals to ASU-required signals (ASU-Privat-CAN) and vice versa. Compatibility with Intel and Motorola formats must be ensured.
+
+Key functional requirements for the translation box:
+- Multiplexed signals must be decoded to vehicle-CAN/ASU-required signals.  
+- The box must operate up to 120 signals.  
+- The box must handle differences in operation rates between vehicle-CAN and ASU-Privat-CAN.  
+- Sleep/wake-up functionality should be triggered by CAN messages.  
+- Maximum information delay: 30ms.  
+- Two connectors must be available for CAN-Input and Output.
+Page 18
+# VinFast Management System
+
+## VFDSXXEEP5032  
+
+### Version: 3.0  
+Uncontrolled copy when printed  
+18 | 40  
+
+---
+
+## 5 Functional and Technical Requirements  
+
+### Additional requirements:  
+- Maximum dimension housing: up to 120x120x30 mm.  
+- This component, referred to as the Translation box, shall be able to power four Hall sensors, one Headlamp leveling sensor (1 channel), and one Rear leveling sensor (2 channels). Electrical component requirements for the sensors are described in the following sections:
+
+#### A) **Hall sensor:**  
+- Wake up condition: The Translation box shall be awakened over CAN when the BCM is awakened.  
+- Voltage requirements:  
+  - Minimum voltage: 4.75V  
+  - Typical voltage: 5V  
+  - Maximum voltage: 5.25V  
+- Current requirements:  
+  - Nominal current: 8mA  
+  - Peak current: 35mA  
+
+#### B) **One channel leveling sensor:**  
+- Voltage requirements:  
+  - Minimum supply voltage: 4.5V  
+  - Typical supply voltage: 5V  
+  - Maximum supply voltage: 5.5V  
+- Current requirements:  
+  - Minimum current consumption: 10mA  
+  - Maximum current consumption: 16mA  
+
+#### C) **Two channel leveling sensor:**  
+- Channel 1:  
+  - Minimum supply voltage: 4.5V  
+  - Typical supply voltage: 5V  
+  - Maximum supply voltage: 5.5V  
+  - Minimum current consumption: 10mA  
+- Channel 2:  
+  - Minimum supply voltage: 4.5V  
+  - Typical supply voltage: 5V  
+  - Maximum supply voltage: 5.5V  
+  - Minimum current consumption: 10mA  
+  - Maximum current consumption: 35mA  
+
+---
+
+### 5.2 Block and Principle Diagram  
+#### 5.2.1 Elements of Systems  
+Refer to section 5.4 for detailed information.
+
+---
+
+### 5.3 Functions  
+
+#### 5.3.1 Overview Functions Description  
+
+The ECU (Electronic Control Unit) is an automotive gateway and a sensor power supply.  
+
+**Gateway:**  
+- The ECU functions as an intermediary between two CAN networks, transferring data between them.  
+- CAN message descriptions will be provided to Embed via CAN DBC files.  
+- Signals flow:  
+  - Received on Body CAN → Transmitted to Private CAN.  
+  - Received on Private CAN → Transmitted to Body CAN.  
+- Technical specifications such as packing, endianness, and other details will be outlined in DBC files.  
+
+**Sensor Power Supply:**  
+- The ASU_G gateway supports an electric vehicle with two CAN channels.  
+- Supplies 5V power to four Hall sensors used for door handle sensing.  
+- The gateway remains permanently powered, wakes upon CAN activity, and sleeps during inactivity.  
+- Sensor power supplies automatically turn off when ASU_G sleeps.  
+
+---
+
+#### 5.3.2 Detailed Functions Description  
+- The ECU powers 4 Hall sensors while in the Running State.  
+- The ECU shuts off the sensor supplies while in the Asleep State.
+Page 19
+## VinFast Management System
+
+**VFDSXXEEP5032**  
+Version: 3.0  
+Uncontrolled copy when printed  
+Page: 19 | 40  
+
+---
+
+### Electrical Characteristics of Hall Sensors
+
+The table below outlines the electrical characteristics of the hall sensors:
+
+| Operating Voltage Min. | Operating Voltage Rated | Operating Voltage Max. | Typical/Nominal Current | Peak Current (Time) | Overload Current (Time) | Short Current (Time) |
+|-------------------------|--------------------------|-------------------------|--------------------------|----------------------|--------------------------|-----------------------|
+| 4.75 V                 | 5V                      | 5.25 V                 | 11mA                    | 108 mA / 3 μs       | 13 mA / 256 ms          | 17 mA / 128 μs        |
+
+---
+
+### 5.3 Functions
+
+#### 5.3.3 Faulty Operation
+Not applicable.
+
+#### 5.3.4 Emergency Operation
+Not applicable.
+
+#### 5.3.5 Display and Operation Concept (HMI)
+Not applicable.
+
+#### 5.3.6 Service and Application Functions
+Not applicable.
+
+#### 5.3.7 Diagnostics
+Not applicable.
+
+---
+
+### 5.4 E/E System Schematic
+
+**EEP80260010 GATEWAY_ASU_ASSY**
+
+The schematic below illustrates the integration of the electrical system components, including CAN networks, hall sensors, ECU, and ASU connections.
+
+- **Body CAN and Private CAN:** Facilitates communication between the vehicle body system and the Air Spring Unit.
+- **Hall Sensors:** Directly powered by the ECU with specifications of 5V and corresponding current.
+- **ASU Integration:** Connection to the Private CAN ensures vehicle signals are appropriately translated to ASU-compatible formats.
+
+Refer to the system schematic diagram for detailed configuration of the Gateway_ASU_ASSY.
+Page 20
+5.5 Control Unit Concept
+
+5.5.1 Hardware  
+Use a PowerPC microcontroller from STMicroelectronics.  
+
+5.5.2 Software  
+Embed uses a Model-Based Development Process that enables very fast delivery. This relies upon the Simulink Blockset that delivers fast CAN communication and gateway functionality, Input and Output Control, UDS Diagnostics, and a UDS Bootloader. This software architecture runs on all Embed ECUs.
+
+Subsequent DBC versions are planned for the milestone:
+- LS: DBC V9.2.6  
+- SOP (VN): DBC V9.2.6  
+- SOP (ROW): DBC V10.3  
+
+Changes between releases are possible. In this case, new versions are officially distributed by the architecture team.  
+
+5.5.2.1 Bootloader Requirements  
+| No. | Flashing Preconditions                  | Message ID | CAN Signal      | Signal Value                                 |
+|-----|---------------------------------------|------------|-----------------|---------------------------------------------|
+| 1   | Ignition ON (and E-motor OFF for BEV) | 0x112      | STAT_Terminal   | 0x02 ON (Driver Present) or 0x04 Software Update OTA |
+| 3   | Vehicle Not Moving                    | 0x342      | ABS_VehSpd, and ABS_VehSpdValid | Less than 3km/h 0x01 Valid                |
+| 4   | System Voltage Ok                     | 0x10A      | *Ubatt          | 11.5 ~ 16v*                                 |
+
+The ECU shall only support a single image.  
+The flashing requirements are detailed in VFDSVAEEP0003_Flash_Specification_V2.0.  
+
+---
+
+5.6 Electrical Interfaces
+
+5.6.1 CAN requirements  
+CAN requirements are found in document ref [CES_VINFAST_EE_VFDSXVEEP0047_CAN_Specification-V1.0.4]. This document details much of the CAN standard; only the specifics are given below:  
+
+#### Frame Usage
+- Only 11-bit identifiers shall be used.  
+- 29-bit identifiers shall not be used.  
+- Remote and Overload frames shall not be used.
+Page 21
+5.6.1.2 Bit Timings
+
+A table of oscillator frequency, baud rate, and respective timing parameters is detailed below:
+- Oscillator frequency: 8 MHz, 10 MHz, 12 MHz, 16 MHz.
+- Baud rate: 500 kBaud.
+- 1 Bit time (bt): 2 µs.
+- 1 Time quantum (qt): 1/8 bt, 1/10 bt, 1/12 bt, 1/16 bt.
+- Synchronization jump width: 1 or 2 qt.
+- Sample: 1 qt.
+- Sample point: 65-85%.
+- Resynchronization: At the recessive to the dominant edge.
+
+5.6.1.3 Bus Off
+
+If the ECU detects a BusOff error, the CAN controller will reinitialize every 1000ms indefinitely until the issue is resolved.
+
+5.6.1.4 CAN TP
+
+The CAN Transport Protocol shall adhere to ISO 15765-2. Timing between transport protocol frames depends on a parameter called STmin:
+- OEM enhanced diagnostics: 20ms.
+- OBD diagnostic: 0ms.
+- ECU reprogramming (flashing): 0ms direct on CAN-Bus; 5ms through Gateway.
+- User data or supplier specific: 10ms.
+
+5.6.1.5 CAN Cyclic Messages
+
+Cyclic messages must maintain a tolerance of +/- 2% of their cycle time.
+
+5.6.1.6 CAN Network Electrical Failures
+
+If a General Bus Failure occurs, the ECU must log a diagnostic trouble code (DTC). A general fault in communication network hardware requires the following conditions:
+- No "BusOff-indication."
+- No short circuit to ground or battery.
+- No open circuit in CAN_high or CAN_low.
+- No TX-messages sent for a defined time (e.g., 1000ms).
+- No RX-messages received for a defined time (e.g., 1000ms).
+Page 22
+### 5.6.2 Signal Characteristics
+#### Body CAN transmitted onto the Private CAN
+The following signals are transmitted from the Body CAN to the Private CAN:
+- TEMP_EX
+- ST_ILK_ERRM_FZM
+- ST_ECU_ACLNX_COG
+- ST_TRAI
+- CRC_DT_PT_2
+- CRC_V_VEH
+- ACLNX_COG
+- CRC_ST_TYR
+- ALIV_DT_PT_2
+- ALIV_V_VEH
+- ACLNX_COG_ERR_AMP
+- ALIV_ST_TYR
+- ST_DRV_VEH
+- V_VEH_COG
+- QU_ACLNX_COG
+- QU_FN_TYR_INFO
+- NO_VECH_1
+- QU_V_VEH_COG
+- FLLUPT_GPWSUP
+- QU_TPL
+- NO_VECH_2
+- MILE_KM
+- CTR_PCOS
+- QU_TFAI
+- NO_VECH_3
+- CRC_KL
+- ST_ENERG_PWMG
+- ST_CLSY
+- NO_VECH_4
+- ALIV_COU_KL
+- CRC_ACLNY_COG
+- ST_DSW_DRD
+- NO_VECH_5
+- ST_KL_30B
+- ALIV_ACLNY_COG
+- ST_DSW_PSD
+- NO_VECH_6
+- ST_KL
+- ACLNY_COG
+- ST_DSW_DVDR
+- NO_VECH_7
+- CRC_ACLNX_COG
+- QU_ACLNY_COG
+- ST_DSW_PSDR
+- ST_ENERG_FZM
+- ALIV_ACLNX_COG
+- T_SEC_COU_REL
+- ST_CL_BTL
+
+#### Privat CAN transmitted onto Body CAN
+The following signals are transmitted from the Private CAN to the Body CAN:
+- ALIV_ST_LCS_VEH
+- ID_RQ_BUS
+- UTDT_CC_MESS
+- HGLV_RRH_EHC
+- ST_ECU_ST_LCS_VEH
+- ST_CC_MESS_EXT
+- NM2_USR_DT_KCAN
+- QU_HGLV_RLH_EHC
+- QU_FN_LCS_VEH
+- ST_CC_MESS_STD
+- TRANF_CC_MESS_EXT
+- TA
+- ID2
+- TRANF_CC_MESS_STD
+- TCPI
+- ECU_ID_WUPREG
+- ST_IDC_CCLK_CC_MESS_EXT
+- NM2_AUTOSAR_RES_KCAN
+- Byte3
+- ID_FN_INQY
+- ST_IDC_CCLK_CC_MESS_STD
+- Byte4
+- ID_FN_RQ_BUS
+- NO_FRM_CC_MESS_EXT
+- Byte5
+- NO_CC_MESS_EXT
+- ST_RQ_BUS
+- Byte6
+- NO_CC_MESS_STD
+- QUAN_FRM_CC_MESS_EXT
+- CRC_HGLV_EHC
+- Byte7
+- ST_LAW_RQ
+- ALIV_HGLV_EHC
+- Byte8
+- WACA
+- DUR_FFLUPT
+- HGLV_RLH_EHC
+
+### 5.6.3 Diagnostics
+Details regarding diagnostics functionality are outlined in the following reference documents:
+- CES_VINFAST_EE_VFDSP50000033_Basic_Diagnostics_Specification
+- CES_VINFAST_EE_VFDSP50000034_Basic_DID_PID_Specification.
+
+#### Diagnostic Features
+- All I/O circuits shall be diagnosable against short to battery, ground, or open circuits wherever possible.
+- All outputs shall support Service $2F or $31 functionality.
+Page 23
+Loss of communications shall trigger a DTC. ECU software determines it has not correctly performed one of its functions, e.g., overrun, memory leak, NVRAM corruption, shall trigger a DTC. ECU’s must support Bus OFF DTC for each CAN network they are connected to. DIDs numbers shall be defined within the range 0xFD00 to 0xFEFF.
+
+Diagnostic Communication. Diagnostics shall be carried out on CAN at 500kbps. The diagnostics timing parameters in the table below shall be used.
+
+**Diagnostic Timing Parameters:**
+- **P2server:** Minimum 0ms, Maximum 50ms, Timeout Not Applicable.
+- **P2client:** Minimum Not Applicable, Maximum Not Applicable, Timeout 150ms.
+- **P2*server:** Minimum 0ms, Maximum 2000ms, Timeout Not Applicable.
+- **P2*client:** Minimum Not Applicable, Maximum Not Applicable, Timeout 5000ms.
+- **S3 server:** Minimum Not Applicable, Maximum Not Applicable, Timeout 5000ms.
+- **S3client:** Minimum 0ms, Maximum 3000ms, Timeout 4000ms.
+
+**Generic Diagnostics Requirements.**
+The ECU shall respond negatively to all diagnostics requests with the response of 0x22 Conditions not correct unless the following are true:
+
+- **Precondition 1:** Ignition ON (and E-motor OFF for BEV), Message ID 0x112, CAN Signal STAT_Terminal, Signal Value 0x02 (Driver Present) or 0x04 (Software Update OTA).
+- **Precondition 2:** Vehicle Not Moving, Message ID 0x342, CAN Signal ABS_VehSpd and ABS_VehSpdValid, Signal Values Less than 3km/h and Valid (0x01).
+
+The ECU shall only log DTCs when the Ignition is ON and after 1 second to ensure all ECUs have reached normal operating conditions. The ECU shall detect internal faults and log a single DTC for all internal faults. The ECU shall perform an On Demand Self Test (RID 0x303) where the outputs are set high and verified. The ECU shall support snapshot data to help diagnose faults.
+Page 24
+### The ECU Snapshot Details.
+The ECU snapshot shall contain the following information as a minimum. The supplier may add more:
+- **Signal Name:** Time stamp.
+  - **CvT:** Mandatory (#1).
+  - **Start Byte:** 0xF120.
+  - **Description:** Date of "Year," "Month," "Day," "Hour," "Minute," and "Second."
+  - **DID Length:** 48 bits as defined below.
+
+- **Signal Name:** Odometer Reading.
+  - **CvT:** Mandatory (#2).
+  - **Start Byte:** 0xF121.
+  - **Description:** Odometer.
+  - **DID Length:** 24 bits.
+
+- **Signal Name:** Supply Voltage.
+  - **CvT:** Mandatory (#3).
+  - **Start Byte:** 0xF122.
+  - **Description:** Vehicle Supply Voltage.
+  - **DID Length:** 8 bits.
+
+- **Signal Name:** Ignition Status.
+  - **CvT:** Mandatory (#4).
+  - **Start Byte:** 0xF123.
+  - **Description:** Ignition Status.
+  - **DID Length:** 8 bits.
+
+- **Signal Name:** Vehicle Temperature.
+  - **CvT:** Mandatory/Optional (#5).
+  - **Start Byte:** 0xDD01* (Mandatory based on ECU location).
+  - **Description:** Cabin Temperature.
+  - **DID Length:** 8 bits.
+
+- **Signal Name:** Outside Temperature.
+  - **CvT:** Mandatory/Optional (#6).
+  - **Start Byte:** 0xDD02* (Mandatory based on ECU location).
+  - **Description:** Outside Temperature.
+  - **DID Length:** 8 bits.
+
+- **Signal Name:** ECU Temperature.
+  - **CvT:** Mandatory (#7).
+  - **Start Byte:** 0xDD03.
+  - **Description:** ECU Temperature.
+  - **DID Length:** 8 bits.
+
+- **Signal Name:** ECU Supply Voltage.
+  - **CvT:** Mandatory (#8).
+  - **Start Byte:** 0xDD04.
+  - **Description:** ECU Supply Voltage.
+  - **DID Length:** 8 bits.
+
+---
+
+### Network Management.
+Please refer to:
+- **VFDSAAEEP0047_CAN_Specification** or **VFDSP50000012_LIN_Specification** (latest version) for network management functionality.
+
+**Specifications:**
+The ECU shall have at least **two CAN channels** conforming to CAN 2.0B.
+Page 25
+The ECU shall wake on CAN. The Private CAN shall be terminated with 120 Ohms. The ECU shall wake and sleep according to the provided diagram, which outlines the transitions between Bus Sleep Mode, Network Mode, Repeat Message State, and Ready Sleep State.
+
+### Flashing and Coding
+Refer to CES_VINFAST_EE_VFDSP50000035_Flash_Specification, CES_VINFAST_EE_VFDSP50000036_Coding_Specification, and CES_VINFAST_EE_VFDSP50000037_Security_Access_Algorithm in their latest versions for functionality related to flashing and coding. The Vinfast-required algorithm HMAC-SHA1 is used.
+
+The ASU_Gateway functionality is solely controlled by application software and is not affected by coding changes, DIDs, wiring harness alterations, or similar processes that might otherwise impact functionality.
+
+### Pin Assignment
+EEP80260010 GATEWAY_ASU_ASSY.
+Page 26
+### Connector Information (Part Side)
+- **Supplier:** Molex/Kinkong  
+- **Part Number:** 64334-0100  
+- **Connector Coding:** Black  
+- **Pin Definition:** Connector Picture/Drawing provided.  
+- **Special Requirement:** None  
+
+### Connector Information (Wiring Harness Side)
+- **Supplier:** Molex/Kinkong  
+- **Part Number:** 64319-3211 right-hand / 64319-1211 left-hand (currently open)  
+- **Connector Coding:** Black  
+- **Pin Definition:** Connector Picture/Drawing provided.  
+- **Special Requirement:** None
+Page 27
+### VinFast Management System
+
+#### 5.6.7 Component Connected to Terminal 30
+Use Clamp Cl.30 FI_26.
+
+#### 5.7 Specific Characteristics
+Not applicable.
+
+#### 5.8 Safety Requirements
+
+##### 5.8.1 Vehicle Safety regarding Person and Passenger Protection
+
+###### 5.8.1.1 Safety Goals
+The supplier is responsible to actively support the integration of vehicle safety functions.
+
+Lifetime relevant laws and ratings of selling markets as well as OEM requirements must be considered.
+
+Vehicle system reliable operation is achieved by all sub-component integration. VinFast, in partnership with suppliers, guarantees the vehicle’s intended operating function is free of electronic malfunction by following the process outlined in ISO26262.
+
+The supplier is to conduct assessments as needed, including but not limited to FTA, DFMEA, PFMEA, STPA, HAZOP, etc. It is expected that functional safety risks should be reviewed with actions identified or confirmed in design (including inspection of hardware and software design principles) and manufacturing (manufacturing processes, validation of design processes, and verification of conformance of production processes).
+
+##### 5.8.2 Vehicle Safety
+Not applicable.
+
+#### 5.9 Alternative and Future Variants
+Not applicable.
+Page 28
+5.10 Mechanical Energy Management.  
+5.10.1 Weight Targets.  
+EEP80260010: 240 g  
+
+5.10.2 Fuel Consumption & Driving Performance.  
+Not applicable.  
+
+5.11 Installation.  
+5.11.1 Installation Location.  
+Valid for all VF36 variants.  
+
+Bracket for fixation of new Gateway ASU ECU necessary.
+Page 29
+5.11.2 Assembly Concept and Requirement from Production.
+
+Installation of the unit in any of their normal vehicle mounting applications (within design tolerances) shall not distort them or cause a change in any operating characteristics such that they would not meet the requirements of this standard.
+
+Ensure ergonomic access to all commands. Ensure visibility cone of all keys, dashboard, and display ideograms according to the eye-points and the vehicle illumination requirements.
+
+The specific pin-out of the connection between the unit and the vehicle system identified in this standard shall be collectively developed by VinFast and the Supplier of the unit. The connection will be designed in such a way as to optimize the layout of the overall system.
+
+Outline dimension of the unit housing and cover shall conform to the applicable VinFast and Supplier assembly drawings:
+- Surfaces must be free of sharp edges, burrs, etc., to protect wiring assembly and service personnel.  
+- Shall meet all other dimensional and finish requirements identified in the performance standard and on offer drawing.  
+- Graphics shall match the master letter pattern provided by VinFast Engineering and Design office.  
+
+Mounting Concept with Flat-Head Screw M3.5x10.
+
+5.11.3 Geometry.
+
+Page 1: Contains assembly and geometry drawings for the Gateway ASU Assy unit, including dimensional specifications for mounting and housing standards.
+Page 30
+5.11.4 Tolerances.
+
+UNSPECIFIED TOLERANCES:
+- X.XXX ±.005 [0.13]
+- X.XX ±.01 [0.25]
+- FRAC. ±1/64 [0.4]
+- ANGLES ±1°
+
+5.12 Styling and Design.
+Not applicable.
+
+5.13 Ergonomics.
+
+5.13.1 Optical Characteristics and Surface Feel.
+Not applicable.
+
+5.13.2 Actuation Acoustics.
+Not applicable.
+
+5.13.3 Handling.
+Not applicable.
+Page 31
+5.14 Technical Material Requirements  
+• Prohibited or Restricted Substances, Emissions & Toxicology.  
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelve parts, and spare parts by the supplier through the complete product life cycle according to VFDST00007601.  
+IMDS material data sheets have to be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601.  
+Specific targets on vehicle indoor air quality must be met according to VFDSXVCVC3401-VIAQ_Testing_Guideline.  
+Follow IMDS system.  
+
+5.15 Resistance to Media and Chemical Requirements  
+
+5.15.1 Contamination  
+Follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+See Refer to 6.1.1.  
+
+5.15.2 Cleaning  
+Follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+Refer to 6.1.1.  
+
+5.15.3 Corrosion Protection  
+Follows VF’s Material Compliance & passes VF’s Material Compliance tests.  
+Refer to 6.1.1.  
+
+5.15.4 Tightness and Protection Classes  
+Follow IP52 standard.  
+Tightening torque: 2N.m +/- 0.5 N.m.  
+
+5.16 Environmental Compatibility  
+
+5.16.1 Material Selection  
+Front Housing: Aluminium. Gloss: Dull. Grain: No Grain.  
+Rear Cover: Aluminium. Gloss: Dull. Grain: No Grain.  
+
+Table 1: Material Info.  
+
+| ID       | PART NAME            | MATERIAL          |  
+|----------|----------------------|-------------------|  
+| 1        | ALUM. BOX-TOP COVER  | ALUMINUM          |  
+| 2        | ALUM. BOX-BOTTOM PLATE | ALUMINUM        |  
+| 3        | FLAT-HEAD SCREW M3.5x10 | SWRCH22A       |  
+| 4        | CONNECTION PLATE     | PBT/COPPER ALLOY |
+Page 32
+### 5.16.2 Eco-Design
+Follow IMDS system.
+
+### 5.16.3 Lifecycle Analysis
+Follow IMDS system.
+
+### 5.16.4 Emissions & Toxicology
+Follow IMDS system.
+
+### 5.17 Mechanical Requirements
+#### 5.17.1 Load
+Refer to section 6.1.1.
+
+#### 5.17.2 Vibration Behavior
+Refer to section 6.1.1.
+
+#### 5.17.3 Stiffness and Cushioning Characteristics
+Refer to section 6.1.1.
+
+#### 5.17.4 Deformation
+Refer to section 6.1.1.
+
+#### 5.17.5 Pressure
+Refer to section 6.1.1.
+
+#### 5.17.6 NVH / Acoustic Performance
+Refer to section 6.1.1.
+
+Noises which are perceived by the customers as disturbing have to be ruled out through the selection of suitable materials, surfaces, gaps, and forming. The supplier has to guarantee that his components are free of disturbing noise in their vehicle environment and their geometrical integration.
+
+### 5.18 Durability / Life Time
+10 years or 160000 km (whichever comes first).
+
+### 5.19 Electrical Requirements
+#### 5.19.1 Description of the Requirements
+Shall meet the requirements of the Technical Specification for the specific vehicle(s) that may include the following:
+1. Component Electrical Technical Specification.
+2. Component Functional Description.
+3. Network Transmission Matrix.
+4. CAN bus communications requirements.
+5. Diagnostic requirements.
+6. Other requirements documents.
+Page 33
+5.19.2 Power Consumption  
+**Power Consumption Requirements:**  
+- Input Voltage range: DC 8V – 28V  
+- Input Current range: DC 20A max  
+- Rated Voltage: DC 8V – 16V (typical 12V)  
+
+5.19.3 Low Voltage Energy Management  
+**Energy Management Requirements:**  
+Follow Protection of Chipset defined in 5.5.1  
+
+5.19.4 High Voltage Energy Management  
+**Energy Management Requirements:**  
+Follow Protection of Chipset defined in 5.5.1  
+
+5.19.5 Electromagnetic Compatibility  
+**EMC Requirements:**  
+Follow standard VFDST00026302  
+
+5.19.6 Electrostatic Discharge  
+**ESD Requirements:**  
+Follow standard VFDST00026302  
+
+5.20 Climatic Requirements / Thermal Management  
+- **Climatic Requirements:**  
+The ambient temperature, relative humidity, and altitude shall meet the vehicle performance operating environment.  
+- **Thermal Management:**  
+The development and validation of the heat protection in the complete vehicle ensure that all relevant component temperatures remain below the maximum allowed limits derived from vehicle operation within the environmental operating temperatures.  
+
+Please refer to CTS_VINFAST_EE_VFDSP50000009_Thermal_Management in the latest version.  
+
+5.20.1 Thermal Management Requirements  
+- 90W (20V/4.5A) + 18W + 18W can work normally at max 45℃.  
+- 45W (15V/3A) + 12W + 12W can work normally at 85℃.  
+
+Refer to Testing plan: VFDSXVEEP6106  
+
+5.21 Service Requirements  
+
+5.22 Transport Protection  
+
+5.23 Logistics Requirements  
+
+5.24 Quality Assurance Requirements
+Page 34
+6 Testing and validation and DVP&R.  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- No. of tested components/parts.  
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).  
+
+6.1 Proof of Compliance.  
+6.1.1 Testing Plan (DVP + FRS Plan).  
+Refer data from T&V team:  
+VFDSXVCVC1401  
+VFe36_Appendix_4_DVP_Design Verification Plan.  
+
+mention DVP component:  
+open  
+DSUV_DVP_GATEWAY_ASU.  
+
+The final DVP is not yet available because the feedback from the VF Test & Validation colleagues is still pending.  
+
+6.1.2 Package.  
+
+6.2 Electrical Systems & Functions.  
+
+6.3 Virtual Testing and Simulation.  
+
+6.4 Vehicle Testing.  
+
+6.5 Tests.  
+
+6.6 Appearance Approval - Applicable for all Visible Parts.  
+AAR is a PPAP deliverable.  
+The AAR process is described in the VFDST00038401 (quantity of parts, timing).  
+For each step of the process, Supplier has the responsibility to submit parts to VF Quality Design following agreed timing with VF to get OK Shape, OKTG and AAR Approval.  
+The process will start in early phase at PT build to secure AAR Approval at LS.  
+Supplier has to include this activity in their development process and ED&D Cost.
+Page 35
+7 Function Safety, Homologation and safety regulations.
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+7.1 Functional Safety Requirements.  
+The supplier shall ensure that the developed/manufactured part(s) meet IATF 16949:2016 standard, Quality management system requirements for automotive production.  
+The supplier shall ensure that the developed/manufactured part(s) meet ISO 26262:2018 standard, Road vehicles – Functional safety.  
+<MGL and FuSa to add here reference to system-specific Functional Safety Requirements document.>
+
+7.2 Deliverables for Functional Safety.  
+Indicative RASIC* for expected deliverables:  
+| **5.5 Work products** | **VINFAST** | **SUPPLIER** |  
+| ------------------------ | ----------- | ----------- |  
+| 5.5.1 Supplier selection report resulting from requirements 5.4.2.1 and 5.4.2.2. | R | I |  
+| 5.5.2 Development interface agreement (DIA) resulting from requirement 5.4.3. | R | S |  
+| 5.5.3 Supplier's project plan resulting from requirement 5.4.3. | A | R |  
+| 5.5.4 Supplier's safety plan resulting from requirement 5.4.3. | A | R |  
+| 5.5.5 Functional safety assessment report resulting from requirements 5.4.5.1 to 5.4.5.5. | I | R |  
+| 5.5.6 Supply agreement resulting from requirements 5.4.6.2 to 5.4.6.3. | R | S |  
+| 6.5.3 Safety case, resulting from 6.4.6. | A | R |
+
+*RASIC description in section “Deliverables.”  
+
+a) FUSA Deliverables expected before nomination.  
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or the justification if they cannot or do not meet the safety requirements.  
+
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree a DIA (Development Interface Agreement) as described in ISO 26262-8 clause 5. Note: The DIA will contain at least the information described in ISO 26262-8 clause 5.4.3.1.  
+
+b) FUSA Deliverables expected after nomination.  
+- The supplier shall submit for VinFast approval a Safety Plan, describing the process, procedures, activities, resource plan and documentation to be conducted and/or delivered. Note: The Safety Plan will contain at least the items described in ISO 26262-2 clause 6.4.3.5.
+Page 36
+VinFast Management System
+
+VFDSXXEEP5032  
+Version: 3.0  
+Uncontrolled copy when printed  
+Page 36 | 40  
+Print date  
+Status  
+Functional Responsibility  
+
+- The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2 clause 6.5.3.
+
+### 7.3 Homologation and Safety Regulation Requirements  
+
+#### 7.3.1 North America  
+
+**a. Homologation and safety regulation activities.**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+**b. Self-certification and test report(s).**  
+The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+(*) Refer to Appendix 8 of Manufacturer_Handbook.  
+
+**c. Duty to notify VinFast of non-compliance with FMVSS/CMVSS or European regulations.**  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+The supplier has a duty to notify VinFast on such issues within five working days after determining the existence of non-compliance or a safety-related defect.  
+The supplier must propose an appropriate risk assessment and resolution plan.
+
+#### 7.3.2 Europe  
+
+**a. Homologation and safety regulation activities.**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+**b. Test report(s) and certificate(s).**  
+The supplier is responsible for getting their part(s), product(s), or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale.  
+VinFast requests suppliers to conduct tests as specified in certain UN-ECE regulations at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+VinFast also requests suppliers to provide supporting documentation, technical information, including drawings to be submitted to the relevant authorities to obtain certification for the EC vehicle type-approval (if any).
+Page 37
+**VinFast Management System**
+
+**VFDSXXEEP5032**
+
+**Version: 3.0**
+
+---
+
+### 7.3.2 Europe
+
+#### Homologation and Safety Regulation Requirements
+
+**a. Homologation and safety regulation activities.**  
+The Supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g. United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+**b. Test report(s) and Certificate(s).**  
+The Supplier is responsible for ensuring their part(s), product(s) or system(s) meet applicable UN-ECE regulations before those products can be offered for sale.  
+
+VinFast requests Suppliers to conduct tests as specified in certain of the UN-ECE at authorized technical service(s). The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+
+VinFast also requests Suppliers to provide supporting documentation, technical information, including drawings as required to be submitted to relevant authorities in order to get certification for the EC vehicle type-approval (if any).  
+
+**c. Duty to notify VinFast of a non-compliance with an UN-ECE regulation.**  
+The Supplier should also be familiar with the laboratory test procedures used by European authorities to evaluate the compliance of their products with each corresponding UN-ECE regulation.  
+
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an UN-ECE regulation or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+
+The Supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+
+The Supplier must propose an appropriate risk assessment and resolution plan.
+Page 38
+### 8 Definitions and List of Abbreviations
+
+#### 8.1 Definitions
+
+#### 8.2 Definitions and List of Abbreviations
+
+| **Abbreviation** | **Explanation**                                            |
+|-------------------|------------------------------------------------------------|
+| AA                | Attack Angle                                               |
+| ABG               | Airbag control module                                      |
+| ABS               | Anti-lock braking system                                   |
+| AC                | Alternating Current                                        |
+| ACM               | Airbag control module                                      |
+| ADAS              | Advanced Driver Assistance Systems                         |
+| ADC               | Analog to Digital Converter                                |
+| AI                | Articulation Index                                         |
+| AIA               | Activity Interface Agreement = Work Interface Chart (RASI) |
+| APQP              | Advanced Product Quality Planning                          |
+| ASIL              | Automotive Safety Integrity Level                          |
+| ASM               | Asynchronous Machine                                       |
+| AWD               | All wheel drive                                            |
+| BCM               | Body control module                                        |
+| BDU               | Battery disconnect unit                                    |
+| BEV               | Battery Electric Vehicle                                   |
+| BFR               | Basic Function Requirement                                 |
+| BIW               | Body in White                                              |
+| BMU               | Battery management unit                                    |
+| BOM               | Bill Of Material                                           |
+| BSM               | Blind Spot Monitoring                                      |
+| CAD               | Computer Aided Design                                      |
+| CAE               | Computer-Aided Engineering                                 |
+| CAM               | Computer-Aided Manufacturing                               |
+| CAN               | Controller Area Network                                    |
+| CC                | Center Console                                             |
+| MSC               | Manufacturing Strategy Confirmation                        |
+| TS                | Theme selection Model                                      |
+| MFC               | Manufacturing Feasibility Confirmation                     |
+| MSI               | Major Suppliers Identified                                 |
+| SST               | Sourcing Strategy                                          |
+| LLS               | Long Lead Suppliers on board                               |
+| SLS               | Short Lead Suppliers on board                              |
+| LLT               | Long Lead Tooling                                          |
+| PTP               | Prototype Parts out of Serial tooling (Hand finished)      |
+| OTS               | Off Tools Samples                                          |
+| ESO               | Engineering Sign Off                                       |
+| MSO               | Manufacturing Sign Off                                     |
+| SOP-LM            | SOP Launch Model (1 specific Model - "Edition")            |
+| SOP               | Start of Production                                        |
+Page 39
+VinFast Management System  
+VFDSXXEEP5032  
+
+Version: 3.0  
+Uncontrolled copy when printed  
+39 | 40  
+Print date  
+Status  
+Functional Responsibility  
+  
+**SOP-ID**  
+SOP-ID…SOP implementation date  
+
+**SOB**  
+Supplier on Board  
+
+**LOI**  
+Letter of Intend  
+
+**LON**  
+Letter of Nominated  
+
+**DVP&R**  
+Design Verification Plan & Report  
+
+**GTC**  
+General Term and Condition  
+
+**RFQ**  
+Request For Quotation  
+
+**FUSA**  
+Function Safety  
+
+**T&V**  
+Testing & Validation  
+
+**SC**  
+Significant Characteristic  
+
+**CC**  
+Critical Characteristic  
+  
+**8.3 List of Tables**  
+
+**8.4 List of Figures**
+Page 40
+9 Further Applicable Documents.
+
+| Code or Std No. | Name detail |
+|-----------------|-------------|
+|                 |             |
+|                 |             |
+|                 |             |
+|                 |             |
+|                 |             |

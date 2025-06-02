@@ -1,0 +1,2429 @@
+Page 1
+FUNCTIONAL SPECIFICATION.  
+Highway Assist.  
+
+SCOPE: VF8 / VF9.  
+
+Function owner: Vu Quy Hung (v.hungvq9@vinfast.vn).
+Page 2
+Table of contents.
+
+1 / APL03_HWA/TJA.
+1.1 / Document Management.
+1.2 / Glossary.
+1.3 / ICA Function Overview.
+    1.3.1 / / Function Description.
+    1.3.2 / / Mode Description.
+        1.3.2.1 / / HWA Mode <>.
+        1.3.2.2 / / TJA Mode <>.
+        1.3.2.3 / TJA Leading Vehicle Following Condition.
+1.4 / / Signal Interface.
+    1.4.1 / / Input Signals.
+    1.4.2 / / Output Signals.
+1.5 / / ICA states and use case description ICA.
+    1.5.1 / / ICA State machine ICA.
+    1.5.2 / Enter and exit conditions.
+        1.5.2.1 / / ICA OFF <ICA>.
+            1.5.2.1.1 / / General.
+            1.5.2.1.2 / / OFF to ON.
+            1.5.2.1.3 / / OFF to Fault.
+            1.1 After power on, system detected there is ICA fault happen, ICA state transfers from ‘OFF’ to ‘Fault’.
+        1.5.2.2 / / ICA Fault <ICA>.
+            1.5.2.2.1 / / Fault to OFF.
+            1.5.2.2.2 / / Fault to ON.
+        1.5.2.3 / / ICA ON <ICA>.
+            1.5.2.3.1 / / General.
+            1.5.2.3.2 / / ON to OFF.
+            1.5.2.3.3 / / ON to Standby.
+            1.5.2.3.4 / / ON to Passive A.
+            1.5.2.3.5 / / ON to Fault.
+Page 3
+### Table of Contents
+
+1 / APL03_HWA/TJA ................................................................................................... 7  
+1.1 / Document Management ......................................................................................... 7  
+1.2 / Glossary .................................................................................................................. 9  
+1.3 / ICA Function Overview ........................................................................................ 11  
+   1.3.1 / / Function Description ..................................................................................... 11  
+   1.3.2 / / Mode Description .......................................................................................... 11  
+      1.3.2.1 / / HWA Mode <> ...................................................................................... 11  
+      1.3.2.2 / / TJA Mode <> ........................................................................................ 12  
+      1.3.2.3 / / TJA Leading Vehicle Following Condition .......................................... 13  
+1.4 / / Signal Interface ................................................................................................... 15  
+   1.4.1 / / Input Signals ................................................................................................. 15  
+   1.4.2 / / Output Signals .............................................................................................. 20  
+1.5 / / ICA States and Use Case Description ICA ...................................................... 24  
+   1.5.1 / / ICA State Machine ICA................................................................................. 24  
+   1.5.2 / / Enter and Exit Conditions ............................................................................ 25  
+      1.5.2.1 / / ICA OFF <ICA> .................................................................................... 25  
+         1.5.2.1.1 / / General ........................................................................................ 25  
+         1.5.2.1.2 / / OFF to ON .................................................................................. 26  
+         1.5.2.1.3 / / OFF to Fault ............................................................................... 26  
+      1.5.2.2 / / ICA Fault <ICA> .................................................................................. 26  
+         1.5.2.2.1 / / Fault to OFF ............................................................................... 26  
+         1.5.2.2.2 / / Fault to ON ................................................................................. 26  
+      1.5.2.3 / / ICA ON <ICA> ..................................................................................... 27  
+         1.5.2.3.1 / / General ........................................................................................ 27  
+         1.5.2.3.2 / / ON to OFF .................................................................................. 27  
+         1.5.2.3.3 / / ON to Standby ............................................................................ 27  
+         1.5.2.3.4 / / ON to Passive A ......................................................................... 28  
+         1.5.2.3.5 / / ON to Fault ................................................................................. 28  
+      1.5.2.4 / / ICA Passive A <ICA> .......................................................................... 28  
+         1.5.2.4.1 / / General ........................................................................................ 28  
+         1.5.2.4.2 / / Passive A to Standby ................................................................. 29  
+      1.5.2.5 / / ICA Passive B ...................................................................................... 29  
+         1.5.2.5.1 / / General ........................................................................................ 29  
+         1.5.2.5.2 / / Passive B to Passive A .............................................................. 29  
+         1.5.2.5.3 / / Passive B to Work ..................................................................... 30  
+      1.5.2.6 / / ICA Standby ......................................................................................... 30  
+         1.5.2.6.1 / / General ........................................................................................ 30  
+         1.5.2.6.2 / / Standby to Passive A .................................................................. 30  
+         1.5.2.6.3 / / Standby to Work ......................................................................... 31  
+      1.5.2.7 / / ICA Work <ICA> .................................................................................. 31  
+         1.5.2.7.1 / / General ........................................................................................ 31  
+         1.5.2.7.2 / / Work to Lateral Override ........................................................... 31  
+            1.5.2.7.2.1 / / 1) Turn indicator is ON ; ................................................... 32  
+            1.5.2.7.2.2 / / 2) Driver takes over the steering wheel; ......................... 32  
+         1.5.2.7.3 / / Work to Active ............................................................................. 32  
+         1.5.2.7.4 / / Work to Passive A ...................................................................... 32  
+         1.5.2.7.5 / / Work to Passive B ...................................................................... 32  
+         1.5.2.7.6 / / Work to Standby ......................................................................... 33  
+      1.5.2.8 / / ICA Active <ICA> ................................................................................ 33  
+         1.5.2.8.1 / / General ........................................................................................ 33  
+         1.5.2.8.2 / / Active to Lateral Override ......................................................... 33  
+      1.5.2.9 / / ICA Lateral Override <ICA> ............................................................... 34  
+         1.5.2.9.1 / / General ........................................................................................ 34  
+         1.5.2.9.2 / / Lateral Override to Active ......................................................... 34  
+   1.5.3 / / ICA Activation Condition ICA ..................................................................... 34  
+      1.5.3.1 / / ICA Switch Methods ICA ..................................................................... 34  
+         1.5.3.1.1 / / General ........................................................................................ 35  
+            1.5.3.1.1.1 / / VinPilot Button (Press Button) ......................................... 35  
+            1.5.3.1.1.2 / / Cancel Button (Press Button) ........................................... 35  
+      1.5.3.2 / / Longitudinal Activation Condition ..................................................... 36
+Page 4
+Table of Contents.
+
+1. APL03_HWA/TJA
+   1.1 Document Management (Page 7)
+   1.2 Glossary (Page 9)
+   1.3 ICA Function Overview (Page 11)
+       1.3.1 Function Description (Page 11)
+       1.3.2 Mode Description (Page 11)
+           1.3.2.1 HWA Mode <> (Page 11)
+           1.3.2.2 TJA Mode <> (Page 12)
+           1.3.2.3 TJA Leading Vehicle Following Condition (Page 13)
+   1.4 Signal Interface (Page 15)
+       1.4.1 Input Signals (Page 15)
+       1.4.2 Output Signals (Page 20)
+   1.5 ICA States and Use Case Description ICA (Page 24)
+       1.5.1 ICA State Machine ICA (Page 24)
+       1.5.2 Enter and Exit Conditions (Page 25)
+           1.5.2.1 ICA OFF <ICA> (Page 25)
+               1.5.2.1.1 General (Page 25)
+               1.5.2.1.2 OFF to ON (Page 26)
+               1.5.2.1.3 OFF to Fault (Page 26)
+           1.5.2.2 ICA Fault <ICA> (Page 26)
+               1.5.2.2.1 Fault to OFF (Page 26)
+               1.5.2.2.2 Fault to ON (Page 26)
+           1.5.2.3 ICA ON <ICA> (Page 27)
+               1.5.2.3.1 General (Page 27)
+               1.5.2.3.2 ON to OFF (Page 27)
+               1.5.2.3.3 ON to Standby (Page 27)
+               1.5.2.3.4 ON to Passive A (Page 28)
+               1.5.2.3.5 ON to Fault (Page 28)
+           1.5.2.4 ICA Passive A <ICAA> (Page 28)
+               1.5.2.4.1 General (Page 28)
+               1.5.2.4.2 Passive A to Standby (Page 29)
+           1.5.2.5 ICA Passive B (Page 29)
+               1.5.2.5.1 General (Page 29)
+               1.5.2.5.2 Passive B to Passive A (Page 29)
+               1.5.2.5.3 Passive B to Work (Page 30)
+           1.5.2.6 ICA Standby (Page 30)
+               1.5.2.6.1 General (Page 30)
+               1.5.2.6.2 Standby to Passive A (Page 30)
+               1.5.2.6.3 Standby to Work (Page 31)
+           1.5.2.7 ICA Work <ICA> (Page 31)
+               1.5.2.7.1 General (Page 31)
+               1.5.2.7.2 Work to Lateral Override (Page 31)
+                   1.5.2.7.2.1 Turn indicator is ON (Page 32)
+                   1.5.2.7.2.2 Driver takes over the steering wheel (Page 32)
+               1.5.2.7.3 Work to Active (Page 32)
+               1.5.2.7.4 Work to Passive A (Page 32)
+               1.5.2.7.5 Work to Passive B (Page 32)
+               1.5.2.7.6 Work to Standby (Page 33)
+           1.5.2.8 ICA Active <ICA> (Page 33)
+               1.5.2.8.1 General (Page 33)
+               1.5.2.8.2 Active to Lateral Override (Page 33)
+           1.5.2.9 ICA Lateral Override <ICA> (Page 34)
+               1.5.2.9.1 General (Page 34)
+               1.5.2.9.2 Lateral Override to Active (Page 34)
+       1.5.3 ICA Activation Condition ICA (Page 34)
+           1.5.3.1 ICA Switch Methods ICA (Page 34)
+               1.5.3.1.1 General (Page 35)
+                   1.5.3.1.1.1 VinPilot Button (Press Button) (Page 35)
+                   1.5.3.1.1.2 Cancel Button (Press Button) (Page 35)
+           1.5.3.2 Longitudinal Activation condition (Page 36)
+           1.5.3.3 Lateral Activation condition (Page 36)
+               1.5.3.3.1 Vehicle speed condition (Page 36)
+               1.5.3.3.2 Vehicle lateral acceleration condition (Page 36)
+               1.5.3.3.3 Vehicle longitudinal deceleration condition (Page 36)
+               1.5.3.3.4 Vehicle longitudinal acceleration condition (Page 38)
+               1.5.3.3.5 Vehicle yaw rate condition (Page 38)
+               1.5.3.3.6 Lane marking and leading vehicle detection condition (Page 38)
+               1.5.3.3.7 Lane width condition (Page 38)
+               1.5.3.3.8 Lane curvature condition (Page 39)
+               1.5.3.3.9 LCC Intervention zone condition (Page 39)
+               1.5.3.3.10 Other Vehicle Stability Systems condition (Page 39)
+               1.5.3.3.11 Vehicle moving direction condition (Page 40)
+               1.5.3.3.12 Driver hands-on condition (Page 40)
+               1.5.3.3.13 EPS state condition (Page 40)
+               1.5.3.3.14 TPMS state condition (Page 40)
+               1.5.3.3.15 No camera failsafe (Page 41)
+           1.5.3.4 Driver Lateral Override Condition (Page 41)
+               1.5.3.4.1 Lateral Override conditions (Page 41)
+               1.5.3.4.2 Active (Page 41)
+               1.5.3.4.3 Override (Page 42)
+               1.5.3.4.4 Notes (Page 43)
+           1.5.3.5 Hands Off Detection (Page 43)
+       1.5.4 HMI Requirement HMI (Page 44)
+           1.5.4.1 Receive Button Signals (Page 45)
+           1.5.4.2 Display Design (Page 46)
+               1.5.4.2.1 Lane and Target Display (Page 46)
+               1.5.4.2.2 Icon Display (Page 46)
+               1.5.4.2.3 Popup Message and Chime (Page 47)
+       1.5.5 Typical Use Case (Page 50)
+   1.6 ICA Performance Requirement ICA (Page 56)
+       1.6.1 Main ICA Performance Requirements ICA (Page 56)
+           1.6.1.1 Road width (Page 56)
+Page 5
+1.6.1.2 / / Maximum curve.
+
+1.6.1.3 / / When ICA is active and double lane markings are detected, ICA should maintain the vehicle in the center of lanes with an error range of 20 cm.
+
+1.6.1.4 / / When the ego vehicle stops for less than 3 seconds and the front vehicle drives off, the ego vehicle should be able to automatically drive off. If the ego vehicle stops for more than 3 seconds and the front vehicle drives off, the system should inform the driver.
+
+1.6.1.5 / / When a vehicle from an adjacent lane wants to cut in, ICA will detect it and control the acceleration and deceleration accordingly. The lateral position of the ego vehicle will depend on whether double lanes are present.
+
+1.6.1.6 / / If double lane markings are detected, when the front vehicle starts to change lanes, the ego vehicle will not follow it and will be kept in the center of the double lanes.
+
+1.6.1.7 / / The driver’s condition is monitored. If the driver drives hands-off and does not touch the steering wheel for 15 seconds, a first warning (pop-up message and flashing of the warning sign) will appear. Lateral control and longitudinal control will remain active.
+
+1.6.1.8 / / Lateral acceleration.
+
+1.6.1.9 / / Lateral jerk.
+
+1.6.2 / / Other ICA Performance Requirements.
+
+1.6.2.1 / / Set speed control accuracy.
+
+1.6.2.2 / / Maximum deceleration limit.
+
+1.6.2.3 / / Maximum negative jerk limit.
+
+1.6.2.4 / / ACC Stop & Go (S&G).
+
+1.6.2.5 / / EPB take-over time.
+
+1.7 / TJA.
+
+1.7.1 / / Lane width to which the system adapts.
+
+1.7.2 / / Curve radius to which the system adapts.
+
+1.7.3 / / Types of road marking lines that the system adapts to.
+
+1.7.4 / / System control accuracy requirements.
+
+1.7.5 / / The longest hands-off time.
+
+1.7.6 / / Range of vehicle speeds that can be calibrated by the system.
+
+1.7.7 / / Functional requirements for following the trajectory of the preceding vehicle.
+Page 6
+1.7.8 Control requirements when the lanes on both sides are clear.  
+
+1.7.9 Control requirements when the lane line on one side is clear.  
+
+1.7.10 Control requirements when the lanes on both sides are not clear.  
+
+1.7.11 Control requirements on the front cut-in vehicle.  
+
+1.8 HWA SL.  
+
+1.8.1 Lane width to which the system adapts.  
+
+1.8.2 Curve radius to which the system adapts.  
+
+1.8.3 Types of road marking lines that the system adapts to.  
+
+1.8.4 System control accuracy requirements.  
+
+1.8.5 System exit mechanism after the driver hands off.  
+
+1.8.6 Range of vehicle speed range that can be calibrated by the system.  
+
+1.8.7 Control requirements when the lanes on both sides are clear.  
+
+1.8.8 Control requirements on the front cut-in vehicle.
+Page 7
+1 / APL03_HWA/TJA.
+
+Requirement ID: FS-225054.  
+Type: --.  
+Status: New.  
+
+1.1 / Document Management.
+
+Requirement ID: FS-225055.  
+Type: --.  
+Status: New.  
+
+VF revision:
+
+| Version | Change by      | Change description                    | Initiator       | Approver               |
+|---------|----------------|----------------------------------------|-----------------|------------------------|
+| 1.0     | ECR60004069   | Initial version released for LS phase | Duong Hoai An   | Ng Dennis Koon Siu     |
+| 2.0     | ECR60005557   | Release for SOP phase                 | Duong Hoai An   | Ng Dennis Koon Siu     |
+
+Release History:
+
+| Release | Date       | Author      | Reviewer              | Remarks / Changes                     |
+|---------|------------|-------------|-----------------------|---------------------------------------|
+| 1.0     | --         | Shijin Lu   | --                    | Initial version                      |
+| 2.0     | 2021/08/26 | Shijin Lu   | --                    | Update version for customer          |
+Page 8
+1 / APL03_HWA/TJA
+
+Requirement ID: FS-225054.
+Type: --.
+Status: New.
+
+1.1 / Document Management
+
+Requirement ID: FS-225055.
+Type: --.
+Status: New.
+
+### VF Revision
+| Version | Change By      | Change Description                            | Initiator       | Approver                |
+|---------|----------------|-----------------------------------------------|-----------------|-------------------------|
+| 1.0     | ECR60004069    | Initial version released for LS phase         | Duong Hoai An   | Ng Dennis Koon Siu      |
+| 2.0     | ECR60005557    | Release for SOP phase                         | Duong Hoai An   | Ng Dennis Koon Siu      |
+
+### Release Date and Changes  
+| Version | Date         | Author     | Reviewer        | Remarks/Changes                                                                                       |
+|---------|--------------|------------|-----------------|------------------------------------------------------------------------------------------------------|
+| 1.0     | --           | Shijin Lu  | --              | Initial version                                                                                      |
+| 2.0     | 2021/08/26   | Shijin Lu  | --              | Update version for customer.                                                                         |
+| 2.1     | 2021/09/20   | Shijin Lu  | --              | Update version for customer.                                                                         |
+| 2.2     | 2021/10/22   | Shijin Lu  | --              | Update version for customer.                                                                         |
+| 2.3     | 2021/11/04   | Shijin Lu  | --              | 1. Update the signal according to function discussion.                                               |
+|         |              |            |                 | 2. Update status machine according to function discussion.                                           |
+|         |              |            |                 | 3. Update HMI part.                                                                                  |
+| 2.4     | 2021/11/14   | Shijin Lu  | --              | 1. Add one CANCEL button press for Passive B to Passive A transmit.                                  |
+|         |              |            |                 | 2. Update the CANCEL button signal name.                                                            |
+|         |              |            |                 | 3. Add note for work to standby (ACC standstill wait; HW button resume ACC to GO).                  |
+|         |              |            |                 | 4. Chapter 5.3.5, update hands off detection part.                                                   |
+|         |              |            |                 | 5. Chapter 4.2, add two output signals for hands off HMI output.                                     |
+| 2.5     | 2021/11/24   | Shijin Lu  | --              | 1. Typo correction.                                                                                  |
+|         |              |            |                 | 2. Chapter 5.3.1.1, remove coding 2 for long press.                                                  |
+|         |              |            |                 | 3. Chapter 5.3.3, update the curvature enable parameter and remove the inhibit condition.            |
+|         |              |            |                 | 4. Chapter 5.3.3, add TPMS states condition.                                                         |
+|         |              |            |                 | 5. Chapter 5.2.2/5.2.1.3/5.2.2.1/5.2.2.2/5.2.3.4/5.2.3.5/5.2.6.3, update the Fault states.            |
+|         |              |            |                 | 6. Chapter 5.1, add signal matching with state machine.                                              |
+| 2.6     | 2021/12/10   | Shijin Lu  | --              | 1. Update the signal coding of "MFS_M2Control".                                                     |
+|         |              |            |                 | 2. Update the button description of "MFS_M2Control".                                                |
+| 2.7     | 2022/01/17   | Shijin Lu  | --              | 1. Update Chapter 5.2.4.2, add ACC active condition in state machine from "Passive A" to "Standby". |
+|         |              |            |                 | 2. Add signal "MHU_ValetMode_Activation" for HWA/TJA inhibit condition (related: Chapters 5.2.3.4, 5.2.4.2, 5.2.6.2, 5.2.6.3, 5.2.7.4). |
+|         |              |            |                 | 3. Update the Output signal "0X206.ADAS_HWA_txtpopup" and "0x82.ADAS_TakeOver_Request" coding (Chapter 4.2). |
+|         |              |            |                 | 4. Add the input signal "0x403.MHU_ValetMode_Activation" (Chapter 4.1).                              |
+|         |              |            |                 | 5. Update the description of Chapter 5.2.7.2 (from "any" to "all").                                  |
+|         |              |            |                 | 6. Update the signal "0x20D.IDBActive" to "0x20D.VDCActive" in input signal for vehicle stability.  |
+Page 9
+1 / APL03_HWA/TJA
+
+Requirement ID: FS-225054.  
+Type: --.  
+Status: New.  
+
+1.1 / Document Management  
+
+Requirement ID: FS-225055.  
+Type: --.  
+Status: New.  
+
+### VF Revision   
+| Version | Change by     | Change Description                               | Initiator       | Approver              |
+|---------|---------------|-------------------------------------------------|-----------------|-----------------------|
+| 1.0     | ECR60004069   | Initial version released for LS phase           | Duong Hoai An   | Ng Dennis Koon Siu    |
+| 2.0     | ECR60005557   | Release for SOP phase                           | Duong Hoai An   | Ng Dennis Koon Siu    |
+
+### Release Notes  
+| Release | Date       | Author    | Reviewer   | Remarks / Changes                          |
+|---------|------------|-----------|------------|--------------------------------------------|
+| 1.0     |            | Shijin Lu |            | Initial version                            |
+| 2.0     | 2021/08/26 | Shijin Lu |            | Update version for customer                |
+| 2.1     | 2021/09/20 | Shijin Lu |            | Update version for customer                |
+| 2.2     | 2021/10/22 | Shijin Lu |            | Update version for customer                |
+| 2.3     | 2021/11/04 | Shijin Lu |            | 1. Update the signal according to function discussion.  
+                                                2. Update status machine according to function discussion.  
+                                                3. Update HMI part.                          |
+| 2.4     | 2021/11/14 | Shijin Lu |            | 1. Add one CANCEL button press for Passive B to Passive A transmit.  
+                                                2. Update the CANCEL button signal name.  
+                                                3. Add note for work to standby (ACC standstill wait, HW button resume ACC to GO).  
+                                                4. Chapter 5.3.5, update hands off detection part.  
+                                                5. Chapter 4.2, add two output signals for hands off HMI output.  |
+| 2.5     | 2021/11/24 | Shijin Lu |            | 1. Typo correction.  
+                                                2. Chapter 5.3.1.1, remove coding 2 for long press.  
+                                                3. Chapter 5.3.3, update the curvature enable parameter and remove the inhibit condition.  
+                                                4. Chapter 5.3.3, add TPMS states condition.  
+                                                5. Update the state machine related Fault states in various chapters.  
+                                                6. Chapter 5.1, add signal matching with state machine.  |
+| 2.6     | 2021/12/10 | Shijin Lu |            | 1. Update the signal coding and description of "MFS_M2Control".     |
+| 2.7     | 2022/01/17 | Shijin Lu |            | 1. Update Chapter 5.2.4.2, add ACC active condition from "Passive A" to "Standby".  
+                                                2. Add signal "MHU_ValetMode_Activation" for HWA/TJA inhibit condition in relevant chapters.  
+                                                3. Update output signals and input signal descriptions in respective chapters.  
+                                                4. Various signal and state machine updates detailed in the notes.  |
+| 2.8     | 2022/03/08 | Shijin Lu |            | 1. Add signal "0x32F.IDB_ACC_DriverOverride" for HMI end condition.  
+                                                2. Add override conditions and descriptions in associated chapters.  
+                                                3. Update valet mode description in active state-related chapters.  |
+| 2.9     | 2022/04/01 | Shijin Lu |            | 1. Update input signal of turn indicator from one ID to another.  
+                                                2. Update description of hands-off logic in Chapter 5.3.5.           |
+| 3.0     | 2022/06/07 | Shijin Lu |            | 1. Update vehicle dynamic signal to unfilled state in Chapter 4.1.  
+                                                2. Threshold table and curvature updates in respective chapters.  
+                                                3. Remove and modify conditions related to ICA inhibit and lateral acceleration.             |
+| 3.1     | 2022/06/17 | Shijin Lu |            | 1. Update detection condition of "Lane marking and leading vehicle" and steering angle description in "Lateral Override". |
+| 3.2     | 2022/11/08 | Wang Qi  |            | Update Leading Vehicle Following Condition in Chapter 2.2.3.         |  
+
+1.2 / Glossary  
+
+Requirement ID: FS-225056.  
+Type: --.  
+Status: New.
+Page 10
+1 / APL03_HWA/TJA 
+
+Requirement ID: FS-225054.  
+Type: --.  
+Status: New.
+
+---
+
+1.1 / Document Management  
+
+Requirement ID: FS-225055.  
+Type: --.  
+Status: New.
+
+VF revision:  
+
+| Version | Change by     | Change description                    | Initiator         | Approver              |
+|---------|---------------|----------------------------------------|-------------------|-----------------------|
+| 1.0     | ECR60004069   | Initial version released for LS phase | Duong Hoai An     | Ng Dennis Koon Siu    |
+| 2.0     | ECR60005557   | Release for SOP phase                 | Duong Hoai An     | Ng Dennis Koon Siu    |
+
+Release schedule:  
+
+| Release | Date       | Author      | Reviewer     | Remarks/Changes                                            |
+|---------|------------|-------------|--------------|-----------------------------------------------------------|
+| 1.0     | Shijin Lu  | Initial version.                                           |
+| 2.0     | 2021/08/26 | Shijin Lu   | Update version for customer.                              |
+| 2.1     | 2021/09/20 | Shijin Lu   | Update version for customer.                              |
+| 2.2     | 2021/10/22 | Shijin Lu   | Update version for customer.                              |
+| 2.3     | 2021/11/04 | Shijin Lu   | 1. Update the signal according to function discussion.  
+                                                2. Update status machine according to function discussion.  
+                                                3. Update HMI part.  
+| 2.4     | 2021/11/14 | Shijin Lu   | 1. Add one CANCEL button press for Passive B to Passive A transmit.  
+                                                2. Update the CANCEL button signal name.  
+                                                3. Add note for work to standby (ACC standstill wait, HW button resume ACC to GO).  
+                                                4. Chapter 5.3.5, update hands-off detection part.  
+                                                5. Chapter 4.2, add two output signals for hands-off HMI output.  
+| 2.5     | 2021/11/24 | Shijin Lu   | 1. Typo correction.  
+                                                2. Chapter 5.3.1.1, remove coding 2 for long press.  
+                                                3. Chapter 5.3.3, update the curvature enable parameter and remove the inhibit condition.  
+                                                4. Chapter 5.3.3, add TPMS states condition.  
+                                                5. Chapter 5.1, add signal matching with state machine.  
+| 2.6     | 2021/12/10 | Shijin Lu   | 1. Update the signal coding of "MFS_M2Control."  
+                                                2. Update the button description of "MFS_M2Control."  
+| 2.7     | 2022/01/17 | Shijin Lu   | 1. Update Chapter 5.2.4.2, add ACC active condition in state machine from "Passive A" to "Standby."  
+                                                2. Add signal "MHU_ValetMode_Activation" for HWA/TJA inhibit condition.  
+                                                3. Update the Output signal "0X206.ADAS_HWA_txtpopup" and "0x82.ADAS_TakeOver_Request" coding in chapter 4.2.  
+                                                4. Add the input signal "0x403.MHU_ValetMode_Activation" in chapter 4.1.  
+                                                5. Update the description of chapter 5.2.7.2, from "any" to "all."  
+                                                6. Update the signal "0x20D.IDBActive" to "0x20D.VDCActive" in input signal for vehicle stability.  
+| 2.8     | 2022/03/08 | Shijin Lu   | 1. Add signal "0x32F.IDB_ACC_DriverOverride" for HMI end condition.  
+                                                2. Add description of chapter 5.4.2.3, in section Signal "0x82.ADAS_TakeOver_Request" output.  
+                                                3. Add comment on section 5.2.7.2 for override conditions.  
+                                                4. Add a note in chapter 5.3.4 for override conditions description.  
+                                                5. Update the description in chapter 5.2.6.2 and 5.2.7.4 for valet mode is activated (deleted "not").  
+                                                6. Add description for the end warning coding condition of "0x206.ADAS_HWA_txtpopup = 6" in chapter 5.4.2.3.  
+| 2.9     | 2022/04/01 | Shijin Lu   | 1. Update the input signal of turn indicator.  
+                                                2. Update the description in Chapter 5.3.5, provide some description of the hands-off logic.  
+| 3.0     | 2022/06/07 | Shijin Lu   | 1. Chapter 4.1, update the vehicle dynamic signal to unfilled signal (0x178/0x179/0x17D).  
+                                                2. Chapter 4.3.3, update the threshold table for longitudinal deceleration.  
+                                                3. Chapter 4.3.3/6.1.2, update the curvature as a table threshold.  
+                                                4. Chapter 4.3.4, remove the turn indicator condition for the ICA inhibit.  
+                                                5. Chapter 4.3.3, 6.1.8, add a note for the lateral acceleration condition also should be a table (after tuning).  
+| 3.1     | 2022/06/17 | Shijin Lu   | 1. Chapter 4.3.3, update the condition of "Lane marking and leading vehicle detection condition" from "12 meters" to "1 second," and remove "0.02 s."  
+                                                2. Chapter 4.3.4, update the steering angle as table of "Lateral Override conditions."  
+| 3.2     | 2022/11/08 | Wang Qi    | Update Leading vehicle Following Condition in Chapter 2.2.3.  
+
+---
+
+1.2 / Glossary  
+
+Requirement ID: FS-225056.  
+Type: --.  
+Status: New.
+
+Acronym list:  
+
+| Acronym     | Full Form                                   |
+|-------------|--------------------------------------------|
+| ICA (0-150kph) | Intelligent Cruise Assist              |
+| TJA (0-60kph)   | Traffic Jam Assist                   |
+| HWA (60-150kph) | Highway Assist                      |
+| ACC           | Adaptive Cruise Control                |
+| ACC S&G       | Adaptive Cruise Control Stop and Go    |
+| HWA           | Highway Assist                        |
+| LCC           | Lane Centering Control                |
+| LKA           | Lane Keeping Assist                   |
+| LDW           | Lane Departure Warning                |
+| EPB           | Electrical Park Brake                 |
+| ABS           | Antilock Brake System                 |
+| TCS           | Traction Control System               |
+| MSR           | Motor Control Slide Retainer          |
+| ESC           | Electrical Stability Control          |
+| EMS           | Engine Management System             |
+| TCU           | Transmission Control Unit             |
+| BCM           | Body Control Management              |
+| PWT           | Powertrain                            |
+| HMI           | Human Machine Interface              |
+Page 11
+1.3 / ICA Function Overview.
+
+Requirement ID: FS-225057. Type: -- Status: New.
+
+1.3.1 / Function Description.
+
+Requirement ID: FS-225058. Type: -- Status: New.
+
+ICA (Single Lane Intelligent Cruise Assist) reduces driving effort and increases road safety in dense traffic by combining the longitudinal control (ACC S&G) and lateral control (LCC). Depending on the road conditions, it allows the vehicle either to follow the front vehicle or to be kept in the center of lanes.
+
+ICA is designed to be used on highways and highway-like roads (roadways separated by constructional means) and it is the responsibility of the driver to use this function in appropriate road conditions. The ICA operation speed is 0-150kph. According to the vehicle speed, ICA has two variants: the TJA mode (from 0-60kph) and HWA mode (from 60-150kph).
+
+When using ICA function, the driver still needs to supervise the system all the time, driver hands off is not allowed. In case of driver takeover situations, such as turning, crossing, merging, vehicles approaching from side, system fault, unexpected operation and so on, the driver shall be responsible for the driving tasks.
+
+1.3.2 / Mode Description.
+
+Requirement ID: FS-225059. Type: -- Status: New.
+
+1.3.2.1 / HWA Mode.
+
+Requirement ID: FS-225060. Type: -- Status: New.
+
+When the vehicle speed is above 60 kph and HWA is activated, HWA behaves as the following:
+Page 12
+1.3 / ICA Function Overview.
+
+Requirement ID: FS-225057. Type: --. Status: New.
+
+---
+
+1.3.1 / / Function Description.
+
+Requirement ID: FS-225058. Type: --. Status: New.
+
+ICA (Single Lane Intelligent Cruise Assist) reduces driving effort and increases road safety in dense traffic by combining the longitudinal control (ACC S&G) and lateral control (LCC). Depending on the road conditions, it allows the vehicle either to follow the front vehicle or to be kept in the center of lanes.
+
+ICA is designed to be used on highways and highway-like roads (roadways separated by constructional means) and it is the responsibility of the driver to use this function in appropriate road conditions. The ICA operation speed is 0-150kph. According to the vehicle speed, ICA has two variants: the TJA mode (from 0-60kph) and HWA mode (from 60-150kph).
+
+When using ICA function, the driver still needs to supervise the system all the time, driver hands off is not allowed. In case of driver takeover situations, such as turning, crossing, merging, vehicles approaching from side, system fault, unexpected operation, and so on, the driver shall be responsible for the driving tasks.
+
+1.3.2 / / Mode Description.
+
+Requirement ID: FS-225059. Type: --. Status: New.
+
+---
+
+1.3.2.1 / / HWA Mode.
+
+Requirement ID: FS-225060. Type: --. Status: New.
+
+When the vehicle speed is above 60 kph and HWA is activated, HWA behaves as follows:
+
+### Condition and HWA Function
+- **Presence of double lane markings:** HWA works normally (ACC S&G + LCC).
+- **Only lane on one side or no lanes:** HWA degraded to ACC S&G (No LCC, no lateral vehicle following).
+
+---
+
+1.3.2.2 / / TJA Mode.
+
+Requirement ID: FS-225061. Type: --. Status: New.
+
+When the vehicle speed is lower than 60 kph and TJA is activated, TJA behaves as follows:
+
+### Condition and TJA Function
+- **Presence of double lane markings:** TJA works normally (ACC S&G + LCC, the lateral control maintains the vehicle in the center of the lane). TJA +.
+- **Only lane marking on one side but presence of front vehicle:** TJA works normally (ACC S&G and the lateral control follow the front vehicle within certain limits (depending on front vehicle’s dynamics)). TJA.
+- **No lane markings but presence of front vehicle:** TJA works normally (ACC S&G and the lateral control will follow the front vehicle within certain limits (depending on front vehicle’s dynamics)). TJA.
+Page 13
+1.3.2.3 / TJA Leading Vehicle Following Condition.
+
+Requirement ID: FS-515676. Type: --. Status: New.
+
+TJA could follow the leading vehicle only when the following conditions are met:
+- Leading vehicle classification should be either a Car or a Truck.
+- The leading vehicle motion status must be either stopped or moving. Stationary vehicles should not be selected as leading vehicles (refer to Note 1).
+- The distance between the host vehicle and the leading vehicle must be ≤50m.
+- The relative speed between the host vehicle and the leading vehicle must be ≤30kph.
+- The host vehicle speed must be ≤60kph.
+- The leading vehicle should be within the lateral distance selection window (Lateral selection distance is relative to longitudinal distance).
+- A moving vehicle is defined as a vehicle with a speed higher than ~2.5m/s.
+- A stopped vehicle is defined as a vehicle initially detected as moving and subsequently, during the sensor tracking period, its speed decreases below ~2m/s.
+- A stationary vehicle is defined as a vehicle initially detected with a speed less than ~2.5m/s and maintaining stationary status since its initial detection.
+
+**Note 2:**  
+The design aims to avoid sudden large lateral control adjustments, particularly in scenarios involving parked vehicles on the road. An example of this case is provided for reference.
+Page 14
+**1.3.2.3 / TJA Leading Vehicle Following Condition**
+
+Requirement ID: FS-515676.  
+Type: --  
+Status: New.  
+
+TJA could follow the leading vehicle only when the following conditions are met:  
+- The leading vehicle classification should be Car or Truck.  
+- The leading vehicle motion status should be stopped or moving. Stationary vehicles should not be selected as leading vehicles (see Note 1).  
+- The distance between the host vehicle and the leading vehicle shall be ≤50m.  
+- The relative speed between the host vehicle and the leading vehicle shall be ≤30kph.  
+- The host vehicle speed shall be ≤60kph.  
+- The leading vehicle should be within the lateral distance selection window (lateral selection distance is relative to longitudinal distance).  
+- A moving vehicle refers to a vehicle with a speed higher than ~2.5m/s.  
+- A stopped vehicle refers to a vehicle initially detected as a moving leading vehicle but whose speed decreased under ~2m/s during sensor tracking.  
+- A stationary vehicle refers to a vehicle initially detected with a speed less than ~2.5m/s that has maintained its stationary status since initial detection.  
+
+*Note 2:*  
+The purpose of this design is to avoid large and sudden lateral control, especially in scenarios with parked vehicles on the road, as illustrated in the case below.  
+
+---
+
+### The typical scenarios for stationary objects are analyzed below:
+
+**Case 1:**  
+**Scenario:** Both lane markers appear, TJA initially active, and there is a stationary leading vehicle.  
+**TJA Actions:**  
+- Lane Centering function for lateral control.  
+- Deceleration using ACC longitudinal control.  
+
+**Case 2:**  
+**Scenario:** Both lane markers appear and then are lost, TJA is initially active, and there is a stationary leading vehicle.  
+**TJA Actions:**  
+- When lane markers are available: Lane centering for lateral control.  
+- When lane markers are not available: TJA degrades to ACC.
+Page 15
+1.3.2.3 / TJA Leading Vehicle Following Condition.
+Requirement ID: FS-515676. Type: --. Status: New.
+
+TJA could follow the leading vehicle only when the conditions below are met:
+- Leading vehicle classification should be a car or truck.
+- The leading vehicle motion status should be stopped or moving. The stationary vehicle should not be selected as the leading vehicle (refer to note 1).
+- The distance between the host vehicle and the leading vehicle shall be ≤ 50 meters.
+- The relative speed between the host vehicle and the leading vehicle shall be ≤ 30 kph.
+- The host vehicle speed shall be ≤ 60 kph.
+- The leading vehicle should be within the lateral distance selection window (lateral selection distance relative to longitudinal distance).
+- A moving vehicle refers to a vehicle with a speed higher than ~2.5 m/s.
+- A stopped vehicle refers to a vehicle initially detected as a moving leading vehicle, but during sensor tracking, its speed decreased to less than ~2 m/s.
+- A stationary vehicle refers to a vehicle initially detected with a speed less than ~2.5 m/s and has remained stationary since detection.
+
+Note 2: 
+The purpose of this design is to avoid large and sudden lateral control, especially in scenarios where parking vehicles are present on the road.
+
+---
+
+**The typical scenarios for stationary objects are analyzed below:**
+
+**Case**: Case 1.  
+**Scenario**: Both line markers appear, TJA initially active, there is a stationary leading vehicle.  
+**TJA Actions**:  
+- Lane centering function for lateral control.  
+- Decelerate with ACC longitudinal control.  
+
+**Case**: Case 2.  
+**Scenario**: Both line markers appear and then are lost, TJA initially active, there is a stationary leading vehicle.  
+**TJA Actions**:  
+- When line markers are available, lane centering for lateral control.  
+- When line markers are not available, TJA degraded to ACC.  
+
+**Case**: Case 3.  
+**Scenario**: No line markers, and there is a stationary leading vehicle.  
+**TJA Actions**:  
+- TJA could not be activated by the driver, while ACC could be activated by the driver.  
+
+---
+
+1.4 / Signal Interface.
+Requirement ID: FS-225062. Type: --. Status: New.
+
+---
+
+1.4.1 / Input Signals.  
+Requirement ID: FS-225063. Type: --. Status: New.
+
+The ICA function is based on signals used in ACC and LKA functions. This chapter introduces the signals used for ICA function development and interaction with other ECUs.
+Page 16
+1.4 / / Signal Interface.
+
+Requirement ID: FS-225062. Type: --. Status: New.
+
+1.4.1 / / Input Signals.
+
+Requirement ID: FS-225063. Type: --. Status: New.
+
+ICA function is based on signals used in ACC and LKA function; this chapter introduces the signals for ICA function development and their interaction with other ECUs.
+
+Signal name: 0x3F7.MFS_M2Control.  
+Description: Auto Steering and Speed Activation.  
+Values:
+- 3 "Reserved."
+- 2 "Long Press."
+- 1 "Short Press."
+- 0 "Button not Pressed."
+
+Signal name: 0x95.STAT_DSC.  
+Description: Dynamic Stability Control Status.  
+Values:
+- 3 "Signal invalid."
+- 2 "IDB-OFF."
+- 1 "Track Mode."
+- 0 "IDB normal."
+
+Signal name: 0x20D.VDCActive.  
+Description: VDC Activation.  
+Values:
+- 1 "Active."
+- 0 "Inactive."
+
+Signal name: 0x20D.TCSActive.  
+Description: Traction Control System Activation.  
+Values:
+- 1 "Active."
+- 0 "Inactive."
+
+Signal name: Antilock Brake System Active.  
+Values:
+- 1 "Active."
+Page 17
+0X20D.ABSActive: Represents the activation status for the Antilock Brake System.
+- 0: "Inactive"
+
+0xD9.VCU_ACTGear: Provides the actual gear shift signal.
+- 7: "Fault"
+- 6: "Reserved"
+- 5: "Reserved"
+- 4: "Reserved"
+- 3: "D"
+- 2: "N"
+- 1: "R"
+- 0: "P"
+
+0x456.OP_COLS_SZL_LIN: Represents the status for Direction Indication Lamp Switch and Left Stalk Lever Light functions.
+- Each bit represents the status as follows:
+  - Bit 0: Highway flashing right indicator status (0: "Off", 1: "On")
+  - Bit 1: Flashing right indicator status (0: "Off", 1: "On")
+  - Bit 2: Highway flashing left indicator status (0: "Off", 1: "On")
+  - Bit 3: Flashing left indicator status (0: "Off", 1: "On")
+  - Bit 4: High-beam light status (0: "Off", 1: "On")
+  - Bit 5: High-beam light flashing status (0: "Off", 1: "On")
+  - Bit 6: Reserved
+  - Bit 7: Not used. (This value is always '0')
+  - If all bits read as "1111 1111," the signal is invalid.
+
+Turn light output status:
+- 0: "OFF"
+Page 18
+#### 0x109.BCM_TurnIndicator  
+- Value 1: "Left."  
+- Value 2: "Right."  
+
+#### 0x414.HOD_status (Hands On and Off Detection)  
+- Value 15: "Reserved."  
+- Value 14: "Reserved."  
+- Value 13: "Reserved."  
+- Value 12: "Reserved."  
+- Value 11: "Reserved."  
+- Value 10: "Reserved."  
+- Value 9: "Reserved."  
+- Value 8: "Reserved."  
+- Value 7: "Reserved."  
+- Value 6: "Reserved."  
+- Value 5: "Invalid value."  
+- Value 4: "HOD error."  
+- Value 3: "Energie_Save_Mode."  
+- Value 2: "Hands ON."  
+- Value 1: "Hands OFF."  
+- Value 0: "Init."
+Page 19
+1.4.1 / / Input Signals
+
+Requirement ID: FS-225063  
+Type: --  
+Status: New  
+
+ICA function is based on signals used in ACC and LKA function, this chapter introduces the signal for ICA function development and interaction with other ECUs.
+
+---
+
+Signal Name: 0x3F7.MFS_M2Control  
+Auto Steering and Speed Activation:  
+3 “Reserved”  
+2 “Long Press”  
+1 “Short Press”  
+0 “Button not Pressed”  
+
+Signal Name: 0x95.STAT_DSC  
+Dynamic Stability Control Status:  
+3 “Signal invalid”  
+2 “IDB-OFF”  
+1 “Track Mode”  
+0 “IDB normal”  
+
+Signal Name: 0x20D.VDCActive  
+VDC Activation:  
+1 “Active”  
+0 “Inactive”  
+
+Signal Name: 0x20D.TCSActive  
+Traction Control System Activation:  
+1 “Active”  
+0 “Inactive”  
+
+Signal Name: 0x20D.ABSActive  
+Antilock Brake System Activation:  
+0 “Inactive”  
+
+Signal Name: 0xD9.VCU_ACTGear  
+Actual Gear, Provides Gear Shift Signal:  
+7 “Fault”  
+6 “Reserved”  
+5 “Reserved”  
+4 “Reserved”  
+3 “D”  
+2 “N”  
+1 “R”  
+0 “P”  
+
+Signal Name: 0x456.OP_COLS_SZL_LIN  
+Direction Indication Lamp Switch Status:  
+Left Stalk Lever Signal (Light function)  
+- Bit 0: Highway flashing right indicator status  
+- Bit 1: Flashing right indicator status  
+- Bit 2: Highway flashing left indicator status  
+- Bit 3: Flashing left indicator status  
+- Bit 4: High-beam light status  
+- Bit 5: High-beam light flashing status  
+- Bit 6: Reserved  
+- Bit 7: Not used (this value is always ‘0’)  
+
+Turn Light Output Status:  
+0 “OFF”  
+
+Signal Name: 0x109.BCM_TurnIndicator  
+Turn Indicator Direction:  
+1 “Left”  
+2 “Right”  
+
+Signal Name: 0x414.HOD_status  
+Hands On and Off Detection:  
+15 “Reserved”  
+14 “Reserved”  
+13 “Reserved”  
+12 “Reserved”  
+11 “Reserved”  
+10 “Reserved”  
+9 “Reserved”  
+8 “Reserved”  
+7 “Reserved”  
+6 “Reserved”  
+5 “Invalid value”  
+4 “HOD error”  
+3 “Energie_Save_Mode”  
+2 “Hands ON”  
+1 “Hands OFF”  
+0 “Init”  
+
+Signal Name: 0x40D.MHU_DigitSpeed  
+Cluster Displayed Vehicle Speed:  
+n.a.  
+
+Signal Name: 0x20D.VehicleSpd  
+Vehicle Speed:  
+n.a.  
+
+Signal Name: 0x20D.ESC_VehicleStandstill  
+Vehicle Stationary Detected:  
+0 “NO_VEHICLE_STANDSTILL”  
+1 “VEHICLE_STANDSTILL”  
+
+Signal Name: 0x17D.YSS_YAW_RATE_UNFILTERED  
+Vehicle Dynamics Yaw Rate:  
+Left positive (+)  
+Right negative (-)  
+
+Signal Name: 0x179.YSS_LAT_ACC_UNFILTERED  
+Vehicle Stability Enhancement Lateral Acceleration:  
+Left positive (+)  
+Right negative (-)  
+
+Signal Name: 0x178.YSS_LONG_ACC_UNFILTERED  
+Vehicle Stability Enhancement Longitudinal Acceleration:  
+n.a.
+Page 20
+1.4.2 / / Output Signals.
+
+Requirement ID: FS-225064.  
+Type: --  
+Status: New.  
+
+Signal name.  
+Description.  
+Values.
+Page 21
+1.4.2 Output Signals.
+
+Requirement ID: FS-225064.  
+Type: --  
+Status: New.  
+
+Signal Name:  
+0X206.ADAS_HWA_txtpopup.  
+Description: HWA Text Popups Based on system states- functional cases.  
+Values:  
+- 0: None  
+- 1: None  
+- 2: None  
+- 3: "VinPilot degraded"  
+- 4: "VinPilot is unavailable. Conditions not met"  
+- 5: "VinPilot is unavailable. See Fault Details for more info."  
+- 6: "Take over driving now! VinPilot is Off."  
+- 7: "reserved"  
+
+Signal Name:  
+0x206.ADAS_HWA_state.  
+Description: HWA state.  
+Values:  
+- 0: "Off"  
+- 1: "Stand_by"  
+- 2: "Active"  
+- 3: "Override"  
+- 4: "Passive"  
+- 5: "Active_suspend"  
+- 6: "Fault"  
+
+Signal Name:  
+0x206.ADAS_handsoff_Warning_Mode_2.  
+Description: Hands off warning level.  
+Values:  
+- 0: "No Warning!"  
+- 1: "Level 1"  
+- 2: "Level 2"  
+- 3: "Level 3"  
+- 4: "reserved"  
+- 5: "reserved"  
+- 6: "reserved"  
+- 7: "reserved"  
+
+Signal Name:  
+0x206.ADAS_handsoff_txtpopup.  
+Description: Hands off warning popup text.  
+Values:  
+- 0: "Please Hold the Steering Wheel!"  
+- 1: "Please Hold the Steering Wheel Immediately!"  
+- 2: "Reserved"  
+- 3: "Reserved"  
+
+Signal Name:  
+0x37A.ADAS_EPS_StrWhe_AOLAct.  
+Description: EPS Steering Wheel Angle Overlay Activation.  
+Values:  
+- 0: "Deactivate Angle Overlay"  
+- 1: "Activate Angle Overlay"
+Page 22
+Active AOL request for Angle overlay control:  
+- 2 "Reserve"  
+- 3 "Reserve"  
+
+0x37A.ADAS_EPS_AOLReq:  
+Steering Angle Request for ADAS lateral control features.  
+- n.a  
+
+0x37A.ADAS_EPS_Torq_Fact_Req:  
+Torque factor for EPS.  
+- n.a  
+
+0x206.ADAS_LA_Display:  
+Lane assist function and lane display (include sound warning).  
+- 0-13 "valid value"  
+- 14-15 "reserved"  
+
+0x127.ADAS_LA_veh_pos_left:  
+Vehicle position to left lane.  
+- n.a  
+
+0x127.ADAS_LA_veh_pos_right:  
+Vehicle position to right lane.  
+- n.a  
+
+0x206.ADAS_Lane_Line_Curva_Radius:  
+Lane line curvature radius (minus for left curve, plus for right curve, radius > 1000m, display as straight curve).  
+- n.a  
+
+0x204.L0_LINE_TYPE:  
+Left lane line type.  
+- 3 "Roadside"  
+- 2 "Dashed Line"  
+- 1 "Solid Line"  
+- 0 "No display"
+Page 23
+0x33B.L0_ExistProbability. Host Lane left line exist probability: n.a.
+
+0x203.R0_LINE_TYPE. Right lane line type:
+3 "Roadside", 2 "Dashed Line", 1 "Solid Line", 0 "No display".
+
+0x33B.R0_ExistProbability. Host Lane right line exist probability: n.a.
+
+0x33B.Camera_L1_Line_Type. Left left lane line type:
+3 "Roadside", 2 "Dashed Line", 1 "Solid Line", 0 "No display".
+
+0x33B.L1_ExistProbability. Far right line exist probability: n.a.
+
+0x33B.Camera_R1_Line_Type. Right right lane line type:
+3 "Roadside", 2 "Dashed Line", 1 "Solid Line", 0 "No display".
+
+0x33B.R1_ExistProbability. Far right line exist probability: n.a.
+
+0x134.ADAS_far_lane_info. Status of far right and far left lane:
+0 "left and right not detected", 1 "left detected & right not detected", 
+2 "left not detected and right".
+Page 24
+1.5. / / ICA states and use case description ICA.
+
+Requirement ID: FS-225065.  
+Type: --.  
+Status: New.
+
+---
+
+1.5.1 / / ICA State machine ICA.
+
+Requirement ID: FS-225066.  
+Type: --.  
+Status: New.
+
+The state machine of ICA function is used to manage ICA activation/deactivation and interacts with diagnostic functions. Also, it provides input signals to the HMI function. Figure 5.1.1 gives an overview of ICA states and the transfer mechanism between them. More detailed explanations of state transfer are described in section 5.2.
+Page 25
+Figure 5.1.1 ICA State Machine illustrates the interaction of states for ICA function activation and deactivation, as well as the transitions between them.
+
+1.5.2 // Enter and exit conditions  
+Requirement ID: FS-225067  
+Type: --  
+Status: New  
+
+1.5.2.1 // ICA OFF <ICA>  
+Requirement ID: FS-225068  
+Type: --  
+Status: New  
+
+1.5.2.1.1 // General  
+Requirement ID: FS-225069  
+Type: --  
+Status: New
+Page 26
+After power on, ICA should first be in ‘OFF’ state.
+
+### 1.5.2.1.2 / / OFF to ON
+**Requirement ID:** FS-225070  
+**Type:** --  
+**Status:** New  
+
+After system initialization and no fault, ICA state transfers from ‘OFF’ to ‘ON’.
+
+### 1.5.2.1.3 / / OFF to Fault
+**Requirement ID:** FS-225071  
+**Type:** --  
+**Status:** New  
+
+1.1 After power on, system detected there is ICA fault happen, ICA state transfers from ‘OFF’ to ‘Fault’.
+
+### 1.5.2.2 / / ICA Fault <ICA>
+**Requirement ID:** FS-225072  
+**Type:** --  
+**Status:** New  
+
+‘Fault’ state will be reached, and ICA state should go to ‘Fault’ if any ICA fault detected when the function in ON state. ICA state (0x206. ADAS_HWA_state) should be set to corresponding value (6 "Fault") based on the fault happen. System fault information refer to MDT table.
+
+### 1.5.2.2.1 / / Fault to OFF
+**Requirement ID:** FS-225073  
+**Type:** --  
+**Status:** New  
+
+When ICA in Fault state and power off, ICA state transfers from ‘Fault’ to ‘OFF’.
+
+### 1.5.2.2.2 / / Fault to ON
+**Requirement ID:** FS-225074  
+**Type:** --  
+**Status:** New
+Page 27
+Once ICA in 'Fault' state is recovered from any temporary fault, ICA state transfers from ‘Fault’ to ‘ON’.
+
+1.5.2.3 / / ICA ON <ICA>
+
+Requirement ID: FS-225075  
+Type: --  
+Status: New  
+
+1.5.2.3.1 / / General
+
+Requirement ID: FS-225076  
+Type: --  
+Status: New  
+
+After system initialization, the system goes to ‘ON’ state, and will then enter ‘Passive A’ or ‘Standby’ state according to ACC states. For detailed ACC state transition, please refer to ACC function specification.
+
+1.5.2.3.2 / / ON to OFF
+
+Requirement ID: FS-225077  
+Type: --  
+Status: New  
+
+When ICA ignition off, ICA state transfers from ‘ON’ to ‘OFF’.
+
+1.5.2.3.3 / / ON to Standby
+
+Requirement ID: FS-225078  
+Type: --  
+Status: New  
+
+If all the following conditions are satisfied, ICA state transfers from ‘ON’ to ‘Standby’:
+
+1) ACC is standby (ACCSts == Standby);  
+2) There is no lateral control inhibition condition (refer to 5.3.3);  
+3) There is no ICA fault detected (refer to MDT).
+Page 28
+1.5.2.3.4 ON to Passive A.
+Requirement ID: FS-225082.  
+Type: --.  
+Status: New.  
+
+If any below condition is satisfied, ICA state transfers from ‘ON’ to ‘Passive A’:  
+1. ACC is passive or brake only (ACCsts == Passive || Brakeonly).  
+2. There is lateral or longitudinal control inhibit.  
+3. Valet mode is activated (0x403. MHU_ValetMode_Activation = 1 "Active").  
+
+1.5.2.3.5 ON to Fault.  
+Requirement ID: FS-225085.  
+Type: --.  
+Status: New.  
+
+If any ICA fault detected when system in ON state, ICA state transfers from ‘ON’ to ‘Fault’.  
+
+1.5.2.4 ICA Passive A <ICAA>.  
+Requirement ID: FS-225086.  
+Type: --.  
+Status: New.  
+
+1.5.2.4.1 General.  
+Requirement ID: FS-225087.  
+Type: --.  
+Status: New.  
+
+When ICA function is on, ‘Passive A’ is a mode that longitudinal control is not ready for ICA. If there is no lateral control inhibition condition and no ICA fault when ACC is standby, ICA will enter ‘Standby’. If there is any ICA fault, ICA will be ‘Passive A’.  
+
+When system transfers from OFF to ON, there is lateral or longitudinal control inhibit, ICA will enter ‘Passive A’.
+Page 29
+1.5.2.4.2 / / Passive A to Standby.
+
+Requirement ID: FS-225088  
+Type: --  
+Status: New  
+
+If all the following conditions are satisfied, ICA state transfers from ‘Passive A’ to ‘Standby’:  
+
+1) ACC is standby or Active (ACCSts == Standby/Active).  
+2) There is no lateral control inhibition condition (refer to 5.3.3).  
+3) There is no ICA fault detected (refer to MDT).  
+4) Valet mode is not activated (0x403. MHU_ValetMode_Activation != 1 "Active").
+
+1.5.2.5 / / ICA Passive B.
+
+Requirement ID: FS-225092  
+Type: --  
+Status: New  
+
+--
+
+1.5.2.5.1 / / General.
+
+Requirement ID: FS-225093  
+Type: --  
+Status: New  
+
+‘Passive B’ is a mode that any lateral inhibit condition happens when ICA is active.
+
+1.5.2.5.2 / / Passive B to Passive A.
+
+Requirement ID: FS-225094  
+Type: --  
+Status: New  
+
+If any below condition is satisfied, ICA state transfers from ‘Passive B’ to ‘Passive A’:
+Page 30
+1. ACC is inactive (ACCsts == Standby || Passive || Brakeonly);  
+2. There is any ICA fault detected.  
+3. Press the Cancel/resume button.  
+
+1.5.2.5.3 / / Passive B to Work  
+
+Requirement ID: FS-225098  
+Type: --  
+Status: New  
+
+If there is no lateral control inhibition condition (refer to 5.3.3), ICA state transfers from ‘Passive B’ to ‘Work’.  
+
+1.5.2.6 / / ICA Standby  
+
+Requirement ID: FS-225099  
+Type: --  
+Status: New  
+
+--  
+
+1.5.2.6.1 / / General  
+
+Requirement ID: FS-225100  
+Type: --  
+Status: New  
+
+When ICA switch is switched on (refer to 5.3.1), ‘Standby’ is a mode that there is no lateral control inhibition condition, and ACC is standby. In this mode, the system is standby for driver pressing ‘set’ button, once set, ACC will become active, and ICA enters ‘Work’.  
+
+1.5.2.6.2 / / Standby to Passive A  
+
+Requirement ID: FS-225101  
+Type: --  
+Status: New  
+
+If one of the following conditions is satisfied, ICA state transfers from ‘Standby’ to ‘Passive A’.  
+
+1. ACC is Passive (ACCsts == Passive);  
+2. There is any lateral control inhibition condition (refer to 5.3.3);
+Page 31
+1. Valet mode is activated (0x403. MHU_ValetMode_Activation = 1 “Active”).
+
+**1.5.2.6.3 / Standby to Work**  
+Requirement ID: FS-225105  
+Type: --  
+Status: New  
+
+If all of the following conditions are satisfied, ICA transfers from ‘Standby’ to ‘Work’:  
+1. ACC gets active (ACCsts == Standby || Active || Standstill_Active || Standstill_wait || Override).  
+2. There is no lateral control inhibition condition (refer to 5.3.3).  
+3. ICA physical button is pressed (0x37F.MFS_M2Control = 1 "Short Press" or 2 "Long Press").  
+4. Valet mode is not activated (0x403. MHU_ValetMode_Activation != 1 "Active").  
+
+**1.5.2.7 / ICA Work <ICA>**  
+Requirement ID: FS-225109  
+Type: --  
+Status: New  
+
+**1.5.2.7.1 / General**  
+Requirement ID: FS-225110  
+Type: --  
+Status: New  
+
+‘Work’ is the mode that vehicle will be controlled by ICA. ‘Work’ has two sub-states, depending on whether the driver is taking over the vehicle. ICA will enter ‘Active’ or ‘Lateral Override’. During ICA work, if there is lateral control inhibition condition, ICA will enter ‘Passive B’. If longitudinal enabling conditions are not satisfied or ICA fault detected, ICA will enter ‘Passive A’.  
+
+**1.5.2.7.2 / Work to Lateral Override**  
+Requirement ID: FS-225111  
+Type: --  
+Status: New  
+
+If one of the override conditions is satisfied, ICA state transfers from ‘Work’ to ‘Lateral Override’ (refer to 5.3.4).
+Page 32
+1.5.2.7.2 / / Work to Lateral Override
+
+Requirement ID: FS-225111  
+Type: --  
+Status: New  
+
+If one of the override conditions is satisfied, ICA state transfers from ‘Work’ to ‘Lateral Override’ (refer to 5.3.4):  
+
+1.5.2.7.2.1 / / Turn indicator is ON.
+
+Requirement ID: FS-225112  
+Type: --  
+Status: New  
+
+1.5.2.7.2.2 / / Driver takes over the steering wheel.
+
+Requirement ID: FS-225113  
+Type: --  
+Status: New  
+
+1.5.2.7.3 / / Work to Active
+
+Requirement ID: FS-225114  
+Type: --  
+Status: New  
+
+If the driver doesn’t override, ICA state transfers from ‘Work’ to ‘Active’.
+
+1.5.2.7.4 / / Work to Passive A
+
+Requirement ID: FS-225116  
+Type: --  
+Status: New  
+
+If one of the following conditions is satisfied, ICA state transfers from ‘Work’ to ‘Passive A’:  
+1) ACC is passive (ACCsts == Passive).  
+2) Valet mode is not activated (0x403.MHU_ValetMode_Activation = 1 “Active”).
+
+1.5.2.7.5 / / Work to Passive B
+
+Requirement ID: FS-225119  
+Type: --  
+Status: New  
+
+If all of the following conditions are satisfied, ICA state transfers from ‘Work’ to ‘Passive B’:  
+1) ACC is inactive (ACCsts == Standby || Passive || Brakeonly).  
+2) There is any ICA fault detected.  
+3) Press the Cancel/resume button.
+Page 33
+1. ACC is still active (ACCsts == Active || Standstill_Active || Standstill_Wait || Override);  
+2. There is any lateral control inhibition condition (refer to 5.3.3);  
+3. There is no ICA fault detected (refer to MDT).
+
+1.5.2.7.6 / / Work to Standby  
+
+Requirement ID: FS-225123  
+Type: --  
+Status: New  
+
+If driver presses the cancel button (0x3F7.MFS_CAN_RESControl), ICA state transfers from ‘Work’ to ‘Standby’.  
+
+**NOTE:** If ACC status is “standstill wait,” the hardware button (0x3F7.MFS_CAN_RESControl) is used to resume the ACC S&G to Go.  
+
+---
+
+1.5.2.8 / / ICA Active <ICA>  
+
+Requirement ID: FS-225124  
+Type: --  
+Status: New  
+
+---
+
+1.5.2.8.1 / / General  
+
+Requirement ID: FS-225125  
+Type: --  
+Status: New  
+
+‘Work’ is the mode where the vehicle will be under longitudinal control (ACC S&G) and lateral control (LCC). If the driver takes over the vehicle, ICA will enter ‘Lateral Override’.  
+
+---
+
+1.5.2.8.2 / / Active to Lateral Override  
+
+Requirement ID: FS-225126  
+Type: --  
+Status: New
+Page 34
+1.5.2.9 / / ICA Lateral Override <ICA>
+
+Requirement ID: FS-225127  
+Type: --  
+Status: New  
+
+--
+
+1.5.2.9.1 / / General
+
+Requirement ID: FS-225128  
+Type: --  
+Status: New  
+
+‘Lateral Override’ is the state that driver takeover the vehicle when ICA is active, the lateral control will be disabled from driver’s override.
+
+1.5.2.9.2 / / Lateral Override to Active
+
+Requirement ID: FS-225129  
+Type: --  
+Status: New  
+
+If driver lateral override condition is not satisfied, ICA state transfers from ‘Lateral Override’ to ‘Active’.
+
+1.5.3 / / ICA Activation Condition ICA
+
+Requirement ID: FS-225130  
+Type: --  
+Status: New  
+
+--
+
+1.5.3.1 / / ICA Switch Methods ICA
+
+Requirement ID: FS-225131  
+Type: --  
+Status: New  
+
+--
+Page 35
+1.5.3.1.1 / / General
+
+Requirement ID: FS-225132  
+Type: --  
+Status: New  
+
+To activate/deactivate the ICA function, following hardware button switches are used.
+
+1.5.3.1.1.1 / / 5.3.1.1.1 VinPilot Button (Press Button)
+
+Requirement ID: FS-225133  
+Type: --  
+Status: New  
+
+Figure 5.3.2 shows the VinPilot Button. If the middle bottom steering wheel icon key is pressed, 0x37F.MFS_M2Control will send out 1 "Short Press" or 2 "Long Press." If the button is pressed for 60ms~2000ms (can be calibrated), it is defined as ‘Short Press.’ If the button is pressed for more than 2000ms (can be calibrated), it is defined as ‘Long Press.’ The ‘Short Press’ or ‘Long Press’ is triggered by the falling edge of 0x37F.MFS_M2Control.
+
+1.5.3.1.1.2 / / 5.3.1.1.2 Cancel Button (Press Button)
+
+Requirement ID: FS-225134  
+Type: --  
+Status: New  
+
+Figure 5.3.2 shows the Cancel Button. If the middle steering wheel icon key is pressed, 0x3F7.MFS_CAN_RESControl will send out 1 "Short Press."
+
+Figure 5.3.2 VinPilot Cancel Button
+Page 36
+1.5.3.2 / / Longitudinal Activation Condition.
+
+Requirement ID: FS-225135  
+Type: --  
+Status: New  
+
+ICA can be activated only if lateral and longitudinal activation conditions are fulfilled. ICA cannot be activated if any lateral or longitudinal control inhibition condition is fulfilled (longitudinal refers to the ACC function specification).
+
+1.5.3.3 / / Lateral Activation Condition.
+
+Requirement ID: FS-225136  
+Type: --  
+Status: New  
+
+Lateral control enabling conditions should be fulfilled, which will allow lateral control to work.
+
+Lateral control enabling conditions:
+
+1.5.3.3.1 / / Vehicle Speed Condition.
+
+Requirement ID: FS-225137  
+Type: --  
+Status: New  
+
+- Inhibit: Vehicle speed > 155 kph.  
+- Enable: Vehicle speed < 150 kph.  
+
+1.5.3.3.2 / / Vehicle Lateral Acceleration Condition.
+
+Requirement ID: FS-225138  
+Type: --  
+Status: New  
+
+- Inhibit: Vehicle lateral acceleration > 3 m/s².  
+- Enable: Vehicle lateral acceleration < 2.5 m/s² for 3 seconds.  
+
+1.5.3.3.3 / / Vehicle Longitudinal Deceleration Condition.
+
+Requirement ID: FS-225139  
+Type: --  
+Status: New  
+
+- Inhibit: Vehicle longitudinal deceleration > 3 m/s².  
+- Enable: Vehicle longitudinal deceleration < 2.5 m/s² for 3 seconds.
+Page 37
+1.5.3.3.3 / / Vehicle longitudinal deceleration condition
+
+Requirement ID: FS-225139  
+Type: --  
+Status: New  
+
+**Inhibit Condition:**  
+Vehicle longitudinal deceleration exceeds the threshold, as described below:  
+
+- **Vehicle Speed (km/h):** 0, 5, 18, 72, 90, 100, 120, 140  
+- **Longitudinal Deceleration (absolute value, m/s²):** 5.5, 5.5, 5.5, 4.0, 4.0, 4.0, 4.0, 4.0  
+
+**Enable Condition:**  
+Vehicle longitudinal deceleration remains below the threshold, as described below for 3 seconds:  
+
+- **Vehicle Speed (km/h):** 0, 5, 18, 72, 90, 100, 120, 140  
+- **Longitudinal Deceleration (absolute value, m/s²):** 5.0, 5.0, 5.0, 3.5, 3.5, 3.5, 3.5, 3.5
+Page 38
+1.5.3.3.4 / / Vehicle longitudinal acceleration condition.
+
+Requirement ID: FS-225140.  
+Type: --.  
+Status: New.  
+
+Inhibit: Vehicle longitudinal acceleration > 3.5 m/s².  
+Enable: Vehicle longitudinal acceleration < 3 m/s² for 3s.  
+
+1.5.3.3.5 / / Vehicle yaw rate condition.
+
+Requirement ID: FS-225141.  
+Type: --.  
+Status: New.  
+
+Inhibit: Vehicle yaw rate > 0.25 rad/s.  
+Enable: Vehicle yaw rate < 0.20 rad/s for 3s.  
+
+1.5.3.3.6 / / Lane marking and leading vehicle detection condition.
+
+Requirement ID: FS-225142.  
+Type: --.  
+Status: New.  
+
+Inhibit: One lane marking can’t be detected for 1 second without leading vehicle, or two leading lane markings can’t be detected without leading vehicle, or leading vehicle can’t be detected without lanes.  
+Enable: Two lane markings detected or leading vehicle detected.  
+
+1.5.3.3.7 / / Lane width condition.
+
+Requirement ID: FS-225143.  
+Type: --.  
+Status: New.  
+
+Inhibit: Lane width > 4.4 m or < 2.5 m.
+Page 39
+Enable: Lane width within the range of 2.6m and 4.3m.
+
+1.5.3.3.8 / / Lane curvature condition.
+
+Requirement ID: FS-225144  
+Type: --  
+Status: New  
+
+Enable: The absolute curvature of the road ahead as follows:  
+- Vehicle speed (km/h): 50, 65, 70, 80, 90, 100, 120, 140, 150, 160.  
+- Curvature absolute value (1/m): 0.009, 0.009, 0.0077, 0.0059, 0.0047, 0.0038, 0.0026, 0.0020, 0.0014, 0.0006.  
+
+1.5.3.3.9 / / LCC Intervention zone condition.
+
+Requirement ID: FS-225145  
+Type: --  
+Status: New  
+
+LCC Condition:  
+- Inhibit: Ego vehicle is out of the intervention zone.  
+- Enable: Ego vehicle is inside the intervention zone.  
+
+1.5.3.3.10 / / Other Vehicle Stability Systems condition.
+
+Requirement ID: FS-225146  
+Type: --  
+Status: New
+Page 40
+1.5.3.3.14 / / TPMS state condition.
+
+Requirement ID: FS-225150.  
+Type: --.  
+Status: New.  
+
+Enable: TPMS pressure are suitable for driving.
+
+1.5.3.3.15 / / Driver intention condition.
+
+Requirement ID: FS-225151.  
+Type: --.  
+Status: New.  
+
+Enable: Driver interacts with the manual inputs category buttons successfully
+by typical attempts and order activations in hardware UI.
+Page 41
+1.5.3.3.14 / / • TPMS state condition.
+
+Requirement ID: FS-225150.  
+Type: --  
+Status: New.  
+
+Inhibit: TPMS reacts abnormally (TPMS_FLTirePressAlarm || TPMS_FRTirePressAlarm || TPMS_FRTirePressAlarm || TPMS_FRTirePressAlarm == 6 "Sensor failure" || 5 "Sensor battery low" || 4 "Lost Sensor" || 3 "Quick leakage" || 2 "Low pressure warning" || 1 "High pressure warning").  
+Enable: TPMS can react normally (TPMS_FLTirePressAlarm && TPMS_FRTirePressAlarm && TPMS_FRTirePressAlarm && TPMS_FRTirePressAlarm == 0 "No warning").  
+
+1.5.3.3.15 / / • No camera failsafe.
+
+Requirement ID: FS-225151.  
+Type: --  
+Status: New.  
+
+1.5.3.4 / / Driver Lateral Override Condition.
+
+Requirement ID: FS-225152.  
+Type: --  
+Status: New.  
+
+ICA will be overridden by lateral override. When all the following conditions are fulfilled, ICA will be ‘Active’ rather than ‘Lateral Override.’  
+
+1.5.3.4.1 / / Lateral Override conditions.
+
+Requirement ID: FS-225153.  
+Type: --  
+Status: New.  
+
+1.5.3.4.2 / • Active:
+
+Requirement ID: FS-225154.  
+Type: --  
+Status: New.  
+
+1. The absolute steering angle is below the threshold defined by the table below:  
+
+Vehicle speed (km/h): 0, 20, 40, 60, 80, 100, 120, 140, 160.
+Page 42
+1.5.3.4.3 / • Override:
+
+Requirement ID: FS-225160  
+Type: --  
+Status: New  
+
+1. The absolute steering angle is greater than the threshold for each speed as per the table below:  
+
+| Vehicle speed (km/h) | Steering Angle on absolute value (deg) |
+|-----------------------|---------------------------------------|
+| 0                     | 75                                    |
+| 20                    | 75                                    |
+| 40                    | 47.5                                  |
+| 60                    | 26.8                                  |
+| 80                    | 19                                    |
+| 100                   | 18.5                                  |
+| 120                   | 16.5                                  |
+| 140                   | 15.5                                  |
+| 160                   | 14.25                                 |
+
+2. The absolute driver torque is greater than 3.5 Nm.
+Page 43
+1.5.3.4.4 / Notes.
+
+Requirement ID: FS-515675.  
+Type: --  
+Status: New.  
+
+NOTE: All the conditions for “Active” need to satisfy before entering “Active” mode; any of the conditions of “Override” can trigger “Override” mode.
+
+1.5.3.5 / Hands Off Detection.
+
+Requirement ID: FS-225166.  
+Type: --  
+Status: New.  
+
+HOD will take part in hands-off detection. If HOD signal (0x414. HOD_status) is 3 "Energie_Save_Mode," 2 "Hands ON," or 0 "Init," then the system will treat it as driver hands-on.
+
+If HOD signal (0x414. HOD_status) is 1 "Hands OFF," the system will launch the hands-off process as shown in Figure 5.3.1.
+
+If HOD signal (0x414. HOD_status) is 4 "HOD error," 5 "Invalid value," or 6~15 "Reserved" and lasts for 3 frames, hands-off detection will switch to use the driver torque sensor detection. If hands-off is detected, the process is described below:
+
+HOD signal (0x414. HOD_status) 4 "HOD error," 5 "Invalid value," or 6~15 "Reserved."  
+
+When the system is active and in the work-speed range, it shall detect whether the driver is holding the steering control. If the driver drives hands-off and does not touch the steering wheel for at most 15 seconds, an optical warning (pop-up message) will appear (lateral control and longitudinal control remain active). If hands-off is still detected after the latest 15 seconds, there will be an additional acoustic warning.
+
+If hands-off is further detected after 30 seconds from the start of the acoustic warning signal, an acoustic emergency signal of at least 5 seconds, different from the previous acoustic warning signal, will be provided. Then, the lateral control enable condition will become unsatisfied, and ICA will no longer be active.
+Page 44
+1.5.3.5.3.1 / / Hands-Off Detection Process  
+
+If the system enters "Hands off_Stage 3", the ICA function will exit and need to be activated again (e.g., by pressing the VinPilot button) with all conditions satisfied.  
+
+The hands-off timer will reset if the vehicle stops (standstill) and restart when the vehicle begins moving again in TJA mode.  
+
+Figure 5.3.1 outlines the four stages for driver hand detection:  
+
+- **Stage 1 (Hands off_stage 1)**: Optical warning is triggered if the driver is not steering for at most 15 seconds (configuration for a shorter duration is available).  
+- **Stage 2 (Hands off_stage 2)**: Optical and acoustical warnings are issued after another 15 seconds of non-steering detected.  
+- **Stage 3 (Hands off_stage 3)**: The emergency acoustic warning lasts for at least 5 seconds, followed by ICA system deactivation if non-steering persists for another 30 seconds after the warning begins.  
+
+Drivers switching back to "hands-on" immediately resets the detection state.
+
+Figure Displays:  
+- Flow chart illustrating system behavior across stages.
+- Emergency warning guidelines in stage 3.
+  
+1.5.4 / / HMI Requirement HMI
+Page 45
+Requirement ID: FS-225167  
+Type: --  
+Status: New  
+
+1.5.4.1 // Receive Button signals  
+
+Requirement ID: FS-225168  
+Type: --  
+Status: New  
+
+**Button Description**  
+Signal: 0x3F7.MFS_M2Control  
+Function Description: Vinpilot active HW button  
+
+Signal: 0x3F7. MFS_CAN_RESControl  
+Function Description: Vinpilot deactive HW button
+Page 46
+The HW (hardware) button signals are received with a type of "On Change with Repetition." This indicates that the signal will be received at a higher frequency (3 cycles with a cycle time of 50ms) when the button is pressed. Upon button release or after 3 cycles, the signals will revert to a lower frequency (cycle time of 1000ms).
+
+**1.5.4.2 Display Design**
+
+Requirement ID: FS-225169  
+Type: --  
+Status: New  
+
+---
+
+**1.5.4.2.1 Lane and target display**
+
+Requirement ID: FS-225170  
+Type: --  
+Status: New  
+
+For lane and target display, refer to "LDW LKA ELK customer requirement specification" and "ACC customer requirement specification."
+
+**1.5.4.2.2 Icon Display**
+
+Requirement ID: FS-225171  
+Type: --  
+Status: New  
+
+| **HWA State - HWA**          | **ICON** | **Icon Signal Definition**         |
+|-------------------------------|----------|-------------------------------------|
+| OFF/Fault/Passive A           | None     | ADAS_HWA_ICON_Feed = 0             |
+Page 47
+Standby: ADAS_HWA_ICON_Feed = 1.
+
+Active/Override: ADAS_HWA_ICON_Feed = 2.
+
+Passive B: ADAS_HWA_ICON_Feed = 4.
+
+1.5.4.2.3 Popup Message and Chime.
+
+Requirement ID: FS-225172.
+Type: --.
+Status: New.
+
+ADAS shall send out signal "0x206. ADAS_HWA_txtpopup" value based on the following conditions/use cases. While MHU shall define the specific text displayed on MHU, along with predefined chime/sound.
+
+| No. | Trigger Condition      | Popup Text | Coding/Priority | Icon | Duration of Popup |
+|-----|-------------------------|------------|-----------------|------|-------------------|
+| 1   | None                   | None       | 0               | None | --                |
+| 2   | User turn on Mode 2    | None       | 1               | Icon | n/a               |
+Page 48
+Requirement ID: 
+FS-225167  
+Type:  
+--  
+Status:  
+New  
+
+1.5.4.1 / / Receive Button signals  
+Requirement ID:  
+FS-225168  
+Type:  
+--  
+Status:  
+New  
+
+**Button Description**  
+- **Signal:**  
+  - `0x3F7.MFS_M2Control`  
+  - **Function Description:** Vinpilot active HW button  
+- **Signal:**  
+  - `0x3F7.MFS_CAN_RESControl`  
+  - **Function Description:** Vinpilot deactivate HW button  
+
+The HW (hardware) button signals are received with type of “On Change with Repetition”, which means signal will be received with higher frequency (3 cycles with 50ms cycle time) when the button is pressed, and signals will come back to lower frequency (1000ms cycle time) when button released or after 3 cycles.
+
+1.5.4.2 / / Display Design  
+Requirement ID:  
+FS-225169  
+Type:  
+--  
+Status:  
+New  
+
+1.5.4.2.1 / / Lane and target display  
+Requirement ID:  
+FS-225170  
+Type:  
+--  
+Status:  
+New  
+
+For lane and target display refer to “LDW LKA ELK customer requirement specification” and “ACC customer requirement specification.”
+
+1.5.4.2.2 / / Icon Display  
+Requirement ID:  
+FS-225171  
+Type:  
+--  
+Status:  
+New  
+
+**HWA State HWA**  
+- Standby:  
+  - **Icon Signal Definition:** `ADAS_HWA_ICON_Feed = 1`  
+- Active/Override:  
+  - **Icon Signal Definition:** `ADAS_HWA_ICON_Feed = 2`  
+- Passive B:  
+  - **Icon Signal Definition:** `ADAS_HWA_ICON_Feed = 4`  
+
+1.5.4.2.3 / / Popup Message and Chime  
+Requirement ID:  
+FS-225172  
+Type:  
+--  
+Status:  
+New  
+
+ADAS shall send out signal `0x206. ADAS_HWA_txtpopup` value based on following conditions/use cases. While MHU shall define the specific text displayed on MHU, along with predefined chime/sound.  
+
+| No. | Trigger condition                           | Popup Text                              | Coding/Priority | Icon | Duration of Popup |
+|-----|---------------------------------------------|------------------------------------------|-----------------|------|-------------------|
+| 1   | None                                        | None                                     | 0               | None | --                |
+| 2   | User turn on Mode 2                         | None                                     | 1               | --   | n/a               |
+| 3   | Mode 2 cancel/disengage nominal condition   | None                                     | 2               | Or None | n/a                |
+| 4   | All Passive B user cases except lane undetected reasons | “VinPilot degraded”                     | 3               | --   | 4s                |
+| 5   | Any inhibit detected before activation      | “VinPilot is unavailable Condition not met” | 4            | None | 4s                |
+| 6   | Driver press mode 2 button while feature unavailable due to fault | “VinPilot is unavailable. See Fault Details for more Info” | 5 | None | 4s     |
+| 7   | Mode 2 disengaged by the system             | “Take over driving now! VinPilot is off” | 6               | None | 4s minimum or until driver override (4 seconds or more) |
+
+- Popup messages shall be able to be interrupted by other messages with higher priority.  
+- If conditions are no longer met anymore, signal values shall be switched to the default value (0 “off”).  
+- Treat Passive A as complete disengagement and issue takeover requests for safety reasons.  
+- For takeover request warning popup duration, “until driver override” is defined as input from the driver to EITHER steering, braking, or throttle.
+Page 49
+For the warning "0x206. ADAS_HWA_txtpopup = 6", the warning shall last at least 4 seconds, and then end by driver takeover conditions:
+
+(0x414. HOD_status = 2 “Hands ON”)  
+OR  
+(0x32F. IDB_ACC_DriverOverride = 1 "Acceleration pedal override")  
+OR  
+(0x32F. IDB_ACC_DriverOverride = 2 "Brake pedal override")
+
+Signal "0x82. ADAS_TakeOver_Request" output:
+
+| No. | Trigger condition                                                | Popup text              | Coding / Priority |
+|-----|------------------------------------------------------------------|-------------------------|-------------------|
+| 1   | None                                                             | None                    | 0                 |
+| 2   | System reach boundary (Lateral acceleration exceeded clear value & no driver input & front type starts to cross the lane marking)| Please take over the vehicle! | 1 |
+
+**Note:**
+1. The popup text is defined by MHU side. Here is just for information.
+2. “System reach boundary” also means the conditions (refer to Chapter 5.3.3):  
+   - Vehicle speed condition
+Page 50
+Vehicle lateral acceleration condition;  
+Vehicle longitudinal deceleration condition;  
+Vehicle longitudinal acceleration condition;  
+Vehicle yaw rate condition;  
+LCC intervention zone condition;  
+Vehicle Stability system condition;  
+Vehicle moving direction condition;  
+Driver hands-on condition;  
+EPS state condition;  
+TPMS state condition;  
+
+For the warning “ADAS_TakeOver_Request = 1”, the warning shall last at least 4 seconds, and then end by driver takeover conditions:  
+(0x414. HOD_status = 2 “Hands ON”).  
+
+---
+
+### 1.5.5 / / Typical Use Case  
+**Requirement ID:** FS-225173  
+**Type:** --  
+**Status:** New  
+
+| Use case figure | Use case description |  
+|------------------|-----------------------|  
+| [placeholder for figure] | Description of the associated use case |
+Page 51
+Conditions:
+
+1. Double lane markings visible.  
+2. Front vehicle available.  
+- **<60 kph:** ICA maintains the vehicle in the center of lanes and keeps a safe distance with the front vehicle.  
+- **>60 kph:** HWA maintains the vehicle in the center of lanes and keeps a safe distance with the front vehicle.  
+
+Conditions:
+
+1. Double lane markings visible.  
+2. Front vehicle not available.  
+- **<60 kph:** ICA maintains the vehicle in the center of lanes, and longitudinal control stays available.  
+- **>60 kph:** HWA maintains the vehicle in the center of lanes, and longitudinal control stays available.  
+
+Conditions:
+
+1. Lane markings only on one side.  
+2. Front vehicle available.  
+- **<60 kph:** Longitudinal control stays available. Meanwhile, ICA follows the lateral position of the front vehicle.  
+- **>60 kph:** HWA will be degraded to ACC S&G.  
+
+Conditions:
+
+1. Lane markings only on one side.  
+2. Front vehicle not available.  
+- **<60 kph:** ICA will be degraded to ACC S&G.  
+- **>60 kph:** HWA will be degraded to ACC S&G.
+Page 52
+Conditions:
+1. No lane markings.
+2. Front vehicle available.
+
+<60 kph: Longitudinal control is available, while ICA follows the lateral position of the front vehicle.  
+>60 kph: HWA will be degraded to ACC S&G.
+
+---
+
+Conditions:
+1. No lane markings.
+2. Front vehicle not available.
+
+<60 kph: ICA will be degraded to ACC S&G.  
+>60 kph: HWA will be degraded to ACC S&G.
+
+---
+
+Conditions:
+Double lane markings visible and leading vehicle cuts out, another front vehicle is present.
+
+<60 kph: ICA will maintain the vehicle in the center of lanes, longitudinal control stays available.  
+>60 kph: HWA will maintain the vehicle in the center of lanes, longitudinal control stays available.
+Page 53
+Conditions: Double lane markings visible and leading vehicle cuts out, no other front vehicle available.
+- <60 kph: ICA will maintain the vehicle in the center of lanes, longitudinal control stays available.
+- >60 kph: HWA will maintain the vehicle in the center of lanes, longitudinal control stays available.
+
+Conditions: Lane markings only on one side and front vehicle cuts out, another front vehicle is present.
+- <60 kph: ICA is active: If the front vehicle is not far away from the ego vehicle and lateral acceleration and curvature of the cut-out vehicle are low.
+- >60 kph: HWA will not follow the cut-out vehicle and will not follow the lateral position of the new leading vehicle either; HWA is degraded to ACC S&G.
+
+Conditions: Lane markings only on one side and front vehicle cuts out, no other front vehicle available.
+- <60 kph: ICA is active: If the front vehicle is not far away from the ego vehicle and lateral acceleration and curvature of the cut-out vehicle are low, the ego vehicle will follow the cut-out vehicle.
+- >60 kph: HWA will not follow the cut-out vehicle; HWA is degraded to ACC S&G.
+Page 54
+Conditions  
+Double lane markings invisible and leading vehicle cut out, another leading vehicle is present.  
+<60 kph: ICA is active: If the front vehicle is not far away from the ego vehicle and lateral acceleration and curvature of cut-out vehicle is low, ego vehicle will follow the cut-out vehicle.  
+>60 kph: HWA will not follow the cut-out vehicle and will not follow the lateral position of the new leading vehicle neither. HWA is degraded to ACC S&G.  
+
+Conditions  
+Double lane markings invisible and leading vehicle cuts out, another leading vehicle is not present.  
+<60 kph: ICA is active: If the front vehicle is not far away from the ego vehicle and lateral acceleration and curvature of cut-out vehicle is low, ego vehicle will follow the cut-out vehicle.  
+>60 kph: HWA will not follow the cut-out vehicle; HWA is degraded to ACC S&G.  
+
+Conditions  
+Double lane markings visible and vehicle cuts in.  
+<60 kph: ICA will maintain the vehicle in the center of lanes, longitudinal control stays available.  
+>60 kph: HWA will maintain the vehicle in the center of lanes, longitudinal control stays available.
+Page 55
+Conditions: Only lane marking on one side and vehicle cuts in.  
+- <60 kph: ICA will shortly become degraded (longitudinal control stays available), and will become activated only again after the ego vehicle reaches the cut-in point. Then it will follow the lateral position of the cut-in vehicle.  
+- >60 kph: HWA remains in degraded mode (ACC S&G).
+
+Conditions: Double lane markings invisible and leading vehicle cuts in.  
+- <60 kph: ICA will shortly become degraded (longitudinal control stays available), and will become activated again after the ego vehicle reaches the cut-in point. Then it will follow the lateral position of the cut-in vehicle.  
+- >60 kph: HWA remains in degraded mode (ACC S&G).
+
+Conditions: Curve driving.  
+- The smallest radius for ICA is the same as for the LKA function (250m).  
+- The ego vehicle will follow the trajectory at the inner side of the curve.
+
+Conditions: Curve driving and road curvature exceeds the threshold of lateral control at certain points.  
+- The lateral control will progressively fade out, and ICA will be degraded.
+Page 56
+Conditions  
+Lane change by driver  
+The lateral control will be inhibited if the driver wants to change the lane (by activating direction indicator/hazard light or performing fast steering movement). ICA is degraded to ACC S&G.  
+
+Conditions:  
+Lane merging  
+ICA remains active as long as the lane width is within the working range. When lane width is lower than the minimum threshold, ICA will be degraded to ACC S&G.  
+
+1.6 // ICA Performance Requirement ICA.  
+
+Requirement ID: FS-225174.  
+Type: --.  
+Status: New.  
+
+1.6.1 // Main ICA Performance Requirements ICA.  
+
+Requirement ID: FS-225175.  
+Type: --.  
+Status: New.  
+
+1.6.1.1 // 6.1.1 Road width.  
+
+Requirement ID: FS-225176.  
+Type: --.  
+Status: New.
+Page 57
+From 2.6 m to 4.4 m.
+
+1.6.1.2 Maximum Curve.
+
+Requirement ID: FS-225177  
+Type: --  
+Status: New  
+
+Vehicle speeds (km/h):  
+- 50  
+- 65  
+- 70  
+- 80  
+- 90  
+- 100  
+- 120  
+- 140  
+- 150  
+
+Curvature absolute values (1/m):  
+- 0.009  
+- 0.009  
+- 0.0077  
+- 0.0059  
+- 0.0047  
+- 0.0038  
+- 0.0026  
+- 0.0020  
+- 0.001  
+
+---
+
+1.6.1.3 When ICA is active and double lane markings are detected, ICA should maintain the vehicle in the center of lanes, the error range is 20 cm.
+
+Requirement ID: FS-225178  
+Type: --  
+Status: New  
+
+---
+
+1.6.1.4 When the ego vehicle stops for less than 3 seconds and the front vehicle drives off, the ego vehicle should be able to automatically drive off. If the ego vehicle stops for more than 3 seconds and the front vehicle drives off, the system should inform the driver.
+
+Requirement ID: FS-241595  
+Type: --  
+Status: New  
+
+---
+
+1.6.1.5 When a vehicle from an adjacent lane wants to cut in, ICA will detect it and control the acceleration and deceleration accordingly. The lateral position of the ego vehicle will depend on whether double lanes are present. If double lanes are present...
+
+Requirement ID: FS-241596  
+Type: --  
+Status: New
+Page 58
+Conditions: 
+If double lane markings are detected, when the front vehicle starts to change lane, the ego vehicle will not follow it and will be kept in the center of double lanes.
+
+Requirement ID: FS-241597  
+Type: --  
+Status: New  
+
+---
+
+Conditions: 
+Driver’s condition is monitored. If the driver drives hands-off and does not touch the steering wheel for 15 seconds, a first warning (pop-up message and flashing of warning sign) will appear. Lateral control and longitudinal control remain active.
+
+Requirement ID: FS-241598  
+Type: --  
+Status: New  
+
+---
+
+1.6.1.8 / / 6.1.8 Lateral acceleration  
+
+Requirement ID: FS-241599  
+Type: --  
+Status: New  
+
+The system shall keep the maximum negative lateral acceleration below -3m/s^2.  
+The system shall keep the maximum positive lateral acceleration below 3m/s^2.  
+
+---
+
+1.6.1.9 / / 6.1.9 Lateral jerk  
+
+Requirement ID: FS-241600  
+Type: --  
+Status: New  
+
+The system shall keep the average lateral jerk below 5m/s^3.
+
+---
+
+1.6.2 / / Other ICA Performance Requirements ICA
+Page 59
+Requirement ID: FS-225179  
+Type: --  
+Status: New  
+
+The other ICA performance requirements are inherited from ACC S&G requirements:  
+
+---
+
+**1.6.2.1 / / 6.2.1 Set speed control accuracy**  
+
+Requirement ID: FS-225180  
+Type: --  
+Status: New  
+
+The control accuracy of the horizontal road cruising speed is less than or equal to 1 km/h, and the accuracy of the ramp cruising speed control is less than or equal to 3 km/h.  
+
+---
+
+**1.6.2.2 / / 6.2.2 Maximum deceleration limit**  
+
+Requirement ID: FS-225181  
+Type: --  
+Status: New  
+
+For ACC S&G, the average automatic deceleration shall not exceed 3.5 m/s² (average over 2 s) when the vehicle is travelling above 20 m/s, and 5 m/s² (average over 2 s) when the vehicle is travelling below 5 m/s, as shown in Figure 6.1.  
+
+**Figure description:**  
+Figure 6.1 illustrates the relationship between vehicle speed (X: m/s) and maximum deceleration (Y: m/s²). At low speeds (below 5 m/s), a maximum deceleration limit of 5 m/s² is applied. For higher speeds (above 20 m/s), the limit is reduced to 3.5 m/s².
+
+---
+
+**1.6.2.3 / / 6.2.3 Maximum negative jerk limit**
+Page 60
+Conditions: ACC S&G Negative Jerk Limit  
+Requirement ID: FS-241601  
+Type: --  
+Status: New  
+
+The average rate of change of automatic deceleration (negative jerk) for ACC S&G shall not exceed 2.5 m/s^3 (average over 1 s) when the vehicle is travelling above 20 m/s, and 5 m/s^3 (average over 1 s) when the vehicle is travelling below 5 m/s, as demonstrated in Figure 6.2.  
+
+X: subject vehicle speed (m/s)  
+Y: negative jerk (m/s^3)  
+
+**Figure 6.2**
+
+---
+
+Conditions: ACC S&G Automatic Following After Stop  
+Requirement ID: FS-241602  
+Type: --  
+Status: New  
+
+When the host vehicle follows the leading vehicle to a stop and the front car starts moving within 3 seconds, the host vehicle can automatically follow it. If the duration exceeds 3 seconds, the driver’s confirmation using the ACC set/reset button or the acceleration pedal is required for the host vehicle to drive off.
+
+---
+
+Conditions: EPB Takeover After Extended Stop  
+Requirement ID: FS-241603  
+Type: --  
+Status: New  
+
+When the host vehicle follows the leading vehicle to a stop for more than 5 minutes (according to ACC specifications), the ACC function quits and is replaced by the EPB function, which takes over control.
+Page 61
+1.7 / TJA
+
+Requirement ID: FS-198331  
+Type: --  
+Status: New  
+
+-- Technical Agreement  
+
+1.7.1 / / Lane width to which the system adapts
+
+Requirement ID: FS-198332  
+Type: --  
+Status: New  
+
+Lane width to which the system adapts: 2.5 - 4.4m  
+TJA  
+Hungvq9: ok  
+
+1.7.2 / Curve radius to which the system adapts
+
+Requirement ID: FS-198333  
+Type: --  
+Status: New  
+
+Curve radius to which the system adapts:  
+More than 125m (the specific applicable curve radius can be based on the overall performance of the actual vehicle. If the system judges that the LCA cannot pull the vehicle back, it can be set to alarm, but at least it can work normally at ≥250)  
+TJA  
+Hungvq9: ok  
+
+1.7.3 / Types of road marking lines that the system adapts to
+
+Requirement ID: FS-198334  
+Type: --  
+Status: New  
+
+Types of road marking lines that the system adapts to:  
+Solid line, dashed line, single line, double line, yellow line, white line  
+TJA  
+Hungvq9: ok
+Page 62
+## 1.7 / TJA
+
+### Requirement ID: FS-198331
+**Type:** --
+**Status:** New
+
+-- Technical Agreement  
+
+---
+
+### 1.7.1 / / Lane width to which the system adapts
+**Requirement ID:** FS-198332  
+**Type:** --  
+**Status:** New  
+
+**Lane width to which the system adapts:**  
+2.5 - 4.4m  
+**TJA:** Hungvq9: ok  
+
+---
+
+### 1.7.2 / Curve radius to which the system adapts
+**Requirement ID:** FS-198333  
+**Type:** --  
+**Status:** New  
+
+**Curve radius to which the system adapts:**  
+More than 125m (The specific applicable curve radius can be based on the overall performance of the actual vehicle. If the system judges that the LCA cannot pull the vehicle back, it can be set to alarm, but at least it can work normally at ≥250.)  
+**TJA:** Hungvq9: ok  
+
+---
+
+### 1.7.3 / Types of road marking lines that the system adapts to
+**Requirement ID:** FS-198334  
+**Type:** --  
+**Status:** New  
+
+**Types of road marking lines that the system adapts to:**  
+Solid line, dashed line, single line, double line, yellow line, white line  
+**TJA:** Hungvq9: ok  
+
+---
+
+### 1.7.4 / System control accuracy requirements
+**Requirement ID:** FS-198335  
+**Type:** --  
+**Status:** New  
+
+**System control accuracy requirements:**  
+When the lanes on both sides are clear, the vehicle can always keep driving near the centerline of the lane, and the driving range is within ±20cm from the centerline of the lane.  
+**TJA:** Hungvq9: ok  
+
+---
+
+### 1.7.5 / The longest hands off time
+**Requirement ID:** FS-198336  
+**Type:** --  
+**Status:** New  
+
+**The longest hands off time:**  
+30s  
+**TJA:** Hungvq9: ok  
+
+---
+
+### 1.7.6 / Range of vehicle speed range that can be calibrated by the system
+**Requirement ID:** FS-198337  
+**Type:** --  
+**Status:** New  
+
+**Range of vehicle speed range that can be calibrated by the system:**  
+[0,60]km/h  
+**TJA:** Hungvq9: ok  
+
+---
+
+### 1.7.7 / Functional requirements for following the trajectory of the preceding vehicle
+**Requirement ID:** FS-198338  
+**Type:** --  
+**Status:** New  
+
+---
+Page 63
+1.7.10 / Control requirements when the lanes on both sides are not clear.
+
+**Requirement ID:** FS-198341  
+**Type:** --  
+**Status:** New  
+
+**Control requirements when the lanes on both sides are not clear:**  
+When the lanes on both sides are not clear, the vehicle shall maintain a preset inter-vehicle time distance with the preceding vehicle during driving. The vehicle can follow the trajectory of the preceding vehicle and move laterally within a certain range. The self-vehicle relies on the trajectory to adapt its position within the lane environment, maintaining safe driving behavior.  
+
+TJA  
+Hungvq9: ok
+Page 64
+1.7 / TJA
+
+Requirement ID: FS-198331  
+Type: --  
+Status: New  
+
+-- Technical Agreement  
+
+1.7.1 / / Lane width to which the system adapts
+
+Requirement ID: FS-198332  
+Type: --  
+Status: New  
+
+Lane width to which the system adapts: 2.5 - 4.4m  
+TJA  
+Hungvq9: ok  
+
+1.7.2 / Curve radius to which the system adapts
+
+Requirement ID: FS-198333  
+Type: --  
+Status: New  
+
+Curve radius to which the system adapts: More than 125m (the specific applicable curve radius can be based on the overall performance of the actual vehicle. If the system judges that the LCA cannot pull the vehicle back, it can be set to alarm, but at least it can work normally at ≥250).  
+TJA  
+Hungvq9: ok  
+
+1.7.3 / Types of road marking lines that the system adapts to
+
+Requirement ID: FS-198334  
+Type: --  
+Status: New  
+
+Types of road marking lines that the system adapts to: Solid line, dashed line, single line, double line, yellow line, white line.  
+TJA  
+Hungvq9: ok  
+
+1.7.4 / System control accuracy requirements
+
+Requirement ID: FS-198335  
+Type: --  
+Status: New  
+
+System control accuracy requirements: When the lanes on both sides are clear, the vehicle can always keep driving near the centerline of the lane, and the driving range is within ±20cm from the centerline of the lane.  
+TJA  
+Hungvq9: ok  
+
+1.7.5 / The longest hands-off time
+
+Requirement ID: FS-198336  
+Type: --  
+Status: New  
+
+The longest hands-off time: 30s.  
+TJA  
+Hungvq9: ok  
+
+1.7.6 / Range of vehicle speed range that can be calibrated by the system
+
+Requirement ID: FS-198337  
+Type: --  
+Status: New  
+
+Range of vehicle speed range that can be calibrated by the system: [0,60]km/h.  
+TJA  
+Hungvq9: ok  
+
+1.7.7 / Functional requirements for following the trajectory of the preceding vehicle
+
+Requirement ID: FS-198338  
+Type: --  
+Status: New  
+
+Functional requirements for following the trajectory of the preceding vehicle: The vehicle needs to maintain a preset inter-vehicle time distance with the vehicle in front during driving. When only one lane line is clear or both lane lines are not clear, the vehicle can follow the trajectory of the vehicle in front to move laterally. Four gears are available for the time interval.  
+TJA  
+Hungvq9: ok  
+
+1.7.8 / Control requirements when the lanes on both sides are clear
+
+Requirement ID: FS-198339  
+Type: --  
+Status: New  
+
+Control requirements when the lanes on both sides are clear: The vehicle needs to maintain a preset inter-vehicle time distance with the vehicle in front during driving. When the vehicle in front changes lanes to an adjacent lane, the vehicle does not follow the lane change behavior. When the lanes on both sides are clear, the vehicle follows lane markings on both sides to drive, with the set time interval between the vehicles available in four gears to choose from.  
+TJA  
+Hungvq9: ok  
+
+1.7.9 / Control requirements when the lane line on one side is clear
+
+Requirement ID: FS-198340  
+Type: --  
+Status: New  
+
+Control requirements when the lane line on one side is clear: The self-vehicle needs to maintain a preset inter-vehicle time distance with the preceding vehicle during driving. The preset inter-vehicle time distance can be selected via at least three gears. Additionally, the self-vehicle can follow the trajectory of the preceding vehicle and move laterally within a certain range. If the trajectory exceeds a certain range, lateral control exits, and the system downgrades to ACC S&G state.  
+TJA  
+Hungvq9: ok  
+
+1.7.10 / Control requirements when the lanes on both sides are not clear
+
+Requirement ID: FS-198341  
+Type: --  
+Status: New  
+
+Control requirements when the lanes on both sides are not clear: The self-vehicle needs to maintain a preset inter-vehicle time distance with the preceding vehicle during driving. The preset inter-vehicle time distance can be selected via at least three gears. Additionally, the self-vehicle can follow the trajectory of the preceding vehicle and move laterally within a certain range. If the trajectory exceeds a certain range, lateral control exits, and the system downgrades to ACC S&G state.  
+TJA  
+Hungvq9: ok  
+
+1.7.11 / Control requirements on the front cut-in vehicle
+
+Requirement ID: FS-198342  
+Type: --  
+Status: New  
+
+Control requirements on the front cut-in vehicle: When a vehicle cuts in from an adjacent lane, the system detects the cut-in vehicle in time, tracks the cut-in target, and performs appropriate acceleration or deceleration control.  
+TJA  
+Hungvq9: ok  
+
+1.8 / HWA SL  
+
+Requirement ID: FS-198343  
+Type: --  
+Status: New  
+
+--Technical Agreement  
+
+1.8.1 / / Lane width to which the system adapts
+
+Requirement ID: FS-198344  
+Type: --  
+Status: New  
+
+Lane width to which the system adapts: 2.5 - 4.4m.  
+HWA  
+Hungvq9: ok
+Page 65
+1.8.5 / System exit mechanism after the driver hands off
+
+Requirement ID: FS-198348  
+Type: --  
+Status: New  
+
+System exit mechanism after the driver hands off  
+When the driver removes their hands from the steering wheel, the system monitors for hands-off driving conditions. If hands-off behavior persists beyond the pre-defined period, the system will initiate an alert followed by an exit mechanism to maintain vehicle safety.  
+HWA  
+Hungvq9: ok
+Page 66
+1.8.8 / Control requirements on the front cut-in vehicle.
+
+Requirement ID: FS-198351  
+Type: --  
+Status: New  
+
+Control requirements on the front cut-in vehicle: When a vehicle cuts in from an adjacent lane, the system should be able to detect the cut-in vehicle in time, track the cut-in target, and perform appropriate acceleration/deceleration control.  
+HWA  
+Hungvq9: ok.
+Page 67
+Control requirements on the front cut-in vehicle.
+
+Requirement ID: FS-198351  
+Type: --  
+Status: New  
+
+When a vehicle cuts in from an adjacent lane, the system should be able to detect the cut-in vehicle in time, track the cut-in target, and perform appropriate acceleration/deceleration control.  
+HWA  
+Hungvq9: ok

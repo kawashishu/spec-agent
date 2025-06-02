@@ -1,0 +1,1647 @@
+Page 1
+Wireless Charger Specification Book (SPB).
+
+Edition (06.2022).
+
+VinFast Released.
+Page 2
+Scope.
+
+VinFast (VinFast Trading and Production Limited Liability Company) has started to design and develop new vehicles: VFe34S. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production.
+
+Responsible Contact: Akhila Jayan Sreelatha (akhila.sreelatha@tatatechnologies.com).
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+
+**Figure Description**:
+The image depicts a component associated with the wireless charger system in the VFe34S vehicle program. It includes connector placements and structural design elements aimed at ensuring compatibility for mass production.
+Page 3
+Contents
+
+1 GENERAL DOCUMENT GUIDELINES. ............................................................... 7  
+   1.1 Purpose and Legal Binding. ................................................................................... 7  
+   1.2 Language ............................................................................................................... 7  
+   1.3 Obligation of Requirement Wording. ..................................................................... 7  
+       1.3.1 Vehicle profile ............................................................................................... 7  
+       1.3.2 Sales Markets .............................................................................................. 7  
+
+2 GENERAL PROJECT GUIDELINES .................................................................... 7  
+   2.1 Development Scope Abstract ................................................................................ 7  
+   2.2 Initial Situation and Objective ............................................................................... 8  
+   2.3 Classification of the System / Component ........................................................... 8  
+   2.4 Execution Regulations .......................................................................................... 8  
+   2.5 Development and Supply Scope ........................................................................... 8  
+       2.5.1 Work Interface Chart (RASI) ...................................................................... 8  
+       2.5.2 Development Interface Agreement (DIA) ................................................. 11  
+   2.6 Quotation Scope ................................................................................................. 11  
+   2.7 Properties, Condition and Durability .................................................................... 11  
+   2.8 Development Process ......................................................................................... 11  
+       2.8.1 Gates and Milestones ............................................................................... 11  
+       2.8.2 Prototype Statuses ..................................................................................... 11  
+       2.8.3 Prototype Quantities .................................................................................. 11  
+       2.8.4 Acceptance Procedure .............................................................................. 12  
+       2.8.5 Type Approval and Certification .............................................................. 12  
+   2.9 Quality and Reliability .......................................................................................... 12  
+       2.9.1 Quality Concepts ...................................................................................... 12  
+       2.9.2 Risk Management ..................................................................................... 12  
+       2.9.3 Validation of the SW Development ......................................................... 12  
+   2.10 Content Amendments .......................................................................................... 13  
+
+3 PROJECT MANAGEMENT AND ORGANIZATION ......................................... 13  
+   3.1 Responsibilities in the Project and Project Management Plan ............................ 13  
+   3.2 Documentation ..................................................................................................... 13  
+       3.2.1 Hardware Documentation ......................................................................... 13  
+       3.2.2 Software Documentation ........................................................................... 13  
+       3.2.3 Conformity Requirements ........................................................................ 13  
+   3.3 Content Amendments .......................................................................................... 14  
+
+4 SYSTEM ENVIRONMENT .................................................................................. 14  
+   4.1 Functional System Environment .......................................................................... 14  
+   4.2 Physical System Environment / Mechanical Interfaces ...................................... 14  
+   4.3 System Diagram .................................................................................................. 15  
+   4.4 Content Amendments .......................................................................................... 15  
+
+5 FUNCTIONAL AND TECHNICAL REQUIREMENTS ....................................... 15  
+   5.1 Technical Requirement ....................................................................................... 15  
+   5.2 Block and Principle Diagram ............................................................................... 16  
+       5.2.1 Elements of Systems ................................................................................ 16  
+   5.3 Functions ............................................................................................................. 16  
+       5.3.1 Overview Functions Description .............................................................. 16  
+       5.3.2 Detailed Functions Description ................................................................. 16
+Page 4
+### Scope
+
+VinFast (VinFast Trading and Production Limited Liability Company) have started to design and develop new vehicles: VFe34S. Environmental impact and sustainability of the program are taken into account as essential target features. This SPB shall provide details for all components for mass production.
+
+---
+
+#### Responsible Contact:
+Akhila Jayan Sreelatha (akhila.sreelatha@tatatechnologies.com)
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights are reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+
+---
+
+#### Figure Description:
+The image displays a rectangular electrical component with connectors on either side. This diagram visually represents one of the components utilized in the design or configuration of the VFe34S vehicles.
+
+---
+VinFast Released
+Page 5
+Contents of the Document:
+
+5.19 Description of the Requirements.
+5.19.2 Power Consumption.
+5.19.3 Low Voltage Energy Management.
+5.19.4 High Voltage Energy Management.
+5.19.5 Electromagnetic Compatibility.
+5.19.6 Electrostatic Discharge.
+
+Climatic Requirements / Thermal Management.
+5.20.1 Thermal Management Requirements.
+
+5.21 Service Requirements.
+5.22 Transport Protection.
+5.23 Logistics Requirements.
+5.24 Quality Assurance Requirements.
+5.25 Content Amendments.
+
+6 Testing and Validation.
+6.1 Proof of Compliance.
+6.1.1 Testing Plan (DVP + FRS Plan).
+6.1.2 Package.
+
+6.2 Electrical Systems & Functions.
+6.3 Virtual Testing and Simulation.
+6.4 Vehicle Testing.
+6.5 Tests.
+6.5.1 Test Name A.
+6.6 Appearance Approval - Applicable for all Visible Parts.
+
+7 Function Safety, Homologation & Safety Regulations and Cyber Security Requirements.
+7.1 Functional Safety Requirements.
+7.2 Homologation and safety regulation requirements.
+7.2.1 North America and Canada.
+7.2.2 Europe.
+7.3 Cyber Security Requirements.
+
+8 Definitions and List of Abbreviations.
+8.1 Definitions.
+8.2 Definitions and List of Abbreviations.
+8.3 List of Tables.
+8.4 List of Figures.
+
+9 Further Applicable Documents.
+Page 6
+Release.
+
+Version: 1.0.  
+Date: September-2022.  
+
+Updated by:  
+- **Function**: Component Engineer.  
+- **Name**: Akhila Jayan Sreelatha.  
+
+Revisions since previous version:  
+
+- **Version**: 1.0.  
+- **Change Description**: First edition.  
+- **Signature**: Akhila Jayan Sreelatha.  
+- **Date**: 07/09/2022.
+Page 7
+1 General Document Guidelines.
+
+1.1 Purpose and Legal Binding.  
+This version is legally binding. This document is based on the VDA component requirement specification structure and VF standard. Requirement documents are divided into three levels, which are complementary to each other. All three levels are legally binding. If there is a conflict with regard to content, the higher level is applicable (e.g. level 3 vs level 2 → level 2 is applicable).
+
+1.2 Language.  
+This document is written in English. All official project documentations have to be done in English. If documents are bilingual, the English text is binding.
+
+1.3 Obligation of Requirement Wording.  
+The following wording rules are used throughout this document.  
+
+- **Shall**: The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.  
+- **Should**: The word “should” is used for preferences or desires in implementation that are not strictly binding.  
+- **May**: The word “may” is used to denote options that are left to the implementer.
+
+1.3.1 Vehicle profile.  
+N/A.  
+
+1.3.2 Sales Markets.  
+LHD countries: Vietnam (VN), US (North America), EU (Europe) & CA (Canada).  
+
+Production Volume: Refer to Purchasing Request for Quotation.
+
+---
+
+2 General Project Guidelines.
+
+2.1 Development Scope Abstract.  
+This technical specification is a written summary of requirements to be taken into account in the development of the Wireless Charger.  
+The requirements described in this technical specification relate primarily to functional characteristics.  
+The Contractor ensures that the development of the components respects all applied standards, characteristics, and project requirements.
+Page 8
+Any possible cost savings as a result of improvements in design, production, or validation details have to be reported immediately. The contractor is a ‘System Development Supplier,’ with complete responsibility for the supplied system within the system boundaries.
+
+### 2.2 Initial Situation and Objective
+The Wireless Charger provides charging voltage for any Qi standard-certified mobile device. The system is planned for use in various vehicle models, for various country-specific packages, and for various combinations of optional equipment. Adaptation of system functions to a given vehicle shall be accomplished by modular component population of the necessary modules and coding via the diagnostics interface. 
+
+The design of the WLC shall avoid noise generation like squeak and rattle, as well as noise generation due to the moving parts. Furthermore, the electronics shall be designed to work without a fan or external cooling under the required temperature conditions.
+
+### 2.3 Classification of the System / Component
+There is only one WLC variant.
+
+### 2.4 Execution Regulations
+Not applicable.
+
+### 2.5 Development and Supply Scope
+The supplier status is "System Development Supplier," which means that the supplier has complete responsibility for the supplied system within the system boundaries.
+
+This responsibility includes the following:
+- Define, develop, and 3D-design all parts within the system.
+- Create release drawings.
+- Ensure the function of the system.
+- Perform any required simulations or calculations on the system level.
+- Validate the system according to the technical targets and tests stated in this specification.
+- System timing (in terms of project management, development, and industrialization).
+
+The agreed work-share is documented in the section “Work interface chart.”
+
+### 2.5.1 Work Interface Chart (RASI)
+The main supplier obligations are described in the work interface chart (RASI). The status of the supplier (“Built to Print” or “System Development Supplier”) is defined below System / Component Specification.
+
+**RASI is defined as follows:**
+- **R: Responsible**  
+  Responsible for proper execution of the activities to fulfill the requirements. She/he is entitled to request the necessary support from other project team members.
+Page 9
+**VinFast Management System**  
+**VFDSXNEEP0012**  
+**Version: 5.0**  
+**Uncontrolled copy when printed**  
+
+---
+
+### **A: Approval**
+The obligation to decide or to be responsible for the release. If no decider is defined, the person who is responsible for execution (R) is the decider.
+
+---
+
+### **S: Support**
+Obligated to provide active support (even if this requires capacity, expenses, and/or transfer of know-how).  
+This project team member must proactively assist the person responsible (R) in achieving the project targets.
+
+---
+
+### **I: Information**
+Entitled to demand information from the responsible person (R). Members with this designation have the right to information.  
+
+### **Details on Deliverables and RASI**
+
+| No | Gate | Stage              | Deliverable                                                                                                              | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|--------------------|--------------------------------------------------------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1  | PV   | Concept Phase      | List of Concept in Commodity                                                                                            | R              | S             | I        | I   | I             |
+| 2  | PV   | Concept Phase      | SOR for Concept in Commodity                                                                                            | R              | S             | I        | I   | I             |
+| 3  | PPS  | Concept Phase      | SOB through LOI - Letter of Intent for Concept in Commodity                                                              | S              | R             | S        | I   | I             |
+| 4  | PPS  | Concept Phase      | EDD order release for Concept in Commodity                                                                              | S              | R             | S        | I   | I             |
+| 5  | PPS  | Concept Phase      | Deliver Bill of Materials in Team Center                                                                                | R              | I             | I        | I   | I             |
+| 6  | PPS  | Concept Phase      | Supply chain strategy - Deliver Sourcing Strategy                                                                        | S              | R             | I        | S   | I             |
+| 7  | PPS  | Concept Phase      | Commodity Timing Plan in each business area supporting program timing for concept commodity                              | S              | S             | R        | S   | I             |
+| 8  | PPS  | Concept Phase      | Organization and resources for the concept phase, resource planning for series development                               | S              | S             | R        | S   | I             |
+| 9  | PPS  | Concept Phase      | Opportunities and risks for the program detailed; measures defined - Cost reduction, Design Optimization, Timing optimization | A              | S             | R        | S   | I             |
+| 10 | PPS  | Concept Phase      | Quality planning to meet program requirements - APQP Kickoff                                                            | R              | S             | S        | S   | I             |
+| 11 | PPS  | Concept Phase      | Concept proposal for engineering review and finalization - For Concept Commodity                                        | A              | I             | R        | I   | I             |
+| 12 | PPS  | Concept Phase      | Concept & Proposal development to meet target material cost                                                             | A              | I             | R        | I   | I             |
+| 13 | PPS  | Concept Phase      | Parts list and BoM available; target values for lead vehicle cost and weight verified - C Class                         | A              | I             | R        | I   | I             |
+| 14 | PPS  | Concept Phase      | Initial CAD Data to support C Class development for Concept Commodity                                                   | A              | I             | R        | I   | I             |
+| 15 | PPS  | Concept Phase      | System & Sub-system Functional targets agreed; cascaded to Component level in line with Complete Vehicle Targets         | A              | S             | R        | I   | I             |
+| 16 | PPS  | Concept Phase      | DVP (Virtual and physical testing) for System, Sub-system & Component Level; detailed test plan for hardware tests      | A              | S             | R        | I   | I             |
+| 17 | TA   | Package Study      | Package study to support B Class surface development                                                                    | A              | I             | R        | I   | I             |
+| 18 | PPS  | CAS Feasibility    | Manufacturing feasibility for CAS development for Concept Commodity                                                     | A              | I             | R        | I   | I             |
+| 19 | PPS  | Design & Validation| Design and Validation of Testing plan for Concept Commodity                                                            | A              | I             | R        | I   | I             |
+| 20 | TA   | BoM Availability   | Parts list and BoM available; target values for lead vehicle cost and weight verified - B Class                         | A              | I             | R        | I   | I             |
+| 21 | TA   | BoM Availability   | Parts list and BoM available; target values for lead vehicle cost and weight verified - A Class                         | A              | I             | R        | I   | I             |
+
+**VinFast Released**
+Page 10
+**VinFast Management System**  
+**Version: 5.0**  
+**Uncontrolled copy when printed**  
+
+### Functional Responsibility  
+**Details Deliverables and RASI**  
+
+#### Definitions:  
+- **A: Approval**  
+  Obligation to decide/release responsibility. If no decider is defined, the person responsible for execution (R) acts as the decider.  
+
+- **S: Support**  
+  Obligation to provide active assistance, including capacity, expenses, and transfer of expertise. This team member proactively supports the responsible person (R) in achieving the targets.  
+
+- **I: Information**  
+  Entitlement to demand and receive information from the responsible person (R).  
+
+### RASI Chart  
+**Work Interface Chart (RASI)**  
+
+| **No** | **Gate** | **Deliverable**                                               | **VF Engineering** | **VF Purchasing** | **Supplier** | **SQE** | **Manufacturing** |
+|--------|----------|---------------------------------------------------------------|--------------------|-------------------|--------------|-------|-------------------|
+| **22** | TA       | Contract Series development - LON for Concept Commodity / LON for B2P Commodity | A | R | S | I | I |
+| **23** | TA       | Timing plan for the complete Program detailing milestones and critical activities for B2P Commodity | A | S | R | I | I |
+| **24** | TA       | Organization and resources for the concept phase, resource planning for series development | A | S | R | I | I |
+| **25** | TA       | RPS/Location and fixation strategy developed and reviewed (Before B Class freeze) | A | S | R | I | I |
+| **26** | TA       | DMU study for system level and sub-system level                | A | S | R | I | I |
+| **27** | TA       | Functional CAE analysis                                       | A | S | R | I | I |
+| **28** | TA       | EE - Component Data Sheet (CDS) inputs                        | A | S | R | I | I |
+| **29** | TA       | Manufacturing feasibility for Built to Print Commodities      | A | S | R | I | I |
+| **30** | TA       | Stamping/Mold flow analysis for Concept Commodity             | A | S | R | I | I |
+| **31** | TA       | DFMEA for Concept Commodity / SC/CC and Key Characteristics Controls | A | S | R | I | I |
+| **32** | TA       | DTS - Fit and Finish document confirm gap and finish strategy for system & sub-system level | A | S | R | I | I |
+| **33** | TA       | 3D design for B car class surface to be completed             | A | S | R | I | I |
+| **34** | TA       | 3D CAD and 2D - Drawing submission to VinFast Engineering for P&I release | A | S | R | I | I |
+| **35** | TA       | Tool order release for long lead parts, P Release for Tool Design and I Release for Tool Hardware, PR Release for Tool Machining | S | R | S | I | I |
+| **36** | TA       | CAD release for P&I for long lead tooling kick-off            | A | S | R | I | I |
+| **37** | TA       | 3D design to be finalized before A-class (One week before TA) | A | S | R | I | I |
+| **38** | TA       | Feasibility confirmation to support A-class surface development | A | S | R | I | I |
+| **39** | TA       | Development strategy for each attribute confirmed and available for serial development phase | A | S | R | I | I |
+| **40** | TA       | System, Sub-System & Component Level DVP for the Serial Development Phase has been created and agreed | A | S | R | I | I |
+| **41** | TA       | Define tooling concept/injection points                       | S | I | R | S | I |
+| **42** | TA       | Feasibility/manufacturing study and confirmation for parts    | S | I | R | S | I |
+| **43** | TA       | Technical and Styling Convergence (By PR)                    | A | S | R | I | I |
+| **44** | TA       | 3D CAD and 2D Drawing Submission to VinFast Engineering for review and commercial quote for PR-level design | A | S | R | I | I |
+| **45** | PR       | VinFast review and release the PR CAD and 2D Drawing          | R | S | S | I | A |
+| **46** | CC       | PFMEA                                                        | S | I | R | A | I |
+| **47** | CC       | Commercial finalization for PR-level design                  | S | R | S | I | I |
+| **48** | CC       | System, Sub-System & Component Level DV Complete             | A | S | R | I | I |
+| **49** | CC       | Deviations to module targets detected and measures agreed    | A | S | R | I | I |
+| **50** | CC       | Tooling order releases for all parts                         | I | R | S | I | I |
+| **51** | CC       | Engineering change management release kickoff                | R | S | S | S | S |
+| **52** | CC       | On-going engineering change management                       | R | S | S | S | S |
+| **53** | LS       | Process Validation Completion before LS                      | A | S | R | I | I |
+| **54** | PTO      | Parts fit to nominal                                          | S | I | S | R | I |
+| **55** | PTO      | System, Sub-System & Component Level PV Complete             | A | S | R | S | I |
+| **56** | PTO      | System, Sub-System & Component Level target achievement confirmed | A | S | R | S | I |
+| **57** | LS       | Part-level Appearance Approval, Color Harmony, Grain Approval | A | I | R | S | I |
+| **58** | LS       | Engineering sign-off                                         | A | S | S | S | S |
+Page 11
+2.5.2 Development Interface Agreement (DIA)  
+
+2.6 Quotation Scope  
+Not applicable.
+
+2.7 Properties, Condition and Durability  
+Not applicable.
+
+2.8 Development Process.  
+
+2.8.1 Gates and Milestones.  
+
+2.8.1.1 Gates  
+N/A  
+
+2.8.1.2 Milestones  
+N/A  
+
+2.8.1.3 Reviews  
+N/A  
+
+2.8.2 Prototype Statuses  
+
+**A-Sample (Engineering Sample):**  
+The main purpose is to show basic communication and some base functionality is already implemented. It could be either a development board or a design intent housing already.  
+
+**B-Sample (DV-Sample):**  
+All functionality shall be implemented already. This off-tooling sample will be used for DV testing.  
+
+**C-Sample:**  
+This is a 100% production intent part — all functionality as well as EMC tests shall be done.  
+
+**Definition of Technology Maturity Table:**  
+A tabular breakdown shows software requirements equipped with progress markers for A, B, and C samples. For each requirement:  
+- "Equipped" is marked by `✔`.
+- "Complete" functions are marked by a filled circle (`●`).
+- "Partially completed" functions are marked by a half-filled circle (`◐`).
+- "Not started" is indicated by an open circle (`○`).
+- "No such function" is noted by a dash (`-`).
+
+2.8.3 Prototype Quantities  
+Not applicable.
+Page 12
+### Acceptance Procedure
+Not applicable.
+
+### Type Approval and Certification.
+General homologation requirements are defined in Part 1 of the component specification book.
+Examples for the relevant legal requirements for separate technical units, parts, and systems are listed below:
+- **Electromagnetic Compatibility**: REG No. UN-R 10_06, REG Name: Electromagnetic compatibility.
+- **Interior Fittings**: REG No. UN-R 21_01, REG Name: Interior Fittings.
+
+For regulations regarding Environmental Compatibility, refer to Part 1.
+
+### Quality and Reliability  
+**N/A**
+
+#### Quality Concepts  
+**N/A**
+
+#### Risk Management.
+The supplier shall notify the VinFast Product Release Engineer in writing of any potential technical concerns, such as component issues, supply issues, test failures, sub-component issues, project changes, etc., which may lead to increased costs, delays in project plans, loss of feature and function, and any delays in delivery dates. 
+
+Any issues should be informed to VF as early as possible in writing and shall include:
+- A specific repair plan.
+- Risk assessment.
+- Description of the overall project schedule and how it has been affected by the issue.
+
+Roles and responsibilities are defined in the RASIC in section 2.5.1 of this specification book. The supplier shall ensure system and design FMEA are completed early, identifying and mitigating any potential risks, and provide them for review by VF/TTL. All functional requirements shall be covered in the FMEA. Failure mode analysis and risk assessments should be reviewed cyclically and approved by all stakeholders.
+
+### Validation of the SW Development
+The supplier shall:
+- Cascade, maintain, and keep up-to-date the software development plan.
+- Provide engineering and production support to VF as required.
+- Attend software development and project management meetings.
+- Complete necessary design validation.
+
+Software development shall be based on a clear and agreed set of software requirements. These requirements can be derived by the supplier from the high-level requirements set out in the specification book. Each software requirement should be validated against at least one test requirement derived from the original requirement. 
+
+Test and validation reports should be provided showing success or failure of each test requirement. Software deliveries should include:
+- Detailed software release notes with specified contents by the integration team.
+- Software unit test reports.
+- Component-level software validation reports.
+
+All official software deliveries should include the test and validation report described above. The scope of the test and validation work for engineering software deliveries should be agreed upon with VF or VF’s chosen engineering provider, as needed.
+
+If there are inconsistencies or issues with the engineering/software requirements, the supplier should work with VinFast or VinFast’s chosen engineering provider to resolve any concerns.
+Page 13
+## 3 Project Management and Organization
+
+### 3.1 Responsibilities in the Project and Project Management Plan  
+| **Contact**                | **Name**                        | **Email ID**                      | **Contact Number**   |
+|-----------------------------|----------------------------------|------------------------------------|----------------------|
+| Commodity Buyer            | Palani Rajan Chandra Bose       | v.palanircb@vinfast.vn             |                      |
+| Commodity Buyer Manager    | Ram Lakhan Sailesh Bhojani       | v.ramlsb@vinfast.vn                |                      |
+| Commodity Engineering      | Akhila Jayan Sreelatha          | akhila.sreelatha@tatatechnologies.com | +44 7442666382      |
+| Commodity Engineering Manager | MK Shin                     | mk.shin@tatatechnologies.com       | +44 7534 292371      |
+| SQE (Site Engineer)        | Liang Zhang                     | v.liangz@vinfast.vn                |                      |
+
+### 3.2 Documentation
+
+#### 3.2.1 Hardware Documentation
+The supplier should be required to document the following pieces of hardware at various stages:  
+1. 2D, 3D Data drawings.  
+2. Report of banned substances.  
+3. DFMEA shall be provided.  
+4. BOM of parts.  
+5. Provide DV test report according to the technical requirements of product development.  
+
+#### 3.2.2 Software Documentation
+The supplier should be required to document the following pieces of software at various stages:  
+1. Software unit test report.  
+2. Component level software validation report.  
+3. Software release note.  
+
+#### 3.2.3 Conformity Requirements
+All homologation of the vehicle relevant legal requirements shall be fulfilled for the planned sales markets. All corresponding drafts, proposals, and all series of amendments/supplements have to be considered during the development.  
+
+In order to obtain the whole vehicle type approval, the supplier must provide all required documents, certificates, and test reports for separate technical units, parts, and systems together with all applicable legal markings in accordance with the regulations of the planned sales markets.
+Page 14
+If separate technical units, parts, and systems for the planned sales markets are required to be certified or tested by a Technical Service or Authority, the supplier is solely responsible for the timely and complete provision of the certificates and/or test reports. The selection of the Technical Service must be agreed with the homologation department of VinFast.
+
+If requirements of a planned sales market are subject to conformity of production for separate technical units, parts, and systems, the supplier is responsible for compliance. All information regarding test performance and test results must be delivered to the homologation department of VinFast.
+
+### 3.3 Content Amendments
+N/A
+
+---
+
+## 4 System Environment
+
+### 4.1 Functional System Environment
+
+- **Temperature Environment Term**  
+  - **Working temperature**  
+    - The lowest: -40 °C  
+    - The highest: 85 °C  
+    - *Note:* Ambient temperature of external space where the WLC-ECU works normally.
+  - **Storage temperature**  
+    - The lowest: -40 °C  
+    - The highest: 90 °C  
+    - *Note:* Ambient temperature of external space when the WLC-ECU is statically stored in the state of unpowered.
+
+---
+
+### 4.2 Physical System Environment / Mechanical Interfaces
+
+A diagram of the physical system interface is shown in the image. It includes labeled screw positioning for securing the WLC system component using "4 x STD99000132 - SLF_TAP_SCREW_ST4.8X16-U1-C-ZNNID_BK."
+Page 15
+4.3 System Diagram.
+
+The system diagram illustrates the connection between components: WLC_ECU, BCM, XGW, MHU, and MDU. The diagram shows data and power supply links and highlights the information flow via INFO-CAN lines, ensuring effective communication among system elements.
+
+4.4 Content Amendments.
+N/A.
+
+5 Functional and Technical Requirements.
+
+5.1 Technical requirement.
+The technical information should display the following details: VinFast designated part number, usage per car, procurement code, and part applicability for the VFe34S Plus model.
+
+Technical requirements include Part design, Part requirements, and Functional and Performance requirements at the VinFast level. Detailed information is provided in Table 1.
+
+**Table 1: Technical information table**
+- **No:** 1  
+- **Part Name:** WLC_ECU  
+- **Part No.:** EEP71005024  
+- **Qty:** 1  
+- **Material:** Multi-material  
+- **Purchase level:** P  
+- **VFe34S ECO Applicability:** Not applicable.  
+- **VFe34S PLUS Applicability:** Applicable in VN, EU, CA, and US markets.
+
+VinFast Released.
+Page 16
+### 5.2 Block and Principle Diagram
+
+#### 5.2.1 Elements of Systems
+
+The block and principle diagram illustrates the wireless charging system used in the VinFast vehicles. It visually represents the primary electronic and mechanical components involved in wireless charging technology.
+
+---
+
+### 5.3 Functions
+
+#### 5.3.1 Overview Functions Description
+
+In-car wireless charging is one of the most convenient applications of wireless charging technology. With this system, drivers or passengers do not need to plug a cable into their phone. Instead, they simply lay the phone on the pad surface to begin charging. 
+
+VINFAST’s wireless charging technology is designed to guarantee:
+- Long-term reliability.
+- Compatibility with a wide range of smartphones, including the iPhone XS, XS Max, and XR.
+- Fast charging speed.
+
+---
+
+#### 5.3.2 Detailed Functions Description
+
+##### 5.3.2.1 Functions
+
+###### 5.3.2.1.1 General Functions:
+The wireless charging pad is typically comprised of a triple-coil board to allow for a wide free positioning area. It is located in the lower center fascia of the vehicle.
+
+The general functions include:
+- Triple-coil board for accommodating a wide free positioning area.  
+- Communication support via LIN network.  
+- Compatibility with the Qi 1.2.4 Standard, the latest Qi standard.  
+- Full compliance with Class 5 (15W), Class 3 (15W), and Class 4 (5W).
+
+---
+
+##### 5.3.2.1.2 System Performance:
+The wireless charging system is designed to be operational when:
+- IGN (Ignition) is turned on.  
+- Vehicle doors are closed.
+Page 17
+5.3.2.1.3 System requirements.
+
+Requirement Description:
+- **Automotive Grade (AEC-Q100 Grade 1-3):** Required AEC-Q100 for the IC. For passive components such as resistors and capacitors, it should meet the AEC-Q200.
+- **Communication:** LIN network interface (LIN 2.1).
+- **IP Degree Protection:** IP52.
+- **EMC shielded housing:** Required.
+- **Plugs and pin assignment (automotive conform):** Required.
+- **Voltage Range:** The normal operation range is between 6V and 16V (start-stop) and regular 9V and 16V operation. Supply voltage may rise up to 16V, and all components must be functional above this level.
+
+System Specifications:
+- **Normal Voltage:** 6V～24V.
+- **Working Current:** 2A typ@12V, 3A Max.
+- **Peak Current:** 3A.
+- **Parasitic Current:** <100 μA.
+- **Working Temperature:** -40 °C to +85 °C.
+- **Storage Temperature:** -40 °C to +90 °C.
+- **Charging Efficiency:** ≥70%.
+- **Charging Distance:** Up to 10mm.
+- **Charging Area:** ≥60*20mm.
+- **Weight:** 300±15g.
+
+5.3.2.1.4 Detail functions.
+
+5.3.2.1.4.1 Standard functions:
+- **Qi Standard Compatibility:** Compatible with the Qi 1.2.4 Standard.
+- **Triple-coil board:** Provides wide free positioning area. Allows effortless smartphone positioning on the charging pad. Ensures charging functionality even during strong accelerations/decelerations causing smartphone movement.
+- **LIN Network Communication:** Interaction between MHU/MDU (Center Display) to:
+  - Track charging status.
+  - Notify users if a phone is missing.
+  - Enable/disable settings (ON/OFF).
+- **Charging Compliance:** Fully compliant with Class 3 (15W) with cooling fan, Class 4, and Class 5.
+- **Power Supply Enhancements:** Ensures consistent wireless charging during crank.
+- **Protection Features:**
+  - Rugged overvoltage and ESD protection.
+  - Battery reverse voltage protection.
+- **Enhanced Foreign Object Detection (FOD):** Detects objects before initiating power transfer.
+Page 18
+5.3.2.1.3 System Requirement.
+
+Requirement Description:
+- **Automotive Grade (AEC-Q100 Grade 1-3):** Required AEC-Q100 for the IC. For the passive components such as resistors and capacitors, it should meet the AEC-Q200.  
+- **Communication:** LIN network interface (LIN 2.1).  
+- **IP Degree Protection:** IP52.  
+- **EMC Shielded Housing:** Required.  
+- **Plugs and Pin Assignment (automotive conform):** Required.  
+- **Normal Voltage:** The normal operation range is between 6V and 16V for start/stop and regular 9V and 16V. All components shall be able to work above this voltage level, up to 16V.  
+- **Working Current:** 2A typ@12V, 3A Max.  
+- **Peak Current:** 3 A.  
+- **Parasitic Current:** <100μA.  
+- **Working Temperature:** -40°C to +85°C.  
+- **Storage Temperature:** -40°C to +90°C.  
+- **Charging Efficiency:** ≥70%.  
+- **Charging Distance:** Up to 10mm.  
+- **Charging Area:** ≥60*20mm.  
+- **Weight:** 300±15g.  
+
+5.3.2.1.4 Detail Functions.  
+
+5.3.2.1.4.1 Standard Functions:
+- Compatible with the **Qi 1.2.4 Standard**.  
+- Triple-coil board for a wide free positioning area. Lay the smartphone on the charging pad with no need for precise positioning. Free positioning ensures charging even under strong accelerations or decelerations.  
+- Support communication via LIN network so MHU/MDU (Center Display) can:  
+  - Track charging status.  
+  - Notify users in case of a missing phone.  
+  - Set ON/OFF functionality.  
+- Fully compliant with Class 3 (15W) with cooling fan, Class 4, and Class 5.  
+- Enhanced power supply to ensure wireless charging during crank.  
+- Rugged overvoltage and ESD protection.  
+- Battery reverse voltage protection.  
+- Enhanced Foreign Object Detection (FOD) to detect objects before power transfer.  
+
+5.3.2.1.4.2 Advanced Features:
+- Software refresh, update, and fault check.  
+- Fast 15W Wireless Charger with cooling mechanisms.  
+- Compatible with 7.5W Apple Fast Charge algorithms.  
+- Head Unit / Cluster Communication:  
+  - Support LIN interface for vehicle system interconnection (MHU/IPC). The charger can be turned ON/OFF, with the default as ON.  
+  - MHU/IPC allows tracking and informing of charging status (ON/OFF). This enables advanced features, such as a phone-forgot reminder for the driver when the car is switched OFF/LOCKED.  
+
+5.3.3 Faulty Operation.
+- Support error checks for WLC via LIN network. WLC errors are sent as LIN messages. BCM manages and reports these errors, which may include:  
+  - Internal IC error.  
+  - FAN fault.  
+  - Temperature sensor error (e.g., sensor disconnection condition).  
+
+5.3.4 Emergency Operation.
+- Not applicable.  
+
+5.3.5 Display and Operation Concept (HMI).
+- Display charging status on the center display.  
+- Enable ON/OFF functionality.  
+- Notify users in case of a forgotten phone inside the car.  
+
+5.3.6 Service and Application Functions.
+- Charging functionality.  
+- Reminder notification for forgotten phones in the car.  
+
+5.3.7 Diagnostics.
+- WLC does not support diagnostics function.  
+- WLC can send normal LIN messages with error information to BCM. Examples of errors include:  
+  - Internal IC error.  
+  - FAN fault.  
+  - Temperature sensor error (e.g., sensor disconnection condition).
+Page 19
+## 5.4 E/E System Schematic
+
+The E/E system schematic illustrates the integration of electrical and electronic components designed for wireless charging functionality within a vehicle. It includes the flow of power supply, LIN communication, and coil operations for wireless charging.
+
+---
+
+## 5.5 Control Unit Concept
+
+### 5.5.1 Hardware
+
+The control unit hardware consists of the following key components:
+- **Power Supply**
+- **LIN Communication**
+
+---
+
+#### 5.5.1.1 Power Supply
+
+The WLC system operates on ignition mode (IGN ON). Pin 8, labeled as CL 15-Ignition, activates during vehicle IGN ON, providing power for the wireless charging system.
+
+During operation:
+- It consumes **2A @ 12V nominal**.
+- It peaks at **3A** when required.
+
+---
+
+#### 5.5.1.2 MicroController
+
+The WLC system includes a microcontroller (MCU) with the following specifications:
+
+**MCU Model:** KF32A140  
+**Certification:** Complies with **AEC-Q100**
+
+**CPU Features:**
+- **32-bit high-performance KungFu32 kernel** with mixed 16-bit/32-bit instructions.
+- **Maximum operating frequency:** 48MHz (adjustable via software).
+- **Efficient instruction set:** Mixed 16-bit/32-bit instructions.
+- **Pipeline:** 3-stage for optimal processing.
+- **Arithmetic capabilities:**
+  - **32×32 single-cycle multiplication.**
+  - **32÷32 hardware division.**
+- **Interrupt management:** Supports **interrupt priority processing** and includes automatic interrupt stack functionality.
+
+**Registers:**
+- **13 general-purpose 32-bit registers** (R0–R12).
+Page 20
+### 5.4 E/E System Schematic
+
+A system schematic illustration shows key electronic components and their interfaces responsible for the operation of the WLC system.
+
+---
+
+### 5.5 Control Unit Concept
+
+#### 5.5.1 Hardware  
+**Hardware structure:**  
+- Power Supply  
+- LIN Communication  
+
+##### 5.5.1.1 Power Supply:  
+WLC will operate during Ignition mode ON. The Pin 8 serves as CL 15-Ignition, which is active when the vehicle's ignition is on.  
+This power supply ensures operation, consuming nominally 2A @12V, with a peak of 3A.  
+
+##### 5.5.1.2 MicroController:  
+**MCU:** KF32A140, compliant with AEC-Q100 certification.  
+
+Features:  
+- **CPU:**  
+  - 32-bit high-performance KungFu32 kernel.  
+  - Maximum operating frequency of 48MHz, adjustable by software.  
+  - Efficient mixed 16-bit/32-bit instruction set.  
+  - 3-stage pipeline.  
+  - Single-cycle 32×32 multiplication and hardware 32÷32 division.  
+  - Interrupt priority processing with automatic interrupt stacking.  
+  - 13 32-bit general-purpose registers (R0~R12).  
+
+- **Power Management:**  
+  - Supports 5 modes: Normal operation, sleep mode, stop mode, standby mode, and shutdown mode.  
+
+- **Working Conditions:**  
+  - Voltage range: 2.0V～3.6V.  
+  - Operating temperature: -40°C to +125°C.  
+
+---
+
+#### 5.5.1.3 LIN Transceiver:  
+**Transceiver Type:** TJA1021.  
+WLC communicates with external units through LIN communication.  
+
+- **Communication Speed:** 19.2 kbit/s.  
+
+---
+
+#### 5.5.1.4 WLC Operation Frequency:  
+**Nominal Frequency:** 127.7kHz.  
+
+---
+
+### 5.5.2 Software  
+
+The WLC software operates via LIN signals sent through BCM.  
+
+**Requirements:**  
+
+| **Requirement Number** | **Requirement Text**                                                                                           |
+|-------------------------|--------------------------------------------------------------------------------------------------------------|
+| IWLC5024_001            | IGN is ON and all doors are closed. If the phone is on the wireless charging pad, charging starts. If any door is opened, charging stops. Charging resumes once all doors are closed again. |
+| IWLC5024_002            | Charging function/status displayed on the center screen: WLC sends LIN signal Transmit_WLC_situation (0x35) to inform the status of the WLC: <br> 0x00 "Power OFF", <br> 0x02 "Charging", <br> 0x03 "Charging complete", <br> 0x04 "Wake up". |
+Page 21
+5.3.2.1.4 Detail Functions.  
+
+5.3.2.1.4.1 Standard Functions:
+- Fixed frequency power transfer for the best compatibility with the vehicle environment.
+- Compact design for easy embedding in the vehicle. The small PCB gives complete freedom and flexibility to car interior designers.
+- Protection function:  
+  - Overheat protection  
+  - Over and under-voltage protection  
+  - Overpower protection  
+  - Reverse protection  
+  - Foreign object detection protection  
+- Output power: Automatically adjusts the output delivery to meet the current load requirements.
+- Support check error of WLC via BCM using LIN: WLC errors are sent as standard LIN messages, and BCM manages and reports them.
+- Thermal management: Junction temperature-based thermal strategy and simulation results are mandatory, not just ambient temperature.
+- Dust and water protection requirements for Infotainment Head Unit: IP5K2 of ISO20653 (including IP test cases in DVP).
+
+5.3.2.1.4.2 Advanced Features:
+- Software refresh, update, and fault check.
+- Fast 15W wireless charger (with cooling mechanisms).
+- Compatibility with 7.5W Apple Fast Charge algorithms.
+- Head Unit/Cluster Communication:
+  - Supports LIN interface to interconnect vehicle systems (MHU/IPC).  
+  - MHU/IPC can turn the charger ON/OFF, with default setting as ON.  
+  - Charging status (ON/OFF) of the Wireless Charger Pad can be informed via MHU/IPC, enabling advanced features like "phone-forgot reminder" when the vehicle is in OFF/LOCK state.
+
+5.3.3 Faulty Operation.
+- Supports error checking via LIN signal from WLC to BCM. Errors are reported as LIN messages, and BCM manages and reports these errors.
+
+5.3.4 Emergency Operation.
+- Not applicable.
+
+5.3.5 Display and Operation Concept (HMI).
+- Display charging status on the center display.
+- Setting ON/OFF function.
+- Reminder for users in case the phone is forgotten in the car.
+
+5.3.6 Service and Application Functions.
+- Charging function.
+- Reminder for users in case the phone is forgotten in the car.
+
+5.3.7 Diagnostics.
+- Wireless charger does not support diagnostics function.
+- Only supports LIN-based error reporting to BCM, which manages and reports errors if necessary:  
+  - Internal IC error.  
+  - FAN fault.  
+  - Temperature sensor error (disconnection of one temperature sensor).
+
+5.5 Control Unit Concept.
+
+5.5.1 Hardware:
+- **Hardware structure:**  
+  - Power Supply.  
+  - LIN Communication.
+
+5.5.1.1 Power supply:
+- The Wireless Charger (WLC) operates in Ignition mode ON, with Pin 8 designated as CL 15 - Ignition, available during vehicle IGN ON. It consumes 2A @12V nominal, with a peak of 3A.
+
+5.5.1.2 Microcontroller:
+- MCU: KF32A140, compliant with AEC-Q100 certification.  
+- **Specifications:**  
+  - 32-bit high-performance KungFu32 kernel.  
+  - Maximum operating frequency: 48MHz (adjustable via software).  
+  - Mixed 16-bit/32-bit instruction set with a 3-stage pipeline.  
+  - 32×32 single-cycle multiplication and hardware division (32÷32).  
+  - Interrupt priority processing with automatic interrupt stacking.  
+  - 13 general-purpose 32-bit registers (R0~R12).
+
+5.5.1.3 LIN Transceiver:
+- Model: TJA1021.  
+- Communicates with external units using LIN communication at a speed of 19.2 kbit/s.
+
+5.5.1.4 WLC Operation Frequency:
+- Nominal Frequency: 127.7kHz.
+
+5.5.2 Software:
+The WLC software supports LIN-based functionality via BCM:  
+
+**Requirement Number:** IWLC5024_001.  
+**Requirement Text:**  
+- If Ignition is ON and all doors are closed, charging starts when the smartphone is placed on the wireless charging pad. Charging stops if any door opens and resumes when all doors are closed again.
+
+**Requirement Number:** IWLC5024_002.  
+**Requirement Text:**  
+- Charging status displayed on the center display with LIN signal Transmit_WLC_situation (0x35):  
+  - 0x00: "Power OFF."  
+  - 0x02: "Charging."  
+  - 0x03: "Charging complete."  
+  - 0x04: "Wake up."
+
+**Requirement Number:** IWLC5024_003.  
+**Requirement Text:**  
+- MHU sends an ON/OFF signal to BCM via CAN, which BCM relays as LIN signal WLC_ON_OFF_Setting (0x31):  
+  - 0: "OFF (Disable)."  
+  - 1: "ON (Enable)."  
+  - 2: "Default."  
+  - 3: "Invalid."
+
+**Requirement Number:** IWLC5024_004.  
+**Requirement Text:**  
+- Reminder for forgotten phones: If IGN transitions from ON to OFF and the phone remains on the pad while the driver’s or assistant’s door is open, WLC sends a LIN signal (0x35) with logic 0x01 "Cellphone reminder."
+
+**Requirement Number:** IWLC5024_005.  
+**Requirement Text:**  
+- Foreign object detection (e.g., coins, metal): WLC sends LIN signal WLC_FOD_Error (0x37) with logic 0x01 "Error" for detected objects. Error clears with signal logic 0x00 "No Error" when the object is removed.
+
+**Requirement Number:** IWLC5024_006.  
+**Requirement Text:**  
+- Foreign object detection auto-resumes charging once the object is removed. Detection is optimized for objects ≥26mm in diameter placed centrally.
+
+**Requirement Number:** IWLC5024_007.  
+**Requirement Text:**  
+- LF frequency interference prevention with Smart Key Unit; LIN signal FOB_Searching(0x30):  
+  - 1: "ON."  
+  - 0: "OFF."
+
+**Requirement Number:** IWLC5024_008.  
+**Requirement Text:**  
+- Wireless charging stops when doors are opened or Smart Key Unit is in LF mode (searching for the key).
+Page 22
+5.6 Electrical Interfaces.
+
+5.6.1 Signal Characteristics.
+
+5.6.2 Diagnostics.
+
+5.6.2.1 Diagnostic Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000033_Basic_Diagnostics_Specification and CES_VINFAST_EE_VFDSP50000034_Basic_DID_PID_Specification in the latest version in case of diagnosis functionality.
+
+5.6.3 Network Management.
+
+5.6.3.1 Network Management Requirements.
+Please refer to VFDSXVEEP0047 or CES_VINFAST_EE_VFDSP50000012_LIN_Specification in the latest version in case of network management functionality.
+
+5.6.4 Flashing and Coding.
+
+5.6.4.1 Flashing and Coding Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000035_Flash_Specification and CES_VINFAST_EE_VFDSP50000036_Coding_Specification as well as CES_VINFAST_EE_VFDSP50000037_Security_Access_Algorithm in the latest version in case of flashing and coding functionality.
+Page 23
+5.6 Pin Assignment.
+
+Connector part number: 34793-0080 (8PIN).  
+Supplier: MOLEX.  
+Remark: Matching Connector: 34791-0080.
+
+### Socket assignments:
+- **Socket Number:** 1  
+  **Pin Number:** POWER_GND  
+  **I/O Type:** Clamp 31  
+  **Clamp Definition:** Ground  
+  **Signal Definition (TTE):** Ground  
+
+- **Socket Number:** 5  
+  **Pin Number:** BUS  
+  **I/O Type:** -  
+  **Clamp Definition:** -  
+  **Signal Definition (TTE):** LIN Communication  
+
+- **Socket Number:** 8  
+  **Pin Number:** POWER_VCC  
+  **I/O Type:** KL 15  
+  **Clamp Definition:** Ignition ON input  
+  **Signal Definition (TTE):** Ignition ON input  
+
+### Pin Definition:
+- **Pin Number:** 1  
+  **Clamp Definition (Magna):** Ground.  
+  **Drive Definition High-Side/Low-Side (Low freq. PWM):** N/A.  
+  **Current Characteristics:**  
+    - Typical Nominal Current (A): 2A (typical 12V).  
+    - Peak Current (A): 3A (max).  
+    - Block Current (A): N/A.
+
+- **Pin Number:** 5  
+  **Clamp Definition (Magna):** Signal.  
+  **Drive Definition High-Side/Low-Side (Low freq. PWM):** N/A.  
+  **Current Characteristics:**  
+    - Typical Nominal Current (A): 10mA (typical).  
+    - Peak Current (A): 20mA (max).  
+    - Block Current (A): N/A.
+
+- **Pin Number:** 8  
+  **Clamp Definition (Magna):** Power.  
+  **Drive Definition High-Side/Low-Side (Low freq. PWM):** N/A.  
+  **Current Characteristics:**  
+    - Typical Nominal Current (A): 2A (typical 12V).  
+    - Peak Current (A): 3A (max).  
+    - Block Current (A): N/A.
+
+---
+
+5.6.6 Component Connected to Terminal 30.
+
+Not applicable.
+
+---
+
+5.7 Specific Characteristics.
+
+Not applicable.
+
+---
+
+5.8 Safety Requirements.
+
+### 5.8.1 Vehicle Safety Regarding Person and Passenger Protection - General Requirements:
+The supplier is responsible for actively supporting the integration of vehicle safety functions. Lifetime relevant laws and ratings of selling markets, as well as OEM requirements, must be taken into account.
+
+### 5.8.2 Vehicle Safety:
+Not applicable.
+
+---
+
+5.9 Alternative and Future Variants.
+
+Not applicable.
+Page 24
+5.10 Mechanical Energy Management
+
+5.10.1 Weight Targets.
+Because vehicle weight significantly impacts energy consumption, the primary goal of weight management is to minimize overall vehicle weight. Throughout the development process, attention should focus on an optimized weight design for all components. All potential weight reduction measures must be presented by the supplier along with their impact on cost, timing, quality, and other factors.
+
+5.10.2 Fuel Consumption & Driving Performance.
+Not relevant.
+
+5.11 Installation.
+
+5.11.1 Installation Location.
+Vehicle Architecture.
+The complete vehicle must meet the requirements detailed in the vehicle layout plans. Any changes to parts and modules that affect the vehicle layout dimensions or geometric coherence of the vehicle must be promptly reported to VinFast by the supplier for further evaluation. The definition and technical geometric specifications regarding vehicle dimensions, both interior and exterior, are based on GCIE 2016 measurement definitions.
+
+5.11.2 Assembly Concept and Requirement from Production.
+WLC ECU:
+- Assembly requires self-tapping screws in four positions, clamp nuts in four positions, locator holes in two positions, and locator pegs in two positions.
+- The WLC must integrate seamlessly into the center console molding.
+Page 25
+### VinFast Management System
+
+#### 5.10 Mechanical Energy Management
+**5.10.1 Weight Targets:**  
+Because the vehicle weight is a big influence on the energy consumption of the vehicle, the major goal of the weight management is to minimize the complete vehicle weight. Throughout the whole development, attention must be paid to a weight-optimized design of all components. Suppliers must show all weight reduction potentials, alongside their impact on cost, timing, and quality.  
+
+**5.10.2 Fuel Consumption & Driving Performance:**  
+Not relevant.  
+
+---
+
+#### 5.11 Installation
+**5.11.1 Installation Location - Vehicle Architecture:**  
+The complete vehicle must meet the requirements from the vehicle layout plans. All changes to parts and modules affecting the vehicle layout dimensions or geometric coherence of the vehicle must be immediately communicated to VinFast by the supplier for separate evaluation. The definition and technical geometric specification regarding complete vehicle dimensions in the interior and exterior are based on GCIE 2016 measurement definitions.
+
+---
+
+**5.11.2 Assembly Concept and Requirement from Production - WLC ECU:**  
+The image illustrates the mounting configuration for the WLC assembly, which involves:  
+- **Self-Tapping Screw - 4 Positions:** Secures the WLC in place.  
+- **Clamp Nut - 4 Positions:** Provides additional fixation.  
+- **Locator Holes - 2 Positions:** Ensures alignment for proper fitting.  
+- **Locator Pegs - 2 Positions:** Assists mechanical placement within the system.  
+- **Centre Console Molding:** Identifies the designated housing area for the WLC ECU.  
+
+---
+
+#### 5.6 Pin Assignment
+**Connector part number:** 34793-0080 (8PIN)  
+**Supplier:** MOLEX  
+**Remark:** Matching Connector: 34791-0080  
+
+**Pin Definition Overview:**  
+1. **Socket Number:** 1  
+   **Signal Definition (ITE):** POWER_GND  
+   **Function:** Ground  
+   **Typical Nominal Current:** 2A @12V  
+   **Peak Current:** 3A Max  
+
+2. **Socket Number:** 4  
+   **Signal Definition (ITE):** BUS  
+   **Function:** LIN Communication  
+   **Typical Nominal Current:** 20mA  
+
+3. **Socket Number:** 8  
+   **Signal Definition (ITE):** POWER_VCC - KL15  
+   **Function:** Ignition ON Input  
+   **Typical Nominal Current:** 2A @12V  
+   **Peak Current:** 3A Max  
+
+---
+
+#### 5.8 Safety Requirements
+**5.8.1 General Requirements:**  
+The supplier is responsible for actively supporting the integration of vehicle safety functions. Lifetime relevant laws and ratings for selling markets, as well as OEM requirements, must be considered.  
+
+---
+
+#### 5.9 Alternative and Future Variants  
+Not applicable.  
+
+---
+
+#### Label Requirements  
+**Supplier Instruction:**  
+The label format must adhere strictly to the design provided in the diagram:  
+- **Label Details:**
+  - **Part Number**: Includes 11 digits (e.g., “EEP00005027”).  
+  - **Supplier ID**: Identifies the source (e.g., “2100049”).  
+  - **Version**: Indicates the revision level (e.g., “01”).  
+  - **Date Code**: Specifies production timeline to meet traceability standards.  
+  - **Other Information:** Includes production shift, date counter, and vendor codes.
+Page 26
+5.11.3 Geometry.  
+Not applicable.  
+
+5.11.4 Tolerances.  
+| Size range        | A         | B         | C          |
+|-------------------|-----------|-----------|------------|
+| ≤20MM            | ±0.05     | ±0.10     | ±0.15      |
+| 20MM to 100MM    | ±0.10     | ±0.15     | ±0.25      |
+| 100MM to 200MM   | ±0.15     | ±0.20     | ±0.35      |
+| 200MM to 300MM   | ±0.25     | ±0.30     | ±0.50      |
+| 300MM to 800MM   | ±0.50     | ±0.60     | ±0.80      |
+| 800MM to 2500MM  | ±1.00     | ±1.20     | ±1.50      |
+
+5.12 Styling and Design.
+
+**Styling Technique Convergence.**  
+All changes on parts and modules, which are affecting the Exterior and/or Interior styling surfaces of the vehicle, have to be communicated to VinFast immediately by the supplier for separate evaluation.  
+
+Part or system-related technical input requirements for styling evolution loops have to be provided from supplier (e.g. tooling demands, assembly sequence), based on defined requirements from MSF module leads. Technical input can be provided, e.g., as office documents, 3D CAD data, or sections.
+Page 27
+### 5.13 Ergonomics.
+#### 5.13.1 Optical Characteristics and Surface Feel  
+Not applicable.
+
+#### 5.13.2 Actuation Acoustics  
+Not applicable.
+
+#### 5.13.3 Handling.  
+Not applicable.
+
+---
+
+### 5.14 Technical Material Requirements
+#### Prohibited or Restricted Substances, Emissions & Toxicology  
+The conformance to prohibited and restricted substances and obligations in terms of notification have to be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier through the complete product life cycle according to VFDST00007601.  
+IMDS material data sheets have to be submitted into VinFast IMDS ID according to the official VinFast IMDS Guideline (Testing & Validation) and VFDST00007601.  
+
+Specific targets on vehicle indoor air quality must align with:  
+- **VFDSXVCVC3401-VIAQ_Testing_Guideline**
+
+#### Environmental Compatibility  
+The minimization of environmental impacts of a product through its complete life cycle is a key factor for future development of innovative products.  
+A minimization of environmental impacts of a product requires:
+- Use of recyclable materials.  
+- Use of recycled materials and renewable resources.  
+- Prevention of hazardous substances.  
+- Minimization of compartment emissions including odor.  
+- Minimization of consumption of resources.  
+- Strategy for waste prevention.  
+- Parts marking for identification at end of life.  
+- Depollution and drainage at end of life.  
+
+#### Applicable Standards  
+The requirements of the following standards must be met:  
+- **Reuse, Recycling & Recoverability obligations** for vehicles, components, and parts according to UN Regulation No. 133.  
+- **Parts marking for identification** of materials at end of life for vehicles, components, and parts according to ISO standards.  
+- **Prohibition & Restriction of substances** according to Vietnam Law on Chemicals No. 06/2007/QH12 (including the national chemical inventory 2017).  
+- **Prohibition & Restriction of substances** according to the Global Automotive Declarable Substances List (GADSL).
+
+Details are defined in Chapter 5.16.
+Page 28
+5.15 Resistance to Media and Chemical Requirements.
+
+5.15.1 Contamination.  
+The WLC follows VF’s Material Compliance and passes VF’s Material Compliance tests.
+
+5.15.2 Cleaning.  
+The WLC follows VF’s Material Compliance and passes VF’s Material Compliance tests.
+
+5.15.3 Corrosion Protection.  
+The WLC follows VF’s Material Compliance and passes VF’s Material Compliance tests.
+
+5.15.4 Tightness and Protection Classes.  
+The WLC follows VF’s Corrosion and Tightness requirements and passes VF’s Corrosion and Tightness tests.
+
+5.16 Environmental Compatibility.
+
+5.16.1 Material Selection.
+
+**Material Information:**  
+The supplier has to provide detailed information about the specific trade names and quality of the planned materials (e.g., ABS+PC; trade name: Bayblend T65, supplier: Bayer) before the milestone procurement release.
+
+Material safety data sheets (SDS), according to Vietnam Law on Chemicals No. 06/2007/QH12 (including national chemical inventory 2017), have to be provided for milestone concept confirmation. Consider local rules for SDS creation and UN guidelines as per GHS Globally Harmonized System of Classification, Labelling, and Packaging of Chemicals.
+
+Material safety data sheets must be provided by the supplier to VinFast and Magna Steyr Fahrzeugtechnik.  
+
+Further information:  
+[UNECE GHS Guidelines](http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html)
+
+**Material Compliance:**  
+The conformance to prohibited and restricted substances and obligations in terms of notification must be ensured for new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts by the supplier. 
+
+**Part Number:**  
+EEP71005024 (WLC_ECU)
+
+| NO | PART NAME                  | QUANTITY | MATERIAL        | FINISH       | WEIGHT |
+|----|---------------------------|----------|-----------------|--------------|--------|
+| 1  | Plastic cover             | 1        | PC+ABS          | N.A          | 59g    |
+| 2  | PCB components            | 1        | /               | N.A          | 120g   |
+| 3  | SCREW                     | 4        | Carbon steel    | Galvanized   | 2g     |
+| 4  | Stamping cover            | 1        | SECC            | N.A          | 76g    |
+| 5  | SCREW                     | 4        | Carbon steel    | Galvanized   | 2g     |
+| 6  | SCREW                     | 4        | Carbon steel    | Galvanized   | 1g     |
+| 7  | FAN                       | 1        | Multiple materials | N.A       | 20g    |
+| 8  | FAN Cover                 | 1        | PC+ABS          | N.A          | 18g    |
+Page 29
+### VinFast Management System
+
+#### Resistance to Media and Chemical Requirements
+
+**5.15.1 Contamination.**
+The WLC follows VF’s Material Compliance and passes VF’s Material Compliance tests.
+
+**5.15.2 Cleaning.**
+The WLC follows VF’s Material Compliance and passes VF’s Material Compliance tests.
+
+**5.15.3 Corrosion Protection.**
+The WLC follows VF’s Material Compliance and passes VF’s Material Compliance tests.
+
+**5.15.4 Tightness and Protection Classes.**
+The WLC follows VF’s Corrosion and Tightness requirements and passes VF’s Corrosion and Tightness tests.
+
+---
+
+#### Environmental Compatibility
+
+**5.16.1 Material Selection.**
+
+**Material Information**
+The supplier must provide detailed information about the specific trade names and quality of the planned materials (e.g., ABS+PC; trade name: Bayblend T65, supplier: Bayer) prior to the milestone procurement release.  
+Material safety data sheets (SDS) complying with Vietnam Law on Chemicals No. 06/2007/QH12 (including the national chemical inventory of 2017) must be submitted for milestone concept confirmation. Local rules for SDS creation and UN-guidelines compliant with GHS Globally Harmonized System of Classification, Labelling, and Packaging of Chemicals should also be considered.  
+Material safety data sheets must be provided by the supplier to VinFast and Magna Steyr Fahrzeugtechnik.  
+
+Further information can be found at:  
+[UNECE GHS Standards](http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html)
+
+**Material Compliance**
+The conformance to prohibited and restricted substances and obligations in terms of notification must be ensured for:
+- New parts
+- Modified parts
+- Carry-over parts
+- Off-the-shelf parts
+- Spare parts  
+
+**Part Number:** EEP71005024 (WLC_ECU)
+
+---
+
+#### Material Construction for Part: EEP71005024 (WLC_ECU)
+
+| No | PART NAME                 | QUANTITY | MATERIAL               | FINISH         | WEIGHT |
+|----|---------------------------|----------|------------------------|----------------|--------|
+| 1  | Plastic Cover             | 1        | PC+ABS                 | N.A.           | 59g    |
+| 2  | PCB Components            | 1        | /                      | N.A.           | 120g   |
+| 3  | Screw                     | 4        | Carbon Steel           | Galvanized     | 2g     |
+| 4  | Stamping Cover            | 1        | SECC                   | N.A.           | 76g    |
+| 5  | Screw                     | 4        | Carbon Steel           | Galvanized     | 2g     |
+| 6  | Screw                     | 4        | Carbon Steel           | Galvanized     | 1g     |
+| 7  | FAN                       | 1        | Multiple Materials     | N.A.           | 20g    |
+| 8  | FAN Cover                 | 1        | PC+ABS                 | N.A.           | 18g    |
+
+---
+
+#### Prohibited Substances and Recycling Compliance
+
+- The conformance to prohibited substances must be ensured by the supplier throughout the complete product lifecycle. 
+- **IMDS Submission:** Material data sheets (MDS) in IMDS must comply with IMDS Rules and Guidelines (IMDS 001 and Recommendations 002–022). Updates are required for changes.
+- Material data sheets must be submitted by the supplier to VinFast.  
+
+Additionally, all materials and components must meet the latest legal requirements outlined by UN regulations regarding restricted and prohibited substances for automotive applications. Global Automotive Declarable Substances List (GADSL) compliance is required.  
+
+Further information:  
+[GADSL Guidelines](https://www.gadsl.org/)
+
+---
+
+#### Recycled Materials and End-of-Life Treatment
+
+**Recycled Materials**
+When selecting materials, focus on:
+- Reducing the variety of materials
+- Compatibility with proven recycling technologies  
+
+Secondary raw materials (e.g., recycled polymeric PET fibers, recycled textiles, recycled foams, recycled thermoplastics) must be preferred, based on market availability. Recycled materials must be marked according to parts marking standards defined in this specification book. Environmental compliance reports must be submitted to the VinFast experts team.
+
+**5.16.2 End-of-Life Treatment - Dismantling Scheme**
+Suppliers must provide a detailed dismantling scheme with clear specifications regarding material component separation, recycling, and disposal processes for the product lifecycle’s end use.
+Page 30
+5.16.1 Dismantling Scheme.  
+The dismantling scheme describes the requirements to the contractor in terms of a simple, unmixed dismantling of the component as well as its accessibility when assembled.  
+The dismantling scheme has to be provided to environmental experts team at VinFast before the milestone PTO Production Try-Out.  
+
+5.16.2 Recycling Scheme.  
+This chapter establishes the general project-wide requirements on the recycling and repair scheme in the development of components.  
+Design for recycling of parts and components is required to enable cost-effective recycling at end-of-life.  
+The recycling scheme provided by the contractor has to show a simple layout for the possible recycling process of the component, including information about preferred recycling partners and cost estimation.  
+The recycling scheme has to be provided to the environmental experts team at VinFast before milestone PTO Production Try-Out.  
+
+5.16.3 Pyrotechnic Initiator Neutralization.  
+To ensure cost-effective recycling of end-of-life vehicles, a recycling function (central ability for inflation) shall be provided for via the diagnosis interface / central data interface for pyrotechnical components, complying with the following requirements:  
+- Enable sequential deployment of all components (avoidance of noise and pressure peaks; check of deployment per component).  
+- After deployment of the pyrotechnical components, no solid combustion residues shall remain that are classified as toxic waste or hazardous substances according to the status of valid waste legislation. Otherwise, components must be dismantled and disposed of separately.  
+- A successful deployment of pyrotechnical components shall be immediately and clearly visible (acoustically and/or directly at the vehicle via feedback at the deployment tool).  
+- Marking positions of pyrotechnical components (especially “hidden” components, e.g. battery safety terminal clamp, active safety headrest).  
+- In case of non-deployment, removal of pyrotechnical components is required. Pre-dismantling shall be avoided, and fasteners must be accessible.
+
+5.16.4 Eco-Design.  
+Parts Marking.  
+Parts marking should be carried out using the rule “as few characters as possible but as many as necessary.” The marking consists of brief type designations defined by DIN, EN, or ISO standards (ISO takes priority). The codes are enclosed within arrowed brackets, using mathematical symbols for “more than” (>) and “less than” (<).  
+
+5.16.5 Lifecycle Analysis.  
+
+5.16.6 Emissions & Toxicology.  
+Harmful Substances in Components and Materials.  
+The emission behavior of the E/E product with direct contact to the interior compartment has to be checked on representative components as soon as possible.
+Page 31
+5.16.3 Eco-Design.  
+**Parts marking.**  
+Parts marking should be carried out using the rule "as few characters as possible but as many as necessary." The marking consists of brief type designations defined by DIN, EN, or ISO standards (ISO takes priority). The codes are put into arrowed brackets, consisting of the mathematical signs for "more than" (>) and "less than" (<).
+
+5.16.4 Lifecycle Analysis.  
+**Emissions & Toxicology.**  
+**Harmful substances in components and materials.**  
+The emission behavior of the E/E product with direct contact to the interior compartment must be checked on representative components as soon as possible. Emissions of volatile organic compounds in the passenger compartment must be minimized accordingly.
+
+Required measurements to confirm the emission characteristics must be conducted by the supplier in agreement with VinFast's specialist department. Measurements must be performed at VinFast-approved testing institutes. It is recommended to obtain an overview of all approved testing institutes from VinFast. Additional requirements can be found in project-specific documents (e.g., Emission Guideline).
+
+Volatile organic compounds of components must be checked according to ISO12219. Conformance to prohibited substances must be ensured throughout the complete product lifecycle. The test results are evaluated by VinFast's specialist department. Harmlessness of volatile compounds for human health must be attested in writing on demand. The supplier must provide VOC and fogging measurement results for the materials before milestone purchase release.
+
+5.17 Mechanical Requirements.  
+5.17.1 **Load.**  
+**Operating loads.**  
+Operating loads are the loads experienced during intended vehicle use. These loads are derived from measurements taken with selected benchmark vehicles on tracks defined by VinFast. The definition of customer usage is based on VinFast's standard for long-distance durability runs. The tested mileage derives from the target for desired customer vehicle mileage as specified in chapter 5.18.
+
+**Special events.**  
+Special events are occurrences with a small frequency (approximately < 100) and are part of the vehicle's intended use, such as ABS-braking. Vehicles must be dimensioned such that special events neither affect functionality nor cause any safety-relevant damages. The intended service life must remain unaffected.
+
+**Misuse events.**  
+Misuse events refer to occurrences outside the vehicle's usage intention, such as curbstone impacts. The vehicle must be dimensioned to ensure:  
+- Damages following misuse are clearly recognizable by the driver (e.g., steering wheel or wheel inclined conditions).  
+- A defined damage chain is upheld after misuse (e.g., easy-replaceable parts before the body structure).  
+- Cracks or damages occur alongside clearly recognizable plastic deformations, either to the same or to neighboring components ("deformation before break" principle).
+Page 32
+5.17 Mechanical Requirements.
+
+5.17.2 Vibration Behavior.  
+The eigenfrequency of the component when mounted to the vehicle shall not be less than 30Hz. Thus, the supplier has to align the fixation concept with VinFast. Additional structural dynamics requirements may be specified in chapter 5.17.6 if necessary.  
+
+5.17.3 Stiffness and Cushioning Characteristics.  
+Not applicable.  
+
+5.17.4 Deformation.  
+Not applicable.  
+
+5.17.5 Pressure.  
+Not applicable.  
+
+5.17.6 NVH / Acoustic Performance.  
+
+**Fan.**  
+If the electrical control unit contains cooling fans, no tonal frequency bands are acceptable (adjacent bars must not be exceeded by 3dB).  
+
+**S&R, General.**  
+Noises which are perceived by the customers as disturbing have to be ruled out through the selection of suitable materials, surfaces, gaps, and forming. The supplier has to guarantee that components are free of disturbing noises within their vehicle environment and geometrical integration under all environmental conditions throughout the component's service life.  
+
+There must be no squeak and rattle noise due to excitation of the car body (e.g., wind load, torsional flexing), even if real relative movements on the surface occur. This has to be guaranteed under all operating and environmental conditions, including variations in temperature and humidity. To evidence disturbing noise freedom, the requirements must be coordinated with the responsible testing team.  
+
+The supplier is responsible for supporting the development of vibration and acoustic behavior for the subsystem within the complete vehicle environment and ensuring consistent acoustic quality of delivered parts. This includes actively identifying issues and proposing solutions. Necessary parts for comparison, tuning, and evaluation must be delivered free of charge upon request.
+
+5.18 Durability / Life Time.  
+10 years (except Fan).  
+Fan life: 70,000 hours at 25°C and 10,000 hours at 75°C.  
+
+5.19 Electrical Requirements.
+
+5.19.1 Description of the Requirements.  
+The following subchapters refer to the corresponding standards. These standards apply in their latest version, and deviations to this must be agreed with the project.
+Page 33
+5.19 Power Consumption
+
+5.19.2 Power Consumption Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000005_Energy_Management and CES_VINFAST_EE_VFDSP50000004_General_Electric in the latest version.
+
+5.19.3 Low Voltage Energy Management.
+
+5.19.3.1 Energy Management Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000005_Energy_Management in the latest version.
+
+5.19.4 High Voltage Energy Management.
+
+5.19.4.1 Energy Management Requirements.
+Not applicable.
+
+5.19.5 Electromagnetic Compatibility.
+
+5.19.5.1 EMC Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component in the latest version.
+
+5.19.6 Electrostatic Discharge.
+
+5.19.6.1 ESD Requirements.
+Please refer to CES_VINFAST_EE_VFDSP50000002_EMC_Standard_Component in the latest version.
+
+5.20 Climatic Requirements / Thermal Management
+
+Environmental operating conditions.
+The environmental operation conditions for complete vehicle are defined as -30°C to +50°C ambient temperature, 0-100% relative humidity and -100m to 3500 m above mean sea level.
+
+Heat protection.
+The development and validation of the heat protection in the complete vehicle ensures that all relevant component temperatures remain below the maximum allowed limits, which are derived from vehicle operation within the environmental operating temperatures. 
+
+Thermal management is very crucial for the WLC. It should show the thermal strategy and simulation result using junction temperature, not only operating ambient temperature.
+
+The heat protection validation tests for the components are performed in the climatic wind tunnel (CWT) and on-road. 
+
+All relevant component temperatures and measurement points have to be defined in accordance with the responsible modules and will be specified in respective component specifications. Vehicle tests have to be completed and followed VF Thermal Testing Standard in the MULE, Super-MULE, and PTO Vehicle Generation.
+Page 34
+5.20.1 Thermal Management Requirements.  
+Please refer to CES_VINFAST_EE_VFDSP50000008_Thermal_Management in the latest version.  
+
+5.21 Service Requirements.  
+Not applicable.  
+
+5.22 Transport Protection.  
+Not applicable.  
+
+5.23 Logistics Requirements.  
+Not applicable.  
+
+5.24 Quality Assurance Requirements.  
+Not applicable.  
+
+5.25 Content Amendments.  
+Not applicable.  
+
+6 Testing and Validation.  
+DVP and PC test responsibility follow RASIC. DVP (virtual and physical testing) for System, Sub-system & Component Level inline with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests in file DVP&R and need work with Testing & Validation department:  
+- Testing with declaration of standard, norm, legal requirement.  
+- How and with which devices the testing was performed (description of testing set-up with pictures).  
+- Where the testing was performed (internal/external).  
+- Duration and time flow of the testing (in form of project plan).  
+- Part variant, description of part.  
+- No. of tested components/parts.  
+
+Ensure Mileage Target Life: 160000 km or 10 years (whichever comes first).  
+
+6.1 Proof of Compliance.  
+6.1.1 Testing Plan (DVP + FRS Plan).  
+Refer data from T&V team:  
+DVPRXNEEP0012  
+DVPRXNEEP0012_VFe34S_WLC_ECU_V1.0.  
+
+6.1.2 Package.  
+Please refer to ISO 16750.
+Page 35
+### 6.2 Electrical Systems & Functions
+
+Architecture and Electrical system will be developed according to the standards mentioned below and must be fulfilled. All work standards and specifications apply in their most recent version and in their entire scope. Compliance with these standards and specifications is obligatory. 
+
+The assemblies and their parts must be tested according to the following specifications, and proof must be furnished that the requirements have been met (i.e., components with coding function must fulfill CES_Coding). Any deviation of the requirement must be aligned in the project.
+
+#### Specification Name Table:
+| **Specification Name**                   | **Specification Name**                      |
+|------------------------------------------|---------------------------------------------|
+| CES_General_Electric                     | CES_Coding                                  |
+| CES_Energy_Management                    | CES_ECU_Identifier                          |
+| CTS_Energy_Management                    | CES_Basic_DID_definition                    |
+| CTS_Load_Analysis                        | CES_Clamp_Concept                           |
+| CES_Thermal_Management                   | CES_Basic_software_on_CAN_ECUs              |
+| CTS_Thermal_Management                   | CES_Logistic_data                           |
+| CES_High_Current_Consumers               | SUP_Software_Logistics                      |
+| CES_Basic_Diagnostic                     | CES_Security_Access_Algorithm               |
+| CES_EMC_Standard_Component               | CES_Learning_sequence                       |
+| CES_EMC_Standard_Vehicle                 | VINFAST_FRS_plan                            |
+| CES_CAN                                  | CES_Look&Feel                               |
+| CES_Residual_Bus_Simulation_on_CAN_ECUs  | CES_Warning_Message_Catalog                 |
+| CES_LIN                                  | CES_Flashing                                |
+
+Several validation cycles for electrical systems and functions are planned to guarantee correct implementation and will be carried out according to the mentioned standards.
+
+#### Function Release Step (FRS)
+
+The generic Function Release Step (FRS) is outlined in the diagram below. Detailed timing and descriptions of each FRS are defined in the FRS Plan (refer to “VINFAST_FRS_plan.pdf”). 
+
+The FRS Plan must be fulfilled by every electric component. 
+
+**Stages in FRS Process:**
+- Setup
+- Network testing
+- Subsystem testing
+- Labcar testing
+- Integration testing
+Page 36
+6.3 Virtual Testing and Simulation  
+Not applicable.  
+
+6.4 Vehicle Testing  
+The testing must be performed as defined in the VF testing standards. The component has to withstand the following tests on complete vehicle level:  
+
+**Durability testing:**  
+- Rough road durability run  
+- Lateral force durability run  
+- Drive train shortened durability run  
+- Long distance durability run (mixed circuit)  
+
+**Special events:**  
+The design and development process covers the following events:  
+- Extreme braking (ABS-braking forward/rearward on Belgium block from 40kph)  
+- Bump & Pothole test with 40kph  
+
+6.5 Tests  
+
+6.5.1 Test Name A.  
+6.5.1.1 **Test Equipment and Test Mules.**  
+6.5.1.2 **Properties and Condition of the Prototype Status to be Tested.**  
+6.5.1.3 **Test Parameters and Cycles.**  
+6.5.1.4 **Operation Conditions.**  
+
+6.6 Appearance Approval - Applicable for all Visible Parts  
+AAR is a PPAP deliverable.  
+The AAR process is described in VFDST00038401 (quantity of parts, timing).
+Page 37
+For each step of the process, Supplier has the responsibility to submit parts to VF Quality Design following agreed timing with VF to get OK Shape, OKTG, and AAR Approval. The process will start in the early phase at PT build to secure AAR Approval at LS. Supplier has to include this activity in their development process and ED&D Cost.
+
+### 7 Function Safety, Homologation & Safety Regulations, and Cyber Security Requirements
+
+Safety is one of the key issues in the development and integration of automotive functionalities. Functional safety is concerned with E/E systems.
+
+#### 7.1 Functional Safety Requirements
+N/A
+
+#### 7.2 Homologation and Safety Regulation Requirements
+**7.2.1 North America and Canada**  
+WLC part shall be getting FCC and ISED certification.
+
+a. **Homologation and safety regulation activities**  
+- The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, e.g., European, Federal Motor Vehicle Safety Standards (FMVSS), and Canadian Motor Vehicle Safety Standards (CMVSS).  
+- The supplier must provide and/or support any documentation to be submitted to the relevant authorities.
+
+b. **Self-certification and test report(s)**  
+- The supplier is responsible for “self-certifying” their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before those products can be offered for sale.  
+- VinFast requests suppliers to conduct tests as specified in certain of the FMVSS/CMVSS. The test report(s) must be provided to VinFast as evidence of compliance.  
+- The supplier should also be familiar with the laboratory test procedures (*) that USA/Canada Governments use to evaluate the compliance of their products with each FMVSS/CMVSS.  
+
+(*) Refer Appendix 8 of Manufacturer_Handbook
+
+c. **Duty to notify VinFast of non-compliance with an FMVSS/CMVSS or European regulations**  
+- Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with an FMVSS/CMVSS, European regulations, or a safety-related defect exists in a motor vehicle equipment item it has produced.  
+- The supplier has a duty to notify VinFast on such an issue within five working days after determining the existence of non-compliance or a safety-related defect.  
+- The supplier must propose an appropriate risk assessment and resolution plan.
+Page 38
+7.2.2 Europe.
+
+WLC part shall be getting CE certification.
+
+a. Homologation and safety regulation activities.  
+The Supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. Test report(s) and Certificate(s).  
+The supplier is responsible for getting their part(s), product(s) or system(s) to meet applicable UN-ECE regulations before those products can be offered for sale. VinFast requests the Supplier to conduct tests as specified in certain of the UN-ECE at authorized technical services. The test report(s) and/or UN-ECE certificate(s) must be provided to VinFast as evidence of compliance.  
+VinFast also requests the Supplier to provide supporting documentation, technical information, including drawings, to be submitted to the relevant authorities to get certification for the EC vehicle type-approval (if any).  
+The Supplier should also be familiar with the laboratory test procedures that European authorities use to evaluate the compliance of their products with each corresponding UN-ECE regulation.
+
+c. Duty to notify VinFast of a non-compliance with UN-ECE regulations.  
+Notwithstanding its certification of a product, a supplier may subsequently determine that a non-compliance with UN-ECE regulations or a safety-related defect exists in a motor vehicle equipment item it has produced. The Supplier has a duty to notify VinFast of such an issue within five working days after determining the existence of a non-compliance or a safety-related defect.  
+The Supplier must propose an appropriate risk assessment and resolution plan.
+
+7.3 Cyber Security Requirements.  
+N/A.
+
+8 Definitions and List of Abbreviations.
+
+8.1 Definitions.
+
+8.2 Definitions and List of Abbreviations.
+
+| Abbreviation | Explanation                      |
+|--------------|----------------------------------|
+| AA           | Attack Angle                    |
+| ABG          | Airbag control module           |
+| ABS          | Anti-lock braking system        |
+| AC           | Alternating Current             |
+| ACM          | Airbag control module           |
+| ADAS         | Advanced Driver Assistance Systems |
+Page 39
+VinFast 
+Management System 
+
+VFDSXNEEP0012 
+
+Version: 5.0 
+Uncontrolled copy when printed 
+39 | 41 
+Print date 
+Status 
+Functional Responsibility 
+
+ADC - Analog to Digital Converter  
+AI - Articulation Index  
+AIA - Activity Interface Agreement = Work Interface Chart (RASI)  
+APQP - Advanced Product Quality Planning  
+ASIL - Automotive Safety Integrity Level  
+ASM - Asynchronous Machine  
+AWD - All wheel drive  
+BCM - Body control module  
+BDU - Battery disconnect unit  
+BEV - Battery Electric Vehicle  
+BFR - Basic Function Requirement  
+BIW - Body in White  
+BMU - Battery management unit  
+BOM - Bill Of Material  
+BSM - Blind Spot Monitoring  
+CAD - Computer Aided Design  
+CAE - Computer-Aided Engineering  
+CAM - Computer-Aided Manufacturing  
+CAN - Controller Area Network  
+MSC - Manufacturing Strategy Confirmation  
+TS - Theme selection Model  
+MFC - Manufacturing Feasibility Confirmation  
+MSI - Major Suppliers Identified  
+SST - Sourcing Strategy  
+LLS - Long Lead Suppliers on board  
+SLS - Short Lead Suppliers on board  
+LLT - Long Lead Tooling  
+PTP - Prototype Parts out of Serial tooling (Hand finished)  
+OTS - Off Tools Samples  
+ESO - Engineering Sign Off  
+MSO - Manufacturing Sign Off  
+SOP-LM - SOP Launch Model (1 specific Model - „Edition“)  
+SOP - Start of Production  
+SOP-ID - SOP-ID…SOP implementation date  
+SOB - Supplier on Board  
+LOI - Letter of Intend  
+LON - Letter of Nominated  
+DVP&R - Design Verification Plan & Report  
+GTC - General Term and Condition  
+RFQ - Request For Quotation  
+FUSA - Function Safety  
+T&V - Testing & Validation  
+SC - Significant Characteristic  
+CC - Critical Characteristic
+Page 40
+9 Further Applicable Documents
+
+Document Type        | Title                                    | Part Number      | Version 
+---------------------|------------------------------------------|------------------|------------
+CES                  | General Electrical                      | VFDSP50000004    | latest version
+CES                  | FRS Plan                                |                  | latest version
+CES                  | Energy Management                       | VFDSP50000005    | latest version
+CTS                  | Energy Management                       | VFDSP50000006    | latest version
+CTS                  | Load analysis                           | VFDSP50000007    | latest version
+CES                  | Thermal Management                      | VFDSP50000008    | latest version
+CTS                  | Thermal Management                      | VFDSP50000009    | latest version
+CES                  | High Current Consumers                  | VFDSP5xxxxxxx    | latest version
+CES                  | Basic Diagnostic                        | VFDSP5xxxxxxx    | latest version
+CES                  | EMC Standard Component                  | VFDSP50000002    | latest version
+CES                  | EMC Standard Vehicle                    | VFDSP50000001    | latest version
+CES                  | CAN                                      | VFDSP50000010    | latest version
+CES                  | Residual Bus Simulation on CAN ECUs     | VFDSP50000011    | latest version
+CES                  | LIN                                      | VFDSP50000012    | latest version
+CES                  | Coding                                  | VFDSP50000036    | latest version
+CES                  | Flexray                                 |                  | latest version
+CES                  | ECU Identifier                          | VFDSP50000013    | latest version
+CES                  | Basic DID definition                    | VFDSP50000034    | latest version
+CES                  | Clamp concept                           | VFDSP50000014    | latest version
+CES                  | Basic Software on CAN ECUs              | VFDSP50000015    | latest version
+SUP                  | Software logistics                      |                  | latest version
+CES                  | Security Access Algorithm               | VFDSP50000037    | latest version
+                     | System schematics                       |                  | latest version
+Page 41
+HMI book  
+latest version  
+
+CES  
+Warning Messa Catalog  
+VFDSP50000003  
+latest version  
+
+CES  
+Flash Specification  
+VFDSP50000035  
+latest version  
+
+VinFast Released

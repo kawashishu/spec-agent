@@ -1,0 +1,3423 @@
+
+<filename>VF8VF9_HMI Book_Crystal_V2.0_20220516</filename>
+<pages>
+
+<page number="1">
+VF8 and VF9 HMI Book (Display and Operation Strategy/Concept).
+
+I-Team 111 Customer Function.
+Crystal Xu, 20220516.
+</page>
+
+<page number="2">
+**Report Summary**  
+**Date:** 5/16/2022  
+**Note:** Disclosure or duplication without consent is prohibited.  
+
+---
+
+**Simulation Report / Evaluation Report**  
+**Project Title:** Vinfast VF8 & VF9 HMI Book  
+
+**Generation:** VPT-CC/FC  
+**Project:** Vinfast VF8 & VF9  
+**Date:** 20220516  
+
+**Item:**  
+
+---
+
+**Task:**  
+General description of the “Display & Operation Strategy” for the VF8 & VF9 project, based on the feature lists “220216 VFx35 Track Changes” and “220216 VFx36 Track Changes.”  
+
+---
+
+**Results / Status:**  
+- Current working status is based on all information collected and cross-checked from each module.  
+- Pictures in this document may not show the latest data and component styling status, intended only to illustrate the operation concept.  
+- Version 2.0 to be released serves as a baseline for further proceedings.  
+- Ongoing changes in functions and descriptions.  
+
+---
+
+**Conclusion & Further Proceeding:**  
+Operation and control logic to be checked in the actual vehicle for implementation status.  
+
+---
+
+**Open Topics:**  
+- **Child protect lock operation strategy**—unclear whether a mechanical or electrical type is implemented for VF8.  
+**Status:** Y
+</page>
+
+<page number="3">
+Report Summary  
+Date: 5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+**Simulation Report / Evaluation Report**  
+**VinFast VF8 & VF9 HMI Book**
+
+**Generation:** VPT-CC/FC  
+**Project:** VinFast VF8 & VF9  
+**Date:** 20220516  
+
+**Item:**  
+
+**Task:**  
+General description of “Display & Operation Strategy” for VF8 & VF9 project, based on:  
+• Feature list “220216 VFx35 Track Changes”  
+• Feature list “220216 VFx36 Track Changes”
+
+**Results / Status:**  
+- Current working status, based on all information collected and cross-checked from each module.  
+- Pictures in this document may not show the latest data and component styling status; they are included only to illuminate the operation concept.  
+- To be released V2.0 serves as a baseline for further proceeding.  
+- Ongoing changes in functions and descriptions.  
+
+**Conclusion & Further Proceeding:**  
+Operation and control logic are to be checked in an actual vehicle for implementation status.  
+
+**Open Topics:**  
+• Child protect lock operation strategy unclear regarding whether mechanical or electrical type has been implemented for VF8.  
+
+**Status:** Y
+</page>
+
+<page number="4">
+Document Change History:  
+
+**Version:** V0.1  
+**Date:** 20211123  
+**Author:** Crystal Xu  
+**Change Content:** New template created.  
+
+**Version:** V0.1  
+**Date:** 20211210  
+**Author:** Crystal Xu  
+**Change Content:** Changed project naming from "VF8 / VF9" to "VF8/VF9."  
+
+**Version:** V1.0  
+**Date:** 20220222  
+**Author:** Crystal Xu  
+**Change Content:** Integrated information for chapter based on feedback and cross-checking from related modules and attribute teams by 2022.02.18.  
+
+**Version:** V2.0  
+**Date:** 2022/4/11  
+**Author:** Crystal Xu  
+**Change Content:** Updated climate control screen pictures in slides 127-129 based on VF36 UI/UX release (April 2022).  
+
+**Version:** V2.0  
+**Date:** 2022/4/11  
+**Author:** Crystal Xu  
+**Change Content:** Updated seat massage operation interface pictures in slide 48.  
+
+**Version:** V2.0  
+**Date:** 2022/4/11  
+**Author:** Crystal Xu  
+**Change Content:** Added climate control rear display information in slide 130.  
+
+**Version:** V2.0  
+**Date:** 2022/4/18  
+**Author:** Crystal Xu  
+**Change Content:** Corrected tailgate foot kick sensor information for VF8 Plus only (slides 21 & 9).  
+
+**Version:** V2.0  
+**Date:** 2022/4/18  
+**Author:** Crystal Xu  
+**Change Content:** Clarified welcome light and follow-me-home light operation (slides 12/13).  
+
+**Version:** V2.0  
+**Date:** 2022/4/18  
+**Author:** Crystal Xu  
+**Change Content:** Clarified intelligent lock operation (slide 10).  
+
+**Version:** V2.0  
+**Date:** 2022/4/18  
+**Author:** Crystal Xu  
+**Change Content:** Clarified WLC leave reminder for rear seat is only from MHU, excluding the rear display (slide 97).  
+
+**Version:** V2.0  
+**Date:** 2022/4/20  
+**Author:** Crystal Xu  
+**Change Content:** Added rear display information (slide 151).  
+
+**Version:** V2.0  
+**Date:** 2022/4/27  
+**Author:** Crystal Xu  
+**Change Content:** Clarified seat easy access (slide 47).  
+
+**Version:** V2.0  
+**Date:** 2022/5/10  
+**Author:** Crystal Xu  
+**Change Content:** Clarified child protection lock operation strategy for VF8, still to be confirmed (slide 19).  
+
+**Version:** V2.0  
+**Date:** 2022/5/13  
+**Author:** Crystal Xu  
+**Change Content:** Updated some display operation interface pictures according to the UI/UX.
+</page>
+
+<page number="5">
+Information overview / Legend:
+
+- Accepted: Strategy accepted by Vinfast.
+- ESPS’ proposal: Strategy proposed by TTL or other ESPs; detailed implementation still open.
+- Vinfast proposal/guideline: Strategy proposed by Vinfast; internal discussion ongoing.
+- Strategy not accepted by Vinfast; to be changed.
+
+Grey highlight:
+- Open issue to be followed by related ESPs.
+
+Yellow highlighted:
+- Open issue under discussion by the development module or to be checked.
+</page>
+
+<page number="6">
+Content.  
+
+1. Key / Lock & Unlock / Closures strategy.  
+2. Switches control strategy.  
+3. Seat operation strategy.  
+4. Interior lightening strategy.  
+5. Interior operation strategy.  
+6. Interior storage strategy.  
+7. Climate control strategy.  
+8. Display strategy.  
+9. Sound strategy.  
+10. Driving assist operation and warning strategy.  
+11. Voice and gesture control.  
+12. Driver and occupant monitoring strategy.  
+13. Towing hitch operation.
+</page>
+
+<page number="7">
+1. Key / Lock & Unlock / Closures Strategy.
+
+1.1 Key.
+
+1.2 Doors.
+
+1.3 Hood.
+
+1.4 Tailgate.
+
+1.5 Charging lid/Fuel lid.
+
+1.6 Power windows.
+
+1.7 Sunroof.
+</page>
+
+<page number="8">
+Key fob operation.
+
+**Lock:**  
+Press the lock button on the key fob to lock all four doors.  
+An audible and visual feedback (via turn indicators) is provided on successful activation of this function.  
+
+**Unlock:**  
+Press the unlock button on the key fob to unlock all four doors.  
+An audible and visual feedback (via turn indicators) is provided on successful activation of this function.  
+
+**PANIC:**  
+When the panic button is pressed and held for 1.5 seconds, it activates the panic alarm.  
+Horns will start sounding, and indicator lights will flash for 28 seconds.  
+The alarm will be deactivated if any key fob button is pressed or the 28 seconds maximum alarm time expires.  
+
+**Tailgate Unlock:**  
+Long press the button over a certain time to unlock the tailgate; there will be two beep sounds before the tailgate starts to open.  
+Click press the button to close.
+</page>
+
+<page number="9">
+Key fob operation for VF8 ECO, VF8 PLUS, VF9 ECO, and VF9 PLUS:
+
+### Lock:
+Press the lock button on the key fob to lock all four doors. An audible and visual feedback is provided via turn indicators on successful activation.
+
+### Unlock:
+Press the unlock button on the key fob to unlock all four doors. An audible and visual feedback is provided via turn indicators on successful activation.
+
+### Panic:
+Press and hold the panic button for 1.5 seconds to activate the panic alarm. Horns will sound and indicator lights will flash for 28 seconds. The alarm can be deactivated if any key fob button is pressed or after 28 seconds.
+
+### Tailgate Unlock:
+Long press the button to unlock and open the tailgate. Two beep sounds signal the tailgate opening. A single quick press will close the tailgate.
+
+---
+
+Key / Remote Key comfort functions for VF8 ECO, VF8 PLUS, VF9 ECO, and VF9 PLUS:
+
+### Keyless Entry:
+Depress the driver door PE micro switch or trunk switch while keeping the key fob in pocket to unlock the vehicle. The alarm will reset, and Left and Right Turn Lights flash twice. If no door is opened within 30 seconds, the vehicle will re-lock.
+
+### Foot Kick Sensor (Plus only):
+Move your leg under the rear bumper area to activate the kick sensor with the key fob in pocket. The tailgate will unlock and open, resetting the alarm. The Left and Right Turn Lights will flash twice. If no door is opened within 30 seconds, the vehicle will re-lock.
+
+### Intelligent Lock:
+Once all doors are closed and the handle micro switch is pressed with the key fob outside the cabin area, all doors will lock if no valid key fob is detected within the cabin.
+</page>
+
+<page number="10">
+Key / Remote Key (Comfort Function)
+
+Keyless entry:
+- Valid for Front Door Left: Keep a key within an authenticate signal detection range near the car and pull the driver door handle out, all doors will unlock.
+- When depressing the trunk switch and keeping the key fob within an authenticate signal detection range near the car, the vehicle will be unlocked.
+
+Foot Kick Sensor:
+- Move a leg under the rear bumper area to kick the bottom of the car with the key fob in pocket, the car will be unlocked.
+- The alarm will be reset, and Left and Right Turn Lights flash twice.
+- The user shall be able to open any door within the next 30 seconds; if no door is opened during that time, the vehicle shall re-lock.
+
+Intelligent Lock:
+- Once all doors are closed with the key fob within an authenticate distance, and no valid key fob is found in the cabin area, all doors will be locked.
+</page>
+
+<page number="11">
+**Key / Remote Key Comfort Function**  
+
+**Door Windows Open/Close by Key Fob Unlock/Lock Button:**  
+- When the unlock button on the key fob is pressed and held for a certain duration, the vehicle is unlocked and the windows open automatically. Releasing the unlock button immediately stops the window motion.  
+- Conversely, pressing and holding the lock button over a certain duration locks the vehicle and closes the windows automatically. Releasing the lock button immediately stops the window motion.  
+
+**Function and Operation Settings from MHU:**  
+- Options for key fob to unlock either only the driver door or all doors.  
+- Auto-lock feature toggle (ON/OFF).  
+- Unlock/lock feedback type (Light, Horn, or Both).
+</page>
+
+<page number="12">
+Key Unlock Operations for VF8 ECO, VF8 PLUS, VF9 ECO, and VF9 PLUS.
+
+1. **Remote key functions:**
+   - Press the unlock button on the key fob to unlock the vehicle. Detailed operations are described in previous slides.
+
+2. **Keyless entry:**
+   - Reference the detailed description in previous slides for functionality.
+
+3. **Central Unlock operations:**
+   - Pressing the center lock/unlock button located in the center console area will deactivate the indicator light.
+
+4. **Welcome Flow:**
+   - Audible and visible feedback is provided when the car is unlocked by any described methods. This includes optical feedback via flashing turn indicators twice and acoustical feedback via two beeps.
+   - When the vehicle is unlocked, the outside mirrors will unfold automatically if this feature is enabled through customer settings in the MHU. Customers can choose between mirror unfolding during vehicle unlock or when the vehicle is powered on.
+   - The interior lights will automatically turn on upon opening the door.
+
+5. **Welcome light functionality:**
+   - The option to switch welcome lights on or off is available upon unlocking the car.
+   - If enabled, welcome lights will turn on after the vehicle is unlocked when the user approaches the car.
+
+Image illustration: Includes visual representation of the remote key, center console controls, and MHU-based light settings options related to welcome lights and unlocking features.
+
+Indicator, illumination, and icon/text descriptions are configured for VF8 ECO, VF8 PLUS, VF9 ECO, and VF9 PLUS variations included above.
+</page>
+
+<page number="13">
+Key-Lock description for various models.
+
+1. **Remote key:**
+   - Press the lock button from the key fob to lock the vehicle. Refer to previous slides for detailed descriptions.
+
+2. **Intelligent Lock:**
+   - When all doors are closed and no valid key fob is found in the cabin area within the authenticate signal range, the intelligent lock will activate. Refer to detailed descriptions on earlier slides.
+
+3. **Central Unlock:**
+   - Press the center lock/unlock button located in the center console area. Upon pressing, the indicator light will turn on.
+
+4. **Leave Flow / Audible and visible feedback:**
+   - When all doors are closed and the car is locked via methods described above, the system provides optical feedback (turn indicator flashing) and acoustical feedback (beeps).
+   - The outside mirror automatically folds when locked.
+   - Interior lights will turn off after a specified duration.
+
+5. **Follow me home light:**
+   - This feature can be enabled or disabled from the MHU.
+   - Users can select a delay time slot from MHU to keep the headlights illuminated for a few seconds after locking the vehicle.
+   - If the outside brightness conditions are low or in darkness, the headlights will stay on for a few seconds automatically upon locking.
+
+Each feature and its settings can be configured and optioned based on user preferences from MHU configurations.
+</page>
+
+<page number="14">
+Lock / Unlock - Additional Function.
+
+**Special case:**
+- Complete vehicle will not lock when any door (except tailgate) is open, and there shall be a warning sound.
+- When a person leaves the car and a key is left inside the car or cargo area, the car will not be locked from outside, and there shall be a warning with turn indicator blinks.
+
+**Speed locking:**
+- When the vehicle speed is above a certain value, it activates the central lock for all doors. 
+
+**Secondary locking / Automatic Re-lock:**
+- If the doors’ state is not changed after 30 seconds of "unlock" and all doors are closed, the automatic re-lock of all four doors is activated.
+
+**Crash detection unlock:**
+- When a crash happens, it activates central unlock immediately for all four doors.
+
+**Door Open Warning - Auto lock:**
+- When the vehicle is stopped and another vehicle is approaching from behind, the doors will be locked to prevent an accident. The corresponding side ambient light will also flash.
+</page>
+
+<page number="15">
+Mechanical Key to Lock and Unlock Doors: 
+
+- Draw the key blade from key fob.  
+- Insert the key blade into the key cylinder located at the driver’s door. The corresponding door will unlatch or lock, and it activates a central unlock or lock for all four doors.
+</page>
+
+<page number="16">
+Mechanical Key to Lock / Unlock Doors:  
+- Draw the key blade from the key fob.  
+- Push at the door handle’s wide part; the handle will pivot toward you and reveal the emergency key cylinder.  
+- Insert the key blade into the key cylinder at the left rear door. The corresponding door will unlatch/lock, and it will activate a central unlock/lock for all four doors.
+</page>
+
+<page number="17">
+### Door Operation
+
+#### Outer Door Handle Release:
+- The vehicle is unlocked by the methods described in chapter 1.1.
+- Pull the outer handle to open the door.
+
+#### Inner Door Handle Release:
+- **Unlocked Vehicle:**
+  - Pull the door opener handle in the door trim to open the door.
+- **Locked Vehicle:**
+  - Pull the door opener twice individually:
+    - 1st time unlocks the door.
+    - 2nd time opens the door.
+- When the door is open, a warning will be displayed on the MHU.
+- Check control message in the MHU if any door is open.
+</page>
+
+<page number="18">
+Outer door handle release:  
+- Push at the door handle wide part, the handle will pivot toward you.  
+- Pull the handle over a certain angle, the door will unlatch.  
+- Pull the door open.  
+
+Inner door handle release switch/button:  
+- Press the power door inner button @ door armrest for each door when sitting inside to unlatch the door.  
+- Push the door open.  
+
+Emergency door opener:  
+- To open a front door when the vehicle has no power, pull up the manual door release lever @ door storage pocket area for each door.
+</page>
+
+<page number="19">
+Door open warning / information:
+- Door/Bonet/Trunk status shall be displayed in MHU by a 3D car model if the car is stationary.
+- If Bonet/Trunk/Door is opening when the car is moving, a warning message shall pop up.
+
+Soft close:
+- Push the door into the first lock position, and the cinch motor pulls the door into the lock condition.
+
+Child protection lock electrical (VF9, VF8 TBC):
+- There shall be a soft button from MHU to switch ON/OFF the child protection lock.
+- When this function is switched ON, the rear doors cannot be opened from inside.
+</page>
+
+<page number="20">
+Hood release from MHU:
+- Touch the soft button (tap on the small white point on the hood) in the 3D Car model in MHU if the car is stationary to unlock the hood.
+- Lift the hood manually.
+
+Hood release from interior release lever:
+- Pull the hood unlock lever @ IP lower area to release the latch into the first lock position.
+- Pull the lever a second time to fully unlock.
+
+Frunk emergency release:
+- An illuminated interior release button inside the frunk allows a person locked inside to get out.
+- Press the interior release button to open the front trunk, then push up on the hood.
+</page>
+
+<page number="21">
+Foot Kick Sensor (Plus models only VF8/VF9 Both):
+- Move leg under the rear bumper area to kick the bottom of the car while having the key fob within the authenticated range. This will unlock the car and open the tailgate.
+
+Tailgate Open Switch:
+- The tailgate can be opened using the switch located at the middle outside of the tailgate while having the key fob in the authenticated range.
+- First press: The power tailgate will open with buzzer sound.
+- Second press during the opening process: It will stop the power opening.
+- Third press: The power tailgate will reverse direction from the last operation.
+
+Tailgate Close Switch:
+- The tailgate can be closed using the switch located inside the tailgate for VF8, or on the trunk interior trim left side for VF9.
+- First press: The power tailgate will close with buzzer sound.
+- Second press during the closing process: The movement will stop.
+- Third press: The power tailgate will reverse direction from the last operation.
+</page>
+
+<page number="22">
+Control from MHU:
+- Touch the soft button (tap on the small white point on the tailgate) in the 3D Car model in MHU if the car is stationary, the tailgate shall be opened.
+- Foot kick sensor shall be switched ON/OFF from MHU.
+
+Emergency release:
+- Emergency lever with clipped cover:
+  - The cover should always be visible with fluorescence effect or backlight.
+  - Remove the clipped cover.
+  - Toggle the release lever inside and push the door upward to open the tailgate.
+
+Open/close by key fob:
+- Details are provided in Chapter 1.1.
+
+Anti-pinch:
+- If the tailgate meets an obstacle during the close process, it will move to reverse direction.
+</page>
+
+<page number="23">
+### Charge lid and charging operations.
+
+**Charge lid unlock from MHU:**
+- Tap on the small white point on the related area on the car buddy model from MHU.
+- Press the soft control button from MHU.
+- MHU shall display a pop-up warning if the charging lid is unlocked.
+
+**Charge lid operation:**
+- When the charging lid is unlocked, push the lid's right area to open.
+- After finishing charging and releasing the charging gun from the port connector, push the charging lid's right area to close.
+
+**Charging operation:**
+- Unlock the charging lid.
+- Open the charging port cover.
+- Attach the charging gun.
+- The car shall authenticate the charging station.
+- The car shall start charging automatically.
+- Drivers can either wait until charging is complete or manually stop it using a soft button in the MHU.
+- The charging gun is locked until the charging session is finished.
+- Charging scheduling can be set from MHU.
+</page>
+
+<page number="24">
+Charging status indication and display:
+- Charging status is indicated in MHU:
+  • Charging gun attached,
+  • Authentication,
+  • Car is charging.
+
+- Indicator light in charging port shows charging status with different colors:
+  • Static green light means the vehicle is fully charged.
+  • Pulsing green light means charging is ongoing.
+  • Static red light means a faulty connection.
+  • Yellow light means connection and checking are in progress.
+</page>
+
+<page number="25">
+Charging lid and charging gun emergency release.
+
+- In the event of power failure, the charge lid can be opened by an emergency release cord (1) located in the front compartment. The other emergency release cord (2) is for releasing the charging gun.
+
+  • Open the door using the mechanical key blade.  
+  • Unlatch the hood using the mechanical lever and open the hood.  
+  • Access the emergency release cord.
+</page>
+
+<page number="26">
+Power Door Windows Operation.
+
+**Manual Operation:**
+- Push the window button gently to the first travel position, keep pushing to lower the window. Releasing the button will stop motion when the window is where you want.
+- Pull the window button gently to the first travel position, keep pulling to lift the window. Releasing the button will stop motion when the window is where you want.
+
+**Automatic Operation:**
+- Push the window button to the second travel position and release. The window will lower automatically. Press again to stop motion.
+- Pull the window button to the second travel position and release. The window will lift automatically. Pull again to stop motion.
+- In the automatic mode, the glass will stop movement immediately when the switch inputs the lifting or descending signal.
+
+**Child Protection / Rear Window Prohibit Button:**
+- Push the child protection button to activate the child protection function. The LED indicator light will turn on to show the activated child protection.
+- Rear window operation will be disabled for rear passengers.
+
+**Remote Control:**
+- Detailed operation description is available in Chapter 1.1 (Key Fob).
+
+**Anti-Pinch Function:**
+- When the window is in automatic lifting mode and glass pinches an obstacle, it will lower itself for a short distance.
+
+1.6 Power Windows:
+1. Power window switch (driver).
+2. Power window switch (passenger).
+3. Power window switch (rear left).
+4. Power window switch (rear right).
+5. Switch child protection.
+</page>
+
+<page number="27">
+Sunroof operation.
+
+Control from MHU: Touch the soft button (tap on the transparent bubble on the roof) in the 3D Car model in MHU to access the sunroof and sunshade control menu.
+
+Manual Operation:
+- The sunroof and sunshade open or close position can be manually operated by the control bar and vent button on the right side.
+- This feature provides different sunroof positions such as full open, half open, tilt position, and intermediate position.
+- Sunroof glass window and blind work together in safety mode; hence, when the glass window is opened, the blind is opened slightly more.
+
+Automatically Operation:
+- Touch the soft button <Close all>, and the sunroof will automatically move to the fully closed position.
+- Touch the soft button <Open all>, and the sunroof will automatically move to the fully open position.
+- Sunroof glass window and blind work together in safety mode; hence, when the glass window is opened, the blind is opened slightly more.
+
+Re-calibrate:
+- The user can re-calibrate the sunroof via the soft button on MHU after any changes to the sunroof system.
+
+Auto-Close:
+- If the driver has selected auto-sunroof in the settings menu via MHU and if rain is detected by the rain light sensor, the sunroof glass window is automatically closed.
+
+Full Close Vehicle Speed:
+- When the vehicle's speed exceeds a pre-defined value, the sunroof glass window is automatically closed.
+
+Anti-Pinch:
+- If there are any obstructions sticking to the path in which the sunroof is moving in the slide close direction, the frame will stop moving and reverse a certain distance.
+
+Touch here to control sunroof.
+Sunroof/sunshade Control.
+Re-calibrate.
+</page>
+
+<page number="28">
+2. Switches control strategy.
+
+2.1 Over head console.
+
+2.2 Door panel control.
+
+2.3 Center console switches.
+
+2.4 Stalk lever and switches.
+
+2.5 Multifunction steering wheel switches.
+</page>
+
+<page number="29">
+Overhead console.
+
+- Dome light. For details, refer to chapter 4.2.
+- Microphone.
+- SOS button (E Call):
+  - Press the button to trigger an emergency call when the vehicle is met with an accident or similar emergency.
+</page>
+
+<page number="30">
+Detail operation see chapter 1.6 and 1.2.
+- Driver side door control panel.
+- Window control at passengers' doors.
+- Door open switch for VF9.
+</page>
+
+<page number="31">
+Center console switch panel.
+
+- **Hazard switch:**
+  - Press the button, the left and right turn lights flash with a “tock-tock” chime. At the same time, the left and right turn light indicator arrows flash in the MHU IPC area. 
+  - Press the button again. The left and right turn lights stop flashing, the “tock-tock” chime stops, and the left and right turn light indicator arrows stop flashing in IPC.
+
+- **Center lock button:**
+  - The indicator light is amber and turns on when the car is locked. 
+  - See detailed operation in chapter 1.1.
+
+- **Volume / Up / Down / Mute / Power:**
+  - Torque the button left/right to decrease/increase the volume.
+  - Press the button to mute sound.
+  - When the vehicle is in sleep mode and MHU is off, pressing the button will turn MHU back on.
+</page>
+
+<page number="32">
+EPB Switch Description:
+
+The EPB switch is located near the steering wheel depending on the model:
+- For VF8, it is positioned on the left side of the instrument panel near the steering wheel.
+- For VF9, it is positioned on the right side of the instrument panel near the steering wheel.
+
+EPB Functionality:
+- Pull the switch to activate or release the parking brake when the vehicle is at a standstill and the gear is set in Park (P) or Neutral (N).
+- The parking brake automatically engages when the gear is shifted into Park.
+- The parking brake releases automatically when the gear is shifted into any other position.
+
+Illumination:
+- The EPB switch is illuminated with a white color for visibility.
+
+Indicator:
+- No additional indicator details noted in this section.
+
+Operation Summary:
+- Ensure the gear is in P or N while at a standstill to use the parking brake switch effectively.
+
+This section pertains to the EPB operation under the "2.3 Center console / IP switches" category for both VF8 and VF9 vehicle models.
+</page>
+
+<page number="33">
+Gear shifter: P/R/N/D.
+- Press on the corresponding gear button to activate the intended gear; the button LED light turns on with red/amber color.
+- **R:** Select only when the vehicle is stationary.
+- **D:** Position for normal vehicle operation.
+- **P:** Select only when the vehicle's speed is below a certain value by pressing the brake pedal. 
+
+**Automatic engagement scenarios for 'P':**
+- The door is open, the safety belt is unbuckled, and the brake pedal is pressed while the vehicle is stationary and gear is in "R" or "D."
+- The driver's door is open, and the brake pedal is pressed while the vehicle is stationary and gear is in "R" or "D."
+- Power off.
+
+**Disengagement 'P':**
+- With the vehicle stationary, press the brake pedal before shifting out of P or N. Otherwise, the shift command will not be executed.
+
+- **N:** Neutral.
+  - Use in scenarios such as automatic car washes; the vehicle can roll.
+</page>
+
+<page number="34">
+2.4 Stalk lever and switches.
+
+Light control.
+
+- Turn signal / Lane change signal:
+  • Fully push up/down to end resistance point to turn on the right/left indicator light. Move the stalk to the opposite direction to cancel the operation.
+  • For lane change signal, push up/down slightly one time; the right/left indicator light will flash three times.
+  • Green arrow indicators shall light up on MHU to show which turn signal is operating, accompanied by a clicking sound.
+  • The indicator in MHU will automatically cancel when a turn is completed, and the stalk will return to the initial position.
+  • Park light: when the car is parked, push the lever up to turn on the left indicator light.
+</page>
+
+<page number="35">
+### 5/16/2022
+
+Disclosure or duplication without consent is prohibited.
+
+### Stalk Lever - Left
+
+#### Models
+- **VF8 ECO**
+- **VF8 PLUS**
+- **VF9 ECO**
+- **VF9 PLUS**
+
+#### Indicator: 
+- None specified.
+
+#### Illumination: 
+- **White**
+
+#### Icon/Text: 
+- None specified.
+
+---
+
+### Description
+
+#### Light Control
+
+**High Beam/AHB Control**
+- Push the stalk away from the driver's direction to switch on the high beam. The high beam indicator will light up blue in the MHU IPC (Instrument Panel Control) area.
+- The low beam must be switched on before the high beam can be activated.
+- Pull the stalk towards the driver's direction to switch the high beam and indicator on. Release the stalk to return to its initial position and turn off the high beam.
+
+---
+
+#### BC Press
+- Press the end button on the left stalk lever to access the MHU trip computer interface (BC).
+</page>
+
+<page number="36">
+5/16/2022  
+Disclosure or duplication without consent is prohibited  
+
+### 2.4 Stalk lever and switches  
+
+**Front wiper and washer**  
+
+- **Auto wiper:**  
+  • Press on the end button to switch the auto wiper on, the indicator light will turn on.  
+  • Press the end button a 2nd time to switch off the auto wiper and indicator light off.  
+  • Scroll up/down the center roller to adjust the sensitivity (3 levels).  
+
+- **Normal wiper:**  
+  • Push the lever up slightly to the 1st position and release. The stalk lever will return to the initial zero position, and the wiper low-speed intermittent operation is activated. Pull to the opposite direction to cancel the operation.  
+  • Push the lever up to the end position and release. The lever will return to the initial zero position, and the wiper operates at a certain high speed. Pull to the opposite direction to cancel the operation. Pull down the lever and release. The lever will return to the initial zero position, and the wiper will operate one time.  
+
+- **Washer and wiper/Clean the windshield:**  
+  • Pull the lever towards the driver direction. The system sprays washer fluid on the windshield and activates the wipers' operation briefly.
+</page>
+
+<page number="37">
+2.4 Stalk lever and switches.
+
+**Rear wiper and washer.**
+
+- **Rear wiper:**
+  - Twist away clockwise to the 1st position point, the rear wiper operation activates. The rear wiper will operate in interval mode.
+
+- **Rear washer and wiper / Clean the rear window:**
+  - Further twist away clockwise to the 2nd position point; water will be sprayed with wiper operation.
+  - Twist toward the driver's direction (anti-clockwise), water will be sprayed with wiper operation.
+</page>
+
+<page number="38">
+### Multifunction Steering Wheel Switches - Left
+
+#### Description
+**MFS L (Infotainment Controls):**
+- **OK:** Press the button to confirm and select the current highlighted option for each information list interface.
+- **+/-:** Press the "+" or "-" button to increase or decrease the volume.
+- **</>:** Press the "<" or ">" button to select the next or previous track for music or radio.
+- **Phone Answer Button:** Press the button to accept an incoming call.
+- **Voice Command Button:** Press the button to activate the voice control system.
+- **Source Button:** Press the button to switch the sound source between radio station, USB, Bluetooth, or network music.
+
+#### Additional Specifications:
+- **Indicator:** None specified.
+- **Illumination:** White color.
+- **Icon/Text:** Operation mode as described above.
+
+#### Relevant Image Information
+The image displays the left multifunction steering wheel of models VF8 ECO, VF8 PLUS, VF9 ECO, and VF9 PLUS. Buttons for OK, Volume (+/-), Track Selection (</>), Phone Answer, Voice Command, and Sound Source are shown with illuminated labels.
+</page>
+
+<page number="39">
+**MFS L (Infotainment Controls)**  
+Re-configurable controller for additional controls - mirror adjust/steering wheel electric adjustment/HUD adjustment.  
+
+- **The outside mirror position, fold/unfold shall be set by soft buttons on MHU and MFS:**  
+  - Tap on the outer mirror on the car buddy feature displayed in MHU to access the detail setting panel.  
+  - Select left or right outer mirror.  
+  - Switch fold ON/OFF.  
+  - Press the buttons on the steering wheel's left side to adjust SW position. Press the corresponding "+/-/</>" buttons to tilt the outer mirror up/down/left/right.  
+    - Click pressing the corresponding button causes the mirror to move intermittently to the corresponding direction.  
+    - Keep pressing the button causes the mirror to move continuously.  
+
+- **The steering wheel position shall be adjusted from MHU and MFS:**  
+  - Detailed operation can be seen in chapter 5.1.
+</page>
+
+<page number="40">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.
+
+### Multifunction Steering Wheel Switches - Right  
+#### Indicator:  
+Illumination: White Color  
+ICON/ TEXT: Operation mode  
+Momentary button – Push button  
+
+#### Description:  
+
+**MFS R (ADAS Controls):**  
+- **Switches for:**  
+  - Adaptive Cruise Control  
+  - HWA/Vin Pilot  
+  - ISA – Intelligent Speed Adaptation  
+  - RES/CAN, Speed +, Speed -, Gap +, Gap-  
+
+- Note: Detail operation can be found in Chapter 10.2 and 10.3.
+</page>
+
+<page number="41">
+Horn:
+- Operation through pushing.
+- Sound feedback while pushing.
+</page>
+
+<page number="42">
+3. Seat Operation Strategy
+
+3.1 1st seat row adjustment.  
+3.2 1st seat row comfort control.  
+3.3 2nd seat row adjustment.  
+3.4 2nd seat row comfort control.  
+3.5 2nd seat row middle arm rest.  
+3.6 2nd seat row fold.  
+3.7 3rd seat row adjustment.  
+3.8 3rd seat row fold.  
+3.9 Child restraint fixing system.  
+3.10 Seat belt.
+</page>
+
+<page number="43">
+### 3.1  1st Seat Row Adjustment
+
+- **8 ways driver seat electric adjustment**  
+- **6 ways front passenger seat electric adjustment** *(no cushion tilt)*.
+
+#### Adjustment Modes:
+1. **Longitudinal Adjustment**:  
+   Push button 1 forward or backward.
+
+2. **Height Adjustment**:  
+   Push button 1 up or down.
+
+3. **Backrest Inclination**:  
+   Tilt button 2 forward or backward.
+
+4. **Cushion Tilt Adjustment**:  
+   Push down or pull up the front area of button 1 to tilt the cushion up or down.
+
+#### Headrest Height Adjustment - Manual:
+- Press the mechanical button 4.  
+- **Increase Height**: Pull the headrest upward.  
+- **Decrease Height**: Push the headrest downward.  
+- Height adjustment is divided into 5 blocks, with intervals of 10 mm, for a total adjustment of 50 mm.
+</page>
+
+<page number="44">
+**12 ways driver seat electric adjustment / 10 ways front passenger seat electric adjustment (no cushion tilt).**
+
+- **Longitudinal adjustment:** Push button 1 forward/backward.
+- **Height adjustment:** Push button 1 up/down.
+- **Backrest inclination:** Tilt button 2 forward/backward.
+- **Cushion tilt adjustment:** Push down or pull up the front area of button 1 to adjust the cushion tilt up or tilt down.
+- **Lumbar support adjustment:** 
+  - Push button 3 front/rear section to increase/decrease curvature.
+  - Push button 3 upper/lower section to shift curvature up/down.
+
+**Headrest height adjustment - manual**
+- Press the mechanical button 4.
+- To increase height, pull the headrest up; to decrease height, push the headrest down.
+- Height is divided into 5 blocks, 10 mm each, for a total adjustment of 50 mm.
+</page>
+
+<page number="45">
+Heating:
+- Set from center display to tap the icon in climate control bar at MHU bottom.
+- 3 levels.
+- Set in “0” to turn off.
+- Tap the number or swipe the control bar to change level.
+
+3.2 1st seat row comfort control.
+</page>
+
+<page number="46">
+Disclosure or duplication without consent is prohibited.
+
+3.2 1st seat row comfort control.
+
+**Ventilation:**
+- Set from the center display by tapping the icon in the climate control bar at the MHU bottom.
+- There are three levels available.
+- Set to "0" to turn off.
+- Tap the number or swipe the control bar to adjust the level.
+
+**Driver seat memory:**
+- The driver seat memory is linked to the user profile. The current seat position can be stored to the active driver profile.
+- When the seat position is adjusted, the center screen will display a menu to restore the latest position.
+- Positions that can be memorized include the driver seat, steering column, and OTR mirrors.
+</page>
+
+<page number="47">
+Easy Access:
+
+- Seats and steering wheel will move to give more room when the car is in park.
+- The function shall be switched ON/OFF from MHU.
+- Easy Access shall include two scenarios:
+  + Easy Exit function
+  + Easy Entry function
+- Seat Easy Access is linked to the user profile. The intended Easy Access position can be set under the related user profile.
+- If Easy Access is switched on, when the car is in park and the driver seat belt is unbuckled and the door is opened, the seat will automatically move to the Easy Access position.
+- The Easy Entry position is the same as the Easy Exit position. When the driver opens the door and wants to enter the car, it will be at the Easy Entry position.
+- When the driver enters the car, the seat will move to a memorized position automatically once the user profile is authenticated.
+</page>
+
+<page number="48">
+Massage settings can be modified through the center display. The following operations are available:
+
+- Set massage ON/OFF directly from the MHU.
+- Adjust intensity levels to one of the four options: Initial, Weak, General, or Strong. This adjustment can be performed from MHU and rear display.
+- Choose massage mode from the options: Cat Paw, Wave, Jump, Cross, or Relieve. Modes are configurable via MHU and rear display.
+
+3.2 1st seat row comfort control.
+</page>
+
+<page number="49">
+3.3 2nd seat row adjustment.
+
+2 ways 2nd row passenger seat - manual adjustment.
+
+**Backrest inclination:**  
+- Keep pulling the release lever up and move your back forward/backward to a suitable position at the same time.  
+- Release the lever to lock the seat back at the desired suitable position.
+</page>
+
+<page number="50">
+3.3 2nd seat row adjustment.
+
+4 ways 2nd passenger seat electrical adjustment:
+- **Longitudinal adjustment:** Push the button forward/backward.
+- **Backrest inclination:** Tilt the button forward/backward.
+
+**Headrest height adjustment - Manual:**
+- Press the button.
+- Increase height by pulling the headrest up or decrease the height by pushing the headrest down.
+</page>
+
+<page number="51">
+3.3 2nd seat row adjustment.
+
+8 ways 2nd row captain chair seat electrical adjustment:
+- **Longitudinal adjustment:** Push button 1 forward or backward.
+- **Backrest inclination:** Tilt button 2 forward or backward.
+- **Lumber support adjustment:** 
+  - Push button 3 front/rear section to increase/decrease curvature.
+  - Push button 3 upper/lower section to shift curvature up/down.
+</page>
+
+<page number="52">
+5/16/2022  
+Disclosure or duplication without consent is prohibited  
+
+### 3.4 2nd Seat Row Comfort Control  
+
+#### Heating:  
+- Set from the center display by tapping the icon in the climate control bar at the MHU bottom.  
+- VF9 settings can be adjusted from both the MHU and rear display.  
+- 3 levels of heating intensity.  
+- Set the level to "0" to turn off.  
+- Tap the number or swipe the control bar to adjust the intensity level.  
+
+#### Ventilation:  
+- Set from the center display by tapping the icon in the climate control bar at the MHU bottom.  
+- VF9 settings can be adjusted from both the MHU and rear display.  
+- 3 levels of ventilation intensity.  
+- Set the level to "0" to turn off.  
+- Tap the number or swipe the control bar to adjust the intensity level.
+</page>
+
+<page number="53">
+3.4 2nd seat row comfort control.
+
+**Massage:**  
+ Shall switch ON/OFF from MHU and rear display.  
+ Intensity levels (Initial / weak / general / strong) shall be set from MHU and rear display.  
+ Mode: cat paw, wave, jump, cross, relieve shall be set from MHU and rear display.
+</page>
+
+<page number="54">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+**3.5 2nd seat row middle armrest**  
+**2nd seat row middle armrest manual operation**  
+1. Finger dig the top of the armrest’s split line.  
+2. Fold down the armrest.  
+3. Press the front of the armrest button to open the cup holder.
+</page>
+
+<page number="55">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+**3.5 2nd seat row middle armrest**  
+
+**2nd seat row middle armrest manual operation:**  
+1. Finger dig the top of the armrest’s split line.  
+2. Fold down the armrest.  
+3. Press the front of the armrest button to open the cup holder.
+</page>
+
+<page number="56">
+**5/16/2022**
+
+**Disclosure or duplication without consent is prohibited.**
+
+### 3.6 2nd Seat Row Fold - Manual Operation
+
+**Backrest Fold Down 40/60:**
+1. 40% for the right part and 60% for the left part.
+
+**Operation Steps:**
+1. Pull the release lever up and fold the released seat back down, then release the lever.
+2. Pull the release lever up and push the seat back backward to a certain position, then release the lever to fold it back up.
+</page>
+
+<page number="57">
+3.6  2nd seat row fold.
+
+2nd seat row fold - manual operation:
+- Backrest foldable 40/20/40.
+- Reach into the recess and pull the lever to push the seat back down.
+- Pull the lever to pull the seat back up.
+- Fold & Tumble for easy entry to the 3rd row.
+</page>
+
+<page number="58">
+Headrest height adjustment - manual.  
+
+- Press the button.  
+- Increase height by pulling the headrest up or decrease height by pushing the headrest down.
+</page>
+
+<page number="59">
+3.8 3rd seat row operation.
+
+**3rd seat row fold - manual operation**
+- Backrest foldable 50/50.
+- Reach into the recess at the seat back side and pull the lever to push the seat back down.
+- Pull the lever and pull the seat back up to position.
+</page>
+
+<page number="60">
+5/16/2022  
+Disclosure or duplication without consent is prohibited  
+
+**3.9 Child restraint fixing system**
+
+**2nd seat row**  
+
+**Lower LATCH anchors / ISOFIX**  
+- Two lower LATCH anchors are available at each outside seat.  
+- Compatible with I-size child restraint systems.  
+
+**Top tether**  
+- One top tether is available at each seat back side.  
+- The middle top tether position is higher than the outside top tethers.
+</page>
+
+<page number="61">
+3.9 Child restraint fixing system.
+
+**3rd seat row.**
+
+**Lower LATCH anchors / ISOFIX:**
+- 2x @ each outside seat.
+- I-size.
+
+**Top tether:**
+- 1x @ each seat back side.
+</page>
+
+<page number="62">
+3.10 Seat belt.
+
+**Buckling Operation:**
+- Hold the latch tongue firmly.
+- Make sure to locate the buckle corresponding to the used seating position and ensure no part hinders the buckling operation.
+- Guide the latch tongue into the slit of the buckle.
+- Press the latch into the buckle until you hear a click sound.
+- Pull on the seatbelt webbing to ensure that the lock is fully engaged.
+
+**Unbuckling Operation:**
+- Hold the latch tongue firmly and ensure no part interacts with the buckle.
+- Press the red button on the belt buckle.
+- The latch should now be ejected.
+- Guide the belt back into its reel.
+
+**Seatbelt Reminder:**
+- The seatbelt reminder telltale shall be displayed on the MHU.
+- Belt buckled/unbuckled status for each seat position shall be displayed on the MHU.
+- When vehicle speed exceeds 25 km/h and a seatbelt is not fastened, the warning sound will start and synchronize with the corresponding SBR indicator light flash.
+- When vehicle speed drops below 10 km/h or a seatbelt is fastened, the warning sound and indicator light flash will stop.
+</page>
+
+<page number="63">
+4. Interior lightening strategy.
+
+4.1 Interior lights map.  
+4.2 Dome lights.  
+4.3 Reading lights.  
+4.4 Footwell lights.  
+4.5 Rear compartment lights.  
+4.6 Sun visor vanity mirror lights.  
+4.7 Functional storage lights.  
+4.8 Ambient lights.  
+4.9 Door Courtesy Lights/Puddle Lights.  
+4.10 Front compartment lights.
+</page>
+
+<page number="64">
+Disclosure or duplication without consent is prohibited.
+64
+
+4.1 Interior lights map.
+
+VF8 Map Picture
+
+Front Dome Lamp with Microphone 1x: 
+BEX30026109/02, New VFe35/VF35, SHANGHAI ZHONGXING WRIGHT E-MOTORS.
+
+Front Dome Lamp with Microphone and SOS 1x: 
+BEX30026402/02, New VFe35/VF35, SHANGHAI ZHONGXING WRIGHT E-MOTORS.
+
+Reading Lamps 4x: 
+BEX10003710/004, COP SnS, Changchun Hella.
+
+Interior Lamps 8x: 
+COP SnS.
+
+Light Guide Front RH 1x: 
+BEX30026116/01, New VFe35/VF35, LUXOR LIGHTING SAS.
+
+Light Guide Front LH 1x: 
+BEX30026115/01, New VFe35/VF35, LUXOR LIGHTING SAS.
+
+Light Guide Cockpit RH 1x: 
+BEX30026118/01, New VFe35/VF35, LUXOR LIGHTING SAS.
+
+Light Guide Rear LH 1x: 
+BEX30026117/01, New VFe35/VF35, LUXOR LIGHTING SAS.
+</page>
+
+<page number="65">
+Disclosure or duplication without consent is prohibited.
+
+4.1 Interior lights map.
+
+No. | Name
+--- | ---
+Green-1 | Ambient light _Driver
+Green-2 | Ambient light _Passenger
+Green-3 | Ambient light _Front door left
+Green-4 | Ambient light _Front door right
+Green-5 | Ambient light _Rear door left
+Green-6 | Ambient light _Rear door right
+Green-7 | Ambient light _Console Driver
+Green-8 | Ambient light _Console Passenger
+Green-9 | Ambient light _Rear Console Driver
+Green-10 | Ambient light _Rear Console Passenger
+Blue-1 | Dome lamp
+Blue-2 | Reading lamp 2nd row
+Blue-3 | Glovebox lamp
+Blue-4 | Footwell light
+Blue-5 | Luggage compartment light
+Blue-7 | Puddle light (logo projection)
+Blue-8 | Front compartment light
+
+VF9 Map Picture.
+- The map diagram illustrates the precise locations of green ambient lights and blue functional lights, including individual lights for doors, consoles, the luggage compartment, and footwell. It further specifies dome lamps and puddle light features.
+</page>
+
+<page number="66">
+4.2 Dome Lights.
+
+- Two dome lights are located at the roof headliner front area of the first seat row between sun visors and include an SOS button.
+- Illumination is provided by white LED lights.
+- Manual operation involves pressing the light lens surface to turn the lights on or off.
+- Dome light mode can be selected from MHU (Multimedia Head Unit) with options: OFF, ON, or AUTO.
+- Automatic activation of dome lights occurs during any of the following actions:
+  - Power mode Drive or ACC state,
+  - Door opening,
+  - Remote key unlock command (PEPS),
+  - Crash conditions.
+- Dome lights automatically illuminate for a period of 30 seconds when the vehicle state is OFF and will turn off after the period expires.
+</page>
+
+<page number="67">
+Dome light - Roof rear middle.
+
+Description:
+- Two white LED dome lights located at the roof headliner rear area of the third seat row.
+- These lights can be manually turned on or off by pressing the light lens surface.
+- The dome light mode (Cabin light) can be selected from the MHU with the following options: OFF/ON/AUTO.
+- The dome lights automatically turn on or off when any of the following actions occur:
+  - Power mode is set to Drive or ACC state.
+  - A door is opened.
+  - A remote key unlock command is given (PEPS).
+  - A crash condition is detected.
+- The dome lights illuminate for a duration of 30 seconds when the vehicle state is OFF and then turn off automatically once the period expires.
+
+Illumination:
+- White LED.
+
+Indicator: 
+- Not specified.
+
+Icon/Text: 
+- Not specified.
+
+Operation mode:
+- Press-based manual control and automatic activation through vehicle states or actions.
+
+4.2 Dome lights.
+</page>
+
+<page number="68">
+Disclosure or duplication without consent is prohibited.
+
+**4.3 Reading Lights**
+
+**Description:**
+- 1x @ each side of roof headliner middle area 2nd seat row.
+- White LED.
+- To manually turn on/off, press the switch located near the corresponding light.
+- The reading light turns on automatically when any of the following actions occur:
+  - Power mode is set to Drive or ACC state.
+  - A door is opened.
+  - The remote key unlock command (PEPS) is executed.
+  - Crash condition is detected.
+- Lights will remain illuminated for a period of 30 seconds when the vehicle is in an OFF state and will turn off automatically after this duration.
+
+**Picture:**
+Illustrations include side and top views of the vehicle showing the location of the reading lights near the 2nd seat row roof headliner.
+</page>
+
+<page number="69">
+5/16/2022  
+69  
+Disclosure or duplication without consent is prohibited  
+
+### 4.4 Footwell Lights  
+
+**Description:**  
+- 1x @ each driver / co-driver side 1st seat row.  
+- White LED.  
+- It illuminates the footwell area for the driver and front passenger accordingly when unlocking the Driver Door or Passenger Doors.  
+- Footwell light turns ON when the door is opened and turns OFF when the door is closed.  
+- During nighttime only.
+</page>
+
+<page number="70">
+4.5 Rear compartment lights.
+
+- A single rear compartment light is located on the right side of the trunk trim.
+- The illumination is provided by a white LED.
+- The rear compartment light automatically turns ON when the tailgate is opened and turns OFF when the tailgate is closed.
+</page>
+
+<page number="71">
+4.5 Rear compartment lights.
+
+Description:
+- 1x @ each left and right side of trunk trim.
+- 1x @ each left and right side of tailgate.
+- White LED.
+- Turns ON when the tailgate is opened and turns OFF when the tailgate is closed.
+</page>
+
+<page number="72">
+4.6 Sun visor vanity mirror lights.
+
+Description:
+- 1x @ each left and right side sun visor.
+- White LED.
+- Light turn on:
+  • Rotate the sun visor down.  
+  • Open the vanity mirror cover.  
+  • Light on.  
+- Light turn off:
+  • Close the vanity mirror cover.
+</page>
+
+<page number="73">
+### 5/16/2022
+### Disclosure or duplication without consent is prohibited.
+
+#### 4.7 Functional Storage Lights - Glove Box Light
+
+1x positioned inside the glove box.
+- **Illumination:** White LED.
+- **Light operation when turning on:**
+   - Release the glove box's outer lever.
+   - Open the glove box.
+   - The light turns on.
+   
+- **Light operation when turning off:**
+   - Close the glove box.
+</page>
+
+<page number="74">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+### 4.8 Ambient Lights  
+Description:  
+- 1x front passenger, 1x @ each door interior trim.  
+- LED with adjustable color.  
+- The ambient light brightness, color, and effect mode shall be set from MHU:  
+  - RGB coordinates and colors illuminated based on the color selected by the user on the color wheel.  
+  - Brightness level from 0% to 100%.  
+- Lighting effects (Blinking, Wave, Morse, Fading, or OFF) shall be chosen from MHU.  
+- Ambient light turns ON automatically when unlocking the driver’s door or all passenger doors and turns OFF after a certain time (30 seconds).  
+- The individual door ambient light can give a warning when the passenger/driver opens a door simultaneously as a vehicle approaches from behind. The warning is activated with a red color pulse, and the pulse rate/brightness increases to the maximum magnitude based on the distance of the vehicle.  
+- First 15 seconds: Ambient lights activate last AML states as Welcome Light. After 15 seconds: Ambient lights activate as the user selection on HMI.  
+
+Ambient Light Control:  
+The light settings interface in MHU offers options to turn ambient lights ON/OFF, set brightness levels, choose effect modes, and select colors from an RGB wheel.
+</page>
+
+<page number="75">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+**Ambient lights at multiple locations: driver side @IP, front passenger @IP, each door interior trim, front center console right and left, rear console left and right (for PLUS only).**  
+
+- **Quantity and Placement:**  
+  - 1x driver side @IP.  
+  - 1x front passenger @IP.  
+  - 1x at each door interior trim.  
+  - 1x at front center console, right side.  
+  - 1x at front center console, left side.  
+  - 1x at rear console left (PLUS only).  
+  - 1x at rear console right (PLUS only).  
+
+- **Illumination:**  
+  Adjustable LED lights.  
+
+- **Operation and Settings:**  
+  - **Brightness Adjustment:** The brightness level is adjustable from 0% to 100%, set via the vehicle's MHU (Master Human Interface).  
+  - **Color Selection:** Colors are configurable using RGB coordinates based on user selection in the color wheel interface.  
+  - **Lighting Effects:** Options include Blinking, Wave, Morse, Fading, or OFF.  
+  - **Welcome Light Activation:** During the first 15 seconds, the lights activate the last ambient light state as a welcome light. After 15 seconds, ambient lighting behaves as per user selection on the HMI (Human Machine Interface).  
+
+- **Automatic Turn On/Off:**  
+  - Lights automatically turn ON when the driver door or all passenger doors are unlocked and turn OFF after a delay of 30 seconds.  
+
+- **Warning Functionality:**  
+  - Individual ambient lights at doors can emit warning signals if the driver or passenger opens a door while another vehicle is approaching from behind. This warning is indicated via a red pulse light, with the pulse rate and brightness increasing proportionally to the distance of the approaching vehicle.
+</page>
+
+<page number="76">
+5/16/2022  
+76  
+Disclosure or duplication without consent is prohibited.  
+
+**Door Courtesy Lights / Puddle Lights.**  
+
+Description:  
+- 1x @ each door interior bottom side.  
+- LED White.  
+- It lights up the ground where a driver/passenger would step right before getting into (or out of) the car.  
+- Turns ON when the door is unlocked & opened and turns OFF when the door is closed & locked.  
+
+**4.9 Door Courtesy Lights / Puddle Lights.**
+</page>
+
+<page number="77">
+5/16/2022  
+77  
+Disclosure or duplication without consent is prohibited.  
+
+**Door Courtesy Lights/ Puddle Lights.**  
+
+- **Location:** 1x @ each door interior bottom side.  
+- **Illumination:** LED White with projection logo to ground.  
+- **Function:** It lights up the ground where a driver/passenger would step right before getting into (or out of) the car.  
+  - Turns ON when the door is unlocked and opened.  
+  - Turns OFF when the door is closed and locked.  
+
+4.9 Door Courtesy Lights/ Puddle Lights.
+</page>
+
+<page number="78">
+5/16/2022  
+78  
+Disclosure or duplication without consent is prohibited.  
+
+Front compartment lights.  
+
+- Location:  
+  - 1x at frunk left side, integrated with the frunk emergency release switch.  
+
+- Illumination type:  
+  - White.  
+
+- Operation mode:  
+  - Always light on.  
+
+4.10 Frunk lights.
+</page>
+
+<page number="79">
+5. Interior operation strategy.
+
+5.1 Steering wheel.  
+5.2 Interior review mirror.  
+5.3 Sun visor.  
+5.4 Sun blind.  
+5.5 Glove box.  
+5.6 Front center console armrest.  
+5.7 Rear center console armrest.  
+5.8 Outlets and USB interface.  
+5.9 Phone wireless charging plate.
+</page>
+
+<page number="80">
+5.1 Steering Wheel.
+
+Manual adjustment operation:
+- The steering wheel can be adjusted in height and length by releasing the mechanical release lever.
+  • Push the release lever down completely; the steering column is unlocked.  
+  • Adjust the steering wheel to the desired position.  
+  • Push the release lever up completely; the steering column is locked.
+</page>
+
+<page number="81">
+5.1 Steering wheel.
+
+Electrical adjustment operation:
+- Steering wheel can be controlled from MHU and the steering wheel's left side MFS.
+  • Tap the transparent bubble on the steering wheel area in car buddy from HMU.
+  • Press the button on the left steering wheel to adjust the steering wheel position.
+    ◦ Press on the "+" / "-" button to adjust the steering wheel angle tilting up and down.
+    ◦ Press on the left and right arrow buttons to adjust the steering wheel to telescope towards and away from the driver.
+    ◦ Click press the corresponding button, and the steering wheel will move intermittently to the corresponding direction.
+    ◦ Keep pressing the button, and the steering wheel will move continuously.
+</page>
+
+<page number="82">
+5.1 Steering wheel adjustment and function operation.
+
+**Electrical adjustment operation:**
+- Steering wheel can be controlled from MHU and steering wheel left side MFS.
+  - Tap the transparent bubble on steering wheel area in car buddy from HMU.
+  - Press the button on steering left to adjust the steering wheel position.
+    - Press on the "+" / "-" button to adjust the steering wheel angle tilt up and down.
+    - Press on the left and right arrow button to adjust the steering wheel to telescope towards and away from the driver.
+    - Click press the corresponding button, steering wheel will move intermittently to the corresponding direction.
+    - Keep pressing the button, the steering wheel will move continuously.
+
+**Steering wheel heating control:**
+- Steering wheel heating shall be switched ON/OFF from MHU.
+- Swap to the heating page:
+  - Tap the climate control panel at MHU bottom side.
+  - Switch ON/OFF on the steering wheel heating icon.
+</page>
+
+<page number="83">
+Steering wheel adjustment and function operation.
+
+**Description of Steering wheel position memory:**
+- SW position memory is linked to user profile, and the current position can be stored to the current active driver profile.
+- When the SW position is adjusted, the center screen will display a notify menu to restore the latest position.
+- Positions can be memorized for the following:
+  - Driver seat
+  - Steering column
+  - OTR mirrors
+</page>
+
+<page number="84">
+Interior rearview mirror operation.
+
+Description:
+- The interior rearview mirror can be adjusted manually to a convenient position for the driver.
+</page>
+
+<page number="85">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+Sun visor operation.  
+
+**Description:**  
+- Rotate up and down to adjust the glare shield angle from the front.  
+- Rotate left and right to adjust the glare shield angle from the side.  
+  - Rotate down.  
+  - Unhook it from the holder and swing it to the side.  
+  - Move it back to the desired position.  
+
+**5.3 Sun visor**
+</page>
+
+<page number="86">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.
+
+**5.4 Sun blind - rear window.**
+
+**Description:**  
+- Lift the window sun blind up.  
+- Clip into the hook.
+</page>
+
+<page number="87">
+5.5 Glove box.
+
+Glove Box Open/Close:
+- Pull the lever toward the passenger and open the glove box.
+- The light will turn on.
+- Close the glove box to the latch position.
+
+The glove box operation is available for VF8 ECO, VF8 PLUS, VF9 ECO, and VF9 PLUS models.
+</page>
+
+<page number="88">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+**5.6 Front center console armrest**  
+**Operation:**  
+- No adjustment in the X & Z directions.  
+- The armrest can be opened/rotated backward to access the center console storage.  
+
+**VF8 Operation:**  
+- The armrest is designed to rotate backward, allowing convenient access to the storage compartment located within the center console.  
+
+**VF9 Operation:**  
+- Similar functionality is available, with the armrest rotating backward for easy storage compartment access tailored to the VF9 model.
+</page>
+
+<page number="89">
+5.7 Rear Center Console Armrest.
+
+Operation:
+• No adjustment in X & Z.
+• Armrest can be opened/rotated backward to access the center console storage.
+</page>
+
+<page number="90">
+USB Interface.
+
+USB 1st seat row:
+- 2x USB ports are located at the center console front area.
+- 1x USB-A port is located on the left side (type A). 
+  - This is a data port that enables external memory control, allowing you to dock devices such as iPhones, MP3 players, or USB drives. The car interface displays artists, song titles, and other information on the center screen.
+  - Supports fast charging at 5V/1.5A.
+- 1x USB-A port is located on the right side (type A). 
+  - This is a 5V DC socket with fast charging functionality only at 5V/2.4A.
+
+USB rear seat row:
+- 3x USB ports are located at the center console rear end area for rear seat row passengers.
+- 1x USB-C port is located in the middle side (type C). 
+  - This port supports 90W PD standard for charging only, with specifications of 5V/3A, 9V/3A, 15V/3A, and 20V/4.5A.
+- 2x USB-A ports are located in the middle side (type A). 
+  - These are 5V DC sockets with fast charging functionality only at 5V/2.4A.
+</page>
+
+<page number="91">
+5.8 Outlets and USB interface.
+
+**USB 1st seat row:**
+- Two USB-A ports are located inside the center console armrest bin.
+- One USB-A port is available on the right side. It supports:
+  - Data transfer, enabling external memory control. This allows users to dock their iPhone, MP3 player, USB drive, etc., with the car interface and display artist names, song titles, and other details on the center screen.
+  - Fast charging functionality delivering 5V/1.5A.
+- One USB-A port is available on the left side. It is configured as:
+  - A 5V DC socket with fast charging functionality only, at 5V/2.4A.
+
+**USB 2nd seat row:**
+- Three USB ports are located at the center console rear end area for use by second-row passengers:
+  - One USB-C port is in the middle side and supports:
+    - 90W PD standard for charging only, with multiple voltage options (5V/3A, 9V/3A, 15V/3A, 20V/4.5A).
+  - Two USB-A ports are positioned in the middle side and provide:
+    - Fast charging functionality only, at 5V/2.4A.
+</page>
+
+<page number="92">
+5.8 Outlets and USB interface.
+
+USB 2nd seat row - Additional for captain seats.
+- 2x at rear console armrest bin inside.
+- 2x USB-A ports (type A).
+  • Charging only (5V/2.1A), charger profile includes BC1.2 DCP mode, Apple divider mode, and Samsung mode of 1.2V/1.2V.
+</page>
+
+<page number="93">
+5.8 Outlets and USB interface.
+
+USB 3rd seat row. 
+- 1 USB interface located at the trunk trim on the left side. 
+- 1 USB interface located at the trunk trim on the right side. 
+- Each interface includes 2 USB-A ports (Type A), which are dedicated to charging only with a voltage of 5V/2.1A. Supported charging profiles include BC1.2 DCP mode, Apple Divider mode at 1.2V/1.2V, and Samsung mode.
+</page>
+
+<page number="94">
+5.8 Outlets and USB interface.
+
+12V outlets:
+- 1x outlet located on the trunk interior trim on the right side of the luggage compartment within the subwoofer grill.
+</page>
+
+<page number="95">
+5.8 Outlets and USB interface.
+
+**230V/110V outlets.**
+- 1x located at the trunk interior trim on the right side above the 12V socket.
+- 230V is designated for the EU market, while 110V is for the US market.
+
+**Operation:**
+- To charge with the socket, simply open the lid and insert the plug into the socket.
+- The socket can power electrical devices, including but not limited to a television, small refrigerator, laptop computer, smartphone charger, etc.
+- The socket can be used when the ignition is switched on and the engine is running. The charging process ends when the engine is turned off.
+</page>
+
+<page number="96">
+5.9 Phone wireless charging plate.
+
+1x @ center console front top area:
+- The size of the center rubber mat to put the phone is 166x83 (mm) suitable for all phone sizes.
+- To charge with the wireless charging, simply place the phone on the rubber mat, and when IGN is ON and all doors are closed, the phone will be charged.
+- The charging status will be displayed on the center display (MDU).
+
+Leave reminder:
+- When IGN switches from ON to OFF, and the phone is still on the rubber mat while the driver or passenger door is opened, a pop-up message will be displayed on the center screen to notify the user.
+- Note: For some manufacturers' smartphones (e.g., iPhone), the system may not notify even if the phone remains on the rubber mat. This is due to the characteristic of the smartphone and not a malfunction of the wireless charger.
+</page>
+
+<page number="97">
+5.9 Phone wireless charging plate.
+
+Description:
+
+1x @ rear console armrest bin inside.
+
+- The size of the center rubber mat to put the phone is 166x83 mm, suitable for all phone sizes.  
+- To charge with the wireless charging, simply place the phone on the rubber mat, and when IGN is ON and all doors are closed, the phone will be charged.  
+- The charging status will be shown on the rear display (MDU-rear).  
+
+Leave reminder:
+
+- When IGN switches from ON to OFF, if the phone is still on the rubber mat and the driver or passenger door is opened, a pop-up message will be displayed on the MHU to notify the user.  
+- Note: For some manufacturers' smartphones (e.g., iPhone), the system may not notify even when the phone is still left on the rubber mat. This is due to the characteristics of the smartphone and is not a malfunction of the wireless charger.
+</page>
+
+<page number="98">
+6. Interior storage strategy.
+
+6.1 IP area.  
+6.2 Center console area.  
+6.3 Door trim.  
+6.4 Footwell co drive side.  
+6.5 Pillar trim / Headliner.  
+6.6 Seats.  
+6.7 Rear compartment area.  
+6.8 Front compartment area.
+</page>
+
+<page number="99">
+Glovebox.
+
+Size enough to put in:
+- Wallet (175x93x18) / Key bunch (100x65x16) / Navigation TomTom (197x123x18.5).
+- Sweets (Ritter Sport [115x94x13], Snickers [39.4x19.1x16.5]) Smartphone (154x69x22).
+- Cigarette packet (90x60x23) / Lighter (80x20x10) / Medicine / Vehicle documents / Compact instructions.
+- Gloves (270x130x60) / Note pad (250x192x15) / Lunchbox (210x180x60).
+
+Or Size enough to put in:
+- iPad Air 2 [247.6x178.5x6.1] / Laptop.
+- Camera (150x80x50).
+- Fruit gums (160x140x27).
+</page>
+
+<page number="100">
+Driver side storage box.  
+
+- Small storage box located at the driver side.  
+- The target article such as a glass case (170x60x70) cannot fit inside the box.  
+- The storage box is suitable only for other small items or can be used as spontaneous storage space.
+</page>
+
+<page number="101">
+Center console area storage strategy.
+
+1. Spontaneous storage/Phone wireless charging pad area:
+   - Wireless charging can be used as spontaneous storage. The area is size enough to fit:
+     - Key bunch (100x65x16) / Garage door remote control (110x70x25) / Cigarette packet (90x60x23) / Lighter (80x20x10) / Wallet (175x93x18).
+     - Parking ticket (86x54x1) / Coin (22.5x22.5x2.2).
+
+2. Cup holders:
+   - Includes space for:
+     - 2X cups and cans (D82 minimum).
+     - Pocket ashtray in cup holder.
+
+6.2 Center console area.
+</page>
+
+<page number="102">
+Center console area storage strategy.
+
+1. Spontaneous storage/Phone wireless charging pad area:
+- Wireless charging can be used as spontaneous storage. The size is enough to put in:
+  - Key bunch (100x65x16)
+  - Garage door remote control (110x70x25)
+  - Cigarette packet (90x60x23)
+  - Lighter (80x20x10)
+  - Wallet (175x93x18)
+  - Parking ticket (86x54x1)
+  - Coin (22.5x22.5x2.2)
+
+2. Cup holders:
+- 2x cups and cans (D82 minimum).
+- Pocket ashtray can be placed in the cupholder.
+
+3. Center console armrest bin:
+- Size is enough to put in:
+  - 6 CDs with covers (124x142x10.5)
+  - iPod (123.4x58.6x6.1)
+  - Lipstick (66x18x18)
+  - Tissue box China (170x100x50)
+  - Smartphone with cable (154x69x22)
+  - Credit card (86x54x3)
+  - Parking ticket (100x30x1)
+  - Perfume (100x60x30)
+  - USB flash drive (92x24x10)
+  - USB plug-in (74x16x8)
+  - Navigation TomTom (197x123x18.5)
+  - Chewing gum
+</page>
+
+<page number="103">
+5/16/2022  
+103  
+Disclosure or duplication without consent is prohibited.  
+  
+**Center console area storage strategy.**  
+  
+**4. Front center console rear lower storage:**  
+- Capable for Battery charger cable and Smartphone (154x69x22).  
+
+**5. Front center console rear upper storage:**  
+- Spontaneous storage.  
+
+**6.2 Center Console Area**
+</page>
+
+<page number="104">
+4. Front center console rear lower storage.
+
+- Capable of storing a Battery charger cable and Smartphone (154x69x22).
+</page>
+
+<page number="105">
+5/16/2022  
+105  
+
+Disclosure or duplication without consent is prohibited  
+
+**Center console area storage strategy - rear console**  
+
+**VF8 ECO**  
+**VF8 PLUS**  
+**VF9 ECO**  
+**VF9 PLUS**  
+
+**Description**  
+
+1. **Cupholder**  
+   - 2x (D82 minimum)  
+
+2. **Spontaneous storage**  
+   - Slim groove  
+
+3. **Armrest bin**  
+   - Size enough to put in:  
+     I-pod with connection cable (123,4x58,6x6,1) / Wallet (175x93x18) / Key bunch (100x65x15) / Smartphone (154x69x22) /  
+     Sweets (Ritter Sport [115x94x13], Snickers [39,4x19,1x16,5]) / Game Boy (148x90x33) / Walkman (95x54x10) / Pen folder (220x60x60) /  
+     Remote control and headphones for RSE  
+
+4. **Spontaneous storage rear console rear**  
+   - Size enough to put in:  
+     I-pod with connection cable (123,4x58,6x6,1) / Wallet (175x93x18) / Key bunch (100x65x15) / Smartphone (154x69x22) / Glass case (small) (170x70x35) /  
+     Tissue box China (170x100x50) / Sweets (Ritter Sport [115x94x13], Snickers [39,4x19,1x16,5]) / iPad (243x190x14) / Remote control and headphones for RSE  
+
+5. **Spontaneous storage rear console front with net**
+</page>
+
+<page number="106">
+6.3 Door Trim Storage Strategy - Front Doors
+
+**Door pocket driver:**
+- Size enough to put in: Ice scraper (120x120x), Flashlight (160x44x44), Logbook Din A6 (148x105x5), Parking disc (150x110x4), Bottle Coke 1.5L (332xD94), Vacuum bottle (195xD75), Window sponge (150x100x50), Safety vest (245x185x40), Glass case (170x60x70), A4 map (297x210x4).
+
+**Umbrella pocket driver:**
+- No this feature in actual data.
+
+**Door pocket co-driver:**
+- Size enough to put in: 2x BD or DVD with cover (190x136x14), Bottle Coke 1.5L (332xD94), Vacuum bottle (195xD75), Car paper bag, Safety vest (245x185x40), Glass case (170x60x70), A4 folder <320x280x55 slim).
+</page>
+
+<page number="107">
+6.3 Door trim.
+
+**Door pocket driver:**
+- Size enough to put in:
+  Ice scraper (120x120) / Flashlight (160x44x44) / Logbook Din A6 (148x105x5) / Parking disc (150x110x4) / Bottle Coke 1.5L (332xD94) / Vacuum Bottle (195xD75) / Window sponge (150x100x50) / Safety vest (245x185x40) / Glass case (170x60x70) / A4 map (297x210x4).
+
+**Umbrella pocket driver:**
+- No feature available in actual data.
+
+**Door pocket co-driver:**
+- Size enough to put in:
+  2x BD or DVD with cover (190x136x14) / Bottle Coke 1.5L (332xD94) / Vacuum Bottle (195xD75) / Car paper bag / Safety vest (245x185x40) / Glass case (170x60x70) / A4 folder (<320x280x55 slim).
+</page>
+
+<page number="108">
+Door trim storage strategy - Rear doors.
+
+**Door pocket passenger both sides.**  
+- Size enough to put in:  
+2 CDs with covers (124x142x10.5) / Lighter (80x20x10) / Cigarette packet (90x60x23) / Glass case (170x60x70) / Gloves (270x130x60) / Tissue box China (170x100x50) / Umbrella (250xD55) / Dual view remote control including earphones / Bottle coke 1.5 liters (332xD94).
+
+**Section: 6.3 Door trim.**
+</page>
+
+<page number="109">
+Footwell Co driver side storage strategy.
+
+Description
+Footwell co driver side storage:
+- Trash bin (185x109x109).
+</page>
+
+<page number="110">
+Pillar trim / Headliner storage strategy.
+
+Roof grab handles: One roof grab handle is provided for each of the 1st and 2nd rows, located on both the left and right sides.
+
+6.5 Pillar trim / Headliner.
+</page>
+
+<page number="111">
+6.5 Pillar trim / Headliner
+
+Description
+
+Roof grab handles
+- 1x each 1st and 2nd row @ each left and right side.
+
+B pillar grab handles
+- 1x each @ each left and right side.
+</page>
+
+<page number="112">
+Seats storage strategy - 1st row.
+
+Map pocket: 
+- Size enough to put in:
+   - Magazine / 2x DVD with cover (190x136x14).
+   - A4 document folder (320x280x55 slim).
+- Or size enough to put in:
+   - iPad Air 2 (247,6x178,5x6,1).
+   - Note pad (250x192x15).
+</page>
+
+<page number="113">
+Storage under seat 1st row user  
+- Size enough to put in:  
+  Handbag (400x220x150)  
+  Shoes 1 pair (300x200x100)  
+
+Storage under seat 2nd row user  
+- Size enough to put in:  
+  3x Safety vests for VF8, 1 per rear passenger (245x185x40)  
+  2 pair of shoes (300x200x100)
+</page>
+
+<page number="114">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+**6.6 Seats - 2nd row seats armrest**  
+
+**Armrest**  
+- Cupholders: 2x (D82 minimum).
+</page>
+
+<page number="115">
+Middle lower area storage strategy for the 3rd row seat.
+
+Description:
+- Capable of holding 2 cups and cans with a diameter of at least 82mm.
+- To access the cup holder, press the front end located at the middle bottom of the 3rd row seat.
+</page>
+
+<page number="116">
+Rear compartment area storage strategy.
+
+5 seats:
+- Target size enough to put in: 6 crates 1,5L (400x350x300).
+- Or target size enough to put in: 1 stroller (963x610x548), 2 shopping bags (530x450x200).
+
+2 seats:
+- Target size enough to put in: 2 mountain bikes.
+- Or target size enough to put in: 2 suitcases jumbo (750x582x258), 1 sports bag (740x380x270), 2 golf bags (1300x275x275).
+</page>
+
+<page number="117">
+Seats storage strategy - Rear compartment area storage.
+
+7 seats:
+- Target size enough to put in:
+  2 hand luggage (485x339x209).
+
+5 seats:
+- Target size enough to put in:
+  6 crates 1.5L (400x350x300).
+- Or target size enough to put in:
+  1 stroller (963x610x548).
+  2 shopping bags (530x450x200).
+
+2 seats:
+- Target size enough to put in:
+  2 mountain bikes.
+- Or target size enough to put in:
+  2 suitcases jumbo (750x582x258).
+  1 sports bag (740x380x270).
+  2 golf bags (1300x275x275).
+6.7 Rear compartment area.
+</page>
+
+<page number="118">
+Seats storage strategy - 4 seats.
+
+Description:
+
+4 seats  
+- Target size enough to put in:  
+  2 snowboards (1620x255xca100) / 2 pairs of ski (1850x95x160) /  
+  4 pairs of ski boots (330x150x350) / 1 sports bag (740x380x270).
+</page>
+
+<page number="119">
+Trunk side trim. Shopping bag hook 1x each side.
+
+Removeable Parcel shelf. The shelf will rotate upwards when opening the tailgate. Users can remove the parcel shelf to enlarge storage space by disassembling the string from the fixed pin.
+
+Storage under cargo floor. Fold up the cargo floor panel. The storage space beneath the cargo floor panel is subdivided into sections. A foam toolbox contains the following tools:
+1. Spare tire
+2. Towing hook
+3. Charging handle
+4. Lifting jack
+5. First aid kit
+6. Compressor tire inflation unit
+7. Tire sealant bottle
+8. Crank
+9. Warning triangle
+10. Extension cable
+</page>
+
+<page number="120">
+Rear compartment area storage strategy.
+
+**Trunk side trim**
+- Shopping bag hook: 1x each side.
+- Cargo net: 1x @ left side.
+- Remove the cover to access the side trim storage space @ left side.
+
+**Storage under cargo floor**
+- Fold up the cargo floor panel. The storage space under the cargo floor panel is subdivided.
+- Foam toolbox for tools: towing hook / charging handle / first aid / compressor tire inflation / tire sealant bottle / warning triangle / extension cable.
+
+**Lashing eyes**
+- 4x lashing eyes in the cargo area to secure the cargo.
+</page>
+
+<page number="121">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+**Front compartment area storage strategy:**  
+VF8 ECO  
+VF8 PLUS  
+VF9 ECO  
+VF9 PLUS  
+
+**Frunk storage box:**  
+- Open bonnet.  
+- Access to frunk storage space.  
+
+6.8 Front compartment area
+</page>
+
+<page number="122">
+Disclosure or duplication without consent is prohibited.
+
+7. Climate control strategy.
+
+7.1 Air outlet.  
+7.2 Center display control.  
+7.3 Rear control panel.
+</page>
+
+<page number="123">
+7.1 Air outlet.
+
+Defrost air outlet:
+- 4x: IP left 1x / IP middle 2x / IP right 1x.
+
+Manual adjustable air vent:
+- Adjustable to left/right/up/down/manual control the air direction.
+- Turn the knob maximum in left/right direction to open/close air flow.
+- IP left 1x / IP right 1x / IP middle 2x / center console rear end 2x.
+</page>
+
+<page number="124">
+Disclosure or duplication without consent is prohibited.
+
+7.1 Air outlet.
+
+- Defrost air outlet: 
+  • 3x: IP left 1x / IP middle 1x long / IP right 1x.
+
+- Manual adjustable air vent:
+  • Adjustable to left/right/up/down. Manual control for air direction.
+  • Turn the knob maximum to the left/right direction to open/close airflow.
+  • IP left 1x / IP right 2x / IP middle 2x / center console rear end 2x.
+
+- Additional air outlet (manual adjustable):
+  • 2x @ B Pillar for both.
+  • 2x @ roof headliner for 3rd-row passenger (Plus Variant).
+</page>
+
+<page number="125">
+5/16/2022  
+Disclosure or duplication without consent is prohibited
+
+7.3 Center display control  
+
+**Operation**  
+- Climate shall be controlled from the climate control panel from MHU for:  
+  • AC On/off, Max AC  
+  • Auto  
+  • Air vent direction control  
+  • Air circulation  
+  • Sync  
+  • Temperature control  
+  • Fan speed control  
+  • Front defogger  
+  • Rear window defroster  
+  • Air Ionizer  
+
+**Activation/Deactivation condition**  
+- + In ACC power mode: Only blower can run  
+- + In RUN mode (KL15 ON): Full function
+</page>
+
+<page number="126">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+### Center display control.  
+
+**Operation:**  
+- Permanent climate control bar from MHU including:  
+  • Temperature control.  
+  • Fan speed control.  
+  • Front defrost.  
+  • Rear window defroster.  
+  • Seat heating/venting control.  
+
+- Tap fan icon or swipe up/down anywhere in climate bar to enter/exit climate control page.  
+- Swipe left when shown in climate control page to transfer to seat climate control page, and swipe right to transfer back to climate control page.  
+
+### 7.3 Center display control.
+</page>
+
+<page number="127">
+### Temperature Setting
+- Driver temperature shall be set in the range from 16°C (LO) to 32°C (HI) in steps of 0.5°C.  
+- A colored glow appears behind the number.  
+- The color changes according to the temperature setting.  
+- Swipe left/right to decrease/increase the temperature.  
+- Tap on the left/right arrow to decrease/increase the temperature.  
+- The driver side and front passenger side temperature can be set separately.  
+
+### Fan Speed Setting
+- A control glow appears behind the number.  
+- Swipe left/right to adjust the fan speed.  
+- Adjustable in 6 steps and OFF mode:  
+  - Blower level 1 indicates the minimum blower speed.  
+  - Further operation to decrease blower level activates OFF mode.  
+  - Blower level 6 indicates the maximum blower speed.  
+- When fan speed is set to zero, the A/C compressor deactivates automatically.  
+
+### Air Direction Setting
+- Air direction options include Defrost, Face, and Feet zones.  
+- Tap on the related zone indicator to activate the airflow direction.  
+- Zone indicators appear in default white when switched OFF.  
+- When the fan is set to zero, the climate system stops. Airflow halts, and zone indicators become disabled.  
+
+### Notes
+- **VF9 only** zone options are available for specific features.
+- System functions align with driver-activated settings.
+</page>
+
+<page number="128">
+Front windshield defrost (max defrost):
+- Tap on the icon to switch ON/OFF the front windshield defrost.
+- The defrost indicator signal and A/C indicator signal will turn on when the defrost is switched ON.
+- Fan speed will be set to 6, SYNC will be activated, and air direction will set to Defrost when the defrost is switched ON.
+- When the defrost is ON, changes to air direction, AUTO mode activation, switching to Max A/C, changing the fan speed level, or setting the fan to zero will deactivate the defrost.
+
+Rear window defrost (rear window / out rear-view mirror heating):
+- Tap on the icon to switch ON/OFF the rear window defrost.
+
+ION setting:
+- Tap on the icon to switch ON/OFF the air ionization function, which cleans and refreshes the interior air of the vehicle.
+- The button will be highlighted in blue when activated.
+
+SYNC setting:
+- Tap on the icon to switch ON/OFF the SYNC function, where the driver's side temperature is applied to both driver and passenger sides.
+- The button will be highlighted in blue when activated.
+- Adjusting the co-driver's temperature setting will automatically deactivate SYNC.
+</page>
+
+<page number="129">
+AUTO Mode setting.
+- Tap on the icon to switch and transfer AUTO/Manual.
+- Auto-Indicator signal and A/C indicator shall turn ON when AUTO switch ON.
+- If the user is in AUTO mode and they change fan speed, blower direction, AUTO mode will automatically deactivate.
+- If the user is in AUTO mode and switches ON defrost, A/C, Max A/C, AUTO mode will automatically deactivate.
+
+A/C setting.
+- Tap on the icon to switch ON/OFF the A/C compressor.
+- The button will be highlighted in blue when switched ON.
+- Switching ON defrost or Max A/C will automatically activate the A/C.
+
+Max A/C setting.
+- Tap on the icon to switch ON/OFF Max A/C.
+- The button will be highlighted in blue when activated.
+- When activated, it will:
+  - Set driver and passenger temperature to LO.
+  - Set maximum blower speed.
+  - Activate the A/C compressor.
+  - Activate air recirculation inside the vehicle.
+  - Activate SYNC function.
+  - Set airflow direction to face mode.
+- Changes that deactivate Max A/C include:
+  - Changing the driver's or co-driver's temperature settings.
+  - Setting fan speed to zero.
+  - Switching to AUTO mode.
+  - Switching ON defrost or A/C.
+  - Changing fan speed level to 1–5.
+  - Changing airflow direction to anything other than face mode.
+
+Air recirculation setting.
+- Tap on the icon to transfer among OUTSIDE, INSIDE, and AUTO air recirculation modes.
+</page>
+
+<page number="130">
+Rear display control.
+
+Operation.
+- Permanent climate control bar from rear display including:
+    • Temperature control.
+    • Fan speed control.
+    • Seat heating/venting control.
+- The temperature and blower for 3rd row passenger from rear HVAC shall be set from rear display.
+- Tap fan icon or swipe up/down anywhere in the climate bar to enter/exit the climate control page.
+- Swipe left when shown in climate control page to transfer to 2nd seat climate control page, and swipe right to transfer back to climate control page.
+7.4 Rear display control.
+</page>
+
+<page number="131">
+8. Display strategy.
+
+8.1 Displays overview.  
+8.2 UI/UX link.  
+8.3 IPC included in MHU.  
+8.4 MHU.  
+8.5 Rear display.  
+8.6 Head up display (HUD).
+</page>
+
+<page number="132">
+8.1 Displays Overview.
+
+1. The center screen/MHU has a size of 15.6 inches and resolution of 1920x1080. It is available in a quantity of 1 unit.
+2. The head-up display measures 306mm by 100mm, with a resolution of 800x480, and an active area resolution of 800x267. It is available in a quantity of 1 unit.
+3. The rear display has a size of 8 inches and resolution of 1280x720. It is available in a quantity of 1 unit.
+</page>
+
+<page number="133">
+5/16/2022  
+133  
+Disclosure or duplication without consent is prohibited.  
+
+**UI/UX Strategy**  
+
+**VF8 ECO:**  
+https://vingroupjsc.sharepoint.com/sites/VinfastCXUIUX/Shared%20Documents/Forms/AllItems.aspx?csf=1&web=1&e=iB6yHK&cid=2fc028ce%2D454f%2D489c%2D96ae%2D4f4a19bba6f2&FolderCTID=0x0120002DE1A80FD4256D4ABE570A9F136152DC&viewid=00f9bd5f%2Dd67f%2D4f2c%2D9188%2D98cee2fa087d&id=%2Fsites%2FVinfastCXUIUX%2FShared%20Documents%2FHMI%20Docs%2FReleased%2FVF35%20HMI%20Released%20Designs  
+https://vingroupjsc.sharepoint.com/sites/VinfastCXUIUX/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FVinfastCXUIUX%2FShared%20Documents%2FHMI%20Docs%2FReleased%2FVF8%20HMI%20Released%20Designs&p=true&ga=1  
+
+**VF9:**  
+Vinfast CX/UI/UX - VF9 HMI Released Designs - All Documents (sharepoint.com)  
+
+**8.2 UI/UX Link**
+</page>
+
+<page number="134">
+5/16/2022  
+134  
+Disclosure or duplication without consent is prohibited  
+
+**Instrument panel cluster (IPC) included in MHU:**  
+
+- IPC included in MHU left side.  
+- IPC has three areas:  
+  - Telltale area.  
+  - Car buddy area.  
+  - Warning message area.  
+- IPC information shall be displayed at the left of the Central Touch screen (15.6”, resolution: 1920 x 1080).  
+- When the car wakes up, IPC information shall be ready after 3 seconds.  
+- The remaining information (Car buddy, warning message) shall be ready after 15 seconds.  
+
+**Illustrations:**  
+1. Telltale area: Displays actionable icons.  
+2. Car buddy area: Presents the car state and Advanced Driver Assistance Systems (ADAS) information.  
+3. Warning message area: Communicates system issues or service notifications.
+</page>
+
+<page number="135">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+### 8.3 Instrument Panel Cluster (IPC)  
+
+#### Symbol Descriptions:  
+- **Low power/Limp home mode**  
+- **AEB OFF**  
+- **Auto High beam status active**: Green.  
+- **Auto High beam override**: Grey.  
+- **Auto High beam deactivated**: No display.  
+- **Child protection OFF**  
+- **High beam**  
+- **Left turn indicator**  
+- **Low beam**  
+- **Right turn indicator**  
+- **Position light**  
+- **Airbag malfunction**  
+- **Front Fog lamp**  
+- **Seatbelt**  
+- **Rear Fog lamp** (only available in VN/EU markets).  
+- **Park Brake**  
+- **Tire pressure**: Solid.  
+- **TPMS malfunction**: Blinking for 75 seconds, then solid.  
+- **Brake**  
+- **ESC**  
+- **EPB Malfunction**  
+- **ESC OFF**  
+- **ABS**
+</page>
+
+<page number="136">
+5/16/2022  
+136  
+Disclosure or duplication without consent is prohibited.
+
+### 8.3 Instrument panel cluster (IPC)
+
+#### Symbol Descriptions  
+- **EV System:** Indicates the electric vehicle system status.
+- **Ready:** Displays when the vehicle is ready for operation.
+- **Passenger Airbag Off:** Indicates that the passenger airbag is turned off.
+- **Regenerative Brake System Malfunction:** Indicates an issue with the regenerative braking system.
+
+### IPC Included in MHU  
+- **Models:** VF8 ECO, VF8 PLUS, VF9 ECO, VF9 PLUS  
+- Indicators:  
+  - Illumination: Details are not specified.  
+  - Icon/Text: Corresponding symbols are displayed as per system status.  
+  - Operation Mode: Symbols facilitate driver awareness of operational statuses.
+</page>
+
+<page number="137">
+- General information for MHU:  
+   - Size and resolution of the screen are 15.6 inches with 1920 x 1080 resolution.  
+   - Permanent soft buttons at the home page include quick control and climate control along with a status bar.  
+
+- Key areas of MHU layout include:  
+   - **Status bar**: Displays system-wide information at the top of the screen.  
+   - **Side bar**: Includes controls for lighting, drive mode, and camera options.  
+   - **Car information and ADAS information display area**: Displays essential driving and system data in real-time.  
+   - **MHU Main area**: Showcases primary vehicle interfaces such as navigation, media, and car settings.  
+   - **Climate control**: Provides access to temperature and HVAC system settings at the bottom.  
+   - **Quick control**: Enables single-step adjustments for prioritized settings like defrost or mirror heating.
+</page>
+
+<page number="138">
+5/16/2022  
+138  
+Disclosure or duplication without consent is prohibited.  
+
+**8.4 MHU**  
+**Side bar – Master light control**  
+
+- A permanent light control soft button on the MHU home page provides access to the master light control panel.  
+- **Master light control panel** includes:  
+  - Head lamp options: OFF, ON, POSITION, AUTO.  
+  - Front Fog lamp.  
+  - Rear Fog lamp (for Vietnam and EU markets).  
+- The light telltales are displayed within the IPC area on the MHU.  
+
+**Features and Controls:**  
+- **Master Light Control Button:** Users can activate the master light control panel from the MHU home screen. The interface displays options for managing various lighting functions.  
+- **Light Telltales:** The IPC area highlights the status of light operations such as head lamps, fog lamps, and other related settings.  
+
+**Illustration Descriptions:**  
+- The figure showcases the master light control button positioned clearly on the sidebar and provides access to detailed lighting options.  
+- The lighting control interface depicts the headlight settings, front and rear fog lamp control, and visualizes activation states with icons.
+</page>
+
+<page number="139">
+5/16/2022  
+139  
+Disclosure or duplication without consent is prohibited.  
+
+**8.4 MHU – Side bar: Drive mode**  
+
+**Description:**  
+- Drive mode control options: ECO, CONFORT, SPORT.  
+- A permanent soft button is placed on the MHU home page for accessing the drive mode option panel.  
+
+**Drive mode options:**  
+- ECO mode.  
+- CONFORT mode.  
+- SPORT mode.  
+
+**Drive mode control panel:**  
+The panel allows users to switch between different drive modes for optimal driving conditions tailored to user preferences or environmental needs. Visual representations of the selected mode are shown in the user interface.
+</page>
+
+<page number="140">
+### 8.4 MHU
+
+#### General Information
+- **Size and Resolution:** 15.6”, 1920 x 1080.
+- **Permanent Soft Buttons:** Quick control and Climate control on the home page.
+- **Status Bar Elements:** Lighting, Drive mode, Camera control, Car information, and ADAS information display area.
+- **Main Area Functions:** Climate control and quick access buttons integrated.
+
+#### Side Bar – Master Light Control
+- A permanent light control soft button on the MHU home page provides access to the master light control panel.
+- **Master Light Control Panel Features:**
+  - **Head Lamp Options:**
+    - **OFF**
+    - **ON**
+    - **POSITION**
+    - **AUTO**
+  - **Front Fog Lamp Control.**
+  - **Rear Fog Lamp Control:** Available for Vietnam and EU markets.
+- **Light Telltales:** Displayed in the IPC area in MHU.
+
+#### Side Bar – Drive Mode
+- **Drive Mode Control Options:** ECO, Comfort, and Sport.
+- A permanent soft button on the MHU home page provides access to the drive mode option panel.
+
+#### Side Bar – Camera
+- A permanent soft button on the MHU home page activates the camera view when the vehicle speed is <10km/h.
+- **Camera View App:** Enables viewing of rear and 360-degree camera angles for enhanced safety.
+</page>
+
+<page number="141">
+**5/16/2022**  
+**141**  
+**Disclosure or duplication without consent is prohibited**
+
+### 8.4 MHU
+
+#### Quick control – Quick car control
+
+- A permanent quick car control soft button on the MHU home page allows access to the detailed quick car control panel interface.
+
+##### Quick Control Panel  
+The interface provides the following functionalities:  
+- **Display Brightness:** Adjust the brightness of the display.  
+- **Ambient Light Brightness:** Manage the ambient lighting brightness.  
+- **Wireless Charging:** Enable or disable wireless charging functionality.  
+- **Child Lock:** Activate or deactivate the child lock feature.  
+- **Reduce Chime Mode:** Minimize system chime sounds.  
+- **Park Assist Chime:** Manage park assist audio feedback.  
+
+##### GPS Monitoring  
+- Monitor GPS with an alert system if the car is moved. Options include:  
+  - **Off:** Disable GPS monitoring.  
+  - **On:** Enable GPS monitoring.  
+
+##### Car Mode Options  
+The panel provides specific modes for vehicle usage:  
+- **Pet Mode:** Maintain climate control for pets inside the vehicle.  
+- **Wash Mode:** Optimize vehicle experience during car washes.  
+- **Camp Mode:** Provide entertainment without driving.  
+- **Valet Mode:** Restrict system features for valet usage.  
+
+This control panel improves convenience by centralizing quick access to essential system settings.
+</page>
+
+<page number="142">
+5/16/2022  
+142  
+Disclosure or duplication without consent is prohibited.  
+
+### MHU - Outer mirror control.  
+
+#### General Information:  
+- The outside mirror position, fold/unfold shall be set by soft buttons on MHU and MFS.  
+
+#### Features:  
+- Tap on the outer mirror on the car buddy displayed in the MHU to access the detailed setting panel.  
+- Select left or right outer mirror.  
+- Switch fold ON/OFF.  
+- Press buttons on the steering wheel left for adjustment:  
+  - Press the corresponding up/down/left/right arrow button to tilt the outer mirror up/down/left/right.  
+
+#### Diagram Explanation:  
+1. **Outer Mirror Adjustment**:  
+   - Users can tap on the car buddy area in the MHU touchscreen to initiate outer mirror adjustment.  
+
+2. **Choose Mirror to Adjust**:  
+   - Allows selection between the left and right outer mirrors for customization.  
+
+3. **Mirror Adjustment by MFS**:  
+   - Steering wheel buttons provide precise control for tilting the mirror position vertically or horizontally.  
+
+4. **Fold/Unfold**:  
+   - Simplified toggle option to fold and unfold mirrors conveniently from the touchscreen or steering wheel.
+</page>
+
+<page number="143">
+5/16/2022  
+143  
+Disclosure or duplication without consent is prohibited.  
+
+MHU - Climate control.  
+
+VF8 ECO  
+VF8 PLUS  
+VF9 ECO  
+VF9 PLUS  
+
+**Description:**  
+- The permanent climate control bar shall be located at the bottom of the HMU.  
+- See information from chapter 7.  
+
+### Features:  
+- **HVAC panel:** Provides comprehensive heating, ventilation, and air conditioning controls for the vehicle.  
+- **Steering heating:** Allows users to activate heating for the steering wheel.  
+- **Seats heating/ventilation:** Provides heating and ventilation adjustments for the driver and passenger seats.  
+- **Front defrost:** Enables defrosting of the front windshield for clear visibility.  
+- **Rear window/Outer mirror defrost:** Activates defrosting for the rear window and outer mirrors.
+</page>
+
+<page number="144">
+5/16/2022  
+144  
+Disclosure or duplication without consent is prohibited.  
+
+MHU - Application Panel.
+
+Description:
+- A section dedicated to application navigation. 
+- Includes various app icons such as navigation tools, media controls, and car-related systems like Drive Aids and Owner Manual.
+- Accessible from a dedicated soft button on the MHU home page.  
+
+8.4 MHU Application Drawer:
+- Apple CarPlay, Media, Phone, VinCast.
+- Android Auto, Vehicle, Service, EV settings.
+- Navigation, Drive Aids, Settings, Photo viewer.
+- Tips, Voiz, Podcast, Internet browsing capability.
+</page>
+
+<page number="145">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+### MHU - Setting  
+
+#### Description:  
+- Tap on the setting APP icon to access the detailed setting panel.  
+- Includes the following:  
+  - **Device:** Contact list, advanced settings.  
+  - **WIFI:** Wi-Fi settings.  
+  - **Voice assistant:** Voice control settings.  
+  - **Sound:** Volume, tone, equalizer, focus settings.  
+  - **Display:** Wallpaper, trip details, HUD settings.  
+  - **Security:** Geo-fence, time-fence, valet mode, theft alert settings.  
+  - **Vehicle settings:** Seat adjustments, mirror controls, door configurations, wiper settings, wireless charging options.  
+  - **Lightening:** Exterior lighting, interior lighting configurations.  
+  - **General settings:** Date & time, language settings, unit settings.  
+  - **About:** Vehicle details, eSIM info, firmware status.  
+8.4 MHU System.
+</page>
+
+<page number="146">
+MHU - Setting/ Vehicle Setting.
+
+The vehicle setting includes ergonomic-related content that can be set from the MHU. The features are as follows:
+
+- **Seat**:
+   - Driver seat: Easy access switch ON/OFF.
+   - Child protection detection switch ON/OFF.
+
+- **Side mirror**:
+   - Adjust the outer mirror position.
+   - Auto-fold switch ON/OFF.
+   - Auto tilt-on-reverse switch ON/OFF.
+
+- **Doors**:
+   - See detailed settings in the next slide.
+
+- **Wireless charging**:
+   - Switch ON/OFF.
+   - Leave reminder switch ON/OFF.
+
+- **Auto rear wiper switch**:
+   - Switch ON/OFF.
+
+8.4 MHU.
+</page>
+
+<page number="147">
+**5/16/2022**  
+**147**  
+**Disclosure or duplication without consent is prohibited**  
+
+**MHU- Setting/ Doors**  
+
+**VF8 ECO**  
+**VF8 PLUS**  
+**VF9 ECO**  
+**VF9 PLUS**  
+
+**Indicator:**  
+Blank.  
+
+**Illumination:**  
+Blank.  
+
+**ICON/ TEXT:**  
+Blank.  
+
+**Operation mode:**  
+Blank.  
+
+**Description:**  
+- The doors related content shall be set from MHU including below:  
+  - Trunk foot kick sensor switch ON/OFF.  
+  - Key fobs unlock doors shall be optioned as driver only or all doors.  
+  - Auto unlock switch ON/OFF.  
+  - Unlock / Lock feedback type shall be optioned.  
+  - Auto close sunroof switch ON/OFF.  
+
+**Picture:**  
+The image shows the "Vehicle Settings" panel with the following features:  
+- Trunk foot kick sensor with an Off/On toggle button.  
+- Key fobs unlock settings with options for "Driver Only" or "All Doors."  
+- Auto unlock functionality toggle button.  
+- Unlock/Lock feedback type options: "Light," "Horn," and "Both."  
+- Auto close sunroof toggle button with Off/On settings.  
+
+**8.4 MHU**
+</page>
+
+<page number="148">
+5/16/2022. Disclosure or duplication without consent is prohibited. 
+
+**MHU - Setting/Interior Light setting.**  
+- The interior light-related content shall be set from MHU, including the settings below:  
+  - Cabin light mode.  
+  - Brightness for display / HUD / Switch backlight.  
+  - Ambient light effects mode / color / brightness.  
+
+**8.4 MHU**  
+*Interior Light Settings:*  
+- Dome Light: Can be set to On, Off, or Auto mode.  
+- HUD Brightness: Adjustable scale, e.g., 70.  
+- TouchScreen Brightness: Adjustable scale, e.g., 30.  
+- Switches Brightness: Adjustable scale, e.g., 50.  
+- Ambient Light Effect: Options include None, Blink, Wave, Morse, and Fade.  
+- Customizable ambient light color wheel with brightness control is provided.
+</page>
+
+<page number="149">
+MHU - Setting/Exterior Light.
+
+The exterior light-related content shall be set from MHU including the following:
+- Auto high beam ON/OFF.
+- Daytime Running Lights (DRL) ON/OFF.
+- Welcome light function ON/OFF.
+- Follow me home light ON/OFF and stay time slot.
+- Auto leveling ON/OFF.
+
+8.4 MHU.
+</page>
+
+<page number="150">
+MHU-ESC.
+
+The ESC (Electronic Stability Control) system shall be switched OFF or ON with the normal mode or traction mode from the MHU (Main Head Unit).
+
+**Description:**
+The ESC helps prevent over- and under-steering alongside wheel spin. This setting may need to be turned off when driving through challenging conditions such as mud, sand, or snow. Multiple operating modes (Normal Mode and Traction Mode) are available.
+
+**Operation mode:**
+Users can switch ESC settings to "ESC Off," "Traction Mode," or "ESC On" directly from the MHU interface.
+
+**Picture content description:**
+The interface includes options to toggle the Driver Monitoring System (DMS) and Electronic Stability Control (ESC). Visual instructions are provided for driver attentiveness and road conditions related to ESC operation.
+</page>
+
+<page number="151">
+Rear Display Settings:
+
+- Size: 8”.
+- Resolution: 1280 x 720.
+
+Functions of the Rear Display include:
+  - **Seat Control Panel:** This includes seat massage, seat heating, and seat ventilation functionality.
+  - **Climate Control Panel:** Allows control of rear AC, including adjustments for temperature and fan speed.
+  - **Radio/Media Control Panel:** Provides access to media and radio settings for rear seat passengers.
+  - **General Settings:** Includes display brightness adjustments and volume control.
+
+The rear display can be activated or deactivated from the MHU.
+
+Picture Content Description:
+Displayed are the menus for various control panels available on the rear display, including media options, climate control features, and adjustment controls for general brightness and volume settings.
+</page>
+
+<page number="152">
+5/16/2022  
+152  
+Disclosure or duplication without consent is prohibited.
+
+MHU - HUD.
+
+VF8 ECO.  
+VF8 PLUS.  
+VF9 ECO.  
+VF9 PLUS.  
+
+Indicator:  
+Illumination:  
+ICON/TEXT:  
+Operation mode:  
+
+Description:  
+
+- Size and Resolution:
+  - Size: 306mm x 100mm.
+  - Resolution: 800 x 480.
+
+- Function zone division layout and function definition:
+  - Notification and incoming call.
+  - Turn by Turn Navigation.
+  - Speedometer + Gear information.
+  - ADAS content.
+
+- Operation:
+  - HUD shall be switched ON/OFF from MHU.
+  - HUD shall display Virtual Image if the car is ignited ON and HUD is switched ON from MHU.
+  - HUD display content shall be configured from MHU.
+  
+8.6 Head-up Display (HUD).
+</page>
+
+<page number="153">
+Disclosure or duplication without consent is prohibited.
+
+9. Sound strategy.
+
+9.1 Sound type and description.
+
+9.2 Mixing sound priority matrix.
+
+9.3 Audio system.
+
+9.4 AVAS.
+</page>
+
+<page number="154">
+Amber telltale: Standard amber warning/alert, originated from IPC (local to driver), under the N/A category.
+
+Indicators: Turning left/right, originated from IPC (local to driver), under the N/A category.
+
+Red telltale: More severe red warning/alert, originated from IPC (local to driver), under the N/A category.
+
+Blind Spot Monitoring: A sound indicating a vehicle is in the detection zone parallel to the vehicle, originated from MHU (over cabin), under the ADAS category.
+
+Child Presence Detection: A reminder to check rear seats in case there is a child, originated from MHU (over cabin), under the ADAS category.
+
+Door Open Warning: A warning sound activated when opening doors unsafe to do so, originated from MHU (over cabin), under the ADAS category.
+
+Driver Detection Monitoring: Alerts the driver to 'wake up,' originated from MHU (over cabin), under the ADAS category.
+
+Forward Collision Warning & AEB: Feedback sound urging the driver to intervene and brake to avoid or mitigate pending collision, originated from MHU (over cabin), under the ADAS category.
+
+Lane Departure Warning: A sound indicating movement out of the current lane without turn signal active, originated from MHU (over cabin), under the ADAS category.
+
+Rear Cross Traffic Alert: A sound warning of oncoming traffic approaching at a 90-degree angle to the vehicle, originated from MHU (over cabin), under the ADAS category.
+
+Speed Alert: A sound for exceeding speed limit or not meeting minimum speed limit, originated from MHU (over cabin), under the ADAS category.
+
+Traffic Sign Recognition: A sound indicating a new speed limit detection, originated from MHU (over cabin), under the ADAS category.
+
+Entertainment: Audio from radio or USB, originated from MHU (over cabin), under the Entertainment category.
+</page>
+
+<page number="155">
+Disclosure or duplication without consent is prohibited.
+
+9.1 Sound type and description.
+
+The table below outlines various sound types, examples, their origin, and categories:
+
+- Amber telltale: Standard Amber warning/alert; Origin: IPC (Local to driver); Category: N/A.
+- Indicators: Turning left/right; Origin: IPC (Local to driver); Category: N/A.
+- Red telltale: More severe Red warning/alert; Origin: IPC (Local to driver); Category: N/A.
+- Blind Spot Monitoring: Vehicle is detected in the zone parallel to the vehicle; Origin: MHU (Over cabin); Category: ADAS.
+- Child Presence Detection: Reminder to check rear seats in case there is a child; Origin: MHU (Over cabin); Category: ADAS.
+- Door Open Warning: Opening the door when not safe to do so; Origin: MHU (Over cabin); Category: ADAS.
+- Driver Detection Monitoring: Alerting the driver to ‘wake up’; Origin: MHU (Over cabin); Category: ADAS.
+- Forward Collision Warning & AEB: Feedback for driver to intervene and brake to avoid or mitigate a pending collision; Origin: MHU (Over cabin); Category: ADAS.
+- Lane Departure Warning: Moving out of the current lane without a turn signal active; Origin: MHU (Over cabin); Category: ADAS.
+- Rear Cross Traffic Alert: Oncoming traffic approaching at a 90-degree angle to the vehicle; Origin: MHU (Over cabin); Category: ADAS.
+- Speed Alert: Exceeding Speed Limit or Not meeting minimum speed limit; Origin: MHU (Over cabin); Category: ADAS.
+- Traffic Sign Recognition: New speed limit detected; Origin: MHU (Over cabin); Category: ADAS.
+- Entertainment: Radio/USB; Origin: MHU (Over cabin); Category: Entertainment.
+
+Additional sound types:
+- Entertainment interrupt: FM Traffic Interrupt/SIRIUS XM Song Seek; Origin: MHU (Over cabin); Category: Entertainment.
+- Navigation guidance: Embedded Navigation; Origin: MHU (Over cabin); Category: Navigation.
+- Voice Assistant: Native voice assistant; Origin: MHU (Over cabin); Category: Voice.
+- CarPlay/Android Auto (Media): Media/Phone etc.; Origin: MHU (Over cabin); Category: Unknown.
+- CarPlay/Android Auto (Navigation): Navigation; Origin: MHU (Over cabin); Category: Unknown.
+- Parking Assist: Directional audio feedback for obstacles; Origin: MHU (Over cabin); Category: PDC.
+- Phone Call: Ongoing phone call to hear the caller; Origin: MHU (Over cabin); Category: Phone.
+- Phone Ringing: Dialing/Incoming call; Origin: MHU (Over cabin); Category: Phone.
+- General notifications: Alerts requiring user attention, e.g., battery shutdown; Origin: MHU (Over cabin); Category: System.
+- Keyboard clicks: Feedback when interacting with the keyboard to enter text; Origin: MHU (Over cabin); Category: System.
+- Phone DTMF tones: Unique sounds for digits on the keypad; Origin: MHU (Over cabin); Category: System.
+- Touchscreen beeps: Feedback when pressing the screen; Origin: MHU (Over cabin); Category: System.
+- AVAS: External sound to alert pedestrians; Origin: IPC (Local to driver); Category: Unknown.
+- Beltminder: Origin: Unknown; Category: Unknown.
+- Doors Alert: Origin: Unknown; Category: Unknown.
+</page>
+
+<page number="156">
+9.2 Mixing Sound Priority Matrix.
+
+Remark:
+- This is the draft table of requirements for how sounds are categorized into the different volume types.
+- ADAS shall handle its own priority and categorization.
+- The table is to be configurable by VinFast and needs to be tested in-car before finalizing.
+</page>
+
+<page number="157">
+9.3 Audio system.
+
+Description:
+• 8x speakers at doors.
+• 1x center speaker at middle dashmat for e-call sound.
+</page>
+
+<page number="158">
+5/16/2022  
+158  
+Disclosure or duplication without consent is prohibited  
+
+**9.3 Audio System**  
+
+**Layout Picture**  
+
+**Description:**  
+- **8x speakers** located at the doors.  
+- **1x center speaker** positioned at the middle dashmat for e-call sound.  
+- **2x surround speakers** located at the D-pillars.  
+- **1x subwoofer** placed at the trunk interior trim on the left side.  
+- **1x amplifier** included in the setup.  
+
+**Audio System Configuration:**  
+- **VF8 ECO**  
+- **VF8 PLUS**  
+- **VF9 ECO**  
+- **VF9 PLUS**  
+
+**Indicator:**   
+*No specific details provided.*  
+
+**Illumination:**  
+*No specific details provided.*  
+
+**ICON/TEXT:**  
+*No specific details provided.*  
+
+**Operation Mode:**  
+*No specific details provided.*
+</page>
+
+<page number="159">
+9.3 Audio system.
+
+Layout Picture.
+
+Description:
+• 8x speakers @ doors, additional 2x midrange @ front doors.
+• 1x center speaker @ middle dashmat for e-call sound.
+• 2x surround @ D-pillars.
+• 1x subwoofer @ trunk interior trim right side.
+• 1x amplifier.
+</page>
+
+<page number="160">
+9.4 AVAS.
+
+Purpose.  
+The purpose of this standard is to reduce the number of injuries that result from electric and hybrid vehicle crashes with pedestrians by providing a sound level and sound characteristics necessary for these vehicles to be detected and recognized by pedestrians.  
+
+Automatically activated under low speed.
+</page>
+
+<page number="161">
+10. Driving assist operation and warning strategy.
+
+10.1 ADAS Visualization.  
+10.2 Highway Autopilot.  
+10.3 Cruise Assist.  
+10.4 Lane Assist.  
+10.5 Lane Changing Assist.  
+10.6 Collision Warning.  
+10.7 Auto Pilot when detecting collision risk.  
+10.8 Park Assist.  
+10.9 Summon Mode.  
+10.10 Auto High Beam.
+</page>
+
+<page number="162">
+10.1 ADAS Visualization.
+
+ADAS view mode in MHU.
+
+MHU shall visualize ADAS Information by 5 modes:
+- Default mode / Manual driving mode.
+- Mode 1: ACC function work.
+- Mode 2: Vinpilot (HWA) work.
+- Parking mode.
+- Auto Parking mode.
+
+Description:
+Default view mode displays the vehicle in manual driving mode.
+Mode 1 visualizes Adaptive Cruise Control (ACC) functionality.
+Mode 2 shows the Highway Assist (HWA) operation scenario.
+Parking mode provides visualization to assist parking maneuvers.
+Auto Parking mode demonstrates system-controlled parking with highlighted boundaries and instructions.
+</page>
+
+<page number="163">
+5/16/2022  
+163  
+Disclosure or duplication without consent is prohibited  
+
+**10.1 ADAS Visualization**  
+
+**View mode - Object visualization in Mode 2**  
+Description:  
+- MHU shall visualize object visualization in mode 2 (HWA):  
+  - Object type: Car, Truck, motorbike, bicycle, pedestrian  
+  - Lane  
+  - Distance
+</page>
+
+<page number="164">
+MHU shall display six ADAS indicators at maximum, including:
+
+- Three traffic sign slots: Speed limit sign, conditional speed limit sign, and specific traffic signs.
+- One slot for cruise control speed indicator or speed limit indicator.
+- One slot for the VinPilot indicator.
+- One slot for the auto lane-changing indicator.
+
+Additionally, MHU shall display ADAS pop-up warnings for user attention.
+</page>
+
+<page number="165">
+5/16/2022  
+165  
+Disclosure or duplication without consent is prohibited  
+
+### 10.2 Highway Autopilot  
+
+**Function description**  
+Highway Assist (SAE Level 2) is a driver assistance system that controls acceleration, deceleration, and steering control in highway scenarios. It supports drivers during not only the monotonous highway drive but also traffic jam conditions to guarantee a safe and comfortable trip.  
+
+**Operation:**  
+- A dedicated right steering wheel button to activate HWA.  
+- Deactivation via cancel button or brake pedal.  
+- Operation in right steering wheel buttons for speed and gap increase/decrease.  
+- When the HWA condition is met, the MHU will display a grey icon to indicate function availability. Pressing the steering wheel button engages the function, and the icon in MHU changes to blue.  
+- The first press of the cancel button will deactivate the current working HWA; pressing this button a second time will resume the function with the latest setting.  
+- When HWA is activated and the car stops due to traffic jam, the car will keep hold for a certain time. Pressing the resume button or the accelerator pedal is required to re-activate the HWA.  
+- When HWA is activated, a short press on the speed gap setting button increases/decreases speed by 1 km/h; a long press increases/decreases speed by 5 km/h.  
+- If no lane is detected, HWA will degrade to ACC.
+</page>
+
+<page number="166">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+### 10.2 Highway Autopilot  
+
+#### Warning Strategy:  
+Popup text and sometimes accompanied by Chime for:  
+- Feature On/Off.  
+- Feature Unavailable when precondition unsatisfied.  
+- Feature Unavailable when fault.  
+- Feature is degraded.  
+- Takeover Request during emergency.  
+- Hands-off / attention not on-road.
+</page>
+
+<page number="167">
+5/16/2022  
+Disclosure or duplication without consent is prohibited  
+
+**10.3 Cruise Assist**  
+**Function description**  
+Adaptive Cruise Control (ACC) enables the vehicle to automatically adjust the vehicle speed to maintain a safe distance from vehicles ahead.  
+
+**Operation:**  
+- ACC function shall be activated by pressing the ACC button on the steering wheel.  
+- ACC function shall be deactivated by pressing the brake pedal or pressing the Cancel button on the steering wheel.  
+- Operation in right steering wheel buttons for speed and gap increase/decrease.  
+- When the ACC condition reaches, the MHU will show the grey icon to indicate the function available. When you press on the steering wheel button to engage the function, the ACC starts working and the icon in MHU will change to green color.  
+- When the Cancel button is pressed for the first time, the current working ACC will be disactivated. Pressing the Cancel button a second time will resume the function with the latest setting.  
+- When ACC is activated, short pressing the speed gap setting button will increase/decrease speed by 1 km/h. Long pressing the same button will increase/decrease speed by 5 km/h.
+</page>
+
+<page number="168">
+10.3 Cruise Assist.
+
+Function description: Adaptive Cruise Control (ACC) enables the vehicle to automatically adjust the vehicle speed to maintain a safe distance from vehicles ahead.
+
+Operation:
+- ACC function shall be activated by pressing the ACC button on the steering wheel.
+- ACC function shall be deactivated by pressing the brake pedal or pressing the Cancel button on the steering wheel.
+- Operation in right steering wheel buttons for speed and gap increase/decrease.
+- When the ACC condition reaches, the MHU will show the grey icon to indicate the function is available. Then, when you press the steering wheel button to engage the function, the ACC starts working and the icon in MHU will change to green color.
+- When the Cancel button is pressed for the first time, the current working ACC will be deactivated. Pressing the button a second time will resume the function with the latest setting.
+- When ACC is activated, a short press on the speed gap setting button will increase/decrease the speed by 1 km/h. A long press on the speed gap setting button will increase/decrease the speed by 5 km/h.
+
+Warning Strategy: Popup text and sometimes accompanied by chime for:
+- Resume reminder.
+- ACC precondition not met.
+- Resume unavailable.
+- ACC unavailable due to fault.
+- ACC degraded.
+- Takeover warning.
+</page>
+
+<page number="169">
+5/16/2022  
+169  
+Disclosure or duplication without consent is prohibited  
+
+**Intelligent Speed Adaptation**
+
+**Function description**  
+Intelligent Speed Adaptation (ISA) is a driver assistance system that assists in not exceeding legally enforced speed limits to guarantee safe driving. When activated in combination with one of the longitudinal control assistance functions, this function automatically limits the set-speed used by any of the longitudinal control assistance functions to the detected legal limits. ISA shall be activated/deactivated when the driver presses a button on the steering wheel.
+
+**Operation:**  
+- ISA shall be activated/deactivated when the driver presses a button on the steering wheel.  
+- Precondition: ACC or HWA active.  
+- Settings include offset speed for non-EU countries (US/CANADA market), including offset type (by absolute speed or percentage), and offset value.  
+
+**Warning Strategy:**  
+Popup text and sometimes accompanied by chime for:  
+- Feature activation reminder.  
+- ISA unavailable.  
+
+**10.3 Cruise Assist**
+</page>
+
+<page number="170">
+10.3 Cruise Assist  
+
+**Traffic Sign Recognition**  
+**Function description:**  
+Traffic Sign Recognition (TSR) is a driver assistance system that displays drivers the current speed limit and any other traffic signs on the road from which it is possible to infer the speed limit. Speed limits will also be inferred from ISA Maps. TSR will be activated when the vehicle speed is over a certain value and deactivated when the vehicle speed is less than a certain value or when the user sets the system OFF from HMI.  
+
+**Operation:**  
+- The speed limit icon is visualized on the MHU.  
+- A speed limit alert is provided via a flashing icon.  
+- The driver shall toggle ON/OFF traffic sign settings on the MHU.  
+- If traffic sign recognition is ON, the driver shall set the option of speed limit warning.  
+- Settings allow for a speed limit alert offset.  
+
+**Warning Strategy:**  
+Popup text and sometimes accompanied by a chime for:  
+- TSR degraded (ISA map lost).
+</page>
+
+<page number="171">
+Lane Departure Warning. 
+
+Function Description:
+Lane Departure Warning (LDW) is a driver assistance system that warns drivers when their vehicle unintentionally drifts towards the lane lines. It uses a visual warning message, lane marking display, a warning sound, and haptic steering wheel feedback by vibrating the steering wheel. As a non-autonomy system, this feature does not actively intervene in the dynamic driving task.
+
+Operation:
+- Settings options for enabling or disabling.
+- Setting to switch chime on/off.
+- Setting for responsiveness with options for late, normal, or early alerts.
+- Lane line color will change at the corresponding warning side from the MHU car model.
+
+Warning Strategy:
+Popup text and sometimes accompanied by a chime for:
+- Vehicle departing lane.
+- Lane Assist unavailable.
+</page>
+
+<page number="172">
+Lane Keeping Assist (LKA) is a driver assistance system that supports the driver in maintaining the vehicle within its driving lane by counter-steering. It aims to prevent the vehicle from departing its lane when the vehicle unintentionally drifts towards the lane lines due to inattentiveness, thereby avoiding potentially dangerous situations. The LKA system is activated through the ADAS options in the settings.
+
+**Operation:**
+- The system provides settings options for enabling or disabling LKA.
+- Responsiveness settings are categorized as late, normal, or early.
+- When LKA is activated, the MHU will display different lane colors under the HWA car model animation.
+
+**Warning Strategy:**
+Popup text and sometimes accompanied by chime for:
+- **LKA intervention**: Alerts the driver when the system initiates counter-steering to maintain lane position.
+- **Lane Assist unavailable**: Indicates when the system is not available or cannot function due to external conditions or system faults.
+
+Visual representations are provided through lane marking changes on the animation or warning icons displayed on the dashboard.
+</page>
+
+<page number="173">
+5/16/2022  
+173  
+Disclosure or duplication without consent is prohibited.  
+
+### Auto Lane Changing Assist  
+
+#### Function description:  
+Automatic Lane Change (ALC) is a driver assistance system that supports drivers during a lane change to guarantee a safe lane change maneuver. The driver must initiate the lane change maneuver manually by triggering a solid turn signal. The ALC can only be activated if and only if HWA is active.
+
+#### Operation:  
+- Precondition: driver hands on and HWA active.  
+- Triggered via turn signal.  
+- Deactivation via cancel button, turn signal off, or brake pedal.  
+- The MHU will show real-time animation with car model.  
+- The Icon will show green color when ALC is activated.  
+
+#### Warning Strategy:  
+Popup text and sometimes accompanied by chime for:  
+- ALC initiated.  
+- ALC maneuver in progress.  
+- ALC timeout.  
+- ALC cancelled.  
+- ALC unavailable.  
+- Takeover when ALC fault.  
+
+### 10.5 Lane Changing Assist
+</page>
+
+<page number="174">
+Forward Collision Warning (FCW) is a driver assistance system that warns drivers when an imminent collision is expected at the front of the vehicle with objects (vehicles, pedestrians, bicycles, motorcycles) potentially intervening with the ego-vehicle’s current driving path.
+
+Operation:
+• Warning popups and chime from the display screen.
+• Settings for enable/disable and responsiveness from MHU.
+• Intersection assist shall be switched ON/OFF from MHU.
+• Icon indicates in MHU and HUD.
+
+Warning Strategy:
+Popup text and sometimes accompanied by a chime for:
+• Driver intervention.
+• Warning chime.
+• FCW unavailable.
+</page>
+
+<page number="175">
+5/16/2022  
+Disclosure or duplication without consent is prohibited.  
+
+### Rear Cross Traffic Alert  
+
+**Function description:**  
+The Rear Cross Traffic Alert function is designed to assist the driver when backing out of parking spaces. The system provides supplemental information for the driver in addition to the inner mirror view, outer mirror view, and direct looking.  
+
+**Operation:**  
+- Icon red warning triangle visualization to indicate risk position showed in rear view or surrounding view camera video.  
+- Driver shall turn ON/OFF Rear Cross Traffic alert in MHU / Setting for enable/disable.  
+- There also shall be an icon flash on the corresponding side outer mirror surface for RCTA.  
+
+**Warning Strategy:**  
+Popup text and sometimes accompanied by chime for:  
+- Warnings chime.  
+- RCTA unavailable.  
+- Warning chime with different frequency for different risk severity levels.
+</page>
+
+<page number="176">
+5/16/2022  
+Disclosure or duplication without consent is prohibited  
+
+## Blind Spot Detection  
+### Function description  
+The Blind Spot Detection or Lane Change Warning function warns the driver against collisions that may occur due to lane change maneuvers by turning on the dedicated LED located on the side mirrors.  
+
+### Operation  
+• Driver shall select Blind Spot settings in MHU for:  
+  - Blind Spot: OFF/ON  
+  - Blind Spot Chime: OFF/ON  
+• Driver can turn ON/OFF in Quick control on MHU.  
+
+### Warning Strategy  
+Popup text and sometimes accompanied by chime for:  
+• Warnings chime  
+• BSD unavailable  
+
+Outside mirror LED will flash for corresponding side collision warning.
+</page>
+
+<page number="177">
+Door Opening Warning (DOW) is designed to assist passengers by preventing collisions during vehicle door openings when there is approaching traffic. The function operates at speeds less than 1.8 km/h and deactivates at speeds above 2.5 km/h.
+
+### **Operation**:
+- Drivers can turn **ON/OFF** the Door Opening Warning via MHU settings for enabling/disabling.  
+Specific behaviors:
+1-Automatic Tracking of nearby objects regularly highlighted or disabled ..
+</page>
+
+<page number="178">
+Function description:  
+Advanced Automatic Emergency Brake (AAEB) is a driver assistance system that avoids or lessens the severity of accidents when a collision is imminent with the preceding objects (motorized vehicles and vulnerable road users such as pedestrians and cyclists) potentially intervening with the ego-vehicle’s driving path. When this feature is turned on, the Forward Collision Warning feature will automatically be turned on, to warn the user before any braking.
+
+Operation:
+- Driver shall turn ON/OFF Advanced Automatic Emergency Brake and Rear Automatic Emergency Brake on MHU/Setting for enable/disable the front or rear direction.
+- When AAEB is activated, the FCW and AAEB icons will show on HUD and MHU.
+
+Warning Strategy:
+- Popup text and sometimes accompanied by chime for:
+  - AEB is active.
+  - Post-event notification.
+  - AEB unavailable.
+  - FCW chime.
+</page>
+
+<page number="179">
+5/16/2022  
+179  
+Disclosure or duplication without consent is prohibited.  
+
+### Emergency Lane Keeping  
+
+#### Function description  
+Emergency Lane Keeping (ELK) is a driver assistance system that avoids or lessens the severity of accidents by automatically applying heading correction when a vehicle is about to drift beyond a solid lane marking, the edge of the road, or into oncoming or overtaking traffic in the adjacent lane.  
+
+#### Operation:  
+- Driver shall turn ON Emergency Lane Keeping by selecting Lane Assist settings:  
+  - Mode: Emergency Steering  
+  - Responsiveness: Early, Normal, Late  
+  - Chime: ON/OFF  
+
+#### Warning Strategy:  
+Popup text and sometimes accompanied by chime for:  
+- Post event notification  
+- Lane Assist unavailable  
+- ELK is active  
+
+10.7 Auto Pilot when detecting collision risk
+</page>
+
+<page number="180">
+5/16/2022
+180
+Disclosure or duplication without consent is prohibited.
+
+**Parking Assist - Parking Distance Control**
+
+**Function description:**  
+The function "Park Distance Control" works with 8 sensors in the front and back of the vehicle and enables the driver to detect obstacles when parking forward/backwards. Once the PDC system is activated, either by switch or by the reverse gear, it will assist while maneuvering into a parking spot or estimating the distance to another object.
+
+**Operation:**  
+- Driver shall select Parking Assist setting in MHU:  
+  + **Auto ON:** OFF, ON  
+  + **Trajectory line:** OFF, ON  
+- Driver shall mute/unmute Parking Assist chime using the soft-button in Car Buddy.  
+- Put gear in “R,” Parking Assist will be activated automatically.  
+- When gear is in “N” or “D” and the vehicle is moving at low speed, Parking Assist will be activated automatically if the function is switched ON from MHU.  
+- When gear is in “N” or “D” and the vehicle is moving at low speed, Parking Assist will be activated by pressing the permanent park assist button on the MHU home page if the function is switched OFF.
+
+**Warning Strategy:**  
+- Warning notification strategies are accompanied by chimes only:  
+  + Different warning sound frequency indicates different levels of distance risk severity based on proximity to the object detected by the sensor.
+
+10.8 Park Assist.
+</page>
+
+<page number="181">
+**Fully-automated Parking Assistance for Park In/Out.**
+
+**Function description**  
+The "Fully-automated Parking Assistance" function works in coordination with the Park Distance Control system, using 8 sensors at the front and rear of the vehicle to detect obstacles. This feature automates the process of parking or exiting a spot, requiring minimal driver intervention. Once activated, drivers only need to monitor the simulation and maintain readiness for manual interruptions during emergencies.
+
+**Operation:**  
+• When driving at speeds below a predefined value, the Main Head Unit (MHU) displays a "P" icon on the left side of the Car Buddy interface.  
+• The driver presses the "P" icon to access Auto Parking/Remote Parking options and view the available parking slots on the MHU interface.  
+• At a standstill, the MHU displays options for Auto Park or Auto Exit.  
+• Parking procedure:  
+    - Engage "Park" gear.  
+    - Choose "APA" on the display interface and select an available parking slot.  
+    - Remove hands from the steering wheel and release the brake pedal.  
+    - The automatic parking process begins, displaying real-time simulation and video feeds on the center display.  
+• Drivers must remain ready to press the brake pedal if an accident risk occurs.  
+
+**Stopping Auto Parking:**  
+• Exerting force/torque beyond a specified threshold to manually turn the steering wheel.  
+• Pressing the brake pedal.  
+• Tapping the Auto Parking button to disable the function.
+
+**Warning Strategy:**  
+Warning notifications combined with chimes:  
+• Indications are given for automatic system activation, manual interruptions, or perceived risks. 
+
+**10.8 Park Assist**  
+This system streamlines maneuverability with enhanced precision while entering or exiting parking spots, safeguarding against potential collisions.
+</page>
+
+<page number="182">
+Fully-automated Parking Assistance.
+
+Function description:  
+The function "Park Distance Control" works with 8 sensors in the front and back of the vehicle and enables the driver to detect obstacles, when parking forward/backwards. Once the PDC system is activated, either by switch or by the reverse gear, it will assist while maneuvering into a parking spot or estimate the distance to another object.
+
+Warning Strategy:  
+Popup text and sometimes accompanied by chime for:
+- Searching related popup.
+- Abort related popup.
+- Precondition related popup.
+- Progress and results related popup.
+- There will be some sound reminders during the parking process.
+</page>
+
+<page number="183">
+## Fully-automated Parking Assistance: Remote Parking.
+
+### Function description:
+The remote parking assist system (Remote Parking) is developed on the basis of FAPA automatic parking technology. The system uses C-APP to remotely control the vehicle to achieve the purpose of parking the vehicle outside the vehicle. Remote parking is activated when the driver selects it on the MHU or CAPP.
+
+### Operation:
+- Put the car in park, choose Remote Parking Assist (RPA), and select the available parking slot from the display.
+- Close all doors, frunk, and tailgate.
+- Leave the car and close the driver’s door.
+- Confirm from the phone app.
+
+### Warning Strategy:
+Popup text and sometimes accompanied by chime for:
+- Searching-related popup.
+- Abort-related popup.
+- Precondition-related popup.
+- Progress and results-related popup.
+
+10.8 Park Assist
+</page>
+
+<page number="184">
+**Summon Mode**
+
+**Function description:**
+The system uses C-APP to remotely control the vehicle to achieve the purpose of locating the vehicle outside the vehicle.
+
+**Operation:**
+- Display options from external device app C-App.
+- Choose "come to me" or "go to there" options from C-APP.
+
+**Warning Strategy:**
+Popup text and sometimes accompanied by chime for:
+- Abort related popup.
+- Precondition related popup.
+- Progress and results related popup.
+</page>
+
+<page number="185">
+Auto High Beam.
+
+Function description:  
+Automatic High Beam (AHB) is a driver assistance system that automatically switches from low to high beam when necessary. When the user has activated this feature, it will switch from low beam to high beam when driving in conditions with insufficient lighting. The high beam will be switched to low beam automatically to avoid blinding oncoming or preceding vehicles, as long as these vehicles emit enough light to remain properly visible in the low beam light, or when there is sufficient lighting from the environment (daylight, street lamps, etc.).
+
+Operation:  
+- Driver shall turn ON/OFF Auto High beam from MHU.  
+- Icon visualization from MHU.  
+
+Warning Strategy:  
+Popup text and sometimes accompanied by chime for:  
+- AHB unavailable.
+</page>
+
+<page number="186">
+11. Voice control.
+
+11.1 Voice control.
+</page>
+
+<page number="187">
+Voice Control.
+
+To trigger Voice Assist:
+- Say “Hey Vinfast.”
+- Short press the voice assist button on the steering wheel.
+- Short press the V logo from MHU.
+
+To exit Voice Assist:
+- Say “Exit” or “Cancel.”
+- Short press the voice assist button on the steering wheel.
+- Touch anywhere around the voice assist UI.
+</page>
+
+<page number="188">
+Disclosure or duplication without consent is prohibited  
+12.1 Driver monitoring system.  
+12.2 Occupant monitoring system.  
+12. Driver and occupant monitoring strategy.
+</page>
+
+<page number="189">
+Driver Monitoring System (DMS).
+
+Function description:
+Driver Monitoring System (DMS) is a driver assistance system that monitors the state of the driver to detect drowsiness or a lack of attention. The system uses a vision system combined with information from the steering system to detect if the driver is holding the steering wheel and information from other actuators.
+
+Operation:
+- Driver shall turn ON/OFF DMS from MHU/settings for enable/disable.
+
+Warning Strategy:
+Popup text and sometimes accompanied by chime for:
+- Hands-off warning popup.
+- Distracted-related popup.
+- Driver registration-related popup.
+- Drowsiness-related popup.
+</page>
+
+<page number="190">
+Disclosure or duplication without consent is prohibited  
+190  
+12.2 Occupant monitoring system  
+
+**Function description**  
+Alert the driver of rear occupants such as children and animals that may still be in the vehicle.  
+
+**Operation:**  
+- Driver shall turn ON/OFF Occupant monitoring system in the MHU/Setting  
+
+**Warning Strategy:**  
+- If function is OFF, MHU shall display the CPD telltale in 90s from either the start of the journey or from when the system is deactivated if done during the journey.  
+- The CPD telltale OFF is also required for a duration of 30 seconds after turning the ignition off.
+</page>
+
+<page number="191">
+Disclosure or duplication without consent is prohibited  
+191  
+
+**13. Towing hitch operation**  
+**13.1 Towing hitch operation**
+</page>
+
+<page number="192">
+13. Towing hitch operation.
+
+13.1 Towing hitch operation.
+
+Function description:  
+Aftersales part for EU/US market.  
+
+Operation:  
+- Disassemble the rear bumper and rear crash beam.  
+- Attach the trailer hitch to the vehicle body inside.  
+- Assemble the rear crash beam and rear bumper back.  
+- 7 pin connector located under the rear bumper bottom middle.  
+- The MHU will display a warning message with a red trailer symbol if the trailer light, trailer indicator light, or trailer system malfunctions.  
+- Trailer mode activation, deactivation, and failure status will be visible on the MHU.
+</page>
+
+<page number="193">
+Disclosure or duplication without consent is prohibited.  
+13. Towing hitch operation.  
+13.1 Towing hitch operation.  
+
+Towing hitch operation.  
+
+**Function description:**  
+Aftersales part for EU/US market.  
+
+**Operation:**  
+- Disassemble the rear bumper and rear crash beam.  
+- Attach the trailer hitch to vehicle body inside.  
+- Assemble rear crash beam and rear bumper back.  
+- 7 pin connector under rear bumper bottom middle.  
+- The MHU will show a warning messenger with a red trailer symbol if the trailer light, trailer indicator light, or trailer system malfunctions.  
+- Trailer mode activate/deactivate/failure status shall show from MHU.
+</page>
+</pages>

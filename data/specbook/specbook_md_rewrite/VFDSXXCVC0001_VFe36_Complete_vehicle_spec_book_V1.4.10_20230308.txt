@@ -1,0 +1,3418 @@
+Page 1
+**VinFast Management System**
+
+VFDSXXCVC0001  
+Version: 1.0  
+Uncontrolled copy when printed  
+
+---
+
+**Spec book:**  
+Supersedes edition (03.2023)  
+
+---
+
+**1 Scope**
+
+**COMPLETE VEHICLE SPECIFICATION BOOK**
+
+---
+
+**Range of validity**  
+VFe36 projects (BEV)  
+VINFAST  
+
+---
+
+**Responsible Contact:** See detail PIC in excel  
+
+The reproduction, distribution, and utilization of this document, as well as the communication of its contents to others without express authorization, is prohibited. Offenders will be held liable for the payment of damages. All rights reserved in the event of the grant of a patent, utility model, or design. Nothing in this standard supersedes applicable laws and regulations.
+Page 2
+Approval confirmed by:
+
+- **Function: Data Management**
+  - Nguyễn Văn Thành <v.thanhnv33@vinfast.vn>
+  - Thomas Schmidt <thomas.schmidt@edag.com>
+
+- **Function: ER-MGL CHS/BIW/DCL**
+  - Juan Pablo Medina <v.juanpm@vinfast.vn>
+  - Marco Kaschuba <martin.huppmann@edag.com>
+  - Jordi Schäfer <jordi.schaefer@edag.com>
+  - Paul Simmons <v.pauls1@vinfast.vn>
+  - Nicolas Platz <nicolas.platz@edag.com>
+
+- **Function: ER-VA (Vehicle Architect)**
+  - Laurent Bruneau <v.laurentb@vinfast.vn>
+  - Rainer Jung <rainer.jung@edag.com>
+
+- **Function: ER-SQ**
+  - Praveen Durairajan Prakash (VF-KSX-NMHP) <v.praveendp@vinfast.vn>
+
+- **Function: Purchasing**
+  - Vignesh <v.vigneshv@vinfast.vn>
+
+- **Function: Logistic**
+  *(Details not included in raw text)*
+
+- **Function: FuSa**
+  - Namdeo Gaikwad (VF-KKSPTX-TTDDT) <v.namdeog@vinfast.vn>
+
+- **Function: T&V-Testing & Validation**
+  - Nguyễn Đức Huy <v.huynd16@vinfast.vn>
+  - Jose Garzon <jose.garzon@partner.magna.com>
+
+- **Function: PQSC-Program Quality & Standards Center**
+  - Partha Datta (VF-KKSPTX) <v.parthad@vinfast.vn>
+  - Andreas Schad <andreas.schad@edag.com>
+
+- **Function: MFG review (new project)**
+  - Trịnh Văn Ngân (VF-KSX-NMHP) <v.ngantv2@vinfast.vn>
+
+- **Function: Chief Engineer**
+  - Ross Jardine (VF-KKSPTX-KDA) <v.rossj@vinfast.vn>
+  - Jan Schlingmann <jan.schlingmann@edag.com>
+
+---
+
+Change history:
+
+- **Ver 1.0**  
+  - **Changing point:** First edition + template  
+  - **Date:** 20/03/2020  
+  - **Responsible person:** <v.hungtp4@vinfast.vn>
+
+- **Ver 1.3**  
+  - **Changing point:** Update PIC in 2.4  
+  - **Date:** 10/03/2021  
+  - **Responsible person:** <v.hungtp4@vinfast.vn>  
+
+- **Ver 1.3.1**  
+  - **Changing point:** Update Weight target value in 5.7.6.1 and 5.7.6.2  
+  - **Date:** 11/03/2021  
+  - **Responsible person:** <v.paulgh@vinfast.vn>  
+
+- **Ver 1.3.3**  
+  - **Changing point:** Update from Thomas; remove ICE VF36  
+  - **Date:** 19/11/2021  
+  - **Responsible person:** Thomas EDAG  
+
+- **Ver 1.3.4**  
+  - **Changing point:** Update PIC PMO, BIW (item 2.4; 3.2.1); update data from Homologation team (item 3.12.3.3 & 5.7.18.2)  
+  - **Date:** 20/11/2021  
+  - **Responsible person:** PMO, BIW Đông-HoMo VF  
+
+- **Ver 1.3.5**  
+  - **Changing point:** Update PIC + RASIC, remove functions/items for ICE  
+  - **Date:** 16/12/2021  
+  - **Responsible person:** Hùng  
+
+- **Ver 1.3.6**  
+  - **Changing point:** Feedback for <carlos.moreno@magna.com> concern  
+  - **Date:** 21/12/2021  
+  - **Responsible person:** Hùng + <carlos.moreno@magna.com>  
+
+- **Ver 1.3.7**  
+  - **Changing point:** Update from Magna MSCH notes (2021-12-28) items 3.6; 5.6; 5.7.3; 5.7.5.1 to 5.7.5.3; 5.7.6.1; 5.7.6.2; 5.7.7; 5.7.8.1 to 5.7.8.4; 5.7.9; 5.7.13.1  
+  - **Date:** 28/12/2021  
+  - **Responsible person:** <krystal.zheng@magna.com>
+Page 3
+VinFast Management System  
+VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+Page 3 | 72  
+
+---
+
+### Contents  
+
+1. Scope ................................................................................................................... 1  
+Change history ........................................................................................................ 2  
+Index ....................................................................................................................... 3  
+
+2. General document guidelines .......................................................................... 5  
+   2.1 Purpose and legal binding ................................................................................ 5  
+   2.2 Language ........................................................................................................ 6  
+   2.3 Obligation of requirement wording .................................................................. 6  
+   2.4 Distribution list ................................................................................................ 6  
+
+---
+
+### Change Order  
+ERCR800000**  
+**Status:** Working  
+
+---
+
+### Updates  
+
+1.3.8. Updated and validated by EDAG on **08/01/2022**:  
+   - Tobias Krebs for section 5.7.3.  
+   - Tobias Stöhr for section 5.7.5.  
+   - Rainer Jung for section 5.7.10.  
+   - Veronika Hergenröder for sections 5.7.12.10, 5.7.12.12, and 5.7.13.  
+     *Note:* Update required for section 5.7.12.10 in version 1.4.0.  
+   - Nico Leiner for sections 5.7.15 and 5.7.16.  
+   - Jan-Henrik van der Moolen for section 5.8.1.  
+
+1.3.9. Updated from FuSa section 3.12.2 on **10/01/2022** by:  
+   - v.tuht10@vinfast.vn.  
+   - v.muratmu@vinfast.vn.  
+
+1.4.0. Updated from EDAG section 5.7.12.10 on **11/01/2022** by daniel.gundelach@edag.com.  
+
+1.4.1. Updated from HoMo US/CA section 5.7.18.1 on **12/01/2022** by v.hongpta@vinfast.vn.  
+
+1.4.2. Updated from HoMo EU section 5.7.18.1 on **13/01/2022** by v.nghiahv1@vinfast.vn.  
+
+1.4.3. Updated from Magna section 5.7.13.2 on **13/01/2022** by Yang.P-Zhang@partner.magna.com.  
+
+1.4.4. Updated from Tomas comment on **16/01/2022** by Tomas.Camen@afry.com.  
+
+1.4.5. Updated from IDIADA item 5.7.14 on **18/01/2022** by Alex.Freixas@idiada.com.  
+
+1.4.6. Updated from Magna item 5.7.8.1.1.2 on **18/01/2022** by honglei.du@magna.com.  
+
+1.4.7. Updated from EDAG item 5.7.8 on **24/01/2022** by joachim.seipel@edag.com.  
+
+1.4.8. Updated from EDAG comment on **26/01/2022** by:  
+   - daniel.gundelach@edag.com.  
+   - thomas.schmidt@edag.com.  
+
+1.4.9. Update name of Chief Engineer on **07/02/2022**.  
+
+---
+
+VinFast Released
+Page 4
+3 General project guidelines.
+
+3.1 Objective.
+
+3.2 Organization.
+3.2.1 VinFast contacts.
+3.2.2 Partner.
+
+3.3 Sub-Supplier management.
+
+3.4 Communication structure.
+
+3.5 Production process release and Product release.
+
+3.6 Performance Specification.
+
+3.7 Variant Management.
+
+3.8 Change Management.
+
+3.9 General Development and Supply Scope.
+
+3.10 Homologation Requirements.
+
+3.11 Test Management.
+
+3.12 Function Safety ISO 26262, Homologation and safety regulations.
+3.12.1 Functional Safety Requirements.
+3.12.2 Deliverables for Functional Safety.
+a) FUSA Deliverables expected before nomination.
+b) FUSA Deliverables expected after nomination.
+3.12.3 Homologation and safety regulation requirements.
+
+3.13 Checking for Patents.
+
+3.14 Intellectual property rights.
+3.14.1 Rights on results.
+3.14.2 Third Parties’ rights.
+
+3.15 Legal regulations.
+
+4 Scheduling in the project.
+
+4.1 Milestones.
+
+4.2 Master Timing.
+
+5 Product Description.
+
+5.1 Project Key Data.
+
+5.2 Sales Markets and Volume (The responsibility of VF).
+
+5.3 Production volume.
+5.3.1 For Vietnam market.
+5.3.2 For US market.
+
+5.4 Target Customer / Market Requirements.
+
+5.5 Product Vision.
+
+5.6 Product Attribute Leadership Strategy (PALS) and Competition.
+
+5.7 General Technical Specifications.
+5.7.1 Vehicle Profile.
+5.7.2 Key Performance Index.
+5.7.3 NVH and Driving Comfort.
+5.7.4 Vehicle Safety.
+5.7.5 Operational Strength (Stiffness/Strength/Durability).
+5.7.6 Weight Management.
+5.7.7 Fuel Economy & Driving Performance.
+5.7.8 Chassis and Vehicle Dynamics.
+5.7.9 Function Powertrain.
+5.7.10 Vehicle Architecture & Ergonomics.
+5.7.11 Aerodynamics.
+5.7.12 In-Vehicle Thermal Comfort.
+5.7.13 Heat Management & Powertrain Cooling Heat protection.
+5.7.14 Environment, Recycling, Emission.
+5.7.15 Corrosion.
+
+VinFast Released.
+Page 5
+VinFast Management System.
+
+VFDSXXCVC0001
+
+Version: 1.0  
+Uncontrolled copy when printed  
+Page 5 | 72  
+Status: Complete Vehicle  
+
+---
+
+### 5.7 General Technical Specifications - Continued  
+- **5.7.16 Tightness:** (Page 45)  
+- **5.7.17 Customer Function & Human Machine Interface (HMI):** (Page 46)  
+- **5.7.18 Homologation:** (Page 47)  
+- **5.7.19 Electrical Systems and Functions:** (Page 64)  
+
+### 5.8 Styling  
+- **5.8.1 Interior and Exterior gaps & steps**  
+- **5.8.2 Color and Trim**  
+
+### 5.9 Battery Requirements  
+- **5.9.1 System Overview**  
+- **5.9.2 Battery System Overview**  
+- **5.9.3 Cell Main Requirement**  
+- **5.9.4 Battery Pack Requirement**  
+- **5.9.5 Warranty**  
+- **5.9.6 Standards**  
+- **5.9.7 Marking and traceability**  
+
+### 5.10 Smart Infotainment Requirements  
+### 5.11 EE Platform Requirements  
+### 5.12 ADAS Requirements  
+
+---
+
+### 6 Complete Vehicle Testing, DVP  
+Page 65  
+
+---
+
+### 7 Reporting and Documentation  
+- **7.1 Information Exchange** (Page 66)  
+- **7.2 Documentation and Archiving Obligations** (Page 66)  
+- **7.3 Priority and Up-to-Datedness of documents** (Page 66)  
+- **7.4 Change documentation and Part History documentation** (Page 67)  
+- **7.5 Vehicle Documentation** (Page 67)  
+- **7.6 Traceability** (Page 67)  
+
+---
+
+### 8 Design for Manufacturing and Assembly  
+Page 68  
+
+### 9 Quality Requirements on the Product Design  
+Page 68  
+
+### 10 Customer Service and Other Service Requirements  
+Page 68  
+
+### 11 Definitions and List of Abbreviations  
+Page 68  
+
+### 12 Further Appendix Documents  
+Page 70  
+
+---
+
+### 2 General Document Guidelines  
+#### 2.1 Purpose and Legal Binding  
+The main purpose of this internal specification is to summarize all information available on the complete vehicle level. In accordance with the mentioned supplements, it describes the complete vehicle from a technical perspective.  
+
+An important part of this spec book is the derivation of complete vehicle targets, categorized according to the VF Vehicle Integration Team structure. These targets will serve as the base for a breakdown of subsystem and component targets, which will be documented in component specifications.  
+
+The Design and Verification Plan outlined in this document will give a brief summary.  
+
+VinFast Released.
+Page 6
+2 General document guidelines.
+
+2.1 Purpose and legal binding.
+The main purpose of this internal specification is to summarize all information available on complete vehicle level. In accordance with the mentioned supplements, it describes the complete vehicle from a technical perspective. An important part of this spec book is the derivation of complete vehicle targets, categorized according to the VF Vehicle Integration Team structure. These targets will serve as the base for a breakdown of subsystem and component targets which will be documented in component specifications. The Design and Verification Plan outlined in this document will give a brief summary of the verification and validation activities in this project to prove the product’s target fulfillment.
+
+2.2 Language.
+All official project documentation has to be done in English. If documents are bilingual, the English text is binding.
+
+2.3 Obligation of requirement wording.
+The following wording rules are used throughout this document:
+
+- **Shall**: The word “shall” is used to state a binding requirement. Such requirements are externally verifiable by manipulation or observation.
+- **Should**: The word “should” is used for preferences or desires in implementation that are not strictly binding.
+- **May**: The word “may” is used to denote options that are left to the implementer.
+
+2.4 Distribution list.
+
+| Company        | Company Name and Email                                             | Function |
+|----------------|---------------------------------------------------------------------|----------|
+| VINFAST+EDAG  | Chandra Prakash Reddy Chennamreddy (VF-KKSPTX-Module) <v.chandraprc@vinfast.vn> | BIW      |
+| VINFAST+EDAG  | Jordi Schäfer <jordi.schaefer@edag.com>                             | BIW      |
+| VINFAST+EDAG  | Ersan Yildirim <v.ersany@vinfast.vn>                                | BEX      |
+| VINFAST+EDAG  | Kay Rastede <kay.rastede@edag.com>                                  | BEX      |
+| VINFAST+EDAG  | Chandra Prakash <v.chandraprc@vinfast.vn>                           | DCL      |
+| VINFAST+EDAG  | Nicolas Platz <nicolas.platz@edag.com>                              | DCL      |
+Page 7
+VINFAST Management System  
+VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+Page: 7 of 72  
+Print date  
+Status: Complete Vehicle  
+
+Table 1: Internal distribution list  
+**Additional Distribution Members**  
+
+- VINFAST + EDAG + MAGNA  
+  - Dhiraj Patil (VF-KKSPTX-Module) <v.dhirajp@vinfast.vn>  
+    - Alexander Heinz <alexander.heinz@edag.com>  
+    - MAGNA (Seats) <Julien.Simon1@magna.com>  
+
+- VINFAST + MAGNA + EDAG  
+  - Nguyen Hoang Vu (VF-KKSPTX-Module) <v.nguyenhv3@vinfast.vn>  
+    - MAGNA <Guoming.Song@partner.magna.com>  
+
+- VINFAST + EDAG  
+  - Juan Pablo Medina (VF-KKSPTX-Module) <v.juanpm@vinfast.vn>  
+    - Kaschuba, Marco <marco.kaschuba@edag.com>  
+
+- VINFAST + EDAG  
+  - Nguyen The Quỳnh <v.quynhnt14@vinfast.vn>  
+    - Martin Huppmann <martin.huppmann@edag.com>  
+
+- VINFAST + TATA + EDAG  
+  - Balaji Vivekanandan (VF-KKSPTX-TTDDT) <v.balajiv2@vinfast.vn>  
+    - TATA <Thorsten.Mayer@edag.com>  
+
+- VINFAST + EDAG  
+  - Laurent Bruneau <v.laurentb@vinfast.vn>  
+    - Rainer Jung <rainer.jung@edag.com>  
+
+- VINFAST + EDAG  
+  - Partha Datta (VF-KKSPTX) <v.parthad@vinfast.vn>  
+    - Andreas Schad <andreas.schad@edag.com>  
+
+- VINFAST  
+  - Partha Datta (VF-KKSPTX) <v.parthad@vinfast.vn>  
+    - VinES-B  
+
+- VINFAST  
+  - Đinh Tiến Ngọc  
+    - Smart Inf  
+
+- VINFAST  
+  - Dinh Duc Hiep  
+    - EE Platform  
+
+- VINFAST  
+  - Le Hiếu Chính  
+    - EE ADA  
+
+- VINFAST + EDAG  
+  - Ross Jardine (VF-KKSPTX-KDA) <v.rossj@vinfast.vn>  
+    - Jan Schlingmann <jan.schlingmann@edag.com>  
+
+---
+
+### General project guidelines  
+
+**3.1 Objective**  
+VINFAST (VinFast Trading and Production Limited Liability Company) and ESP (consisting of EDAG, MAGNA, TATA/FEV/IDIADA) have commenced development of VFe36 vehicles.
+
+**3.2 Organization**  
+Main development partners:  
+- VinFast: VinFast Trading and Production LLC.  
+- EDAG  
+- MAGNA (Performance and attributes, seats design, and development)  
+- TATA (Electrical Engineering)  
+- IDIADA (Testing)  
+- FEV (Engine calibration)  
+
+**3.2.1 VinFast Contacts**  
+Chief Engineering
+Page 8
+Name: Ross Jardine / Email: v.rossj@vinfast.vn.
+
+Program Planning & Coordination (PPC):  
+Name: Lưu Tiến Nhật / Email: v.nhatlt1@vinfast.vn.
+
+Direct Purchasing Leader:  
+Name: See item 2.4.
+
+Module Leaders:  
+Name: See item 2.4.
+
+Engineer Quality Director:  
+Name: Partha Datta / Email: v.parthad@vinfast.vn.
+
+### 3.2.2 Partner
+The section refers to item 2.4 for details.
+
+### 3.3 Sub-Supplier management
+The management of sub-suppliers lies in the responsibility of system suppliers. See also the work interface chart in chapter 3.9.
+
+### 3.4 Communication structure
+The communication structure will be aligned within the development parties. All meeting information and decisions taken shall be documented in written form in order to be valid.
+
+### 3.5 Production process release and Product release
+The customer VinFast is responsible for the final production process and product release. Further requirements are in preparation and will be defined by VinFast.
+
+### 3.6 Performance Specification
+The performance specification for both vehicles shall be based on the customer’s description of the product vision, product planning, and the customer market profile. Ultimately, the product performance shall be defined in the complete vehicle target catalogue (see appendix 3 - VTS) as well as the component specifications.
+
+VFDSXXCVC1301  
+VFe36_VTS_V2.
+
+In the component performance specifications, it is defined how and with which means the requirements are to be implemented. The requirements in the VTS are broken down into subsystems.
+Page 9
+3.7 Variant Management.  
+VFe36 will be developed for VN (Vietnam), NA: North America (US: United States, CA: Canada), and EU (Europe) markets.  
+The project will include the development of Left Hand Drive (LHD) versions only. Right Hand Drive versions shall be considered as package protected only.  
+
+3.8 Change Management.  
+Regarding engineering and development, changes to this and other technical specifications are only valid if they have been evaluated, agreed, and documented by VinFast.  
+
+3.9 General Development and Supply Scope.  
+The main supplier obligations are described in the work interface chart (RASI).  
+
+The status of the supplier “Built to Print_B2P” or “Full Service Supplier_FSS” is defined in the Sub-System Technical Specification - SSTS.  
+
+RASI is defined as follows:  
+
+**R:** Responsible.  
+Responsible for proper execution of the activities to fulfill the requirements. The responsible party is entitled to drive the work scope and request the necessary support from other project team members.  
+
+**A:** Approval.  
+Obligation to decide/responsible for release. If no Approval party is defined, the Responsible party will be the Approval party as well.  
+
+**S:** Support.  
+The support party is obligated to actively support (even if this requires capacity, expenses, and/or transfer of know-how). This project team member must proactively assist the person responsible for execution R in achieving the targets.  
+
+**I:** Information.  
+Right to information. This team member is entitled to demand information from any other party.  
+
+**Work Interface Chart (RASI) – VinFast**  
+R = Responsible, A = Approval, S = Support, I = Information.  
+
+**For all CVC level or subjective level evaluations, use the scaling index below:**  
+
+10 - OUTSTANDING.  
+Technical solutions are surprisingly positive.  
+
+9 - EXCELLENT.  
+Technical solutions are convincing.  
+
+8 - VERY GOOD.  
+Vehicle generates satisfaction; expectations completely fulfilled.  
+
+7 - GOOD.  
+Vehicle irritates in singular/rare cases; small deviations from target are detectable.  
+
+6 - SATISFYING.  
+Vehicle does not fulfill expectations completely (sensibilization onto failures).  
+
+5 - NOT ACCEPTABLE.  
+Vehicle generates dissatisfaction; failure will be reported during garage work, not an acceptable borderline case.  
+
+4 - FAULTY.  
+Vehicle generates disappointment; failure leads to unplanned garage work.  
+
+3 - UNSUFFICIENT.  
+Vehicle generates uncertainty; leads to annoyance, garage will be visited immediately, technical solutions are insufficient.  
+
+2 - BREAKDOWN.  
+Vehicle generates extreme annoyance (i.e., breakdown); legal claims or publication is imminent.  
+
+1 - SAFETY RISK.  
+Vehicle has a safety risk; failure represents a safety risk for the driver or surroundings, homologation-relevant item.
+Page 10
+VinFast Management System  
+VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+10 | 72  
+Print date  
+Status: Complete Vehicle  
+
+### Work Interface Chart (RASI) – VinFast
+
+- **R**: Responsible. Responsible party executes activities to fulfill requirements, drives work scope, and requests necessary support.
+- **A**: Approval. Responsible for release decisions. If undefined, the Responsible party assumes the Approval role.
+- **S**: Support. Obligated to actively support efforts (capacities, expertise, resources) to assist the Responsible party.
+- **I**: Information. Recipient entitled to demand information from involved parties.
+
+---
+
+### Concept Phase Deliverables
+
+#### Key Deliverables and Responsibilities Matrix:
+| No | Gate | Stage            | Deliverable                                                                                                   | VF Engineering | VF Purchasing | Supplier | SQE | Manufacturing |
+|----|------|------------------|---------------------------------------------------------------------------------------------------------------|----------------|---------------|----------|-----|---------------|
+| 1  | PV   | Concept Phase    | List of Concept in Commodity                                                                                 | R              | S             | I        | I   | I             |
+| 2  | PV   | Concept Phase    | SOR for Concept in Commodity                                                                                 | R              | S             | I        | I   | I             |
+| 3  | PPS  | Concept Phase    | SOB through LOI - Letter of Intent for Concept in Commodity                                                  | S              | R             | S        | I   | I             |
+| 4  | PPS  | Concept Phase    | EDD order release for Concept in Commodity                                                                   | S              | R             | S        | I   | I             |
+| 5  | PPS  | Concept Phase    | Deliver Bill of Materials in Team center                                                                     | R              | I             | I        | I   | I             |
+| 6  | PPS  | Concept Phase    | Supply chain strategy - Deliver Sourcing Strategy                                                            | S              | R             | I        | S   | I             |
+| 7  | PPS  | Concept Phase    | Commodity Timing plan in each business area supports Program timing for Concept commodity                    | S              | S             | R        | S   | I             |
+| 8  | PPS  | Concept Phase    | Organization and resources for the concept phase, resource planning for series development                   | S              | S             | R        | S   | I             |
+| 9  | PPS  | Concept Phase    | Opportunities and risks for the program detailed with measures defined (Cost reductions, Design Optimization, Timing optimization) | A | S | R | S | I |
+| 10 | PPS  | Concept Phase    | Quality planning to meet program requirements - APQP Kickoff                                                | R              | S             | S        | S   | I             |
+| 11 | PPS  | Concept Phase    | Concept proposal for engineering review and finalization - For Concept Commodity                             | A              | I             | R        | I   | I             |
+| 12 | PPS  | Concept Phase    | Concept & Proposal development to meet the target material cost                                              | A              | I             | R        | I   | I             |
+| 13 | PPS  | Concept Phase    | Parts list and BoM available; target values for lead vehicle cost and weight verified-C Class                | A              | I             | R        | I   | I             |
+| 14 | PPS  | Concept Phase    | Initial CAD data to support C class development for Concept commodity                                         | A              | I             | R        | I   | I             |
+| 15 | PPS  | Concept Phase    | System & Sub-system Functional targets agreed and cascaded to Component level, In-line with Complete Vehicle Targets | A | S | R | I | I |
+| 16 | PPS  | Concept Phase    | DVP (virtual and physical testing) for System, Sub-system & Component Level in-line with Complete Vehicle Specification book in the concept phase. Detailed test plan for hardware tests. | A | S | R | I | I |
+| 17 | TA   | Development Phase | Package study to support B class surface development                                                         | A              | I             | R        | I   | I             |
+| 18 | PPS  | Concept Phase    | Manufacturing feasibility for CAS development for Concept commodity                                         | A              | I             | R        | I   | I             |
+| 19 | PPS  | Concept Phase    | Design and Validation & Testing plan for Concept Commodity                                                  | A              | I             | R        | I   | I             |
+| 20 | TA   | Development Phase | Parts list and BoM available; target values for lead vehicle cost and weight verified-B Class                 | A              | I             | R        | I   | I             |
+| 21 | TA   | Development Phase | Parts list and BoM available; target values for lead vehicle cost and weight verified-A Class                 | A              | I             | R        | I   | I             |
+| 22 | TA   | Development Phase | Contract Series development - LON for Concept Commodity / LON for B2P Commodity                              | A              | R             | S        | I   | I             |
+| 23 | TA   | Development Phase | Timing plan for the complete Program detailing milestones and critical activities for B2P Commodity           | A              | S             | R        | I   | I             |
+| 24 | TA   | Development Phase | Organization and resources for the concept phase, resource planning for series development                    | A              | S             | R        | I   | I             |
+| 25 | TA   | Development Phase | RPS / Location and fixation strategy developed and reviewed (Before B Class freeze)                          | A              | S             | R        | I   | I             |
+| 26 | TA   | Development Phase | DMU study for system level and sub-system level                                                              | A              | S             | R        | I   | I             |
+| 27 | TA   | Development Phase | Functional CAE analysis                                                                                      | A              | S             | R        | I   | I             |
+| 28 | TA   | Development Phase | EE - Component Data Sheet (CDS) inputs                                                                      | A              | S             | R        | I   | I             |
+| 29 | TA   | Development Phase | Manufacturing feasibility for Built to Print Commodities                                                    | A              | S             | R        | I   | I             |
+Page 11
+VinFast Management System
+
+VFDSXXCVC0001
+
+Version: 1.0  
+Uncontrolled copy when printed  
+11 | 72  
+Print date  
+Status  
+Complete Vehicle  
+
+---
+
+### Deliverables for Concept Commodity and Series Development  
+
+#### Concept Phase Deliverables (PV, PPS, TA Gates)
+1. **List of Concept in Commodity**  
+   - VF Engineering: Responsible  
+   - VF Purchasing: Support  
+   - Supplier: Information  
+   - SQE: Information  
+   - Manufacturing: Information  
+
+2. **SOR for Concept in Commodity**  
+   - VF Engineering: Responsible  
+   - VF Purchasing: Support  
+   - Supplier: Information  
+   - SQE: Information  
+   - Manufacturing: Information  
+
+3. **SOB through LOI - Letter of Intent for Concept in Commodity**  
+   - VF Engineering: Support  
+   - VF Purchasing: Responsible  
+   - Supplier: Support  
+   - SQE: Information  
+   - Manufacturing: Information  
+
+4. **EDD order release for Concept in Commodity**  
+   - VF Engineering: Support  
+   - VF Purchasing: Responsible  
+   - Supplier: Support  
+   - SQE: Information  
+   - Manufacturing: Information  
+
+5. **Deliver Bill of Materials in Team center**  
+   - VF Engineering: Responsible  
+   - VF Purchasing: Information  
+   - Supplier: Information  
+   - SQE: Information  
+   - Manufacturing: Information  
+
+6. **Supply chain strategy - Deliver Sourcing Strategy**  
+   - VF Engineering: Support  
+   - VF Purchasing: Responsible  
+   - Supplier: Information  
+   - SQE: Support  
+   - Manufacturing: Information  
+
+7. **Commodity Timing plan in each business area supports Program timing for concept commodity**  
+   - VF Engineering: Support  
+   - VF Purchasing: Support  
+   - Supplier: Responsible  
+   - SQE: Support  
+   - Manufacturing: Information  
+
+8. **Organization and resources for the concept phase, resource planning for series development**  
+   - VF Engineering: Support  
+   - VF Purchasing: Support  
+   - Supplier: Responsible  
+   - SQE: Support  
+   - Manufacturing: Information  
+
+9. **Opportunities and risks for the program have been detailed and measures defined - Cost reductions, Design Optimization, Timing optimization**  
+   - VF Engineering: Approval  
+   - VF Purchasing: Support  
+   - Supplier: Responsible  
+   - SQE: Support  
+   - Manufacturing: Information  
+
+10. **Quality planning to meet program requirements - APQP Kickoff**  
+    - VF Engineering: Responsible  
+    - VF Purchasing: Support  
+    - Supplier: Support  
+    - SQE: Support  
+    - Manufacturing: Information  
+
+11. **Concept proposal for engineering review and finalization - For Concept Commodity**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Information  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+12. **Concept & Proposal development to meet the target material cost**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Information  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+13. **Parts list and BoM available; target values for lead vehicle cost and weight verified - C Class**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Information  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+14. **Initial CAD data to support C class development for Concept commodity**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Information  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+15. **System & Sub-system Functional targets agreed and cascaded to Component level, In-line with Complete Vehicle Targets**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Support  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+16. **DVP (virtual and physical testing) for System, Sub-system & Component Level in-line with Complete Vehicle Specification book in the concept phase**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Support  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+#### Series Development Deliverables (TA, PR, CC, LS Gates)
+17. **Package study to support B class surface development**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Information  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+18. **Manufacturing feasibility for CAS development for concept commodity**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Information  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+19. **Design and Validation & Testing plan for concept commodity**  
+    - VF Engineering: Approval  
+    - VF Purchasing: Information  
+    - Supplier: Responsible  
+    - SQE: Information  
+    - Manufacturing: Information  
+
+---
+
+### Homologation Requirements
+- Detailed in **Section 5.7.18**.
+
+### Test Management
+- Refer to subsequent sections for detailed procedures and standards.
+
+---
+VinFast Released
+Page 12
+VF is responsible for the management of all tests on the complete vehicle level and general timing of all tests. Complete vehicle test management is described in more detail in Chapter 5. Test management responsibility for subsystem and component tests is defined in more detail in subsystem and component technical and validation specifications.
+
+### 3.12 Function Safety ISO 26262, Homologation and Safety regulations
+Safety is one of the key issues in the development and integration of automotive functionalities.
+
+#### 3.12.1 Functional Safety Requirements
+The supplier shall ensure that the developed/manufactured part(s) meet:
+- **IATF 16949:2016 Standard**: Quality management system requirements for automotive production.
+- **ISO 26262:2018 Standard**: Road vehicles – Functional safety.
+
+#### 3.12.2 Deliverables for Functional Safety
+Indicative RASIC* for expected deliverables:
+
+**5.5 Work Products:**
+| No.   | Deliverable Description                                                                             | VINFAST   | SUPPLIER   |
+|-------|-----------------------------------------------------------------------------------------------------|-----------|------------|
+| 5.5.1 | Supplier selection report resulting from requirements ISO 26262-8-2018 clauses 5.4.2.1 and 5.4.2.2. | R         | I          |
+| 5.5.2 | Development interface agreement (DIA) resulting from requirements ISO 26262-8 clauses 5.4.3, 5.4.5 | R         | S          |
+| 5.5.3 | Supplier's project plan resulting from requirements ISO 26262-8 clause 5.4.3.                       | A         | R          |
+| 5.5.4 | Supplier's safety plan resulting from requirements ISO 26262-8 clause 5.4.3 and 5.4.4.              | A         | R          |
+| 5.5.5 | Functional safety assessment report resulting from requirements ISO 26262-8 clauses 5.4.5.1-5.4.5.4 | I         | R          |
+| 5.5.6 | Supply agreement resulting from requirements ISO 26262-8 clauses 5.4.6.1 to 5.4.6.4.               | R         | S          |
+| 6.5.3 | Safety case, resulting from ISO 26262-2-2018 clause 6.4.8                                           | A         | R          |
+
+> *Note: RASIC description mentioned in the "Deliverables" section.*
+
+#### a) FUSA Deliverables Expected Before Nomination
+- The supplier shall propose, for each safety requirement, a supplier acceptance statement and/or justification if they cannot or do not meet the safety requirements.
+  
+- Based on the list of Safety Goals & Functional Safety Requirements and associated attributes, VinFast and the supplier shall discuss and agree on a **DIA (Development Interface Agreement)** as described in ISO 26262-8-2018 clause 5. Note: The DIA will contain at least the information described in clause 5.4.3.1.
+
+#### b) FUSA Deliverables Expected After Nomination
+- The supplier shall submit for VinFast approval a **Safety Plan**, describing the process, procedures, activities, resource plan, and documentation to be conducted and/or delivered.  
+  *Note: The Safety Plan will contain at least the items described in ISO 26262-2-2018 clause 6.4.6.5.*
+Page 13
+The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2-2018 clause 6.4.8.
+
+### 3.12.3 Homologation and Safety Regulation Requirements
+#### 3.12.3.1 North America
+a. **Homologation and safety regulation activities**  
+   The supplier must ensure that their part(s), product(s) or system(s) comply with applicable regulations, e.g., North American Federal Motor Vehicle Safety Standards (FMVSS) and Canadian Motor Vehicle Safety Standards (CMVSS).  
+   - Suppliers must provide and/or support any documentation for submission to relevant authorities.  
+   - Parts subject to component certification requirements must be registered with the National Highway Traffic Safety Administration (NHTSA) and have a US Agent of Service located in the US.
+
+b. **Self-certification and test report(s)**  
+   - Suppliers are responsible for self-certifying their part(s), product(s), or system(s) to meet all applicable FMVSS/CMVSS before offering those products for sale.  
+   - VinFast requests suppliers to conduct tests as specified in FMVSS/CMVSS/FCC/ISED/IMDS.  
+   - Test reports must be provided to VinFast as evidence of compliance.  
+   - Suppliers should be familiar with laboratory test procedures used by USA/Canada Governments to evaluate compliance of their products to FMVSS/CMVSS.  
+   - (*Refer Appendix 8 of Manufacturer Handbook - see section 5.7.18.*)
+
+c. **Duty to notify VinFast of a non-compliance with an FMVSS/CMVSS or North American regulation**  
+   - If a supplier determines a non-compliance or a safety-related defect exists in motor vehicle equipment it has produced, the supplier must notify VinFast within five working days.  
+   - A risk assessment and resolution plan must also be proposed.
+
+#### 3.12.3.2 Europe
+a. **Homologation and safety regulation activities**  
+   - The supplier must ensure their part(s), product(s), or system(s) comply with applicable regulations, e.g., United Nations Economic Commission for Europe (UN-ECE) Regulations.
+
+b. **Test report(s) and Certificate(s)**  
+   - Suppliers are responsible for ensuring their part(s), product(s), or system(s) meet applicable UN-ECE regulations before offering those products for sale.  
+   - VinFast requests suppliers conduct tests at authorized technical service facilities.  
+   - Test reports and/or UN-ECE certificates must be provided to VinFast as evidence of compliance.  
+   - Suppliers must also provide supporting documentation and technical information related to the compliance process.
+Page 14
+The supplier shall submit for VinFast approval a Safety Case, describing the relevant information (outcome and results, deviations and measures) of the functional safety activities. Note: The Safety Case shall be compiled in accordance with ISO 26262-2-2018 clause 6.4.8.
+
+### 3.12.3 Homologation and Safety Regulation Requirements
+
+#### 3.12.3.1 North America
+
+**a. Homologation and Safety Regulation Activities**  
+The supplier must ensure that their part(s), product(s), or system(s) comply with applicable regulations, such as:  
+- Federal Motor Vehicle Safety Standards (FMVSS) and Canadian Motor Vehicle Safety Standards (CMVSS).  
+The supplier must provide or support any documentation to be submitted to the relevant authorities.  
+For components subject to certification requirements, suppliers must be registered with NHTSA and have a US Agent of Service located in the US.
+
+**b. Self-Certification and Test Report(s)**  
+Suppliers are responsible for “self-certifying” their part(s), product(s), or system(s) to meet FMVSS/CMVSS requirements before sales.  
+VinFast requests suppliers to conduct specified tests outlined in FMVSS/CMVSS/FCC/ISED/IMDS. Test report(s) must be provided as evidence of compliance.  
+The supplier should also be familiar with laboratory procedures used by USA/Canada Governments to evaluate FMVSS/CMVSS compliance.  
+(*) Refer to Appendix 8 of Manufacturer_Handbook (see 5.7.18).
+
+**c. Duty to Notify VinFast of Non-Compliance**  
+If a supplier discovers a non-compliance with FMVSS/CMVSS or other regulations, they must notify VinFast within five working days.  
+The supplier must propose a risk assessment and resolution plan for the issue.
+
+---
+
+#### 3.12.3.2 Europe
+
+**a. Homologation and Safety Regulation Activities**  
+The supplier must ensure their part(s), product(s), or system(s) comply with United Nations Economic Commission for Europe (UN-ECE) regulations.
+
+**b. Test Report(s) and Certificate(s)**  
+Suppliers must ensure their part(s), product(s), and system(s) meet applicable UN-ECE regulations before sales.  
+Suppliers must conduct specified tests and provide test report(s) and/or UN-ECE certificate(s) to VinFast as evidence of compliance.  
+Additional technical documents, including drawings, must be submitted for UN-ECE certification.  
+The supplier should also be familiar with EU testing procedures for evaluating product compliance.
+
+**c. Duty to Notify VinFast of Non-Compliance**  
+Suppliers must notify VinFast within five working days if a non-compliance with UN-ECE regulations or a safety-related defect is discovered.  
+An appropriate risk assessment and resolution plan must be proposed.
+
+---
+
+#### 3.12.3.3 VN Market
+
+**a. Homologation and Safety Regulation Activities**  
+Suppliers must ensure their part(s), product(s), or system(s) comply with applicable regulations in Vietnam.
+
+**b. Test Report(s) and Certificate(s)**  
+Suppliers must provide test samples and reports meeting Vietnam regulations.  
+VinFast requires supporting documentation, including drawings, to be submitted for certification.
+
+**c. Duty to Notify VinFast of Non-Compliance**  
+Suppliers must notify VinFast within five working days regarding non-compliance with Vietnam regulations or safety-related defects.  
+Suppliers must propose risk assessment and resolution plans to address these issues.
+
+---
+
+### 3.13 Checking for Patents
+
+VinFast ensures its vehicles do not violate existing patents or property rights.  
+System engineering suppliers must verify their development content and sub-supplier content does not infringe on patents or property rights.  
+In case of patent infringement, all related costs and changes must be borne by the supplier.
+
+---
+
+### 3.14 Intellectual Property Rights
+
+#### 3.14.1 Rights on Results  
+Intellectual property agreements are detailed in the VinFast Service Agreement.
+
+#### 3.14.2 Third Parties’ Rights  
+Intellectual property agreements are detailed in the VinFast Service Agreement.
+Page 15
+3.15 Legal regulations.
+Compliance with all legal regulations is pointed out in development contracts with the suppliers. Suppliers shall verify that their sub-suppliers also fulfill legal regulations, especially regarding material compliance and evaporative emissions. Additionally, suppliers are required to identify discrepancies in technical requirements and regulations.
+
+4 Scheduling in the project.
+
+4.1 Milestones.
+Refer to appendix 1 from PMO.
+
+VFe36_Material production Launch Schedule-Build plan_MRD:
+
+- Preliminary Product Specification (PPS): 24.06.2021.
+- Target Agreement (TA): 24.06.2021.
+- Concept Confirmation (CC): 24.06.2021.
+- Functional Confirmation (FC): 18.10.2021.
+- Production Try Out (PTO) replace by PT2: 25.12.2021.
+- Launch Sign Off (LS) VN: 30.04.2022.
+- Launch Sign Off (LS) US/CA/EU: 15.06.2022.
+- Start of Production (SOP) VN: 15.03.2023.
+- Start of Production (SOP) US/CA: 28.03.2023.
+- Start of Production (SOP) EU: 31.07.2023.
+
+Figure 1: Project Gates see in Appendix_1_ VFe36_Material production Launch Schedule-Build plan_MRD.
+
+4.2 Master Timing.
+Refer to appendix 1 from PMO.
+
+VFe36_Material production Launch Schedule-Build plan_MRD:
+
+Figure 2: The Master Timing Chart (MTC) is shown in Appendix 1.
+
+5 Product Description.
+
+5.1 Project Key Data.
+N/A.
+
+5.2 Sales Markets and Volume (The responsibility of VF).
+SOP: The vehicle will be introduced to the markets. Refer to appendix RFQ from Purchasing.
+Page 16
+### VinFast Management System
+
+**VFDSXXCVC0001**  
+**Version:** 1.0  
+**Status:** Complete Vehicle  
+**Uncontrolled copy when printed**  
+**Page:** 16 | 72  
+
+---
+
+### 5.3 Production Volume  
+
+#### 5.3.1 For Vietnam Market  
+Refer to appendix RFQ from Purchasing.  
+
+#### 5.3.2 For Other Markets  
+Refer to appendix RFQ from Purchasing.  
+
+---
+
+### 5.4 Target Customer / Market Requirements  
+*N/A*  
+
+---
+
+### 5.5 Product Vision  
+*N/A*  
+
+---
+
+### 5.6 Product Attribute Leadership Strategy (PALS) and Competition  
+Refer to appendix 2:  
+**VFe36_Appendix_2_PALS_Product Attribute Leadership Strategy**  
+
+**Figure 3:** Product Positioning VinFast (PALS).  
+Competition will consist of vehicles as well as vehicles from global premium brands.  
+
+---
+
+### 5.7 General Technical Specifications  
+
+#### 5.7.1 Vehicle Profile  
+Refer to appendix 3.  
+
+Features list.  
+
+#### 5.7.2 Key Performance Index  
+Refer to appendix 5:  
+**VFe36_VTS_V2**  
+
+#### 5.7.3 NVH and Driving Comfort  
+The NVH system (Noise, Vibration, Harshness, Acoustics and Comfort) and Driving Comfort target is based on VinFast’s vision and the agreed Customer Market Profile.  
+
+**Interior noise and vibration:**  
+According to VinFast’s vision, NVH is a very important vehicle characteristic. The vehicle shall enable very good noise and vibration comfort balanced with vehicle dynamics and drivability. The vehicle wind noise and road noise will be balanced to have long-distance driving comfort as well as driving over rough road and concrete road neither exhausting nor annoying. This requires freedom from squeak and rattle.
+Page 17
+3.15 Legal Regulations.  
+Compliance with all legal regulations is pointed out in development contracts with the suppliers. Suppliers shall verify that also their sub-suppliers fulfill legal regulations, especially regarding material compliance and evaporative emissions. Additionally, suppliers are required to point out discrepancies of technical requirements and regulations.
+
+4. Scheduling in the Project.  
+
+4.1 Milestones.  
+Refer to Appendix 1 from PMO:
+- **VFe36_Material Production Launch Schedule-Build Plan_MRD.**
+
+| Milestones                      | Date       |
+|--------------------------------|-----------|
+| Preliminary Product Specification (PPS)  | 24.06.2021 |
+| Target Agreement (TA)           | 24.06.2021 |
+| Concept Confirmation (CC)       | 24.06.2021 |
+| Functional Confirmation (FC)    | 18.10.2021 |
+| Production Try Out (PTO) replace by PT2 | 25.12.2021 |
+| Launch Sign Off (LS) VN         | 30.04.2022 |
+| Launch Sign Off (LS) US/CA/EU   | 15.06.2022 |
+| Start of Production (SOP) VN    | 15.03.2023 |
+| Start of Production (SOP) US/CA | 28.03.2023 |
+| Start of Production (SOP) EU    | 31.07.2023 |
+
+Figure 1: Project Gates see in Appendix_1_VFe36_Material Production Launch Schedule-Build Plan_MRD.  
+
+4.2 Master Timing.  
+Refer to Appendix 1 from PMO:  
+- **VFe36_Material Production Launch Schedule-Build Plan_MRD.**  
+Figure 2: The Master Timing Chart (MTC) is shown in Appendix 1.
+
+5. Product Description.  
+
+5.1 Project Key Data.  
+N/A.  
+
+5.2 Sales Markets and Volume (The responsibility of VF).  
+SOP: The Vehicle will be introduced on the markets; refer to Appendix RFQ from Purchasing.
+
+5.3 Production Volume.  
+
+5.3.1 For Vietnam Market.  
+Refer to Appendix RFQ from Purchasing.  
+
+5.3.2 For Other Markets.  
+Refer to Appendix RFQ from Purchasing.  
+
+5.4 Target Customer / Market Requirements.  
+N/A.  
+
+5.5 Product Vision.  
+N/A.  
+
+5.6 Product Attribute Leadership Strategy (PALS) and Competition.  
+Refer to Appendix 2:  
+- **VFe36_Appendix_2_PALS_Product Attribute Leadership Strategy.**  
+
+Figure 3: Product Positioning VinFast (PALS).  
+Competition will consist of vehicles as well as vehicles from global premium brands.
+
+5.7 General Technical Specifications.  
+
+5.7.1 Vehicle Profile.  
+Refer to Appendix 3.  
+Features List.  
+
+5.7.2 Key Performance Index.  
+Refer to Appendix 5:  
+- **VFe36_VTS_V2.**  
+
+5.7.3 NVH and Driving Comfort.  
+
+The NVH (Noise, Vibration, Harshness), Acoustics and Driving Comfort target system is based on VinFast’s vision and the agreed Customer Market Profile.  
+
+Interior Noise and Vibration.  
+According to VinFast’s vision, NVH is a very important vehicle characteristic. The vehicle shall enable very good noise and vibration comfort balanced with vehicle dynamics and drivability.  
+
+- Wind noise and road noise will be balanced to ensure long-distance driving comfort and driving over rough or concrete roads will neither be exhausting nor annoying. This requires freedom from squeaks and rattles under all load cases and the avoidance of error states caused by wind or road high-frequency or tonal noise.  
+- Road noise is optimized through a high-level sound package and high attachment stiffness.  
+- Wind noise will not be disturbed under driving conditions due to good insulation and low air leakage levels.  
+
+Powertrain NVH Attribute.  
+When powertrain performance is demanded, the sound will convey strength, power, and responsiveness. The E-powertrain will be free of annoying tonal noises, and sound levels are expected to increase linearly with vehicle speed.  
+
+Vehicle Sensitivity.  
+Optimized through design iterations to achieve BIW stiffness, local dynamic stiffness, and noise/vibration transfer functions. This ensures class-leading quietness and noise levels.
+
+Exterior Noise.  
+Signature sound must meet both marketing expectations (e.g., "Spaceship-like sound") and homologation requirements.  
+
+The following requirements must also be met:  
+- Pass-by noise (EU: ECE R51; US/CA: CMVSS 1106; VN: Article 2.29 QCVN 09:2015/BGTVT).  
+- Horn noise (EU: ECE R28; VN: Article 2.26 QCVN 09:2015/BGTVT).  
+- AVAS noise (EU: ECE R138; US/CA: FMVSS 141).
+
+Reported Complete Vehicle NVH and Driving Comfort Targets:  
+- Subjective NVH evaluation: Interior noise, vibrations on contact points, acoustic quality incl. S&R.  
+- Powertrain noise and vibration.  
+- Wind noise.  
+- Road noise.  
+- Interior noise.  
+- Squeak & Rattle.  
+- Objective vibration levels on contact points (steering wheel and seat rail).  
+- Local/global dynamic stiffness of BIW / TB (Body in White / Trimmed Body).  
+- Pass-by and horn noise (homologation relevant).  
+- Audio acoustic balancing.  
+- Operational sound quality.  
+- Climate Control NVH.  
+- Air Leakage.  
+
+All target values, especially subjective rating targets, are related to reference measurements with benchmark vehicles. Targets are outlined in the Complete Vehicle Target Catalogue.
+
+General:  
+- BOM complementary for acoustically relevant parts.  
+- Optimizing part designs and mounting concepts across all modules.  
+- Benchmarking.  
+
+VinFast Released.
+Page 18
+VinFast 
+Management System 
+
+VFDSXXCVC0001 
+
+Version: 1.0 
+Uncontrolled copy when printed 
+18 | 72 
+Print date 
+Status 
+Complete Vehicle 
+
+● CAD analysis  
+   o S&R prevention  
+   o Implementation of vehicle insulation package  
+   o Development of a robust body and doors & closures sealing concept  
+
+● NVH insulation package  
+   o Keeping insulation package performance if concepts are changed  
+
+● Testing with Prototype vehicles  
+   o Optimization of all acoustic and vibration Issues  
+   o Target fulfillment testing on test tracks, test benches, official roads  
+   o TB and BIW modal analysis  
+
+All main simulation and testing activities are outlined in the DVP.  
+
+**5.7.4 Vehicle Safety**  
+This chapter describes the integration of vehicle safety requirements on full vehicle level.  
+Vehicle safety load cases are defined by VF vehicle safety department, in alignment with VinFast according to VinFast PALS (see chapter 5.6).  
+The end of all validation activities will at the first SOP at the latest. Development load cases are shown in the grid below.  
+
+**Content**  
+- 50 kph Rigid Wall Full Frontal Impact (UN ECE R137 + EURO NCAP)  
+- 56 kph Rigid Wall Full Frontal Impact (FMVSS 208 + US NCAP)  
+- 56 kph 40% Offset Deformable Barrier Frontal Impact (UN ECE R94)  
+- 50 kph MPDB Frontal Impact Euro NCAP (Euro NCAP)  
+- 64 kph 40% Offset Deformable Barrier Frontal Impact (ASEAN NCAP)  
+- 64 kph 25% Offset Rigid Barrier Frontal Impact (IIHS)  
+- 32 kph 75Deg. Rigid Pole Side Impact (UN ECE R135/EURO NCAP/FMVSS 214P)  
+- 50 kph Moving Deformable Barrier (950 kg) (UN ECE R95/ASEAN NCAP)  
+- 60 kph Moving Deformable Barrier (AE-MDB 1450 kg) (EURO NCAP)  
+- 60 kph Moving Deformable Barrier (IIHS 1910 kg) (IIHS)  
+- 62 kph 27Deg. Moving Deformable Barrier (FMVSS 214D)  
+- 50 kph Rigid Moving Barrier Rear Impact (UN ECE - VN DUE CARE)  
+- 80 kph 70% Offset Moving Deformable Barrier Rear Impact (FMVSS + VN DUE CARE)  
+- Roof Crush NHTSA + IIHS (FMVSS 216 + IIHS + VN DUE CARE)  
+- ISO Fix/Child Seat Anchorage Test (UN ECE R14 + FMVSS 225)  
+- Seatbelt Anchorage Pull Test (UN ECE R14 + FMVSS 210 + 207 CoG)  
+- Free motion head (FMVSS 201)  
+- Whiplash EU + US (EURO NCAP + IIHS)  
+- Pedestrian Protection UNECE/GTR9 (UN ECE R127+ GTR9 + ASEAN NCAP)  
+- Pedestrian Protection Euro NCAP (EURO NCAP)  
+- Luggage Retention + seat dynamic tests (UN ECE R17)  
+- Interior Fittings (Head Impact of Seat Back and I/P Assembly) (UN ECE R21 + FMVSS 201)  
+- Side Door Strength (FMVSS 214S)  
+
+VinFast Released
+Page 19
+VinFast Management System  
+VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+19 | 72  
+Print date  
+Status  
+Complete Vehicle  
+
+**VinFast's Vehicle Safety Goals**  
+1. The required load cases will be achieved through tests and simulation works, except for static SOP and R44 handbook load cases.  
+2. A 5-star ASEAN NCAP rating is targeted for the year 2022.  
+3. EU NCAP 5 Star requirements will be achieved.  
+4. IIHS rating of "Good" will be achieved.  
+
+**Work Scope for Vehicle Safety**  
+- CAE development will be conducted on demand using LSDyna as an FE simulation tool.  
+- Testing will be conducted with hardware outlined in DVP Appendix 4 at either VF premises or certified partner facilities.  
+- Tests will involve equipment such as dummies, measuring channels, and cameras. Engineers from Vehicle Safety Development will be present when necessary.  
+- Supplier tracking will be managed within module teams.  
+
+**Provisions by Suppliers**  
+- Suppliers must prepare full vehicle functions on a system level, utilizing their engineering expertise, CAE models, and tests.  
+- Suppliers must actively provide representative CAE models or codes that meet VF departmental requirements.  
+- All CAE models must be checked and validated through component tests by the supplier.  
+- Validation plans, financing, and parameter realization are supplier responsibilities. VF approval is contingent upon positive results.  
+- Production costs for low-volume tools or sub-area tools must also be handled by suppliers.  
+
+**Provisions by VinFast**  
+- VinFast will manage safety work share agreements in supplier contracts.  
+- VinFast will confirm provisions from donor vehicle OEM (e.g., selective testing data).  
+- Release parts for PTO/vehicles to test design and quality.  
+- Provision testing parts/vehicles to institutes or locations determined by the Vehicle Safety Department.  
+
+---
+
+**5.7.5 Operational Strength (Stiffness/Strength/Durability)**  
+
+**5.7.5.1 Purpose**  
+- Ensure a consistent design and development philosophy concerning operational strength across vehicle, system, and component levels.  
+- Guarantee sufficient strength based on vehicle-specific use conditions.  
+- Address product typology characteristics derived from the application profile.  
+- Define critical requirements to ensure operational strength for vehicle systems and components as defined in system/component technical specifications.  
+- Document any durability/strength failures during tests to support product improvement initiatives.  
+
+VinFast Released
+Page 20
+## VinFast Management System
+
+### VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+Page 20 of 72  
+Print date  
+Status: Complete Vehicle  
+
+---
+
+### Supplier Responsibilities  
+The supplier is required to carry out issue resolution for its components, including any failure of the attachment elements (e.g., bolts).  
+
+---
+
+### 5.7.5.2 Basic Dimensioning of Complete Vehicle, Systems, and Components  
+
+#### Operating Loads  
+- Operating loads occur during the intended use of the vehicle and are derived from measurements with benchmark vehicles available under Program VTS - Stiffness, Strength, and Durability.  
+- Road Load Data Acquisition (RLDA) according to market standards is used to develop data for special road regions, serving as input for structural durability tests.  
+- Load cases used during development follow standards and best practices for CAE analysis.  
+
+#### Mileage for Testing  
+- The tested mileage corresponds to 160,000 kilometers of normal customer driving.  
+- Safety-relevant components require additional safety factors depending on material and loading type.  
+- Special cases may involve validation through simulations following internal project agreements, considering sufficient safety factors.  
+- Approval on a complete vehicle level will be conducted on relevant test tracks such as rough road durability runs, lateral force durability runs, and on-road durability runs.  
+
+#### Testing Requirements  
+- Testing targets follow these principles:
+  - 50% damage-free testing.
+  - 100% testing with no damage for safety and function relevance.
+  - Testing at 150% to identify weak spots.
+- Safety-relevant modules like chassis have extended requirements.
+
+---
+
+#### Special Events  
+- Special events are occurrences with low frequency (<100) that fall under intended vehicle use (e.g., ABS braking).  
+- Vehicles must be dimensioned to ensure the following:  
+  - Special events do not affect functionality, and no safety-relevant damages occur.  
+  - Intended service life remains unaffected.
+
+---
+
+#### Misuse Events  
+- Misuse events include actions outside normal vehicle usage (e.g., curbstone impacts).  
+- Vehicles must meet these requirements:  
+  - Damages after misuse must be clearly recognizable by drivers (e.g., inclined steering wheel or wheel conditions).  
+  - A defined damage chain must be maintained after misuse (e.g., easily replaceable parts fail before body structure issues).  
+  - Cracks or damages should occur only alongside clearly recognizable plastic deformation, either within the same component or neighboring ones ("deformation before break").
+
+---
+
+### 5.7.5.3 Operational Strength Testing Relevant to Vehicle Testing  
+
+#### Testing Standards  
+The testing will follow VinFast testing standards.  
+
+---
+
+#### Vehicle Durability Testing  
+- **Mileage Target Life**: 160,000 km or 10 years (whichever comes first).  
+- **Structural Durability Test**: Use RLDA data on a 24 DoF MTS 329 machine according to market standards.  
+
+VinFast Released
+Page 21
+VinFast Management System
+
+VFDSXXCVC0001
+
+Version: 1.0  
+Uncontrolled copy when printed  
+21 | 72  
+Print date  
+Status: Complete Vehicle  
+
+### Operational Strength (Stiffness/Strength/Durability)
+
+#### **5.7.5.4 Project-specific targets concerning operational strength**
+The requirements/targets concerning operating strength are defined in the project-specific target catalogues:  
+1. Complete vehicle level  
+2. Module/system level
+Page 22
+3. Component level.
+
+### 5.7.6 Weight Management
+The weight target is based on VinFast vision and the agreed customer market profile. Because the vehicle weight has a significant influence on the energy consumption of the vehicle, the major goal of the weight management is to minimize the complete vehicle weight. Throughout the whole development, attention must be paid to a weight-optimized design of all components.
+Page 23
+5.7.6.1 Complete vehicle curb weight target.
+
+The complete vehicle targets for Curb / Kerb Weight, Design Weight (3 UP), and Laden Weight are shown in the table below. Kerb Weight is defined by ISO 1176 - 1990 as the complete vehicle weight, including all standard equipment, necessary operating consumables, and 90% fuel but excluding passengers or payload.
+
+Design Weight refers to a load case with three passengers weighing 68 kg/person, with an additional 7 kg/person for luggage. 
+
+Laden Weight is the sum of Kerb Weight and the defined Payload.
+
+### Vehicle Weight Information:
+- **ECO-SDI**: Curb weight is 2870 kg, Design weight is 3095 kg, and Laden weight is 3420 kg. Payload is 550 kg.
+- **PLUS 7seat-SDI**: Curb weight is 2925 kg, Design weight is 3150 kg, and Laden weight is 3475 kg. Payload is 550 kg.
+- **ECO-CATL**: Curb weight is 2911 kg, Design weight is 3136 kg, and Laden weight is 3461 kg. Payload is 550 kg.
+- **PLUS 7seat-CATL**: Curb weight is 2968 kg, Design weight is 3193 kg, and Laden weight ranges from 3500 kg (EU market) to 3518 kg (other markets). Payload is 525 kg (EU market) and 550 kg (other markets).
+
+Remove ICE.
+Page 24
+5.7.6.2 Load cases.
+- Load case 1 – Curb weight: Refer item 5.7.6.1.
+- Load case 2 – Design weight: Refer item 5.7.6.1.
+- Load case 3 – Laden weight: Refer item 5.7.6.1.
+
+5.7.6.3 Weighing - Simulation & Testing.
+Throughout the entire development process, the complete vehicle curb weight, axle load distribution, and axle loads will be calculated, monitored, and tracked. The status and the forecast (= status + risks – opportunities) weight will be reported periodically on complete vehicle and each module group level.
+
+5.7.7 Energy consumption & Driving Performance.
+The energy driving range and energy consumption and drivability targets are based on Competitive Landscape, Engineering Boundaries, and on VinFast Vision of an efficient vehicle and the agreed Customer Market Profile.
+
+With regard to Driving Range Measurement for BEV, EU 2017/1151 (WLTP) and SAE J1634 (EPA) will be followed.
+
+Driving performance and subjective drivability will be balanced with driving comfort.
+
+All subjective and objective targets on complete vehicle level are outlined in the complete vehicle target catalogue. Component/System targets will be derived by simulation and specified in the respective component specifications.
+
+The validation of driving performance, energy consumption, and drivability will be done on complete vehicle level, will be used, and drivability validation activities will take place during summer and winter testing.
+
+The individual components have to be investigated in detail to optimize the energy consumption of the vehicle for the relevant legal cycles – it is WLTP and EPA for EU and US markets – and will be reported during development. This has to be done under consideration of function vs. cost, timing, and weight impact and by considering all possible influences from and to the complete vehicle.
+Page 25
+5.7.6.2 Load cases  
+- Load case 1 – Curb weight: Refer to item 5.7.6.1.  
+- Load case 2 – Design weight: Refer to item 5.7.6.1.  
+- Load case 3 – Laden weight: Refer to item 5.7.6.1.  
+
+5.7.6.3 Weighing - Simulation & Testing Simulation  
+Throughout the entire development process, the complete vehicle curb weight, axle load distribution, and axle loads will be calculated, monitored, and tracked. The status and the forecast (status + risks – opportunities) weight will be reported periodically on the complete vehicle and each module group level.  
+
+5.7.7 Energy Consumption & Driving Performance  
+The energy driving range, energy consumption, and drivability targets are based on Competitive Landscape, Engineering Boundaries, and VinFast's Vision of an efficient vehicle, along with the agreed Customer Market Profile.  
+
+- Driving Range Measurement for BEV follows:  
+  - EU 2017/1151 (WLTP).  
+  - SAE J1634 (EPA).  
+
+Driving performance and subjective drivability will be balanced with driving comfort.  
+
+All subjective and objective targets on complete vehicle level are outlined in the complete vehicle target catalogue. Component/System targets will be derived by simulation and specified in the respective component specifications.  
+
+Validation for driving performance, energy consumption, and drivability will occur on a complete vehicle level and include summer/winter testing.  
+
+The individual components must be investigated in detail to optimize vehicle energy consumption for legal cycles (WLTP and EPA for EU and US markets), taking into account functionality, cost, timing, and weight impacts from and to the complete vehicle.  
+
+**Corresponding VF engineering activities:**  
+- **1D Simulation**  
+  - Driving Performance.  
+  - Driving Range/Energy Consumption.  
+
+- **Testing in PT, PTO & PP Phase:**  
+  - Driving Performance.  
+  - Driving Range/Energy Consumption.  
+  - Drivability Evaluation.  
+
+All simulation and testing activities are outlined in the DVP.  
+
+5.7.8 Chassis and Vehicle Dynamics  
+Chassis system and Vehicle Dynamics targets are based on VinFast’s Vision and the agreed Customer Market Profile.  
+
+The subjective and objective targets align with the VTS to achieve overall vehicle dynamic performance balanced with comfort.  
+
+**Suspension Definition:**  
+Wheel travel and suspension layout must balance handling and comfort. Axle concepts, wheel travel, kinematics, and bushing compliance will align with existing vehicles, with potential fine-tuning for spring dampers and stabilizers to match comparable performance.  
+
+**Vehicle Type:**  
+| Vehicle Type | Variant | Suspension Front                | Suspension Rear                            |  
+|--------------|---------|---------------------------------|--------------------------------------------|  
+| VFe36        | Eco     | Independent double wishbone    | Multi-link air spring with air shock absorber |  
+| VFe36        | Plus    | Independent double wishbone    | Multi-link air spring with air shock absorber |
+Page 26
+### Tire Definition
+The tire dimensions are specified according to available configurations from the vehicles.
+
+#### Vehicle Type: VFe36
+- **Variant: Eco**
+  - **Tire Dimension (F/R):** R20
+  - **Tire Pressure (Normal Load 1-4 persons):**
+    - Front: 2.4 bar
+    - Rear: 2.6 bar
+  - **Tire Pressure (GVW Load 5-7 persons):**
+    - Front: -
+    - Rear: 2.8 bar / 3.3 bar
+  - **Wheel Rim Size:** R20
+  - **Wheel Rim Type:** Alloy
+  - **Wheel Offset (mm):** 55
+
+- **Variant: Plus**
+  - **Tire Dimension (F/R):** R21
+  - **Tire Pressure (Normal Load 1-4 persons):**
+    - Front: 2.6 bar
+    - Rear: 2.6 bar
+  - **Tire Pressure (GVW Load 5-7 persons):**
+    - Front: 2.9 bar
+    - Rear: 3.3 bar
+  - **Wheel Rim Size:** R21
+  - **Wheel Rim Type:** Alloy
+  - **Wheel Offset (mm):** 55
+
+Tire selection will be performed with a primary focus on performance behavior (dry and wet), while considering rolling resistance and noise levels as well.
+
+---
+
+### Steering System Definition
+The steering system shall enable good steering accuracy and road contact. The steering characteristic should be comparable to the vehicle. In the case of an electric power steering system, the steering ratio and kinematic will remain the same as for the vehicle.
+
+---
+
+### Brake Behavior
+- Brake performance, thermal behavior, and NVH behavior should be comparable to the vehicle.
+- Sufficient brake cooling is required to meet similar performance as the vehicle.
+- The brake pedal feel should be comparable to the vehicle. The bulkhead stiffness must enable the same performance level.
+- The brake controller is a state-of-the-art system capable of supporting energy recuperation during braking.
+
+---
+
+### Electronic Stability Control (ESC)
+- ESC will control torque distribution regarding wheel slip and yaw reaction.
+- A single ESC parametrization will be implemented.
+- ESC Modes will not be available.
+- An ESC switch will allow for toggling between ESC ON and ESC OFF.
+
+---
+
+### Correspondent Engineering Activities
+- **FE simulations (MSC.Nastran):**
+  - BIW and TB stiffness.
+- **MBS simulations (ADAMS):**
+  - R&H complete vehicle analyses (only when hydraulic power steering implementation occurs).
+- **Testing on K&C Rig:**
+  - Evaluation of K&C axle behavior.
+- **Testing in Mule Phase (with vehicles):**
+  - Tire selection.
+Page 27
+o Chassis Tuning  
+
+ Testing in EP Phase  
+  o Calibration of ESC/ABS  
+  o Brake validation (performance, comfort, NVH).  
+  o Steering tuning  
+  o Chassis tuning (Secondly)  
+  o Brake Improvement (Disc, Pad and Optional BCAD).  
+
+ Testing in LS Phase  
+  o Brake validation (performance, comfort, NVH, NVH Durability).  
+
+All main simulation and testing activities are outlined in the DVP.  
+
+System suppliers are requested to perform validation activities as specified in respective technical specifications. All parts that are required for the validation activities are specified by DVP and shall meet the required maturity level. VF will define quality criteria and validation methods for alignment with suppliers.  
+
+**Supplier responsibility:**  
+  o Participate in and support validation activities.  
+  o Provide parts as specified in DVP.  
+  o Provide timing for part development and production.  
+  o Provide simulation models.  
+  o Provide software descriptions for the ESC/ABS/EPS functions.  
+  o Support the start-up of Mule and EP – vehicles.  
+  o The calibration process to achieve all legal requirements.  
+
+### 5.7.8.1 General Scope  
+
+Vehicle Dynamics and Driving Performance are important vehicle characteristics. The vehicle shall enable a comfort which is well balanced with vehicle dynamics and drivability. Consequently, global BIW stiffness’s and local stiffness’s at chassis and powertrain attachment points are highly critical to create a robust vehicle concept. Static & dynamic connection stiffness regarding chassis links and subframe to body in white should be the same as for the vehicle. Body in white torsion and bending stiffness must be the same as the vehicle. Also, a good alignment with aerodynamics will enable the desired level of lift at front and rear axle up to top speed.  
+
+### 5.7.8.1.1 Linear Range Handling  
+
+The following paragraph specifies the required handling characteristics of the vehicle during that portion of vehicle maneuvering where the vehicle’s lateral acceleration response to increasing steering wheel angle (SWA) is linear (i.e., the vehicle steering sensitivity is close to constant). Linear range handling requirements are derived from Constant Radius Cornering test (CRC).  
+
+#### 5.7.8.1.1.1 Understeer Gradient  
+
+During the portion of vehicle maneuvering where the vehicle’s lateral acceleration response to increasing wheel angle is not linearly proportional. A measure of the understeer gradient can be...
+Page 28
+### VinFast Management System  
+### VFDSXXCVC0001  
+**Version: 1.0**  
+**Uncontrolled copy when printed**  
+**Page 28 | 72**  
+**Print Date**  
+**Status: Complete Vehicle**  
+
+Linear Range Handling requirements are derived from **Constant Radius Cornering test (CRC)**. These specify handling characteristics based on steady-state lateral acceleration changes concerning steering wheel angle.
+
+#### Understeer Gradient  
+During vehicle maneuvers where lateral acceleration response to steering wheel angle is not linearly proportional, the understeer gradient values are as follows:  
+
+| Requirement Suffix | Understeer Gradient (deg/g) | Loading Condition | ECO/PLUS Suspension | Sporty Suspension |
+|---------------------|-----------------------------|-------------------|----------------------|-------------------|
+| a                   | 1.8-2.5                    | D+E               | 2.0-2.5             |
+
+*Current VTS defined; confirmation to occur during physical vehicle testing.*
+
+---
+
+#### Roll Gradient  
+The rate of change in vehicle roll angle with steady-state lateral acceleration, derived from CRC at 0.3g, must adhere to the following table:  
+
+| Requirement Suffix | Roll Gradient (deg/g) | Vehicle Loading | ECO/PLUS Suspension | Sporty Suspension |
+|---------------------|-----------------------|-----------------|----------------------|-------------------|
+| a                   | ≤5.0                 | D+E             | <4.5                |
+
+*Current VTS defined; confirmation to occur during physical vehicle testing.*
+
+---
+
+#### On-Center Handling  
+The handling performance in the vehicle's **on-center handling range** is evaluated at driver and equipment load, with the standard speed being 100 km/h for evaluation. For high-speed use, subjective evaluation is recommended up to **140 km/h**.
+
+##### Steering Sensitivity  
+The rate of change in steady-state lateral acceleration due to steering wheel angle input is specified as follows:  
+
+| Requirement Suffix | Steering Sensitivity (g/100deg SWA) | Speed (km/h) | Comfort ECO/PLUS Suspension | Sporty Suspension |
+|---------------------|-------------------------------------|--------------|-----------------------------|-------------------|
+| a                   | 1.1-1.5                           | 100          | 1.3-1.5                     |
+
+---
+
+##### Lateral Acceleration at Zero Steering Torque  
+The average value of lateral acceleration at zero steering wheel torque during a **0.2 Hz sinusoidal SWA input** is specified below:  
+
+| Requirement Suffix | Lateral Acceleration at Zero Steering Torque (g) | Speed (km/h) | ECO/PLUS Suspension | Sporty Suspension |
+|---------------------|-------------------------------------------------|--------------|----------------------|-------------------|
+| a                   | >0.8                                            | 100          | >1.6                |
+
+VinFast Released
+Page 29
+5.7.8.2 Maximum Lateral Acceleration. The maximum driver-controllable steady state lateral acceleration, derived from the maximum lateral acceleration test procedure, shall be as specified in the table below using R=100m CRC test.
+
+**Requirement Table: Maximum Lateral Acceleration**  
+Suffix: a  
+- Comfort Suspension: >0.8 g  
+- Sporty Suspension: >0.8 g  
+
+5.7.8.3 Ride and Handling (Objective). Objective tests do not currently exist to evaluate vehicle ride and handling performance under all operating conditions. The following paragraphs address subjective evaluations of ride and handling performance over various surfaces and conditions.
+
+**Note on Subjective Requirements:** These subjective ride and handling requirements are included to supplement the objective handling requirements. They are not intended to replace or supersede any of the objective handling parameters.  
+
+**Subjective Ratings (Appraisal):** ≥7.0  
+
+5.7.9 Function Powertrain. The powertrain functional integration target system is based on VinFast Vision and the agreed Customer Market Profile. Subjective and objective targets have been developed per legal requirements (OBD), considering drivability and powertrain functions.
+
+**Powertrain Calibration:** The calibration target is to balance responsive and error-free driving while addressing driver comfort during long-distance rides. OBD standards must always be maintained.
+
+**Powertrain Function:** The scope of Powertrain function development aims to create a system aligned with VinFast Vision. All functions aim for simplicity, robustness, and providing essential feedback to the driver.
+
+**System supplier responsibilities include:** 
+1. Performing validation activities as specified in technical specifications.  
+
+**Corresponding VF Engineering Activities Comprise:**  
+- Development of powertrain functions (BEV):  
+  - Item definition  
+  - FUSA process  
+  - Drafting function descriptions  
+  - Refining specifications with suppliers
+Page 30
+5.7.8.2 Maximum Lateral Acceleration  
+The Maximum driver controllable steady state lateral acceleration, as derived from Maximum lateral acceleration test procedure, shall be as indicated in the table. R=100m CRC test.  
+Requirement Suffix:  
+- Max. Lateral Acceleration (g):  
+  - Comfort Suspension: >0.8  
+  - Sporty Suspension: >0.8  
+
+5.7.8.3 Ride and Handling (Objective)  
+Objective tests currently do not exist to evaluate vehicle ride and handling performance under all operating conditions. The following paragraphs address subjective evaluations of ride and handling performance over a wide variety of surfaces and operating conditions.  
+These subjective ride and handling requirements are included to supplement the objective handling requirements. They are not intended to replace or supersede any of the objective handling parameters.  
+
+Subjective Rating (Appraisal): ≥7.0  
+
+5.7.9 Function Powertrain  
+The Powertrain functional integration target system is based on VinFast Vision and the agreed Customer Market Profile. The subjective and objective targets have been developed according to legal requirements (OBD) and with regard to drivability and powertrain functions.  
+Generally, it is intended to meet this vehicle's overall balance of vehicle dynamic performance vs. comfort.
+
+Powertrain Calibration  
+The powertrain drivability calibration target is supposed to be a balance of responsive and error state-free driving without annoying the driver during long-distance rides. OBD must always be fulfilled.  
+
+Powertrain Function  
+The work scope of Powertrain function development is to create a system that fits the overall VinFast vision. All functions have the target to have a simple usability, being robust, and giving the driver essential feedback.  
+System suppliers are requested to perform validation activities as specified in respective technical specifications.  
+
+Corresponding VF engineering activities comprise of:  
+- Development of powertrain functions (BEV):  
+  - Item definition  
+  - FUSA process  
+  - Function description drafts  
+  - Refinement with suppliers  
+  - Functional interface management to other systems  
+  - Validation  
+
+- Testing on Mule vehicles (BEV):  
+  - Startup support of vehicle  
+  - I/O checking  
+  - Torque Path  
+  - HV-System Management  
+  - Thermal Management  
+  - Display  
+  - Powertrain Coordination  
+  - Evaluation of drivability, pedal characteristics, shifting points, and the available NVH performance  
+  - Coordination and tracking of improvement measures  
+
+- Testing in PTO (BEV):  
+  - HV-System Management  
+  - Thermal Management  
+  - Display  
+  - Driver Assistance Systems  
+  - LV System Management  
+  - Powertrain Coordination  
+  - Energy Management  
+  - Diagnostics  
+  - HMI related  
+  - Evaluation of drivability, pedal characteristics, shifting points  
+  - Consideration of the available NVH performance evaluations and issues  
+  - Coordination and tracking of improvement measures  
+  - OBD (homologation relevant)  
+
+Supplier Management and Support for:  
+- Powertrain calibration  
+- Powertrain test trips (summer tests/winter tests/altitude/race track)  
+- Preparation / Buy-off rides  
+- Status meetings and workshops  
+
+Supplier responsibilities:  
+- Participate in and support validation activities, when requested by VF.  
+- Provide parts as specified in DVP&R free of charge.  
+- Provide timing for part development and production.
+Page 31
+5.7.10 Vehicle Architecture & Ergonomics.
+
+The definition and technical geometric specification regarding complete vehicle dimensions in interior and exterior are based on SAE J1100 measurement definitions. The main criteria are defined in the VTS. All changes on parts and modules, which affect the vehicle layout dimensions or geometric coherence of the vehicle, need to be communicated immediately for separate evaluation.
+
+**Ergonomics.**
+
+All main ergonomic targets, like ingress/egress, seating layout (including armrest positions, steering wheel position, and roominess definition), are derived by analysis of the benchmark vehicles mentioned in chapter 2.1. The final approval of all ergonomic targets will be done by VinFast. All subjective and objective targets are outlined in the complete vehicle target catalog shown in VTS.
+
+**Vehicle Architecture includes the following Tasks:**
+
+- **Complete Vehicle Package / Layout & Ergonomics:**
+    - Creation of package layout describing all relevant complete vehicle measures while considering all technical boundaries that have geometric impact.
+    - Dimensional concept target settings based on benchmark vehicles (virtual).
+    - Hard point models to ensure dimensional concept requirements.
+    - Ongoing investigations to ensure dimensional concept requirements.
+    - Consideration and input for all geometric relevant homologation issues (wheel covering, viewings, etc.).
+    - Reporting of all package-relevant topics to internal management and VinFast.
+    - Ongoing package investigations and proposals to ensure a coherent package.
+    - Creation of hard point models (technical input) to ensure the package.
+    - Ergonomic target settings based on benchmark vehicles (virtual and physical benchmark).
+    - Hard point models to ensure ergonomic requirements.
+    - Ongoing ergonomic investigations with RAMSIS and creation of proposals to ensure ergonomic requirements.
+    - Geometric part-by-part checks for defined milestones in the project (e.g., PR-release).
+    - Release recommendations regarding coherent package for defined milestones in the project (e.g., PR-release).
+    - Weekly Vehicle Architecture meetings.
+Page 32
+5.7.11 Aerodynamics.
+
+The aerodynamic target system focuses on VinFast's vision of a highly efficient vehicle to maximize driving range. A major goal is to minimize aerodynamic drag while enabling efficient airflow through coolers and brakes.
+
+**Exterior Design:**  
+All air inlets and outlets must be optimized regarding number, position, size, and styling to reduce negative effects on aerodynamic coefficients while maximizing functionality. The underbody surface is generally required to remain flat and closed, with openings implemented only as necessary. The side mirrors must be designed to minimize aerodynamic drag, aeroacoustic excitation, and wind noise.
+
+**Complete Vehicle Targets:**  
+All targets are outlined in the VTS.
+
+**CFD Simulations:**  
+- Aerodynamic drag.  
+- Flow through heat exchangers.  
+- Airflow to the brakes.  
+
+**Testing with Aerodynamic Models:**  
+Optional, dependent on CAE model maturity. Testing involves the complete 1:1 vehicle model for optimizing aerodynamic coefficients and styling, including refining inlet and outlet ducts.
+Page 33
+### 5.7.12 In-Vehicle Thermal Comfort
+The in-vehicle thermal comfort and defrost/demist concept will be developed to fulfill the objectives described by PALS, as shown in Appendix 2. The concept will focus on enabling foot well heating for the 1st seat row. In case of the 2nd seat row, there will be an outlet in the center console (optional). These outlets will be connected to the front HVAC system and will receive temperatures and airflow from there, with control depending on the first row's settings.
+
+All thermal comfort-relevant features are shown in the feature lists in Appendix 3. Subjective and objective complete vehicle targets with regard to in-vehicle thermal comfort are outlined in the VTS.
+
+Air extraction will be implemented at the rear end of the passenger cell to minimize acoustic impact by adding sound absorbers and increasing the length of the air (airborne noise) path. 
+
+The climate control unit provided by the supplier must include main functions for HVAC control and should have a basic calibration as a starting point for optimization.
+
+All relevant parts for HVAC functions including heating, ventilation, and air conditioning must meet specified functional requirements in the component and system specifications. Documented measurements from suppliers must confirm that supplied parts meet all tolerance requirements.
+
+All necessary development and validation tests for the HVAC system will adhere to VF test standards.  
+
+#### Development Strategy for the HVAC System:
+- CFD simulations will assess and optimize airflow distribution, mass flow, vent filling, and pressure loss for vent, foot, defrost, and air intake.
+- Final parameters for the HVAC system will be defined after tests for:
+  - Normal climate conditions (10°C to 25°C).
+  - Hot climate conditions (25°C to 40°C).
+  - Cold, winter weather conditions (0°C to 10°C) performed during PTO.
+
+---
+
+#### 5.7.12.1 Air Ducts and Distribution Water Tightness Requirements
+VF will perform water tightness tests at the complete vehicle level using a rain chamber. During these tests, the following requirements must be met:
+- No water ingress at the intake of the climatization air.
+- No water ingress into the passenger compartment.
+- No droplets noticeable on the particle filter due to water spray.
+
+All fresh air paths to the HVAC must avoid air leakage from the engine compartment under VF-specified test conditions. Engine compartment and fresh air intake path sealing lines and joint lines will be checked for absence of leakage using smoke generators, soapy water bubble tests, or other methods.
+
+---
+Page 34
+5.7.12 In-Vehicle Thermal Comfort.
+
+The in-vehicle thermal comfort and defrost/demist concept will be developed to fulfill the objectives described by PALS as outlined in Appendix 2. The concept prioritizes enabling foot well heating for the 1st seat row, with an optional outlet in the center console for the 2nd seat row. These outlets are connected to the front HVAC system, and their performance depends on the settings of the first row. 
+
+All thermal comfort features are detailed in the feature lists located in Appendix 3. Both subjective and objective complete vehicle targets regarding in-vehicle thermal comfort are outlined in the VTS. 
+
+The air extraction mechanism is positioned at the rear end of the passenger cell, enhancing acoustic performance by using sound absorbers and extending the length of the air noise path.
+
+The supplier's climate control unit must feature basic functions for HVAC control and provide initial calibration for subsequent optimization.
+
+HVAC function components must adhere to specified functional requirements, confirmed through documented measurements by suppliers ensuring tolerance compliance. Validation tests for the HVAC system must follow VF standards.
+
+### Development Strategy for the HVAC System:
+- Conduct CFD simulations to evaluate vent, foot, defrost, air intake performance, focusing on air distribution, mass flow, vent filling, pressure loss, and climate comfort optimization.
+- Perform final HVAC system tests under normal climate conditions (10°C to 25°C), hot weather (25°C to 40°C), and cold winter conditions (0°C to 10°C) in PTO.
+- Finalize and define HVAC parameters for FRS SOP.
+
+### 5.7.12.1 Air Ducts and Distribution Water Tightness Requirements.
+VinFast will perform water tightness tests at the complete vehicle level using a rain chamber. The following must be achieved:
+- No water ingress at the climatization air intake.
+- No water entry into the passenger compartment.
+- No water spray droplets on the particle filter.
+
+Tests will ensure absence of air leakage by employing methods such as smoke generators and soapy water bubbles.
+
+### 5.7.12.2 Layout of Air Distribution Ventilation Outlets.
+The ventilation outlets must demonstrate functionality and adjustability sufficient to support immediate cooling and climate comfort, preventing screen fogging. All subjective ratings must achieve a “satisfactory” level and meet objective targets.
+
+#### Heating Outlets in the Foot Well Area:
+Outlets must create an even flow of heated air to avoid hot/cold spots and provide rapid heating for the entire cabin, ensuring steady climate comfort for all passengers.
+
+#### Defrost Outlets:
+Defrost outlets must direct heated air reliably to windscreen and side screens for fast and steady demisting during normal driving conditions, adhering to regulation (EU) No 672/2010.
+
+### 5.7.12.3 Absence of Air Draught for Good Coziness (Climate Comfort).
+The HVAC system must facilitate climate comfort tests covering typical driving and ambient climate conditions for the target market area, ensuring the AI (Assessment Index) "NEUTRAL" rating is achieved consistently. 
+
+The following must be ensured:
+- Temperature stratification meets given tolerances.
+- Assessments align with development targets.
+- Minor deviations only permissible in extreme climates.
+
+HVAC system performance control must be verified under diverse climatic conditions.
+
+### 5.7.12.4 Passenger Compartment Air Pressure, Vehicle Tightness.
+Fresh air intake and rear extraction must be designed to ensure minimal air pressure changes within the passenger compartment across varied driving conditions and HVAC modes. 
+
+Doors and trunk lids/tailgates must close freely without creating noticeable pressure peaks. HVAC setting changes should avoid causing pressure disturbances.
+
+Changes in the quantity of climatization air due to vehicle speed variations must remain imperceptible to passengers.
+Page 35
+### 5.7.12 In-Vehicle Thermal Comfort 
+
+The in-vehicle thermal comfort and defrost/demist concept will be developed to fulfill the objectives described by PALS, as shown in Appendix 2. Consequently, the concept will focus on enabling footwell heating for the first seat row. For the second seat row, there will be an outlet in the center console (optional). These outlets are connected to the front HVAC system, which gets the temperatures and airflow from there, so their controlling depends on the setting of the first row.
+
+All thermal comfort relevant features are outlined in the feature lists, see Appendix 3. The subjective and objective complete vehicle targets with regard to in-vehicle thermal comfort are outlined in the VTS. Air extraction will be implemented at the rear end of the passenger cell, aiming to minimize the acoustic impact by adding sound absorbers and increasing the length of this air-borne noise path.
+
+The climate control unit that the supplier provides must include the main functions for the control of the HVAC system and come with a basic calibration to facilitate optimization.
+
+#### Development Strategy for the HVAC System
+
+- CFD simulations will be conducted to assess vent, foot, defrost, and air intake configurations. These simulations will review air distribution, mass flow, vent filling, and pressure loss. Additional simulation loops will optimize climate comfort and acoustics parts.
+- Final tests and definition of HVAC parameters will account for normal climate weather conditions (10°C to 25°C), hot climate weather conditions (25°C to 40°C), and additional applications for cold, winter weather conditions (0°C to 10°C) performed in PTO.
+
+### 5.7.12.1 Air Ducts and Distribution Water Tightness Requirements
+
+During water tightness tests performed at the complete vehicle level in a rain chamber, the following requirements must be met:
+- No water ingress at the intake of the air climatization.
+- No water ingress into the passenger compartment.
+- No droplets noticeable on the particle filter due to water spray.
+
+Fresh air paths to the HVAC must avoid air leakage against air entering from the engine compartment under specified test conditions. Smoke generators, soapy water bubbles, or other methods will ensure leak-free joint lines and sealing lines.
+
+### 5.7.12.2 Ventilation Outlets 
+
+Ventilation outlets must demonstrate functionality and operability for air stream distribution, propagation, and adjustability to:
+- Provide immediate cooling.
+- Enhance climate comfort.
+- Prevent screen fogging while avoiding disruptive airflow effects.
+
+Subjective ratings should reach at least "satisfactory" and meet objective targets per the specification sheets for ducts, outlets, and grills.
+
+#### Heating Outlets in the Footwell Area 
+
+Heating outlets must produce even heated airflow across the footwell area, avoiding hot spots or cold air impacts. This ensures quick heating and steady-state climate comfort for all passengers.
+
+#### Defrost Outlets 
+
+Defrost outlets must direct heated air onto the windshield and front side screens. Large screen areas must defrost or demist quickly and reliably while maintaining mist-free operation during normal car use. Compliance with Regulation (EU) No 672/2010 for BEV is required.
+
+### 5.7.12.3 Absence of Air Draught for Optimal Climate Comfort 
+
+Climate comfort tests must ensure HVAC system adjustments can achieve an AI (assessment index) of "NEUTRAL" (+/- 1) under typical driving and ambient conditions. 
+
+Additional requirements include:
+- Passenger compartment temperature stratification within tolerances.
+- Coziness assessment in extreme climate regions performed by a nominated team under controlled conditions.
+
+### 5.7.12.4 Passenger Compartment Air Pressure and Vehicle Tightness 
+
+Fresh air intake and rear air extraction must minimize air pressure changes in the passenger compartment while ensuring HVAC system functionality. 
+
+Specifications:
+- Air pressure must increase by at least 125Pa at a fresh air amount of 100SCFM delivered by the HVAC system with rear air extractors tightly closed. 
+- Verification of sufficient cross-sectional equivalency during tightness checks is required.
+
+Air pressure drop characteristics must be finely tuned throughout the vehicle to meet specifications. Swing-free closure of doors and trunk lid must not cause disturbing pressure peaks.
+
+### 5.7.12.5 Recirculation Air and Rear Air Extraction 
+
+Symmetrical distribution of extracted air via passages in footwell insulation panels (for recirculation) and rear panels (for air extraction) must be achieved. This avoids noticeable pressure increases while maintaining temperature and comfort assessments under various driving and climatic conditions.
+
+### 5.7.12.6 Mass Flow and Distribution of Conditioned Air 
+
+Mass flow distribution primarily depends on the HVAC system's capacity.
+
+### 5.7.12.7 Temperature Distribution and Control  
+
+The HVAC system must ensure reproducible delivery of conditioned air with consistent temperature and mass flow according to settings while maintaining minimal deviations.
+
+#### Temperature Control Characteristics  
+
+Under steady driving conditions, outlet temperatures must closely align with control settings, regardless of adjustment approaches to new settings.
+
+#### Temperature Stratification  
+
+A stable and comfortable temperature balance must be achieved between heated and footwell areas in steady-state conditions. HVAC should avoid additional stratification functions.
+
+### 5.7.12.8 Refrigerant Circuit  
+
+The refrigerant circuit’s output must deliver stable, optimized, cost-effective, and energy-efficient performance. Tests and measurements will evaluate these requirements.
+Page 36
+o Determination of the optimal charge of refrigerant.
+o Passive heat up.
+o Maximum cool down.
+o Operating reliability under extreme ambient and operating conditions.
+o Adjustment of the blower speed characteristics.
+o Cooling air flow through the condenser.
+o Determination of the optimum charge of lubricant.
+o Evaluation of the appropriate position of the dryer/filter bottle and of the charge air cooler.
+o Establishment of the climate compressor torque consumption characteristics.
+
+### Determination of the optimal charge of refrigerant
+The optimal charge ensures a proper effect of the refrigerant circuit for as long as possible. This amount of refrigerant is just a little less than the limit of overfill. An overfilling with refrigerant causes a significant increase of the pressure and the peak temperature at the high-pressure side. The limits of the safety devices can be reached and an A/C cut-off will be the consequence.
+
+### Passive heat up
+The vehicle must not suffer from too high temperatures in the passenger compartment even when parked in hot ambient and at high solar radiation. This passive heat-up inside the passenger compartment has to be minimized to an acceptable level by appropriate heat insulation of the roof and solar radiation protection for the screens by optimized geometry (sizes and angles) and thermal properties of the glass.
+
+### Maximum cool down
+Passengers should get convenient cooling as fast as possible after the start of the vehicle when heated up in the sun. To demonstrate the cooling capacity of the system, the passenger compartment must be cooled immediately by sufficient air of corresponding low temperature.
+
+### Operation reliability under extreme ambient and operation conditions
+Even with extreme hot ambient temperatures, the A/C system has to show sufficient cooling function.
+
+### Adjustment of the blower speed characteristics
+Good system efficiency requires sufficient cooling air drawn through the condenser, which is only possible with optimized cooling fan speed characteristics.
+
+### Cooling air flow through the condenser
+The HVAC system efficiency has to be ensured by uniform supply of cool fresh air to the whole surface of the condenser.
+
+### Determination of the optimum charge of lubricant
+The supplier of the A/C compressor shall establish the necessary amount of lubricant. The lubrication...
+Page 37
+5.7.12.9 Heating Circuit Supply of Coolant. 
+A satisfactory heating even at very low ambient temperatures requires a minimum value for the coolant flow through the heater circuit of the HVAC unit.
+
+Heat Up. 
+The quick heat up of the passenger compartment when driving after a cold start has to be ensured accounting for the heat-up characteristics of the engine.
+
+5.7.12.10 Defrost/Demist. 
+The HVAC system has to be designed to keep screens and front row side windows reliably and permanently free of ice and mist.
+
+Defrost. 
+Following the governmental requirements of all countries of the targeted markets, the ability to eliminate icing from the windscreen has to be proven. Corresponding requirements are to be fulfilled for the front side screens to maintain traffic safety and general comfort. Windscreen testing has to be performed according to regulation (EU) No 672/2010 and (US) FMVSS 103 for BEV.
+
+Specification: Definition of the fields of view according to regulation (EU) No 672/2010. 
+The regulations in force have to be fulfilled in 80% of the required time:
+- After 20 minutes: 80% of driver’s field of view free (“field A”).
+- After 25 minutes: 80% of co-driver’s field of view free (“field A’ ”).
+- After 40 minutes: 95% of total field of view free (“field B”).
+
+Deicing/melting progress has to be documented after engine start every 5 minutes. Total testing time until complete deicing of “field B” is a maximum of 40 minutes. If a car is clarified/homologated as a passenger car class following the regulatory requirements, the following must be fulfilled as per FMVSS 103 (US): A minimum of 80% of area A and 100% of area C should be defrosted within 30 minutes.
+
+Demist. 
+Windscreen testing has to be performed according to regulation (EU) No 672/2010 and (US) FMVSS 103 for BEV.
+
+Specification: Definition of the fields of view according to regulation (EU) No 672/2010. 
+The regulations in force have to be fulfilled in 80% of the required time:
+- After 10 minutes: 90% of individual fields of view free (“field A”).
+Page 38
+5.7.12.11 Functions Blower Motor.
+
+Overload by excessive pressure difference on the blower (COP): The blower or blower motor must not be damaged by any tolerable or designated operating mode of the vehicle. This testing of overload due to drag air must be performed.
+
+**Blower Steps:**  
+To meet various requirements, the blower control must provide at least four speed settings (besides shut-off). Additional steps shall be set to meet acoustical and additional performance requirements incrementally.
+
+**Temperature Control Range:**  
+Air temperature at outlets, flow rate, and distribution must meet coziness criteria. The adjustable range shall be nominally from 16°C to 28°C.  
+- Setting "MIN" (16°C) equates to 0% heating power.  
+- Setting "MAX" (28°C) equates to 100% heating power, with the additional limitation:  
+  - Maximum air temperature at any outlet shall not permanently exceed 60°C.  
+  - Maximum air temperature at any outlet shall not exceed 65°C at all.  
+
+**Rear Window Heating Control:**  
+An electric window heating capability must be provided to ensure free visibility through the rear window. The heating system shall be switchable as required and automatically managed depending on environmental climate conditions. A second request for rear window heating within a specific timeframe shall result in permanent part-time operation of the heating.
+
+5.7.12.12 Condensed Water Management.
+
+**Condensed Water in HVAC Unit:**  
+Condensed water inside the HVAC unit must be fully drained from the unit and passenger compartment via the designated water drainage path, ensuring no overpressure at the path's external outlet.
+
+**Occurrence of Condensed Water in the Vehicle:**  
+Condensed water may form on cold HVAC components (e.g., refrigerant lines, evaporator locations, or cold air ducts). This condensed water must not interfere with or damage electric/electronic components susceptible to humidity and must remain outside the passenger compartment.
+Page 39
+5.7.13 Heat Management & Powertrain Cooling Heat protection.
+
+5.7.13.1 Operation ambient temperatures.
+The development and validation of heat protection within the complete vehicle ensures that all relevant component temperatures remain below the maximum allowed limits, which are derived from vehicle operation at ambient conditions specific to all target markets. For VN, EU, and US/CA markets, all functions should operate normally for 10 years under temperatures ranging from -30°C to 45°C. Parts located in the engine bay close to the drivetrain must support normal operation in an 80°C environment with acceptable fading over 10 years.
+
+All complete vehicle targets are outlined in the VTS Appendix 3. Heat protection validation tests for components are performed in climatic chambers and on proving grounds. All relevant component temperatures and measurement points must be defined in coordination with the responsible modules and specified in respective component specifications. Vehicle tests are conducted following the VF Thermal Testing Standard in PTO Vehicles.
+
+5.7.13.2 Powertrain & Electric Vehicle Cooling.
+The cooling system design accounts for both functionality and packaging specifications.
+
+**Simulation.**
+A 1D simulation model is established based on the cooling system layout to validate the existing concept concerning changes in air flow caused by exterior modifications. If necessary component data is unavailable during the early phase, assumptions based on engineering judgment are employed. Simulations occur alongside experiments throughout the development phase to validate and improve the cooling system and optimize component dimensions.
+
+**Figure Description.**  
+
+**Figure 6: Cooling Layout BEV.**  
+The schematic illustrates the cooling system layout for a battery-electric vehicle. It includes components such as pumps, heat exchangers, temperature sensors, and subsystems for battery loop, HVAC, refrigeration loop, and EDS/WCC cooling. The layout ensures efficient thermal management for maintaining system performance.
+Page 40
+Testing & Function Calibration  
+**Cooling performance tests**  
+The vehicle configuration (engine and gearbox) and its setup have to be defined in collaboration with the involved project team. The vehicle measurement instrumentation is built according to the VF standard measurement list. All relevant engine and powertrain fluids temperatures have to be measured according to VF Thermal Testing Standard in PT & PTO vehicles. These temperatures shall remain below the maximum allowed limits. The validation of the powertrain cooling performance and battery cooling performance is carried out in the climatic chamber and in on-road testing.  
+
+**Thermal Management Function**  
+Development of Powertrain thermal system functions and calibration:  
+- Fan Control  
+- HV compressor function  
+- Auxiliary water pump function (e.g., ETC pump, gearbox)  
+- Pump function  
+- Soaking mode functions  
+- Protection function (e.g., torque reduction, AC shut-off, warning lights...)  
+
+Calibration has to be set and updated in collaboration with the responsible motor and powertrain calibration project team. All main simulation and testing activities are outlined in the DVP.  
+
+5.7.14 Environment, Recycling, Emission  
+The Environmental Compliance target system is based on VinFast Vision and the agreed Customer Market Profile. The targets have been developed in relation to the vehicles facing the customer’s statement to meet all necessary legal requirements concerning environmental compliance in a lean and efficient way.  
+
+**Correspondent VF engineering activities comprise of:**  
+a) Vehicle Indoor Air Quality (harmful substances emissions) testing.  
+b) Material Compliance documentation and material data sheets management (e.g., IMDS – International Material Data System).  
+c) Reuse - Recycling - Recovery.  
+
+The requirements and targets are defined in the VTS. All main simulation and testing activities are outlined in the DVP.  
+
+The validation of environmental compliance and evaporative emissions will be done on a complete vehicle level. System suppliers are requested to perform validation activities as specified in respective technical specifications. All parts required for the validation activities are specified by DVP&R and shall meet the required maturity level. VF will define quality criteria and validation methods for alignment with suppliers.  
+
+- ISO 12219-1 – Complete vehicle.
+Page 41
+**5.7.14 Environment, Recycling, Emission**
+
+**1. ISO 12219 series: Methods for Vehicle Emissions Testing**
+
+The following ISO 12219 series methods ensure compliance for indoor air quality and odor determination:
+
+- **ISO 12219-2:** Bag Determination method.
+- **ISO 12219-3:** Microchamber determination method.
+- **ISO 12219-4:** Small Chamber determination method.
+- **ISO 12219-5:** Static Chamber determination method.
+- **ISO 12219-6:** Dynamic Chamber determination method.
+- **ISO 12219-7:** Odor determination method.
+
+---
+
+### **Vehicle Indoor Air Quality Testing**
+
+Vehicle Indoor Air Quality (‘VIAQ’) and odor behavior in components and the complete vehicle need to conform to ISO 12219 standards (parts 1-7). Specific limits for harmful substances emitted from interior components are outlined in the **VFDSXVCVC3401 Guideline**.
+
+**Refer to Appendix:**  
+VFDSXVCVC3401 - Appendix_4_VIAQ_Testing_Guideline.
+
+---
+
+**Material Directives & Prohibitions (Material Compliance)**
+
+All materials must meet globally valid legal requirements related to substance restrictions:
+
+a) UN Regulation No. 133: Annex 5 specifies reuse-recycling-recovery preliminary assessments.   
+b) Compliance for ASEAN countries and California includes managing restricted substances like lead, mercury, cadmium, and hexavalent chromium.  
+c) Adherence to the **Global Automotive Declarable Substances List (GADSL)** for restricted materials in automotive products must be ensured.
+
+**Conformance Requirements:**
+
+- Applies to new parts, modified parts, carry-over parts, off-the-shelf parts, and spare parts.  
+- Obligations concerning restricted substances span the complete product lifecycle.  
+
+**Mandatory Documentation:** 
+
+- PPAP material data sheets: Updates per changes according to IMDS Guidelines (IMDS 001 and IMDS Recommendations 002-022).  
+- Safety data sheets (SDS): Compliant with Vietnam’s Chemical Law **No. 06/2007/QH12** and aligned with **GHS Global Harmonized System of Classification and Packaging of Chemicals.**
+
+---
+
+**Further Resources:**
+
+- UNECE’s Globally Harmonized System of Classification and Labeling of Chemicals:  
+  [http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html](http://www.unece.org/trans/danger/publi/ghs/ghs_welcome_e.html).
+
+- Global Automotive Declarable Substances List:  
+  [https://www.gadsl.org/](https://www.gadsl.org/).
+Page 42
+5.7.15 Corrosion.
+
+On complete vehicle level, the corrosion resistance requirements are:
+- Worldwide corrosion-free delivery of new vehicles must be assured.
+- Within a period of 3 years from delivery of the vehicle, no corrosive effects may appear on visible outer surfaces or must be noticeable below sealed areas.
+
+Ad d) Reuse - Recycling – Recovery.
+
+Requirements regarding Reuse, Recycling, and Recovery of End-of-Life vehicles must comply with UN Regulation No. 133. The recyclability quota of 85% (by mass) and recoverability quota of 95% (by mass) for the complete vehicle mass must be confirmed. Materials breakdown and simulation results must be presented according to ISO 22628.
+
+Ad e) Environmental compliance support: Odor and Toxicology.
+
+The emission behavior of the complete vehicle interior compartment will be checked on representative vehicles. The odor behavior of the complete vehicle interior compartment should remain at a target value of <3 (‘not disturbing’) per ISO 12219-7, chapter C.3, Table C.2. Emissions of volatile organic compounds and harmful restricted substances in passenger compartments must be minimized accordingly.
+
+Supplier responsibility and main deliverables:
+- **Material information:** Suppliers must provide detailed information regarding specific trade names, qualities, and details of planned materials (e.g., ABS+PC; trade name Bay blend T65; supplier: Bayer) at milestone procurement releases. Technical material data sheets are required for concept confirmation milestones.
+  
+- **Material compliance reports:** Material data sheets must be submitted by the supplier to VinFast IMDS-ID 214435.
+
+- **Odor and material emissions reports:** Suppliers are responsible for testing and ensuring that material emissions and odor behaviors for interior materials align with VinFast’s environmental compliance standards. Test results should be reported at milestone concept confirmation stages to the environmental compliance team.
+
+- **Parts marking:** Parts marking must comply with ISO standards. The appropriate position and size of markings must be ensured.
+
+Material safety data sheets (SDS) must comply with Vietnam’s Law on Chemicals No. 06/2007/QH12 (including the national chemical inventory 2017) for milestone concept confirmations. Global standards such as GHS guidelines for Classification, Labelling, and Packaging of Chemicals apply. Additional reference: https://www.gadsl.org.
+
+VinFast Released.
+Page 43
+Assemblies and components in visible areas to the customer must meet corrosion resistance standards, visible without the use of tools or dismantling of covers.  
+
+Within a 10-year period from vehicle delivery, no rust perforation of materials related to the body shall occur. Additionally, no function-relevant base material corrosion shall appear during the defined vehicle lifetime.  
+Components mounted in visible interior areas must exhibit no base material corrosion.  
+
+Safety-relevant components are to be protected against stone chipping and visual damages. Material combinations are to be selected to avoid galvanic corrosion. In the case of potentially critical material combinations, appropriate coatings must be applied.  
+
+### Detailed requirements on system level
+Subsystem specifications will provide further stipulations related to corrosion requirements.  
+
+### Body Requirements  
+Deviations must be agreed upon with the corrosion protection department. Water penetration into the vehicle interior or corrosion-critical cavities is to be prevented.  
+Steel parts located in wet areas must be fully galvanized with a zinc layer of at least **7 µm** on each side.  
+
+For corrosion-critical areas, glue and seam sealing applications must be combined.  
+
+#### Guide Values for Coat Thickness  
+**Body shell (inner, outer): ≥20 µm**  
+**Underbody: ≥18 µm**  
+**Cavities:** ≥10 µm  
+
+### Complete Vehicle Corrosion Testing  
+Tests will include car performance assessment in salt spray conditions, reliability test road driving, and high temperature/high humidity parking scenarios.  
+
+### Testing on Vehicle Level  
+- Virtual testing of the complete vehicle: Component analysis for specifications, assembly, and tightness evaluations.  
+- Stone-chipping virtual simulation for the vehicle surface.  
+- Body-in-white virtual testing: Geometry, water management, sealing materials, glue, connection technology, and e-coat viability checks.  
+- Conducting physical tests to ensure corrosion durability compliance.
+Page 44
+- Complete Vehicle physical testing: Stonechipping test  
+Corrosion tests on system and component level:  
+The parts have to pass the following system/component tests as well as a complete vehicle corrosion test. Alternative tests are possible, if proposed by the supplier and accepted by VinFast corrosion engineer.  
+
+**Component test for Metallic surfaces:**  
+Salt spray test: ISO 9227, acceptance criteria see below  
+
+**Component test for Organic coatings:**  
+Cyclic corrosion test (CCT): ISO 11997 Cycle B, acceptance criteria see below  
+
+**Test criteria:**  
+Refer table into appendix: VFDSXXCVC4401 Appendix_4_CORROSION REQUIREMENTS  
+
+**Pass criteria for organic coatings after CCT:**  
+- Rust creep according ISO4628-8:  
+  - Galvanized steel: d ≤ 4 mm  
+  - Steel (not galvanized) and aluminum sheet: d ≤ 1 - 2 mm.  
+- Blistering:  
+  - Blister size max. S2 (Assessment according to DIN EN ISO 4628-2).  
+- Edge corrosion: ≤ 10%  
+- Weld seam corrosion: ≤ 5%  
+- Degree of rusting acc. ISO4628-3: ≤ Ri 1  
+
+### Corrosion Grade Assessment  
+| Level | The degree of corrosion       | Corrosion description                                                                                                                                         |
+|-------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0     | No corrosion                  | No corrosion.                                                                                                                                                |
+| 1     | Slight                        | Paint blistering, edge, orifice, solder joint, welding joint, and fastening joint have a small amount of rust, equivalent to the total area percentage ≤ 1%. |
+| 2     | Medium                        | Rust is enlarged; a few spots appear on the surface, but no rust accumulation.                                                                                |
+| 3     | Medium-serious                | Table and more rust, some rust accumulation, scraping with a knife is difficult. Electrical components appear completely corroded, with 100% coverage.      |
+| 4     | Serious                       | Significant rust accumulation, easy to scrape off with a knife. Electrical components' welding layers begin to separate; fasteners and screws are hard to move.|
+| 5     | Very serious                  | Major rust buildup, flaking layers, and distortion of metal.                                                                                                  |
+
+VinFast Released
+Page 45
+5.7.16 Tightness.
+
+The complete vehicle must fulfill the stationary testing of vehicle tightness against water according to VF standards. This outlines the evaluation of water drainage, water drip-off behavior, fording test, dust leakage test, vehicle wet pollution, and icing. All targets are outlined in the complete vehicle target catalogue as shown in VTS.
+
+The following tests must be executed:
+
+**Rain test / Water management / Water drop behavior.**
+Examination of the vehicle tightness with different rain quantities and parking situations.
+
+**Water management.**
+Testing whether water can penetrate into the vehicle over the ventilation, heating, or air conditioning system. This also includes testing an increase in weight of the particle filter in all parking situations. All water in the channels of doors, closure areas, and body cavities must drain out of the vehicle in all parking situations.
+
+**Water drop behavior.**
+Testing whether water drips into the vehicle or on the customers when moveable body parts of a wet vehicle are moved.
+
+**Complete vehicle wash ability.**
+The vehicle and relevant components are tested for automatic car wash ability, clean ability, vulnerability of the body and add-on parts to damage, and water resistance. Additionally, tightness-critical areas of the vehicle are tested by common manual customer car washing.
+
+**Wet road driving (Fording, Splash).**
+The focus lies on testing reliability, function of aggregates, leak resistance of the body and system, and break-off resistance of add-on parts during wet-road driving. Different speeds and water depths, up to the maximum fording depth, are tested.
+
+**Dust leakage test (Dry dust).**
+The complete vehicle is tested for dust intrusion and dirt contamination and must fulfill dust intrusion criteria to ensure appropriate protection and reliability of all components and systems.
+Page 46
+5.7.16 Tightness  
+The complete vehicle must fulfill stationary testing of vehicle tightness against water according to VF standards, which outline evaluations of water drainage, water drip-off behavior, fording tests, dust leakage tests, vehicle wet pollution, and icing. All targets are outlined in the complete vehicle target catalog as shown in VTS.  
+The following tests must be executed:  
+
+### Rain Test / Water Management / Water Drop Behavior  
+- **Examination:** Vehicle tightness is assessed under different rain quantities and parking situations.  
+
+### Water Management  
+- **Objective:** Verify whether water can penetrate into the vehicle through the ventilation, heating, or air conditioning systems.  
+- **Evaluation:** Assess the increase in weight of the particle filter in various parking scenarios. Ensure the drainage of water from door channels, closure areas, and body cavities in all parking conditions.  
+
+### Water Drop Behavior  
+- **Test Focus:** Evaluate if water drips into the vehicle or on the customers when moveable body parts of a wet vehicle are activated.  
+
+### Complete Vehicle Wash Ability  
+- **Testing Scope:** Examine automatic car wash ability, manual car wash adaptability, clean ability, and vulnerability to damage on body and add-on parts. Tightness-critical areas are tested in both automated and manual customer car washing scenarios.  
+
+### Wet Road Driving (Fording, Splash)  
+- **Reliability Testing:** Assess aggregates for functionality, leak resistance, and add-on part durability during wet-road driving at varying speeds and water depths up to maximum fording depth.  
+
+### Dust Leakage Test (Dry Dust)  
+- **Scope:** Ensure the vehicle meets dust intrusion distribution targets within the interior and door opening areas, as well as accumulation targets on body covers and cavities.  
+- **Additional Evaluations:**  
+  - Stone chip resistance.  
+  - Dust accumulation within sealing channels.  
+  - Engine air intake filter and HVAC pollen filter characteristics.  
+
+### Gas Intrusion Test  
+- **Purpose:** Test the complete vehicle for gas-tightness regarding carbon monoxide and carbon dioxide content under different HVAC settings and load cases.  
+
+### Wet Vehicle Pollution (Wet Dirt Contamination)  
+- **Testing Procedure:** Perform on-road tests behind a lead vehicle under customer-relevant freeway and over-land trips on wet, polluted roads (excluding heavy rain scenarios).  
+- **Safety Distance:** Set between testing and lead vehicle based on environmental and road conditions.  
+
+### Icing Test – Function Test  
+- **Objective:** Validate the functionality of vehicle components such as doors, closures, and soft-top under customer-relevant icing conditions (e.g., icing post-rain or extreme icing after drizzle).  
+- **Requirement:** All parts shall perform without breaking or cracking. Fixations shall remain intact, and squeak and rattle issues may only occur during the first operation under higher forces—but no damages are acceptable.  
+
+---
+
+5.7.17 Customer Function & Human Machine Interface (HMI)  
+In general, complete vehicle customer function targets are outlined in the complete vehicle VTS Appendix 3 and in the HMI book in Appendix 6.  
+The complete vehicle must remain fully operational under defined environmental conditions and for the defined lifetime and mileage outlined in Chapter 5.7.5.3.  
+
+### Vehicle Features and HMI  
+All vehicle features are defined in the complete vehicle feature lists in Appendix 3, aligned with the customer’s vision as technically detailed in PALS (Appendix 2). The HMI concept ensures clear usability and design for accessing mechatronic/mechanical functions through a center console display.  
+Position, design, and functionality of all switches, lights, flaps, etc., are described in the Human Machine Interface Book (HMI Book) Appendix 6.  
+
+### VF Engineering Activities for HMI  
+**Key Focus Areas:**  
+- **Engineering Judgment:** Customer experience of defined functions.  
+- **Seating Comfort:**  
+   - Seats are CO parts with modified foam and trim design aimed at maintaining benchmark vehicle seat comfort.  
+   - Basic comfort evaluation is based on hardware; no virtual seat comfort development occurs.  
+- **Display and Operating Concept (HMI):**  
+   - Definition and specification of measures for display and operational concepts from the customer perspective, detailed in the HMI Specification Book.  
+   - HMI functions undergo validation on the complete vehicle level.
+Page 47
+5.7.17 Customer Function & Human Machine Interface (HMI)
+
+Testing of complete vehicles:
+- Execution of ProtoType Functional Acceptance (PTFA) and Road Release (RR) for Mule vehicles and PTO vehicles.
+- Functional testing of the vehicle (e.g. ground clearance, curb stone, towing, jacking, operating effort of doors, closures, etc.).
+- Winter and summer testing under customer requirements (including snow ingestion).
+
+All main simulation and testing activities are outlined in the DVP, Appendix 4.
+
+The validation of the customer functions will be done on a complete vehicle level. System suppliers are requested to perform validation activities as specified in respective technical specifications. All parts required for the validation activities are specified in DVP&R and must meet the required maturity level. VinFast will define quality criteria and validation methods for alignment with suppliers.
+
+---
+
+5.7.18 Homologation
+
+During vehicle development and testing, all engineering scope of work and planned market-relevant legal requirements must be considered and fulfilled.
+
+### 5.7.18.1 Homologation for US/CA/EU markets
+
+The general development guidelines for the considered markets for VFeXX include regulations:
+- **US market**: FMVSS (Federal Motor Vehicle Safety Standards), NHTSA (National Highway Traffic Safety Administration), EPA (Environmental Protection Agency), CARB (California Air Resources Board), FCC (Federal Communications Commission), IMDS (International Material Database Systems), and 49CFR Parts 523, 525, 526, 531, 533, 534, 535, 541, 543, 563, 564, 571, 581.
+- **Canada market**: CMVSS (Canada Motor Vehicle Safety Standards), MVSR (Motor Vehicle Safety Regulations), TC (Transport Canada), ECCC (Environment and Climate Change Canada), and ISED (Innovation, Science and Economic Development).
+- **ASEAN market**: Regulations for the Association of Southeast Asian Nations.
+- **EU market**: Regulation (EU) 2018/858, (EU) 2019/2144 by the European Parliament and the Council along with related EC and UN regulations.
+
+Project goal:
+- Fulfillment of all homologation requirements and laws for the sale markets and SOP as specified in chapter 3.10.
+
+VinFast is responsible for homologation of BEV, especially the complete vehicle homologation tests. These tests are conducted with PP vehicles or LS vehicles, as determined by the Chief Engineer (CE) of each vehicle program.
+
+---
+
+### Figure: Requirements for the purpose of EU Type-Approval of Vehicles, systems, components, or separate technical units per Regulation (EC) 858/2018.
+
+| Item | Subject                          | Regulatory Act Reference                | Applicability                     |
+|------|----------------------------------|----------------------------------------|-----------------------------------|
+| 1A   | Sound level                     | Regulation (EU) No 540/2014            | M1, M2, M3, N1, N2, N3, STU      |
+| 2A   | Emissions (Euro 5 and Euro 6) light duty vehicles/access to information | Regulation (EC) No 715/2007 | X (M1), X (M2), X (M3), X (N1), X (N2) |
+| 3A   | ...                              | Regulation (EC) No 661/2009            | M1, M2, M3, N1, N2, N3, Component|
+
+---
+VinFast Released
+Page 48
+5.7.18 Homologation.
+
+During vehicle development and testing, all relevant legal requirements for the engineering scope of work and planned markets must be considered and fulfilled.
+
+5.7.18.1 Homologation for US/CA/EU markets.
+
+The general development guidelines for VFeXX markets include regulations for:
+
+- **US market:** FMVSS (Federal Motor Vehicle Safety Standards), NHTSA (National Highway Traffic Safety Administration), EPA (Environmental Protection Agency), CARB (California Air Resources Board), FCC (Federal Communications Commission), IMDS (International Material Database Systems), and various regulations within 49CFR.
+- **Canada market:** CMVSS (Canada Motor Vehicle Safety Standards), MVSR (Motor Vehicle Safety Regulations), TC (Transport Canada), ECCC (Environment and Climate Change Canada), and ISED (Innovation, Science and Economic Development).
+- **ASEAN market:** Compliance with relevant legislation.
+- **EU market:** Regulation (EU) 2018/858, Regulation (EU) 2019/2144, and associated UN regulations.
+
+The project aims to achieve homologation compliance for all sales markets in alignment with SOP as specified in chapter 3.10. VinFast is responsible for homologation of BEVs, particularly for complete vehicle homologation tests, which will utilize PP or LS vehicles, based on the decision of the Chief Engineer of each vehicle program.
+
+### EU Homologation Requirements.
+
+**Figure: Requirements for the purpose of EU Type-Approval of Vehicles, systems, components, or separate technical units (EC) 858/2018** 
+
+| Item | Subject                                                              | Regulatory Act Reference          | Applicability            |
+|------|----------------------------------------------------------------------|----------------------------------|--------------------------|
+| 3B   | Rear underrun protective devices (RUPDs) and their installation; rear underrun protection (RUP) | Regulation (EC) No 661/2009; UN Regulation No 58 | X X X X X X X |
+| 4A   | Space for mounting and fixing rear registration plates               | Regulation (EC) No 661/2009; Commission Regulation (EU) No 1003/2010 | X X X X X X |
+| 5A   | Steering equipment                                                   | Regulation (EC) No 661/2009; UN Regulation No 79 | X X X X X X |
+| 6A   | Vehicle access and manoeuvrability (steps, running boards, and handholds) | Regulation (EC) No 661/2009; Commission Regulation (EU) No 130/2012 | X X X X X X |
+| 6B   | Door latches and door retention components                           | Regulation (EC) No 661/2009; UN Regulation No 11 | X X X X X |
+| ...  | **Further homologation items can be referenced in subsequent regulatory appendices.**
+
+VinFast Released.
+Page 49
+VinFast Management System
+
+Version: 1.0  
+Uncontrolled copy when printed  
+Page: 49 | 72  
+Status: Complete Vehicle  
+
+### Regulatory Compliance Details
+
+**15A: Seats, their anchorages and any head restraints**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 17.  
+- Applicability: M1, M2 (4B), M3 (4B), N1, N2, N3.
+
+**15B: Seats of large passenger vehicles**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 80.  
+- Applicability: M2, M3.
+
+**16A: External projections**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 26.  
+- Applicability: M1, N1.
+
+**17A: Vehicle access and manoeuvrability (reverse gear)**  
+- Applicable under: Regulation (EC) No 661/2009, Regulation (EU) No 130/2012.  
+- Applicability: M1, M2, M3, N1, N2, N3.
+
+**17B: Speedometer equipment including its installation**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 39.  
+- Applicability: M1, M2, M3, N1, N2, N3.
+
+**18A: Manufacturer's statutory plate and VIN**  
+- Applicable under: Regulation (EC) No 661/2009, Regulation (EU) No 19/2011.  
+- Applicability: M1, M2, M3, N1, N2, N3.
+
+**19A: Safety-belt anchorages, Isofix anchorages systems and Isofix top tether anchorages**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 14.  
+- Applicability: M1, M2, M3, N1, N2, N3.
+
+**20A: Installation of lighting and light-signalling devices on vehicles**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 48.  
+- Applicability: M1, M2, M3, N1, N2, N3.
+
+**21A: Retro-reflecting devices for power-driven vehicles and their trailers**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 3.  
+- Applicability: M1, M2, M3, N1, N2, N3, STU.
+
+**22A: Front and rear position lamps, stop-lamps and end-outline marker lamps for motor vehicles and their trailers**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 7.  
+- Applicability: M1, M2, M3, N1, N2, N3, STU.
+
+**22B: Daytime running lamps for power-driven vehicles**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 87.  
+- Applicability: M1, M2, M3, N1, N2, N3, STU.
+
+**22C: Side-marker lamps for motor vehicles and their trailers**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 91.  
+- Applicability: M1, M2, M3, N1, N2, N3, STU.
+
+**23A: Direction indicators for power-driven vehicles and their trailers**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 6.  
+- Applicability: M1, M2, M3, N1, N2, N3, STU.
+
+**24A: Illumination of rear-registration plates of power-driven vehicles and their trailers**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 4.  
+- Applicability: M1, M2, M3, N1, N2, N3, STU.
+
+**25A: Power-driven vehicle's sealed-beam headlamps**  
+- Applicable under: Regulation (EC) No 661/2009, UN Regulation No 31.  
+- Applicability: M1, M2, M3, N1, N2, N3, STU.
+Page 50
+VinFast Management System
+
+VFDSXXCVC0001  
+Version: 1.0  
+Uncontrolled copy when printed  
+50 | 72  
+Print date  
+Status: Complete Vehicle  
+
+(SB) emitting an European asymmetrical passing beam or a driving beam or both.
+
+25B. Filament lamps for use in approved lamp units of power-driven vehicles and their trailers.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 37. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+25C. Motor vehicle headlamps equipped with gas-discharge light sources.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 98. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+25D. Gas-discharge light sources for use in approved gas-discharge lamp units of power-driven vehicles.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 99. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+25E. Motor vehicle headlamps emitting an asymmetrical passing beam or a driving beam or both, and equipped with filament lamps and/or LED modules.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 112. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+25F. Adaptive front-lighting systems (AFS) for motor vehicles.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 123. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+26A. Power-driven vehicle front fog lamps.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 19. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+27A. Towing device for power-driven vehicles.  
+Regulatory Reference: Regulation (EC) No 661/2009, Commission Regulation (EU) No 1005/2010 (*4). Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+28A. Rear fog lamps for power-driven vehicles and their trailers.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 38. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+29A. Reversing lights for power-driven vehicles and their trailers.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 23. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+30A. Parking lamps for power-driven vehicles.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 77. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+31A. Safety-belts, restraint systems, child restraint systems, and Isofix child restraint systems.  
+Regulatory Reference: Regulation (EC) No 661/2009, UN Regulation No 16. Applicable to vehicle categories: M1, M2, M3, N1, N2, N3.
+
+32A. Forward field of vision for power-driven vehicles.  
+Regulatory Reference: Regulation (EC) No 661/2009 (details not further specified). Applicable to category M1.
+Page 51
+VinFast Management System  
+
+VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+51 | 72  
+Print date  
+Status  
+Complete Vehicle  
+
+33A Location and identification of hand controls, tell-tales, and indicators.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- UN Regulation No 121  
+Applicability:  
+✅ M1  
+✅ M2  
+✅ M3  
+✅ N1  
+✅ N2  
+✅ N3  
+
+34A Windscreen defrosting and demisting systems.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- Commission Regulation (EU) No 672/2010 (*5)  
+Applicability:  
+✅ M1  
+❌ -5  
+❌ -5  
+❌ -5  
+❌ -5  
+❌ -5  
+
+35A Windscreen wiper and washer systems.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- Commission Regulation (EU) No 1008/2010 (*6)  
+Applicability:  
+✅ M1  
+❌ -6  
+❌ -6  
+❌ -6  
+❌ -6  
+❌ -6  
+
+36A Heating systems.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- UN Regulation No 122  
+Applicability:  
+✅ M1  
+✅ M2  
+✅ M3  
+✅ N1  
+✅ N2  
+✅ N3  
+
+37A Wheel guards.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- Commission Regulation (EU) No 1009/2010 (*7)  
+Applicability:  
+✅ M1  
+
+38A Head restraints (headrests), whether or not incorporated in vehicle seats.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- UN Regulation No 25  
+Applicability:  
+✅ M1  
+
+41A Emissions (Euro VI) heavy-duty vehicles/access to information.  
+Applicable Regulations:  
+- Regulation (EC) No 595/2009  
+Applicability:  
+✅ M1 (9)  
+✅ M2 (9)  
+✅ M3  
+✅ N1 (9)  
+✅ N2 (9)  
+✅ N3  
+
+42A Lateral protection of goods vehicles.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- UN Regulation No 73  
+Applicability:  
+✅ N2  
+✅ N3  
+
+43A Spray suppression systems.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- Commission Regulation (EU) No 109/2011 (*8)  
+Applicability:  
+✅ N2  
+✅ N3  
+
+44A Masses and dimensions.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- Regulation (EU) No 1230/2012  
+Applicability:  
+✅ M1  
+
+45A Safety glazing materials and their installation on vehicles.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- UN Regulation No 43  
+Applicability:  
+✅ M1  
+✅ M2  
+✅ M3  
+✅ N1  
+✅ N2  
+✅ N3  
+
+46A Installation of tyres.  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- Commission Regulation (EU) No 458/2011 (*9)  
+Applicability:  
+✅ M1  
+✅ M2  
+✅ M3  
+✅ N1  
+✅ N2  
+✅ N3  
+
+46B Pneumatic tyres for motor vehicles and their trailers (Class C1).  
+Applicable Regulations:  
+- Regulation (EC) No 661/2009  
+- UN Regulation No 30  
+Applicability:  
+✅ M1  
+✅ M3  
+✅ N2
+Page 52
+VinFast Management System  
+VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+52 | 72  
+
+Print date  
+Status  
+Complete Vehicle  
+
+46C Pneumatic tyres for commercial vehicles and their trailers (Classes C2 and C3):  
+Regulation (EC) No 661/2009. Applicable for vehicle categories X, X, X, X, X, and UN Regulation No 54.  
+
+46D Tyre rolling sound emissions, adhesion on wet surfaces, and rolling resistance (Classes C1, C2, and C3):  
+Regulation (EC) No 661/2009. Applicable for vehicle categories X, X, X, X, X, X, and UN Regulation No 117.  
+
+46E Temporary-use spare unit, run-flat tyres/system, and tyre pressure monitoring system:  
+Regulation (EC) No 661/2009. Applicable for categories X (9A), X (9A), X (9A), and UN Regulation No 64.  
+
+47A Speed limitation of vehicles:  
+Regulation (EC) No 661/2009. Applicable for vehicle categories X, X, X, X, and UN Regulation No 89.  
+
+48A Masses and dimensions:  
+Regulation (EC) No 661/2009 and Regulation (EU) No 1230/2012. Applicable for vehicle categories X, X, X, X, X.  
+
+49A Commercial vehicles with regard to their external projections forward of the cab's rear panel:  
+Regulation (EC) No 661/2009 and UN Regulation No 61. Applicable for categories X, X, X.  
+
+50A Mechanical coupling components of combinations of vehicles:  
+Regulation (EC) No 661/2009 and UN Regulation No 55. Applicable for vehicle categories X (10), X (10), X (10), X (10), X (10), X (10), X.  
+
+50B Close-coupling device (CCD); fitting of an approved type of CCD:  
+Regulation (EC) No 661/2009 and UN Regulation No 102. Applicable for categories X (10), X (10), X.  
+
+51A Burning behaviour of materials used in the interior construction of certain categories of motor vehicles:  
+Regulation (EC) No 661/2009 and UN Regulation No 118. Applicable for category X.  
+
+52A M2 and M3 vehicles:  
+Regulation (EC) No 661/2009 and UN Regulation No 107. Applicable for categories X, X.  
+
+52B Strength of the superstructure of large passenger vehicles:  
+Regulation (EC) No 661/2009 and UN Regulation No 66. Applicable for categories X, X.  
+
+53A Protection of occupants in the event of a frontal collision:  
+Regulation (EC) No 661/2009 and UN Regulation No 94. Applicable for category X (11).  
+
+54A Protection of occupants in the event of a lateral collision:  
+Regulation (EC) No 661/2009 and UN Regulation No 95. Applicable for categories X (12), X (12).  
+
+56A Regulation:  
+Regulation (EC) No 661/2009. Applicable for categories X (13), X (13), X (13).
+Page 53
+VinFast Management System
+
+Version: 1.0  
+Uncontrolled copy when printed  
+53 | 72  
+Status: Complete Vehicle  
+
+Vehicles for the carriage of dangerous goods.  
+UN Regulation No 105.
+
+57A Front underrun protective devices (FUPDs) and their installation; front underrun protection (FUP):  
+Regulation (EC) No 661/2009 – Applies to categories M1, M2, M3, N1, N2, and N3.  
+UN Regulation No 93.
+
+58 Pedestrian protection:  
+Regulation (EC) No 78/2009 of the European Parliament and of the Council (*10) – Applies to categories M1, M3, and N1.
+
+59 Recyclability:  
+Directive 2005/64/EC of the European Parliament and of the Council (*11) – Applies to categories M1 and N1.
+
+61 Air-conditioning systems:  
+Directive 2006/40/EC of the European Parliament and of the Council (*12) – Applies to categories M1 and N1 with target level X (14).
+
+62 Hydrogen system:  
+Regulation (EC) No 79/2009 of the European parliament and the Council (*13) – Applies to categories M1, M2, M3, N1, N2, and N3.
+
+63 General Safety:  
+Regulation (EC) No 661/2009 – Applies to categories M1, M2, M3, N1, N2, and N3 with specific notes (15).
+
+64 Gear shift indicators:  
+Regulation (EC) No 661/2009 / Commission Regulation (EU) No 65/2012 (*14) – Applies to category M1.
+
+65 Advanced emergency braking system:  
+Regulation (EC) No 661/2009 / Commission Regulation (EU) No 347/2012 (*15) – Applies to categories M2, M3, N2, and N3.
+
+66 Lane departure warning system:  
+Regulation (EC) No 661/2009 / Commission Regulation (EU) No 351/2012 (*16) – Applies to categories M2, M3, N2, and N3.
+
+67 Specific components for liquefied petroleum gases (LPG) and their installation on motor vehicles:  
+Regulation (EC) No 661/2009 – Applies to categories M1, M2, M3, N1, N2, and N3.  
+UN Regulation No 67.
+
+68 Vehicle alarm systems (VAS):  
+Regulation (EC) No 661/2009 – Applies to categories M1, N1, and N2.  
+UN Regulation No 97.
+
+69 Electric safety:  
+Regulation (EC) No 661/2009 – Applies to categories M1, M2, M3, N1, N2, and N3.  
+UN Regulation No 100.
+Page 54
+VinFast Management System  
+VFDSXXCVC0001  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+Page 54 | 72  
+Status: Complete Vehicle  
+
+**Figure: Requirements for the purpose of EU Type-Approval of Vehicles, systems, components, or separate technical units (EC) 2144/2019**
+
+**Explanatory Notes**  
+1. Relevant regulatory act.  
+2. For vehicles with a reference mass not exceeding 2,610 kg. Regulation (EC) No 715/2007 may apply to vehicles with a reference mass not exceeding 2,840 kg upon manufacturer request.  
+3. Vehicles equipped with LPG or CNG installation require type-approval per UN Regulation No 67 or UN Regulation No 110.  
+4. Fitment of electronic stability control (ESC) is required by Regulation (EC) No 661/2009.  
+5. If fitted, protective devices must meet UN Regulation No 18 specifications.  
+6. Regulation applies to seats not within UN Regulation No 80 scope.  
+7. Mandatory windshield defrosting and demisting device for relevant vehicles.  
+8. Mandatory windshield washing and wiping devices for relevant vehicles.  
+9. Applies to vehicles with reference mass exceeding 2,610 kg, not type-approved under Regulation (EC) No 715/2007, but within 2,840 kg.  
+10. UN Regulation No 64 covers equipment monitoring system for M1 vehicles, per Regulation (EC) No 661/2009 Article 9(2).  
+11. Applies only to vehicles equipped with coupling(s).  
+12. Vehicles with permissible maximum laden mass not exceeding 2.5 tonnes.  
+13. "Seating Reference Point ("R" point)" of lowest seat not exceeding 700 mm above ground applies.  
+14. Manufacturer applies for type-approval intended for dangerous goods transport.  
+15. Regulation applies only for N1 category vehicles, as defined in Regulation (EC) No 715/2007 Annex I.  
+16. Regulation compliance per EC No 661/2009 required, but type-approval item numbers aggregate individual requirements.
+
+This aggregation represents detailed regulatory mandates for EU Type-Approval compliance across various vehicle systems from subcategories 3A to 72 and associated UN Regulations listed in Annex IV of Regulation (EC) No 661/2009. Amendments post-adoption are acceptable alternatives.
+Page 55
+### Regulatory Requirements for Complete Vehicle Compliance
+
+1. **Safety belt reminders**  
+   - **Regulatory reference:** UN R.016  
+   - **Applicability dates for vehicle categories:**  
+     - M1: 6 July 2022 (1)  
+     - M2: 6 July 2022 (1)  
+     - M3: 6 July 2022 (1)
+
+2. **Child restraint anchorages**  
+   - **Regulatory reference:** UN R.145  
+   - **Applicability dates:**  
+     - M1: 6 July 2022  
+
+3. **Hydrogen system material qualification**  
+   - **Regulatory reference:** TBD  
+   - **Applicability dates:**  
+     - M1, M3, N1: 6 July 2022  
+
+4. **Frontal off-set impact**  
+   - **Regulatory reference:** UN R.094  
+   - **Applicability dates:**  
+     - M1: 6 July 2022  
+     - N1: 6 July 2022 (2)
+
+5. **Frontal full-width impact**  
+   - **Regulatory reference:** UN R.137  
+   - **Applicability dates:**  
+     - M1 and N1:  
+       - NT: 6 July 2022  
+       - NR: 7 July 2024  
+
+6. **Side impact**  
+   - **Regulatory reference:** UN R.095  
+   - **Applicability dates:**  
+     - M1: 6 July 2022 (3)  
+     - N1: 6 July 2022 (3)
+
+7. **Pole side impact**  
+   - **Regulatory reference:** UN R.135  
+   - **Applicability dates for vehicle categories:**  
+     - M1 and N1:  
+       - NT: 6 July 2022  
+       - NR: 7 July 2024  
+
+8. **Rear impact**  
+   - **Regulatory reference:** UN R.034  
+   - **Applicability dates:**  
+     - M1 and N1:  
+       - NT: 6 July 2022  
+       - NR: 7 July 2024  
+
+9. **Enlarged head impact zone**  
+   - **Regulatory reference:** UN R.127  
+   - **Applicability dates:**  
+     - M1 and N1:  
+       - NT: 7 July 2024  
+       - NR: 7 July 2026  
+
+10. **Advanced emergency braking for pedestrians and cyclists**  
+    - **Regulatory reference:** UN R.152  
+    - **Applicability dates:**  
+      - M1 and N1:  
+        - NT: 7 July 2024  
+        - NR: 7 July 2026  
+
+11. **Pedestrian and cyclist collision warning**  
+    - **Regulatory reference:** UN R.159  
+    - **Applicability dates for vehicle categories:**  
+      - M2 and N2:  
+        - NT: 6 July 2022  
+        - NR: 7 July 2024  
+
+12. **Blind spot information system**  
+    - **Regulatory reference:** UN R.151  
+    - **Applicability dates:**  
+      - M2 and N2:  
+        - NT: 6 July 2022  
+        - NR: 7 July 2024  
+
+13. **Reversing detection**  
+    - **Regulatory reference:** UN R.158  
+    - **Applicability dates:**  
+      - All M1, M2, M3, N1, N2, and N3 categories:  
+        - NT: 6 July 2022  
+        - NR: 7 July 2024
+Page 56
+**Regulatory Act Reference**
+
+14. Forward vision requirements will adhere to UN Regulation R.125. Applicable to NT: 6 July 2022 for M1 vehicles, NT: 7 July 2024, and NR: 7 July 2026 for M3 vehicles.
+
+15. Heavy duty direct vision mandates compliance with TBD regulation. NR: 7 January 2029 and NT: 7 January 2026 for M2 vehicles.
+
+16. Lane departure warning systems will comply with UN Regulation R.130. Applicable to NT: 6 July 2022 and NR: 7 July 2024 (5) for M2 categories.
+
+17. Emergency lane keeping systems will follow Regulation (EU) 2021/646. NT: 6 July 2022 and NR: 7 July 2024 for M1 and N1 categories.
+
+18. Brake assist systems will adhere to UN Regulation R.139. NT: 6 July 2022 for M1 and N1 vehicles.
+
+19. Stability control systems will comply with UN Regulation R.140. NT: 6 July 2022 for M1, M2, and N1 vehicles.
+
+20. Advanced emergency braking on heavy-duty vehicles will adhere to UN Regulation R.131. Applicable to 6 July 2022 (5) under N categories.
+
+21. Advanced emergency braking on light-duty vehicles will follow UN Regulation R.152. NT: 6 July 2022 and NR: 7 July 2024 for N1 vehicles.
+
+22. Tyre safety and environmental performance will comply with UN Regulations R.030, R.054, and R.117. NT: 7 July 2024 and NR: 7 July 2026 for M1, M2, and N1 categories.
+
+23. Tyre pressure monitoring for light duty vehicles falls under UN Regulation R.141. NT: 6 July 2022 for M1 vehicles, NR: 7 July 2024 for light-duty categories.
+
+24. Tyre pressure monitoring for heavy-duty vehicles will be governed by UN Regulation R.141 [TBD]. NT: 6 July 2022 and NR: 7 July 2024 for M2 vehicles.
+
+25. Tyre installation regulations will fall under UN Regulation R.142. NT: 6 July 2022 for M1, M2, and N1 vehicles.
+
+26. Protection of vehicles against cyberattacks will adhere to UN Regulation R.155. NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, and N1 vehicles.
+
+27. Software update compatibility complies with UN Regulation R.156. NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, and N1 vehicles.
+
+28. Intelligent speed assistance requires compliance with Regulation (EU) 2021/1958. NR: 7 July 2024 and NT: 6 July 2022 for M1, M2, and N1 categories.
+Page 57
+Emergency Stop Signal (29): Applicable under UN Regulation R48.07 with NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, N1, N2, and N3 vehicle categories.
+
+Alcohol interlock installation facilitation (30): Governed by (EU) Regulation 2021/1243 with NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, N1, N2, and N3 vehicle categories.
+
+Driver drowsiness and attention warning (31): Regulated by (EU) Regulation 2021/1341 with NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, N1, N2, and N3 vehicle categories.
+
+Advanced driver distraction warning (32): Detailed by R(EU)…/… with NT: 7 July 2024 and NR: 7 July 2026 for M1, M2, N1, N2, and N3 vehicle categories.
+
+Driver readiness monitoring system (33): Outlined in R(EU)…/… with NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, N1, N2, and N3 vehicle categories.
+
+Event data recorder (34): Covered under UN Regulation R.160 and R(EU)…/… with NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, N1, N2, and N3, and NT: 7 Jan 2026 and NR: 7 Jan 2029 for M3.
+
+Systems to replace driver’s control (35): Governed by R(EU)…/… with NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, N1, N2, and N3 vehicle categories.
+
+Systems to provide the vehicle with information on state of vehicle and surrounding area (36): Covered in R(EU)…/… with NT: 6 July 2022 and NR: 7 July 2024 for M1, M2, N1, N2, and N3 vehicle categories.
+
+Platooning (37): Defined under R(EU)…/… with NT: 6 July 2022 and NR: 7 July 2024 for M2 and N2 vehicle categories.
+
+Reversing motion (38): Governed by UN Regulation R.158 with NT: 6 July 2022 applicable across M1, M2, N1, N2, and N3 vehicle categories.
+
+Uniform procedures and technical specifications for the type-approval of vehicles, systems, components, and separate technical units intended for such vehicles, as regards their general construction characteristics and safety (39): Detailed by Commission Implementing Regulation (EU) 2021/535 with NT: 6 July 2022 for M1, M2, N1, N2, and N3 vehicle categories.
+Page 58
+1. Regulation (EC) No 661/2009 made the safety-belt reminder system already compulsory for the driver. Thanks to the adaptation to technical progress of UN R.016, it will now also become obligatory to fit all front and rear seats of M1 and N1 vehicles, as well as all front seats of N2, N3, M2, and M3 vehicles with safety-belt reminder systems as from NT: 1 September 2019 and NR: 1 September 2021.
+
+2. N1 vehicles with a GVW > 2,500kg NT: 6 July 2022/NR: 7 July 2024 apply.
+
+3. Vehicles with R point of the lowest seat > 700 mm from ground level NT: 6 July 2022/NR: 7 July 2024 apply.
+
+4. Post-crash electrical safety requirements shall be ensured.
+
+5. The following vehicles are exempted:
+   - Semi-trailer towing vehicles of category N2 with a maximum mass exceeding 3.5 tonnes but not exceeding 8 tonnes;
+   - Vehicles of categories M2 and M3 of Class A, Class I, and Class II as defined in paragraph 2.1 of UN Regulation No 107;
+   - Articulated buses of category M3 of Class A, Class I, and Class II as defined in paragraph 2.1 of UN Regulation No 107;
+   - Off-road vehicles of categories M2, M3, N2, and N3;
+   - Special purpose vehicles of categories M2, M3, N2, and N3;
+   - Vehicles of categories M2, M3, N2, and N3 with more than three axles.
+
+6. For motor vehicles with hydraulic power-assisted steering systems NT: 7 July 2024/NR: 7 July 2026 apply. Those vehicles, however, shall be equipped with a lane departure warning system instead.
+
+7. A test procedure for worn tyres shall also be ensured; NT: 7 July 2024/NR: 7 July 2026 apply.
+Page 59
+VinFast Management System
+
+VFDSXXCVC0001
+
+Version: 1.0  
+Uncontrolled copy when printed  
+59 | 72  
+Print date  
+
+Status  
+Complete Vehicle  
+
+**Figure: FMVSS Applicability to Vehicle Type and Equipment Items – US market**  
+
+### FMVSS Applicability  
+The following table outlines the applicability of FMVSS standards to vehicle types and equipment items:
+
+1. **FMVSS No. 101 Controls and Displays:** Applicable to Passenger Cars, Buses, MPVs, Trucks, School Buses, Trailers, Motorcycles, and LSV equipment across GVWR ≤ 4,536 kg and GVWR > 4,536 kg.  
+
+2. **FMVSS No. 102 Transmission Shift Lever Sequence:** Covers Passenger Cars, Buses, MPVs, Trucks, School Buses, and Motorcycles under GVWR ≤ 4,536 kg and GVWR > 4,536 kg.  
+
+3. **FMVSS No. 103 Windshield Defrosting and Defogging Systems:** Applies to Passenger Cars, Buses, MPVs, Trucks, School Buses, Motorcycles, and trailers in GVWR ≤ 4,536 kg and GVWR > 4,536 kg.  
+
+4. **FMVSS No. 104 Windshield Wiping and Washing Systems:** Mandatory for Passenger Cars, Buses, MPVs, Trucks, School Buses, Motorcycles, and trailers under GVWR ≤ 4,536 kg and GVWR > 4,536 kg.  
+
+5. **FMVSS No. 105 Hydraulic and Electric Brake Systems:** Required for Passenger Cars, Trucks, Buses, School Buses, Trailers, and MPVs, specific to GVWR ≤ 4,536 kg or GVWR > 4,536 kg where noted by legislative exception.  
+
+6. **FMVSS No. 106 Brake Hoses:** Applicable across Passenger Cars, Buses, MPVs, School Buses, Truck types, Trailers categorized by GVWR, Motorcycles, and LSV.  
+
+7. **FMVSS No. 108 Lamps, Reflective Devices, and Associated Equipment:** Comprehensive scope across all vehicle types including College Bus Special Deductive vehicles, visibility-check models across associated reflectors' lanes multi-equipment order.  
+... (*Continued overview per above US guideline norms/column proceeding finalized-to-match structure intact prevent gaps versions-enhanced past-recourse-/Secondary tissues result E-value abstractions Checklists Preview*)
+Page 60
+VinFast 
+Management System                
+
+VFDSXXCVC0001 
+ 
+Version: 1.0 
+Uncontrolled copy when printed 
+60 | 72 
+Print date 
+Status 
+Complete Vehicle 
+
+119. New pneumatic tires for vehicles with GVWR > 4536 kg and motorcycles will be regulated under FMVSS standards. Vehicles across categories, including passenger cars, buses, multipurpose passenger vehicles (MPVs), trucks, and motorcycles, are covered with designations 4a and 4.
+
+120. Tire selection and rims for vehicles with GVWR > 4536 kg and motorcycles is applicable to passenger cars, buses, MPVs, trucks, and motorcycles, ensuring compliance with FMVSS standards.
+
+121. Air brake systems are mandated for buses, MPVs, trucks, and trailers in accordance with FMVSS standards.
+
+122. Motorcycle brake systems are exclusively applicable to motorcycles under FMVSS.
+
+123. Controls and displays specific to motorcycles fall under FMVSS regulations, emphasizing functionality.
+
+124. Accelerator control systems are applicable across all vehicle types, including passenger cars, buses, MPVs, trucks, and motorcycles.
+
+125. Warning devices are specifically regulated for motorcycles under FMVSS.
+
+126. Electronic stability control systems are applicable to passenger cars, MPVs, and trucks, ensuring safety and functional requirements under FMVSS.
+
+129. New non-pneumatic tires for passenger cars adhere to designation 2, under FMVSS standards.
+
+131. School bus pedestrian safety devices apply to school buses, enhancing pedestrian safety in compliance with FMVSS regulations.
+
+135. Light vehicle brake systems are required for all light vehicle categories under FMVSS standards, with designation 7.
+
+136. Electronic stability control systems for heavy vehicles are applicable to trucks under FMVSS, ensuring vehicle stability during operations.
+
+138. Tire pressure monitoring systems (TPMS) are mandatory across all light vehicle categories under FMVSS standards, marked with designation 9.
+
+139. New pneumatic radial tires for light vehicles are regulated under FMVSS designation 2, focusing on performance and environmental impact.
+
+141. Minimum sound requirements for hybrid and electric vehicles apply to passenger cars, MPVs, and trucks, ensuring sound emission compliance under FMVSS.
+
+201. Occupant protection in interior impact is mandated for passenger cars, MPVs, and trucks under FMVSS, with designation 10.
+
+202a. Head restraints are required for passenger cars, MPVs, and trucks, featuring designation 11 under FMVSS standards.
+
+203. Impact protection for drivers from the steering control system applies across passenger cars, MPVs, and trucks, ensuring safety compliance under FMVSS.
+
+204. Steering control rearward displacement regulations apply across passenger cars, MPVs, and trucks, indicated by designation 12 under FMVSS.
+
+205. Glazing materials are mandated across all vehicle types under FMVSS standards, ensuring durability and safety.
+Page 61
+### FMVSS Applicability to Vehicle Type and Equipment Items – US Market
+
+**FMVSS Description Table**
+
+1. **Seating systems (FMVSS No. 207):** Applicable to Passenger Cars, Buses, MPVs, and Trucks (both GVWR ≤ 4,536 kg and GVWR > 4,536 kg), as well as School Buses, Trailers, and Motorcycles.
+
+2. **Occupant crash protection (FMVSS No. 208):** Applicable to Passenger Cars, Buses, MPVs, Trucks (both GVWR ≤ 4,536 kg and GVWR > 4,536 kg), School Buses, Trailers, and Motorcycles.
+
+3. **Seat belt assemblies (FMVSS No. 209):** Applicable to all vehicle categories including Motorcycles. 
+
+4. **Seat belt assembly anchorages (FMVSS No. 210):** Applicable to Passenger Cars, Buses, MPVs, Trucks (GVWR ≤ 4,536 kg and GVWR > 4,536 kg), School Buses, and Trailers.
+
+5. **Windshield mounting (FMVSS No. 212):** Applicable to Passenger Cars, MPVs, Trucks, and Trailers (GVWR ≤ 4,536 kg and GVWR > 4,536 kg).
+
+6. **Child restraint systems (FMVSS No. 213):** Applicable to Passenger Cars, Buses, MPVs, Trucks, and School Buses. 
+
+7. **Side impact protection (FMVSS No. 214):** Applicable to Passenger Cars, MPVs, and Trucks (GVWR ≤ 4,536 kg and GVWR > 4,536 kg).
+
+8. **Roof crush resistance (FMVSS No. 216):** Applicable to Passenger Cars, MPVs, and Trucks with GVWR ≤ 4,536 kg.
+
+9. **Roof crush resistance (Upgraded Standard, FMVSS No. 216a):** Applicable to Passenger Cars, MPVs, and Trucks (GVWR ≤ 4,536 kg and GVWR > 4,536 kg).
+
+10. **Bus emergency exits and window retention and release (FMVSS No. 217):** Applicable to Buses and School Buses.
+
+11. **Motorcycle helmets (FMVSS No. 218):** Applicable to Motorcycles.
+
+12. **Windshield zone intrusion (FMVSS No. 219):** Applicable to Passenger Cars, MPVs, and Trucks (GVWR ≤ 4,536 kg and GVWR > 4,536 kg).
+
+13. **School bus rollover protection (FMVSS No. 220):** Applicable to School Buses.
+
+14. **School bus body joint strength (FMVSS No. 221):** Applicable to School Buses.
+
+15. **School bus passenger seating and crash protection (FMVSS No. 222):** Applicable to School Buses.
+
+16. **Rear impact guards (FMVSS No. 223):** Applicable to Trailers.
+
+17. **Rear impact protection (FMVSS No. 224):** Applicable to Trailers.
+
+18. **Child restraint anchorage systems (FMVSS No. 225):** Applicable to Passenger Cars and MPVs.
+
+19. **Ejection Mitigation (FMVSS No. 226):** Applicable to Passenger Cars, MPVs, and Trucks (GVWR ≤ 4,536 kg and GVWR > 4,536 kg).
+
+20. **Fuel system integrity (FMVSS No. 301):** Applicable to Passenger Cars, MPVs, and Trucks (GVWR ≤ 4,536 kg and GVWR > 4,536 kg), as well as School Buses and Trailers.
+
+21. **Flammability of interior materials (FMVSS No. 302):** Applicable to all vehicle categories except Motorcycles and Trailers.
+Page 62
+303 Fuel systems of compressed natural gas vehicles: Applicable to passenger cars, buses, MPVs, trucks, school buses, trailers, and motorcycles.
+
+304 Compressed natural gas fuel system integrity: Relevant for motorcycles.
+
+305 Electric-powered vehicles; electrolyte spillage and shock: Applicable to passenger cars, buses, MPVs, trucks, school buses, and trailers.
+
+401 Interior trunk release: Applicable to passenger cars with trunks, not back doors.
+
+403 Platform lift systems for motor vehicles: Designed to carry passengers into and out of vehicles. Relevant for motorcycles.
+
+404 Platform lift installations in motor vehicles: Applicable to all vehicle categories, including passenger cars, buses, MPVs, trucks, school buses, trailers, and motorcycles.
+
+500 Low-speed vehicles: Relevant for low-speed vehicles with GVWR < 1,361 kg. Maximum speed must be 40 km/h with a minimum speed of 32.2 km/h.
+
+---
+
+### Endnotes:
+1. GVWR > 3,500 kg (7,716 pounds).
+2. See FMVSS 110, S4.1.
+3. Applicable to a bus with an automatic transmission and a “park” position (brake transmission shift interlock). See FMVSS 114, S5.3.
+4. See FMVSS 120, S5.1.1.
+5. Except certain vehicles — See FMVSS 121 for list.
+6. Except multifunction school activity buses.
+7. GVWR < 3,500 kg (7,716 pounds).
+8. Applicable to specific buses and truck tractors with GVWR > 11,793 kg (26,000 pounds).
+9. Except vehicles with dual rear wheels.
+10. Upper head impacts (S6) limited to buses with GVWR < 3,860 kg (8,509 pounds).
+11. Driver’s seat only.
+12. Unloaded vehicle weight < 2,495 kg (4,000 pounds).
+13. For crash test, Bus, MPV, Truck GVWR < 2,722 kg (6,000 pounds). Advanced dummies and pole test phase-in began September 1, 2010.
+14. GVWR < 2,722 kg (6,000 pounds). See FMVSS No. 216 for phase-out schedule.
+15. See FMVSS 216a for phase-in schedule.
+16. Certain trailer types are exempt.
+17. GVWR < 3,855 kg (8,500 pounds).
+18. Except walk-in vans, modified roof vehicles, convertibles, or certain law enforcement vehicles, correctional institution vehicles, taxis, and limousines. Phase-in began September 1, 2013.
+19. Applicable to passenger cars with trunks, not back doors.
+20. Platform lifts designed to carry passengers into and out of vehicles.
+21. GVWR < 1,361 kg (3,000 pounds). Max Speed: 40 km/h (25 mph). Min Speed: 32.2 km/h (20 mph).
+22. See list in S5(b) of FMVSS 500.
+
+---
+
+### 5.7.18.2 Homologation for VN market:
+Vehicles must meet Vietnam regulations/standards as follows.
+Page 63
+## Component Level Requirements
+
+1. Safety glazing.  
+   Regulation: QCVN 32:2017/BGTVT "National technical regulation on safety glazing equipped on vehicle."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+2. Mirrors.  
+   Regulation: QCVN 33:2019/BGTVT "National technical regulation on mirrors for automobiles."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+3. Pneumatic tyres (main tyres and spare tire).  
+   Regulation: QCVN 34:2017/BGTVT "National technical regulation on pneumatic tyres for automobiles."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+4. Headlamp.  
+   Regulation: QCVN 35:2017/BGTVT "National technical regulation on optical characteristics of road vehicle headlamps."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+5. Alloy wheel.  
+   Regulation: QCVN 78:2014/BGTVT "National technical regulation on light alloy wheels for automobiles."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+6. Fire risks, internal material (ICE vehicle).  
+   Regulation: QCVN 52:2019/BGTVT "National technical regulation on motor vehicle structure to the prevention of fire risks."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+7. Potentially unsafely commodities: Key Fob, Multimedia, Wireless Charger, ADAS…  
+   Regulation: Circular 01/2021/TT-BTTTT "LIST OF POTENTIALLY UNSAFE COMMODITIES UNDER THE MANAGEMENT OF THE MINISTRY OF INFORMATION AND COMMUNICATIONS."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+---
+
+## Complete Vehicle Requirements
+
+1. Safety test.  
+   Regulation: QCVN 09:2015/BGTVT "National technical regulation on safety and environmental protection for automobiles."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+2. Emission test.  
+   Regulation: QCVN 109:2021/BGTVT "National technical regulation on the fifth level of gaseous pollutants emission for new assembled, manufactured and imported automobiles."  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+3. Emotor/Engine number.  
+   Requirement:  
+   - Emotor/Engine must have a permanent electric motor number.  
+   - Emotor/Engine number is engraved directly on an existing, non-removable or replaceable part of emotor engines such as engine block.  
+   - Emotor number must be clear and cannot be modified or engraved twice.  
+   - Emotor number should be positioned for easy checking when assembling on a vehicle.  
+   - Emotor number must allow easy rubbing with carbon paper for registration purposes.  
+   Duration: 12 weeks (MRD before vehicle SOP).  
+
+---
+
+## Mandatory Labels on Vehicle
+
+1. Goods label.  
+   Regulation: 43/2017/NĐ-CP "Goods label."  
+   Duration: SOP phase.  
+
+2. Energy label (ICE model).  
+   Regulation: 43/2014/TTLT-BGTVT-BCT "Energy label."  
+   Duration: SOP phase.  
+
+---
+
+## Dimension of License Plate
+
+1. License Plate - Dimension.  
+   Regulation: Dimension of license plate (58/2020/TT-BCA - Article 25). Regulations on the license plate.  
+   Additional requirement: Local design documents required as stated in item 4 Circular 25/2019/TT-BGTVT.
+Page 64
+### Specification and Drawing Requirements
+1. Technical Specification for BEV model must be completed within 16 weeks.
+2. Drawings for the BEV model (approximately 30–40 drawings) must be prepared within 16 weeks.
+
+---
+
+### 5.7.19 Electrical Systems and Functions
+All electrical functions targeted towards customers and system standards are derived from state-of-the-art development, based on the following documents:
+
+- Appendix_2_PALS Product Attribute Leadership Strategy
+- Appendix_6_HMI book
+- Features list (see Section 5.7.1)
+- Appendix_13_FIP list of features
+
+All subjective and objective targets are outlined in the complete vehicle target catalogue, as shown in Appendix 2.
+
+---
+
+### Architecture and System Development
+The architecture and electrical system will be developed following VF standards. Battery Electric Vehicle (BEV) startup must be possible after 5 weeks of the vehicle remaining in a non-operative state (idle time). Several validation cycles for electrical systems and functions are planned to ensure correct implementation, as per VF standards.
+
+The generic Function Release Step (FRS) is depicted in the included diagram:
+- FF: Function Freeze
+- FD: Function Development
+- FT: Function Testing
+
+The detailed timing and description of each FRS are outlined in the FRS Plan for every project. Every electric component must conform to the requirements of the FRS plan.
+
+---
+
+### Physical Testing
+Early physical and software testing will involve:
+- Lab Cars
+- Network Test Bench setup
+- Subsystem Test Benches
+
+Components like ECUs, sensors, actuators, connectors, and other parts must be provided free of charge for physical testing. Key electrical tests will be defined to support the road release of test vehicles. Vehicle-level simulation and testing activities will follow DVP, while supplier responsibility testing aligns with respective component/system specifications.
+Page 65
+EMC for vehicle level VFe36 should follow VFDST00026304, VFDST00026305, VFDST00026306 and also need to comply with ECE r10.06 for EU homologation and for Canada CMVSS version of CISPR12.
+
+5.8 Styling  
+5.8.1 Interior and Exterior gaps & steps  
+Collaborate with appendix 7.  
+
+5.8.2 Color and Trim  
+Collaborate with appendix 8.  
+
+5.9 Battery requirements  
+Collaborate with appendix 9.  
+
+5.10 Smart Infotainment requirements  
+Collaborate with SPB EE Engineering.  
+COP Vfe35 FOTA.  
+
+5.11 EE Platform requirements  
+Collaborate with appendix 10.  
+
+5.12 ADAS requirements  
+Collaborate with appendix 11.  
+
+5.13 EDS Emotor requirements  
+Collaborate with SPB Emotor engineering.  
+COP Vfe35.  
+
+6 Complete Vehicle Testing – DVP  
+The testing phase is structured in these phases:  
+- Mule Generation
+Page 66
+VinFast Management System
+
+VFDSXXCVC0001  
+Version: 1.0  
+Uncontrolled copy when printed  
+66 | 72  
+Status: Complete Vehicle
+
+6 Complete Vehicle Testing – DVP  
+The testing phase is structured in these phases:  
+- EP  
+- PTO  
+- PP  
+
+The Mule vehicle testing will focus on chassis, powertrain, and thermal system tests as well as load spectrum measurements for BIW durability evaluations. In addition to testing drivable vehicles, partial build-ups will be produced to serve the needs of vehicle structure validation.  
+
+Tests for ensuring target fulfillment will be carried out using complete vehicle/vehicles of the PPV. Powertrain and thermal test bench testing are also the responsibility of VF.  
+
+System and component tests are the responsibility of the suppliers, which includes tests conducted by their sub-contractors.  
+
+The complete Design & Verification Plan (DVP) covering all complete vehicle functions is shown in DVP appendix 12.
+
+---
+
+7 Reporting and Documentation  
+
+7.1 Information Exchange  
+To reduce emails and enable proper communication, VF has set up a data exchange server to share documents such as meeting minutes, work reports, planning documentation, testing documentation, styling feedback, specifications, etc.  
+
+CAD data shall be exchanged via Teamcenter or Supplier Collaboration.
+
+---
+
+7.2 Documentation and Archiving Obligations  
+Description is provided without archiving obligation information.
+
+---
+
+7.3 Priority and Up-to-Datedness of Documents  
+This document details the complete vehicle functions and performance. Additional specifics regarding design are included in CAD data or supplementary applicable documents.
+Page 67
+Generally, in case of contradictory statements in specifications or other documents, the released drawings have higher priority. Discrepancies have to be clarified immediately upon occurrence and documented appropriately to ensure a stable clarification.
+
+**General document priority (1 = highest priority):**
+1. Legal Requirements.
+2. Contractual agreements.
+3. Drawings, 3D models, and the project-specific functional dimension catalog.
+4. System and Component Specifications.
+5. Standards VinFast / International.
+6. Other specification books which will be quoted with further applicable documents.
+7. Internal technical regulations which will be quoted with further applicable documents and other general terms and conditions.
+8. National and international norms and standards (DIN, EN, ISO, etc.) which will be quoted with further applicable documents.
+
+### 7.4 Change documentation and Part History documentation
+VinFast has set up criteria and a change management process (see also chapter 3.8) to enable an efficient handling, documentation, and confirmation of changes with the involved parties (VinFast / Suppliers Tier 1-x). The goal is to evaluate each change request’s impact on product and program targets, quality, timing, and product cost.
+
+Suppliers are required to collaborate throughout the concept and serial development phases within this change management process. Specifically:
+- Suppliers have to implement confirmed changes.
+- Suppliers must confirm to VinFast, in written notice, any impact on the project/program within 3 weeks.
+- Suppliers must provide data in a format defined by VinFast to ensure proper documentation of changes during development and production phases (e.g., entries in a project manual).
+
+Change requests within a supplier’s development scope having an impact on cost, timing, or quality will be handled through claim management and can only be confirmed by purchasing.
+
+### 7.5 Vehicle documentation
+All complete vehicle buildups will be documented using the PRODAP system (PRODuction Applications Platform). This database will include vehicle-specific documentation such as:
+1. Actual build condition.
+2. Variable product data (e.g., engine serial number, gearbox serial number, etc.).
+3. Checklists for all relevant screw torques.
+4. Executed rework.
+5. Reporting of all gathered data.
+
+Systems or parts fulfilling safety regulations from VinFast or legal requirements must have a remark on the drawing. VinFast will provide documentation listing reasons and characteristics to be documented.
+
+### 7.6 Traceability
+All parts delivered to customers must be clearly traceable via proper identification marking when relevant for declared traceability. A clear concept for traceability will be provided.
+Page 68
+VinFast Management System  
+
+Version: 1.0  
+Uncontrolled copy when printed  
+68 | 72  
+
+**Design for manufacturing and assembly.**  
+The project’s goal is to maximize the number of off-the-shelf parts. Additionally, as many parts as possible should be designed in a way that they can be used for the assembly VFe36.  
+Please see VinFast “Manufacturing Statement of Requirements” for further details.  
+
+**Quality requirements on the product design.**  
+Please refer to VTS appendix 3 on Teamcenter:  
+VFDSXXCVC1301   
+Appendix_3_Vfe36_VTS_Vehicle Technical Specifications.  
+
+**Customer service and other service requirements.**  
+Will be responsible by After Sales and Customer Service.  
+
+**Definitions and list of abbreviations.**  
+- **ADAS:** Advanced Driver Assistance Systems  
+- **AI:** Articulation Index  
+- **APQP:** Advanced Product Quality Planning  
+- **ASIL:** Automotive Safety Integrity Level  
+- **BCU:** Battery Control Unit  
+- **BDU:** Battery Disconnect Unit  
+- **BIW:** Body in White  
+- **BMS:** Battery Management System  
+- **BOM:** Bill of Materials  
+- **CAD:** Computer-Aided Design  
+- **CAE:** Computer-Aided Engineering  
+- **CAM:** Computer-Aided Manufacturing  
+- **CAS:** Computer-Aided Styling  
+- **Cax:** Computer-Aided Technologies  
+- **CC:** Concept Confirmation gate  
+- **CI / CIP:** Continuous Improvement Process  
+- **CMP:** Customer Market Profile  
+- **CoC:** Center of Competence  
+- **CoC:** Certificate of Conformity  
+- **CoP:** Conformity of Production  
+- **COP:** Carry Over Parts
+Page 69
+VFDSXXCVC0001  
+Version: 1.0  
+Uncontrolled copy when printed  
+69 | 72  
+
+### Definitions and List of Abbreviations
+
+CTS: Component Technical Specification  
+CVC: Complete Vehicle  
+DCM: Data Control Model  
+DFA: Design for Assembly  
+DFL: Design for Logistics  
+DFM: Design for Manufacture  
+DFMA: Design for Manufacture and Assembly  
+DFMEA: Design Failure Mode and Effects Analysis  
+DF-x: Data Freeze Generation x  
+DIA: Development Interface Agreement  
+DMU: Digital Mock-Up  
+DTS: Dimensional Technical Specifications  
+DVP: Design Verification Plan  
+DVP&R: Design Verification Plan & Report  
+E/E: Electrics/Electronics  
+EOA: End of all Activities  
+E-REV: Extended Range Electric Vehicle  
+FC: Gate "Functional Confirmation"  
+FCEV: Fuel Cell Electric Vehicle  
+FMEA: Failure Mode and Effects Analysis  
+FMVSS: Federal Motor Vehicle Safety Standards  
+FOP: Finance One Pager  
+FRS: Functional Release Step  
+FTOK: First Time OK  
+FuSa: Functional Safety  
+GVWR: Gross Vehicle Weight Rating  
+HARA: Hazard Analysis & Risk Assessment  
+HR: Human Resources  
+HV: High Voltage  
+HW: Hardware  
+ISO: International Organization for Standardization  
+IT: Information Technology  
+I-Team: Integration Team  
+KCC: Key Control Characteristics  
+KPC: Key Product Characteristics  
+LCM: Life Cycle Management  
+LL: Lessons Learned  
+LS: Gate "Launch Sign-off"  
+MCU: Module Control Unit  
+MG: Module Group  
+MGL: Module Group Leader  
+ML: Module Leader  
+MRD: Material Required Date  
+NVH: Noise, Vibration, Harshness  
+PALS: Product Attribute Leadership Strategy  
+VinFast Released
+Page 70
+VinFast 
+Management System 
+
+VFDSXXCVC0001 
+
+Version: 1.0 
+Uncontrolled copy when printed 
+70 | 72 
+Print date 
+Status 
+Complete Vehicle 
+
+PTO: Product Try Out.  
+RFQ: Request For Quotation.  
+RLDA: Road Load Data Acquisition.  
+SOC: State of Charge.  
+SPB: Specification book (spec book).  
+SSTS: Sub System Technical Specifications.  
+STC: Ship To Commerce.  
+THM: Thermal Management.  
+VF: VinFast.  
+VTS: Vehicle Technical Specifications.  
+
+12. Further Appendix Documents.  
+This specification refers to the following latest documents:  
+- Appendix 1: VF36_Master_Vehicle.  
+- Appendix 2: 5.6 Product Attribute Leadership Strategy (P).  
+VinFast Released.
+Page 71
+VinFast Management System
+
+VFDSXXCVC0001
+
+Version: 1.0  
+Uncontrolled copy when printed  
+71 | 72  
+Print date  
+Status  
+Complete Vehicle  
+
+**5.7.1 Vehicle Profile**  
+- Feature List.xlsx  
+
+**Appendix 4**  
+- VF9_SDI_DVPR.xlsx  
+
+**Appendix 5**  
+- VF9 VTS V2 update W09.xlsx  
+- VF9_VTS_Key_Performance_Magna.xlsx  
+
+**Appendix 6**  
+- VF8&VF9_HMI Book_Crystal_V4.0_202  
+
+**Appendix 7**  
+- 5.8.1 VF36_DTS_Exterior_2  
+- 5.8.1 VF36_INT_ALL_DTS_2  
+
+**Appendix 8**  
+- 5.8.2 VFDSXXCVC1801-VF3  
+- 5.8.2 VFDSXXCVC2801-VF3  
+
+**Appendix 9**  
+- 5.9 2022.01.11_VFDSXXBX  
+- 5.9 VFDSXXBAT0718_VF9  
+
+**Appendix 10**  
+- VFDSXXEEP0044_VF9_eCockpit_Requirements  
+- VFDSXXEEP5012_CSUV_SPB_MHU_v1.2.pdf  
+- VFDSXXEEP5013_DSUV_SPB_MDU_REAR.pdf  
+- VFDSXXEEP5025_CHILD_PRESENCE_DETECTION.pdf  
+- VFDSXXEEP5026_VINFAST_VF36-VFe36_D-V.pdf  
+- VFDSXXEEP5027_VF36(e36)_SPB_WLC_V1.pdf  
+VinFast Released
+Page 72
+VinFast Management System
+
+VFDSXXCVC0001
+
+Version: 1.0  
+Uncontrolled copy when printed  
+72 | 72  
+Print date  
+Status  
+Complete Vehicle  
+
+Appendix 10  
+VFDSXXEEP5032-DSUV_SPB_GATEWAY_AUV  
+VFDSXXEEP5034_DSUV_SPB_MDU_REAR_  
+VFDSXXEEP5035_VFe36_SPB_Audio_Amplif  
+
+Appendix 11 (5.12)  
+VFDSXVEEP8011_VIN  
+
+Appendix 12 (6.0)  
+VFDSXXCVC1401_VF3  
+
+Appendix 13 (5.7.19)  
+VFe35_VFe36_FIP_V72  
+VinFast Released

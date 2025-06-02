@@ -1,0 +1,1498 @@
+
+<filename>VFDSXVEEP9123_ISA_Functional specification_v2.0</filename>
+<pages>
+
+<page number="1">
+FUNCTIONAL SPECIFICATION. Intelligent Speed Adaption.
+
+SCOPE: VF8 / VF9.
+
+Function owner: Vu Hoang Duong (v.duongvh3@vinfast.vn).
+</page>
+
+<page number="2">
+Table of contents.
+
+6 / APL12_ISA.  
+6.1 / / ISLC Function Specification.  
+6.2 / / Document Management.  
+6.3 / / Glossary.  
+6.4 / / Feature Definition.  
+- 6.4.1 / / Intelligent Speed Limit Control system (ISLC) ISLC.  
+- 6.4.2 / / Function configuration and Disclaimer.  
+6.5 / / Function Architecture.  
+6.6 / / Feature Interface.  
+- 6.6.1 / / Input Signals.  
+- 6.6.2 / / Output Signals.  
+6.7 / / ISLC state management ISLC.  
+- 6.7.1 / / ISLC State Machine ISLC.  
+- 6.7.2 / / ISLC state transition ISLC.  
+  - 6.7.2.1 / / Passive -> Standby.  
+  - 6.7.2.2 / / Passive -> Fault.  
+  - 6.7.2.3 / / Standby -> Active.  
+  - 6.7.2.4 / / Standby -> WaitTSR.  
+  - 6.7.2.5 / / Standby -> Fault.  
+  - 6.7.2.6 / / Standby -> Passive.  
+  - 6.7.2.7 / / WaitTSR -> Standby.  
+  - 6.7.2.8 / / WaitTSR -> Active.  
+  - 6.7.2.9 / / WaitTSR -> Passive.  
+  - 6.7.2.10 / / WaitTSR -> Fault.  
+  - 6.7.2.11 / / Active -> Standby.  
+  - 6.7.2.12 / / Active -> Passive.  
+  - 6.7.2.13 / / Active -> Fault.  
+  - 6.7.2.14 / / Fault -> Passive.
+</page>
+
+<page number="3">
+Table of Contents.
+
+6 / APL12_ISA.
+
+6.1 // ISLC Function Specification.
+6.2 // Document Management.
+6.3 // Glossary.
+6.4 // Feature Definition.
+6.4.1 // Intelligent Speed Limit Control system (ISLC).
+6.4.2 // Function configuration and Disclaimer.
+6.5 // Function Architecture.
+6.6 // Feature Interface.
+6.6.1 // Input Signals.
+6.6.2 // Output Signals.
+6.7 // ISLC State Management.
+6.7.1 // ISLC State Machine.
+6.7.2 // ISLC State Transition.
+6.7.2.1 // Passive -> Standby.
+6.7.2.2 // Passive -> Fault.
+6.7.2.3 // Standby -> Active.
+6.7.2.4 // Standby -> WaitTSR.
+6.7.2.5 // Standby -> Fault.
+6.7.2.6 // Standby -> Passive.
+6.7.2.7 // WaitTSR -> Standby.
+6.7.2.8 // WaitTSR -> Active.
+6.7.2.9 // WaitTSR -> Passive.
+6.7.2.10 // WaitTSR -> Fault.
+6.7.2.11 // Active -> Standby.
+6.7.2.12 // Active -> Passive.
+6.7.2.13 // Active -> Fault.
+6.7.2.14 // Fault -> Passive.
+
+6.8 // ISLC Performance Requirement.
+6.8.1 // Condition of Speed Adjustment.
+6.8.2 // Speed Limit Fusion Strategy of Camera and Navigation.
+6.9 // HMI Requirement.
+6.9.1 // Button Logic.
+6.9.2 // MHU Offset Configuration.
+6.9.3 // Display Design.
+6.9.3.1 // Icon Display.
+6.9.3.2 // Popup Message.
+
+6.10 ISA.
+
+6.10.1 Road Type.
+6.10.2 Speed Limit Sign Type.
+6.10.3 // Speed Limit Accuracy.
+6.10.4 Multi-lane Speed Limit Sign.
+6.10.5 Multiple Speed Limit Sign.
+6.10.6 Dynamic Speed Limit.
+6.10.7 Report Time.
+6.10.8 Sign Display Duration (Distance).
+6.10.9 Speed Limit Warning.
+6.10.10 Speed Range.
+6.10.11 Road Type.
+6.10.12 Speed Limit Sign Type.
+6.10.13 // Speed Limit Accuracy.
+6.10.14 Multi-lane Speed Limit Sign.
+
+6.11 ISLC.
+
+6.11.1 // Speed Limit Input.
+6.11.2 Speed Limit Control Request.
+6.11.3 Speed Limit Control Display.
+6.11.4 Speed Limit Control Confirmation.
+6.11.5 Speed Control Intervention.
+6.11.6 Acceleration / Deceleration.
+6.11.7 Jerk Limitation.
+</page>
+
+<page number="4">
+6.11.8 / Speed Range  31
+</page>
+
+<page number="5">
+6 / APL12_ISA.
+
+Requirement ID: FS-225886.  
+Type: --.  
+Status: New.  
+
+6.1 / / ISLC Function Specification.  
+
+Requirement ID: FS-226289.  
+Type: --.  
+Status: New.  
+
+VINFAST ISA.  
+ISLC.  
+
+6.2 / / Document Management.  
+
+Requirement ID: FS-226290.  
+Type: --.  
+Status: New.  
+
+VF version:  
+
+| Version | Change by       | Change description                     | Initiator      | Approver              |
+|---------|-----------------|-----------------------------------------|----------------|-----------------------|
+| 1.0     | ECR60004069    | Initial version released for LS phase  | Duong Hoai An  | Ng Dennis Koon Siu    |
+| 2.0     | ECR60005557    | Release for SOP phase                  | Duong Hoai An  | Ng Dennis Koon Siu    |
+</page>
+
+<page number="6">
+6 / APL12_ISA.
+
+Requirement ID: FS-225886.  
+Type: --  
+Status: New.  
+
+6.1 // ISLC Function Specification.  
+
+Requirement ID: FS-226289.  
+Type: --  
+Status: New.
+
+VINFAST ISA.  
+ISLC.  
+
+6.2 // Document Management.  
+
+Requirement ID: FS-226290.  
+Type: --  
+Status: New.  
+
+VF version.  
+
+| Version | Change by     | Change description                               | Initiator       | Approver                |
+|---------|---------------|-------------------------------------------------|-----------------|-------------------------|
+| 1.0     | ECR60004069   | Initial version released for LS phase.          | Duong Hoai An   | Ng Dennis Koon Siu      |
+| 2.0     | ECR60005557   | Release for SOP phase.                          | Duong Hoai An   | Ng Dennis Koon Siu      |
+
+| Release | Date       | Author      | Reviewer | Remarks / Changes                                                      |
+|---------|------------|-------------|----------|-------------------------------------------------------------------------|
+| V1.0    | 2021-08-16 | Chen Lei    | --       | Initial Version.                                                       |
+| V1.1    | 2021-10-25 | Chen Lei    | --       | - Update signal interfaces based on VinFast project.                   |  
+|         |            |             |          | - Delete Use Cases since they stemmed from driver confirmation.        |  
+|         |            |             |          | - Add VinFast HMI requirements.                                         |
+| V1.2    | 2021-11-15 | Chen Lei    | --       | - Update according to VinFast review comments.                         |
+| V1.3    | 2022-06-22 | Xiong Jian  | --       | - Update based on VF alignment.                                        |
+| V1.4    | 2022-12-15 | Xiong Jian  | --       | - Add WaitTSR state.                                                   |  
+|         |            |             |          | - Update the popup design.                                             |
+
+6.3 // Glossary.  
+
+Requirement ID: FS-226291.  
+Type: --  
+Status: New.  
+
+| Acronym | Full Form |
+|---------|-----------|
+</page>
+
+<page number="7">
+6 / APL12_ISA
+
+Requirement ID: FS-225886  
+Type: --  
+Status: New  
+
+---
+
+6.1 / / ISLC Function Specification  
+
+Requirement ID: FS-226289  
+Type: --  
+Status: New  
+
+VINFAST ISA ISLC  
+
+---
+
+6.2 / / Document Management  
+
+Requirement ID: FS-226290  
+Type: --  
+Status: New  
+
+**VF Version Table:**  
+- **Version:** 1.0  
+  - **Change by:** ECR60004069  
+  - **Change description:** Initial version released for LS phase  
+  - **Initiator:** Duong Hoai An  
+  - **Approver:** Ng Dennis Koon Siu  
+
+- **Version:** 2.0  
+  - **Change by:** ECR60005557  
+  - **Change description:** Release for SOP phase  
+  - **Initiator:** Duong Hoai An  
+  - **Approver:** Ng Dennis Koon Siu  
+
+---
+
+**Release Information Table:**  
+- Release: V1.0  
+  - Date: 2021-08-16  
+  - Author: Chen Lei  
+  - Reviewer: --  
+  - Remarks/Changes: Initial Version.  
+
+- Release: V1.1  
+  - Date: 2021-10-25  
+  - Author: Chen Lei  
+  - Reviewer: --  
+  - Remarks/Changes:  
+    - Update signal interfaces based on VinFast project.  
+    - Delete Use Cases since they stemmed from driver confirmation.  
+    - Add VinFast HMI requirements.  
+
+- Release: V1.2  
+  - Date: 2021-11-15  
+  - Author: Chen Lei  
+  - Reviewer: --  
+  - Remarks/Changes: Update according to VinFast review comments.  
+
+- Release: V1.3  
+  - Date: 2022-06-22  
+  - Author: Xiong Jian  
+  - Reviewer: --  
+  - Remarks/Changes: Update based on VF alignment.  
+
+- Release: V1.4  
+  - Date: 2022-12-15  
+  - Author: Xiong Jian  
+  - Reviewer: --  
+  - Remarks/Changes:
+    - Add WaitTSR state.  
+    - Update the popup design.  
+
+---
+
+6.3 / / Glossary  
+
+Requirement ID: FS-226291  
+Type: --  
+Status: New  
+
+Abbreviations and definitions:  
+- **ISLC:** Intelligent Speed Limit Control  
+- **ACC:** Adaptive Cruise Control  
+- **ISA:** Intelligent Speed Alert  
+- **ADAS:** Advance Driver Assistant System  
+- **ESC:** Electric Stability Control  
+- **HMI:** Human Machine Interface  
+
+---
+
+6.4 / / Feature Definition  
+
+Requirement ID: FS-226292  
+Type: --  
+Status: New  
+
+---
+
+6.4.1 / / Intelligent Speed Limit Control system (ISLC) ISLC  
+
+Requirement ID: FS-226293  
+Type: --  
+Status: New  
+
+**Description:**  
+The ISLC function combines the ISA function and ACC function. The speed limit information is provided by the navigation system or camera. If the difference between the speed limit information and the cruise speed set by the current dashboard is more than the threshold value (which can be calibrated), the system will confirm with the driver whether to update the speed limit as the new ACC target cruise speed.  
+
+---
+
+6.4.2 / / Function configuration and Disclaimer  
+
+Requirement ID: FS-226294  
+Type: --  
+Status: New  
+
+**Configuration details:**  
+1) For VF35 ICE and VF36 ICE: Only use the front camera to detect speed limit signs.  
+2) For VFe35 BEV and VFe36 BEV: Combine front camera detection and navigation system information for ISA function in Europe, while in other regions keep consistent with the ICE variant.
+</page>
+
+<page number="8">
+6 / APL12_ISA.  
+
+**Requirement ID:** FS-225886.  
+**Type:** --.  
+**Status:** New.  
+
+---
+
+### 6.1 / ISLC Function Specification.  
+
+**Requirement ID:** FS-226289.  
+**Type:** --.  
+**Status:** New.  
+
+VINFAST ISA ISLC. 
+
+---
+
+### 6.2 / Document Management.  
+
+**Requirement ID:** FS-226290.  
+**Type:** --.  
+**Status:** New.  
+
+**VF Version:**  
+
+| Version | Change by      | Change Description                          | Initiator       | Approver               |
+|---------|----------------|---------------------------------------------|-----------------|------------------------|
+| 1.0     | ECR60004069    | Initial version released for LS phase       | Duong Hoai An   | Ng Dennis Koon Siu     |
+| 2.0     | ECR60005557    | Release for SOP phase                       | Duong Hoai An   | Ng Dennis Koon Siu     |
+
+---
+
+**Release Documentation:**  
+
+| Release | Date       | Author     | Reviewer | Remarks / Changes                                                                 |
+|---------|------------|------------|----------|-----------------------------------------------------------------------------------|
+| V1.0    | 2021-08-16 | Chen Lei   |          | Initial Version.                                                                 |
+| V1.1    | 2021-10-25 | Chen Lei   |          | - Update signal interfaces based on VinFast project.                              |  
+|         |            |            |          | - Delete Use Cases since they stemmed from driver confirmation.                   |
+|         |            |            |          | - Add VinFast HMI requirements.                                                  |
+| V1.2    | 2021-11-15 | Chen Lei   |          | Update according to VinFast review comments.                                      |
+| V1.3    | 2022-06-22 | Xiong Jian |          | Update based on VF alignment.                                                    |
+| V1.4    | 2022-12-15 | Xiong Jian |          | 1. Add WaitTSR state.                                                             |  
+|         |            |            |          | 2. Update the popup design.                                                      |
+
+---
+
+### 6.3 / Glossary.  
+
+**Requirement ID:** FS-226291.  
+**Type:** --.  
+**Status:** New.  
+
+| Acronym | Full Form                            |
+|---------|--------------------------------------|
+| ISLC    | Intelligent Speed Limit Control      |
+| ACC     | Adaptive Cruise Control             |
+| ISA     | Intelligent Speed Alert             |
+| ADAS    | Advance Driver Assistant System     |
+| ESC     | Electric Stability Control          |
+| HMI     | Human Machine Interface             |
+
+---
+
+### 6.4 / Feature Definition.  
+
+**Requirement ID:** FS-226292.  
+**Type:** --.  
+**Status:** New.  
+
+---
+
+#### 6.4.1 / Intelligent Speed Limit Control system (ISLC) ISLC.  
+
+**Requirement ID:** FS-226293.  
+**Type:** --.  
+**Status:** New.  
+
+The ISLC function combines the ISA function and ACC function. The speed limit information is provided by the navigation system or a camera. If the difference between the speed limit information and the cruise speed set by the current dashboard is more than the threshold value (which can be calibrated), the system will confirm with the driver whether to update the speed limit as the new ACC target cruise speed.  
+
+---
+
+#### 6.4.2 / Function Configuration and Disclaimer.  
+
+**Requirement ID:** FS-226294.  
+**Type:** --.  
+**Status:** New.  
+
+Function configuration is defined as below:  
+1. For VF35 ICE and VF36 ICE: Only use the front camera to detect speed limit signs.  
+2. For VFe35 BEV and VFe36 BEV: Combine front camera detection and navigation system information for ISA function in Europe, while in other regions keep consistent with ICE variants.  
+
+Note that this function is only an assistance function and is designed to help drivers maintain a speed below the recommended speed limit. It is not designed to replace driver observation of traffic signs or adherence to traffic rules.  
+
+It is recommended that the OEM deploying such functions make it clear to the driver either via a disclaimer on the vehicle HMI or in the vehicle user manual.  
+
+---
+
+### 6.5 / Function Architecture.  
+
+**Requirement ID:** FS-226295.  
+**Type:** --.  
+**Status:** New.  
+
+The system architecture is composed of Speed Limit Value Fusion (Camera), ACC Module, HMI Module, Radar Object Detection, Vehicle CAN integration, Navigation system, MP5/SCC, and Dashboard for output. Vehicle inputs include map information, vehicle dynamics, icons, and buttons for operation.  
+
+---
+
+### 6.6 / Feature Interface.  
+
+**Requirement ID:** FS-226296.  
+**Type:** --.  
+**Status:** New.  
+
+---
+
+#### 6.6.1 / Input Signals.  
+(Not provided in the text but listed as a section start.)
+</page>
+
+<page number="9">
+6.6.1 / / Input Signals
+
+Requirement ID: FS-226297  
+Type: --  
+Status: New  
+
+**Signal name:** 0x3F7.MFS_ISAControl  
+**Description:** ISA Control Button  
+**Values:**  
+- 3 "Reserved"  
+- 2 "Long Press"  
+- 1 "Short Press"  
+- 0 "Button not Pressed"  
+**Variant:** BEV, ICE  
+
+**Signal name:** 0x126.MHU_ISA_SpeedLimitCon_Percent  
+**Description:** Speed Limit Control Offset Setting Percentage  
+**Values:**  
+- 6 "Reserved"  
+- 5 "Reserved"  
+- 4 "Reserved"  
+- 3 "15 percent"  
+- 2 "10 Percent"  
+- 1 "5 Percent"  
+- 0 "0 Percent" (No offset)  
+**Variant:** BEV, ICE  
+
+**Signal name:** 0x126.MHU_ISA_Speed_Setting  
+**Description:** Speed Limit Control Offset setting KPH or MPH  
+**Values:**  
+- 14 "Reserved"  
+- 13 "Reserved"  
+- 12 "Reserved"  
+- 11 "Reserved"  
+- 10 "Reserved"  
+- 9 "Reserved"  
+- 8 "Reserved"  
+**Variant:** BEV, ICE
+</page>
+
+<page number="10">
+Requirement ID: FS-226297  
+Type: --  
+Status: New  
+
+Signal name:   
+0x3F7.MFS_ISAControl  
+Description: ISA Control Button  
+Values:  
+- 3 "Reserved"  
+- 2 "Long Press"  
+- 1 "Short Press"  
+- 0 "Button not Pressed"  
+Variant: BEV, ICE  
+
+Signal name:  
+0x126.MHU_ISA_SpeedLimitCon_Percent  
+Description: Speed Limit Control Offset Setting Percentage  
+Values:  
+- 6 "Reserved"  
+- 5 "Reserved"  
+- 4 "Reserved"  
+- 3 "15 percent"  
+- 2 "10 Percent"  
+- 1 "5 Percent"  
+- 0 "0 Percent" (No offset)  
+Variant: BEV, ICE  
+
+Signal name:  
+0x126.MHU_ISA_Speed_Setting  
+Description: Speed Limit Control Offset setting KPH or MPH  
+Values:  
+- 14 "Reserved"  
+- 13 "Reserved"  
+- 12 "Reserved"  
+- 11 "Reserved"  
+- 10 "Reserved"  
+- 9 "Reserved"  
+- 8 "Reserved"  
+- 7 "15 MPH"  
+- 6 "10 MPH"  
+- 5 "5 MPH"  
+- 4 "20 KPH"  
+- 3 "15 KPH"  
+- 2 "10 KPH"  
+- 1 "5 KPH"  
+- 0 "0" (No offset)  
+Variant: BEV, ICE  
+
+Signal name:  
+MP5_ADAS_Seg_EffSpLmt  
+Description: Navigation System Speed Limit Information  
+Values:  
+- 0: unknown (including variable speed sign controlled)  
+- 1: value ≤ 5  
+- 2: 5 < value ≤ 7  
+- 3: 7 < value ≤ 10  
+- 4: 10 < value ≤ 15  
+- 5: 15 < value ≤ 20  
+- 6: 20 < value ≤ 25  
+- 7: 25 < value ≤ 30  
+- 8: 30 < value ≤ 35  
+- 9: 35 < value ≤ 40  
+- 10: 40 < value ≤ 45  
+- 11: 45 < value ≤ 50  
+- 12: 50 < value ≤ 55  
+Status: In discussion
+</page>
+
+<page number="11">
+13: Value ≤ 60 MPH.  
+14: Value ≤ 65 MPH.  
+15: Value ≤ 70 MPH.  
+16: Value ≤ 75 MPH.  
+17: Value ≤ 80 MPH.  
+18: Value ≤ 85 MPH.  
+19: Value ≤ 90 MPH.  
+20: Value ≤ 95 MPH.  
+21: Value ≤ 100 MPH.  
+22: Value ≤ 105 MPH.  
+23: Value ≤ 110 MPH.  
+24: Value ≤ 115 MPH.  
+25: Value ≤ 120 MPH.  
+26: Value ≤ 130 MPH.  
+27: Value ≤ 140 MPH.  
+28: Value ≤ 150 MPH.  
+29: Value ≤ Unlimited.  
+30: Unlimited speed.  
+31: Not applicable.
+</page>
+
+<page number="12">
+Other input signals please refer to TSR and ACC function specification.
+
+6.6.2 / / Output Signals.
+
+Requirement ID: FS-226298. Type: --. Status: New.
+
+- **Signal name:** 0x353.ADAS_ISA_Btn_Feed.  
+  **Description:** Feedback of ISA On Off Button.  
+  **Values:** 0 "Off", 1 "On".  
+  **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x353.ADAS_ISA_Mode_SW_Feed.  
+  **Description:** Feedback of ISA On Off (From Steering wheel button).  
+  **Values:** 0 "Off", 1 "On".  
+  **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x353.ADAS_ISA_check.  
+  **Description:** Intelligent Speed adaptation Check.  
+  **Values:** 0 "Available", 1 "Temporarily not available", 2 "Permanently not available".  
+  **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x353.ADAS_ISA_ICON_Feed.  
+  **Description:** ICON Feedback Request for ISA function.  
+  **Values:**  
+    - 0 "Off".  
+    - 1 "Gray ICON".  
+    - 2 "Green ICON".  
+    - 3 "White ICON".  
+    - 4 "Yellow ICON".  
+    - 5 "Red ICON".  
+  **Variant:** BEV, ICE.  
+
+- **Signal name:** 0x353.ADAS_ISA_Mode_SW_Feed.  
+  **Description:** Feedback of ISA.  
+  **Values:** 0 "Off", 1 "On".
+</page>
+
+<page number="13">
+On off (From Steering wheel button): BEV ICE.
+
+**0x353.ADAS_ISA_PopUp_Feed**  
+PopUP Messaging for ISA function:  
+- 0 "None"  
+- 1 "Accelerating to match speed limit"  
+- 2 "Decelerating to match speed limit"  
+- 3 "Press steering wheel button to match speed limit"  
+- 4 "Intelligent Speed Assist Unavailable"  
+- 5 ~ 14 "Reserved"  
+- 15 "Invalid"  
+Variants: BEV ICE.
+
+---
+
+**0x353. ADAS_ISA_Status**  
+The signal indicates the status of the ISA function:  
+- 0 "OFF State"  
+- 1 "Stand by state"  
+- 2 "Active (Auto) state"  
+- 3 "Reserved"  
+- 4 "Reserved"  
+Variants: BEV ICE.
+
+---
+
+**0x134. ADAS_ISA_SpeedLimitCnt_Per_Feed**  
+Speed Limit Control Off Setting Percentage Feedback:  
+- 6 "Reserved"  
+- 5 "Reserved"  
+- 4 "Reserved"  
+- 3 "15 percent"  
+- 2 "10 Percent"  
+- 1 "5 Percent"  
+- 0 "0 Percent"  
+Variants: BEV ICE.
+
+---
+
+**0x134.ADAS_ISA_SpeedLimitCnt_Spd_Feed**  
+Speed Limit Control Offset setting KPH or MPH Feedback:  
+- 14 "Reserved"  
+- 13 "Reserved"  
+- 12 "Reserved"  
+- 11 "Reserved"  
+- 10 "Reserved"  
+- 9 "Reserved"  
+- 8 "Reserved"  
+- 7 "15 MPH"  
+Variants: BEV ICE.
+</page>
+
+<page number="14">
+6 / / APL12_ISA  
+
+Requirement ID: FS-225886.  
+Type: --  
+Status: New.  
+
+6.1 / / ISLC Function Specification.  
+
+Requirement ID: FS-226289.  
+Type: --  
+Status: New.  
+ 
+VINFAST ISA.  
+ISLC.  
+
+6.2 / / Document Management.  
+
+Requirement ID: FS-226290.  
+Type: --  
+Status: New.  
+
+**VF version**  
+
+- **Version 1.0**:  
+  - **Change by**: ECR60004069  
+  - **Change description**: Initial version released for LS phase.  
+  - **Initiator**: Duong Hoai An  
+  - **Approver**: Ng Dennis Koon Siu  
+
+- **Version 2.0**:  
+  - **Change by**: ECR60005557  
+  - **Change description**: Release for SOP phase.  
+  - **Initiator**: Duong Hoai An  
+  - **Approver**: Ng Dennis Koon Siu  
+
+6.3 / / Glossary.  
+
+Requirement ID: FS-226291.  
+Type: --  
+Status: New.  
+
+**Glossary Terms**:  
+- **ISLC**: Intelligent Speed Limit Control.  
+- **ACC**: Adaptive Cruise Control.  
+- **ISA**: Intelligent Speed Alert.  
+- **ADAS**: Advanced Driver Assistant System.  
+- **ESC**: Electric Stability Control.  
+- **HMI**: Human Machine Interface.  
+
+6.4 / / Feature Definition.  
+
+Requirement ID: FS-226292.  
+Type: --  
+Status: New.  
+
+6.4.1 / / Intelligent Speed Limit Control system (ISLC) ISLC.  
+
+Requirement ID: FS-226293.  
+Type: --  
+Status: New.  
+
+ISLC function combines the ISA function and ACC function. The speed limit information is provided by navigation system or camera. If the difference between the speed limit information and the cruise speed set by the current dashboard is more than the threshold value (which can be calibrated), the system will confirm with the driver whether to update the speed limit as the new ACC target cruise speed.  
+
+6.4.2 / / Function configuration and Disclaimer.  
+
+Requirement ID: FS-226294.  
+Type: --  
+Status: New.  
+
+Function configuration is defined as below:  
+1. For VF35 ICE and VF36 ICE: Only use the front camera to detect speed limit signs.  
+2. For VFe35 BEV and VFe36 BEV: Combine front camera detection and navigation system information for ISA function in Europe, while in other regions, keep consistent with ICE variants.  
+
+Note: This function is only an assistance function designed to help drivers maintain a speed below the recommended speed limit. It is not meant to replace the driver observing the traffic signs and obeying the traffic rules for the environment they are driving in.  
+
+It is recommended that the OEM deploying such functions make it clear to the driver either via a disclaimer in the vehicle HMI or the vehicle user manual.  
+
+6.5 / / Function Architecture.  
+
+Requirement ID: FS-226295.  
+Type: --  
+Status: New.  
+
+The system architecture is shown in the figure provided.  
+
+6.6 / / Feature Interface.  
+
+Requirement ID: FS-226296.  
+Type: --  
+Status: New.  
+
+6.6.1 / / Input Signals.  
+
+Requirement ID: FS-226297.  
+Type: --  
+Status: New.  
+
+Input signals are provided for ISA functionality and control, including ISA Control Button and Speed Limit Control Offset Settings in percentages and speed units (KPH or MPH).  
+
+Other input signals are detailed in the TSR and ACC function specification.  
+
+6.6.2 / / Output Signals.  
+
+Requirement ID: FS-226298.  
+Type: --  
+Status: New.  
+
+Output signals include feedback for ISA functions, button presses, and states. Additional details are specified for ISA PopUp Messaging, ICON Feedback, percentage offset feedback, and speed unit feedback (KPH or MPH).  
+
+Other output signals are detailed in the ISA and ACC function specification.  
+
+6.7 / / ISLC state management ISLC.  
+
+Requirement ID: FS-226299.  
+Type: --  
+Status: New.  
+
+6.7.1 / / ISLC State Machine ISLC.  
+
+Requirement ID: FS-226300.  
+Type: --  
+Status: New.  
+
+The state machine of ISLC is used for managing ISLC activation and deactivation, along with fault diagnostics.
+</page>
+
+<page number="15">
+ISLC State Machine.  
+There are five states for ISLC: Passive, Standby, Active, Fault, WaitTSR.  
+
+1. Passive: ISLC function is not available.  
+2. Standby: ISLC function is ready to be activated.  
+3. Active: ISLC function has been activated. With received valid speed limit, ISLC is able to adjust host speed automatically, based on current HMI configuration. (According to VinFast HMI concept, driver confirmation is not required).  
+4. Fault: ISLC-related faults detected.  
+5. WaitTSR: Wait for the driver to turn on TSR.  
+
+The following table is the mapping between the internal status (ISLC Mode) and ISLC CAN signal (0x353. ADAS_ISA_Status and 0x353. ADAS_ISA_check).
+</page>
+
+<page number="16">
+### 6.7 / / ISLC State Management ISLC
+
+**Requirement ID:** FS-226299  
+**Type:** --  
+**Status:** New  
+
+ISA state machine to be mentioned below.
+
+---
+
+### 6.7.1 / / ISLC State Machine ISLC
+
+**Requirement ID:** FS-226300  
+**Type:** --  
+**Status:** New  
+
+The state machine of ISLC is used for managing ISLC activation/deactivation along with fault diagnostics.
+
+**ISLC State Machine:**  
+There are five states for ISLC: Passive, Standby, Active, Fault, WaitTSR.  
+
+1. **Passive:** ISLC function is not available.  
+2. **Standby:** ISLC function is ready to be activated.  
+3. **Active:** ISLC function has been activated. With received valid speed limit, ISLC is able to adjust host speed automatically, based on current HMI configuration. (According to VinFast HMI concept, driver confirmation is not required).  
+4. **Fault:** ISLC related faults detected.  
+5. **WaitTSR:** Wait driver to turn on TSR.  
+
+The following table is the mapping between the internal status (ISLC Mode) and ISLC CAN signal (0x353. ADAS_ISA_Status and 0x353. ADAS_ISA_check):  
+
+| **ISLC Mode** | **0x353. ADAS_ISA_Status**   | **0x353. ADAS_ISA_check**            |
+|---------------|------------------------------|--------------------------------------|
+| Passive       | 0x0 = Off                   | 0 "Available"                       |
+| Standby       | 0x1 = Stand By              | 0 "Available"                       |
+| WaitTSR       | 0x1 = Stand By              | 0 "Available"                       |
+| Active        | 0x2 = Active                | 0 "Available"                       |
+| Fault         | 0x0 = Off                   | 1 "Temporary unavailable"           |
+
+---
+
+### 6.7.2 / / ISLC State Transition ISLC
+
+**Requirement ID:** FS-226301  
+**Type:** --  
+**Status:** New  
+
+After vehicle ignition on, ISLC state is Passive.
+
+---
+
+#### 6.7.2.1 / / Passive -> Standby
+
+**Requirement ID:** FS-226302  
+**Type:** --  
+**Status:** New  
+
+ISLC state shall change from Passive to Standby if following conditions are all fulfilled:  
+
+1. **ACC function** is in Active / Standstill Active / Standstill Wait / Override state.  
+2. **No ISLC related faults** detected.
+</page>
+
+<page number="17">
+6.7.2.2 / / Passive -> Fault.
+
+Requirement ID: FS-226305.  
+Type: --  
+Status: New.  
+
+The ISLC state shall change from Passive to Fault if ISLC-related faults are detected.
+
+6.7.2.3 / / Standby -> Active.
+
+Requirement ID: FS-226306.  
+Type: --  
+Status: New.  
+
+The ISLC state shall change from Standby to Active if the following conditions are all fulfilled:  
+1. The ISLC function is turned on by pressing the ISLC switch (0x3F7.MFS_ISAControl == 2 or 1).  
+2. TSR is ON.  
+3. No ISLC-related faults are detected.
+
+6.7.2.4 / / Standby -> WaitTSR.
+
+Requirement ID: FS-514872.  
+Type: --  
+Status: New.  
+
+The ISLC state shall change from Standby to WaitTSR if the following conditions are all fulfilled:  
+1. The ISLC function is turned on by pressing the ISLC switch (0x3F7.MFS_ISAControl == 2 or 1).  
+2. TSR is OFF.  
+3. No ISLC-related faults are detected.
+
+6.7.2.5 / / Standby -> Fault.
+
+Requirement ID: FS-226309.  
+Type: --  
+Status: New.  
+
+The ISLC state shall change from Standby to Fault if ISLC-related faults are detected.
+</page>
+
+<page number="18">
+6.7.2.6 / / Standby -> Passive.
+
+Requirement ID: FS-226310.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from Standby to Passive if anyone of the following conditions is fulfilled:  
+- ACC function is not in Active / Standstill Active / Standstill Wait / Override state.  
+
+6.7.2.7 / / WaitTSR -> Standby.
+
+Requirement ID: FS-514873.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from WaitTSR to Standby if the following condition is fulfilled:  
+1. TSR keeps OFF (internal signal) for 6 seconds.  
+
+6.7.2.8 / / WaitTSR -> Active.
+
+Requirement ID: FS-514874.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from WaitTSR to Active if the following condition is fulfilled:  
+1. TSR is turned ON (internal signal) within 6 seconds.  
+
+6.7.2.9 / / WaitTSR -> Passive.
+
+Requirement ID: FS-514875.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from WaitTSR to Passive if the following condition is fulfilled:  
+1. ACC function is not in Active / Standstill Active / Standstill Wait / Override state.
+</page>
+
+<page number="19">
+6.7.2.10 / WaitTSR -> Fault.
+
+Requirement ID: FS-514876.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from WaitTSR to Fault if ISLC related faults detected.
+
+6.7.2.11 / / Active -> Standby.
+
+Requirement ID: FS-226311.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from Active to Standby if following conditions are all fulfilled:  
+1. ISLC function is turned off by pressing ISLC switch (0x3F7.MFS_ISAControl == 2 or 1) OR TSR is OFF.  
+2. ACC function is in Active / Standstill Active/ Standstill Wait / Override state.  
+3. No ISLC related faults detected.
+
+6.7.2.12 / / Active -> Passive.
+
+Requirement ID: FS-226315.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from Active to Passive if following conditions are all fulfilled:  
+1. ACC function is not in Active / Standstill Active/ Standstill Wait / Override state.  
+2. No ISLC related faults detected.
+
+6.7.2.13 / / Active -> Fault.
+
+Requirement ID: FS-226318.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from Active to Fault if ISLC related faults detected.
+</page>
+
+<page number="20">
+6.7.2.14 / / Fault -> Passive.  
+Requirement ID: FS-226319.  
+Type: --.  
+Status: New.  
+
+ISLC state shall change from Fault to Passive if ISLC related faults have been recovered.  
+
+6.8 / / ISLC Performance Requirement ISLC.  
+Requirement ID: FS-226320.  
+Type: --.  
+Status: New.  
+
+6.8.1 / / Condition of speed adjustment.  
+Requirement ID: FS-226321.  
+Type: --.  
+Status: New.  
+
+When the difference between perceived speed limit value and host current speedometer speed is larger than the offset configured in MHU (see section 8.2), ISLC shall set the perceived speed limit as new target cruise speed and adjust the current host speed by either acceleration or deceleration. (Only when the perceived speed limit is lower than display speed limit, ISLC will set the target cruise speed.)  
+
+When the perceived speed limit has been cancelled, ISLC function (along with ACC function) will keep using the same target cruise speed as before.  
+
+In order to fulfil GSR, speed offset configuration shall only be available when vehicle region code is not Europe. Then MHU shall inhibit relevant configurations in display menu, and signals 0x126.ADS_ISA_SpeedLimitCon_Percent and 0x126.ADS_ISA_Speed_Setting shall always be 0 “no offset."  
+
+6.8.2 / / Speed limit fusion strategy of Camera and Navigation.  
+Requirement ID: FS-226322.  
+Type: --.  
+Status: New.
+</page>
+
+<page number="21">
+ISLC system speed limit value comes from camera and navigation system. The speed limit value from the camera has higher priority than the speed limit from the navigation system. If no speed limit is detected by the camera and the navigation system can provide an effective speed limit, the speed limit value from the navigation system will be used as the effective speed limit value.
+
+6.9 / / HMI Requirement.
+
+Requirement ID: FS-226333. 
+Type: --. 
+Status: New.
+
+6.9.1 / / Button Logic.
+
+Requirement ID: FS-226334. 
+Type: --. 
+Status: New.
+
+On receiving 0x3F7.MFS_ISAControl == 1 or 2, ISLC function shall send out 0x353.ADAS_ISA_Btn_Feed and 0x353.ADAS_ISA_Mode_SW_Feed with:
+- 0 Off, if ISLC internal state cannot change to Active.
+- 1 On, if ISLC internal state has changed to Active.
+
+6.9.2 / / MHU Offset Configuration MHU.
+
+Requirement ID: FS-226335. 
+Type: --. 
+Status: New.
+</page>
+
+<page number="22">
+ISLC function shall send out 0x134. ADAS_ISA_SpeedLimitCon_Percent consistent with the received value of signal 0x126. ADAS_ISA_SpeedLimitCnt_Per_Feed.
+
+On receiving 0x126. ADAS_ISA_SpeedLimitCon_Percent as “5 Percent,” “10 Percent,” or “15 Percent,” ISLC shall set a new target cruise speed with the perceived speed limit only when:
+- Abs((current speed - perceived speed limit) / current speed) >= ADAS_ISA_SpeedLimitCon_Percent.
+
+ISLC function shall send out 0x134.ADAS_ISA_SpeedLimitCnt_Spd_Feed consistent with the received value of signal 0x126. ADAS_ISA_Speed_Setting.
+
+On receiving 0x126. ADAS_ISA_Speed_Setting as “5 kph,” “10 kph,” “15 kph,” “20 kph,” “5 mph,” “10 mph,” or “15 mph,” ISLC shall set a new target cruise speed with the perceived speed limit only when:
+- Abs(current speed - perceived speed limit) >= ADAS_ISA_SpeedLimitCnt_Spd_Feed.
+
+Note: 
+- The new target cruise speed will be sent out through 0x353. ADAS_ACC_TagSpeed. Its related requirements refer to the ACC function specification.
+- When there is an offset that is not an integer, the floor function should be used (e.g., 60.5 as 60).
+
+Driver’s adjustment of ACC/ISLC target cruise speed shall always have a higher priority than the perceived speed limit. [Refer to GSR: "It shall not affect the possibility, for the drivers, of exceeding the system‘s prompted vehicle speed."]
+
+1. If the ISLC function is on (0x353.ADAS_ISA_Btn_Feed == 1) and the perceived speed limit is received during the driver adjusting ACC/ISLC target cruise speed (e.g., through SPEED+/- or SET button), this perceived speed limit shall be ignored.
+
+2. If the ISLC function is on (0x353.ADAS_ISA_Btn_Feed == 1) and the perceived speed limit is received but within the range restricted by MHU offset settings, this perceived speed limit shall be ignored. Later, the driver can manually adjust the ACC/ISLC target cruise speed (e.g., through SPEED+/- or SET button) as usual.
+
+3. If the ISLC function is off (0x353.ADAS_ISA_Btn_Feed == 2) and the perceived speed limit is received during the driver adjusting ACC/ISLC target cruise speed (e.g., through SPEED+/- or SET button), ISLC recommendations shall also be sent out (see popup message in section 8.3.2).
+
+MHU shall avoid sending out valid signal values simultaneously for 0x134.ADAS_ISA_SpeedLimitCnt_Spd and 0x126.ADAS_ISA_SpeedLimitCon_Percent. 
+
+Suppose valid signal values are received simultaneously for 0x134.ADAS_ISA_SpeedLimitCnt_Spd and 0x126.ADAS_ISA_SpeedLimitCon_Percent. In that case, 0x134.ADAS_ISA_SpeedLimitCnt_Spd_Feed shall be used with a higher priority.
+
+### 6.9.3 / / Display Design
+
+**Requirement ID:** FS-226336  
+**Type:** --  
+**Status:** New
+</page>
+
+<page number="23">
+6.9.3 / / Icon Display.
+
+Requirement ID: FS-226337. Type: --. Status: New.
+
+- ISLC State ISLC and corresponding icon and signal definitions:
+  - Passive / WaitTSR / Fault / Standby:
+    - Icon: No Icon.
+    - Icon Signal Definition: 0x353. ADAS_ACC_ICON_Feed = 0 off.
+  - Active:
+    - Icon: LIM icon displayed (green).
+    - Icon Signal Definition: 0x353. ADAS_ISA_ICON_Feed = 2 green.
+
+6.9.3.2 / / Popup Message.
+
+Requirement ID: FS-226338. Type: --. Status: New.
+
+- ISLC shall send out signal values based on specific conditions/use cases.
+- MHU shall define the specific text displayed along with predefined chime/sounds.
+
+Table structure:
+- No: Represents the condition number.
+- Conditions: Describes the case for signal activation.
+- Text Popup: Provides the text to be displayed.
+- Signal Definition: Lists the signal values being sent.
+- Signal Duration Time: Specifies the duration for signal display.
+
+The details of these conditions will be defined in alignment with design specifications.
+</page>
+
+<page number="24">
+6.9.3.2 / Popup Message  
+Requirement ID: FS-226338  
+Type: --  
+Status: New  
+
+ISLC shall send out signal value based on the following conditions/use cases. While MHU shall define the specific text displayed on MHU, along with predefined chime/sound.  
+
+1. ISLC state == WaitTSR.  
+   - Text Popup: Please Turn On TSR to Use ISLC.  
+   - Signal Definition: 0x353.ADAS_ISA_PopUp_Feed = 1.  
+   - Signal Duration Time: 6s.  
+
+2. ISLC state == Active && target cruise speed is changed by ISLC.  
+   - Text Popup: ISA Target Speed Changed.  
+   - Signal Definition: 0x353.ADAS_ISA_PopUp_Feed = 2.  
+   - Signal Duration Time: 4s.  
+
+3. ISLC state == Standby && Difference between perceived speed limit value and ACC set speed is satisfied(see 7.1).  
+   - Text Popup: Press steering wheel button to match speed limit.  
+   - Signal Definition: 0x353.ADAS_ISA_PopUp_Feed = 3.  
+   - Signal Duration Time: 4s.  
+
+4. ISLC state == {Passive || Fault} && Driver presses ISLC button.  
+   - Text Popup: Intelligent Speed Assist Unavailable.  
+   - Signal Definition: 0x353.ADAS_ISA_PopUp_Feed = 4.  
+   - Signal Duration Time: 4s.  
+
+6.10 / ISA  
+Requirement ID: FS-198307  
+Type: --  
+Status: New  
+
+-- Technical Agreement  
+
+6.10.1 / Road Type  
+Requirement ID: FS-198308  
+Type: --  
+Status: New
+</page>
+
+<page number="25">
+Road Type. The system shall detect signs on all types of roadways including highways, rural roads, city roads, and tunnels.
+
+6.10.2 / Speed Limit Sign Type.
+
+Requirement ID: FS-198309.  
+Type: --   
+Status: New.  
+
+Speed Limit Sign Type. The information of the speed limit sign, end of speed limit sign, multi-lane speed limit sign, and multi-speed limit sign shall be obtained and displayed to the driver. For speed limit signs ending with 5 (e.g., 15, 25, 35, 45, 55), detection performance refers to actual test results.
+
+6.10.3 / Speed Limit Accuracy.
+
+Requirement ID: FS-198310.  
+Type: --  
+Status: New.  
+
+Speed Limit Accuracy. ≥95% map information required.
+
+6.10.4 / Multi-lane Speed Limit Sign.
+
+Requirement ID: FS-198311.  
+Type: --  
+Status: New.  
+
+Multi-lane Speed Limit Sign. The system shall detect multi-lane speed limit signs, but only display the speed limit information of the lane that the host vehicle is traveling on.
+</page>
+
+<page number="26">
+6.10.5. Multiple speed limit signs.
+
+Requirement ID: FS-198312.  
+Type: --  
+Status: New.  
+
+The system shall detect multiple speed limit signs but only display the maximum speed limit information.  
+
+---
+
+6.10.6. Dynamic speed limit.
+
+Requirement ID: FS-198313.  
+Type: --  
+Status: New.  
+
+The system shall not detect speed-limit-sign-like small stickers which are often glued to the backside of a truck.  
+
+---
+
+6.10.7. Report time.
+
+Requirement ID: FS-198314.  
+Type: --  
+Status: New.  
+
+Speed limit value shall be reported by the time the camera is parallel with the sign.  
+
+---
+
+6.10.8. Sign display duration (distance).
+
+Requirement ID: FS-198315.  
+Type: --  
+Status: New.
+</page>
+
+<page number="27">
+6.10.8 / Sign Display Duration (Distance).
+
+Requirement ID: FS-198315  
+Type: --  
+Status: New  
+
+Display duration shall be based on the host vehicle’s driving distance, and it shall be able to be calibrated.  
+
+---
+
+6.10.9 / Speed Limit Warning.
+
+Requirement ID: FS-198316  
+Type: --  
+Status: New  
+
+Visual and acoustic warning shall be reported once the perceived speed limit has been surpassed. It is dependent on GSR and whether the ISLC function is activated or not. Details shall be provided in the Functional Specification.  
+
+---
+
+6.10.10 / Speed Range.
+
+Requirement ID: FS-198317  
+Type: --  
+Status: New  
+
+Speed Range: [0,150] km/h.  
+
+---
+
+6.10.11 / Road Type.
+
+Requirement ID: FS-198318  
+Type: --  
+Status: New  
+
+The system shall detect signs on all types of roadways, including highways, rural roads, city roads, and tunnels.  
+
+---
+
+6.10.12 / Speed Limit Sign Type.
+
+Requirement ID: FS-198309  
+Type: --  
+Status: New  
+
+The system shall obtain and display information related to speed limit signs, end of speed limit signs, multi-lane speed limit signs, and multi-speed limit signs. Detection performance for signs ending in 5 (e.g., 15/25/35/45/55) shall refer to actual test results.
+</page>
+
+<page number="28">
+6.10.5 / Multiple Speed Limit Sign.
+
+Requirement ID: FS-198312.  
+Type: --  
+Status: New.  
+
+System shall detect multiple speed limit signs, but only display the maximum speed limit information.  
+ISA [24/12] duongvh3 OK.
+
+6.10.6 / Dynamic Speed Limit.
+
+Requirement ID: FS-198313.  
+Type: --  
+Status: New.  
+
+System shall not detect speed-limit-sign-like small stickers which are often glued to the backside of a truck.  
+ISA [24/12] duongvh3 OK.
+
+6.10.7 / Report Time.
+
+Requirement ID: FS-198314.  
+Type: --  
+Status: New.  
+
+Speed limit value shall be reported by the time the camera is parallel with the sign.  
+ISA 8/12] duongvh3camera only? [24/12] duongvh3 OK.
+
+6.10.8 / Sign Display Duration (Distance).
+
+Requirement ID: FS-198315.  
+Type: --  
+Status: New.  
+
+Display duration shall be based on host vehicle’s driving distance and it shall be able to be calibrated.  
+ISA [24/12] duongvh3 OK.
+
+6.10.9 / Speed Limit Warning.
+
+Requirement ID: FS-198316.  
+Type: --  
+Status: New.  
+
+Visual and acoustic warning shall be reported once perceived speed limit has been surpassed. It is dependent on GSR and if ISLC function activates or not. Details shall be in the Functional spec.  
+ISA [24/12] duongvh3 OK.
+
+6.10.10 / Speed Range.
+
+Requirement ID: FS-198317.  
+Type: --  
+Status: New.  
+
+Speed Range: [0, 150] km/h.  
+ISA 9/12] duongvh3 OK.
+
+6.10.11 / Road Type.
+
+Requirement ID: FS-198318.  
+Type: --  
+Status: New.  
+
+The system shall detect signs on all types of roadways, including highways, rural roads, city roads, and tunnels.  
+ISA duplicate.
+
+6.10.12 / Speed Limit Sign Type.
+
+Requirement ID: FS-198319.  
+Type: --  
+Status: New.  
+
+Speed Limit Sign Type: The information of the speed limit sign, end of speed limit sign, multi-lane speed limit sign, and multi-speed limit sign shall be obtained and displayed to the driver.  
+For speed limit signs ended with 5 (e.g., 15/25/35/45/55), detection performance refers to actual test results.  
+ISA duplicate.
+
+6.10.13 / Speed Limit Accuracy.
+
+Requirement ID: FS-198320.  
+Type: --  
+Status: New.  
+
+Speed Limit Accuracy: ≥95% Map information required.  
+ISA 9/12] duongvh3 OK.
+
+6.10.14 / Multi-lane Speed Limit Sign.
+
+Requirement ID: FS-198321.  
+Type: --  
+Status: New.  
+
+System shall detect multi-lane speed limit signs, but only display the speed limit information of the lane that the host vehicle is traveling on. This depended on Fusion and camera systems. Maps do not provide the information.  
+ISA 9/12] duongvh3, should rely on Camera only not ISA Maps. Maps does not provide the information.  
+[24/12] duongvh3 OK.
+</page>
+
+<page number="29">
+6.11 / ISLC.
+
+Requirement ID: FS-198322.  
+Type: --.  
+Status: New.  
+
+-- Technical Agreement.  
+
+6.11.1 / / Speed Limit Input.  
+
+Requirement ID: FS-198323.  
+Type: --.  
+Status: New.  
+
+Speed Limit Input: Perceived by ISA either by front camera detection or by map information.  
+ISLC [19/11] duongvh3OK.  
+
+6.11.2 / Speed Limit Control Request.  
+
+Requirement ID: FS-198324.  
+Type: --.  
+Status: New.  
+
+Speed Limit Control Request: When the difference between effective speed limit value and current host speed is over 10km/h (can be calibrated), system will remind the driver that host cruise speed will be adjusted.  
+Note: Offsets are still under discussion based on region and GSR.  
+ISLC [19/11] duongvh3OK.  
+
+6.11.3 / Speed Limit Control Display.  
+
+Requirement ID: FS-198325.  
+Type: --.  
+Status: New.  
+
+Speed Limit Control Display: Refer to VinFast HMI design.  
+ISLC [19/11] duongvh3OK.
+</page>
+
+<page number="30">
+6.11 / ISLC.
+
+Requirement ID: FS-198322.  
+Type: --.  
+Status: New.  
+
+-- Technical Agreement.
+
+6.11.1 / / Speed Limit Input.
+
+Requirement ID: FS-198323.  
+Type: --.  
+Status: New.  
+
+Speed Limit Input.  
+Perceived by ISA either by front camera detection or by map information.  
+ISLC.  
+[19/11] duongvh3OK.  
+
+6.11.2 / Speed Limit Control Request.
+
+Requirement ID: FS-198324.  
+Type: --.  
+Status: New.  
+
+Speed Limit Control Request.  
+When the difference between effective speed limit value and current host speed is over 10km/h (can be calibrated), system will remind the driver that host cruise speed will be adjusted.  
+Note: Offsets are still under discussion based on region and GSR.  
+ISLC.  
+[19/11] duongvh3OK.  
+
+6.11.3 / Speed Limit Control Display.
+
+Requirement ID: FS-198325.  
+Type: --.  
+Status: New.  
+
+Speed Limit Control Display.  
+Refer to VinFast HMI design.  
+ISLC.  
+[19/11] duongvh3OK.  
+
+6.11.4 / Speed Limit Control Confirmation.
+
+Requirement ID: FS-198326.  
+Type: --.  
+Status: New.  
+
+Speed Limit Control Confirmation.  
+As per VinFast design, driver confirmation is not required. System can adjust host speed automatically once function has been activated.  
+ISLC.  
+[19/11] duongvh3OK.  
+
+6.11.5 / Speed Control Intervention.
+
+Requirement ID: FS-198327.  
+Type: --.  
+Status: New.  
+
+Speed Control Intervention.  
+Speed control shall start at the latest 1.5 seconds from when the speedometer speed exceeds the perceived speed limit.  
+ISLC.  
+[19/11] duongvh3OK.  
+
+6.11.6 / Acceleration / Deceleration.
+
+Requirement ID: FS-198328.  
+Type: --.  
+Status: New.  
+
+Acceleration / Deceleration.  
+Same with ACC.  
+ISLC.  
+[19/11] duongvh3OK.  
+
+6.11.7 / Jerk Limitation.
+
+Requirement ID: FS-198329.  
+Type: --.  
+Status: New.  
+
+Jerk Limitation.  
+Same with ACC.  
+ISLC.  
+[19/11] duongvh3OK.
+</page>
+
+<page number="31">
+6.11.8 / Speed Range.
+
+Requirement ID: FS-198330.  
+Type: --.  
+Status: New.  
+
+Speed Range.  
+[0,150]km/h.  
+ISLC.  
+[19/11] duongvh3OK.
+</page>
+</pages>
