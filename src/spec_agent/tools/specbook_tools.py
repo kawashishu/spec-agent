@@ -4,16 +4,16 @@ from typing import List, Tuple
 
 import pandas as pd
 from agents import function_tool
-
-from cache import *
-from printer import AsyncPrinter, printer
-from prompt import RELEVANCE_CONTENT_TEMPLATE, SPECBOOK_RELEVANCE_PROMPT
-from schema import AgentName, Specbook, SpecbookRelevanceContent
-from settings.constraints import *
-from settings.log import logger
-from utils.llm import acompletion_with_backoff
-from utils.notebook import NotebookCellOutput
-from utils.utils import num_tokens_from_text
+from spec_agent.agents.prompts import (RELEVANCE_CONTENT_TEMPLATE,
+                                       SPECBOOK_RELEVANCE_PROMPT)
+from spec_agent.api.printer import AsyncPrinter, printer
+from spec_agent.data.cache import *
+from spec_agent.models import AgentName, Specbook, SpecbookRelevanceContent
+from spec_agent.settings.constraints import *
+from spec_agent.settings.log import logger
+from spec_agent.utils.llm import acompletion_with_backoff
+from spec_agent.utils.notebook import NotebookCellOutput
+from spec_agent.utils.utils import num_tokens_from_text
 
 
 # Start loading message task

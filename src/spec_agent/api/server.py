@@ -1,22 +1,20 @@
 # fastapi_app.py
 import asyncio
 from datetime import datetime
-from typing import List
 
 import pytz
-from agents import Runner, TResponseInputItem
+from agents import Runner
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from openai.types.responses import ResponseTextDeltaEvent
-
-from agent import triage_agent
-from cache import cache
-from context import current_sid, sessions
-from printer import printer
-from schema import ChatRequest, EndStream, NewChatRequest, Session
-from settings.constraints import *
-from settings.log import logger
-from utils.utils import save_messages
+from spec_agent.agents import triage_agent
+from spec_agent.api.context import current_sid, sessions
+from spec_agent.api.printer import printer
+from spec_agent.data.cache import cache
+from spec_agent.models import ChatRequest, EndStream, NewChatRequest, Session
+from spec_agent.settings.constraints import *
+from spec_agent.settings.log import logger
+from spec_agent.utils.utils import save_messages
 
 # ---------------------------------------------------------------------------
 

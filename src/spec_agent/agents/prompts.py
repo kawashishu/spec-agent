@@ -1,4 +1,4 @@
-from cache import total_specbook
+from spec_agent.data.cache import total_specbook
 
 BOM_AGENT_PROMPT = """
 # Role and Objective

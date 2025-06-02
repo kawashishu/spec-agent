@@ -3,10 +3,9 @@ import asyncio
 
 from agents import Agent, Runner
 from openai.types.responses import ResponseTextDeltaEvent
-
-from printer import AsyncPrinter
-from schema import EndStream
-from settings.log import logger
+from spec_agent.api.printer import AsyncPrinter
+from spec_agent.models import EndStream
+from spec_agent.settings.log import logger
 
 
 async def run_agent_streamed(context, agent: Agent, printer: AsyncPrinter | None = None):
