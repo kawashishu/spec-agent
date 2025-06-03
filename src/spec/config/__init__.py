@@ -6,6 +6,10 @@ from .ui import *
 __all__ = [
     "settings",
     "logger",
-    "llm_client",
-    "async_llm_client",
+    "client",
+    "async_client",
 ]
+
+# Aliases for backward compatibility
+llm_client = client
+async_llm_client = async_client
