@@ -3,8 +3,8 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 
 from spec.agents.prompts import (BOM_AGENT_PROMPT, SPECBOOK_AGENT_PROMPT,
                                  TRIAGE_AGENT_PROMPT)
+from spec.config import async_client, client
 from spec.models import AgentName
-from spec.settings.llm import *
 from spec.tools.python_exec import python_code_execution
 from spec.tools.specbook_tools import (
     get_relevant_specbook_content_by_query_partial_context,
