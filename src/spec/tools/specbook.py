@@ -2,28 +2,20 @@ import asyncio
 from typing import List, Tuple
 
 import pandas as pd
-from agents import function_tool
+from agents import RunContextWrapper, function_tool
 
 from spec.agents.prompts import (RELEVANCE_CONTENT_TEMPLATE,
                                  SPECBOOK_RELEVANCE_PROMPT)
-from spec.api.printer import printer
 from spec.cache import *
 from spec.config import logger, settings
-from spec.models import AgentName, Specbook, SpecbookRelevanceContent
+from spec.models import (AgentName, Specbook, SpecbookRelevanceContent,
+                         UIMessage)
 from spec.utils.llm import acompletion_with_backoff
 from spec.utils.utils import num_tokens_from_text
 
 
-# Start loading message task
-async def print_loading_messages():
-    idx = 0
-    while True:
-        await printer.write(settings.loading_messages[idx], sender=AgentName.SPECBOOK_AGENT.value)
-        idx = (idx + 1) % len(settings.loading_messages)
-        await asyncio.sleep(8)
-    
 @function_tool
-async def get_relevant_specbook_content_by_query_partial_context(query: str):
+async def get_relevant_specbook_content_by_query_partial_context(wrapper: RunContextWrapper[UIMessage],query: str):
     """
     Retrieves specbook contents relevant to the given query and formats them in XML.
 
@@ -34,6 +26,18 @@ async def get_relevant_specbook_content_by_query_partial_context(query: str):
         str: XML formatted string containing relevant specbook contents, with each specbook wrapped in <Specbook> tags including specbook number and filename.
     """
     logger.info(f"TOOL: get_specbook_content_by_query({query})")
+    
+    # Start loading message task
+    async def print_loading_messages():
+        # Separator
+        await wrapper.context.msg.stream_token("\n\n---\n\n")
+        
+        idx = 0
+        ms = settings.loading_messages
+        while True:
+            await wrapper.context.msg.stream_token(ms[idx])
+            idx = (idx + 1) % len(ms)
+            await asyncio.sleep(8)
 
     specbook_numbers = list(cache.specbooks.keys())
     specbooks = cache.specbooks
@@ -65,8 +69,8 @@ async def get_relevant_specbook_content_by_query_partial_context(query: str):
     snippets = await asyncio.gather(*(_process_one(n) for n in specbook_numbers))
 
     # Cancel loading message task when the main processing is done or timeout
-    await printer.write("\n\n---\n\n", sender=AgentName.SPECBOOK_AGENT.value)
     loading_task.cancel()
+    await wrapper.context.msg.stream_token("\n\n---\n\n")
 
     # Sort snippets by relevance level in descending order
     sorted_snippets = [(parsed, spec_no) for parsed, spec_no in snippets if parsed.is_relevant]
@@ -110,5 +114,4 @@ async def get_specbook_numbers_table():
         str: a Dataframe of specbook numbers
     """
     df = pd.DataFrame(list(cache.specbooks.keys()), columns=["specbook_number"])
-    await printer.write(df, sender=AgentName.SPECBOOK_AGENT.value)
     return df

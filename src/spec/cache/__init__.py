@@ -6,7 +6,6 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-from spec.config import settings
 from spec.models import Specbook
 from spec.utils.notebook import Notebook
 from spec.utils.s3 import S3Manager
@@ -55,14 +54,12 @@ class Cache:
 @st.cache_resource(show_spinner=False)
 def get_cache() -> Cache:
     s3 = S3Manager()
-    # part_and_specbook_information_df = pd.read_parquet(PART_IN_BOM_FILE)
     BOM_df = pd.read_csv(PART_PARENT_CHILD_RELATIONSHIP_FILE)
 
     specbook_number_to_basenames = build_specbook_number_to_basenames(SPECBOOK_MD_FOLDER)
 
     specbooks: dict[str, Specbook] = {}
     for num, names in specbook_number_to_basenames.items():
-        # Build specbook files content
         files = [load_txt(SPECBOOK_MD_FOLDER / f"{name}.txt") for name in names]
         xml = TMPL.format(num=num, files="\n".join(files))
         specbooks[num] = Specbook(specbook_number=num, content=xml)
