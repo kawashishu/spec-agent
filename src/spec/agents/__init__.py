@@ -6,7 +6,7 @@ from spec.agents.prompts import (BOM_AGENT_PROMPT, SPECBOOK_AGENT_PROMPT,
 from spec.config import async_client, client
 from spec.models import AgentName
 from spec.tools.python_exec import python_code_execution
-from spec.tools.specbook_tools import (
+from spec.tools.specbook import (
     get_relevant_specbook_content_by_query_partial_context,
     get_specbook_content_by_specbook_numbers, get_specbook_numbers_table)
 
