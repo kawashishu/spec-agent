@@ -10,9 +10,8 @@ from matplotlib.figure import Figure
 from PIL import Image
 
 from spec.config import settings
-
-from .authen import Authenticator
-from .session import SessionManager
+from spec.ui.authen import Authenticator
+from spec.ui.session import SessionManager
 
 
 class UI:
