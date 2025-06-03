@@ -22,7 +22,6 @@ async def python_code_execution(wrapper: RunContextWrapper[UIMessage], python_co
         str: The result of the Python code execution.
     """
     try:
-        start_time = time.time()
         logger.info(f"TOOL: python_code_execution: \n{python_code}")
         
         output: NotebookCellOutput = notebook.exec(python_code)
@@ -33,9 +32,6 @@ async def python_code_execution(wrapper: RunContextWrapper[UIMessage], python_co
         
         await wrapper.context.msg.send()
         
-        duration = time.time() - start_time
-        logger.info(f"Time to execute Python code: {duration:.2f}s")
-        logger.info(f"Console: {output.console}")
         return output.console    
     
     except Exception as e:

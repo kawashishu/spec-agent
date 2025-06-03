@@ -2,7 +2,5 @@
 set -euo pipefail
 # cd to src foler first
 cd src
-# Start the FastAPI backend on port 9000
-python -m spec.api.server &
-streamlit run spec.ui.app --server.port 8000 --server.address 0.0.0.0
+chainlit run spec/ui/cl_app.py -w
 wait -n
