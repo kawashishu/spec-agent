@@ -7,8 +7,8 @@ from agents import function_tool
 from spec.agents.prompts import (RELEVANCE_CONTENT_TEMPLATE,
                                  SPECBOOK_RELEVANCE_PROMPT)
 from spec.api.printer import printer
+from spec.cache import *
 from spec.config import logger, settings
-from spec.data.cache import *
 from spec.models import AgentName, Specbook, SpecbookRelevanceContent
 from spec.utils.llm import acompletion_with_backoff
 from spec.utils.utils import num_tokens_from_text

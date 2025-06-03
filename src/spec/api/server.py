@@ -11,8 +11,8 @@ from openai.types.responses import ResponseTextDeltaEvent
 from spec.agents import triage_agent
 from spec.api.context import current_sid, sessions
 from spec.api.printer import printer
+from spec.cache import cache
 from spec.config import logger
-from spec.data.cache import cache
 from spec.models import ChatRequest, EndStream, NewChatRequest
 from spec.utils.utils import save_messages
 
@@ -54,7 +54,7 @@ async def _run_and_stream():
             sessions.ctx[sid],
             filename=f"{sessions.init_time[sid]}.json",
             folder=f"PDF_search/logs/{sessions.user[sid]}",
-            s3=cache["s3"],
+            s3=cache.s3,
         )
     except Exception as e:
         logger.error(f"runner err {e}")

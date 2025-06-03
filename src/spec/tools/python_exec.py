@@ -3,8 +3,8 @@ import time
 from agents import function_tool
 
 from spec.api.printer import printer
+from spec.cache import notebook
 from spec.config import logger
-from spec.data.cache import notebook
 from spec.models import AgentName
 from spec.utils.notebook import NotebookCellOutput
 
