@@ -1,34 +1,23 @@
-# services/runner.py
-import asyncio
 
+import chainlit as cl
 from agents import Agent, Runner
 from openai.types.responses import ResponseTextDeltaEvent
 
-from spec.api.printer import AsyncPrinter
 from spec.config import logger
-from spec.models import EndStream
+from spec.models import UIMessage
 
 
-async def run_agent_streamed(context, agent: Agent, printer: AsyncPrinter | None = None):
-    sender = agent.name
+async def run_agent_streamed(messages, agent: Agent, msg: cl.Message):
+    ui_message = UIMessage(msg=msg)
     try:
-        run = Runner.run_streamed(agent, context)
+        run = Runner.run_streamed(agent, input=messages, context=ui_message)
         async for ev in run.stream_events():
             if ev.type == "raw_response_event" and isinstance(ev.data, ResponseTextDeltaEvent):
-                if printer:
-                    await printer.write(ev.data.delta, sender=sender)
-                print(ev.data.delta, end="", flush=True)
+                await msg.stream_token(ev.data.delta)
             elif ev.type == "agent_updated_stream_event":
                 sender = ev.new_agent.name
         return run.to_input_list()
 
     except Exception as exc:
         logger.error(f"service.run_agent_streamed: {exc}")
-        if printer:
-            await printer.write("ERROR", sender="system")
-        return context    # giữ nguyên nếu failSSS
-
-    finally:
-        if printer:
-            await printer.write(EndStream(status=False))
-            await printer.close()
+        return messages

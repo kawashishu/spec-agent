@@ -4,7 +4,7 @@ from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
 from spec.agents.prompts import (BOM_AGENT_PROMPT, SPECBOOK_AGENT_PROMPT,
                                  TRIAGE_AGENT_PROMPT)
 from spec.config import async_client, client
-from spec.models import AgentName
+from spec.models import AgentName, UIMessage
 from spec.tools.python_exec import python_code_execution
 from spec.tools.specbook import (
     get_relevant_specbook_content_by_query_partial_context,
@@ -22,7 +22,7 @@ specbook_agent = Agent(
     model="gpt-4.1"
 )
 
-bom_agent = Agent(
+bom_agent = Agent[UIMessage](
     name=AgentName.BOM_AGENT.value,
     instructions=f"{RECOMMENDED_PROMPT_PREFIX}\n---\n{BOM_AGENT_PROMPT}",
     handoff_description=f"A {AgentName.BOM_AGENT.value} capable of writing Python code (pandas, matplotlib, etc...) to analyze BOM data (available in the context), visualize charts and provide detailed, accurate responses",
