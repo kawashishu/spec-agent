@@ -92,6 +92,7 @@ async def any_err(_, exc: Exception):
 
 if __name__ == "__main__":
     import uvicorn
+
     from spec.config import settings
 
     uvicorn.run(
