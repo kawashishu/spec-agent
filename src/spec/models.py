@@ -1,9 +1,15 @@
+from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Dict, List, Optional
 
+import chainlit as cl
 from agents import TResponseInputItem
 from pydantic import BaseModel, Field
 
+
+@dataclass
+class UIMessage:  
+    msg: cl.Message
 
 class AgentName(Enum):
     BOM_AGENT = "BOM Agent"
