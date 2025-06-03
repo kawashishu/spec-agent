@@ -1,5 +1,4 @@
 import asyncio
-import time
 from typing import List, Tuple
 
 import pandas as pd
@@ -7,12 +6,11 @@ from agents import function_tool
 
 from spec.agents.prompts import (RELEVANCE_CONTENT_TEMPLATE,
                                  SPECBOOK_RELEVANCE_PROMPT)
-from spec.api.printer import AsyncPrinter, printer
+from spec.api.printer import printer
 from spec.config import logger, settings
 from spec.data.cache import *
 from spec.models import AgentName, Specbook, SpecbookRelevanceContent
 from spec.utils.llm import acompletion_with_backoff
-from spec.utils.notebook import NotebookCellOutput
 from spec.utils.utils import num_tokens_from_text
 
 
@@ -37,8 +35,8 @@ async def get_relevant_specbook_content_by_query_partial_context(query: str):
     """
     logger.info(f"TOOL: get_specbook_content_by_query({query})")
 
-    specbook_numbers = list(cache["specbooks"].keys())
-    specbooks = cache["specbooks"]
+    specbook_numbers = list(cache.specbooks.keys())
+    specbooks = cache.specbooks
 
     async def _process_one(spec_no: str) -> Tuple[SpecbookRelevanceContent, str]:      
         content = specbooks[spec_no].content
@@ -79,7 +77,6 @@ async def get_relevant_specbook_content_by_query_partial_context(query: str):
         spec: Specbook = specbooks[spec_no]
         relevance_content = parsed.relevance_content
         if num_tokens_from_text(infor + relevance_content) < MAX_RELEVANCE_TOKENS:
-            # logger.info(f"[RELEVANCE] - Specbook: {spec_no}")
             infor += RELEVANCE_CONTENT_TEMPLATE.format(num=spec.specbook_number, content=relevance_content)
             count += 1
         else:
@@ -101,37 +98,17 @@ def get_specbook_content_by_specbook_numbers(specbook_numbers: List[str]):
     Returns:
         str: XML formatted string containing the specbook contents of the list of specbook numbers.
     """
-    specbooks: List[Specbook] = [cache["specbooks"].get(specbook_number, Specbook(specbook_number=specbook_number, content="Specbook number not found")) for specbook_number in specbook_numbers]
+    specbooks: List[Specbook] = [cache.specbooks.get(specbook_number, Specbook(specbook_number=specbook_number, content="Specbook number not found")) for specbook_number in specbook_numbers]
     return "\n".join([specbook.content for specbook in specbooks])
 
 @function_tool
 async def get_specbook_numbers_table():
     """
     Retrieves the dataframe of specbook numbers available.
+    
+    Returns:
+        str: a Dataframe of specbook numbers
     """
-    df = pd.DataFrame(list(cache["specbooks"].keys()), columns=["specbook_number"])
+    df = pd.DataFrame(list(cache.specbooks.keys()), columns=["specbook_number"])
     await printer.write(df, sender=AgentName.SPECBOOK_AGENT.value)
     return df
-
-@function_tool
-async def python_code_execution(python_code: str):
-    """
-    This function is used to execute Python code in a stateful Jupyter notebook environment. python will respond with the output of the execution. Internet access for this session is disabled. Do not make external web requests or API calls as they will fail.
-
-    Args:
-        python_code (str): The Python code to execute.
-
-    Returns:
-        str: The result of the Python code execution.
-    """
-    start_time = time.time()
-    logger.info(f"TOOL: python_code_execution: \n{python_code}")
-    
-    output: NotebookCellOutput = notebook.exec(python_code)
-    for var in output.vars:
-        await printer.write(var, sender=AgentName.BOM_AGENT.value)
-    
-    duration = time.time() - start_time
-    logger.info(f"Time to execute Python code: {duration:.2f}s")
-    logger.info(f"Console: {output.console}")
-    return output.console    

@@ -6,7 +6,7 @@ from typing import Dict, List
 
 from agents import TResponseInputItem
 
-# ❶ ContextVar giữ session-id hiện hành
+# ContextVar giữ session-id hiện hành
 current_sid: contextvars.ContextVar[str | None] = contextvars.ContextVar("sid", default=None)
 
 class SessionStore:
