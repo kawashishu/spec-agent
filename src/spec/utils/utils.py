@@ -8,42 +8,24 @@ from .s3 import S3Manager
 
 
 def save_txt(file_path: str, content: str):
-    """
-    Lưu chuỗi nội dung vào file văn bản.
-
-    :param file_path: Đường dẫn đến file cần lưu.
-    :param content: Nội dung chuỗi cần lưu vào file.
-    """
     try:
         with open(file_path, "w", encoding="utf-8") as file:
             file.write(content)
     except Exception as e:
-        print(f"Lỗi khi lưu file: {e}")
+        print(f"error when saving file: {e}")
 
 
 def load_txt(file_path: str) -> str:
-    """
-    Tải nội dung từ file văn bản thành chuỗi.
-
-    :param file_path: Đường dẫn đến file cần tải.
-    :return: Nội dung file dưới dạng chuỗi.
-    """
     try:
         with open(file_path, "r", encoding="utf-8") as file:
             content = file.read()
         return content
     except Exception as e:
-        print(f"Lỗi khi tải file: {e}")
+        print(f"error when loading file: {e}")
         return ""
 
 
 def load_txt_from_folder(folder_path: str) -> dict:
-    """
-    Đọc tất cả các file .txt trong thư mục và trả về nội dung dưới dạng từ điển.
-
-    :param folder_path: Đường dẫn đến thư mục chứa các file .txt.
-    :return: Một từ điển với tên file làm key và nội dung file làm value.
-    """
     txt_files = glob.glob(
         os.path.join(folder_path, "*.txt")
     )  # Lấy tất cả các file .txt

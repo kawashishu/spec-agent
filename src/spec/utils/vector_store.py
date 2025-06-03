@@ -1,17 +1,19 @@
+import hashlib
+import json
+import os
+import pickle
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Any, Dict, List, Optional
+
 import faiss
 import numpy as np
-import pickle
-import os
 import pandas as pd
-from typing import List, Dict, Any, Optional
-from settings.log import logger
-import json
-from .llm import LLM
-from pydantic_types.type import Chunk
-import hashlib
-from utils.s3 import S3Manager
-from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
+
+from spec.config import logger
+from spec.utils.s3 import S3Manager
+
+from .llm import LLM
 
 
 class VectorStore:
@@ -22,7 +24,7 @@ class VectorStore:
     def __init__(
         self,
         pickle_path: Optional[str],
-        s3: Optional["S3Manager"] = None,  # S3Manager được truyền vào nếu có
+        s3: Optional["S3Manager"] = None,
         embedding_dimension: int = 3072,
         llm=LLM,
     ):

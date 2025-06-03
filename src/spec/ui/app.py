@@ -18,13 +18,14 @@ from matplotlib.figure import Figure
 
 st.set_page_config(layout="wide")
 from PIL import Image
-from spec_agent.models import SingletonMeta
-from spec_agent.settings.constraints import *
-from spec_agent.utils.captcha import Captcha
 from streamlit_cookies_manager import EncryptedCookieManager
 from yaml.loader import SafeLoader
 
-API_URL = "http://127.0.0.1:9000"
+from spec.config import settings
+from spec.models import SingletonMeta
+from spec.utils.captcha import Captcha
+
+API_URL = settings.url
 
 class Authenticator(metaclass=SingletonMeta):
     def __init__(self, max_login_attempts: int = 5, max_waiting_time: int = 10):
@@ -135,7 +136,7 @@ class Authenticator(metaclass=SingletonMeta):
             st.write("")
 
     def authenticate(self, email, password):
-        with open(AUTHEN_FILE, 'r', encoding='utf-8') as file:
+        with open(settings.authen_file, 'r', encoding='utf-8') as file:
             config = yaml.load(file, Loader=SafeLoader)
         ph = PasswordHasher()
 

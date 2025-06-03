@@ -3,9 +3,10 @@ import asyncio
 
 from agents import Agent, Runner
 from openai.types.responses import ResponseTextDeltaEvent
-from spec_agent.api.printer import AsyncPrinter
-from spec_agent.models import EndStream
-from spec_agent.settings.log import logger
+
+from spec.api.printer import AsyncPrinter
+from spec.config import logger
+from spec.models import EndStream
 
 
 async def run_agent_streamed(context, agent: Agent, printer: AsyncPrinter | None = None):
@@ -25,7 +26,7 @@ async def run_agent_streamed(context, agent: Agent, printer: AsyncPrinter | None
         logger.error(f"service.run_agent_streamed: {exc}")
         if printer:
             await printer.write("ERROR", sender="system")
-        return context    # giữ nguyên nếu fail
+        return context    # giữ nguyên nếu failSSS
 
     finally:
         if printer:

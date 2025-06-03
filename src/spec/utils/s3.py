@@ -20,22 +20,19 @@ class S3Manager:
         lock (threading.Lock): A lock to ensure thread safety for critical sections.
     """
 
-    DEFAULT_BUCKET_NAME = "vf-prd-bom-structure-detection"
-
-    def __init__(self, bucket_name: Optional[str] = None):
+    def __init__(self, bucket_name: Optional[str] = "vf-prd-bom-structure-detection"):
         """
         Initialize the S3Manager with the specified bucket name.
 
         Args:
-            bucket_name (Optional[str]): The S3 bucket name. Defaults to the DEFAULT_BUCKET_NAME.
+            bucket_name (Optional[str]): The S3 bucket name.
         """
         self.s3_client = boto3.client(
             "s3",
             aws_access_key_id=os.environ["ACCESS_KEY_ID"],
             aws_secret_access_key=os.environ["SECRET_ACCESS_KEY"],
         )
-        self.bucket_name = bucket_name if bucket_name else self.DEFAULT_BUCKET_NAME
-        self.lock = threading.Lock()
+        self.bucket_name = bucket_name
 
     def get_df(self, s3_path: str, usecol: Optional[List[str]] = None) -> pd.DataFrame:
         """

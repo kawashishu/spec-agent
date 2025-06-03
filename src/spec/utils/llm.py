@@ -2,7 +2,7 @@ import asyncio
 import random
 import time
 from functools import wraps
-from typing import Any, Dict, List, Optional, cast
+from typing import Any, Dict, List, Optional
 
 import openai
 from openai import AsyncAzureOpenAI, AzureOpenAI
@@ -11,8 +11,7 @@ from openai.types.responses.parsed_response import ParsedResponse
 from openai.types.responses.response import Response
 from pydantic import BaseModel
 
-from settings.llm import async_client, client
-from settings.log import logger
+from spec.config import async_client, client, logger
 
 DEFAULT_TEXT_MODEL = "gpt-4o-mini"
 

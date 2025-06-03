@@ -4,24 +4,24 @@ from typing import List, Tuple
 
 import pandas as pd
 from agents import function_tool
-from spec_agent.agents.prompts import (RELEVANCE_CONTENT_TEMPLATE,
-                                       SPECBOOK_RELEVANCE_PROMPT)
-from spec_agent.api.printer import AsyncPrinter, printer
-from spec_agent.data.cache import *
-from spec_agent.models import AgentName, Specbook, SpecbookRelevanceContent
-from spec_agent.settings.constraints import *
-from spec_agent.settings.log import logger
-from spec_agent.utils.llm import acompletion_with_backoff
-from spec_agent.utils.notebook import NotebookCellOutput
-from spec_agent.utils.utils import num_tokens_from_text
+
+from spec.agents.prompts import (RELEVANCE_CONTENT_TEMPLATE,
+                                 SPECBOOK_RELEVANCE_PROMPT)
+from spec.api.printer import AsyncPrinter, printer
+from spec.config import logger, settings
+from spec.data.cache import *
+from spec.models import AgentName, Specbook, SpecbookRelevanceContent
+from spec.utils.llm import acompletion_with_backoff
+from spec.utils.notebook import NotebookCellOutput
+from spec.utils.utils import num_tokens_from_text
 
 
 # Start loading message task
 async def print_loading_messages():
     idx = 0
     while True:
-        await printer.write(LOADING_MESSAGES[idx], sender=AgentName.SPECBOOK_AGENT.value)
-        idx = (idx + 1) % len(LOADING_MESSAGES)
+        await printer.write(settings.loading_messages[idx], sender=AgentName.SPECBOOK_AGENT.value)
+        idx = (idx + 1) % len(settings.loading_messages)
         await asyncio.sleep(8)
     
 @function_tool
@@ -43,8 +43,8 @@ async def get_relevant_specbook_content_by_query_partial_context(query: str):
     async def _process_one(spec_no: str) -> Tuple[SpecbookRelevanceContent, str]:      
         content = specbooks[spec_no].content
         try:
-            async with SEM:
-                async with asyncio.timeout(TIMEOUT_PER_SPECBOOK):
+            async with settings.semaphore:
+                async with asyncio.timeout(settings.timeout_per_specbook):
                     completion = await acompletion_with_backoff(
                         model="gpt-4o-mini",
                         input=[

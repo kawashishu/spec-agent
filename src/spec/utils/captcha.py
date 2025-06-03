@@ -1,9 +1,9 @@
-import streamlit as st
+import base64
 import random
 import string
+
 from captcha.image import ImageCaptcha
-from io import BytesIO
-import base64
+
 
 class Captcha:
     
