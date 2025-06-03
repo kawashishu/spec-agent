@@ -92,4 +92,11 @@ async def any_err(_, exc: Exception):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("spec.api.server:app", host="0.0.0.0", port=9000, reload=True)
+    from spec.config import settings
+
+    uvicorn.run(
+        "spec.api.server:app",
+        host="0.0.0.0",
+        port=settings.port,
+        reload=True,
+    )
