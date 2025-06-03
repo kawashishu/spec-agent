@@ -7,14 +7,16 @@ from agents import Runner
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from openai.types.responses import ResponseTextDeltaEvent
-from spec_agent.agents import triage_agent
-from spec_agent.api.context import current_sid, sessions
-from spec_agent.api.printer import printer
-from spec_agent.data.cache import cache
-from spec_agent.models import ChatRequest, EndStream, NewChatRequest, Session
-from spec_agent.settings.constraints import *
-from spec_agent.settings.log import logger
-from spec_agent.utils.utils import save_messages
+
+from spec.agents import triage_agent
+from spec.api.context import current_sid, sessions
+from spec.api.printer import printer
+from spec.data.cache import cache
+from spec.models import ChatRequest, EndStream, NewChatRequest, Session
+from spec.settings.constraints import *
+from spec.settings.llm import *
+from spec.settings.log import logger
+from spec.utils.utils import save_messages
 
 # ---------------------------------------------------------------------------
 
@@ -92,4 +94,4 @@ async def any_err(_, exc: Exception):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("api:app", host="0.0.0.0", port=9000, reload=True)
+    uvicorn.run("spec.api.server:app", host="0.0.0.0", port=9000, reload=True)

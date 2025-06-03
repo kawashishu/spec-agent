@@ -1,13 +1,14 @@
-import os
-from settings.log import logger
-from sqlalchemy.exc import ProgrammingError, SQLAlchemyError
-from sqlalchemy import create_engine, text
-from sqlalchemy.orm import sessionmaker, scoped_session
-import pandas as pd
 import json
+import os
 import time
+
+import pandas as pd
 from azure.identity import DefaultAzureCredential
-from pydantic_types.type import Error
+from sqlalchemy import create_engine, text
+from sqlalchemy.exc import ProgrammingError, SQLAlchemyError
+from sqlalchemy.orm import scoped_session, sessionmaker
+
+from spec.config import logger
 
 
 class PostgreSQL:

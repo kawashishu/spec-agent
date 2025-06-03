@@ -2,12 +2,11 @@ import time
 
 from agents import function_tool
 
-from spec_agent.api.printer import printer
-from spec_agent.models import AgentName
-from spec_agent.settings.log import logger
-from spec_agent.utils.notebook import NotebookCellOutput
-
-from spec_agent.data.cache import notebook
+from spec.api.printer import printer
+from spec.config.logging import logger
+from spec.data.cache import notebook
+from spec.models import AgentName
+from spec.utils.notebook import NotebookCellOutput
 
 
 @function_tool

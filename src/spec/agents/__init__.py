@@ -1,10 +1,12 @@
 from agents import Agent
 from agents.extensions.handoff_prompt import RECOMMENDED_PROMPT_PREFIX
-from spec_agent.agents.prompts import (BOM_AGENT_PROMPT, SPECBOOK_AGENT_PROMPT,
-                                       TRIAGE_AGENT_PROMPT)
-from spec_agent.models import AgentName
-from spec_agent.tools.python_exec import python_code_execution
-from spec_agent.tools.specbook_tools import (
+
+from spec.agents.prompts import (BOM_AGENT_PROMPT, SPECBOOK_AGENT_PROMPT,
+                                 TRIAGE_AGENT_PROMPT)
+from spec.models import AgentName
+from spec.settings.llm import *
+from spec.tools.python_exec import python_code_execution
+from spec.tools.specbook_tools import (
     get_relevant_specbook_content_by_query_partial_context,
     get_specbook_content_by_specbook_numbers, get_specbook_numbers_table)
 

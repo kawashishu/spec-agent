@@ -30,15 +30,12 @@ class Notebook:
         self.cells = []
 
     def exec(self, code: str) -> NotebookCellOutput:
-        """Giống Jupyter: in ra console cả những gì được print
-        **và** giá trị của biểu thức cuối cùng (nếu có)."""
         old_stdout, buf = sys.stdout, io.StringIO()
         sys.stdout = buf
 
-        vars_ = None                        # giá trị biểu thức cuối
+        vars_ = None
         orig_print = self.env.get("print", print)
 
-        # override print để auto-resolve coroutine
         def _print(*args, **kwargs):
             orig_print(*map(self._resolve, args), **kwargs)
         self.env["print"] = _print

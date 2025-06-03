@@ -1,11 +1,8 @@
-import plotly.graph_objects as go
-import streamlit as st
-import pymeshlab
-import io
-import trimesh
-import chardet
-import os
 from tempfile import NamedTemporaryFile
+
+import plotly.graph_objects as go
+import pymeshlab
+import streamlit as st
 
 
 def load_meshset(filename):
@@ -13,7 +10,7 @@ def load_meshset(filename):
     ms.load_new_mesh(filename)
     return ms
 
-
+    
 def get_vertices_and_faces_from_meshset(ms):
     m = ms.current_mesh()
     vertices = m.vertex_matrix()

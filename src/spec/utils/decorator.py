@@ -1,9 +1,9 @@
-from settings.log import logger
 import functools
-import time
 import inspect
-import openai
-from openai import OpenAI
+import time
+
+from spec.config import logger
+
 
 def timeit(func):
     """

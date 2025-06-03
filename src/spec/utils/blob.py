@@ -1,16 +1,14 @@
-import os
 import io
-import pandas as pd
-import pyarrow.parquet as pq
-from azure.storage.blob import BlobServiceClient
-from azure.core.exceptions import ResourceNotFoundError
+import os
 from typing import List, Optional
 
+import pandas as pd
+import pyarrow.parquet as pq
+from azure.core.exceptions import ResourceNotFoundError
 from azure.identity import DefaultAzureCredential
+from azure.storage.blob import BlobServiceClient
 
-from dotenv import load_dotenv
-
-load_dotenv()
+from spec.config import settings
 
 
 class BlobStorage:

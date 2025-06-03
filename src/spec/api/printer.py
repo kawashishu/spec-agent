@@ -9,8 +9,8 @@ from typing import Any, Dict, Optional
 import pandas as pd
 from matplotlib.figure import Figure
 from PIL import Image
-from spec_agent.api.context import current_sid
-from spec_agent.models import EndStream
+from spec.api.context import current_sid
+from spec.models import EndStream
 
 
 def _ser(obj: Any, sender: str | None) -> dict:
