@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     max_token_limit: int = 950000
-    port: int = 9001
+    port: int = 9000
     url: str = f"http://localhost:{port}"
     sleep = 0.03
     authen_file: Path = Path(__file__).parent.parent.parent / 'authen.yaml'
