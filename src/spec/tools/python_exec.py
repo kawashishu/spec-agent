@@ -6,12 +6,12 @@ from agents import RunContextWrapper, function_tool
 
 from spec.cache import notebook
 from spec.config import logger
-from spec.models import AgentName, UIMessage
+from spec.models import ContextHook
 from spec.utils.notebook import NotebookCellOutput
 
 
 @function_tool  
-async def python_code_execution(wrapper: RunContextWrapper[UIMessage], python_code: str):
+async def python_code_execution(wrapper: RunContextWrapper[ContextHook], python_code: str):
     """
     This function is used to execute Python code in a stateful Jupyter notebook environment. python will respond with the output of the execution. Internet access for this session is disabled. Do not make external web requests or API calls as they will fail.
 
@@ -26,12 +26,8 @@ async def python_code_execution(wrapper: RunContextWrapper[UIMessage], python_co
         
         output: NotebookCellOutput = notebook.exec(python_code)
         for var in output.vars:
-            if isinstance(var, pd.DataFrame):
-                e = cl.Dataframe(data=var, name="BOM", display="inline")
-                wrapper.context.msg.elements.append(e)
-        
-        await wrapper.context.msg.send()
-        
+            wrapper.context.buffer.write(var)        
+                
         return output.console    
     
     except Exception as e:

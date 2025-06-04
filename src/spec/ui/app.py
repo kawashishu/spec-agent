@@ -1,15 +1,17 @@
 # streamlit_frontend.py
-import base64
-import io
-import json
+import asyncio
+import threading
 
-import httpx
 import pandas as pd
 import streamlit as st
+from agents import Agent, Runner
 from matplotlib.figure import Figure
+from openai.types.responses import ResponseTextDeltaEvent
 from PIL import Image
 
-from spec.config import settings
+from spec.agents import triage_agent
+from spec.config import *
+from spec.models import ContextHook, LiveStream
 from spec.ui.authen import Authenticator
 from spec.ui.session import SessionManager
 
@@ -66,32 +68,20 @@ class UI:
             except Exception as e:
                 continue
 
-      
-def render_stream(prompt: str):
-    # Define list of allowed agents that can stream
-    
-    body = {"session_id": st.session_state.session_id, "prompt": prompt, "username": st.session_state.username}
 
-    with httpx.stream("POST", f"{settings.url}/chat", json=body, timeout=None) as r:
-        for raw in r.iter_lines():  
-            if not raw:
-                continue
+def run_agent_stream(agent: Agent, input: str, previous_response_id: str, buffer: LiveStream, hook: ContextHook):
+        async def _runner():
+            result = Runner.run_streamed(agent, input=input, previous_response_id=previous_response_id, context=hook)
             
-            msg = json.loads(raw)
-            kind = msg.get("kind")
-                        
-            if kind == "text":
-                yield msg["data"]
-            elif kind == "dataframe":
-                df = pd.DataFrame(**msg["data"])
-                yield df
-            elif kind.startswith("image/"):
-                bytes = base64.b64decode(msg["b64"])
-                img = Image.open(io.BytesIO(bytes))
-                yield img
-            elif kind == "end_stream":
-                break
+            async for ev in result.stream_events():
+                if ev.type == "raw_response_event" and isinstance(ev.data, ResponseTextDeltaEvent):
+                    buffer.write(ev.data.delta)
+            buffer.finish()
             
+            st.session_state.previous_response_id = result.last_response_id
+        
+        asyncio.run(_runner())
+
 class App:
     """Main chat application."""
 
@@ -99,14 +89,21 @@ class App:
         self.authenticator = Authenticator(max_login_attempts, max_waiting_time)
         self.session = SessionManager(self.authenticator)
         self.ui = UI(self.authenticator, self.session)
+
     
     def query(self, prompt: str):
         st.chat_message("user").write(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
         
-        responses = st.chat_message("assistant").write_stream(render_stream(prompt))
+        buffer = LiveStream()
+        context_hook = ContextHook(buffer)
         
-        st.session_state.messages.append({"role": "assistant", "content": responses})
+        previous_response_id = st.session_state.previous_response_id
+        threading.Thread(target=run_agent_stream, args=(triage_agent, prompt, previous_response_id, buffer, context_hook), daemon=True).start()
+
+        with st.chat_message("assistant"):
+            response = st.write_stream(buffer.stream())
+        st.session_state.messages.append({"role": "assistant", "content": response})
         
     def run(self):
         
