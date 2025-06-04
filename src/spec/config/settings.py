@@ -25,4 +25,6 @@ class Settings(BaseSettings):
         "Please start a new chat session to continue your request."
     )
     
+    s3_folder: str = "PDF_search"
+    
 settings = Settings()

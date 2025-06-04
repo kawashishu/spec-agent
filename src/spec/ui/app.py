@@ -4,7 +4,7 @@ import threading
 
 import pandas as pd
 import streamlit as st
-from agents import Agent, Runner
+from agents import Agent, Runner, TResponseInputItem
 from matplotlib.figure import Figure
 from openai.types.responses import ResponseTextDeltaEvent
 from PIL import Image
@@ -14,6 +14,7 @@ from spec.config import *
 from spec.models import ContextHook, LiveStream
 from spec.ui.authen import Authenticator
 from spec.ui.session import SessionManager
+from spec.utils.utils import save_messages
 
 
 class UI:
@@ -50,7 +51,7 @@ class UI:
 
         # Render the history
         # ─── Display history ────────────────────────────────────────────────────────
-        for res in st.session_state.messages:
+        for res in st.session_state.ui_messages:
             try:
                 with st.chat_message(res["role"]):
                     if isinstance(res["content"], str):
@@ -69,18 +70,18 @@ class UI:
                 continue
 
 
-def run_agent_stream(agent: Agent, input: str, previous_response_id: str, buffer: LiveStream, hook: ContextHook):
-        async def _runner():
-            result = Runner.run_streamed(agent, input=input, previous_response_id=previous_response_id, context=hook)
-            
-            async for ev in result.stream_events():
-                if ev.type == "raw_response_event" and isinstance(ev.data, ResponseTextDeltaEvent):
-                    buffer.write(ev.data.delta)
-            buffer.finish()
-            
-            st.session_state.previous_response_id = result.last_response_id
+def run_agent_stream(agent: Agent, agent_messages: list[TResponseInputItem], buffer: LiveStream, hook: ContextHook):
+    async def _runner():
+        result = Runner.run_streamed(agent, input=agent_messages, context=hook)
         
-        asyncio.run(_runner())
+        async for ev in result.stream_events():
+            if ev.type == "raw_response_event" and isinstance(ev.data, ResponseTextDeltaEvent):
+                buffer.write(ev.data.delta)
+        buffer.finish()
+        
+        st.session_state["agent_messages"] = result.to_input_list()
+    
+    return asyncio.run(_runner())
 
 class App:
     """Main chat application."""
@@ -93,20 +94,29 @@ class App:
     
     def query(self, prompt: str):
         st.chat_message("user").write(prompt)
-        st.session_state.messages.append({"role": "user", "content": prompt})
+        
+        input = {"role": "user", "content": prompt}
+        st.session_state["ui_messages"].append(input)
+        st.session_state["agent_messages"].append(input)
         
         buffer = LiveStream()
         context_hook = ContextHook(buffer)
         
-        previous_response_id = st.session_state.previous_response_id
-        threading.Thread(target=run_agent_stream, args=(triage_agent, prompt, previous_response_id, buffer, context_hook), daemon=True).start()
+        threading.Thread(target=run_agent_stream, args=(triage_agent, st.session_state["agent_messages"], buffer, context_hook), daemon=True).start()
 
         with st.chat_message("assistant"):
             response = st.write_stream(buffer.stream())
-        st.session_state.messages.append({"role": "assistant", "content": response})
+            
+        st.session_state["ui_messages"].append({"role": "assistant", "content": response})
+        
+        # Save to S3
+        save_messages(
+            messages=st.session_state["ui_messages"], 
+            folder=f"{settings.s3_folder}/{st.session_state['username']}/logs", 
+            filename=f"{st.session_state['init_time']}.json")
+        
         
     def run(self):
-        
         if not self.authenticator.is_authenticated():
             self.authenticator.show_login_screen()
             st.stop()
