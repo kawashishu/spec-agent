@@ -1,15 +1,31 @@
+import queue
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Iterator
 
-import chainlit as cl
-from agents import TResponseInputItem
 from pydantic import BaseModel, Field
 
 
-@dataclass
-class UIMessage:  
-    msg: cl.Message
+class LiveStream:
+    def __init__(self):
+        self.q: queue.Queue[Any] = queue.Queue()
+
+    def write(self, chunk: Any):
+        self.q.put(chunk)
+
+    def finish(self):
+        self.q.put(None)
+
+    def stream(self) -> Iterator[Any]:
+        while True:
+            item = self.q.get()
+            if item is None:
+                break
+            yield item
+            
+@dataclass    
+class ContextHook:
+    buffer: LiveStream
 
 class AgentName(Enum):
     BOM_AGENT = "BOM Agent"
@@ -47,23 +63,6 @@ class Specbook(BaseModel):
     specbook_number: str
     content: str
 
-class Session(BaseModel):
-    init_time: str
-    context: List[TResponseInputItem]
-
-class ChatRequest(BaseModel):
-    prompt: str
-    session_id: Optional[str] = None
-    username: Optional[str] = None
-
-
-class NewChatRequest(BaseModel):
-    session_id: str         
-
-
-class EndStream(BaseModel):
-    status: bool = True
-    
 class SingletonMeta(type):
     """A Singleton metaclass."""
 

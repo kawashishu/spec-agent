@@ -8,14 +8,13 @@ from spec.agents.prompts import (RELEVANCE_CONTENT_TEMPLATE,
                                  SPECBOOK_RELEVANCE_PROMPT)
 from spec.cache import *
 from spec.config import logger, settings
-from spec.models import (AgentName, Specbook, SpecbookRelevanceContent,
-                         UIMessage)
+from spec.models import ContextHook, Specbook, SpecbookRelevanceContent
 from spec.utils.llm import acompletion_with_backoff
 from spec.utils.utils import num_tokens_from_text
 
 
 @function_tool
-async def get_relevant_specbook_content_by_query_partial_context(wrapper: RunContextWrapper[UIMessage],query: str):
+async def get_relevant_specbook_content_by_query_partial_context(wrapper: RunContextWrapper[ContextHook],query: str):
     """
     Retrieves specbook contents relevant to the given query and formats them in XML.
 
@@ -30,12 +29,12 @@ async def get_relevant_specbook_content_by_query_partial_context(wrapper: RunCon
     # Start loading message task
     async def print_loading_messages():
         # Separator
-        await wrapper.context.msg.stream_token("\n\n---\n\n")
+        wrapper.context.buffer.write("\n\n---\n\n")
         
         idx = 0
         ms = settings.loading_messages
         while True:
-            await wrapper.context.msg.stream_token(ms[idx])
+            wrapper.context.buffer.write(ms[idx])
             idx = (idx + 1) % len(ms)
             await asyncio.sleep(8)
 
@@ -70,7 +69,7 @@ async def get_relevant_specbook_content_by_query_partial_context(wrapper: RunCon
 
     # Cancel loading message task when the main processing is done or timeout
     loading_task.cancel()
-    await wrapper.context.msg.stream_token("\n\n---\n\n")
+    wrapper.context.buffer.write("\n\n---\n\n")
 
     # Sort snippets by relevance level in descending order
     sorted_snippets = [(parsed, spec_no) for parsed, spec_no in snippets if parsed.is_relevant]
@@ -106,7 +105,7 @@ def get_specbook_content_by_specbook_numbers(specbook_numbers: List[str]):
     return "\n".join([specbook.content for specbook in specbooks])
 
 @function_tool
-async def get_specbook_numbers_table():
+async def get_specbook_numbers_table(wrapper: RunContextWrapper[ContextHook]):
     """
     Retrieves the dataframe of specbook numbers available.
     
@@ -114,4 +113,5 @@ async def get_specbook_numbers_table():
         str: a Dataframe of specbook numbers
     """
     df = pd.DataFrame(list(cache.specbooks.keys()), columns=["specbook_number"])
+    wrapper.context.buffer.write(df)
     return df

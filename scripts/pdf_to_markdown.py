@@ -18,8 +18,8 @@ import numpy as np
 from dotenv import load_dotenv
 from PIL import Image
 
-from settings.llm import client
-from utils.llm import completion_with_backoff_response  # hàm async của bạn
+from spec.config import *
+from spec.utils.llm import completion_with_backoff_response
 
 # ── hằng số, prompt … ─────────────────────────────────────────────────────────
 load_dotenv()
@@ -132,6 +132,8 @@ def pdf_to_assets(
             img_path = out_dir / f"p{i + 1}.png"
             img.save(img_path)
             assets.append((img_path, page_text))
+            
+            print(f"Page {i+1}: size = {img.size}")
 
     return assets
 
