@@ -1,91 +1,65 @@
-# agent_streamlit_buffer_stream.py
-import asyncio
-import queue
-import threading
-from dataclasses import dataclass
-from typing import Any, Iterator
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from dotenv import load_dotenv
+from openai import AsyncAzureOpenAI, AzureOpenAI
 
-import pandas as pd
-import streamlit as st
-from agents import (Agent, RunContextWrapper, RunHooks, Runner, Tool, Usage,
-                    function_tool)
-from openai.types.responses import ResponseTextDeltaEvent
-from pydantic import BaseModel
+load_dotenv()
 
-# ──────── TOOL & AGENT ──────────────────────────────────────────
-
-
-# ──────── STREAM BUFFER (thread-safe) ───────────────────────────
-class LiveStream:
-    def __init__(self):
-        self.q: queue.Queue[Any] = queue.Queue()
-
-    def push(self, chunk: Any):
-        self.q.put(chunk)
-
-    def finish(self):
-        self.q.put(None)
-
-    def stream(self) -> Iterator[Any]:
-        while True:
-            item = self.q.get()
-            if item is None:
-                break
-            yield item
-
-@dataclass    
-class ContextHook:
-    buffer: LiveStream
-
-
-@function_tool
-def get_data(wrapper: RunContextWrapper[ContextHook]) -> pd.DataFrame:          # không tham số
-    """Get data from the dataframe."""
-    df = pd.DataFrame(
-        {"name": ["John", "Jane", "Jim", "Jill"],
-         "age": [25, 30, 35, 40],
-         "city": ["NY", "LA", "CHI", "HOU"]}
-    )
-    wrapper.context.buffer.push(df)
-    return df
-
-agent = Agent(
-    name="Agent",
-    instructions="You are a helpful assistant that can get data from a pandas dataframe.",
-    tools=[get_data],
+token_provider = get_bearer_token_provider(
+    DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default"
 )
 
-# ──────── STREAMLIT APP ─────────────────────────────────────────
-st.title("💬 Agent SDK × Streamlit (run_streamed)")
+client = AsyncAzureOpenAI(
+    azure_ad_token_provider=token_provider,
+    azure_endpoint="https://aoai-eastus2-0001.openai.azure.com/",
+    api_version="2025-03-01-preview",
+)
 
-if st.button("🎲 Chạy"):
-    with st.chat_message("user"):
-        st.write("Hãy lấy dữ liệu")
+import tiktoken
 
-    with st.chat_message("assistant"):
-        buffer = LiveStream()
-        context_hook = ContextHook(buffer)
 
-        # chạy Runner.run_streamed trong thread
-        def run_agent_stream():
-            async def _runner():
-                result = Runner.run_streamed(
-                    agent,
-                    input="Get the data",
-                    context=context_hook
-                )
-                # lấy delta text
-                async for ev in result.stream_events():
-                    if ev.type == "raw_response_event" and isinstance(ev.data, ResponseTextDeltaEvent):
-                        buffer.push(ev.data.delta)
-                    elif ev.type == "run_item_stream_event":
-                        if ev.item.type == "tool_call_item":
-                            print("-- Tool was called")
-                buffer.finish()
-            asyncio.run(_runner())
+def num_tokens_from_text(string: str, encoding_name: str = "o200k_base") -> int:
+    """Returns the number of tokens in a text string."""
+    encoding = tiktoken.get_encoding(encoding_name)
+    num_tokens = len(encoding.encode(string))
+    return num_tokens
 
-        threading.Thread(target=run_agent_stream, daemon=True).start()
+WORDS = (
+    "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod "
+    "tempor incididunt ut labore et dolore magna aliqua ut enim ad minim "
+    "veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex "
+    "ea commodo consequat duis aute irure dolor in reprehenderit in "
+    "voluptate velit esse cillum dolore eu fugiat nulla pariatur in"
+)
 
-        # Streamlit hiển thị liên tục
-        response = st.write_stream(buffer.stream())
-        print(response)
+# corpus = WORDS * 4200 # 252000 tokens --> OK
+corpus = WORDS * 13000 # 264000 tokens --> LIMIT TOKEN
+
+print(num_tokens_from_text(corpus))
+
+import asyncio
+
+from agents import (Agent, Runner, set_default_openai_api,
+                    set_default_openai_client, set_tracing_disabled)
+from openai.types.responses import ResponseTextDeltaEvent
+
+# set_default_openai_api("chat_completions")
+set_default_openai_client(client)
+set_tracing_disabled(disabled=True)
+set_default_openai_api("chat_completions")
+
+
+async def main():
+    agent = Agent(
+        name="Joker",
+        instructions="You are a helpful assistant.",
+        model="gpt-4.1-nano",
+    )
+
+    result = Runner.run_streamed(agent, input="Translate to English: " + corpus)
+    async for event in result.stream_events():
+        if event.type == "raw_response_event" and isinstance(event.data, ResponseTextDeltaEvent):
+            print(event.data.delta, end="", flush=True)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

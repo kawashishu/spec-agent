@@ -74,7 +74,7 @@ async def get_relevant_specbook_content_by_query_partial_context(wrapper: RunCon
     # Sort snippets by relevance level in descending order
     sorted_snippets = [(parsed, spec_no) for parsed, spec_no in snippets if parsed.is_relevant]
     
-    MAX_RELEVANCE_TOKENS = 180000
+    MAX_RELEVANCE_TOKENS = 5000000
     infor, count = "", 0
     for parsed, spec_no in sorted_snippets:
         spec: Specbook = specbooks[spec_no]
@@ -86,7 +86,6 @@ async def get_relevant_specbook_content_by_query_partial_context(wrapper: RunCon
             break
 
     logger.info(f"Count: {count} / {len(specbooks)}, TOKENS: {num_tokens_from_text(infor)}")
-    logger.info(f"RELEVANCE CONTENT: {infor}")
 
     return infor, sorted_snippets
 

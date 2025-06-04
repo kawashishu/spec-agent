@@ -4,7 +4,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 import httpx
-from agents import set_default_openai_client, set_tracing_disabled
+from agents import (set_default_openai_api, set_default_openai_client,
+                    set_tracing_disabled)
 from openai import AsyncAzureOpenAI, AzureOpenAI
 
 limits = httpx.Limits(max_connections=100000)
@@ -28,3 +29,4 @@ async_client = AsyncAzureOpenAI(
 
 set_default_openai_client(async_client, use_for_tracing=False)
 set_tracing_disabled(disabled=True)
+set_default_openai_api("chat_completions")
