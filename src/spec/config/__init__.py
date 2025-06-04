@@ -1,3 +1,7 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from .llm import async_client, client
 from .logging import logger
 from .settings import settings

@@ -984,6 +984,15 @@ wheels = [
 ]
 
 [[package]]
+name = "graphviz"
+version = "0.20.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/fa/83/5a40d19b8347f017e417710907f824915fba411a9befd092e52746b63e9f/graphviz-0.20.3.zip", hash = "sha256:09d6bc81e6a9fa392e7ba52135a9d49f1ed62526f96499325930e87ca1b5925d", size = 256455 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/00/be/d59db2d1d52697c6adc9eacaf50e8965b6345cc143f671e1ed068818d5cf/graphviz-0.20.3-py3-none-any.whl", hash = "sha256:81f848f2904515d8cd359cc611faba817598d2feaac4027b266aa3eda7b3dde5", size = 47126 },
+]
+
+[[package]]
 name = "greenlet"
 version = "3.2.2"
 source = { registry = "https://pypi.org/simple" }
@@ -2067,6 +2076,11 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/5d/82/75e18932102756e3c6e2c8a63f6a3a3058b32580f7aa53d87daab4f2a26b/openai_agents-0.0.17.tar.gz", hash = "sha256:44f9c8e80b461c64cfdcf55d162ca8bb0594f4b2ada48daf1be34a8d4cd0759f", size = 1349794 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c6/72/bfa64eaa006d78e6480a4463267a55c31920fdcca1f3ebb331ac1217f598/openai_agents-0.0.17-py3-none-any.whl", hash = "sha256:924e0be145b42fb8984e35ab9d14e4948a2251c3b122a02ca989b223e4d39c27", size = 121886 },
+]
+
+[package.optional-dependencies]
+viz = [
+    { name = "graphviz" },
 ]
 
 [[package]]
@@ -3782,7 +3796,7 @@ dependencies = [
     { name = "nest-asyncio" },
     { name = "numpy" },
     { name = "openai" },
-    { name = "openai-agents" },
+    { name = "openai-agents", extra = ["viz"] },
     { name = "opencv-python" },
     { name = "openpyxl" },
     { name = "pandas" },
@@ -3822,7 +3836,7 @@ requires-dist = [
     { name = "nest-asyncio", specifier = ">=1.6.0" },
     { name = "numpy", specifier = ">=2.2.6" },
     { name = "openai", specifier = ">=1.79.0" },
-    { name = "openai-agents", specifier = ">=0.0.15" },
+    { name = "openai-agents", extras = ["viz"], specifier = ">=0.0.15" },
     { name = "opencv-python", specifier = ">=4.11.0.86" },
     { name = "openpyxl", specifier = ">=3.1.5" },
     { name = "pandas", specifier = ">=2.2.3" },

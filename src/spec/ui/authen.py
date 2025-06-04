@@ -1,6 +1,7 @@
 
 # streamlit_frontend.py
 import base64
+import time
 from datetime import datetime, timedelta
 # BytesIO
 from io import BytesIO
@@ -40,6 +41,12 @@ class Authenticator(metaclass=SingletonMeta):
         st.rerun()
 
     def show_login_screen(self):
+        if 'captcha_code' not in st.session_state:
+            st.session_state['captcha_code'] = Captcha().generate_captcha_code()
+
+        if 'blocked_users' not in st.session_state:
+            st.session_state['blocked_users'] = {}
+            
         col1, col2, col3 = st.columns([1, 3, 1])
         with col1:
             st.write("")
@@ -94,6 +101,9 @@ class Authenticator(metaclass=SingletonMeta):
                 if captcha_input != captcha_code:
                     user_data["attempts"] += 1
                     st.error("Incorrect Captcha. Please try again.")
+                    st.session_state['captcha_code'] = Captcha().generate_captcha_code()
+                    time.sleep(3)
+                    st.rerun()
                 else:
                     login_message = self.authenticate(email, password)
                     if login_message == 'OK':

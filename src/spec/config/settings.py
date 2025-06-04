@@ -7,7 +7,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     max_token_limit: int = 950000
     sleep: float = 0.03
-    authen_file: Path = Path(__file__).parent.parent.parent / 'authen.yaml'
+    authen_file: Path = Path(__file__).parent.parent.parent.parent / 'authen.yaml'
     error_message: str = "Something went wrong. The context limit may have been reached. Please try your question again in a new chat or contact support via Teams/Email: phuongnh52@vinit.tech"
     loading_messages: list[str] = [
         "Gathering relevant information...\n\n",

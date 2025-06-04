@@ -6,12 +6,13 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
+from spec.config import *
 from spec.models import Specbook
 from spec.utils.notebook import Notebook
 from spec.utils.s3 import S3Manager
 from spec.utils.utils import load_txt
 
-DATA_DIR = Path("/home/ubuntu/environment/aiopt/spec/data")
+DATA_DIR = Path(__file__).parent.parent.parent.parent / "data"
 
 SPECBOOK_DIR = DATA_DIR / "specbook"
 PLM_DIR = DATA_DIR / "PLM"
