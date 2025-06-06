@@ -4,7 +4,7 @@ Spec Agent provides a small collection of LLM powered agents exposed through a F
 
 ## Requirements
 
-* **Python** &ge; **3.11**
+* **Python** >= **3.11**
 * Recommended: create a virtual environment before installing packages.
 
 Install dependencies with either:
@@ -24,7 +24,7 @@ Required variables:
 - `ACCESS_KEY_ID` – AWS access key for S3 operations
 - `SECRET_ACCESS_KEY` – AWS secret key for S3
 
-Optional variables:      
+Optional variables:
 
 - `PORT` – port for the FastAPI server (defaults to `9000`)
 - `URL` – base URL used by the Streamlit UI to talk to the API (defaults to `http://localhost:$PORT`)
@@ -50,3 +50,20 @@ streamlit run spec.ui.app --server.port 8000 --server.address 0.0.0.0
 ```
 
 Once running, navigate to `http://localhost:8000` and log in with one of the accounts defined in `authen.yaml` to start chatting with the agents.
+
+## Deploying to Azure AKS
+
+The `aks` directory contains Kubernetes manifests and helper scripts to deploy this project on Azure. After installing the Azure CLI and `kubectl`, run:
+
+```bash
+cd aks
+./deploy_aks.sh
+```
+
+The script creates a resource group, an Azure Container Registry, an AKS cluster and deploys the application. To preload your BOM data into the persistent volume, copy your data file using:
+
+```bash
+./load_data.sh /path/to/data.parquet
+```
+
+Use `kubectl get service chatbot-service` to find the external IP once deployment completes.
