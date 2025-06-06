@@ -11,7 +11,7 @@ from spec.utils.notebook import NotebookCellOutput
 
 
 @function_tool  
-async def python_code_execution(wrapper: RunContextWrapper[ContextHook], python_code: str):
+async def code_interpreter(wrapper: RunContextWrapper[ContextHook], python_code: str):
     """
     This function is used to execute Python code in a stateful Jupyter notebook environment. python will respond with the output of the execution. Internet access for this session is disabled. Do not make external web requests or API calls as they will fail.
 
@@ -22,7 +22,7 @@ async def python_code_execution(wrapper: RunContextWrapper[ContextHook], python_
         str: The result of the Python code execution.
     """
     try:
-        logger.info(f"TOOL: python_code_execution: \n{python_code}")
+        logger.info(f"TOOL: code_interpreter: \n{python_code}")
         
         output: NotebookCellOutput = notebook.exec(python_code)
         for var in output.vars:

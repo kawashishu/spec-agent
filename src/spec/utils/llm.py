@@ -152,11 +152,16 @@ def async_retry_with_exponential_backoff(
 
 @async_retry_with_exponential_backoff
 async def acompletion_with_backoff(client: openai.AsyncClient | openai.AsyncAzureOpenAI = async_client,**kwargs,
-) -> Response | ParsedResponse:
-    if kwargs.get("text_format"):
-        return await async_client.responses.parse(**kwargs)
+) -> Response | ParsedResponse | ParsedChatCompletion:
+    # if kwargs.get("text_format"):
+    #     return await async_client.responses.parse(**kwargs)
+    # else:
+    #     return await async_client.responses.create(**kwargs)
+    
+    if kwargs.get("response_format"):
+        return await async_client.beta.chat.completions.parse(**kwargs)
     else:
-        return await async_client.responses.create(**kwargs)
+        return await async_client.chat.completions.create(**kwargs)
     
 class LLM:
     """
@@ -393,5 +398,7 @@ class LLM:
             return embedding
         except Exception as e:
             logger.error(f"Error generating embeddings (sync): {str(e)}")
+            raise
+
             raise
 
