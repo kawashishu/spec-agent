@@ -5,7 +5,7 @@ from spec.agents.prompts import (BOM_AGENT_PROMPT, SPECBOOK_AGENT_PROMPT,
                                  TRIAGE_AGENT_PROMPT)
 from spec.config import *
 from spec.models import AgentName
-from spec.tools.python_exec import python_code_execution
+from spec.tools.python_exec import code_interpreter
 from spec.tools.specbook import (
     get_relevant_specbook_content_by_query_partial_context,
     get_specbook_content_by_specbook_numbers, get_specbook_numbers_table)
@@ -22,12 +22,16 @@ specbook_agent = Agent(
     model="gpt-4.1"
 )
 
+# Cau 1: show top 20 record của bảng A
+
+# python_code 
+
 bom_agent = Agent(
     name=AgentName.BOM_AGENT.value,
     instructions=f"{RECOMMENDED_PROMPT_PREFIX}\n---\n{BOM_AGENT_PROMPT}",
     handoff_description=f"A {AgentName.BOM_AGENT.value} capable of writing Python code (pandas, matplotlib, etc...) to analyze BOM data (available in the context), visualize charts and provide detailed, accurate responses",
     tools=[
-        python_code_execution
+        code_interpreter
     ],
     model="gpt-4.1"
 )

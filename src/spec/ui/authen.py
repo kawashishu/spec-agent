@@ -17,7 +17,7 @@ from spec.models import SingletonMeta
 from spec.utils.captcha import Captcha
 
 
-class Authenticator(metaclass=SingletonMeta):
+class Authenticator():
     def __init__(self, max_login_attempts: int = 5, max_waiting_time: int = 10):
         self.cookies = EncryptedCookieManager(prefix='APO', password='APO_Pwd')
         if not self.cookies.ready():

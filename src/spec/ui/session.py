@@ -11,7 +11,7 @@ from spec.utils.captcha import Captcha
 def get_blocked_users():
     return {}
 
-class SessionManager(metaclass=SingletonMeta):
+class SessionManager():
     """Manages Streamlit session state."""
 
     def __init__(self, authenticator: Authenticator):        
