@@ -1,47 +1,31 @@
-import asyncio
+import queue
 from dataclasses import dataclass
 from enum import Enum
-from typing import Any, Dict, AsyncIterator
+from typing import Any, Dict, Iterator
 
 from pydantic import BaseModel, Field
 
 
 class LiveStream:
-    """In-memory async stream used to forward tool output to the caller."""
-
     def __init__(self):
-        self.q: asyncio.Queue[Any] = asyncio.Queue()
+        self.q: queue.Queue[Any] = queue.Queue()
 
-    def write(self, chunk: Any) -> None:
-        """Write a piece of data to the stream."""
-        self.q.put_nowait(chunk)
+    def write(self, chunk: Any):
+        self.q.put(chunk)
 
-    def finish(self) -> None:
-        """Signal that no more data will be written."""
-        self.q.put_nowait(None)
+    def finish(self):
+        self.q.put(None)
 
-    async def stream(self) -> AsyncIterator[Any]:
-        """Asynchronously yield data written to the buffer."""
+    def stream(self) -> Iterator[Any]:
         while True:
-            item = await self.q.get()
+            item = self.q.get()
             if item is None:
                 break
             yield item
-
-    # Allow ``async for chunk in buffer`` usage
-    def __aiter__(self) -> AsyncIterator[Any]:
-        return self.stream()
             
-@dataclass
+@dataclass    
 class ContextHook:
     buffer: LiveStream
-
-    def write(self, data: Any) -> None:
-        """Proxy to the underlying buffer."""
-        self.buffer.write(data)
-
-    def finish(self) -> None:
-        self.buffer.finish()
 
 class AgentName(Enum):
     BOM_AGENT = "BOM Agent"

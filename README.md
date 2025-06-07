@@ -1,6 +1,6 @@
 # Spec Agent
 
-Spec Agent provides a small collection of LLM powered agents exposed through a FastAPI backend.  Users authenticate via credentials stored in `authen.yaml` and can chat with agents that retrieve specbook information or analyse BOM data.  The previous Streamlit interface has been removed so you can build a custom frontend using the API.
+Spec Agent provides a small collection of LLM powered agents exposed through a FastAPI backend and a Streamlit web UI.  Users authenticate via credentials stored in `authen.yaml` and can chat with agents that retrieve specbook information or analyse BOM data.
 
 ## Requirements
 
@@ -33,14 +33,23 @@ Create `authen.yaml` in the project root containing user login information. A he
 
 ## Running the application
 
-Start the API server with `uvicorn`:
+The easiest way to run both the API and the UI locally is with the provided script:
+
+```bash
+./run.sh
+```
+
+This launches the FastAPI backend (`python -m spec.api.server`) and the Streamlit UI on port `8000`. With the default settings the backend listens on `http://localhost:9000`.
+
+You may also start the services manually:
 
 ```bash
 cd src
-uvicorn spec.api.server:app --reload --port 9000
+python -m spec.api.server               # backend on port 9000
+streamlit run spec.ui.app --server.port 8000 --server.address 0.0.0.0
 ```
 
-The API exposes a single `/chat` endpoint that streams assistant responses as Server-Sent Events. Build any frontend of your choice that consumes this endpoint.
+Once running, navigate to `http://localhost:8000` and log in with one of the accounts defined in `authen.yaml` to start chatting with the agents.
 
 ## Deploying to Azure AKS
 
