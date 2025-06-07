@@ -27,7 +27,7 @@ class LevelColorFormatter(logging.Formatter):
 
 # Setup logger
 logger = logging.getLogger("spec")
-logger.setLevel(logging.INFO)
+logger.setLevel(logging.DEBUG)
 
 # Console handler
 console_handler = logging.StreamHandler(sys.stdout)
