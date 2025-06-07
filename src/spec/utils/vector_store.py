@@ -8,6 +8,7 @@ from typing import Any, Dict, List, Optional
 import faiss
 import numpy as np
 import pandas as pd
+from pydantic import BaseModel
 from tqdm import tqdm
 
 from spec.config import logger
@@ -15,6 +16,11 @@ from spec.utils.s3 import S3Manager
 
 from .llm import LLM
 
+
+class Chunk(BaseModel):
+    content: str
+    metadata: Dict[str, Any]
+    faiss_id: int = None
 
 class VectorStore:
     """
