@@ -1,6 +1,7 @@
 import os
 import re
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
@@ -52,7 +53,7 @@ class Cache:
     specbooks: dict
     s3: S3Manager
 
-@st.cache_resource(show_spinner=False)
+@lru_cache(maxsize=1)
 def get_cache() -> Cache:
     s3 = S3Manager()
     BOM_df = pd.read_csv(PART_PARENT_CHILD_RELATIONSHIP_FILE)

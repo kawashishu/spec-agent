@@ -2,5 +2,4 @@
 set -euo pipefail
 # cd to src foler first
 cd src
-streamlit run spec/ui/app.py
-wait -n
+uvicorn spec.api.server:app --host 0.0.0.0 --port "${PORT:-9000}"

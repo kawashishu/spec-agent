@@ -1,7 +1,9 @@
-import time
+import base64
+from io import BytesIO
 
-import chainlit as cl
+import matplotlib.pyplot as plt
 import pandas as pd
+import plotly.graph_objects as go
 from agents import RunContextWrapper, function_tool
 
 from spec.cache import notebook
@@ -25,8 +27,20 @@ async def code_interpreter(wrapper: RunContextWrapper[ContextHook], python_code:
         logger.info(f"TOOL: code_interpreter: \n{python_code}")
         
         output: NotebookCellOutput = notebook.exec(python_code)
+        output: NotebookCellOutput = notebook.exec(python_code)
         for var in output.vars:
             wrapper.context.buffer.write(var)        
+            if isinstance(var, pd.DataFrame):
+                wrapper.context.buffer.write({"type": "dataframe", "data": var.to_json(orient="split")})
+            elif isinstance(var, go.Figure):
+                wrapper.context.buffer.write({"type": "plotly", "data": var.to_json()})
+            elif isinstance(var, plt.Figure):
+                buf = BytesIO()
+                var.savefig(buf, format="png")
+                encoded = base64.b64encode(buf.getvalue()).decode()
+                wrapper.context.buffer.write({"type": "matplotlib", "data": encoded})
+            else:
+                wrapper.context.buffer.write(var)    
                 
         return output.console    
     
