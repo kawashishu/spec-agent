@@ -2,5 +2,5 @@
 set -euo pipefail
 # cd to src foler first
 cd src
-chainlit run spec/ui/cl_app.py -w
+streamlit run spec/ui/app.py
 wait -n
