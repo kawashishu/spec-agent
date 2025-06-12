@@ -11,9 +11,11 @@ from fastapi.responses import StreamingResponse
 from openai.types.responses import ResponseTextDeltaEvent
 
 from spec.agents import triage_agent
+from spec.api.schema import (ChatRequest, CreateSessionRequest,
+                             CreateSessionResponse, SerializedStreamBuffer,
+                             Session)
 from spec.config import settings
-from spec.models import (BufferListener, ChatRequest, ContextHook,
-                         CreateSessionRequest, CreateSessionResponse, Session)
+from spec.models import ContextHook
 from spec.utils.utils import save_messages
 
 app = FastAPI()
@@ -27,7 +29,7 @@ async def create_session(req: CreateSessionRequest):
     _sessions[session_id] = Session(id=session_id, username=req.username)
     return {"session_id": session_id}
 
-async def run_chat_stream(session: Session, req: ChatRequest, buffer: BufferListener, hook: ContextHook):
+async def run_chat_stream(session: Session, req: ChatRequest, buffer: SerializedStreamBuffer, hook: ContextHook):
     try:
         result = Runner.run_streamed(
             starting_agent=triage_agent,
@@ -57,7 +59,7 @@ async def stream_messages(req: ChatRequest):
     if not session:
         raise HTTPException(status_code=404, detail="Invalid session")
  
-    buffer = BufferListener()
+    buffer = SerializedStreamBuffer()
     hook   = ContextHook(buffer)
 
     asyncio.create_task(run_chat_stream(session, req, buffer, hook))

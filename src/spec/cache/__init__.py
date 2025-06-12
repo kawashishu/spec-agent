@@ -5,7 +5,6 @@ from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
-import streamlit as st
 
 from spec.config import *
 from spec.models import Specbook
