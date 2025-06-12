@@ -11,9 +11,7 @@ from azure.storage.blob import BlobServiceClient
 from spec.config import settings
 
 
-class BlobStorage:
-    """Manages simple Azure Blob operations."""
-
+class Blob:
     def __init__(self, container_name: Optional[str] = None, account_name: Optional[str] = "blob3dmse", connection_string: str = os.getenv("AZURE_CONNECTION_STRING")):
         if connection_string:
             print(f"Using connection string: {connection_string}")

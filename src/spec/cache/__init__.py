@@ -10,7 +10,7 @@ import streamlit as st
 from spec.config import *
 from spec.models import Specbook
 from spec.utils.notebook import Notebook
-from spec.utils.s3 import S3Manager
+from spec.utils.s3 import S3
 from spec.utils.utils import load_txt
 
 DATA_DIR = Path(__file__).parent.parent.parent.parent / "data"
@@ -51,11 +51,11 @@ TMPL = """
 class Cache:
     BOM_df: pd.DataFrame
     specbooks: dict
-    s3: S3Manager
+    s3: S3
 
 @lru_cache(maxsize=1)
 def get_cache() -> Cache:
-    s3 = S3Manager()
+    s3 = S3()
     BOM_df = pd.read_csv(PART_PARENT_CHILD_RELATIONSHIP_FILE)
 
     specbook_number_to_basenames = build_specbook_number_to_basenames(SPECBOOK_MD_FOLDER)

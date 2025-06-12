@@ -4,7 +4,7 @@ import os
 
 import tiktoken
 
-from .s3 import S3Manager
+from .s3 import S3
 
 
 def save_txt(file_path: str, content: str):
@@ -62,7 +62,7 @@ def save_jsonl(data, file_path):
         for entry in data:
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-def save_messages(messages: list, filename: str = None, folder: str = None, s3: S3Manager = None):
+def save_messages(messages: list, filename: str = None, folder: str = None, s3: S3 = None):
     """
     Saves the messages list to a JSON file. The filename is automatically generated
     using the current time in Vietnam timezone if not provided.

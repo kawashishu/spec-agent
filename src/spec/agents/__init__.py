@@ -22,10 +22,6 @@ specbook_agent = Agent(
     model="gpt-4.1"
 )
 
-# Cau 1: show top 20 record của bảng A
-
-# python_code 
-
 bom_agent = Agent(
     name=AgentName.BOM_AGENT.value,
     instructions=f"{RECOMMENDED_PROMPT_PREFIX}\n---\n{BOM_AGENT_PROMPT}",

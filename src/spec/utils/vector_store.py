@@ -12,7 +12,7 @@ from pydantic import BaseModel
 from tqdm import tqdm
 
 from spec.config import logger
-from spec.utils.s3 import S3Manager
+from spec.utils.s3 import S3
 
 from .llm import LLM
 
@@ -30,7 +30,7 @@ class VectorStore:
     def __init__(
         self,
         pickle_path: Optional[str],
-        s3: Optional["S3Manager"] = None,
+        s3: Optional["S3"] = None,
         embedding_dimension: int = 3072,
         llm=LLM,
     ):
@@ -261,10 +261,6 @@ class VectorStore:
                     "score": score,
                 }
             )
-
-        logger.info(
-            f"Search completed for query: '{query_text}'. Found {len(results)} results."
-        )
         return results
 
     def save_index(self) -> None:
@@ -346,7 +342,7 @@ class VectorStore:
         """
         return len(self.faiss_id_to_metadata)
 
-    def list_chunks(self) -> List[Dict[str, Any]]:
+    def list_chunks(self) -> List[Chunk]:
         """
         List all chunks stored in the VectorStore with their metadata.
 

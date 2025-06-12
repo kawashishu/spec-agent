@@ -6,28 +6,23 @@ from typing import List, Optional
 import boto3
 import pandas as pd
 import pyarrow.parquet as pq
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
-class S3Manager:
-    """
-    A class for managing S3 operations, including file uploads, downloads,
-    and DataFrame processing for CSV and Parquet files.
-
-    Attributes:
-        DEFAULT_BUCKET_NAME (str): The default S3 bucket name.
-        s3_client (boto3.client): The S3 client for interacting with AWS S3.
-        bucket_name (str): The name of the S3 bucket to interact with.
-        lock (threading.Lock): A lock to ensure thread safety for critical sections.
-    """
-
+class S3:
     def __init__(self, bucket_name: Optional[str] = "vf-prd-bom-structure-detection"):
         """
-        Initialize the S3Manager with the specified bucket name.
+        Initialize the S3 with the specified bucket name.
 
         Args:
             bucket_name (Optional[str]): The S3 bucket name.
         """
-        self.s3_client = boto3.client(
+        if "ACCESS_KEY_ID" not in os.environ or "SECRET_ACCESS_KEY" not in os.environ:
+            raise ValueError("Missing required environment variables: ACCESS_KEY_ID and/or SECRET_ACCESS_KEY")
+            
+        self.client = boto3.client(
             "s3",
             aws_access_key_id=os.environ["ACCESS_KEY_ID"],
             aws_secret_access_key=os.environ["SECRET_ACCESS_KEY"],
@@ -102,7 +97,7 @@ class S3Manager:
             s3_path (str): The destination path in the S3 bucket.
         """
         try:
-            self.s3_client.upload_file(local_path, self.bucket_name, s3_path)
+            self.client.upload_file(local_path, self.bucket_name, s3_path)
             print(
                 f"File {local_path} uploaded to S3 bucket {self.bucket_name} as {s3_path}"
             )
@@ -140,7 +135,7 @@ class S3Manager:
                     "Unsupported file extension. Use '.csv' or '.parquet'."
                 )
 
-            self.s3_client.upload_fileobj(input_stream, self.bucket_name, s3_path)
+            self.client.upload_fileobj(input_stream, self.bucket_name, s3_path)
             print(f"Stream uploaded to S3 bucket {self.bucket_name} as {s3_path}")
         except Exception as e:
             raise RuntimeError(f"Failed to upload stream to S3: {e}")
@@ -156,7 +151,7 @@ class S3Manager:
             List[str]: List of object keys in the S3 bucket matching the prefix.
         """
         try:
-            paginator = self.s3_client.get_paginator("list_objects_v2")
+            paginator = self.client.get_paginator("list_objects_v2")
             page_iterator = paginator.paginate(Bucket=self.bucket_name, Prefix=prefix)
 
             files = []
@@ -175,7 +170,7 @@ class S3Manager:
             s3_path (str): The path to the object in the S3 bucket.
         """
         try:
-            self.s3_client.delete_object(Bucket=self.bucket_name, Key=s3_path)
+            self.client.delete_object(Bucket=self.bucket_name, Key=s3_path)
             print(f"Object {s3_path} deleted from {self.bucket_name} bucket.")
         except Exception as e:
             raise RuntimeError(f"Error in delete_file: {e}")
@@ -189,7 +184,7 @@ class S3Manager:
             local_path (str): The destination path on the local filesystem.
         """
         try:
-            self.s3_client.download_file(self.bucket_name, s3_path, local_path)
+            self.client.download_file(self.bucket_name, s3_path, local_path)
             print(f"Downloaded '{s3_path}' to local path '{local_path}'")
         except Exception as e:
             raise RuntimeError(f"Failed to download file from S3: {e}")
@@ -206,11 +201,11 @@ class S3Manager:
             bool: True if the object exists, False otherwise.
         """
         try:
-            self.s3_client.head_object(Bucket=self.bucket_name, Key=s3_path)
+            self.client.head_object(Bucket=self.bucket_name, Key=s3_path)
             return True
-        except self.s3_client.exceptions.NoSuchKey:
+        except self.client.exceptions.NoSuchKey:
             return False
-        except self.s3_client.exceptions.ClientError as e:
+        except self.client.exceptions.ClientError as e:
             if e.response["Error"]["Code"] == "404":
                 return False
             else:
@@ -247,7 +242,7 @@ class S3Manager:
 
             file_sizes = []
             for file in filtered_files:
-                response = self.s3_client.head_object(Bucket=self.bucket_name, Key=file)
+                response = self.client.head_object(Bucket=self.bucket_name, Key=file)
                 file_sizes.append((file, response["ContentLength"]))
 
             largest_file = max(file_sizes, key=lambda x: x[1])[0]
@@ -314,9 +309,9 @@ class S3Manager:
             Optional[bytes]: The content of the S3 object, or None if the object does not exist.
         """
         try:
-            response = self.s3_client.get_object(Bucket=self.bucket_name, Key=s3_path)
+            response = self.client.get_object(Bucket=self.bucket_name, Key=s3_path)
             return response["Body"].read()
-        except self.s3_client.exceptions.NoSuchKey:
+        except self.client.exceptions.NoSuchKey:
             print(f"S3 path {s3_path} does not exist.")
             return None
         except Exception as e:
