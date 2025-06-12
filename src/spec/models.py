@@ -16,7 +16,6 @@ from pydantic import BaseModel, Field
 
 
 def _b64(data: bytes) -> str:
-    """Base64 tiện viết."""
     return b64encode(data).decode()
 
 def _ser(obj: Any) -> dict:
