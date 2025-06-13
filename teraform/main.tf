@@ -3,42 +3,24 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
-resource "azurerm_container_registry" "acr" {
-  name                = var.acr_name
+resource "azurerm_service_plan" "app_plan" {
+  name                = var.app_service_plan_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  sku                 = "Basic"
-  admin_enabled       = true
+  os_type             = "Linux"
+  sku_name            = "P1v3"  # 2 vCPU, 8 GB
 }
 
-resource "azurerm_kubernetes_cluster" "aks" {
-  name                = var.aks_name
-  location            = azurerm_resource_group.rg.location
+resource "azurerm_linux_web_app" "app" {
+  name                = var.web_app_name
   resource_group_name = azurerm_resource_group.rg.name
-  dns_prefix          = "${var.aks_name}-dns"
+  location            = azurerm_resource_group.rg.location
+  service_plan_id     = azurerm_service_plan.app_plan.id
 
-  default_node_pool {
-    name                = "default"
-    vm_size             = var.node_size
-    node_count          = var.node_count
-    enable_auto_scaling = true
-    min_count           = var.node_count
-    max_count           = 5
+  site_config {
+    linux_fx_version = "PYTHON|3.11"
+    always_on        = true
   }
-
-  identity {
-    type = "SystemAssigned"
-  }
-
-  network_profile {
-    network_plugin = "azure"
-  }
-}
-
-resource "azurerm_role_assignment" "aks_acr" {
-  scope                = azurerm_container_registry.acr.id
-  role_definition_name = "AcrPull"
-  principal_id         = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
 }
 
 resource "azurerm_postgresql_flexible_server" "db" {
@@ -52,111 +34,81 @@ resource "azurerm_postgresql_flexible_server" "db" {
   storage_mb             = 32768
 }
 
-resource "azurerm_postgresql_flexible_server_firewall_rule" "allow_aks" {
-  name             = "allow-aks"
+resource "azurerm_postgresql_flexible_server_firewall_rule" "allow_all" {
+  name             = "allow-all"
   server_id        = azurerm_postgresql_flexible_server.db.id
   start_ip_address = "0.0.0.0"
   end_ip_address   = "255.255.255.255"
 }
 
-resource "kubernetes_secret" "postgres_creds" {
-  metadata {
-    name = "postgres-creds"
-  }
-  data = {
-    PGHOST     = azurerm_postgresql_flexible_server.db.fqdn
-    PGUSER     = var.db_admin
-    PGPASSWORD = var.db_password
-    PGDATABASE = var.db_name
-    PGPORT     = tostring(var.db_port)
-  }
-  type = "Opaque"
-}
+resource "azurerm_monitor_autoscale_setting" "app" {
+  name                = "autoscale-app"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  target_resource_id  = azurerm_service_plan.app_plan.id
 
-resource "kubernetes_deployment" "chatbot" {
-  metadata {
-    name = "chatbot"
-    labels = {
-      app = "chatbot"
+  profile {
+    name = "default"
+    capacity {
+      minimum = "1"
+      maximum = "5"
+      default = "1"
     }
-  }
-  spec {
-    replicas = 2
-    selector {
-      match_labels = {
-        app = "chatbot"
+
+    rule {
+      metric_trigger {
+        metric_name        = "Requests"
+        metric_resource_id = azurerm_linux_web_app.app.id
+        time_grain         = "PT1M"
+        statistic          = "Total"
+        time_window        = "PT5M"
+        time_aggregation   = "Average"
+        operator           = "GreaterThan"
+        threshold          = 1000
+      }
+      scale_action {
+        direction = "Increase"
+        type      = "ChangeCount"
+        value     = "1"
+        cooldown  = "PT5M"
       }
     }
-    template {
-      metadata {
-        labels = {
-          app = "chatbot"
-        }
+
+    rule {
+      metric_trigger {
+        metric_name        = "MemoryPercentage"
+        metric_resource_id = azurerm_linux_web_app.app.id
+        time_grain         = "PT1M"
+        statistic          = "Average"
+        time_window        = "PT5M"
+        time_aggregation   = "Average"
+        operator           = "GreaterThan"
+        threshold          = 70
       }
-      spec {
-        container {
-          name  = "chatbot"
-          image = "${azurerm_container_registry.acr.login_server}/${var.image_name}"
-          port {
-            container_port = 8000
-          }
-          resources {
-            limits = {
-              cpu    = "2"
-              memory = "4Gi"
-            }
-            requests = {
-              cpu    = "1"
-              memory = "1Gi"
-            }
-          }
-          env_from {
-            secret_ref {
-              name = kubernetes_secret.postgres_creds.metadata[0].name
-            }
-          }
-        }
+      scale_action {
+        direction = "Increase"
+        type      = "ChangeCount"
+        value     = "1"
+        cooldown  = "PT5M"
       }
     }
-  }
-}
 
-resource "kubernetes_service" "chatbot" {
-  metadata {
-    name = "chatbot-service"
-  }
-  spec {
-    selector = {
-      app = kubernetes_deployment.chatbot.metadata[0].labels["app"]
-    }
-    type = "LoadBalancer"
-    port {
-      port        = 80
-      target_port = 8000
-    }
-  }
-}
-
-resource "kubernetes_horizontal_pod_autoscaler_v2" "chatbot" {
-  metadata {
-    name = "chatbot-hpa"
-  }
-  spec {
-    min_replicas = 2
-    max_replicas = 5
-    scale_target_ref {
-      kind = "Deployment"
-      name = kubernetes_deployment.chatbot.metadata[0].name
-      api_version = "apps/v1"
-    }
-    metric {
-      type = "Resource"
-      resource {
-        name = "cpu"
-        target {
-          type               = "Utilization"
-          average_utilization = 70
-        }
+    rule {
+      metric_trigger {
+        metric_name        = "Requests"
+        metric_resource_id = azurerm_linux_web_app.app.id
+        time_grain         = "PT1M"
+        statistic          = "Total"
+        time_window        = "PT5M"
+        time_aggregation   = "Average"
+        operator           = "LessThan"
+        threshold          = 100
+      }
+      scale_action {
+        direction = "Decrease"
+        type      = "ChangeCount"
+        value     = "1"
+        cooldown  = "PT5M"
       }
     }
   }
