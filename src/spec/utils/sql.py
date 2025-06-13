@@ -39,7 +39,7 @@ class SQLNotebook:
         self,
         *,
         dsn: str | None = None,
-        schema: str = "pg_temp",
+        schema: str = "spec",
         user_id: str | None = None,
     ) -> None:
         """
@@ -86,7 +86,6 @@ class SQLNotebook:
         # We keep autocommit *off* so we can use SAVEPOINTs for true rollbacks.
         self._conn.autocommit = False
 
-        self._schema = schema
         self._user_prefix = self._make_safe_ident(user_id or "user") + "_"
         self._counter = 0  # used to build deterministic temp‑table names
 
@@ -182,11 +181,95 @@ class SQLNotebook:
 
     # -- convenience helpers ----------------------------------------------------
     def to_df(self, name: str) -> pd.DataFrame:
-        """Load a previously‑stored alias back into a DataFrame."""
         return self._fetch(f"SELECT * FROM {self._store[name]}")
 
-    def sql(self, name: str) -> str:  # debugging nicety
+    def sql(self, name: str) -> str:
         return f"SELECT * FROM {self._store[name]}"
+    
+        # ──────────────────────────── bulk-upload helper ──────────────────────────
+    def upload_dataframe(
+        self,
+        df: pd.DataFrame,
+        table: str,
+        if_exists: str = "fail",   # "fail" | "replace" | "append"
+    ) -> None:
+        """
+        Upload the entire *df* to PostgreSQL in the table* table.
+
+        Parameters
+        ----------
+        df         : pandas.DataFrame to upload.
+        table      : destination table name.
+        if_exists  : • 'fail'    → error if table exists  
+                      • 'replace' → DROP then CREATE  
+                      • 'append'  → keep table, append rows
+        """
+        import io
+        from typing import Mapping
+
+        from psycopg2 import sql
+
+        # ── 1) ánh xạ dtype → PostgreSQL --------------------------
+        _PG_TYPE_MAP: Mapping[str, str] = {
+            "int64": "BIGINT",
+            "int32": "INTEGER",
+            "float64": "DOUBLE PRECISION",
+            "float32": "REAL",
+            "bool": "BOOLEAN",
+            "datetime64[ns]": "TIMESTAMP",
+            "object": "TEXT",
+            "string": "TEXT",
+            "category": "TEXT",
+        }
+
+        def _pg_type(dtype) -> str:
+            return _PG_TYPE_MAP.get(str(dtype), "TEXT")
+
+        columns = list(df.columns)
+        col_defs = [
+            sql.SQL("{} {}").format(
+                sql.Identifier(col),
+                sql.SQL(_pg_type(df[col].dtype)),
+            )
+            for col in columns
+        ]
+        tbl_ident = sql.Identifier(table)
+
+        # ── 2) DDL statements based on if_exists -----------------------
+        ddl_statements = []
+        if if_exists == "replace":
+            ddl_statements.append(
+                sql.SQL("DROP TABLE IF EXISTS {} CASCADE;").format(tbl_ident).as_string(self._conn)
+            )
+        if if_exists in ("fail", "replace"):
+            ddl_statements.append(
+                sql.SQL("CREATE TABLE IF NOT EXISTS {} ({});").format(
+                    tbl_ident, sql.SQL(", ").join(col_defs)
+                ).as_string(self._conn)
+            )
+
+        # Use self.update() to benefit from SAVEPOINT for each statement
+        if ddl_statements:
+            self.update(ddl_statements)
+
+        # ── 3) COPY data super fast ----------------------------
+        buf = io.StringIO()
+        df.to_csv(buf, index=False, header=False, na_rep="\\N")
+        buf.seek(0)
+
+        copy_sql = sql.SQL(
+            "COPY {} ({}) FROM STDIN WITH (FORMAT CSV, DELIMITER ',', NULL '\\N')"
+        ).format(
+            tbl_ident,
+            sql.SQL(", ").join(map(sql.Identifier, columns)),
+        )
+
+        with self._cursor() as cur:
+            cur.copy_expert(copy_sql.as_string(self._conn), buf)
+            # commit in _cursor() (after exiting context) is enough
+
+        # Done!  Table is ready for next queries.
+
 
     # ───────────────────────────── implementation details ─────────────────────
     def _render(self, text: str) -> str:
@@ -221,7 +304,7 @@ class SQLNotebook:
     # ───────────────────────────── utilities ──────────────────────────────────
     def _next_temp_name(self) -> str:
         self._counter += 1
-        return f"{self._schema}.{self._user_prefix}{self._counter:04d}"
+        return f"pg_temp.{self._user_prefix}{self._counter:04d}"
 
     @staticmethod
     def _make_safe_ident(raw: str) -> str:
