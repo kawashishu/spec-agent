@@ -1,37 +1,25 @@
 variable "resource_group_name" {
   description = "Name of the Azure resource group"
   type        = string
-  default     = "spec-rg"
+  default     = "rg_spec"
 }
 
 variable "location" {
   description = "Azure region"
   type        = string
-  default     = "eastus"
+  default     = "southeastasia"
 }
 
-variable "acr_name" {
-  description = "Azure Container Registry name"
+variable "app_service_plan_name" {
+  description = "App Service plan name"
   type        = string
-  default     = "specacr"
+  default     = "asp-spec"
 }
 
-variable "aks_name" {
-  description = "AKS cluster name"
+variable "web_app_name" {
+  description = "Name of the Web App"
   type        = string
-  default     = "spec-aks"
-}
-
-variable "node_count" {
-  description = "Initial node count"
-  type        = number
-  default     = 1
-}
-
-variable "node_size" {
-  description = "VM size for AKS nodes"
-  type        = string
-  default     = "Standard_D2s_v5" # 2 vCPU, 8GiB
+  default     = "specapp"
 }
 
 variable "db_name" {
@@ -56,10 +44,4 @@ variable "db_port" {
   description = "PostgreSQL port"
   type        = number
   default     = 5432
-}
-
-variable "image_name" {
-  description = "Docker image name"
-  type        = string
-  default     = "chatbot:v1"
 }
